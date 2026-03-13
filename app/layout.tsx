@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Opervo Folio',
-  description: 'Professional field service portfolios powered by Opervo',
+  title: 'Opervo — Run Your Trade Business Like a Pro',
+  description: 'Jobs, estimates, invoices, scheduling, client portal, and a public portfolio — built mobile-first for solo trade operators.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
