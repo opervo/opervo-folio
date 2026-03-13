@@ -12,7 +12,6 @@ export async function getOperatorBySlug(slug: string): Promise<OperatorProfile |
   return data as OperatorProfile
 }
 
-// Default fallback profile used for demo/preview
 export const DEMO_PROFILE: OperatorProfile = {
   id: 'demo',
   slug: 'demo',
@@ -31,13 +30,9 @@ export const DEMO_PROFILE: OperatorProfile = {
     { id: '2', name: 'Solar Panel Cleaning', description: 'Restore panel efficiency · remove dust & buildup',        icon: '☀️', price_from: 149 },
     { id: '3', name: 'Pressure Washing',     description: 'Driveways · patios · siding · fences',                   icon: '🚿', price_from: 129 },
   ],
-  stats: {
-    jobs_done: '500+',
-    rating: '5.0★',
-    response_time: 'Same Day',
-  },
+  stats: { jobs_done: '500+', rating: '5.0★', response_time: 'Same Day' },
   review: {
-    text: "Amazing work — showed up on time, left the place spotless. Best cleaning service I've used in Austin. Already booked them for next month.",
+    text: "Amazing work — showed up on time, left the place spotless. Best cleaning service I've used in Austin.",
     reviewer_name: 'Maximiliano B.',
     reviewer_initial: 'M',
     date: 'March 2026',
