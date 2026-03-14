@@ -197,6 +197,7 @@ function WorkSection({ profile }: { profile: OperatorProfile }) {
   const lineRef   = useRef<HTMLDivElement>(null)
   const handleRef = useRef<HTMLDivElement>(null)
   const dragging  = useRef(false)
+  const [lightbox, setLightbox] = useState<{imgs: string[], idx: number} | null>(null)
 
   const set = useCallback((pct: number) => {
     pct = Math.max(3, Math.min(97, pct))
@@ -257,14 +258,30 @@ function WorkSection({ profile }: { profile: OperatorProfile }) {
 
       <div className="gallery-grid">
         {photos.slice(0, 3).map((url, i) => (
-          <div key={i} className="gallery-tile">
+          <div key={i} className="gallery-tile" onClick={() => setLightbox({imgs: photos, idx: i})} style={{cursor:'zoom-in'}}>
             <img src={url} alt={`Work ${i + 1}`} />
             {profile.trades[i] && (
               <div className="gallery-tile-tag">{tradeLabels[profile.trades[i]] ?? ''}</div>
             )}
+            <div className="gallery-tile-zoom">⤢</div>
           </div>
         ))}
       </div>
+
+      {lightbox && (
+        <div className="lb-overlay" onClick={() => setLightbox(null)}>
+          <button className="lb-close" onClick={() => setLightbox(null)}>✕</button>
+          <button className="lb-prev" onClick={e => { e.stopPropagation(); setLightbox(l => l && l.idx > 0 ? {...l, idx: l.idx-1} : l) }}>‹</button>
+          <img
+            className="lb-img"
+            src={lightbox.imgs[lightbox.idx]}
+            alt={`Photo ${lightbox.idx + 1}`}
+            onClick={e => e.stopPropagation()}
+          />
+          <button className="lb-next" onClick={e => { e.stopPropagation(); setLightbox(l => l && l.idx < l.imgs.length-1 ? {...l, idx: l.idx+1} : l) }}>›</button>
+          <div className="lb-counter">{lightbox.idx + 1} / {lightbox.imgs.length}</div>
+        </div>
+      )}
     </div>
   )
 }
@@ -700,6 +717,17 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .gallery-tile img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease}
 .gallery-tile:hover img{transform:scale(1.06)}
 .gallery-tile-tag{position:absolute;bottom:7px;left:7px;background:rgba(255,255,255,0.9);color:var(--ink-3);font-size:9px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;padding:2px 8px;border-radius:2px}
+.gallery-tile-zoom{position:absolute;top:6px;right:6px;background:rgba(0,0,0,0.5);color:#fff;font-size:12px;width:22px;height:22px;border-radius:4px;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.2s}
+.gallery-tile:hover .gallery-tile-zoom{opacity:1}
+.lb-overlay{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.92);display:flex;align-items:center;justify-content:center;animation:lbIn 0.2s ease}
+@keyframes lbIn{from{opacity:0}to{opacity:1}}
+.lb-img{max-width:90vw;max-height:85vh;object-fit:contain;border-radius:8px;box-shadow:0 0 60px rgba(0,0,0,0.5)}
+.lb-close{position:absolute;top:20px;right:20px;background:rgba(255,255,255,0.15);border:none;color:#fff;font-size:20px;width:40px;height:40px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.lb-close:hover{background:rgba(255,255,255,0.25)}
+.lb-prev,.lb-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.15);border:none;color:#fff;font-size:36px;width:48px;height:48px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1}
+.lb-prev{left:16px}.lb-next{right:16px}
+.lb-prev:hover,.lb-next:hover{background:rgba(255,255,255,0.25)}
+.lb-counter{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.6);font-size:13px}
 
 /* SERVICES */
 .svc-item{display:flex;align-items:center;gap:16px;padding:20px 0;border-bottom:1px solid var(--rule-2)}
