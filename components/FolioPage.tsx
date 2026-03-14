@@ -416,7 +416,7 @@ function QuoteForm({ profile }: { profile: OperatorProfile }) {
     ? [
         ...profile.services.map(svc => ({
           icon: svc.icon || '🔧',
-          name: svc.name.length > 12 ? svc.name.slice(0, 11) + '…' : svc.name,
+          name: svc.name,
           value: svc.name,
         })),
         { icon: '✦', name: 'Multiple', value: 'Multiple Services' },
@@ -791,10 +791,10 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .step-seg--done{background:var(--teal-2)}
 .step-seg--active{background:var(--teal)}
 .svc-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:18px}
-.svc-tile{border:1.5px solid var(--rule);border-radius:var(--r-md);padding:14px 6px;text-align:center;cursor:pointer;background:var(--off);transition:border-color 0.15s,background 0.15s}
+.svc-tile{border:1.5px solid var(--rule);border-radius:var(--r-md);padding:12px 6px;text-align:center;cursor:pointer;background:var(--off);transition:border-color 0.15s,background 0.15s;min-height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
 .svc-tile:hover,.svc-tile--sel{border-color:var(--teal);background:var(--teal-lt)}
 .st-icon{font-size:22px;margin-bottom:5px}
-.st-name{font-size:10px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--stone)}
+.st-name{font-size:10px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--stone);line-height:1.3;word-break:break-word;white-space:normal}
 .svc-tile--sel .st-name{color:var(--teal)}
 .f-label{display:block;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--stone);margin-bottom:7px;margin-top:16px}
 .f-input,.f-select,.f-textarea{width:100%;background:var(--off);border:1.5px solid var(--rule);border-radius:var(--r-sm);padding:13px 14px;font-family:'Jost',sans-serif;font-size:14px;font-weight:300;color:var(--ink);outline:none;transition:border-color 0.2s,background 0.2s;appearance:none;line-height:1.4}
