@@ -365,8 +365,8 @@ function QuoteForm({ profile }: { profile: OperatorProfile }) {
   const addressRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
-    const key = process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY
-    if (!key || !addressRef.current) return
+    const key = process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY || 'AIzaSyDF2dwZE5ga_7EIUYBsp0Nfkh_nAtsrgm8'
+    if (!addressRef.current) return
     const scriptId = 'google-maps-places'
     const load = () => {
       if (window.google?.maps?.places) {
