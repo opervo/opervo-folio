@@ -29,8 +29,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const { slug } = await params
-  const profile = slug === 'demo' ? DEMO_PROFILE : await getOperatorBySlug(slug)
-  if (!profile) notFound()
+  const raw = slug === 'demo' ? DEMO_PROFILE : await getOperatorBySlug(slug)
+  if (!raw) notFound()
+
+  // Merge with safe defaults so FolioPage never crashes on null fields
+  const profile = {
+    ...raw,
+    gallery_photos: raw.gallery_photos?.length ? raw.gallery_photos : DEMO_PROFILE.gallery_photos,
+    services:       raw.services?.length       ? raw.services       : [],
+    stats:          raw.stats ?? { jobs_done: '—', rating: '5.0★', response_time: 'Same Day' },
+    review:         raw.review ?? null,
+    trades:         raw.trades?.length         ? raw.trades         : [],
+    brand_color:    raw.brand_color ?? '#0b6e62',
+  }
 
   return <FolioPage profile={profile} />
 }
