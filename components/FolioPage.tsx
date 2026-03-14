@@ -3,6 +3,22 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { OperatorProfile } from '@/lib/types'
 
+// Google Maps Places type shim
+declare global {
+  interface Window {
+    google: {
+      maps: {
+        places: {
+          Autocomplete: new (
+            input: HTMLInputElement,
+            opts?: { types?: string[]; componentRestrictions?: { country: string } }
+          ) => { addListener: (event: string, cb: () => void) => void; getPlace: () => { formatted_address?: string } }
+        }
+      }
+    }
+  }
+}
+
 function hexToRgba(hex: string, alpha: number): string {
   const r = parseInt(hex.slice(1,3),16)
   const g = parseInt(hex.slice(3,5),16)
