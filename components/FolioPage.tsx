@@ -411,14 +411,26 @@ function QuoteForm({ profile }: { profile: OperatorProfile }) {
     tryInit()
   }
 
-  const tiles = [
-    { icon: '🪟', name: 'Windows',  value: 'Window Cleaning' },
-    { icon: '☀️', name: 'Solar',    value: 'Solar Panel Cleaning' },
-    { icon: '🚿', name: 'Pressure', value: 'Pressure Washing' },
-    { icon: '✦',  name: 'Multiple', value: 'Multiple Services' },
-    { icon: '🤔', name: 'Not Sure', value: 'Not Sure' },
-    { icon: '➕',  name: 'Other',   value: 'Other' },
-  ]
+  // Build service tiles from operator's actual services, with fallback extras
+  const serviceTiles = profile.services?.length
+    ? [
+        ...profile.services.map(svc => ({
+          icon: svc.icon || '🔧',
+          name: svc.name.length > 12 ? svc.name.slice(0, 11) + '…' : svc.name,
+          value: svc.name,
+        })),
+        { icon: '✦', name: 'Multiple', value: 'Multiple Services' },
+        { icon: '🤔', name: 'Not Sure', value: 'Not Sure' },
+      ]
+    : [
+        { icon: '🪟', name: 'Windows',  value: 'Window Cleaning' },
+        { icon: '☀️', name: 'Solar',    value: 'Solar Panel Cleaning' },
+        { icon: '🚿', name: 'Pressure', value: 'Pressure Washing' },
+        { icon: '✦',  name: 'Multiple', value: 'Multiple Services' },
+        { icon: '🤔', name: 'Not Sure', value: 'Not Sure' },
+        { icon: '➕',  name: 'Other',   value: 'Other' },
+      ]
+  const tiles = serviceTiles
 
   async function submit() {
     setSubmitting(true)
