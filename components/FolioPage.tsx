@@ -26,6 +26,16 @@ interface Props {
 export default function FolioPage({ profile }: Props) {
   const brand = profile.brand_color ?? '#0b6e62'
 
+  useEffect(() => {
+    const els = document.querySelectorAll('.reveal')
+    const obs = new IntersectionObserver(
+      entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') }),
+      { threshold: 0.08 }
+    )
+    els.forEach(el => obs.observe(el))
+    return () => obs.disconnect()
+  }, [])
+
   // CSS custom properties injected at runtime so brand color works
   const cssVars = {
     '--teal':       brand,
@@ -398,7 +408,7 @@ function QuoteForm({ profile }: { profile: OperatorProfile }) {
   }
 
   return (
-    <div className="form-outer reveal" id="quoteform">
+    <div className="form-outer" id="quoteform">
       <div className="form-header">
         <div className="fh-kicker">Free · No Obligation</div>
         <div className="fh-title">Get Your<br /><em>Quote</em></div>
