@@ -200,7 +200,7 @@ function WorkSection({ profile }: { profile: OperatorProfile }) {
 
   const set = useCallback((pct: number) => {
     pct = Math.max(3, Math.min(97, pct))
-    if (afterRef.current)  afterRef.current.style.clipPath  = `inset(0 ${100 - pct}% 0 0)`
+    if (afterRef.current)  afterRef.current.style.clipPath  = `inset(0 0 0 ${pct}%)`
     if (lineRef.current)   lineRef.current.style.left       = pct + '%'
     if (handleRef.current) handleRef.current.style.left     = pct + '%'
   }, [])
@@ -685,7 +685,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .ba-before,.ba-after{position:absolute;inset:0}
 .ba-before img,.ba-after img{width:100%;height:100%;object-fit:cover;pointer-events:none}
 .ba-before img{filter:grayscale(0.65) brightness(0.8)}
-.ba-after{clip-path:inset(0 50% 0 0)}
+.ba-after{clip-path:inset(0 0 0 50%)}
 .ba-line{position:absolute;top:0;bottom:0;left:50%;width:1.5px;background:rgba(255,255,255,0.9);z-index:5;pointer-events:none}
 .ba-handle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:38px;height:38px;background:white;border-radius:50%;z-index:6;pointer-events:none;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 16px rgba(0,0,0,0.2)}
 .ba-labels{position:absolute;top:12px;left:0;right:0;display:flex;justify-content:space-between;padding:0 14px;z-index:7;pointer-events:none}
