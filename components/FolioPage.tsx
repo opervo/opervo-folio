@@ -253,7 +253,7 @@ function ServicesSection({ profile }: { profile: OperatorProfile }) {
       <div className="sec-rule" />
       {profile.services.map(svc => (
         <div key={svc.id} className="svc-item">
-          <div className="svc-icon">{svc.icon}</div>
+          {svc.icon ? <div className="svc-icon">{svc.icon}</div> : null}
           <div className="svc-body">
             <div className="svc-name">{svc.name}</div>
             <div className="svc-desc">{svc.description}</div>
