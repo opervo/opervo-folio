@@ -43,6 +43,18 @@ export default function FolioPage({ profile }: Props) {
   const brand = profile.brand_color ?? '#0b6e62'
 
   useEffect(() => {
+    // Load Google Maps Places eagerly so it's ready when address input mounts
+    const key = 'AIzaSyDF2dwZE5ga_7EIUYBsp0Nfkh_nAtsrgm8'
+    if (!document.getElementById('google-maps-places')) {
+      const s = document.createElement('script')
+      s.id = 'google-maps-places'
+      s.src = `https://maps.googleapis.com/maps/api/js?key=${key}&libraries=places`
+      s.async = true
+      document.head.appendChild(s)
+    }
+  }, [])
+
+  useEffect(() => {
     const els = document.querySelectorAll('.reveal')
     const obs = new IntersectionObserver(
       entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') }),
@@ -365,30 +377,26 @@ function QuoteForm({ profile }: { profile: OperatorProfile }) {
   const addressRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
-    const key = process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY || 'AIzaSyDF2dwZE5ga_7EIUYBsp0Nfkh_nAtsrgm8'
     if (!addressRef.current) return
-    const scriptId = 'google-maps-places'
-    const load = () => {
-      if (window.google?.maps?.places) {
-        const ac = new window.google.maps.places.Autocomplete(addressRef.current!, {
-          types: ['address'],
-          componentRestrictions: { country: 'us' },
-        })
-        ac.addListener('place_changed', () => {
-          const place = ac.getPlace()
-          if (place.formatted_address) setAddress(place.formatted_address)
-        })
-      }
+    const init = () => {
+      if (!window.google?.maps?.places) return
+      const ac = new window.google.maps.places.Autocomplete(addressRef.current!, {
+        types: ['address'],
+        componentRestrictions: { country: 'us' },
+      })
+      ac.addListener('place_changed', () => {
+        const place = ac.getPlace()
+        if (place.formatted_address) setAddress(place.formatted_address)
+      })
     }
-    if (!document.getElementById(scriptId)) {
-      const s = document.createElement('script')
-      s.id = scriptId
-      s.src = `https://maps.googleapis.com/maps/api/js?key=${key}&libraries=places`
-      s.async = true
-      s.onload = load
-      document.head.appendChild(s)
-    } else if (window.google?.maps?.places) {
-      load()
+    // If Maps already loaded, init immediately; otherwise wait for it
+    if (window.google?.maps?.places) {
+      init()
+    } else {
+      const interval = setInterval(() => {
+        if (window.google?.maps?.places) { clearInterval(interval); init() }
+      }, 100)
+      return () => clearInterval(interval)
     }
   }, [])
 
