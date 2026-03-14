@@ -346,6 +346,35 @@ function QuoteForm({ profile }: { profile: OperatorProfile }) {
   const [photoFile, setPhotoFile] = useState<File | null>(null)
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState('')
+  const addressRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    const key = process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY
+    if (!key || !addressRef.current) return
+    const scriptId = 'google-maps-places'
+    const load = () => {
+      if (window.google?.maps?.places) {
+        const ac = new window.google.maps.places.Autocomplete(addressRef.current!, {
+          types: ['address'],
+          componentRestrictions: { country: 'us' },
+        })
+        ac.addListener('place_changed', () => {
+          const place = ac.getPlace()
+          if (place.formatted_address) setAddress(place.formatted_address)
+        })
+      }
+    }
+    if (!document.getElementById(scriptId)) {
+      const s = document.createElement('script')
+      s.id = scriptId
+      s.src = `https://maps.googleapis.com/maps/api/js?key=${key}&libraries=places`
+      s.async = true
+      s.onload = load
+      document.head.appendChild(s)
+    } else if (window.google?.maps?.places) {
+      load()
+    }
+  }, [])
 
   const tiles = [
     { icon: '🪟', name: 'Windows',  value: 'Window Cleaning' },
@@ -465,7 +494,7 @@ function QuoteForm({ profile }: { profile: OperatorProfile }) {
               </div>
             </div>
             <div className="f-label">Address</div>
-            <input className="f-input" type="text" placeholder="4521 Oak St, Austin TX" value={address} onChange={e => setAddress(e.target.value)} />
+            <input ref={addressRef} className="f-input" type="text" placeholder="4521 Oak St, Austin TX" value={address} onChange={e => setAddress(e.target.value)} autoComplete="off" />
             <div className="f-label">Best dates / times</div>
             <input className="f-input" type="text" placeholder="e.g. Any weekday morning" value={dates} onChange={e => setDates(e.target.value)} />
             <div className="f-label">Additional notes</div>
