@@ -83,6 +83,7 @@ export default function Home() {
         h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(52px,6vw,86px);line-height:0.95;letter-spacing:-1px;color:var(--black);margin-bottom:24px;animation:fadeUp 0.5s 0.1s ease both;text-transform:uppercase}
         h1 em{font-style:normal;color:var(--orange)}
         h1 .small{font-size:0.55em;display:block;letter-spacing:0.05em;color:var(--muted);font-weight:600;text-transform:none;margin-bottom:4px}
+        h1 .tagline{font-size:0.38em;display:block;letter-spacing:0.14em;color:var(--orange);font-weight:700;text-transform:uppercase;margin-top:8px}
         .hero-sub{font-size:18px;font-weight:300;color:var(--muted);line-height:1.65;max-width:480px;margin-bottom:36px;animation:fadeUp 0.5s 0.2s ease both}
         .hero-btns{display:flex;gap:12px;flex-wrap:wrap;animation:fadeUp 0.5s 0.3s ease both}
         .btn-primary{background:var(--orange);color:var(--white);font-family:'Barlow',sans-serif;font-weight:700;font-size:16px;padding:16px 36px;border-radius:6px;text-decoration:none;display:inline-flex;align-items:center;gap:10px;box-shadow:0 4px 24px var(--orange-glow);transition:background 0.2s,transform 0.15s,box-shadow 0.2s}
@@ -217,7 +218,12 @@ export default function Home() {
 
       {/* NAV */}
       <nav className={scrolled ? 'scrolled' : ''}>
-        <a href="/" className="logo">Opervo<span>.</span></a>
+        <a href="/" className="logo" style={{display:'flex',alignItems:'center',textDecoration:'none'}}>
+          <svg width="140" height="30" viewBox="0 0 140 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <text x="0" y="23" fontFamily="'Barlow Condensed', sans-serif" fontWeight="900" fontSize="26" fill="#0F0F0F" letterSpacing="-0.5">Opervo</text>
+            <text x="101" y="26" fontFamily="'Barlow Condensed', sans-serif" fontWeight="900" fontSize="32" fill="#F5620F">.</text>
+          </svg>
+        </a>
         <div className="nav-links">
           <a href="#features">Features</a>
           <a href="#folio">Folio</a>
