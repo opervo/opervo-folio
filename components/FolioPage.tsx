@@ -421,6 +421,7 @@ function QuoteForm({ profile }: { profile: OperatorProfile }) {
         })),
         { icon: '✦', name: 'Multiple', value: 'Multiple Services' },
         { icon: '🤔', name: 'Not Sure', value: 'Not Sure' },
+        { icon: '➕', name: 'Other', value: 'Other' },
       ]
     : [
         { icon: '🪟', name: 'Windows',  value: 'Window Cleaning' },
