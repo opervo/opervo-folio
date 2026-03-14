@@ -115,10 +115,15 @@ function Hero({ profile }: { profile: OperatorProfile }) {
           </div>
         )}
         {profile.google_rating && (
-          <div className="hero-google">
-            <span className="hero-google-stars">★★★★★</span>
-            {profile.google_rating.toFixed(1)} Google
-          </div>
+          profile.google_review_link
+            ? <a href={profile.google_review_link} target="_blank" rel="noopener noreferrer" className="hero-google hero-google--link">
+                <span className="hero-google-stars">★★★★★</span>
+                {profile.google_rating.toFixed(1)} Google
+              </a>
+            : <div className="hero-google">
+                <span className="hero-google-stars">★★★★★</span>
+                {profile.google_rating.toFixed(1)} Google
+              </div>
         )}
       </div>
 
@@ -366,10 +371,15 @@ function ReviewSection({ review }: { review: NonNullable<OperatorProfile['review
           <div className="rv-badge">{review.service_tag}</div>
         </div>
         {review.source === 'google' && (
-          <div className="google-row">
-            <div className="google-g">G</div>
-            <span>Verified Google Review</span>
-          </div>
+          profile.google_review_link
+            ? <a href={profile.google_review_link} target="_blank" rel="noopener noreferrer" className="google-row google-row--link">
+                <div className="google-g">G</div>
+                <span>Verified Google Review ↗</span>
+              </a>
+            : <div className="google-row">
+                <div className="google-g">G</div>
+                <span>Verified Google Review</span>
+              </div>
         )}
       </div>
     </div>
@@ -675,6 +685,10 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.8)}}
 .hero-google{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.12);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.18);border-radius:100px;padding:6px 12px;font-size:12px;font-weight:600;color:rgba(255,255,255,0.9)}
 .hero-google-stars{color:#fbbf24;font-size:10px;letter-spacing:1px}
+.hero-google--link{text-decoration:none;color:inherit;cursor:pointer}
+.hero-google--link:hover{opacity:0.85}
+.google-row--link{text-decoration:none;color:inherit;cursor:pointer}
+.google-row--link:hover{opacity:0.8}
 .hero-body{position:absolute;bottom:0;left:0;right:0;padding:0 var(--px) 36px;z-index:10;animation:fadeUp 0.8s 0.3s cubic-bezier(0.22,1,0.36,1) both}
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 .hero-location{display:flex;align-items:center;gap:5px;font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:10px}

@@ -14,6 +14,7 @@ export interface OperatorProfile {
   accepting_clients: boolean
   google_rating: number | null
   google_review_count: number | null
+  google_review_link: string | null
   brand_color: string | null         // hex, defaults to #0b6e62
   created_at: string
   updated_at: string

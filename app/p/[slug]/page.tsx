@@ -41,6 +41,7 @@ export default async function Page({ params }: Props) {
     review:         raw.review ?? null,
     trades:         raw.trades?.length         ? raw.trades         : [],
     brand_color:    raw.brand_color ?? '#0b6e62',
+    google_review_link: raw.google_review_link ?? null,
   }
 
   return <FolioPage profile={profile} />
