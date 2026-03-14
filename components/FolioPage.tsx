@@ -376,11 +376,13 @@ function QuoteForm({ profile }: { profile: OperatorProfile }) {
   const [error, setError] = useState('')
   const addressRef = useRef<HTMLInputElement>(null)
 
-  useEffect(() => {
-    if (!addressRef.current) return
-    const init = () => {
-      if (!window.google?.maps?.places) return
-      const ac = new window.google.maps.places.Autocomplete(addressRef.current!, {
+  // Wire autocomplete on first focus of address field
+  function initAutocomplete(input: HTMLInputElement) {
+    if ((input as any)._acInit) return
+    ;(input as any)._acInit = true
+    const tryInit = () => {
+      if (!window.google?.maps?.places) { setTimeout(tryInit, 150); return }
+      const ac = new window.google.maps.places.Autocomplete(input, {
         types: ['address'],
         componentRestrictions: { country: 'us' },
       })
@@ -389,16 +391,8 @@ function QuoteForm({ profile }: { profile: OperatorProfile }) {
         if (place.formatted_address) setAddress(place.formatted_address)
       })
     }
-    // If Maps already loaded, init immediately; otherwise wait for it
-    if (window.google?.maps?.places) {
-      init()
-    } else {
-      const interval = setInterval(() => {
-        if (window.google?.maps?.places) { clearInterval(interval); init() }
-      }, 100)
-      return () => clearInterval(interval)
-    }
-  }, [])
+    tryInit()
+  }
 
   const tiles = [
     { icon: '🪟', name: 'Windows',  value: 'Window Cleaning' },
@@ -518,7 +512,7 @@ function QuoteForm({ profile }: { profile: OperatorProfile }) {
               </div>
             </div>
             <div className="f-label">Address</div>
-            <input ref={addressRef} className="f-input" type="text" placeholder="4521 Oak St, Austin TX" value={address} onChange={e => setAddress(e.target.value)} autoComplete="off" />
+            <input ref={addressRef} className="f-input" type="text" placeholder="4521 Oak St, Austin TX" value={address} onChange={e => setAddress(e.target.value)} autoComplete="off" onFocus={e => initAutocomplete(e.currentTarget)} />
             <div className="f-label">Best dates / times</div>
             <input className="f-input" type="text" placeholder="e.g. Any weekday morning" value={dates} onChange={e => setDates(e.target.value)} />
             <div className="f-label">Additional notes</div>
