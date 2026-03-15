@@ -255,7 +255,7 @@ export default function Home() {
             <div className="hero-badge">🔧 Built for the trades</div>
             <h1>
               <span className="small">The field service app</span>
-              Run a tight<br />operation.<br /><em>Look pro.</em>
+              Run your entire<br />service business.<br /><em>Look pro.</em>
             </h1>
             <p className="hero-sub">
               Jobs, estimates, invoices, scheduling, and a public portfolio that wins you clients. Built by a solo operator — for solo operators and small crews.
@@ -266,7 +266,7 @@ export default function Home() {
               </a>
               <a href="/p/demo" className="btn-ghost">See a live folio</a>
             </div>
-            <p className="hero-note">No credit card required · 14-day free trial · Cancel any time</p>
+            <p className="hero-note">No credit card required · 30-day free trial · Cancel any time</p>
           </div>
           <div className="hero-right">
             <div className="phone-wrap">
@@ -297,7 +297,7 @@ export default function Home() {
         <div className="proof-divider" />
         <div className="proof-item"><strong>100%</strong> mobile-first PWA</div>
         <div className="proof-divider" />
-        <div className="proof-item"><strong>Free</strong> 14-day trial</div>
+        <div className="proof-item"><strong>Free</strong> 30-day trial</div>
         <div className="proof-divider" />
         <div className="proof-item">Built <strong>by the little guy</strong>, for the little guy</div>
       </div>
@@ -429,7 +429,7 @@ export default function Home() {
               {name:'Solo',price:'$24.99',desc:'Everything you need to run your operation solo.',highlight:false,
                 feats:['Unlimited jobs & invoices','Public portfolio page','Client portal','Google Calendar sync','Review automation','Recurring jobs','CSV export']},
               {name:'Team',price:'$54.99',desc:'For operators with crew. Full control, full visibility.',highlight:true,
-                feats:['Everything in Solo','Up to 5 team members','Role-based permissions','Team scheduling view','Job completion emails','Priority support']},
+                feats:['Everything in Solo','5–20 team members','Role-based permissions','Team scheduling view','Job completion emails','Priority support']},
             ].map((plan, i) => (
               <div key={i} className={`plan-card reveal d${i+1}${plan.highlight ? ' hi' : ''}`}>
                 {plan.highlight && <span className="plan-badge">Most Popular</span>}
@@ -449,7 +449,7 @@ export default function Home() {
       <section className="bottom-cta">
         <div className="bottom-cta-bg" />
         <h2 className="reveal">Ready to run a<br /><em>tighter operation?</em></h2>
-        <p className="reveal d1">Join operators using Opervo to win more jobs, get paid faster, and look like a pro. First 14 days free.</p>
+        <p className="reveal d1">Join operators using Opervo to win more jobs, get paid faster, and look like a pro. First 30 days free.</p>
         <a href="https://app.opervo.io" className="btn-primary reveal d2" style={{display:'inline-flex',fontSize:'18px',padding:'18px 44px'}}>
           Start free trial — no card needed →
         </a>
