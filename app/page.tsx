@@ -278,27 +278,7 @@ export default function Home() {
               <div className="phone-frame">
                 <div className="phone-notch" />
                 <div className="phone-screen">
-                  <img src="https://opervo-folio-v2.vercel.app/p/solarwashatx" alt="Opervo app" style={{display:'none'}} />
-                  <div style={{background:'linear-gradient(135deg,#1A6BF0 0%,#0D1B3E 100%)',width:'100%',height:'100%',display:'flex',flexDirection:'column',padding:'48px 20px 20px',color:'white'}}>
-                    <div style={{fontSize:'11px',opacity:0.6,marginBottom:'4px',fontWeight:600}}>SATURDAY, MARCH 14</div>
-                    <div style={{fontSize:'16px',fontWeight:600,marginBottom:'16px'}}>Good morning, <span style={{color:'#6fa8ff'}}>Solar Wash ATX</span></div>
-                    <div style={{background:'rgba(255,255,255,0.12)',borderRadius:'12px',padding:'16px',marginBottom:'12px'}}>
-                      <div style={{fontSize:'10px',opacity:0.6,marginBottom:'4px'}}>TODAY</div>
-                      <div style={{fontSize:'28px',fontWeight:800,lineHeight:1}}>$145</div>
-                      <div style={{fontSize:'11px',opacity:0.6,marginTop:'4px'}}>↑ 12% vs last day</div>
-                    </div>
-                    <div style={{fontSize:'11px',fontWeight:700,opacity:0.5,letterSpacing:'0.08em',marginBottom:'8px'}}>QUICK ACTIONS</div>
-                    <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'8px',marginBottom:'12px'}}>
-                      {['New Job','Estimate','Invoice','Client'].map(a => (
-                        <div key={a} style={{background:'rgba(255,255,255,0.08)',borderRadius:'8px',padding:'10px',fontSize:'12px',fontWeight:600,textAlign:'center'}}>{a}</div>
-                      ))}
-                    </div>
-                    <div style={{fontSize:'11px',fontWeight:700,opacity:0.5,letterSpacing:'0.08em',marginBottom:'8px'}}>TODAY&apos;S JOBS</div>
-                    <div style={{background:'rgba(255,255,255,0.08)',borderRadius:'8px',padding:'10px',fontSize:'12px'}}>
-                      <div style={{fontWeight:600}}>John Doe</div>
-                      <div style={{opacity:0.6,fontSize:'11px'}}>Window Cleaning · 1:30 PM</div>
-                    </div>
-                  </div>
+                  <img src="/screenshots/dashboard.png" alt="Opervo dashboard — jobs, revenue, quick actions" style={{width:'100%',height:'100%',objectFit:'cover',objectPosition:'top'}} />
                 </div>
               </div>
               <div className="phone-float-2">
@@ -365,41 +345,12 @@ export default function Home() {
             <div style={{position:'relative',height:'520px',display:'flex',justifyContent:'center'}}>
               <div className="folio-phone-back" style={{top:'40px',right:'20px'}}>
                 <div className="folio-phone-back-screen">
-                  <div style={{background:'#f5f4f0',width:'100%',height:'100%',padding:'20px 12px',display:'flex',flexDirection:'column',gap:'8px'}}>
-                    <div style={{background:'#0b6e62',borderRadius:'8px',padding:'16px',color:'white',textAlign:'center'}}>
-                      <div style={{fontSize:'18px',fontWeight:700}}>Solar Wash ATX</div>
-                      <div style={{fontSize:'11px',opacity:0.8}}>Austin, TX</div>
-                    </div>
-                    <div style={{background:'white',borderRadius:'8px',padding:'12px',fontSize:'11px',color:'#666'}}>
-                      <div style={{fontWeight:700,color:'#111',marginBottom:'4px'}}>Before / After</div>
-                      <div style={{background:'#ddd',borderRadius:'4px',height:'60px',display:'flex',alignItems:'center',justifyContent:'center',fontSize:'10px',color:'#999'}}>← Drag to compare →</div>
-                    </div>
-                    <div style={{background:'white',borderRadius:'8px',padding:'12px'}}>
-                      <div style={{fontSize:'11px',fontWeight:700,color:'#111',marginBottom:'6px'}}>Services</div>
-                      {['☀️ Solar Panel Cleaning','🪟 Window Cleaning','🚿 Pressure Wash'].map(s => (
-                        <div key={s} style={{fontSize:'10px',color:'#666',padding:'4px 0',borderBottom:'1px solid #eee'}}>{s}</div>
-                      ))}
-                    </div>
-                  </div>
+                  <img src="/screenshots/folio-quote.jpg" alt="Opervo folio quote request form" style={{width:'100%',height:'100%',objectFit:'cover',objectPosition:'top'}} />
                 </div>
               </div>
               <div className="folio-phone-main" style={{position:'absolute',left:'20px',top:'0'}}>
                 <div className="folio-phone-screen">
-                  <div style={{background:'#0D1B3E',width:'100%',height:'100%',position:'relative',overflow:'hidden'}}>
-                    <div style={{position:'absolute',inset:0,background:'linear-gradient(to bottom,rgba(0,0,0,0) 40%,rgba(0,0,0,0.8) 100%)'}} />
-                    <div style={{position:'absolute',bottom:'20px',left:'16px',right:'16px',color:'white'}}>
-                      <div style={{fontSize:'9px',opacity:0.6,letterSpacing:'0.1em',marginBottom:'4px'}}>◉ AUSTIN, TX</div>
-                      <div style={{fontFamily:'Georgia,serif',fontSize:'22px',lineHeight:1.1,marginBottom:'4px'}}>Solar Wash<br /><em>ATX</em></div>
-                      <div style={{fontSize:'10px',opacity:0.6,marginBottom:'12px'}}>So Clean · Fully insured · Same-day quotes</div>
-                      <div style={{display:'flex',gap:'8px'}}>
-                        <div style={{background:'rgba(255,255,255,0.15)',borderRadius:'6px',padding:'6px 10px',fontSize:'9px',fontWeight:700,flex:1,textAlign:'center'}}>GET QUOTE</div>
-                        <div style={{background:'rgba(255,255,255,0.15)',borderRadius:'6px',padding:'6px 10px',fontSize:'9px',fontWeight:700,flex:1,textAlign:'center'}}>CALL</div>
-                        <div style={{background:'rgba(255,255,255,0.15)',borderRadius:'6px',padding:'6px 10px',fontSize:'9px',fontWeight:700,flex:1,textAlign:'center'}}>TEXT</div>
-                      </div>
-                    </div>
-                    <div style={{position:'absolute',top:'12px',left:'12px',background:'rgba(0,0,0,0.5)',borderRadius:'100px',padding:'4px 10px',fontSize:'9px',color:'white',fontWeight:600}}>● ACCEPTING CLIENTS</div>
-                    <div style={{position:'absolute',top:'12px',right:'12px',background:'rgba(0,0,0,0.5)',borderRadius:'100px',padding:'4px 10px',fontSize:'9px',color:'white',fontWeight:600}}>★ 4.9 Google</div>
-                  </div>
+                  <img src="/screenshots/folio-hero.jpg" alt="Opervo public folio page — Solar Wash ATX" style={{width:'100%',height:'100%',objectFit:'cover',objectPosition:'top'}} />
                 </div>
               </div>
             </div>
