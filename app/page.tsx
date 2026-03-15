@@ -148,6 +148,24 @@ export default function Home() {
         .folio-phone-back-screen{border-radius:32px;overflow:hidden;background:#111;aspect-ratio:9/19.5}
         .folio-phone-back-screen img{width:100%;height:100%;object-fit:cover;object-position:top}
 
+        /* CLIENT IMPORT */
+        .import-section{padding:100px 48px;background:var(--white);border-top:1px solid rgba(0,0,0,0.06)}
+        .section-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+        .import-steps{display:flex;flex-direction:column;gap:14px;margin-top:28px}
+        .import-step{display:flex;align-items:flex-start;gap:12px;font-size:14px;color:var(--ink)}
+        .step-num{width:28px;height:28px;border-radius:50%;background:var(--orange);color:white;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+        .import-visual{background:var(--off);border-radius:16px;padding:24px;border:1px solid rgba(0,0,0,0.08)}
+        .import-label-top{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px}
+        .csv-row{display:flex;align-items:center;justify-content:space-between;background:var(--white);border-radius:8px;padding:10px 14px;margin-bottom:8px;border:1px solid rgba(0,0,0,0.06)}
+        .csv-name{font-size:13px;font-weight:600;color:var(--ink)}
+        .csv-detail{font-size:11px;color:var(--muted);margin-top:2px}
+        .csv-check{width:20px;height:20px;border-radius:50%;background:#22c55e;color:white;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center}
+        .csv-more{font-size:11px;color:var(--muted);text-align:center;padding:4px 0}
+        .import-arrow{text-align:center;font-size:22px;color:var(--orange);font-weight:900;margin:10px 0}
+        .import-count{background:var(--orange);color:white;border-radius:10px;padding:12px 16px;text-align:center}
+        .import-count strong{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:22px;display:block;letter-spacing:-0.5px}
+        .import-count span{font-size:12px;opacity:0.85}
+        @media(max-width:768px){.section-inner{grid-template-columns:1fr;gap:40px}.import-section{padding:72px 20px}}
         /* FEATURES */
         .features-section{padding:100px 48px;background:var(--white)}
         .features-inner{max-width:1100px;margin:0 auto}
@@ -218,12 +236,7 @@ export default function Home() {
 
       {/* NAV */}
       <nav className={scrolled ? 'scrolled' : ''}>
-        <a href="/" className="logo" style={{display:'flex',alignItems:'center',textDecoration:'none'}}>
-          <svg width="140" height="30" viewBox="0 0 140 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <text x="0" y="23" fontFamily="'Barlow Condensed', sans-serif" fontWeight="900" fontSize="26" fill="#0F0F0F" letterSpacing="-0.5">Opervo</text>
-            <text x="101" y="26" fontFamily="'Barlow Condensed', sans-serif" fontWeight="900" fontSize="32" fill="#F5620F">.</text>
-          </svg>
-        </a>
+        <a href="/" className="logo">Opervo<span>.</span></a>
         <div className="nav-links">
           <a href="#features">Features</a>
           <a href="#folio">Folio</a>
@@ -389,6 +402,48 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      {/* CLIENT IMPORT */}
+      <section className="import-section">
+        <div className="section-inner">
+          <div className="reveal">
+            <p className="sec-eyebrow">Switching is painless</p>
+            <h2>Bring your<br /><em>existing clients.</em><br />Zero hassle.</h2>
+            <p className="sec-sub" style={{maxWidth:'440px'}}>Already running a client list in a spreadsheet, Google Contacts, or another app? Import your entire client base in minutes. No manual re-entry. No starting from scratch.</p>
+            <div className="import-steps">
+              {[
+                {n:'1',t:'Export from anywhere',d:'Google Contacts, Jobber, Housecall Pro, or any spreadsheet'},
+                {n:'2',t:'Upload your CSV',d:'Opervo maps your columns automatically'},
+                {n:'3',t:'Done.',d:'Your full client list is live and ready to schedule'},
+              ].map((s,i) => (
+                <div key={i} className="import-step">
+                  <div className="step-num">{s.n}</div>
+                  <div><strong>{s.t}</strong> — {s.d}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="import-visual reveal d2">
+            <div className="import-label-top">clients.csv</div>
+            {['Sarah Mitchell','Marcus Johnson','Elena Rodriguez'].map((n,i) => (
+              <div key={i} className="csv-row">
+                <div>
+                  <div className="csv-name">{n}</div>
+                  <div className="csv-detail">{['sarah','marcus','elena'][i]}@email.com</div>
+                </div>
+                <div className="csv-check">✓</div>
+              </div>
+            ))}
+            <div className="csv-more">+ 47 more clients...</div>
+            <div className="import-arrow">↓</div>
+            <div className="import-count">
+              <strong>50 clients imported</strong>
+              <span>Ready to schedule in Opervo</span>
             </div>
           </div>
         </div>
