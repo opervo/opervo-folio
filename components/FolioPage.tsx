@@ -82,7 +82,7 @@ export default function FolioPage({ profile }: Props) {
         <WorkSection profile={profile} />
         <ServicesSection profile={profile} />
         <CredentialsSection />
-        {profile.review && <ReviewSection review={profile.review} />}
+        {profile.review && <ReviewSection review={profile.review} profile={profile} />}
         <QuoteForm profile={profile} />
         <Footer />
         <StickyCta />
@@ -352,7 +352,7 @@ function CredentialsSection() {
 /* ─────────────────────────────────────────
    REVIEW
 ───────────────────────────────────────── */
-function ReviewSection({ review }: { review: NonNullable<OperatorProfile['review']> }) {
+function ReviewSection({ review, profile }: { review: NonNullable<OperatorProfile['review']>; profile: OperatorProfile }) {
   return (
     <div className="sec reveal">
       <div className="sec-eyebrow">Client Testimonial</div>
