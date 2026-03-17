@@ -3,13 +3,12 @@ import { OperatorProfile } from './types'
 
 export async function getOperatorBySlug(slug: string): Promise<OperatorProfile | null> {
   const { data, error } = await supabase
-    .from('operator_profiles')
-    .select('*')
-    .eq('slug', slug)
-    .single()
+    .rpc('get_operator_profile_by_slug', { p_slug: slug })
 
   if (error || !data) return null
-  return data as OperatorProfile
+  const profile = Array.isArray(data) ? data[0] : data
+  if (!profile) return null
+  return profile as OperatorProfile
 }
 
 export const DEMO_PROFILE: OperatorProfile = {
