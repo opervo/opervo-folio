@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <radialGradient id="glow" cx="75%" cy="20%" r="60%">
+      <stop offset="0%" stop-color="#F5620F" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#0F0F0F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#0F0F0F"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <rect x="64" y="80" width="3" height="470" fill="#F5620F" opacity="0.5"/>
+  <text x="104" y="200" font-family="Barlow Condensed, Arial Black, sans-serif" font-weight="900" font-size="88" fill="#F7F5F2" letter-spacing="-3">Opervo</text>
+  <text x="570" y="200" font-family="Barlow Condensed, Arial Black, sans-serif" font-weight="900" font-size="88" fill="#F5620F" letter-spacing="-3">.</text>
+  <text x="104" y="308" font-family="Barlow Condensed, Arial Black, sans-serif" font-weight="900" font-size="76" fill="#F7F5F2" letter-spacing="-2">RUN YOUR SERVICE</text>
+  <text x="104" y="392" font-family="Barlow Condensed, Arial Black, sans-serif" font-weight="900" font-size="76" fill="#F7F5F2" letter-spacing="-2">BUSINESS.</text>
+  <text x="104" y="476" font-family="Barlow Condensed, Arial Black, sans-serif" font-weight="900" font-size="76" fill="#F5620F" letter-spacing="-2">LOOK PRO.</text>
+  <text x="104" y="540" font-family="Barlow, Arial, sans-serif" font-weight="400" font-size="24" fill="#F7F5F2" opacity="0.45">Jobs, invoices, scheduling &amp; a live portfolio page.</text>
+  <text x="104" y="572" font-family="Barlow, Arial, sans-serif" font-weight="600" font-size="24" fill="#F7F5F2" opacity="0.7">Built for solo trade operators. 30 days free.</text>
+  <rect x="940" y="556" width="196" height="40" rx="6" fill="#F5620F" fill-opacity="0.12" stroke="#F5620F" stroke-opacity="0.35" stroke-width="1"/>
+  <circle cx="960" cy="576" r="5" fill="#F5620F"/>
+  <text x="975" y="581" font-family="Barlow Condensed, Arial Black, sans-serif" font-weight="700" font-size="17" fill="#F5620F" letter-spacing="1">OPERVO.IO</text>
+</svg>
