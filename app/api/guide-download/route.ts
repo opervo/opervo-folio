@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@supabase/supabase-js'
 
+// Force this route to always run dynamically — never cached
+export const dynamic = 'force-dynamic'
+
 export async function POST(req: NextRequest) {
   let email: string
 
@@ -30,18 +33,19 @@ export async function POST(req: NextRequest) {
         })
 
       if (error) {
-        // Duplicate email — that's fine, just ignore it
         if (error.code === '23505') {
-          console.log('Duplicate email, skipping:', email)
+          // Duplicate email — fine, skip silently
         } else {
           console.error('Supabase insert error:', error.code, error.message)
         }
+      } else {
+        console.log('Guide lead captured:', email.toLowerCase().trim())
       }
     } catch (err) {
-      console.error('Supabase exception (non-blocking):', err)
+      console.error('Supabase exception:', err)
     }
   } else {
-    console.warn('Guide Supabase env vars not set — lead not captured')
+    console.warn('GUIDE_SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY not set')
   }
 
   return NextResponse.json({ ok: true })
