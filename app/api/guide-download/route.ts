@@ -15,8 +15,9 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Invalid email address' }, { status: 400 })
   }
 
-  // Fire-and-forget Supabase write — never blocks the download
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL
+  // Fire-and-forget — uses a dedicated env var so it never conflicts with
+  // the main app's Supabase project
+  const url = process.env.GUIDE_SUPABASE_URL
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY
 
   if (url && key) {
@@ -36,8 +37,9 @@ export async function POST(req: NextRequest) {
       console.error('Supabase write failed (non-blocking):', err)
     }
   } else {
-    console.warn('SUPABASE_SERVICE_ROLE_KEY not set — lead not captured')
+    console.warn('Guide Supabase env vars not set — lead not captured')
   }
 
+  // Always return ok so download is never blocked
   return NextResponse.json({ ok: true })
 }
