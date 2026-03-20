@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/',
-        destination: '/preview-weapon.html',
+        destination: '/index.html',
       },
     ]
   },
