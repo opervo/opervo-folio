@@ -15,31 +15,34 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Invalid email address' }, { status: 400 })
   }
 
-  // Fire-and-forget — uses a dedicated env var so it never conflicts with
-  // the main app's Supabase project
   const url = process.env.GUIDE_SUPABASE_URL
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY
 
   if (url && key) {
     try {
       const supabase = createClient(url, key)
-      await supabase
+      const { error } = await supabase
         .from('guide_leads')
-        .upsert(
-          {
-            email: email.toLowerCase().trim(),
-            source: 'guide_page',
-            downloaded_at: new Date().toISOString(),
-          },
-          { onConflict: 'email' }
-        )
+        .insert({
+          email: email.toLowerCase().trim(),
+          source: 'guide_page',
+          downloaded_at: new Date().toISOString(),
+        })
+
+      if (error) {
+        // Duplicate email — that's fine, just ignore it
+        if (error.code === '23505') {
+          console.log('Duplicate email, skipping:', email)
+        } else {
+          console.error('Supabase insert error:', error.code, error.message)
+        }
+      }
     } catch (err) {
-      console.error('Supabase write failed (non-blocking):', err)
+      console.error('Supabase exception (non-blocking):', err)
     }
   } else {
     console.warn('Guide Supabase env vars not set — lead not captured')
   }
 
-  // Always return ok so download is never blocked
   return NextResponse.json({ ok: true })
 }
