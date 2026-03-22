@@ -1,7 +1,7 @@
 'use client'
 
-import { useState, useRef, useEffect, useCallback } from 'react'
-import { OperatorProfile } from '@/lib/types'
+import { useState, useRef, useEffect, useCallback, useMemo } from 'react'
+import { OperatorProfile, Service } from '@/lib/types'
 
 // Google Maps Places type shim
 declare global {
@@ -396,12 +396,25 @@ function QuoteForm({ profile }: { profile: OperatorProfile }) {
   const [name, setName]   = useState('')
   const [phone, setPhone] = useState('')
   const [address, setAddress] = useState('')
-  const [dates, setDates] = useState('')
   const [notes, setNotes] = useState('')
   const [photoFile, setPhotoFile] = useState<File | null>(null)
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState('')
   const addressRef = useRef<HTMLInputElement>(null)
+
+  // New state for booking / scheduling upgrade
+  const [requestType, setRequestType] = useState<'quote_request' | 'direct_booking'>('quote_request')
+  const [preferredDate, setPreferredDate] = useState('')
+  const [preferredWindows, setPreferredWindows] = useState<string[]>([])
+  const [servicePrice, setServicePrice] = useState<number | null>(null)
+  const [estimatedDuration, setEstimatedDuration] = useState<number | null>(null)
+
+  // Tomorrow's date for min on date picker
+  const tomorrowStr = useMemo(() => {
+    const d = new Date()
+    d.setDate(d.getDate() + 1)
+    return d.toISOString().split('T')[0]
+  }, [])
 
   // Wire autocomplete on first focus of address field
   function initAutocomplete(input: HTMLInputElement) {
@@ -421,27 +434,141 @@ function QuoteForm({ profile }: { profile: OperatorProfile }) {
     tryInit()
   }
 
-  // Build service tiles from operator's actual services, with fallback extras
-  const serviceTiles = profile.services?.length
-    ? [
-        ...profile.services.map(svc => ({
-          icon: svc.icon || '🔧',
-          name: svc.name,
-          value: svc.name,
-        })),
-        { icon: '✦', name: 'Multiple', value: 'Multiple Services' },
-        { icon: '🤔', name: 'Not Sure', value: 'Not Sure' },
-        { icon: '➕', name: 'Other', value: 'Other' },
-      ]
-    : [
-        { icon: '🪟', name: 'Windows',  value: 'Window Cleaning' },
-        { icon: '☀️', name: 'Solar',    value: 'Solar Panel Cleaning' },
-        { icon: '🚿', name: 'Pressure', value: 'Pressure Washing' },
-        { icon: '✦',  name: 'Multiple', value: 'Multiple Services' },
-        { icon: '🤔', name: 'Not Sure', value: 'Not Sure' },
-        { icon: '➕',  name: 'Other',   value: 'Other' },
-      ]
-  const tiles = serviceTiles
+  // Build service tiles from operator's actual services, filtering out non-bookable
+  const bookableServices = (profile.services ?? []).filter(svc => svc.bookable !== false)
+
+  function getPriceLabel(svc: Service): string {
+    if (svc.price_display) return svc.price_display
+    if (svc.price_from) return `From $${svc.price_from}`
+    return 'Get a Quote'
+  }
+
+  function handleServiceSelect(svc: Service) {
+    setSelectedService(svc.name)
+    if (svc.fixed_price) {
+      setRequestType('direct_booking')
+      setServicePrice(svc.price_from ?? null)
+      setEstimatedDuration(svc.estimated_minutes ?? null)
+    } else {
+      setRequestType('quote_request')
+      setServicePrice(null)
+      setEstimatedDuration(null)
+    }
+  }
+
+  function handleExtraSelect(value: string) {
+    setSelectedService(value)
+    setRequestType('quote_request')
+    setServicePrice(null)
+    setEstimatedDuration(null)
+  }
+
+  // Quick-pick date helpers
+  function setThisWeek() {
+    const d = new Date()
+    const dayOfWeek = d.getDay()
+    const daysUntilFriday = dayOfWeek <= 5 ? 5 - dayOfWeek : 0
+    if (daysUntilFriday <= 0) {
+      // Already Friday or weekend, pick next Monday
+      d.setDate(d.getDate() + (8 - dayOfWeek))
+    } else {
+      d.setDate(d.getDate() + 1) // tomorrow at minimum
+    }
+    setPreferredDate(d.toISOString().split('T')[0])
+  }
+
+  function setNextWeek() {
+    const d = new Date()
+    const dayOfWeek = d.getDay()
+    const daysUntilNextMon = dayOfWeek === 0 ? 1 : 8 - dayOfWeek
+    d.setDate(d.getDate() + daysUntilNextMon)
+    setPreferredDate(d.toISOString().split('T')[0])
+  }
+
+  function setFlexible() {
+    setPreferredDate('')
+  }
+
+  // Time window toggle
+  function toggleWindow(w: string) {
+    if (w === 'any') {
+      setPreferredWindows(prev => prev.includes('any') ? [] : ['any'])
+    } else {
+      setPreferredWindows(prev => {
+        const without = prev.filter(p => p !== 'any' && p !== w)
+        if (prev.includes(w)) return without
+        return [...without, w]
+      })
+    }
+  }
+
+  // Format duration for display
+  function formatDuration(mins: number): string {
+    if (mins < 60) return `${mins} min`
+    const h = Math.floor(mins / 60)
+    const m = mins % 60
+    return m > 0 ? `${h}h ${m}m` : `${h}h`
+  }
+
+  // Format preferred window for display
+  function formatWindowDisplay(): string {
+    const labels: Record<string, string> = {
+      morning: 'Morning',
+      midday: 'Midday',
+      afternoon: 'Afternoon',
+      any: 'Any time',
+    }
+    return preferredWindows.map(w => labels[w] || w).join(', ')
+  }
+
+  const ORANGE = '#F5620F'
+  const ORANGE_HOVER = '#d94e08'
+  const ORANGE_LIGHT = 'rgba(245,98,15,0.08)'
+  const ORANGE_BORDER = 'rgba(245,98,15,0.25)'
+
+  // Inline styles for new elements
+  const pillStyle = (active: boolean): React.CSSProperties => ({
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: '6px',
+    padding: '12px 14px',
+    borderRadius: '8px',
+    border: `1.5px solid ${active ? ORANGE : 'var(--rule)'}`,
+    background: active ? ORANGE_LIGHT : 'var(--off)',
+    color: active ? ORANGE : 'var(--stone)',
+    fontSize: '13px',
+    fontWeight: active ? 600 : 400,
+    fontFamily: "'Jost', sans-serif",
+    cursor: 'pointer',
+    transition: 'border-color 0.15s, background 0.15s',
+    minHeight: '44px',
+    textAlign: 'center' as const,
+  })
+
+  const quickPickStyle = (active: boolean): React.CSSProperties => ({
+    padding: '10px 16px',
+    borderRadius: '8px',
+    border: `1.5px solid ${active ? ORANGE : 'var(--rule)'}`,
+    background: active ? ORANGE_LIGHT : '#ffffff',
+    color: active ? ORANGE : 'var(--stone)',
+    fontSize: '12px',
+    fontWeight: 600,
+    fontFamily: "'Jost', sans-serif",
+    letterSpacing: '0.06em',
+    textTransform: 'uppercase' as const,
+    cursor: 'pointer',
+    transition: 'all 0.15s',
+    minHeight: '44px',
+  })
+
+  const bookingSummaryStyle: React.CSSProperties = {
+    background: ORANGE_LIGHT,
+    border: `1.5px solid ${ORANGE_BORDER}`,
+    borderRadius: '12px',
+    padding: '16px 18px',
+    marginBottom: '16px',
+  }
 
   async function submit() {
     setSubmitting(true)
@@ -478,10 +605,15 @@ function QuoteForm({ profile }: { profile: OperatorProfile }) {
           name: name || null,
           phone: phone || null,
           address: address || null,
-          preferred_dates: dates || null,
+          preferred_dates: preferredDate || null,
           notes: notes || null,
           photo_url: photoPath,
           status: 'new',
+          preferred_date: preferredDate || null,
+          preferred_window: preferredWindows.length ? preferredWindows.join(',') : null,
+          request_type: requestType,
+          service_price: servicePrice,
+          estimated_duration: estimatedDuration,
         }),
       })
 
@@ -493,6 +625,20 @@ function QuoteForm({ profile }: { profile: OperatorProfile }) {
       setSubmitting(false)
     }
   }
+
+  // Extra tiles always shown
+  const extraTiles = [
+    { icon: '✦', name: 'Multiple', value: 'Multiple Services' },
+    { icon: '🤔', name: 'Not Sure', value: 'Not Sure' },
+    { icon: '➕', name: 'Other', value: 'Other' },
+  ]
+
+  // Fallback service tiles when no services configured
+  const fallbackTiles = [
+    { icon: '🪟', name: 'Windows', value: 'Window Cleaning' },
+    { icon: '☀️', name: 'Solar', value: 'Solar Panel Cleaning' },
+    { icon: '🚿', name: 'Pressure', value: 'Pressure Washing' },
+  ]
 
   return (
     <div className="form-outer" id="quoteform">
@@ -509,21 +655,103 @@ function QuoteForm({ profile }: { profile: OperatorProfile }) {
           ))}
         </div>
 
-        {/* Step 0 */}
+        {/* Step 0 — Service selection */}
         {step === 0 && (
           <div>
             <div className="f-label">What service do you need?</div>
             <div className="svc-tiles">
-              {tiles.map(t => (
-                <div
-                  key={t.value}
-                  className={`svc-tile ${selectedService === t.value ? 'svc-tile--sel' : ''}`}
-                  onClick={() => setSelectedService(t.value)}
-                >
-                  <div className="st-icon">{t.icon}</div>
-                  <div className="st-name">{t.name}</div>
-                </div>
-              ))}
+              {bookableServices.length > 0 ? (
+                <>
+                  {bookableServices.map(svc => (
+                    <div
+                      key={svc.id}
+                      className={`svc-tile ${selectedService === svc.name ? 'svc-tile--sel' : ''}`}
+                      onClick={() => handleServiceSelect(svc)}
+                      style={{ position: 'relative' }}
+                    >
+                      <div className="st-icon">{svc.icon || '🔧'}</div>
+                      <div className="st-name">{svc.name}</div>
+                      <div style={{
+                        fontSize: '10px',
+                        fontWeight: 500,
+                        color: selectedService === svc.name ? ORANGE : 'var(--stone-2)',
+                        marginTop: '2px',
+                      }}>
+                        {getPriceLabel(svc)}
+                      </div>
+                      {svc.fixed_price ? (
+                        <div style={{
+                          position: 'absolute',
+                          top: '6px',
+                          right: '6px',
+                          fontSize: '8px',
+                          fontWeight: 700,
+                          letterSpacing: '0.06em',
+                          textTransform: 'uppercase',
+                          background: ORANGE,
+                          color: '#fff',
+                          padding: '2px 6px',
+                          borderRadius: '3px',
+                          lineHeight: '1.4',
+                        }}>
+                          Book Now
+                        </div>
+                      ) : (
+                        <div style={{
+                          position: 'absolute',
+                          top: '6px',
+                          right: '6px',
+                          fontSize: '8px',
+                          fontWeight: 600,
+                          letterSpacing: '0.06em',
+                          textTransform: 'uppercase',
+                          background: 'transparent',
+                          color: 'var(--stone-2)',
+                          padding: '2px 6px',
+                          borderRadius: '3px',
+                          border: '1px solid var(--rule)',
+                          lineHeight: '1.4',
+                        }}>
+                          Quote
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                  {extraTiles.map(t => (
+                    <div
+                      key={t.value}
+                      className={`svc-tile ${selectedService === t.value ? 'svc-tile--sel' : ''}`}
+                      onClick={() => handleExtraSelect(t.value)}
+                    >
+                      <div className="st-icon">{t.icon}</div>
+                      <div className="st-name">{t.name}</div>
+                    </div>
+                  ))}
+                </>
+              ) : (
+                <>
+                  {fallbackTiles.map(t => (
+                    <div
+                      key={t.value}
+                      className={`svc-tile ${selectedService === t.value ? 'svc-tile--sel' : ''}`}
+                      onClick={() => handleExtraSelect(t.value)}
+                    >
+                      <div className="st-icon">{t.icon}</div>
+                      <div className="st-name">{t.name}</div>
+                    </div>
+                  ))}
+                  {extraTiles.map(t => (
+                    <div
+                      key={t.value}
+                      className={`svc-tile ${selectedService === t.value ? 'svc-tile--sel' : ''}`}
+                      onClick={() => handleExtraSelect(t.value)}
+                    >
+                      <div className="st-icon">{t.icon}</div>
+                      <div className="st-name">{t.name}</div>
+                    </div>
+                  ))}
+                </>
+              )}
             </div>
             <div className="f-label">Property type</div>
             <select className="f-select" value={propertyType} onChange={e => setPropertyType(e.target.value)}>
@@ -537,31 +765,145 @@ function QuoteForm({ profile }: { profile: OperatorProfile }) {
           </div>
         )}
 
-        {/* Step 1 */}
+        {/* Step 1 — Scheduling + Contact */}
         {step === 1 && (
           <div>
             <div className="f-back" onClick={() => setStep(0)}>← Back</div>
+
+            {/* Booking summary card for direct_booking */}
+            {requestType === 'direct_booking' && (
+              <div style={bookingSummaryStyle}>
+                <div style={{
+                  fontSize: '11px',
+                  fontWeight: 700,
+                  letterSpacing: '0.09em',
+                  textTransform: 'uppercase',
+                  color: ORANGE,
+                  marginBottom: '8px',
+                }}>
+                  Booking Summary
+                </div>
+                <div style={{
+                  fontSize: '16px',
+                  fontWeight: 600,
+                  color: 'var(--ink)',
+                  marginBottom: '4px',
+                  fontFamily: "'Jost', sans-serif",
+                }}>
+                  {selectedService}
+                </div>
+                <div style={{ display: 'flex', gap: '16px', marginBottom: '8px' }}>
+                  {servicePrice != null && (
+                    <div style={{ fontSize: '14px', fontWeight: 600, color: ORANGE }}>
+                      ${servicePrice}
+                    </div>
+                  )}
+                  {estimatedDuration != null && (
+                    <div style={{ fontSize: '13px', color: 'var(--stone)', fontWeight: 400 }}>
+                      ~{formatDuration(estimatedDuration)}
+                    </div>
+                  )}
+                </div>
+                <div style={{
+                  fontSize: '12px',
+                  color: 'var(--stone)',
+                  fontStyle: 'italic',
+                }}>
+                  {profile.business_name} will confirm within a few hours.
+                </div>
+              </div>
+            )}
+
+            {/* Date picker */}
+            <div className="f-label">Preferred date</div>
+            <input
+              className="f-input"
+              type="date"
+              min={tomorrowStr}
+              value={preferredDate}
+              onChange={e => setPreferredDate(e.target.value)}
+              style={{ minHeight: '44px' }}
+            />
+
+            {/* Quick pick buttons */}
+            <div style={{ display: 'flex', gap: '8px', marginTop: '10px', marginBottom: '16px' }}>
+              <button
+                type="button"
+                style={quickPickStyle(false)}
+                onClick={setThisWeek}
+              >
+                This week
+              </button>
+              <button
+                type="button"
+                style={quickPickStyle(false)}
+                onClick={setNextWeek}
+              >
+                Next week
+              </button>
+              <button
+                type="button"
+                style={quickPickStyle(!preferredDate)}
+                onClick={setFlexible}
+              >
+                Flexible
+              </button>
+            </div>
+
+            {/* Time window multi-select pills (2x2 grid) */}
+            <div className="f-label">Preferred time</div>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: '1fr 1fr',
+              gap: '8px',
+              marginBottom: '18px',
+            }}>
+              <div
+                style={pillStyle(preferredWindows.includes('morning'))}
+                onClick={() => toggleWindow('morning')}
+              >
+                ☀️ Morning (8am–12pm)
+              </div>
+              <div
+                style={pillStyle(preferredWindows.includes('midday'))}
+                onClick={() => toggleWindow('midday')}
+              >
+                🌤 Midday (11am–2pm)
+              </div>
+              <div
+                style={pillStyle(preferredWindows.includes('afternoon'))}
+                onClick={() => toggleWindow('afternoon')}
+              >
+                🌅 Afternoon (1pm–5pm)
+              </div>
+              <div
+                style={pillStyle(preferredWindows.includes('any'))}
+                onClick={() => toggleWindow('any')}
+              >
+                🤷 Any time
+              </div>
+            </div>
+
+            {/* Contact fields */}
             <div className="f-row">
               <div>
                 <div className="f-label">Your name *</div>
-                <input className="f-input" type="text" placeholder="Jane Smith" value={name} onChange={e => setName(e.target.value)} />
+                <input className="f-input" type="text" placeholder="Jane Smith" value={name} onChange={e => setName(e.target.value)} style={{ minHeight: '44px' }} />
               </div>
               <div>
                 <div className="f-label">Phone *</div>
-                <input className="f-input" type="tel" placeholder="(512) 000-0000" value={phone} onChange={e => setPhone(e.target.value)} />
+                <input className="f-input" type="tel" placeholder="(512) 000-0000" value={phone} onChange={e => setPhone(e.target.value)} style={{ minHeight: '44px' }} />
               </div>
             </div>
             <div className="f-label">Address</div>
-            <input ref={addressRef} className="f-input" type="text" placeholder="4521 Oak St, Austin TX" value={address} onChange={e => setAddress(e.target.value)} autoComplete="off" onFocus={e => initAutocomplete(e.currentTarget)} />
-            <div className="f-label">Best dates / times</div>
-            <input className="f-input" type="text" placeholder="e.g. Any weekday morning" value={dates} onChange={e => setDates(e.target.value)} />
+            <input ref={addressRef} className="f-input" type="text" placeholder="4521 Oak St, Austin TX" value={address} onChange={e => setAddress(e.target.value)} autoComplete="off" onFocus={e => initAutocomplete(e.currentTarget)} style={{ minHeight: '44px' }} />
             <div className="f-label">Additional notes</div>
             <textarea className="f-textarea" placeholder="2-storey home · 16 solar panels…" value={notes} onChange={e => setNotes(e.target.value)} />
             <button className="btn-primary" onClick={() => setStep(2)}>Continue →</button>
           </div>
         )}
 
-        {/* Step 2 */}
+        {/* Step 2 — Photo + submit */}
         {step === 2 && (
           <div>
             <div className="f-back" onClick={() => setStep(1)}>← Back</div>
@@ -577,14 +919,24 @@ function QuoteForm({ profile }: { profile: OperatorProfile }) {
             <div className="promise-box">
               <div className="pb-title">What happens next</div>
               <ul className="pb-items">
-                <li>We review your details and photos</li>
-                <li>A quote arrives on your phone — usually within hours</li>
-                <li>No obligation, no pressure</li>
+                {requestType === 'direct_booking' ? (
+                  <>
+                    <li>We confirm your booking within a few hours</li>
+                    <li>You'll receive a confirmation text with the details</li>
+                    <li>Show up, sit back, we handle the rest</li>
+                  </>
+                ) : (
+                  <>
+                    <li>We review your details and photos</li>
+                    <li>A quote arrives on your phone — usually within hours</li>
+                    <li>No obligation, no pressure</li>
+                  </>
+                )}
               </ul>
             </div>
             {error && <div className="submit-error">{error}</div>}
             <button className="btn-primary" onClick={submit} disabled={submitting}>
-              {submitting ? 'Sending…' : 'Send My Quote Request'}
+              {submitting ? 'Sending…' : requestType === 'direct_booking' ? 'Send Booking Request' : 'Send My Quote Request'}
             </button>
           </div>
         )}
@@ -593,11 +945,26 @@ function QuoteForm({ profile }: { profile: OperatorProfile }) {
         {step === 3 && (
           <div className="form-success">
             <div className="success-check">✓</div>
-            <div className="success-title">All done.</div>
-            <p className="success-text">
-              Thanks for reaching out. We'll review your details and send a quote to your phone shortly.<br /><br />
-              Talk soon.
-            </p>
+            {requestType === 'direct_booking' ? (
+              <>
+                <div className="success-title">Booking request sent.</div>
+                <p className="success-text">
+                  {selectedService && <><strong>{selectedService}</strong><br /></>}
+                  {preferredDate && <>Date: {new Date(preferredDate + 'T12:00:00').toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}<br /></>}
+                  {preferredWindows.length > 0 && <>Time: {formatWindowDisplay()}<br /></>}
+                  <br />
+                  {profile.business_name} will confirm your booking shortly. Talk soon.
+                </p>
+              </>
+            ) : (
+              <>
+                <div className="success-title">All done.</div>
+                <p className="success-text">
+                  Thanks for reaching out. We'll review your details and send a quote to your phone shortly.<br /><br />
+                  Talk soon.
+                </p>
+              </>
+            )}
           </div>
         )}
       </div>

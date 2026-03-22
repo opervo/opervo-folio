@@ -26,6 +26,10 @@ export interface Service {
   description: string
   icon: string
   price_from: number | null
+  fixed_price?: boolean
+  price_display?: string
+  estimated_minutes?: number
+  bookable?: boolean
 }
 
 export interface Stats {
@@ -57,4 +61,9 @@ export interface LeadInsert {
   notes: string | null
   photo_url: string | null
   status: 'new'
+  preferred_date?: string | null
+  preferred_window?: string | null
+  request_type?: string
+  service_price?: number | null
+  estimated_duration?: number | null
 }
