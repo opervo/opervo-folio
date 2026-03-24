@@ -40,6 +40,7 @@ export const DEMO_PROFILE: OperatorProfile = {
   },
   trades: ['windows', 'solar', 'pressure'],
   accepting_clients: true,
+  jobs_done: 500,
   google_rating: 5.0,
   google_review_count: 24,
   google_review_link: null,

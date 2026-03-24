@@ -8,10 +8,11 @@ export interface OperatorProfile {
   hero_photo_url: string | null
   gallery_photos: string[]           // array of storage URLs
   services: Service[]
-  stats: Stats
+  stats: Stats | null
   review: Review | null
   trades: Trade[]                    // ['windows','solar','pressure']
   accepting_clients: boolean
+  jobs_done: number | null           // integer from operator_profiles
   google_rating: number | null
   google_review_count: number | null
   google_review_link: string | null
