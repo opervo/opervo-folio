@@ -44,7 +44,7 @@ export default function FolioPage({ profile }: Props) {
 
   useEffect(() => {
     // Load Google Maps Places eagerly so it's ready when address input mounts
-    const key = 'AIzaSyDF2dwZE5ga_7EIUYBsp0Nfkh_nAtsrgm8'
+    const key = process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY || ''
     if (!document.getElementById('google-maps-places')) {
       const s = document.createElement('script')
       s.id = 'google-maps-places'
