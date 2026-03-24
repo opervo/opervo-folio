@@ -44,6 +44,7 @@ export const DEMO_PROFILE: OperatorProfile = {
   google_review_count: 24,
   google_review_link: null,
   brand_color: '#0b6e62',
+  portfolio_display_count: 6,
   created_at: new Date().toISOString(),
   updated_at: new Date().toISOString(),
 }

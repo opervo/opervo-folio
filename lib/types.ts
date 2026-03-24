@@ -16,6 +16,7 @@ export interface OperatorProfile {
   google_review_count: number | null
   google_review_link: string | null
   brand_color: string | null         // hex, defaults to #0b6e62
+  portfolio_display_count: number | null  // how many gallery photos to show (default 6)
   created_at: string
   updated_at: string
 }

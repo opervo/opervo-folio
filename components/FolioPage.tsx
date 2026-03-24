@@ -262,7 +262,7 @@ function WorkSection({ profile }: { profile: OperatorProfile }) {
       </div>
 
       <div className="gallery-grid">
-        {photos.slice(0, 3).map((url, i) => (
+        {photos.slice(0, profile.portfolio_display_count ?? 6).map((url, i) => (
           <div key={i} className="gallery-tile" onClick={() => setLightbox({imgs: photos, idx: i})} style={{cursor:'zoom-in'}}>
             <img src={url} alt={`Work ${i + 1}`} />
             {profile.trades[i] && (
