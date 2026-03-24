@@ -8,7 +8,7 @@ export interface OperatorProfile {
   hero_photo_url: string | null
   gallery_photos: string[]           // array of storage URLs
   services: Service[]
-  stats: Stats | null
+  stats: Stats
   review: Review | null
   trades: Trade[]                    // ['windows','solar','pressure']
   accepting_clients: boolean
