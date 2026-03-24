@@ -1,6 +1,7 @@
 // lib/qbo.ts — QuickBooks Online API helper
 
 import { createClient } from '@supabase/supabase-js'
+import crypto from 'crypto'
 
 // ── Config ──────────────────────────────────────────────
 export const QBO_CONFIG = {
@@ -30,6 +31,54 @@ export function supabaseAdmin() {
     process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.SUPABASE_SERVICE_ROLE_KEY!
   )
+}
+
+// ── HMAC-signed OAuth state (CSRF protection) ───────────
+function stateSecret(): string {
+  // Use QBO_CLIENT_SECRET as HMAC key — always available on server
+  return process.env.QBO_CLIENT_SECRET || 'fallback-dev-secret'
+}
+
+export function signState(userId: string): string {
+  const payload = JSON.stringify({
+    user_id: userId,
+    nonce: crypto.randomBytes(16).toString('hex'),
+    ts: Date.now(),
+  })
+  const sig = crypto
+    .createHmac('sha256', stateSecret())
+    .update(payload)
+    .digest('hex')
+  // Format: base64url(payload).signature
+  return `${Buffer.from(payload).toString('base64url')}.${sig}`
+}
+
+export function verifyState(state: string): { user_id: string } | null {
+  const parts = state.split('.')
+  if (parts.length !== 2) return null
+
+  const [payloadB64, sig] = parts
+  const payload = Buffer.from(payloadB64, 'base64url').toString()
+
+  // Verify HMAC signature
+  const expected = crypto
+    .createHmac('sha256', stateSecret())
+    .update(payload)
+    .digest('hex')
+
+  if (!crypto.timingSafeEqual(Buffer.from(sig, 'hex'), Buffer.from(expected, 'hex'))) {
+    return null
+  }
+
+  // Verify timestamp (reject states older than 10 minutes)
+  try {
+    const data = JSON.parse(payload)
+    const age = Date.now() - (data.ts || 0)
+    if (age > 10 * 60 * 1000) return null // 10 min TTL
+    return { user_id: data.user_id }
+  } catch {
+    return null
+  }
 }
 
 // ── Token refresh ───────────────────────────────────────
@@ -150,7 +199,9 @@ export async function findOrCreateCustomer(
   clientPhone?: string | null
 ): Promise<{ Id: string; DisplayName: string }> {
   // Search for existing customer by display name
-  const query = `SELECT * FROM Customer WHERE DisplayName = '${clientName.replace(/'/g, "\\'")}'`
+  // Sanitize: strip everything except letters, numbers, spaces, hyphens, periods, ampersands
+  const safeName = clientName.replace(/[^a-zA-Z0-9 .&'-]/g, '').slice(0, 100)
+  const query = `SELECT * FROM Customer WHERE DisplayName = '${safeName.replace(/'/g, "\\'")}'`
   const searchResult = await qboApiFetch(
     'GET',
     `/query?query=${encodeURIComponent(query)}`,

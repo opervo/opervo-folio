@@ -1,6 +1,6 @@
 // app/api/qbo/callback/route.ts
 import { NextRequest, NextResponse } from 'next/server'
-import { QBO_CONFIG, intuitTokenUrl, supabaseAdmin, qboApiFetch } from '@/lib/qbo'
+import { QBO_CONFIG, intuitTokenUrl, supabaseAdmin, qboApiFetch, verifyState } from '@/lib/qbo'
 
 export const dynamic = 'force-dynamic'
 
@@ -23,18 +23,14 @@ export async function GET(req: NextRequest) {
     )
   }
 
-  // Decode state to get user_id
-  let userId: string
-  try {
-    const stateData = JSON.parse(
-      Buffer.from(stateParam, 'base64url').toString()
-    )
-    userId = stateData.user_id
-  } catch {
+  // Verify HMAC-signed state to prevent CSRF / state forgery
+  const stateData = verifyState(stateParam)
+  if (!stateData) {
     return NextResponse.redirect(
       'https://app.opervo.io/#/profile?qbo_error=invalid_state'
     )
   }
+  const userId = stateData.user_id
 
   // Exchange auth code for tokens
   const basicAuth = Buffer.from(

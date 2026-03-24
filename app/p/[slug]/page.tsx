@@ -32,10 +32,26 @@ export default async function Page({ params }: Props) {
   const raw = slug === 'demo' ? DEMO_PROFILE : await getOperatorBySlug(slug)
   if (!raw) notFound()
 
+  // ── Sanitize user-controlled fields ────────────────────
+  const safeBrandColor = /^#[0-9a-fA-F]{6}$/.test(raw!.brand_color ?? '')
+    ? raw!.brand_color!
+    : '#0b6e62'
+
+  const rawLink = raw!.google_review_link ?? null
+  const safeReviewLink = rawLink && /^https?:\/\//i.test(rawLink) ? rawLink : null
+
+  const safeHero = raw!.hero_photo_url && /^https?:\/\//i.test(raw!.hero_photo_url)
+    ? raw!.hero_photo_url
+    : null
+
+  const safeGallery = (raw!.gallery_photos?.length ? raw!.gallery_photos : DEMO_PROFILE.gallery_photos)
+    .filter((url: string) => /^https?:\/\//i.test(url))
+
   // Merge with safe defaults so FolioPage never crashes on null fields
   const profile = {
     ...raw!,
-    gallery_photos: raw!.gallery_photos?.length ? raw!.gallery_photos : DEMO_PROFILE.gallery_photos,
+    hero_photo_url: safeHero,
+    gallery_photos: safeGallery,
     services:       raw!.services?.length       ? raw!.services       : [],
     stats:          raw!.stats ?? {
       jobs_done:     raw!.jobs_done ? `${raw!.jobs_done}+` : '—',
@@ -44,8 +60,8 @@ export default async function Page({ params }: Props) {
     },
     review:         raw!.review ?? null,
     trades:         raw!.trades?.length         ? raw!.trades         : [],
-    brand_color:    raw!.brand_color ?? '#0b6e62',
-    google_review_link: raw!.google_review_link ?? null,
+    brand_color:    safeBrandColor,
+    google_review_link: safeReviewLink,
   }
 
   return <FolioPage profile={profile} />

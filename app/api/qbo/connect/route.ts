@@ -1,24 +1,29 @@
 // app/api/qbo/connect/route.ts
 import { NextRequest, NextResponse } from 'next/server'
-import { QBO_CONFIG, intuitAuthUrl } from '@/lib/qbo'
-import crypto from 'crypto'
+import { QBO_CONFIG, intuitAuthUrl, supabaseAdmin, signState } from '@/lib/qbo'
 
 export const dynamic = 'force-dynamic'
 
 export async function GET(req: NextRequest) {
-  const userId = req.nextUrl.searchParams.get('user_id')
+  // ── Auth check ──────────────────────────────────────────
+  const authHeader = req.headers.get('authorization')
+  const tokenFromHeader = authHeader?.startsWith('Bearer ') ? authHeader.replace('Bearer ', '') : null
+  const tokenFromQuery = req.nextUrl.searchParams.get('token')
+  const token = tokenFromHeader || tokenFromQuery
 
-  if (!userId) {
-    return NextResponse.json({ error: 'Missing user_id' }, { status: 400 })
+  if (!token) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 
-  // Generate CSRF state token — encodes user_id so callback can identify who connected
-  const state = Buffer.from(
-    JSON.stringify({
-      user_id: userId,
-      nonce: crypto.randomBytes(16).toString('hex'),
-    })
-  ).toString('base64url')
+  const sb = supabaseAdmin()
+  const { data: { user }, error: authError } = await sb.auth.getUser(token)
+
+  if (authError || !user) {
+    return NextResponse.json({ error: 'Invalid auth token' }, { status: 401 })
+  }
+
+  // ── Build HMAC-signed state ─────────────────────────────
+  const state = signState(user.id)
 
   const params = new URLSearchParams({
     client_id: QBO_CONFIG.clientId,
