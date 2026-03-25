@@ -66,6 +66,8 @@ export default function SiteNav() {
             )}
           </div>
 
+          <Link href="/pricing" style={{ fontSize: 14, fontWeight: 500, color: '#6B6B6B', textDecoration: 'none' }}>Pricing</Link>
+          <Link href="/blog" style={{ fontSize: 14, fontWeight: 500, color: '#6B6B6B', textDecoration: 'none' }}>Blog</Link>
           <a href="https://app.opervo.io" style={{ fontSize: 14, fontWeight: 500, color: '#6B6B6B', textDecoration: 'none' }}>Sign In</a>
           <a href="https://app.opervo.io" style={{ display: 'inline-block', background: '#F5620F', color: '#fff', fontWeight: 700, fontSize: 13, padding: '10px 20px', borderRadius: 6, textDecoration: 'none', letterSpacing: '0.02em' }}>Try Free</a>
         </nav>
@@ -104,7 +106,9 @@ export default function SiteNav() {
               {item.name}
             </Link>
           ))}
-          <div style={{ display: 'flex', gap: 12, paddingTop: 16, borderTop: '1px solid #E8E4DE', marginTop: 16 }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 0, paddingTop: 16, borderTop: '1px solid #E8E4DE', marginTop: 16 }}>
+            <Link href="/pricing" onClick={() => setMobileOpen(false)} style={{ display: 'block', padding: '10px 0', fontSize: 15, fontWeight: 500, color: '#1a1a1a', textDecoration: 'none' }}>Pricing</Link>
+            <Link href="/blog" onClick={() => setMobileOpen(false)} style={{ display: 'block', padding: '10px 0', fontSize: 15, fontWeight: 500, color: '#1a1a1a', textDecoration: 'none' }}>Blog</Link>
             <a href="https://app.opervo.io" style={{ fontSize: 14, fontWeight: 500, color: '#6B6B6B', textDecoration: 'none', padding: '10px 0' }}>Sign In</a>
             <a href="https://app.opervo.io" style={{ display: 'inline-block', background: '#F5620F', color: '#fff', fontWeight: 700, fontSize: 13, padding: '10px 20px', borderRadius: 6, textDecoration: 'none' }}>Try Free</a>
           </div>

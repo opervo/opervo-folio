@@ -12,6 +12,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/compare/opervo-vs-jobber`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.7 },
     { url: `${baseUrl}/compare/opervo-vs-housecall-pro`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.7 },
     { url: `${baseUrl}/compare/opervo-vs-gorilladesk`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.7 },
+    { url: `${baseUrl}/pricing`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.9 },
+    { url: `${baseUrl}/blog`, lastModified: new Date(), changeFrequency: 'weekly' as const, priority: 0.7 },
+    { url: `${baseUrl}/blog/field-service-software-pricing-guide`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.6 },
+    { url: `${baseUrl}/blog/how-to-start-solar-panel-cleaning-business`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.6 },
+    { url: `${baseUrl}/blog/free-estimate-template-home-service-business`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.6 },
+    { url: `${baseUrl}/blog/cheapest-field-service-management-software`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.6 },
+    { url: `${baseUrl}/blog/how-to-look-professional-solo-contractor`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.6 },
   ]
 
   return staticPages

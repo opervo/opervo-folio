@@ -45,6 +45,8 @@ export default function SiteFooter() {
               Company
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+              <Link href="/pricing" title="Opervo Pricing" style={{ fontSize: 13, color: '#9ca3af', textDecoration: 'none' }}>Pricing</Link>
+              <Link href="/blog" title="Opervo Blog" style={{ fontSize: 13, color: '#9ca3af', textDecoration: 'none' }}>Blog</Link>
               <Link href="/privacy" title="Privacy Policy" style={{ fontSize: 13, color: '#9ca3af', textDecoration: 'none' }}>Privacy</Link>
               <Link href="/tos" title="Terms of Service" style={{ fontSize: 13, color: '#9ca3af', textDecoration: 'none' }}>Terms</Link>
               <a href="https://app.opervo.io" style={{ fontSize: 13, color: '#9ca3af', textDecoration: 'none' }}>Sign In</a>
