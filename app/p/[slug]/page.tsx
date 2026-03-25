@@ -44,7 +44,7 @@ export default async function Page({ params }: Props) {
     ? raw!.hero_photo_url
     : null
 
-  const safeGallery = (raw!.gallery_photos?.length ? raw!.gallery_photos : DEMO_PROFILE.gallery_photos)
+  const safeGallery = (raw!.gallery_photos?.length ? raw!.gallery_photos : [])
     .filter((url: string) => /^https?:\/\//i.test(url))
 
   // Merge with safe defaults so FolioPage never crashes on null fields
