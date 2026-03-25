@@ -3,6 +3,8 @@ import { createClient } from '@supabase/supabase-js'
 
 export const dynamic = 'force-dynamic'
 
+const TEMPLATE_ID = '167765b2-85f3-4d77-bd30-694cf00400d5'
+
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json()
@@ -13,7 +15,13 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Missing user_id or email' }, { status: 400 })
     }
 
-    // Get profile data for personalization (uses service role if available, anon key as fallback)
+    const resendKey = process.env.RESEND_API_KEY
+    if (!resendKey) {
+      console.error('RESEND_API_KEY not set')
+      return NextResponse.json({ error: 'Email service not configured' }, { status: 500 })
+    }
+
+    // Get profile data for personalization
     const supabase = createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
       process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
@@ -35,7 +43,6 @@ export async function POST(req: NextRequest) {
     const firstName = ownerName.split(' ')[0] || 'there'
     const slug = opProfile?.slug || 'your-slug'
 
-    // Calculate trial end date
     const trialEnd = new Date()
     trialEnd.setDate(trialEnd.getDate() + 30)
     const trialEndDate = trialEnd.toLocaleDateString('en-US', {
@@ -44,13 +51,26 @@ export async function POST(req: NextRequest) {
       year: 'numeric',
     })
 
-    // Send via Resend template
-    const resendKey = process.env.RESEND_API_KEY
-    if (!resendKey) {
-      console.error('RESEND_API_KEY not set')
-      return NextResponse.json({ error: 'Email service not configured' }, { status: 500 })
+    // Fetch the template HTML from Resend
+    const tplRes = await fetch(`https://api.resend.com/templates/${TEMPLATE_ID}`, {
+      headers: { Authorization: `Bearer ${resendKey}` },
+    })
+
+    let html: string
+    if (tplRes.ok) {
+      const tpl = await tplRes.json()
+      // Replace template variables {{{var}}} with actual values
+      html = (tpl.html || '')
+        .replace(/\{\{\{first_name\}\}\}/g, firstName)
+        .replace(/\{\{\{trial_end_date\}\}\}/g, trialEndDate)
+        .replace(/\{\{\{slug\}\}\}/g, slug)
+        .replace(/\{\{\{unsubscribe_url\}\}\}/g, '#')
+    } else {
+      // Fallback plain HTML if template fetch fails
+      html = `<p>Hey ${firstName}, welcome to Opervo! Your 30-day free trial runs until ${trialEndDate}.</p><p><a href="https://app.opervo.io">Open Opervo</a></p>`
     }
 
+    // Send the email with rendered HTML
     const res = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
@@ -61,12 +81,7 @@ export async function POST(req: NextRequest) {
         from: 'Max at Opervo <welcome@opervo.io>',
         to: [email],
         subject: 'You are in. 30 days free starts now.',
-        template_id: '167765b2-85f3-4d77-bd30-694cf00400d5',
-        template_data: {
-          first_name: firstName,
-          trial_end_date: trialEndDate,
-          slug: slug,
-        },
+        html: html,
       }),
     })
 
