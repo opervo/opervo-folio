@@ -26,7 +26,7 @@ export default function PrintSuccess() {
 
         <div style={{ background: '#fff', border: '1px solid #E8E4DE', borderRadius: 12, padding: '24px', marginBottom: 32, textAlign: 'left' }}>
           {[
-            { step: '1', label: 'Proof in 24hrs', desc: 'Check your email — we'll send a design proof for your approval.' },
+            { step: '1', label: 'Proof in 24hrs', desc: "Check your email — we'll send a design proof for your approval." },
             { step: '2', label: 'You approve', desc: 'Reply with any changes or give the green light.' },
             { step: '3', label: 'We print & ship', desc: 'Ships within 5–7 business days after approval. Free shipping.' },
           ].map((s) => (
