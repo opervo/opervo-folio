@@ -5,7 +5,7 @@ export const dynamic = 'force-dynamic'
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json()
-    const { priceId, productTitle, qty, businessName, ownerName, trade, phone, email, website, notes } = body
+    const { priceId, productTitle, qty, businessName, ownerName, trade, phone, email, website, notes, colorTheme } = body
 
     if (!priceId || !email || !businessName || !ownerName || !trade || !phone) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
@@ -33,6 +33,7 @@ export async function POST(req: NextRequest) {
     params.append('metadata[email]', email)
     params.append('metadata[website]', website || '')
     params.append('metadata[notes]', notes || '')
+    params.append('metadata[color_theme]', colorTheme || '')
     params.append('metadata[product_title]', productTitle)
     params.append('metadata[qty]', String(qty))
 
@@ -75,6 +76,7 @@ export async function POST(req: NextRequest) {
               <tr><td style="padding:6px 16px 6px 0;color:#6B6B6B;font-weight:600;">Phone</td><td style="padding:6px 0;">${phone}</td></tr>
               <tr><td style="padding:6px 16px 6px 0;color:#6B6B6B;font-weight:600;">Email</td><td style="padding:6px 0;">${email}</td></tr>
               <tr><td style="padding:6px 16px 6px 0;color:#6B6B6B;font-weight:600;">Website</td><td style="padding:6px 0;">${website || '—'}</td></tr>
+              <tr><td style="padding:6px 16px 6px 0;color:#6B6B6B;font-weight:600;">Color Theme</td><td style="padding:6px 0;">${colorTheme || '—'}</td></tr>
               <tr><td style="padding:6px 16px 6px 0;color:#6B6B6B;font-weight:600;">Notes</td><td style="padding:6px 0;">${notes || '—'}</td></tr>
               <tr><td style="padding:6px 16px 6px 0;color:#6B6B6B;font-weight:600;">Stripe Session</td><td style="padding:6px 0;">${session.id}</td></tr>
             </table>

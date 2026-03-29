@@ -33,78 +33,25 @@ const PRODUCTS = [
   },
 ]
 
+// Color themes — contractor picks their vibe
+const THEMES = [
+  { id: 'navy',    label: 'Navy',    accent: '#1A3A6B', bg: '#FFFFFF', text: '#0F0F0F', backBg: '#1A3A6B' },
+  { id: 'slate',   label: 'Slate',   accent: '#374151', bg: '#FFFFFF', text: '#0F0F0F', backBg: '#374151' },
+  { id: 'forest',  label: 'Forest',  accent: '#1A5C3A', bg: '#FFFFFF', text: '#0F0F0F', backBg: '#1A5C3A' },
+  { id: 'rust',    label: 'Rust',    accent: '#C0392B', bg: '#FFFFFF', text: '#0F0F0F', backBg: '#C0392B' },
+  { id: 'gold',    label: 'Gold',    accent: '#92400E', bg: '#FFFBEB', text: '#1a1a1a', backBg: '#92400E' },
+  { id: 'black',   label: 'Black',   accent: '#0F0F0F', bg: '#FFFFFF', text: '#0F0F0F', backBg: '#0F0F0F' },
+]
+
+type Theme = typeof THEMES[0]
 type Tier = typeof PRODUCTS[0]['tiers'][0]
 type Product = typeof PRODUCTS[0]
 
-// ─── Business Card Preview (3.5"×2" ratio = 1.75) ───────────────────────────
-function BusinessCardPreview({ form }: { form: { businessName: string; trade: string; phone: string; website: string } }) {
-  const name = form.businessName || 'Your Business Name'
-  const trade = form.trade || 'Your Trade'
-  const phone = form.phone || '(555) 000-0000'
-  const website = form.website?.replace(/^https?:\/\//, '') || 'yourwebsite.com'
-
-  return (
-    <div style={{ perspective: 800 }}>
-      <p style={{ fontSize: 10, fontWeight: 700, color: '#6B6B6B', textTransform: 'uppercase', letterSpacing: '0.1em', textAlign: 'center', marginBottom: 8 }}>Front</p>
-      {/* Card — 3.5:2 ratio */}
-      <div style={{
-        width: '100%', maxWidth: 280, margin: '0 auto',
-        aspectRatio: '3.5 / 2',
-        background: '#0F0F0F',
-        borderRadius: 8,
-        padding: '14px 18px',
-        boxSizing: 'border-box',
-        display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
-        boxShadow: '0 8px 24px rgba(0,0,0,0.18)',
-        position: 'relative', overflow: 'hidden',
-      }}>
-        {/* Accent bar */}
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: '#F5620F' }} />
-        {/* Corner circle */}
-        <div style={{ position: 'absolute', bottom: -24, right: -24, width: 80, height: 80, borderRadius: '50%', background: 'rgba(245,98,15,0.15)' }} />
-
-        <div>
-          <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 15, color: '#F7F5F2', margin: 0, textTransform: 'uppercase', letterSpacing: '0.01em', lineHeight: 1.1 }}>{name}</p>
-          <p style={{ fontSize: 9, color: '#F5620F', fontWeight: 700, margin: '3px 0 0', textTransform: 'uppercase', letterSpacing: '0.08em' }}>{trade}</p>
-        </div>
-
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
-          <p style={{ fontSize: 9, color: '#A0A0A0', margin: 0, display: 'flex', alignItems: 'center', gap: 5 }}>
-            <span style={{ color: '#F5620F', fontSize: 8 }}>✆</span> {phone}
-          </p>
-          <p style={{ fontSize: 9, color: '#A0A0A0', margin: 0, display: 'flex', alignItems: 'center', gap: 5, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-            <span style={{ color: '#F5620F', fontSize: 8 }}>🌐</span> {website}
-          </p>
-        </div>
-      </div>
-
-      {/* Back side */}
-      <p style={{ fontSize: 10, fontWeight: 700, color: '#6B6B6B', textTransform: 'uppercase', letterSpacing: '0.1em', textAlign: 'center', margin: '14px 0 8px' }}>Back</p>
-      <div style={{
-        width: '100%', maxWidth: 280, margin: '0 auto',
-        aspectRatio: '3.5 / 2',
-        background: '#F5620F',
-        borderRadius: 8,
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-        boxShadow: '0 4px 12px rgba(0,0,0,0.12)',
-        position: 'relative', overflow: 'hidden',
-      }}>
-        <div style={{ position: 'absolute', top: -20, right: -20, width: 90, height: 90, borderRadius: '50%', background: 'rgba(255,255,255,0.12)' }} />
-        <div style={{ position: 'absolute', bottom: -20, left: -20, width: 70, height: 70, borderRadius: '50%', background: 'rgba(0,0,0,0.1)' }} />
-        <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 22, color: '#fff', textTransform: 'uppercase', letterSpacing: '-0.5px', margin: 0, textAlign: 'center', padding: '0 12px' }}>
-          {name}<span style={{ color: 'rgba(255,255,255,0.5)' }}>.</span>
-        </p>
-      </div>
-
-      <p style={{ fontSize: 10, color: '#6B6B6B', textAlign: 'center', marginTop: 10 }}>
-        This is a mockup. Final design proof sent within 24hrs.
-      </p>
-    </div>
-  )
-}
-
-// ─── Door Hanger Preview (3.5"×8.5" ratio = ~0.41) ──────────────────────────
-function DoorHangerPreview({ form }: { form: { businessName: string; trade: string; phone: string; website: string } }) {
+// ─── Business Card Preview ───────────────────────────────────────────────────
+function BusinessCardPreview({ form, theme }: {
+  form: { businessName: string; trade: string; phone: string; website: string }
+  theme: Theme
+}) {
   const name = form.businessName || 'Your Business Name'
   const trade = form.trade || 'Your Trade'
   const phone = form.phone || '(555) 000-0000'
@@ -113,36 +60,107 @@ function DoorHangerPreview({ form }: { form: { businessName: string; trade: stri
   return (
     <div>
       <p style={{ fontSize: 10, fontWeight: 700, color: '#6B6B6B', textTransform: 'uppercase', letterSpacing: '0.1em', textAlign: 'center', marginBottom: 8 }}>Front</p>
-      <div style={{ display: 'flex', gap: 16, justifyContent: 'center' }}>
+      <div style={{
+        width: '100%', maxWidth: 280, margin: '0 auto',
+        aspectRatio: '3.5 / 2',
+        background: theme.bg,
+        borderRadius: 8,
+        padding: '14px 18px',
+        boxSizing: 'border-box',
+        display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
+        boxShadow: '0 6px 20px rgba(0,0,0,0.14)',
+        position: 'relative', overflow: 'hidden',
+        border: '1px solid #E8E4DE',
+      }}>
+        {/* Left accent bar */}
+        <div style={{ position: 'absolute', top: 0, left: 0, bottom: 0, width: 4, background: theme.accent }} />
+        <div style={{ paddingLeft: 10 }}>
+          <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 14, color: theme.text, margin: 0, textTransform: 'uppercase', letterSpacing: '0.01em', lineHeight: 1.1 }}>{name}</p>
+          <p style={{ fontSize: 9, color: theme.accent, fontWeight: 700, margin: '3px 0 0', textTransform: 'uppercase', letterSpacing: '0.08em' }}>{trade}</p>
+        </div>
+        <div style={{ paddingLeft: 10, display: 'flex', flexDirection: 'column', gap: 3 }}>
+          <p style={{ fontSize: 9, color: '#4B5563', margin: 0 }}>✆ {phone}</p>
+          <p style={{ fontSize: 9, color: '#4B5563', margin: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>🌐 {website}</p>
+        </div>
+      </div>
+
+      <p style={{ fontSize: 10, fontWeight: 700, color: '#6B6B6B', textTransform: 'uppercase', letterSpacing: '0.1em', textAlign: 'center', margin: '14px 0 8px' }}>Back</p>
+      <div style={{
+        width: '100%', maxWidth: 280, margin: '0 auto',
+        aspectRatio: '3.5 / 2',
+        background: theme.backBg,
+        borderRadius: 8,
+        display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: 6,
+        boxShadow: '0 4px 12px rgba(0,0,0,0.12)',
+        position: 'relative', overflow: 'hidden',
+      }}>
+        <div style={{ position: 'absolute', top: -20, right: -20, width: 80, height: 80, borderRadius: '50%', background: 'rgba(255,255,255,0.08)' }} />
+        <div style={{ position: 'absolute', bottom: -20, left: -20, width: 64, height: 64, borderRadius: '50%', background: 'rgba(0,0,0,0.1)' }} />
+        <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 18, color: '#fff', textTransform: 'uppercase', letterSpacing: '-0.5px', margin: 0, textAlign: 'center', padding: '0 16px', lineHeight: 1.1 }}>
+          {name}
+        </p>
+        <div style={{ width: 32, height: 2, background: 'rgba(255,255,255,0.4)', borderRadius: 99 }} />
+        <p style={{ fontSize: 9, color: 'rgba(255,255,255,0.7)', margin: 0, textTransform: 'uppercase', letterSpacing: '0.1em' }}>{trade}</p>
+      </div>
+
+      <p style={{ fontSize: 10, color: '#6B6B6B', textAlign: 'center', marginTop: 10 }}>
+        Mockup only — final proof sent in 24hrs
+      </p>
+    </div>
+  )
+}
+
+// ─── Door Hanger Preview ─────────────────────────────────────────────────────
+function DoorHangerPreview({ form, theme }: {
+  form: { businessName: string; trade: string; phone: string; website: string }
+  theme: Theme
+}) {
+  const name = form.businessName || 'Your Business Name'
+  const trade = form.trade || 'Your Trade'
+  const phone = form.phone || '(555) 000-0000'
+  const website = form.website?.replace(/^https?:\/\//, '') || 'yourwebsite.com'
+
+  return (
+    <div>
+      <div style={{ display: 'flex', gap: 16, justifyContent: 'center', alignItems: 'flex-start' }}>
         {/* Front */}
-        <div style={{
-          width: 110,
-          aspectRatio: '3.5 / 8.5',
-          background: '#0F0F0F',
-          borderRadius: 8,
-          padding: '18px 10px 14px',
-          boxSizing: 'border-box',
-          display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center',
-          boxShadow: '0 8px 24px rgba(0,0,0,0.18)',
-          position: 'relative', overflow: 'hidden',
-          textAlign: 'center',
-        }}>
-          {/* Hole punch */}
-          <div style={{ position: 'absolute', top: 8, left: '50%', transform: 'translateX(-50%)', width: 14, height: 14, borderRadius: '50%', background: '#1a1a1a', border: '1.5px solid #333', zIndex: 2 }} />
-          {/* Accent */}
-          <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 28, background: '#F5620F' }} />
+        <div>
+          <p style={{ fontSize: 10, fontWeight: 700, color: '#6B6B6B', textTransform: 'uppercase', letterSpacing: '0.1em', textAlign: 'center', marginBottom: 8 }}>Front</p>
+          <div style={{
+            width: 110,
+            aspectRatio: '3.5 / 8.5',
+            background: theme.bg,
+            border: '1px solid #E8E4DE',
+            borderRadius: 8,
+            padding: '20px 10px 14px',
+            boxSizing: 'border-box',
+            display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center',
+            boxShadow: '0 6px 20px rgba(0,0,0,0.12)',
+            position: 'relative', overflow: 'hidden',
+            textAlign: 'center',
+          }}>
+            {/* Hole punch */}
+            <div style={{ position: 'absolute', top: 8, left: '50%', transform: 'translateX(-50%)', width: 13, height: 13, borderRadius: '50%', background: '#F7F5F2', border: '1.5px solid #D1D5DB', zIndex: 2 }} />
+            {/* Top accent bar */}
+            <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 4, background: theme.accent }} />
 
-          <div style={{ marginTop: 18 }}>
-            <div style={{ width: 36, height: 36, borderRadius: 8, background: '#F5620F', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 8px' }}>
-              <span style={{ fontSize: 18 }}>⭐</span>
+            <div style={{ marginTop: 14 }}>
+              <div style={{
+                width: 32, height: 32, borderRadius: 8, background: theme.accent,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                margin: '0 auto 8px', fontSize: 16,
+              }}>
+                🏠
+              </div>
+              <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 9, color: theme.text, margin: 0, textTransform: 'uppercase', lineHeight: 1.2 }}>{name}</p>
+              <p style={{ fontSize: 7, color: theme.accent, fontWeight: 700, margin: '4px 0 0', textTransform: 'uppercase', letterSpacing: '0.04em' }}>{trade}</p>
             </div>
-            <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 10, color: '#F7F5F2', margin: 0, textTransform: 'uppercase', lineHeight: 1.1 }}>{name}</p>
-            <p style={{ fontSize: 7, color: '#F5620F', fontWeight: 700, margin: '4px 0 0', textTransform: 'uppercase', letterSpacing: '0.06em' }}>{trade}</p>
-          </div>
 
-          <div style={{ width: '100%', position: 'relative', zIndex: 1, paddingBottom: 4 }}>
-            <p style={{ fontSize: 7, color: '#fff', margin: '0 0 2px', fontWeight: 700 }}>{phone}</p>
-            <p style={{ fontSize: 6, color: 'rgba(255,255,255,0.8)', margin: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{website}</p>
+            <div style={{ width: '100%' }}>
+              <div style={{ height: 1, background: '#E8E4DE', marginBottom: 8 }} />
+              <p style={{ fontSize: 7, color: '#374151', margin: '0 0 3px', fontWeight: 700 }}>{phone}</p>
+              <p style={{ fontSize: 6, color: '#6B6B6B', margin: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{website}</p>
+            </div>
           </div>
         </div>
 
@@ -152,40 +170,71 @@ function DoorHangerPreview({ form }: { form: { businessName: string; trade: stri
           <div style={{
             width: 110,
             aspectRatio: '3.5 / 8.5',
-            background: '#F5620F',
+            background: theme.backBg,
             borderRadius: 8,
-            padding: '18px 10px 14px',
+            padding: '20px 10px 14px',
             boxSizing: 'border-box',
             display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center',
-            boxShadow: '0 8px 24px rgba(0,0,0,0.18)',
+            boxShadow: '0 6px 20px rgba(0,0,0,0.12)',
             position: 'relative', overflow: 'hidden',
             textAlign: 'center',
           }}>
-            <div style={{ position: 'absolute', top: 8, left: '50%', transform: 'translateX(-50%)', width: 14, height: 14, borderRadius: '50%', background: 'rgba(0,0,0,0.2)', border: '1.5px solid rgba(0,0,0,0.3)', zIndex: 2 }} />
-            <div style={{ position: 'absolute', bottom: -20, right: -20, width: 70, height: 70, borderRadius: '50%', background: 'rgba(255,255,255,0.12)' }} />
+            <div style={{ position: 'absolute', top: 8, left: '50%', transform: 'translateX(-50%)', width: 13, height: 13, borderRadius: '50%', background: 'rgba(255,255,255,0.15)', border: '1.5px solid rgba(255,255,255,0.25)', zIndex: 2 }} />
+            <div style={{ position: 'absolute', bottom: -16, right: -16, width: 60, height: 60, borderRadius: '50%', background: 'rgba(255,255,255,0.08)' }} />
 
-            <div style={{ marginTop: 16 }}>
+            <div style={{ marginTop: 14 }}>
               <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 10, color: '#fff', margin: 0, textTransform: 'uppercase', lineHeight: 1.1 }}>Free<br />Estimate</p>
-              <div style={{ width: 30, height: 1.5, background: 'rgba(255,255,255,0.5)', margin: '8px auto' }} />
-              <p style={{ fontSize: 7, color: 'rgba(255,255,255,0.9)', margin: 0, lineHeight: 1.4 }}>Call or text<br />anytime</p>
+              <div style={{ width: 24, height: 1.5, background: 'rgba(255,255,255,0.4)', margin: '7px auto' }} />
+              <p style={{ fontSize: 7, color: 'rgba(255,255,255,0.8)', margin: 0, lineHeight: 1.4 }}>Call or text<br />anytime</p>
             </div>
 
             <div style={{ width: '100%' }}>
               <p style={{ fontSize: 8, color: '#fff', margin: '0 0 2px', fontWeight: 700 }}>{phone}</p>
+              <p style={{ fontSize: 6, color: 'rgba(255,255,255,0.7)', margin: 0 }}>{name}</p>
             </div>
           </div>
         </div>
       </div>
 
       <p style={{ fontSize: 10, color: '#6B6B6B', textAlign: 'center', marginTop: 10 }}>
-        This is a mockup. Final design proof sent within 24hrs.
+        Mockup only — final proof sent in 24hrs
       </p>
+    </div>
+  )
+}
+
+// ─── Theme Picker ────────────────────────────────────────────────────────────
+function ThemePicker({ selected, onChange }: { selected: Theme; onChange: (t: Theme) => void }) {
+  return (
+    <div style={{ marginBottom: 16 }}>
+      <p style={{ fontSize: 10, fontWeight: 700, color: '#6B6B6B', textTransform: 'uppercase', letterSpacing: '0.08em', margin: '0 0 8px' }}>Color Theme</p>
+      <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+        {THEMES.map((t) => (
+          <button
+            key={t.id}
+            type="button"
+            onClick={() => onChange(t)}
+            title={t.label}
+            style={{
+              width: 28, height: 28, borderRadius: '50%',
+              background: t.backBg,
+              border: selected.id === t.id ? '2.5px solid #1a1a1a' : '2px solid transparent',
+              outline: selected.id === t.id ? '2px solid #1a1a1a' : 'none',
+              outlineOffset: 2,
+              cursor: 'pointer',
+              padding: 0,
+              boxShadow: '0 1px 4px rgba(0,0,0,0.15)',
+            }}
+          />
+        ))}
+      </div>
     </div>
   )
 }
 
 export default function PrintPage() {
   const [selected, setSelected] = useState<{ product: Product; tier: Tier } | null>(null)
+  const [theme, setTheme] = useState<Theme>(THEMES[0])
   const [form, setForm] = useState({
     businessName: '', ownerName: '', trade: '', phone: '', email: '', website: '', notes: '',
   })
@@ -216,6 +265,7 @@ export default function PrintPage() {
           priceId: selected.tier.priceId,
           productTitle: selected.product.title,
           qty: selected.tier.qty,
+          colorTheme: theme.label,
           ...form,
         }),
       })
@@ -257,7 +307,7 @@ export default function PrintPage() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 16 }}>
           {[
             { step: '1', title: 'Choose Your Product', desc: 'Pick your material and quantity.' },
-            { step: '2', title: 'Preview Your Design', desc: 'See a live mockup with your info.' },
+            { step: '2', title: 'Preview Your Design', desc: 'Pick a color theme, see it live.' },
             { step: '3', title: 'We Refine & Print', desc: 'Proof sent within 24 hours.' },
             { step: '4', title: 'Ships to Your Door', desc: 'Free shipping, 5–7 business days.' },
           ].map((s) => (
@@ -320,7 +370,7 @@ export default function PrintPage() {
       {/* ORDER MODAL */}
       {selected && (
         <div
-          style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.55)', zIndex: 1000, display: 'flex', alignItems: 'flex-end', justifyContent: 'center', padding: '0' }}
+          style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.55)', zIndex: 1000, display: 'flex', alignItems: 'flex-end', justifyContent: 'center' }}
           onClick={(e) => { if (e.target === e.currentTarget) handleClose() }}
         >
           <div style={{ background: '#fff', borderRadius: '16px 16px 0 0', width: '100%', maxWidth: 860, maxHeight: '94vh', overflowY: 'auto' }}>
@@ -339,24 +389,27 @@ export default function PrintPage() {
               <button onClick={handleClose} style={{ background: '#F7F5F2', border: 'none', borderRadius: 8, width: 32, height: 32, cursor: 'pointer', fontSize: 18, color: '#6B6B6B', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>×</button>
             </div>
 
-            {/* Two-column layout: preview | form */}
+            {/* Two-column: preview | form */}
             <div className="modal-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,1fr)', gap: 0 }}>
 
               {/* LEFT — Live Preview */}
-              <div style={{ padding: '24px', borderRight: '1px solid #E8E4DE', background: '#F7F5F2', minHeight: 300 }}>
-                <p style={{ fontSize: 11, fontWeight: 700, color: '#0F0F0F', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 16 }}>
+              <div style={{ padding: '20px 24px 28px', borderRight: '1px solid #E8E4DE', background: '#F7F5F2' }}>
+                <p style={{ fontSize: 11, fontWeight: 700, color: '#0F0F0F', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 14 }}>
                   Live Preview
                 </p>
+
+                <ThemePicker selected={theme} onChange={setTheme} />
+
                 {selected.product.type === 'business-cards' ? (
-                  <BusinessCardPreview form={form} />
+                  <BusinessCardPreview form={form} theme={theme} />
                 ) : (
-                  <DoorHangerPreview form={form} />
+                  <DoorHangerPreview form={form} theme={theme} />
                 )}
               </div>
 
               {/* RIGHT — Form */}
-              <div style={{ padding: '24px' }}>
-                <p style={{ fontSize: 11, fontWeight: 700, color: '#0F0F0F', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 16 }}>
+              <div style={{ padding: '20px 24px 28px' }}>
+                <p style={{ fontSize: 11, fontWeight: 700, color: '#0F0F0F', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 14 }}>
                   Your Details
                 </p>
                 <form onSubmit={handleSubmit}>
@@ -437,8 +490,9 @@ export default function PrintPage() {
       )}
 
       <style>{`
-        @media (max-width: 600px) {
+        @media (max-width: 620px) {
           .modal-grid { grid-template-columns: 1fr !important; }
+          .modal-grid > div:first-child { border-right: none !important; border-bottom: 1px solid #E8E4DE; }
         }
       `}</style>
     </div>
