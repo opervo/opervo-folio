@@ -31,6 +31,16 @@ const PRODUCTS = [
       { qty: 1000,  label: '1,000 hangers', price: 129.99, priceId: 'price_1TGBOQ3zYC4dB5Z5AbCHqutx', badge: 'Best Value' },
     ],
   },
+  {
+    type: 'yard-signs',
+    title: 'Yard Signs',
+    specs: '18" × 24" · Corrugated plastic · Full color · Double-sided · H-stake included',
+    tiers: [
+      { qty: 10,  label: '10 signs',  price: 49.99,  priceId: 'price_1TGC153zYC4dB5Z5fgba2sYL', badge: null },
+      { qty: 25,  label: '25 signs',  price: 89.99,  priceId: 'price_1TGC193zYC4dB5Z5MPLlSWVB', badge: 'Save 20%' },
+      { qty: 50,  label: '50 signs',  price: 149.99, priceId: 'price_1TGC1C3zYC4dB5Z55qX5euA8', badge: 'Best Value' },
+    ],
+  },
 ]
 
 // Color themes — contractor picks their vibe
@@ -197,6 +207,52 @@ function DoorHangerPreview({ form, theme }: {
       </div>
 
       <p style={{ fontSize: 10, color: '#6B6B6B', textAlign: 'center', marginTop: 10 }}>
+        Mockup only — final proof sent in 24hrs
+      </p>
+    </div>
+  )
+}
+
+// ─── Yard Sign Preview (18"×24" ratio = 0.75) ───────────────────────────────
+function YardSignPreview({ form, theme }: {
+  form: { businessName: string; trade: string; phone: string; website: string }
+  theme: Theme
+}) {
+  const name = form.businessName || 'Your Business Name'
+  const trade = form.trade || 'Your Trade'
+  const phone = form.phone || '(555) 000-0000'
+  const website = form.website?.replace(/^https?:\/\//, '') || 'yourwebsite.com'
+
+  return (
+    <div>
+      <p style={{ fontSize: 10, fontWeight: 700, color: '#6B6B6B', textTransform: 'uppercase', letterSpacing: '0.1em', textAlign: 'center', marginBottom: 8 }}>Front</p>
+      <div style={{
+        width: '100%', maxWidth: 280, margin: '0 auto',
+        aspectRatio: '18 / 24',
+        background: theme.backBg,
+        borderRadius: 8,
+        padding: '20px 18px',
+        boxSizing: 'border-box',
+        display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center',
+        textAlign: 'center',
+        boxShadow: '0 6px 20px rgba(0,0,0,0.14)',
+        position: 'relative', overflow: 'hidden',
+      }}>
+        <div style={{ position: 'absolute', top: -20, right: -20, width: 90, height: 90, borderRadius: '50%', background: 'rgba(255,255,255,0.08)' }} />
+        <div style={{ position: 'absolute', bottom: -20, left: -20, width: 70, height: 70, borderRadius: '50%', background: 'rgba(0,0,0,0.1)' }} />
+        <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 20, color: '#fff', textTransform: 'uppercase', letterSpacing: '-0.5px', margin: '0 0 8px', lineHeight: 1.1 }}>{name}</p>
+        <div style={{ width: 40, height: 2, background: 'rgba(255,255,255,0.4)', borderRadius: 99, marginBottom: 8 }} />
+        <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.8)', textTransform: 'uppercase', letterSpacing: '0.08em', margin: '0 0 14px' }}>{trade}</p>
+        <p style={{ fontSize: 16, color: '#fff', fontWeight: 700, margin: '0 0 4px' }}>{phone}</p>
+        <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.7)', margin: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: '100%' }}>{website}</p>
+      </div>
+
+      {/* H-stake indicator */}
+      <div style={{ width: '100%', maxWidth: 280, margin: '0 auto', display: 'flex', justifyContent: 'center' }}>
+        <div style={{ width: 8, height: 28, background: '#D1D5DB', borderRadius: '0 0 3px 3px' }} />
+      </div>
+
+      <p style={{ fontSize: 10, color: '#6B6B6B', textAlign: 'center', marginTop: 8 }}>
         Mockup only — final proof sent in 24hrs
       </p>
     </div>
@@ -402,8 +458,10 @@ export default function PrintPage() {
 
                 {selected.product.type === 'business-cards' ? (
                   <BusinessCardPreview form={form} theme={theme} />
-                ) : (
+                ) : selected.product.type === 'door-hangers' ? (
                   <DoorHangerPreview form={form} theme={theme} />
+                ) : (
+                  <YardSignPreview form={form} theme={theme} />
                 )}
               </div>
 
