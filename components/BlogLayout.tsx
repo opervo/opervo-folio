@@ -101,6 +101,51 @@ export default function BlogLayout({ title, category, date, readTime, children }
         </a>
       </section>
 
+      {/* Explore More */}
+      <section style={{ background: '#F7F5F2', padding: '48px 24px' }}>
+        <div style={{ maxWidth: 720, margin: '0 auto' }}>
+          <p style={{
+            fontFamily: "'Barlow Condensed', sans-serif",
+            fontSize: 11,
+            fontWeight: 700,
+            textTransform: 'uppercase',
+            color: '#F5620F',
+            letterSpacing: '0.14em',
+            marginBottom: 16,
+          }}>
+            Explore More
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 12 }}>
+            {[
+              { title: 'All Features', desc: 'See everything Opervo can do', href: '/features' },
+              { title: 'Pricing', desc: 'Plans starting at $24.99/mo', href: '/pricing' },
+              { title: 'Marketing Materials', desc: 'Business cards, door hangers & more', href: '/print' },
+            ].map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                style={{
+                  display: 'block',
+                  background: '#fff',
+                  border: '1px solid #E8E4DE',
+                  borderRadius: 10,
+                  padding: '16px 14px',
+                  textDecoration: 'none',
+                  transition: 'border-color 0.15s',
+                }}
+              >
+                <strong style={{ display: 'block', fontSize: 14, fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, color: '#0F0F0F', textTransform: 'uppercase', marginBottom: 4 }}>
+                  {item.title}
+                </strong>
+                <span style={{ fontSize: 13, color: '#6B6B6B', fontFamily: "'Barlow', sans-serif" }}>
+                  {item.desc}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <SiteFooter />
 
       <style>{`

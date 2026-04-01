@@ -1,5 +1,8 @@
 import Link from 'next/link'
 
+const colHeader = { fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 12, color: '#F7F5F2', textTransform: 'uppercase' as const, letterSpacing: '0.1em', marginBottom: 12 }
+const linkStyle = { fontSize: 13, color: '#9ca3af', textDecoration: 'none' }
+
 export default function SiteFooter() {
   return (
     <footer style={{ background: '#0F0F0F', borderTop: '1px solid #222', padding: '48px 24px 32px' }}>
@@ -14,43 +17,47 @@ export default function SiteFooter() {
             <p style={{ fontSize: 12, color: '#6B6B6B', marginTop: 4 }}>Built for the trades. &copy; 2026 Opervo.</p>
           </div>
 
+          {/* Product */}
+          <div>
+            <p style={colHeader}>Product</p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+              <Link href="/features" title="Opervo Features" style={linkStyle}>Features</Link>
+              <Link href="/pricing" title="Opervo Pricing" style={linkStyle}>Pricing</Link>
+              <Link href="/print" title="Marketing Materials" style={linkStyle}>Marketing Materials</Link>
+            </div>
+          </div>
+
           {/* Industries */}
           <div>
-            <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 12, color: '#F7F5F2', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 12 }}>
-              Software for Your Trade
-            </p>
+            <p style={colHeader}>Software for Your Trade</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-              <Link href="/solar-panel-cleaning" title="Solar Panel Cleaning Software — Opervo" style={{ fontSize: 13, color: '#9ca3af', textDecoration: 'none' }}>Solar Panel Cleaning</Link>
-              <Link href="/window-cleaning" title="Window Cleaning Software — Opervo" style={{ fontSize: 13, color: '#9ca3af', textDecoration: 'none' }}>Window Cleaning</Link>
-              <Link href="/pressure-washing" title="Pressure Washing Software — Opervo" style={{ fontSize: 13, color: '#9ca3af', textDecoration: 'none' }}>Pressure Washing</Link>
-              <Link href="/landscaping" title="Landscaping Software — Opervo" style={{ fontSize: 13, color: '#9ca3af', textDecoration: 'none' }}>Landscaping</Link>
+              <Link href="/solar-panel-cleaning" title="Solar Panel Cleaning Software — Opervo" style={linkStyle}>Solar Panel Cleaning</Link>
+              <Link href="/window-cleaning" title="Window Cleaning Software — Opervo" style={linkStyle}>Window Cleaning</Link>
+              <Link href="/pressure-washing" title="Pressure Washing Software — Opervo" style={linkStyle}>Pressure Washing</Link>
+              <Link href="/landscaping" title="Landscaping Software — Opervo" style={linkStyle}>Landscaping</Link>
             </div>
           </div>
 
           {/* Compare */}
           <div>
-            <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 12, color: '#F7F5F2', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 12 }}>
-              Compare
-            </p>
+            <p style={colHeader}>Compare</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-              <Link href="/compare/opervo-vs-jobber" title="Opervo vs Jobber — Feature Comparison" style={{ fontSize: 13, color: '#9ca3af', textDecoration: 'none' }}>Opervo vs Jobber</Link>
-              <Link href="/compare/opervo-vs-housecall-pro" title="Opervo vs Housecall Pro — Feature Comparison" style={{ fontSize: 13, color: '#9ca3af', textDecoration: 'none' }}>Opervo vs Housecall Pro</Link>
-              <Link href="/compare/opervo-vs-gorilladesk" title="Opervo vs GorillaDesk — Feature Comparison" style={{ fontSize: 13, color: '#9ca3af', textDecoration: 'none' }}>Opervo vs GorillaDesk</Link>
+              <Link href="/compare/opervo-vs-jobber" title="Opervo vs Jobber — Feature Comparison" style={linkStyle}>Opervo vs Jobber</Link>
+              <Link href="/compare/opervo-vs-housecall-pro" title="Opervo vs Housecall Pro — Feature Comparison" style={linkStyle}>Opervo vs Housecall Pro</Link>
+              <Link href="/compare/opervo-vs-gorilladesk" title="Opervo vs GorillaDesk — Feature Comparison" style={linkStyle}>Opervo vs GorillaDesk</Link>
             </div>
           </div>
 
           {/* Company */}
           <div>
-            <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 12, color: '#F7F5F2', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 12 }}>
-              Company
-            </p>
+            <p style={colHeader}>Company</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-              <Link href="/pricing" title="Opervo Pricing" style={{ fontSize: 13, color: '#9ca3af', textDecoration: 'none' }}>Pricing</Link>
-              <Link href="/blog" title="Opervo Blog" style={{ fontSize: 13, color: '#9ca3af', textDecoration: 'none' }}>Blog</Link>
-              <Link href="/privacy" title="Privacy Policy" style={{ fontSize: 13, color: '#9ca3af', textDecoration: 'none' }}>Privacy</Link>
-              <Link href="/tos" title="Terms of Service" style={{ fontSize: 13, color: '#9ca3af', textDecoration: 'none' }}>Terms</Link>
-              <a href="https://app.opervo.io" style={{ fontSize: 13, color: '#9ca3af', textDecoration: 'none' }}>Sign In</a>
-              <a href="https://app.opervo.io" style={{ fontSize: 13, color: '#F5620F', textDecoration: 'none', fontWeight: 600 }}>Start Free Trial →</a>
+              <Link href="/blog" title="Opervo Blog" style={linkStyle}>Blog</Link>
+              <Link href="/guide" title="Opervo Guide" style={linkStyle}>Guide</Link>
+              <Link href="/privacy" title="Privacy Policy" style={linkStyle}>Privacy</Link>
+              <Link href="/tos" title="Terms of Service" style={linkStyle}>Terms</Link>
+              <a href="https://app.opervo.io" style={linkStyle}>Sign In</a>
+              <a href="https://app.opervo.io" style={{ fontSize: 13, color: '#F5620F', textDecoration: 'none', fontWeight: 600 }}>Start Free Trial &rarr;</a>
             </div>
           </div>
         </div>

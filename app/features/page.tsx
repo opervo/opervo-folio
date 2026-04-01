@@ -324,6 +324,30 @@ export default function FeaturesPage() {
         </section>
       </main>
 
+      {/* Explore More */}
+      <section style={{ background: '#F7F5F2', padding: '48px 24px' }}>
+        <div style={{ maxWidth: 900, margin: '0 auto' }}>
+          <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 11, fontWeight: 700, textTransform: 'uppercase', color: '#F5620F', letterSpacing: '0.14em', marginBottom: 16 }}>
+            Explore More
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 12 }}>
+            {[
+              { title: 'Pricing', desc: 'Plans starting at $24.99/mo', href: '/pricing' },
+              { title: 'Solar Panel Cleaning', desc: 'Software built for solar cleaners', href: '/solar-panel-cleaning' },
+              { title: 'Window Cleaning', desc: 'Software built for window cleaners', href: '/window-cleaning' },
+              { title: 'Pressure Washing', desc: 'Software built for pressure washers', href: '/pressure-washing' },
+              { title: 'Landscaping', desc: 'Software built for landscapers', href: '/landscaping' },
+              { title: 'Blog', desc: 'Tips to grow your business', href: '/blog' },
+            ].map((item) => (
+              <a key={item.href} href={item.href} style={{ display: 'block', background: '#fff', border: '1px solid #E8E4DE', borderRadius: 10, padding: '16px 14px', textDecoration: 'none' }}>
+                <strong style={{ display: 'block', fontSize: 14, fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, color: '#0F0F0F', textTransform: 'uppercase', marginBottom: 4 }}>{item.title}</strong>
+                <span style={{ fontSize: 13, color: '#6B6B6B', fontFamily: "'Barlow', sans-serif" }}>{item.desc}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <SiteFooter />
 
       <style>{`

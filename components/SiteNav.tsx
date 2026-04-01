@@ -16,10 +16,22 @@ const comparisons = [
   { name: 'Opervo vs GorillaDesk', href: '/compare/opervo-vs-gorilladesk' },
 ]
 
+const resources = [
+  { name: 'Blog', href: '/blog' },
+  { name: 'Marketing Materials', href: '/print' },
+  { name: 'Guide', href: '/guide' },
+]
+
 export default function SiteNav() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [industriesOpen, setIndustriesOpen] = useState(false)
   const [compareOpen, setCompareOpen] = useState(false)
+  const [resourcesOpen, setResourcesOpen] = useState(false)
+
+  const dropdownStyle = { position: 'absolute' as const, top: '100%', left: -8, background: '#fff', border: '1px solid #E8E4DE', borderRadius: 8, padding: '8px 0', minWidth: 220, boxShadow: '0 4px 12px rgba(0,0,0,0.08)' }
+  const dropdownLinkStyle = { display: 'block', padding: '10px 16px', fontSize: 14, fontWeight: 500, color: '#1a1a1a', textDecoration: 'none' } as const
+  const navLinkStyle = { fontSize: 14, fontWeight: 500, color: '#6B6B6B', textDecoration: 'none' } as const
+  const navBtnStyle = { fontSize: 14, fontWeight: 500, color: '#6B6B6B', background: 'none', border: 'none', cursor: 'pointer', fontFamily: "'Barlow', sans-serif", padding: '4px 0' } as const
 
   return (
     <header style={{ background: '#fff', borderBottom: '1px solid #E8E4DE', padding: '16px 24px', position: 'sticky', top: 0, zIndex: 50 }}>
@@ -30,15 +42,15 @@ export default function SiteNav() {
 
         {/* Desktop Nav */}
         <nav style={{ display: 'flex', alignItems: 'center', gap: 24 }} className="desktop-nav">
+          <Link href="/features" style={navLinkStyle}>Features</Link>
+
           {/* Industries Dropdown */}
           <div style={{ position: 'relative' }} onMouseEnter={() => setIndustriesOpen(true)} onMouseLeave={() => setIndustriesOpen(false)}>
-            <button style={{ fontSize: 14, fontWeight: 500, color: '#6B6B6B', background: 'none', border: 'none', cursor: 'pointer', fontFamily: "'Barlow', sans-serif", padding: '4px 0' }}>
-              Industries ▾
-            </button>
+            <button style={navBtnStyle}>Industries &#9662;</button>
             {industriesOpen && (
-              <div style={{ position: 'absolute', top: '100%', left: -8, background: '#fff', border: '1px solid #E8E4DE', borderRadius: 8, padding: '8px 0', minWidth: 220, boxShadow: '0 4px 12px rgba(0,0,0,0.08)' }}>
+              <div style={dropdownStyle}>
                 {industries.map((item) => (
-                  <Link key={item.href} href={item.href} title={`${item.name} Software — Opervo`} style={{ display: 'block', padding: '10px 16px', fontSize: 14, fontWeight: 500, color: '#1a1a1a', textDecoration: 'none' }}
+                  <Link key={item.href} href={item.href} title={`${item.name} Software — Opervo`} style={dropdownLinkStyle}
                     onMouseOver={(e) => (e.currentTarget.style.background = 'rgba(245,98,15,0.06)')}
                     onMouseOut={(e) => (e.currentTarget.style.background = 'transparent')}>
                     {item.name}
@@ -50,13 +62,11 @@ export default function SiteNav() {
 
           {/* Compare Dropdown */}
           <div style={{ position: 'relative' }} onMouseEnter={() => setCompareOpen(true)} onMouseLeave={() => setCompareOpen(false)}>
-            <button style={{ fontSize: 14, fontWeight: 500, color: '#6B6B6B', background: 'none', border: 'none', cursor: 'pointer', fontFamily: "'Barlow', sans-serif", padding: '4px 0' }}>
-              Compare ▾
-            </button>
+            <button style={navBtnStyle}>Compare &#9662;</button>
             {compareOpen && (
-              <div style={{ position: 'absolute', top: '100%', left: -8, background: '#fff', border: '1px solid #E8E4DE', borderRadius: 8, padding: '8px 0', minWidth: 240, boxShadow: '0 4px 12px rgba(0,0,0,0.08)' }}>
+              <div style={dropdownStyle}>
                 {comparisons.map((item) => (
-                  <Link key={item.href} href={item.href} title={item.name} style={{ display: 'block', padding: '10px 16px', fontSize: 14, fontWeight: 500, color: '#1a1a1a', textDecoration: 'none' }}
+                  <Link key={item.href} href={item.href} title={item.name} style={dropdownLinkStyle}
                     onMouseOver={(e) => (e.currentTarget.style.background = 'rgba(245,98,15,0.06)')}
                     onMouseOut={(e) => (e.currentTarget.style.background = 'transparent')}>
                     {item.name}
@@ -66,9 +76,25 @@ export default function SiteNav() {
             )}
           </div>
 
-          <Link href="/pricing" style={{ fontSize: 14, fontWeight: 500, color: '#6B6B6B', textDecoration: 'none' }}>Pricing</Link>
-          <Link href="/blog" style={{ fontSize: 14, fontWeight: 500, color: '#6B6B6B', textDecoration: 'none' }}>Blog</Link>
-          <a href="https://app.opervo.io" style={{ fontSize: 14, fontWeight: 500, color: '#6B6B6B', textDecoration: 'none' }}>Sign In</a>
+          <Link href="/pricing" style={navLinkStyle}>Pricing</Link>
+
+          {/* Resources Dropdown */}
+          <div style={{ position: 'relative' }} onMouseEnter={() => setResourcesOpen(true)} onMouseLeave={() => setResourcesOpen(false)}>
+            <button style={navBtnStyle}>Resources &#9662;</button>
+            {resourcesOpen && (
+              <div style={dropdownStyle}>
+                {resources.map((item) => (
+                  <Link key={item.href} href={item.href} title={item.name} style={dropdownLinkStyle}
+                    onMouseOver={(e) => (e.currentTarget.style.background = 'rgba(245,98,15,0.06)')}
+                    onMouseOut={(e) => (e.currentTarget.style.background = 'transparent')}>
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <a href="https://app.opervo.io" style={navLinkStyle}>Sign In</a>
           <a href="https://app.opervo.io" style={{ display: 'inline-block', background: '#F5620F', color: '#fff', fontWeight: 700, fontSize: 13, padding: '10px 20px', borderRadius: 6, textDecoration: 'none', letterSpacing: '0.02em' }}>Try Free</a>
         </nav>
 
@@ -94,7 +120,10 @@ export default function SiteNav() {
       {/* Mobile Menu */}
       {mobileOpen && (
         <nav className="mobile-nav" style={{ padding: '16px 0 8px', borderTop: '1px solid #E8E4DE', marginTop: 16 }}>
-          <p style={{ fontSize: 11, fontWeight: 700, color: '#F5620F', textTransform: 'uppercase', letterSpacing: '0.1em', padding: '8px 0 4px' }}>Industries</p>
+          <Link href="/features" onClick={() => setMobileOpen(false)} style={{ display: 'block', padding: '10px 0', fontSize: 15, fontWeight: 600, color: '#0F0F0F', textDecoration: 'none' }}>
+            Features
+          </Link>
+          <p style={{ fontSize: 11, fontWeight: 700, color: '#F5620F', textTransform: 'uppercase', letterSpacing: '0.1em', padding: '16px 0 4px' }}>Industries</p>
           {industries.map((item) => (
             <Link key={item.href} href={item.href} onClick={() => setMobileOpen(false)} style={{ display: 'block', padding: '10px 0', fontSize: 15, fontWeight: 500, color: '#1a1a1a', textDecoration: 'none' }}>
               {item.name}
@@ -106,9 +135,14 @@ export default function SiteNav() {
               {item.name}
             </Link>
           ))}
+          <p style={{ fontSize: 11, fontWeight: 700, color: '#F5620F', textTransform: 'uppercase', letterSpacing: '0.1em', padding: '16px 0 4px' }}>Resources</p>
+          {resources.map((item) => (
+            <Link key={item.href} href={item.href} onClick={() => setMobileOpen(false)} style={{ display: 'block', padding: '10px 0', fontSize: 15, fontWeight: 500, color: '#1a1a1a', textDecoration: 'none' }}>
+              {item.name}
+            </Link>
+          ))}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 0, paddingTop: 16, borderTop: '1px solid #E8E4DE', marginTop: 16 }}>
             <Link href="/pricing" onClick={() => setMobileOpen(false)} style={{ display: 'block', padding: '10px 0', fontSize: 15, fontWeight: 500, color: '#1a1a1a', textDecoration: 'none' }}>Pricing</Link>
-            <Link href="/blog" onClick={() => setMobileOpen(false)} style={{ display: 'block', padding: '10px 0', fontSize: 15, fontWeight: 500, color: '#1a1a1a', textDecoration: 'none' }}>Blog</Link>
             <a href="https://app.opervo.io" style={{ fontSize: 14, fontWeight: 500, color: '#6B6B6B', textDecoration: 'none', padding: '10px 0' }}>Sign In</a>
             <a href="https://app.opervo.io" style={{ display: 'inline-block', background: '#F5620F', color: '#fff', fontWeight: 700, fontSize: 13, padding: '10px 20px', borderRadius: 6, textDecoration: 'none' }}>Try Free</a>
           </div>
