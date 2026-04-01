@@ -935,6 +935,9 @@ function QuoteForm({ profile }: { profile: OperatorProfile }) {
               </ul>
             </div>
             {error && <div className="submit-error">{error}</div>}
+            <p style={{ fontSize: 11, lineHeight: 1.5, color: '#888', margin: '16px 0 0', textAlign: 'center' }}>
+              By submitting, you agree to receive text messages from this business regarding your request, appointment updates, and invoices. Msg & data rates may apply. Reply STOP to opt out.
+            </p>
             <button className="btn-primary" onClick={submit} disabled={submitting}>
               {submitting ? 'Sending…' : requestType === 'direct_booking' ? 'Send Booking Request' : 'Send My Quote Request'}
             </button>
