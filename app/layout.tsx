@@ -5,6 +5,29 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'Opervo — Run Your Trade Business Like a Pro',
   description: 'Jobs, estimates, invoices, scheduling, client portal, and a public portfolio — built mobile-first for solo trade operators.',
+  metadataBase: new URL('https://opervo.io'),
+  openGraph: {
+    title: 'Opervo — Run Your Trade Business Like a Pro',
+    description: 'Jobs, estimates, invoices, scheduling, client portal, and a public portfolio — built mobile-first for solo trade operators.',
+    url: 'https://opervo.io',
+    siteName: 'Opervo',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Opervo — The one app built for trade operators',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Opervo — Run Your Trade Business Like a Pro',
+    description: 'Jobs, estimates, invoices, scheduling, client portal, and a public portfolio — built mobile-first for solo trade operators.',
+    images: ['/og-image.png'],
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
