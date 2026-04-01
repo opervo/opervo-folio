@@ -102,8 +102,40 @@ nav {
   box-shadow: 0 6px 22px var(--orange-glow);
 }
 
+/* Hamburger button */
+.nav-hamburger {
+  display: none; background: none; border: none; cursor: pointer; padding: 8px;
+}
+.nav-hamburger svg { display: block; }
+
+/* Mobile menu overlay */
+.mobile-menu {
+  display: none;
+  position: fixed; top: 58px; left: 0; right: 0; bottom: 0;
+  background: rgba(247,245,242,0.98); backdrop-filter: blur(20px);
+  z-index: 99; padding: 24px 28px; overflow-y: auto;
+}
+.mobile-menu.open { display: block; }
+.mobile-menu-section {
+  font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700;
+  color: var(--orange); text-transform: uppercase; letter-spacing: 0.1em;
+  padding: 16px 0 6px; margin: 0;
+}
+.mobile-menu-section:first-child { padding-top: 0; }
+.mobile-menu a {
+  display: block; padding: 10px 0; font-size: 15px; font-weight: 500;
+  color: var(--ink); text-decoration: none;
+}
+.mobile-menu-cta {
+  display: inline-block; background: var(--orange); color: var(--white);
+  font-weight: 700; font-size: 13px; padding: 10px 20px; border-radius: 6px;
+  text-decoration: none; margin-top: 16px;
+}
+
 @media (max-width: 640px) {
   .nav-links { display: none; }
+  .nav-hamburger { display: block; }
+  .nav-cta { display: none; }
 }
 
 /* ─── HERO ─── */
@@ -900,7 +932,32 @@ svg.ic {
     Start free trial
     <svg class="ic" width="14" height="14" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
   </a>
+  <button class="nav-hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open');this.dataset.open=this.dataset.open==='1'?'0':'1';this.innerHTML=this.dataset.open==='1'?'<svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#0F0F0F&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot;><line x1=&quot;18&quot; y1=&quot;6&quot; x2=&quot;6&quot; y2=&quot;18&quot;/><line x1=&quot;6&quot; y1=&quot;6&quot; x2=&quot;18&quot; y2=&quot;18&quot;/></svg>':'<svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#0F0F0F&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot;><line x1=&quot;3&quot; y1=&quot;6&quot; x2=&quot;21&quot; y2=&quot;6&quot;/><line x1=&quot;3&quot; y1=&quot;12&quot; x2=&quot;21&quot; y2=&quot;12&quot;/><line x1=&quot;3&quot; y1=&quot;18&quot; x2=&quot;21&quot; y2=&quot;18&quot;/></svg>'" data-open="0">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0F0F0F" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
 </nav>
+
+<div id="mobileMenu" class="mobile-menu">
+  <a href="/features">Features</a>
+  <a href="/pricing">Pricing</a>
+  <p class="mobile-menu-section">Industries</p>
+  <a href="/solar-panel-cleaning">Solar Panel Cleaning</a>
+  <a href="/window-cleaning">Window Cleaning</a>
+  <a href="/pressure-washing">Pressure Washing</a>
+  <a href="/landscaping">Landscaping</a>
+  <p class="mobile-menu-section">Compare</p>
+  <a href="/compare/opervo-vs-jobber">Opervo vs Jobber</a>
+  <a href="/compare/opervo-vs-housecall-pro">Opervo vs Housecall Pro</a>
+  <a href="/compare/opervo-vs-gorilladesk">Opervo vs GorillaDesk</a>
+  <p class="mobile-menu-section">Resources</p>
+  <a href="/blog">Blog</a>
+  <a href="/print">Marketing Materials</a>
+  <a href="/guide">Guide</a>
+  <div style="border-top:1px solid #E8E4DE;margin-top:16px;padding-top:16px;">
+    <a href="https://app.opervo.io" style="color:#6B6B6B;font-size:14px;">Sign In</a>
+    <a href="https://app.opervo.io" class="mobile-menu-cta">Try Free</a>
+  </div>
+</div>
 
 <!-- HERO -->
 <section class="hero" style="padding-top:110px">
