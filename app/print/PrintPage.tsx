@@ -342,8 +342,23 @@ export default function PrintPage() {
     <div style={{ fontFamily: "'Barlow', sans-serif", background: '#F7F5F2', minHeight: '100vh', color: '#1a1a1a' }}>
       <SiteNav />
 
+      {/* COMING SOON BANNER */}
+      <div style={{ background: '#0F0F0F', padding: '48px 24px', textAlign: 'center' }}>
+        <div style={{ maxWidth: 600, margin: '0 auto' }}>
+          <span style={{ display: 'inline-block', fontSize: 11, fontWeight: 700, color: '#F5620F', textTransform: 'uppercase', letterSpacing: '0.14em', background: 'rgba(245,98,15,0.12)', padding: '6px 14px', borderRadius: 4, marginBottom: 16 }}>
+            Coming Soon
+          </span>
+          <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 'clamp(28px, 5vw, 40px)', lineHeight: 1.15, color: '#F7F5F2', textTransform: 'uppercase', letterSpacing: '-0.5px', marginBottom: 12 }}>
+            Print Materials Are Almost Here
+          </h2>
+          <p style={{ fontSize: 15, color: '#9ca3af', lineHeight: 1.6 }}>
+            We are finalizing vendor approval. Check back soon — business cards, door hangers, and yard signs will be available to order shortly.
+          </p>
+        </div>
+      </div>
+
       {/* HERO */}
-      <section style={{ maxWidth: 800, margin: '0 auto', padding: '72px 24px 48px', textAlign: 'center' }}>
+      <section style={{ maxWidth: 800, margin: '0 auto', padding: '72px 24px 48px', textAlign: 'center', opacity: 0.45, pointerEvents: 'none' }}>
         <span style={{ display: 'inline-block', fontSize: 11, fontWeight: 700, color: '#F5620F', textTransform: 'uppercase', letterSpacing: '0.14em', background: 'rgba(245,98,15,0.08)', padding: '6px 14px', borderRadius: 4, marginBottom: 20 }}>
           Marketing Materials
         </span>
@@ -359,7 +374,7 @@ export default function PrintPage() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section style={{ maxWidth: 800, margin: '0 auto', padding: '0 24px 64px' }}>
+      <section style={{ maxWidth: 800, margin: '0 auto', padding: '0 24px 64px', opacity: 0.45, pointerEvents: 'none' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 16 }}>
           {[
             { step: '1', title: 'Choose Your Product', desc: 'Pick your material and quantity.' },
@@ -378,7 +393,7 @@ export default function PrintPage() {
 
       {/* PRODUCTS */}
       {PRODUCTS.map((product) => (
-        <section key={product.type} style={{ maxWidth: 860, margin: '0 auto', padding: '0 24px 64px' }}>
+        <section key={product.type} style={{ maxWidth: 860, margin: '0 auto', padding: '0 24px 64px', opacity: 0.45, pointerEvents: 'none' }}>
           <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 28, color: '#0F0F0F', textTransform: 'uppercase', letterSpacing: '-0.5px', marginBottom: 4 }}>
             {product.title}
           </h2>
