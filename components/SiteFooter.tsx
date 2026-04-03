@@ -15,11 +15,11 @@ export default function SiteFooter() {
             </Link>
             <p style={{ fontSize: 13, color: '#9ca3af', marginTop: 8 }}>Look pro. Win jobs.</p>
             <p style={{ fontSize: 12, color: '#6B6B6B', marginTop: 4 }}>Built for the trades. &copy; 2026 Opervo.</p>
-            <div style={{ display: 'flex', gap: 14, marginTop: 14 }}>
-              <a href="https://www.instagram.com/opervo.io" target="_blank" rel="noopener" aria-label="Instagram" style={{ color: '#6B6B6B', transition: 'color .2s' }} onMouseOver={e => (e.currentTarget.style.color = '#F5620F')} onMouseOut={e => (e.currentTarget.style.color = '#6B6B6B')}>
+            <div className="footer-socials" style={{ display: 'flex', gap: 14, marginTop: 14 }}>
+              <a href="https://www.instagram.com/opervo.io" target="_blank" rel="noopener" aria-label="Instagram" className="social-icon">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
               </a>
-              <a href="https://www.facebook.com/profile.php?id=61577509469081" target="_blank" rel="noopener" aria-label="Facebook" style={{ color: '#6B6B6B', transition: 'color .2s' }} onMouseOver={e => (e.currentTarget.style.color = '#F5620F')} onMouseOut={e => (e.currentTarget.style.color = '#6B6B6B')}>
+              <a href="https://www.facebook.com/profile.php?id=61577509469081" target="_blank" rel="noopener" aria-label="Facebook" className="social-icon">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
               </a>
             </div>
