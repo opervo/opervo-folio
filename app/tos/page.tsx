@@ -28,7 +28,8 @@ export default function TermsOfService() {
           ["14","Termination","Cancel anytime. We may suspend for violations or with 30 days notice."],
           ["15","Governing Law","Texas law. Arbitration in Austin TX under AAA rules. Class action waiver."],
           ["16","Changes","14 days notice of material changes."],
-          ["17","Contact","help@opervo.io · opervo.io · Austin, Texas"],
+          ["17","SMS Terms","By providing your phone number to a business using Opervo, you consent to receive automated SMS notifications including appointment reminders, on-my-way alerts, job completion updates, and invoice delivery. Message frequency varies based on service activity. Message and data rates may apply. Reply STOP to any message to opt out. Reply HELP for assistance. Carriers are not liable for delayed or undelivered messages. For questions, contact help@opervo.io."],
+          ["18","Contact","help@opervo.io · opervo.io · Austin, Texas"],
         ].map(([num, title, body]) => (
           <div key={num}>
             <h2 style={{fontFamily:"'Barlow Condensed',sans-serif",fontWeight:800,fontSize:18,color:"#0F0F0F",margin:"40px 0 12px",paddingBottom:8,borderBottom:"1px solid #E8E4DE"}}>

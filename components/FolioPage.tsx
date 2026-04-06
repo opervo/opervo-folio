@@ -936,7 +936,7 @@ function QuoteForm({ profile }: { profile: OperatorProfile }) {
             </div>
             {error && <div className="submit-error">{error}</div>}
             <p style={{ fontSize: 11, lineHeight: 1.5, color: '#888', margin: '16px 0 0', textAlign: 'center' }}>
-              By submitting, you agree to receive text messages from this business regarding your request, appointment updates, and invoices. Msg & data rates may apply. Reply STOP to opt out.
+              By submitting, you consent to receive automated SMS notifications from this business, including appointment reminders, on-my-way alerts, job updates, and invoices. Message frequency varies. Msg & data rates may apply. Reply STOP to opt out at any time. Reply HELP for help. <a href="https://opervo.io/privacy" style={{ color: '#888', textDecoration: 'underline' }}>Privacy Policy</a> · <a href="https://opervo.io/tos" style={{ color: '#888', textDecoration: 'underline' }}>Terms</a>
             </p>
             <button className="btn-primary" onClick={submit} disabled={submitting}>
               {submitting ? 'Sending…' : requestType === 'direct_booking' ? 'Send Booking Request' : 'Send My Quote Request'}
