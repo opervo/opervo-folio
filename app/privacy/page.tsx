@@ -14,15 +14,16 @@ export default function PrivacyPolicy() {
         {[
           ["1. What We Collect","Name, email, business name, job and client data you enter, payment info (processed by Stripe, not stored by us), and device/browser info for analytics."],
           ["2. How We Use It","To provide and improve the service, send transactional emails (welcome, invoices, notifications), and respond to support requests. We do not sell your data."],
-          ["3. Data Storage","Data stored securely via Supabase on AWS servers in the US. Encrypted in transit (HTTPS) and at rest."],
-          ["4. Third Parties","Stripe (payments), Google Calendar (scheduling sync), Resend (email delivery). Each has their own privacy policy. We share only what's needed to provide the service."],
-          ["5. Your Client Data","You are responsible for any client data you enter. We process it on your behalf only to provide the service."],
-          ["6. Data Retention","We keep your data while your account is active. On cancellation, data is retained for 30 days then deleted. You can request deletion at any time by emailing help@opervo.io."],
-          ["7. Your Rights","Access, correct, export, or delete your data at any time. Email help@opervo.io."],
-          ["8. Cookies","We use essential cookies only for authentication and session management. No advertising or tracking cookies."],
-          ["9. Children","Opervo is not intended for users under 18."],
-          ["10. Changes","We will notify you of material changes by email at least 14 days before they take effect."],
-          ["11. Contact","help@opervo.io · opervo.io · Austin, Texas"],
+          ["3. Data Storage & Protection","Your data is stored securely via Supabase on AWS servers in the US. All data is encrypted in transit using TLS/HTTPS and encrypted at rest using AES-256. Access to production systems is restricted to authorized personnel using multi-factor authentication. We perform regular security reviews and follow industry-standard practices to protect sensitive data from unauthorized access, alteration, disclosure, or destruction."],
+          ["4. Third Parties & Data Sharing","We share data only with third-party services required to operate Opervo: Stripe (payment processing), Google Calendar (scheduling sync), Telnyx (SMS notifications), and Resend (email delivery). Each provider receives only the minimum data necessary to perform their function and is governed by their own privacy policy. We do not sell, rent, trade, or otherwise transfer your personal data to any third party for marketing, advertising, or any purpose unrelated to providing the Opervo service."],
+          ["5. Google User Data","Opervo's use of Google Calendar data is limited to reading and writing calendar events for job scheduling sync. We do not share, transfer, or disclose Google user data to any third party. Google data is stored only in your Opervo account and is not used for advertising or any purpose other than providing the scheduling feature you authorized. You can revoke access at any time via your Google Account settings. Opervo's use and transfer of information received from Google APIs adheres to the Google API Services User Data Policy, including the Limited Use requirements."],
+          ["6. Your Client Data","You are responsible for any client data you enter. We process it on your behalf only to provide the service."],
+          ["7. Data Retention","We keep your data while your account is active. On cancellation, data is retained for 30 days then deleted. You can request deletion at any time by emailing help@opervo.io."],
+          ["8. Your Rights","Access, correct, export, or delete your data at any time. Email help@opervo.io."],
+          ["9. Cookies","We use essential cookies only for authentication and session management. No advertising or tracking cookies."],
+          ["10. Children","Opervo is not intended for users under 18."],
+          ["11. Changes","We will notify you of material changes by email at least 14 days before they take effect."],
+          ["12. Contact","help@opervo.io · opervo.io · Austin, Texas"],
         ].map(([title, body]) => (
           <div key={title}>
             <h2 style={{fontFamily:"'Barlow Condensed',sans-serif",fontWeight:800,fontSize:18,color:"#0F0F0F",margin:"40px 0 12px",paddingBottom:8,borderBottom:"1px solid #E8E4DE"}}>
