@@ -580,13 +580,18 @@ function QuoteForm({ profile }: { profile: OperatorProfile }) {
       let photoPath = null
       if (photoFile) {
         const ext      = photoFile.name.split('.').pop()
+        // profile.id is the operator's auth user_id (mapped from profiles.user_id by the RPC)
         const filename = `${profile.id}/${Date.now()}.${ext}`
-        const res = await fetch(`${supabaseUrl}/storage/v1/object/lead-photos/${filename}`, {
+        // quote-photos bucket has public anon-insert RLS — lead-photos doesn't, so uploads to it silently fail
+        const res = await fetch(`${supabaseUrl}/storage/v1/object/quote-photos/${filename}`, {
           method: 'POST',
           headers: { 'Authorization': `Bearer ${supabaseAnon}`, 'Content-Type': photoFile.type },
           body: photoFile,
         })
-        if (res.ok) photoPath = filename
+        if (res.ok) {
+          // store the full public URL so the lead read path doesn't have to reconstruct it
+          photoPath = `${supabaseUrl}/storage/v1/object/public/quote-photos/${filename}`
+        }
       }
 
       const res = await fetch(`${supabaseUrl}/rest/v1/leads`, {
@@ -619,7 +624,8 @@ function QuoteForm({ profile }: { profile: OperatorProfile }) {
 
       if (!res.ok) throw new Error(await res.text())
       setStep(3)
-    } catch {
+    } catch (err) {
+      console.error('Quote form submit failed:', err)
       setError('Something went wrong. Please try calling or texting us directly.')
     } finally {
       setSubmitting(false)
