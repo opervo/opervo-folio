@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { isAdmin } from "@/lib/admin-auth";
 
 const KEY = process.env.STRIPE_SECRET_KEY!;
 const SOLO = process.env.STRIPE_SOLO_PRICE_ID!;
@@ -13,6 +14,9 @@ async function sg(path: string) {
 }
 
 export async function GET() {
+  if (!(await isAdmin())) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
   try {
     const [active, trialing, charges] = await Promise.all([
       sg("subscriptions?status=active&limit=100&expand[]=data.items"),

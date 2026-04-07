@@ -2,8 +2,6 @@
 
 import { useState, useEffect, useCallback } from "react";
 
-const PASS = "opervo2026";
-
 interface StripeData {
   mrr: number;
   activeCount: number;
@@ -123,6 +121,8 @@ const TABS = ["Overview", "Revenue", "Users", "Inbox", "Marketing", "Tasks", "Li
 export default function AdminPage() {
   const [authed, setAuthed] = useState(false);
   const [pw, setPw] = useState("");
+  const [pwError, setPwError] = useState(false);
+  const [authLoading, setAuthLoading] = useState(false);
   const [tab, setTab] = useState("Overview");
   const [stripe, setStripe] = useState<StripeData | null>(null);
   const [users, setUsers] = useState<SupabaseUser[]>([]);
@@ -152,24 +152,42 @@ export default function AdminPage() {
 
   useEffect(() => { if (authed) fetchAll(); }, [authed, fetchAll]);
 
+  const submitLogin = async () => {
+    if (!pw.trim() || authLoading) return;
+    setAuthLoading(true);
+    setPwError(false);
+    try {
+      const res = await fetch("/api/admin/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password: pw }),
+      });
+      if (res.ok) {
+        setAuthed(true);
+        setPw("");
+      } else {
+        setPwError(true);
+      }
+    } catch {
+      setPwError(true);
+    } finally {
+      setAuthLoading(false);
+    }
+  };
+
   const askAI = async () => {
     if (!aiQ.trim()) return;
     setAiLoading(true);
     setAiA("");
-    const context = `Opervo SaaS data — MRR: ${stripe ? fmt$(stripe.mrr) : "unknown"}, Active subscribers: ${stripe?.activeCount ?? "?"}, Trials: ${stripe?.trialCount ?? "?"}, Total users in DB: ${users.length}, Solo plan: $24.99/mo, Team plan: $54.99/mo. Recent users: ${users.slice(0, 5).map(u => u.email).join(", ")}.`;
+    const context = `MRR: ${stripe ? fmt$(stripe.mrr) : "unknown"}, Active subscribers: ${stripe?.activeCount ?? "?"}, Trials: ${stripe?.trialCount ?? "?"}, Solo: ${stripe?.soloCount ?? "?"}, Team: ${stripe?.teamCount ?? "?"}, Total users in DB: ${users.length}. Recent users: ${users.slice(0, 5).map(u => u.email).join(", ")}.`;
     try {
-      const res = await fetch("https://api.anthropic.com/v1/messages", {
+      const res = await fetch("/api/admin/ask", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          model: "claude-sonnet-4-20250514",
-          max_tokens: 400,
-          system: `You are a concise business intelligence assistant for Opervo, a field service management SaaS for solo home service operators. Answer the founder's questions using the data provided. Be direct, specific, and practical. No fluff. Data: ${context}`,
-          messages: [{ role: "user", content: aiQ }],
-        }),
+        body: JSON.stringify({ question: aiQ, context }),
       });
       const data = await res.json();
-      setAiA(data.content?.[0]?.text ?? "No response.");
+      setAiA(data.answer ?? data.error ?? "No response.");
     } catch {
       setAiA("Error reaching AI. Check console.");
     } finally {
@@ -189,14 +207,14 @@ export default function AdminPage() {
             type="password"
             placeholder="Password"
             value={pw}
-            onChange={e => setPw(e.target.value)}
-            onKeyDown={e => e.key === "Enter" && pw === PASS && setAuthed(true)}
+            onChange={e => { setPw(e.target.value); setPwError(false); }}
+            onKeyDown={e => e.key === "Enter" && submitLogin()}
             style={{ width: "100%", padding: "10px 14px", border: "1px solid #E8E4DE", borderRadius: 8, fontSize: 14, color: "#1a1a1a", marginBottom: 12, outline: "none", boxSizing: "border-box" as const }}
           />
-          <button onClick={() => pw === PASS && setAuthed(true)} style={{ width: "100%", padding: 11, background: "#F5620F", color: "#fff", border: "none", borderRadius: 8, fontSize: 14, fontWeight: 600, cursor: "pointer" }}>
-            Enter
+          <button onClick={submitLogin} disabled={authLoading} style={{ width: "100%", padding: 11, background: "#F5620F", color: "#fff", border: "none", borderRadius: 8, fontSize: 14, fontWeight: 600, cursor: authLoading ? "wait" : "pointer", opacity: authLoading ? 0.7 : 1 }}>
+            {authLoading ? "Checking…" : "Enter"}
           </button>
-          {pw && pw !== PASS && <div style={{ fontSize: 12, color: "#991b1b", marginTop: 10 }}>Incorrect password</div>}
+          {pwError && <div style={{ fontSize: 12, color: "#991b1b", marginTop: 10 }}>Incorrect password</div>}
         </div>
       </div>
     );
