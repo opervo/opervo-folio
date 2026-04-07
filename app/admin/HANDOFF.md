@@ -163,8 +163,10 @@ Brand tokens are inlined as hex literals throughout — no Tailwind, no CSS modu
 - **Session cookie is httpOnly** — JS on the page can't read it, so XSS can't steal it.
 - **Cookie value = `ADMIN_SESSION_SECRET`** — anyone who reads the env var can forge a session, but env vars are server-only on Vercel.
 - **All admin API routes call `isAdmin()` first** — no exposed read endpoints.
+- **Constant-time password compare** via `crypto.timingSafeEqual` + 250ms fixed delay on failure (added Apr 7) — closes the timing-oracle vulnerability that let an attacker discover the password byte-by-byte.
+- **`/api/admin/ask` length-caps** question at 2000 chars, context at 4000 chars (added Apr 7) — prevents a leaked admin cookie from draining Anthropic budget via huge prompts.
 - **No CSRF token** — `sameSite: strict` on the cookie blocks cross-site POSTs to `/api/admin/login`. Good enough for a single-user dashboard.
-- **No rate limiting on `/api/admin/login`** — an attacker could brute-force the password. Mitigate by setting a long random `ADMIN_PASSWORD`.
+- **No rate limiting on `/api/admin/login`** — STILL TODO. The 250ms delay slows brute force but doesn't stop it. Add Vercel KV or upstash-ratelimit when you have a moment. Mitigate for now by setting a long random `ADMIN_PASSWORD`.
 
 ---
 
