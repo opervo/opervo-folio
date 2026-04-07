@@ -29,19 +29,13 @@ export async function POST(req: NextRequest) {
 
     const { data: profile } = await supabase
       .from('profiles')
-      .select('owner_name, business_name')
-      .eq('id', userId)
-      .single()
-
-    const { data: opProfile } = await supabase
-      .from('operator_profiles')
-      .select('slug')
+      .select('owner_name, business_name, business_slug')
       .eq('user_id', userId)
       .single()
 
     const ownerName = profile?.owner_name || profile?.business_name || ''
     const firstName = ownerName.split(' ')[0] || 'there'
-    const slug = opProfile?.slug || 'your-slug'
+    const slug = profile?.business_slug || 'your-slug'
 
     const trialEnd = new Date()
     trialEnd.setDate(trialEnd.getDate() + 30)
