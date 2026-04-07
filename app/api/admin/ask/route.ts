@@ -12,6 +12,14 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Missing question" }, { status: 400 });
     }
 
+    // Cap input sizes to prevent a leaked admin cookie from draining Anthropic budget
+    const MAX_QUESTION = 2000;
+    const MAX_CONTEXT = 4000;
+    if (question.length > MAX_QUESTION) {
+      return NextResponse.json({ error: `Question too long (max ${MAX_QUESTION} chars)` }, { status: 400 });
+    }
+    const safeContext = typeof context === "string" ? context.slice(0, MAX_CONTEXT) : "none";
+
     const r = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
       headers: {
@@ -22,7 +30,7 @@ export async function POST(req: Request) {
       body: JSON.stringify({
         model: "claude-sonnet-4-5",
         max_tokens: 500,
-        system: `You are a concise business intelligence assistant for Opervo, a field service management SaaS for solo home service operators (Solo $24.99/mo, Team $54.99/mo). Answer the founder's questions directly using the data provided. Be specific and practical. No fluff. Live data: ${context ?? "none"}`,
+        system: `You are a concise business intelligence assistant for Opervo, a field service management SaaS for solo home service operators (Solo $24.99/mo, Team $54.99/mo). Answer the founder's questions directly using the data provided. Be specific and practical. No fluff. Live data: ${safeContext}`,
         messages: [{ role: "user", content: question }],
       }),
     });

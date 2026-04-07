@@ -94,8 +94,9 @@ export async function POST(req: NextRequest) {
 
     if (insertError) {
       console.error('Supabase insert error:', insertError)
-      // Don't fail the webhook — Stripe will retry
-      return NextResponse.json({ received: true })
+      // Return 500 so Stripe RETRIES — previously returned 200, which silently
+      // dropped paid orders when the DB insert failed.
+      return NextResponse.json({ error: 'Failed to record order — Stripe will retry' }, { status: 500 })
     }
 
     if (!resendKey || !order) {
