@@ -5,11 +5,11 @@ import { QBO_CONFIG, intuitAuthUrl, supabaseAdmin, signState } from '@/lib/qbo'
 export const dynamic = 'force-dynamic'
 
 export async function GET(req: NextRequest) {
-  // ── Auth check ──────────────────────────────────────────
+  // ── Auth check (header only) ────────────────────────────
+  // Previously also accepted token via ?token= query param, which leaks
+  // the bearer token into Vercel access logs and Intuit referer headers.
   const authHeader = req.headers.get('authorization')
-  const tokenFromHeader = authHeader?.startsWith('Bearer ') ? authHeader.replace('Bearer ', '') : null
-  const tokenFromQuery = req.nextUrl.searchParams.get('token')
-  const token = tokenFromHeader || tokenFromQuery
+  const token = authHeader?.startsWith('Bearer ') ? authHeader.replace('Bearer ', '') : null
 
   if (!token) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })

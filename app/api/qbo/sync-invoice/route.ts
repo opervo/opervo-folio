@@ -53,6 +53,22 @@ export async function POST(req: NextRequest) {
     )
   }
 
+  // 0. Verify the job actually belongs to this user BEFORE we hit QBO.
+  // Without this check we'd create a real QBO invoice on a job we then can't
+  // mark as synced (the .eq('user_id') filter would silently no-op).
+  const { data: ownedJob, error: ownedJobErr } = await sb
+    .from('jobs')
+    .select('id')
+    .eq('id', job_id)
+    .eq('user_id', user.id)
+    .maybeSingle()
+  if (ownedJobErr) {
+    return NextResponse.json({ error: 'Database error' }, { status: 500 })
+  }
+  if (!ownedJob) {
+    return NextResponse.json({ error: 'Job not found' }, { status: 404 })
+  }
+
   try {
     // 1. Get valid QBO access token (auto-refreshes if needed)
     const { accessToken, realmId } = await getValidToken(user.id)

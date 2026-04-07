@@ -22,7 +22,7 @@ export async function GET(req: NextRequest) {
     .from('qbo_connections')
     .select('realm_id, company_name, connected_at, last_sync_at, sync_error')
     .eq('user_id', user.id)
-    .single()
+    .maybeSingle()
 
   if (!conn) {
     return NextResponse.json({ connected: false })

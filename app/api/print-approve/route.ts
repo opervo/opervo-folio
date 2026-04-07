@@ -17,9 +17,12 @@ export async function POST(req: NextRequest) {
       .from('print_orders')
       .select('id, status, business_name, owner_name, product_title, qty, email')
       .eq('approval_token', token)
-      .single()
+      .maybeSingle()
 
-    if (fetchError || !order) {
+    if (fetchError) {
+      return NextResponse.json({ error: 'Database error' }, { status: 500 })
+    }
+    if (!order) {
       return NextResponse.json({ error: 'Order not found' }, { status: 404 })
     }
 

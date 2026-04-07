@@ -2,6 +2,21 @@ import { NextRequest, NextResponse } from 'next/server'
 
 export const dynamic = 'force-dynamic'
 
+// Server-side allowlist of valid Stripe price IDs for print products.
+// Without this, a malicious client could POST any price_id (including a $0.50
+// test product) and check out at that price.
+const VALID_PRINT_PRICE_IDS = new Set([
+  'price_1TGBOL3zYC4dB5Z5QIlblqqQ',
+  'price_1TGBOM3zYC4dB5Z5tsptpAxs',
+  'price_1TGBON3zYC4dB5Z51quPhgv4',
+  'price_1TGBOO3zYC4dB5Z59lbUWP3j',
+  'price_1TGBOP3zYC4dB5Z5eqoco7SZ',
+  'price_1TGBOQ3zYC4dB5Z5AbCHqutx',
+  'price_1TGC153zYC4dB5Z5fgba2sYL',
+  'price_1TGC193zYC4dB5Z5MPLlSWVB',
+  'price_1TGC1C3zYC4dB5Z55qX5euA8',
+])
+
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json()
@@ -9,6 +24,9 @@ export async function POST(req: NextRequest) {
 
     if (!priceId || !email || !businessName || !ownerName || !trade || !phone) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
+    }
+    if (!VALID_PRINT_PRICE_IDS.has(priceId)) {
+      return NextResponse.json({ error: 'Invalid product' }, { status: 400 })
     }
 
     const sk = process.env.STRIPE_SECRET_KEY
@@ -53,10 +71,12 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: session?.error?.message || 'Stripe error' }, { status: 500 })
     }
 
-    // Fire-and-forget: notify Opervo via Resend
+    // Notify Opervo via Resend. Previously fire-and-forget without await,
+    // which gets killed when the serverless function returns. Now awaited so
+    // notifications actually send.
     const resendKey = process.env.RESEND_API_KEY
     if (resendKey) {
-      fetch('https://api.resend.com/emails', {
+      await fetch('https://api.resend.com/emails', {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${resendKey}`,

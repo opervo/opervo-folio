@@ -33,7 +33,7 @@ export default async function OrderApprovalPage({
     .from('print_orders')
     .select('id, approval_token, status, product_title, qty, price_paid, color_theme, business_name, owner_name, trade, phone, email, website, notes, approved_at, changes_requested, created_at')
     .eq('approval_token', token)
-    .single()
+    .maybeSingle()
 
   if (error || !order) return notFound()
 

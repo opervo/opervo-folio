@@ -123,9 +123,10 @@ export async function getValidToken(userId: string): Promise<{
     .from('qbo_connections')
     .select('*')
     .eq('user_id', userId)
-    .single()
+    .maybeSingle()
 
-  if (error || !conn) {
+  if (error) throw new Error(`Failed to read QuickBooks connection: ${error.message}`)
+  if (!conn) {
     throw new Error('No QuickBooks connection found. Please connect QuickBooks first.')
   }
 

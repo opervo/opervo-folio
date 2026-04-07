@@ -38,17 +38,23 @@ export async function POST(req: NextRequest) {
   }
 
   // Delete connection from Supabase
-  await sb
+  const { error: deleteErr } = await sb
     .from('qbo_connections')
     .delete()
     .eq('user_id', user.id)
 
-  // Log disconnect
-  await sb.from('qbo_sync_log').insert({
+  if (deleteErr) {
+    console.error('QBO disconnect — failed to delete connection:', deleteErr)
+    return NextResponse.json({ error: 'Failed to disconnect — please try again' }, { status: 500 })
+  }
+
+  // Log disconnect (best effort — connection is already gone)
+  const { error: logErr } = await sb.from('qbo_sync_log').insert({
     user_id: user.id,
     action: 'disconnected',
     payload: {},
   })
+  if (logErr) console.warn('QBO disconnect log insert failed:', logErr)
 
   return NextResponse.json({ success: true })
 }
