@@ -116,6 +116,39 @@ function TodoItem({ text, priority }: { text: string; priority: "high" | "med" |
   );
 }
 
+function EmailRow({ email }: { email: ResendEmail }) {
+  const [hover, setHover] = useState(false);
+  return (
+    <a
+      href={`https://resend.com/emails/${email.id}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      style={{
+        display: "block",
+        padding: "8px 10px",
+        margin: "0 -10px",
+        borderBottom: "1px solid #F3F0EB",
+        textDecoration: "none",
+        color: "inherit",
+        background: hover ? "#F7F5F2" : "transparent",
+        transition: "background 0.12s ease",
+        borderRadius: 6,
+      }}
+    >
+      <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 2 }}>
+        <span style={{ fontSize: 13, color: "#1a1a1a", fontWeight: 500 }}>{email.to?.[0] || "—"}</span>
+        <span style={{ fontSize: 11, color: "#6B6B6B" }}>{timeAgo(email.created_at)}</span>
+      </div>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <span style={{ fontSize: 12, color: "#6B6B6B" }}>{email.subject}</span>
+        <Badge type={email.last_event === "delivered" ? "green" : email.last_event === "bounced" ? "red" : "gray"} label={email.last_event || "sent"} />
+      </div>
+    </a>
+  );
+}
+
 const TABS = ["Overview", "Revenue", "Users", "Inbox", "Marketing", "Tasks", "Links"];
 
 export default function AdminPage() {
@@ -370,16 +403,7 @@ export default function AdminPage() {
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
             <Section title="Resend — recent emails">
               {emails.slice(0, 12).map(e => (
-                <div key={e.id} style={{ padding: "8px 0", borderBottom: "1px solid #F3F0EB" }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 2 }}>
-                    <span style={{ fontSize: 13, color: "#1a1a1a", fontWeight: 500 }}>{e.to?.[0] || "—"}</span>
-                    <span style={{ fontSize: 11, color: "#6B6B6B" }}>{timeAgo(e.created_at)}</span>
-                  </div>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                    <span style={{ fontSize: 12, color: "#6B6B6B" }}>{e.subject}</span>
-                    <Badge type={e.last_event === "delivered" ? "green" : e.last_event === "bounced" ? "red" : "gray"} label={e.last_event || "sent"} />
-                  </div>
-                </div>
+                <EmailRow key={e.id} email={e} />
               ))}
               {emails.length === 0 && <div style={{ fontSize: 13, color: "#6B6B6B" }}>Loading…</div>}
             </Section>
