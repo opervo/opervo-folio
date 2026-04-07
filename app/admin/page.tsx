@@ -8,6 +8,7 @@ interface StripeData {
   trialCount: number;
   soloCount: number;
   teamCount: number;
+  churnedLast30: number;
   recentCharges: { id: string; amount: number; email: string; created: number }[];
 }
 
@@ -27,6 +28,51 @@ interface ResendEmail {
   subject: string;
   created_at: string;
   last_event: string;
+}
+
+interface PostHogData {
+  configured: boolean;
+  events24h?: number;
+  uniqueUsers24h?: number;
+  topEvents7d?: { event: string; count: number }[];
+  error?: string;
+}
+
+interface SentryIssue {
+  id: string;
+  title: string;
+  count: number;
+  userCount: number;
+  level: string;
+  permalink: string;
+}
+interface SentryData {
+  configured: boolean;
+  totalErrors24h?: number;
+  uniqueIssues24h?: number;
+  affectedUsers24h?: number;
+  topIssues?: SentryIssue[];
+  error?: string;
+}
+
+interface HealthProbe {
+  service: string;
+  status: "healthy" | "degraded" | "down" | "unknown";
+  detail?: string;
+  latencyMs?: number;
+}
+interface HealthData {
+  probes: HealthProbe[];
+  checkedAt: string;
+}
+
+interface AdminTask {
+  id: string;
+  text: string;
+  priority: "high" | "med" | "low";
+  category: "week" | "v2" | "other";
+  done: boolean;
+  created_at: string;
 }
 
 function fmt$(n: number) {
@@ -102,16 +148,45 @@ function QLink({ href, label }: { href: string; label: string }) {
   );
 }
 
-function TodoItem({ text, priority }: { text: string; priority: "high" | "med" | "low" }) {
-  const [done, setDone] = useState(false);
+function TaskRow({
+  task,
+  onToggle,
+  onDelete,
+}: {
+  task: AdminTask;
+  onToggle: (id: string, done: boolean) => void;
+  onDelete: (id: string) => void;
+}) {
   const colors = { high: "#fee2e2", med: "#fef3c7", low: "#f3f4f6" };
+  const [hover, setHover] = useState(false);
   return (
-    <div style={{ display: "flex", alignItems: "flex-start", gap: 10, padding: "8px 0", borderBottom: "1px solid #F3F0EB", cursor: "pointer" }} onClick={() => setDone(!done)}>
-      <div style={{ width: 18, height: 18, borderRadius: 5, border: done ? "none" : "1.5px solid #E8E4DE", background: done ? "#F5620F" : "#fff", flexShrink: 0, marginTop: 1, display: "flex", alignItems: "center", justifyContent: "center" }}>
-        {done && <span style={{ color: "#fff", fontSize: 11 }}>✓</span>}
+    <div
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      style={{ display: "flex", alignItems: "flex-start", gap: 10, padding: "8px 0", borderBottom: "1px solid #F3F0EB" }}
+    >
+      <div
+        onClick={() => onToggle(task.id, !task.done)}
+        style={{ width: 18, height: 18, borderRadius: 5, border: task.done ? "none" : "1.5px solid #E8E4DE", background: task.done ? "#F5620F" : "#fff", flexShrink: 0, marginTop: 1, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}
+      >
+        {task.done && <span style={{ color: "#fff", fontSize: 11 }}>✓</span>}
       </div>
-      <span style={{ fontSize: 13, color: done ? "#9CA3AF" : "#1a1a1a", textDecoration: done ? "line-through" : "none", flex: 1 }}>{text}</span>
-      {!done && <span style={{ fontSize: 10, padding: "2px 6px", borderRadius: 4, background: colors[priority], color: "#374151", flexShrink: 0 }}>{priority}</span>}
+      <span
+        onClick={() => onToggle(task.id, !task.done)}
+        style={{ fontSize: 13, color: task.done ? "#9CA3AF" : "#1a1a1a", textDecoration: task.done ? "line-through" : "none", flex: 1, cursor: "pointer" }}
+      >
+        {task.text}
+      </span>
+      {!task.done && <span style={{ fontSize: 10, padding: "2px 6px", borderRadius: 4, background: colors[task.priority], color: "#374151", flexShrink: 0 }}>{task.priority}</span>}
+      {hover && (
+        <button
+          onClick={() => onDelete(task.id)}
+          style={{ background: "transparent", border: "none", color: "#9CA3AF", cursor: "pointer", fontSize: 14, padding: "0 4px" }}
+          title="Delete"
+        >
+          ×
+        </button>
+      )}
     </div>
   );
 }
@@ -160,6 +235,13 @@ export default function AdminPage() {
   const [stripe, setStripe] = useState<StripeData | null>(null);
   const [users, setUsers] = useState<SupabaseUser[]>([]);
   const [emails, setEmails] = useState<ResendEmail[]>([]);
+  const [posthog, setPosthog] = useState<PostHogData | null>(null);
+  const [sentry, setSentry] = useState<SentryData | null>(null);
+  const [health, setHealth] = useState<HealthData | null>(null);
+  const [tasks, setTasks] = useState<AdminTask[]>([]);
+  const [newTaskText, setNewTaskText] = useState("");
+  const [newTaskPriority, setNewTaskPriority] = useState<"high" | "med" | "low">("med");
+  const [newTaskCategory, setNewTaskCategory] = useState<"week" | "v2">("week");
   const [loading, setLoading] = useState(false);
   const [lastRefresh, setLastRefresh] = useState<Date | null>(null);
   const [aiQ, setAiQ] = useState("");
@@ -169,19 +251,58 @@ export default function AdminPage() {
   const fetchAll = useCallback(async () => {
     setLoading(true);
     try {
-      const [stripeRes, usersRes, emailsRes] = await Promise.allSettled([
+      const [stripeRes, usersRes, emailsRes, posthogRes, sentryRes, healthRes, tasksRes] = await Promise.allSettled([
         fetch("/api/admin/stripe"),
         fetch("/api/admin/users"),
         fetch("/api/admin/emails"),
+        fetch("/api/admin/posthog"),
+        fetch("/api/admin/sentry"),
+        fetch("/api/admin/health"),
+        fetch("/api/admin/tasks"),
       ]);
       if (stripeRes.status === "fulfilled" && stripeRes.value.ok) setStripe(await stripeRes.value.json());
       if (usersRes.status === "fulfilled" && usersRes.value.ok) setUsers(await usersRes.value.json());
       if (emailsRes.status === "fulfilled" && emailsRes.value.ok) setEmails(await emailsRes.value.json());
+      if (posthogRes.status === "fulfilled" && posthogRes.value.ok) setPosthog(await posthogRes.value.json());
+      if (sentryRes.status === "fulfilled" && sentryRes.value.ok) setSentry(await sentryRes.value.json());
+      if (healthRes.status === "fulfilled" && healthRes.value.ok) setHealth(await healthRes.value.json());
+      if (tasksRes.status === "fulfilled" && tasksRes.value.ok) {
+        const data = await tasksRes.value.json();
+        setTasks(data.tasks ?? []);
+      }
       setLastRefresh(new Date());
     } finally {
       setLoading(false);
     }
   }, []);
+
+  const toggleTask = async (id: string, done: boolean) => {
+    setTasks((prev) => prev.map((t) => (t.id === id ? { ...t, done } : t)));
+    await fetch("/api/admin/tasks", {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id, done }),
+    });
+  };
+
+  const deleteTask = async (id: string) => {
+    setTasks((prev) => prev.filter((t) => t.id !== id));
+    await fetch(`/api/admin/tasks?id=${id}`, { method: "DELETE" });
+  };
+
+  const addTask = async () => {
+    if (!newTaskText.trim()) return;
+    const res = await fetch("/api/admin/tasks", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text: newTaskText.trim(), priority: newTaskPriority, category: newTaskCategory }),
+    });
+    if (res.ok) {
+      const { task } = await res.json();
+      setTasks((prev) => [...prev, task]);
+      setNewTaskText("");
+    }
+  };
 
   useEffect(() => { if (authed) fetchAll(); }, [authed, fetchAll]);
 
@@ -284,11 +405,33 @@ export default function AdminPage() {
         {/* OVERVIEW */}
         {tab === "Overview" && (
           <div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, minmax(0,1fr))", gap: 12, marginBottom: 20 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, minmax(0,1fr))", gap: 12, marginBottom: 12 }}>
               <StatCard label="MRR" value={fmt$(mrr)} sub={`ARR: $${((mrr * 12) / 100).toFixed(0)}`} accent />
               <StatCard label="Active users" value={String(stripe?.activeCount ?? "—")} sub="paid subscribers" />
               <StatCard label="Trial users" value={String(stripe?.trialCount ?? "—")} sub="30-day window" />
-              <StatCard label="Churn" value="0" sub="no cancellations" />
+              <StatCard label="Churn (30d)" value={String(stripe?.churnedLast30 ?? "—")} sub="canceled subs" />
+            </div>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, minmax(0,1fr))", gap: 12, marginBottom: 20 }}>
+              <StatCard
+                label="DAU (24h)"
+                value={posthog?.configured ? String(posthog.uniqueUsers24h ?? "—") : "—"}
+                sub={posthog?.configured ? `${posthog.events24h ?? 0} events` : "PostHog not configured"}
+              />
+              <StatCard
+                label="Errors (24h)"
+                value={sentry?.configured ? String(sentry.totalErrors24h ?? "—") : "—"}
+                sub={sentry?.configured ? `${sentry.uniqueIssues24h ?? 0} unique` : "Sentry not configured"}
+              />
+              <StatCard
+                label="Affected users"
+                value={sentry?.configured ? String(sentry.affectedUsers24h ?? "—") : "—"}
+                sub="hit by an error"
+              />
+              <StatCard
+                label="Total signups"
+                value={String(users.length)}
+                sub="all-time in DB"
+              />
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 16 }}>
               <Section title="Recent signups">
@@ -298,14 +441,51 @@ export default function AdminPage() {
                 {users.length === 0 && <div style={{ fontSize: 13, color: "#6B6B6B" }}>Loading…</div>}
               </Section>
               <Section title="System health">
-                <Row left="Supabase DB" right={<Badge type="green" label="Healthy" />} />
-                <Row left="Stripe" right={<Badge type="green" label="Live mode" />} />
-                <Row left="Resend email" right={<Badge type="green" label="Delivering" />} />
-                <Row left="Google OAuth" right={<Badge type="amber" label="Pending verify" />} />
-                <Row left="Netlify (app)" right={<Badge type="green" label="Auto-deploy on" />} />
-                <Row left="Vercel (folio)" right={<Badge type="green" label="Auto-deploy on" />} />
+                {health?.probes.map((p) => {
+                  const badgeType: "green" | "amber" | "red" | "gray" =
+                    p.status === "healthy" ? "green" :
+                    p.status === "degraded" ? "amber" :
+                    p.status === "down" ? "red" : "gray";
+                  const label = p.status === "healthy"
+                    ? `${p.detail || "OK"}${p.latencyMs ? ` · ${p.latencyMs}ms` : ""}`
+                    : p.detail || p.status;
+                  return <Row key={p.service} left={p.service} right={<Badge type={badgeType} label={label} />} />;
+                })}
+                {!health && <div style={{ fontSize: 13, color: "#6B6B6B" }}>Probing…</div>}
+                {health && (
+                  <div style={{ marginTop: 10, fontSize: 11, color: "#9CA3AF" }}>
+                    Last checked {new Date(health.checkedAt).toLocaleTimeString()}
+                  </div>
+                )}
               </Section>
             </div>
+            {posthog?.configured && posthog.topEvents7d && posthog.topEvents7d.length > 0 && (
+              <div style={{ marginBottom: 16 }}>
+                <Section title="Top events (last 7 days)">
+                  {posthog.topEvents7d.map((e) => (
+                    <Row key={e.event} left={e.event} right={<span style={{ fontSize: 13, fontWeight: 600, color: "#1a1a1a" }}>{e.count}</span>} />
+                  ))}
+                </Section>
+              </div>
+            )}
+            {sentry?.configured && sentry.topIssues && sentry.topIssues.length > 0 && (
+              <div style={{ marginBottom: 16 }}>
+                <Section title="Top errors (last 24h)">
+                  {sentry.topIssues.map((i) => (
+                    <Row
+                      key={i.id}
+                      left={i.title}
+                      sub={`${i.count} events · ${i.userCount} users`}
+                      right={
+                        <a href={i.permalink} target="_blank" rel="noopener noreferrer" style={{ fontSize: 12, color: "#F5620F", textDecoration: "none" }}>
+                          View →
+                        </a>
+                      }
+                    />
+                  ))}
+                </Section>
+              </div>
+            )}
             <Section title="Ask the command center">
               <div style={{ display: "flex", gap: 8, marginBottom: aiA ? 12 : 0 }}>
                 <input value={aiQ} onChange={e => setAiQ(e.target.value)} onKeyDown={e => e.key === "Enter" && askAI()} placeholder="e.g. which trials expire this week? What's ARR if all trials convert?" style={{ flex: 1, padding: "9px 14px", border: "1px solid #E8E4DE", borderRadius: 8, fontSize: 13, color: "#1a1a1a", background: "#F7F5F2", outline: "none" }} />
@@ -464,27 +644,54 @@ export default function AdminPage() {
 
         {/* TASKS */}
         {tab === "Tasks" && (
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
-            <Section title="This week">
-              <TodoItem text="Follow up Google OAuth verification email" priority="high" />
-              <TodoItem text="Test invoice Resend email end to end" priority="high" />
-              <TodoItem text="Investigate invoice email bug (Dustin)" priority="high" />
-              <TodoItem text="Film first 3 TikTok videos" priority="med" />
-              <TodoItem text="Wire Beehiiv waitlist to landing page" priority="med" />
-              <TodoItem text="Upload orange PWA icons (#F5620F)" priority="med" />
-              <TodoItem text="Delete test data from Supabase" priority="low" />
-              <TodoItem text="Regenerate GitHub token (30-day)" priority="low" />
-            </Section>
-            <Section title="V2 pipeline">
-              <TodoItem text="D2D canvassing map — begin Lovable build" priority="high" />
-              <TodoItem text="Onboarding wow flow — folio reveal screen" priority="high" />
-              <TodoItem text="AI invoice/job creation (Claude API)" priority="med" />
-              <TodoItem text="Gelato print-on-demand integration spec" priority="med" />
-              <TodoItem text="SEO Tier 1 landing pages (8 pages)" priority="med" />
-              <TodoItem text="Affiliate program structure + launch" priority="low" />
-              <TodoItem text="Annual plan pricing lever" priority="low" />
-              <TodoItem text="Recurring jobs feature" priority="low" />
-            </Section>
+          <div>
+            <div style={{ display: "flex", gap: 8, marginBottom: 16, padding: "12px 14px", background: "#fff", border: "1px solid #E8E4DE", borderRadius: 12 }}>
+              <input
+                value={newTaskText}
+                onChange={(e) => setNewTaskText(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && addTask()}
+                placeholder="Add a new task…"
+                style={{ flex: 1, padding: "9px 14px", border: "1px solid #E8E4DE", borderRadius: 8, fontSize: 13, color: "#1a1a1a", background: "#F7F5F2", outline: "none" }}
+              />
+              <select
+                value={newTaskCategory}
+                onChange={(e) => setNewTaskCategory(e.target.value as "week" | "v2")}
+                style={{ padding: "9px 12px", border: "1px solid #E8E4DE", borderRadius: 8, fontSize: 13, background: "#fff", color: "#1a1a1a" }}
+              >
+                <option value="week">This week</option>
+                <option value="v2">V2 pipeline</option>
+              </select>
+              <select
+                value={newTaskPriority}
+                onChange={(e) => setNewTaskPriority(e.target.value as "high" | "med" | "low")}
+                style={{ padding: "9px 12px", border: "1px solid #E8E4DE", borderRadius: 8, fontSize: 13, background: "#fff", color: "#1a1a1a" }}
+              >
+                <option value="high">High</option>
+                <option value="med">Med</option>
+                <option value="low">Low</option>
+              </select>
+              <button onClick={addTask} style={{ padding: "9px 18px", background: "#F5620F", color: "#fff", border: "none", borderRadius: 8, fontSize: 13, fontWeight: 600, cursor: "pointer" }}>
+                Add
+              </button>
+            </div>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+              <Section title="This week">
+                {tasks.filter((t) => t.category === "week").map((t) => (
+                  <TaskRow key={t.id} task={t} onToggle={toggleTask} onDelete={deleteTask} />
+                ))}
+                {tasks.filter((t) => t.category === "week").length === 0 && (
+                  <div style={{ fontSize: 13, color: "#6B6B6B" }}>{tasks.length === 0 ? "Loading…" : "No tasks. Add one above."}</div>
+                )}
+              </Section>
+              <Section title="V2 pipeline">
+                {tasks.filter((t) => t.category === "v2").map((t) => (
+                  <TaskRow key={t.id} task={t} onToggle={toggleTask} onDelete={deleteTask} />
+                ))}
+                {tasks.filter((t) => t.category === "v2").length === 0 && (
+                  <div style={{ fontSize: 13, color: "#6B6B6B" }}>{tasks.length === 0 ? "Loading…" : "No tasks. Add one above."}</div>
+                )}
+              </Section>
+            </div>
           </div>
         )}
 
