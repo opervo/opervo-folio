@@ -40,7 +40,7 @@ Opervo has **two completely separate sites** on **two different platforms**. The
 
 ## Backend
 
-- **Supabase:** cbbvfxjkdotudgzwfmzv.supabase.co — database, auth, edge functions, storage
+- **Supabase:** sbnykmxckfwkkxvhrkot.supabase.co — database, auth, edge functions, storage
 - **Stripe:** Payments — Solo $24.99/mo, Team $54.99/mo — webhook at supabase edge function
 - **Resend:** welcome@opervo.io — triggered by send-welcome-email edge function on signup
 - **Google Calendar OAuth:** Job scheduling sync

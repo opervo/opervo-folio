@@ -18,11 +18,11 @@ export const DEMO_PROFILE: OperatorProfile = {
   tagline: 'Window · Solar Panel · Pressure Washing',
   location: 'Austin, Texas',
   phone: '9565594918',
-  hero_photo_url: 'https://cbbvfxjkdotudgzwfmzv.supabase.co/storage/v1/object/public/portfolio-photos/ead402ba-267b-4802-b184-99ada754dc81.jpeg',
+  hero_photo_url: 'https://sbnykmxckfwkkxvhrkot.supabase.co/storage/v1/object/public/portfolio-photos/ead402ba-267b-4802-b184-99ada754dc81.jpeg',
   gallery_photos: [
-    'https://cbbvfxjkdotudgzwfmzv.supabase.co/storage/v1/object/public/portfolio-photos/ead402ba-267b-4802-b184-99ada754dc81.jpeg',
-    'https://cbbvfxjkdotudgzwfmzv.supabase.co/storage/v1/object/public/portfolio-photos/62fa9863-fe3d-4723-a634-cbd1bd7ab0b0.png',
-    'https://cbbvfxjkdotudgzwfmzv.supabase.co/storage/v1/object/public/portfolio-photos/ead402ba-267b-4802-b184-99ada754dc81.jpeg',
+    'https://sbnykmxckfwkkxvhrkot.supabase.co/storage/v1/object/public/portfolio-photos/ead402ba-267b-4802-b184-99ada754dc81.jpeg',
+    'https://sbnykmxckfwkkxvhrkot.supabase.co/storage/v1/object/public/portfolio-photos/62fa9863-fe3d-4723-a634-cbd1bd7ab0b0.png',
+    'https://sbnykmxckfwkkxvhrkot.supabase.co/storage/v1/object/public/portfolio-photos/ead402ba-267b-4802-b184-99ada754dc81.jpeg',
   ],
   services: [
     { id: '1', name: 'Window Cleaning',      description: 'Interior & exterior · all heights · streak-free finish', icon: '🪟', price_from: 89  },
