@@ -1,10 +1,25 @@
 import { NextResponse } from "next/server";
 import { isAdmin } from "@/lib/admin-auth";
 
+// M22: in-process rolling rate limit. Doesn't survive restarts but is enough
+// to bound damage from a leaked admin cookie firing requests in a tight loop.
+// Vercel hot instances retain this for several minutes.
+const RATE_WINDOW_MS = 60_000;
+const RATE_MAX = 20;
+const askHits: number[] = [];
+
 export async function POST(req: Request) {
   if (!(await isAdmin())) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
+
+  // Drop expired hits from the rolling window
+  const now = Date.now();
+  while (askHits.length && now - askHits[0] > RATE_WINDOW_MS) askHits.shift();
+  if (askHits.length >= RATE_MAX) {
+    return NextResponse.json({ error: "Too many requests — slow down" }, { status: 429 });
+  }
+  askHits.push(now);
 
   try {
     const { question, context } = await req.json();

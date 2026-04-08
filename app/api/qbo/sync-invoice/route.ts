@@ -109,9 +109,11 @@ export async function POST(req: NextRequest) {
       ],
     }
 
+    // M21: pass requestid for QBO idempotency. If the network blips and the
+    // user retries, QBO returns the same invoice instead of creating a duplicate.
     const invoiceResult = await qboApiFetch(
       'POST',
-      '/invoice',
+      `/invoice?requestid=${encodeURIComponent(`opervo-${job_id}`)}`,
       accessToken,
       realmId,
       invoicePayload

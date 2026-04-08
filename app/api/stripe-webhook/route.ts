@@ -4,6 +4,18 @@ import { buildProofEmail } from '@/lib/proof-email'
 
 export const dynamic = 'force-dynamic'
 
+// HTML escape — prevents stored XSS in the internal notification email body
+const esc = (s: any) =>
+  String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;')
+
+// Constant-time hex compare so the signature check doesn't leak timing info
+function constantTimeEqualHex(a: string, b: string): boolean {
+  if (a.length !== b.length) return false
+  let mismatch = 0
+  for (let i = 0; i < a.length; i++) mismatch |= a.charCodeAt(i) ^ b.charCodeAt(i)
+  return mismatch === 0
+}
+
 // Stripe minimal signature verification (no stripe npm package needed)
 async function verifyStripeSignature(payload: string, sigHeader: string, secret: string): Promise<boolean> {
   const parts = sigHeader.split(',').reduce<Record<string, string>>((acc, part) => {
@@ -27,7 +39,7 @@ async function verifyStripeSignature(payload: string, sigHeader: string, secret:
   const mac = await crypto.subtle.sign('HMAC', key, encoder.encode(signedPayload))
   const expected = Array.from(new Uint8Array(mac)).map(b => b.toString(16).padStart(2, '0')).join('')
 
-  return expected === signature
+  return constantTimeEqualHex(expected, signature)
 }
 
 export async function POST(req: NextRequest) {
@@ -45,7 +57,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Invalid signature' }, { status: 400 })
   }
 
-  let event: { type: string; data: { object: Record<string, unknown> } }
+  let event: { id: string; type: string; data: { object: Record<string, unknown> } }
   try {
     event = JSON.parse(payload)
   } catch {
@@ -54,6 +66,21 @@ export async function POST(req: NextRequest) {
 
   if (event.type !== 'checkout.session.completed') {
     return NextResponse.json({ received: true })
+  }
+
+  // H5: idempotency. Stripe retries on any 5xx or network blip — without dedupe,
+  // every retry inserted a duplicate print order and re-sent the proof email.
+  try {
+    const dedupeDb = getSupabaseServer()
+    const { error: dedupeErr } = await dedupeDb
+      .from('stripe_webhook_events')
+      .insert({ event_id: event.id, type: event.type, source: 'folio' })
+    if (dedupeErr && (dedupeErr as { code?: string }).code === '23505') {
+      console.log('[stripe-webhook] duplicate event short-circuited', event.id)
+      return NextResponse.json({ received: true, dedupe: true })
+    }
+  } catch (e) {
+    console.error('[stripe-webhook] dedupe failed (continuing):', e)
   }
 
   const session = event.data.object as {
@@ -145,19 +172,19 @@ export async function POST(req: NextRequest) {
         html: `
           <h2 style="font-family:sans-serif;">Payment Confirmed — Ready to Design</h2>
           <table style="border-collapse:collapse;font-family:sans-serif;font-size:14px;">
-            <tr><td style="padding:6px 16px 6px 0;color:#6B6B6B;font-weight:600;">Product</td><td>${order.qty.toLocaleString()} × ${order.product_title}</td></tr>
-            <tr><td style="padding:6px 16px 6px 0;color:#6B6B6B;font-weight:600;">Business</td><td>${order.business_name}</td></tr>
-            <tr><td style="padding:6px 16px 6px 0;color:#6B6B6B;font-weight:600;">Owner</td><td>${order.owner_name}</td></tr>
-            <tr><td style="padding:6px 16px 6px 0;color:#6B6B6B;font-weight:600;">Trade</td><td>${order.trade}</td></tr>
-            <tr><td style="padding:6px 16px 6px 0;color:#6B6B6B;font-weight:600;">Phone</td><td>${order.phone}</td></tr>
-            <tr><td style="padding:6px 16px 6px 0;color:#6B6B6B;font-weight:600;">Email</td><td>${order.email}</td></tr>
-            <tr><td style="padding:6px 16px 6px 0;color:#6B6B6B;font-weight:600;">Website</td><td>${order.website || '—'}</td></tr>
-            <tr><td style="padding:6px 16px 6px 0;color:#6B6B6B;font-weight:600;">Color Theme</td><td>${order.color_theme}</td></tr>
-            <tr><td style="padding:6px 16px 6px 0;color:#6B6B6B;font-weight:600;">Notes</td><td>${order.notes || '—'}</td></tr>
+            <tr><td style="padding:6px 16px 6px 0;color:#6B6B6B;font-weight:600;">Product</td><td>${order.qty.toLocaleString()} × ${esc(order.product_title)}</td></tr>
+            <tr><td style="padding:6px 16px 6px 0;color:#6B6B6B;font-weight:600;">Business</td><td>${esc(order.business_name)}</td></tr>
+            <tr><td style="padding:6px 16px 6px 0;color:#6B6B6B;font-weight:600;">Owner</td><td>${esc(order.owner_name)}</td></tr>
+            <tr><td style="padding:6px 16px 6px 0;color:#6B6B6B;font-weight:600;">Trade</td><td>${esc(order.trade)}</td></tr>
+            <tr><td style="padding:6px 16px 6px 0;color:#6B6B6B;font-weight:600;">Phone</td><td>${esc(order.phone)}</td></tr>
+            <tr><td style="padding:6px 16px 6px 0;color:#6B6B6B;font-weight:600;">Email</td><td>${esc(order.email)}</td></tr>
+            <tr><td style="padding:6px 16px 6px 0;color:#6B6B6B;font-weight:600;">Website</td><td>${esc(order.website) || '—'}</td></tr>
+            <tr><td style="padding:6px 16px 6px 0;color:#6B6B6B;font-weight:600;">Color Theme</td><td>${esc(order.color_theme)}</td></tr>
+            <tr><td style="padding:6px 16px 6px 0;color:#6B6B6B;font-weight:600;">Notes</td><td>${esc(order.notes) || '—'}</td></tr>
             <tr><td style="padding:6px 16px 6px 0;color:#6B6B6B;font-weight:600;">Amount Paid</td><td>$${order.price_paid.toFixed(2)}</td></tr>
           </table>
           <p style="margin-top:20px;color:#6B6B6B;font-size:13px;">Proof email sent to customer. Waiting for approval.</p>
-          <p><a href="https://opervo.io/print/order/${order.approval_token}" style="color:#F5620F;">View order page →</a></p>
+          <p><a href="https://opervo.io/print/order/${esc(order.approval_token)}" style="color:#F5620F;">View order page →</a></p>
         `,
       }),
     })
