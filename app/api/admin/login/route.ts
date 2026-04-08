@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { timingSafeEqual } from "crypto";
-import { ADMIN_COOKIE } from "@/lib/admin-auth";
+import { ADMIN_COOKIE, signAdminToken } from "@/lib/admin-auth";
 
 /**
  * Constant-time string comparison.
@@ -29,13 +29,17 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Server not configured" }, { status: 500 });
     }
     if (typeof password !== "string" || !safeEqual(password, expected)) {
-      // Small fixed delay to make brute force noisier than instant 401s
-      await new Promise((r) => setTimeout(r, 250));
+      // Random jitter delay so attackers can't time the response to detect success
+      const jitter = 200 + Math.floor(Math.random() * 300);
+      await new Promise((r) => setTimeout(r, jitter));
       return NextResponse.json({ ok: false }, { status: 401 });
     }
 
+    // Issue an HMAC-signed session token (NOT the raw secret) so a leaked cookie
+    // can't be reused as a permanent backdoor.
+    const token = signAdminToken(secret);
     const c = await cookies();
-    c.set(ADMIN_COOKIE, secret, {
+    c.set(ADMIN_COOKIE, token, {
       httpOnly: true,
       secure: true,
       sameSite: "strict",
