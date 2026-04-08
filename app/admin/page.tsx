@@ -588,7 +588,7 @@ export default function AdminPage() {
               {emails.length === 0 && <div style={{ fontSize: 13, color: "#6B6B6B" }}>Loading…</div>}
             </Section>
             <Section title="Support priorities">
-              <Row left="Google Calendar connection" sub="OAuth pending Google verify" right={<Badge type="amber" label="Known issue" />} />
+              <Row left="Google Calendar connection" sub="OAuth verified by Google" right={<Badge type="green" label="Live" />} />
               <Row left="Invoice email delivery" sub="Monitor via Resend logs" right={<Badge type="blue" label="Watch" />} />
               <Row left="Recurring jobs" sub="Feature request — V2 candidate" right={<Badge type="gray" label="Backlog" />} />
               <div style={{ marginTop: 14 }}>
