@@ -136,6 +136,13 @@ function Hero({ profile }: { profile: OperatorProfile }) {
             {profile.location}
           </div>
         )}
+        {profile.logo_url && (
+          <img
+            className="hero-logo"
+            src={profile.logo_url}
+            alt={`${profile.business_name} logo`}
+          />
+        )}
         <div className="hero-name">
           {firstName}
           {lastWord && <em>{lastWord}</em>}
@@ -1068,6 +1075,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .hero-body{position:absolute;bottom:0;left:0;right:0;padding:0 var(--px) 36px;z-index:10;animation:fadeUp 0.8s 0.3s cubic-bezier(0.22,1,0.36,1) both}
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 .hero-location{display:flex;align-items:center;gap:5px;font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:10px}
+.hero-logo{width:64px;height:64px;border-radius:14px;object-fit:cover;border:2px solid rgba(255,255,255,0.3);margin-bottom:14px;box-shadow:0 4px 20px rgba(0,0,0,0.3)}
 .hero-name{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:58px;line-height:0.9;letter-spacing:-0.02em;color:#ffffff;margin-bottom:4px}
 .hero-name em{display:block;font-style:italic;font-weight:400;color:rgba(255,255,255,0.75);font-size:46px}
 .hero-divider{width:36px;height:1.5px;background:var(--teal-mid);margin:16px 0}

@@ -3,6 +3,7 @@ export interface OperatorProfile {
   slug: string
   business_name: string
   tagline: string | null
+  logo_url: string | null
   location: string | null
   phone: string | null
   hero_photo_url: string | null
