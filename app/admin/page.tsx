@@ -39,7 +39,7 @@ interface ActivationData {
 }
 interface AdminTask {
   id: string; text: string; priority: "high" | "med" | "low";
-  category: "week" | "v2" | "other"; done: boolean; created_at: string;
+  category: "week" | "v2" | "marketing" | "other"; done: boolean; created_at: string;
 }
 
 /* ────── Helpers ────── */
@@ -237,7 +237,7 @@ export default function AdminPage() {
   const [tasks, setTasks] = useState<AdminTask[]>([]);
   const [newTaskText, setNewTaskText] = useState("");
   const [newTaskPriority, setNewTaskPriority] = useState<"high" | "med" | "low">("med");
-  const [newTaskCategory, setNewTaskCategory] = useState<"week" | "v2">("week");
+  const [newTaskCategory, setNewTaskCategory] = useState<"week" | "v2" | "marketing">("week");
   const [loading, setLoading] = useState(false);
   const [lastRefresh, setLastRefresh] = useState<Date | null>(null);
   const [activation, setActivation] = useState<ActivationData | null>(null);
@@ -727,8 +727,8 @@ export default function AdminPage() {
           <>
             {/* Add marketing task */}
             <div style={{ display: "flex", gap: 10, marginBottom: 20, alignItems: "center" }}>
-              <input value={newTaskCategory === "marketing" ? newTaskText : ""} onChange={e => { setNewTaskCategory("marketing" as any); setNewTaskText(e.target.value); }}
-                onKeyDown={e => { if (e.key === "Enter") { setNewTaskCategory("marketing" as any); addTask(); } }}
+              <input value={newTaskCategory === "marketing" ? newTaskText : ""} onChange={e => { setNewTaskCategory("marketing"); setNewTaskText(e.target.value); }}
+                onKeyDown={e => { if (e.key === "Enter") { setNewTaskCategory("marketing"); addTask(); } }}
                 placeholder="Add content pipeline item..."
                 style={{ flex: 1, padding: "10px 14px", border: `1px solid ${C.border}`, borderRadius: 10, fontSize: 13, color: C.text, background: "rgba(255,255,255,0.03)", outline: "none" }} />
               <select value={newTaskPriority} onChange={e => setNewTaskPriority(e.target.value as "high" | "med" | "low")}
@@ -737,15 +737,15 @@ export default function AdminPage() {
                 <option value="med">In progress</option>
                 <option value="low">Planned</option>
               </select>
-              <button onClick={() => { setNewTaskCategory("marketing" as any); addTask(); }} style={{ padding: "10px 20px", background: C.accent, color: "#fff", border: "none", borderRadius: 10, fontSize: 13, fontWeight: 700, cursor: "pointer" }}>Add</button>
+              <button onClick={() => { setNewTaskCategory("marketing"); addTask(); }} style={{ padding: "10px 20px", background: C.accent, color: "#fff", border: "none", borderRadius: 10, fontSize: 13, fontWeight: 700, cursor: "pointer" }}>Add</button>
             </div>
 
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
               <Section title="Content pipeline">
-                {tasks.filter(t => (t.category as string) === "marketing").length === 0 && (
+                {tasks.filter(t => t.category === "marketing").length === 0 && (
                   <div style={{ fontSize: 13, color: C.textMuted, padding: 8 }}>No pipeline items. Add one above.</div>
                 )}
-                {tasks.filter(t => (t.category as string) === "marketing").map(t => {
+                {tasks.filter(t => t.category === "marketing").map(t => {
                   const statusLabel = t.done ? "Done" : t.priority === "high" ? "Active" : t.priority === "med" ? "In progress" : "Planned";
                   const badgeType = t.done ? "green" as const : t.priority === "high" ? "accent" as const : t.priority === "med" ? "amber" as const : "gray" as const;
                   return (
