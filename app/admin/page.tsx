@@ -13,7 +13,7 @@ interface StripeData {
   recentCharges: { id: string; amount: number; email: string; created: number }[];
 }
 interface SupabaseUser {
-  id: string; email: string; created_at: string;
+  id: string; email: string; created_at: string; trial_start_date?: string;
   first_name?: string; business_name?: string; slug?: string; plan?: string;
 }
 interface ResendEmail {
@@ -512,7 +512,7 @@ export default function AdminPage() {
               <StatCard label="Solo subscribers" value={String(stripe?.soloCount ?? 0)} sub="$24.99/mo" />
               <StatCard label="Team subscribers" value={String(stripe?.teamCount ?? 0)} sub="$54.99/mo" />
             </div>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14, marginBottom: 14 }}>
               <Section title="Recent charges">
                 {stripe?.recentCharges?.slice(0, 12).map(ch => (
                   <Row key={ch.id} left={ch.email} right={<span style={{ fontSize: 14, fontWeight: 700, color: C.green }}>{fmt$(ch.amount)}</span>} sub={timeAgo(ch.created)} />
@@ -531,6 +531,58 @@ export default function AdminPage() {
                 </div>
               </Section>
             </div>
+
+            {/* Trial expiration timeline */}
+            <Section title="Trial expiration timeline">
+              {(() => {
+                const trials = users
+                  .filter(u => u.plan === "trialing" && u.trial_start_date)
+                  .map(u => {
+                    const start = new Date(u.trial_start_date!).getTime();
+                    const expiry = start + 30 * 86400000;
+                    const daysLeft = Math.max(0, Math.ceil((expiry - Date.now()) / 86400000));
+                    return { ...u, expiry, daysLeft };
+                  })
+                  .sort((a, b) => a.daysLeft - b.daysLeft);
+
+                if (trials.length === 0) return <div style={{ fontSize: 13, color: C.textMuted, padding: 8 }}>No active trials</div>;
+
+                return trials.map(t => (
+                  <div key={t.id} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "10px 0", borderBottom: `1px solid ${C.borderLight}` }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                      <div style={{
+                        width: 32, height: 32, borderRadius: 8,
+                        background: t.daysLeft <= 5 ? "rgba(239,68,68,0.15)" : t.daysLeft <= 14 ? "rgba(245,158,11,0.15)" : "rgba(34,197,94,0.15)",
+                        display: "flex", alignItems: "center", justifyContent: "center",
+                        fontSize: 11, fontWeight: 700,
+                        color: t.daysLeft <= 5 ? C.red : t.daysLeft <= 14 ? C.amber : C.green,
+                      }}>
+                        {initials(t.first_name || t.business_name, t.email)}
+                      </div>
+                      <div>
+                        <div style={{ fontSize: 13, fontWeight: 600, color: C.text }}>{t.business_name || t.first_name || t.email.split("@")[0]}</div>
+                        <div style={{ fontSize: 11, color: C.textMuted }}>{t.email}</div>
+                      </div>
+                    </div>
+                    <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                      <div style={{
+                        width: 60, height: 4, borderRadius: 2, background: C.border, overflow: "hidden",
+                      }}>
+                        <div style={{
+                          height: "100%", borderRadius: 2,
+                          width: `${Math.max(3, (t.daysLeft / 30) * 100)}%`,
+                          background: t.daysLeft <= 5 ? C.red : t.daysLeft <= 14 ? C.amber : C.green,
+                        }} />
+                      </div>
+                      <Badge
+                        type={t.daysLeft <= 5 ? "red" : t.daysLeft <= 14 ? "amber" : "green"}
+                        label={t.daysLeft === 0 ? "Expired" : `${t.daysLeft}d left`}
+                      />
+                    </div>
+                  </div>
+                ));
+              })()}
+            </Section>
           </>
         )}
 

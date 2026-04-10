@@ -8,6 +8,7 @@ interface ProfileRow {
   business_name: string | null;
   business_slug: string | null;
   subscription_status: string | null;
+  trial_start_date: string | null;
   created_at: string;
   email: string | null;
 }
@@ -24,7 +25,7 @@ export async function GET() {
 
     const { data: profiles, error } = await supabase
       .from("profiles")
-      .select("user_id, owner_name, business_name, business_slug, subscription_status, created_at, email")
+      .select("user_id, owner_name, business_name, business_slug, subscription_status, trial_start_date, created_at, email")
       .order("created_at", { ascending: false })
       .limit(200);
 
@@ -41,6 +42,7 @@ export async function GET() {
       business_name: p.business_name ?? "",
       slug: p.business_slug ?? "",
       plan: p.subscription_status ?? "trialing",
+      trial_start_date: p.trial_start_date ?? p.created_at,
       created_at: p.created_at,
       email: p.email || emailMap[p.user_id] || "—",
     }));
