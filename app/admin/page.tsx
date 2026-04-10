@@ -33,6 +33,10 @@ interface HealthProbe {
   detail?: string; latencyMs?: number;
 }
 interface HealthData { probes: HealthProbe[]; checkedAt: string }
+interface ActivationData {
+  signedUp: number; onboarded: number; createdClient: number;
+  createdJob: number; sentInvoice: number; gotPaid: number;
+}
 interface AdminTask {
   id: string; text: string; priority: "high" | "med" | "low";
   category: "week" | "v2" | "other"; done: boolean; created_at: string;
@@ -224,6 +228,7 @@ export default function AdminPage() {
   const [newTaskCategory, setNewTaskCategory] = useState<"week" | "v2">("week");
   const [loading, setLoading] = useState(false);
   const [lastRefresh, setLastRefresh] = useState<Date | null>(null);
+  const [activation, setActivation] = useState<ActivationData | null>(null);
   const [aiQ, setAiQ] = useState("");
   const [aiA, setAiA] = useState("");
   const [aiLoading, setAiLoading] = useState(false);
@@ -231,7 +236,7 @@ export default function AdminPage() {
   const fetchAll = useCallback(async () => {
     setLoading(true);
     try {
-      const [stripeRes, usersRes, emailsRes, posthogRes, sentryRes, healthRes, tasksRes] = await Promise.allSettled([
+      const [stripeRes, usersRes, emailsRes, posthogRes, sentryRes, healthRes, tasksRes, activationRes] = await Promise.allSettled([
         fetch("/api/admin/stripe"),
         fetch("/api/admin/users"),
         fetch("/api/admin/emails"),
@@ -239,6 +244,7 @@ export default function AdminPage() {
         fetch("/api/admin/sentry"),
         fetch("/api/admin/health"),
         fetch("/api/admin/tasks"),
+        fetch("/api/admin/activation"),
       ]);
       if (stripeRes.status === "fulfilled" && stripeRes.value.ok) setStripe(await stripeRes.value.json());
       if (usersRes.status === "fulfilled" && usersRes.value.ok) setUsers(await usersRes.value.json());
@@ -250,6 +256,7 @@ export default function AdminPage() {
         const data = await tasksRes.value.json();
         setTasks(data.tasks ?? []);
       }
+      if (activationRes.status === "fulfilled" && activationRes.value.ok) setActivation(await activationRes.value.json());
       setLastRefresh(new Date());
     } finally { setLoading(false); }
   }, []);
@@ -377,7 +384,48 @@ export default function AdminPage() {
               <StatCard label="Errors 24h" value={String(sentry?.totalErrors24h ?? 0)} sub={`${sentry?.affectedUsers24h ?? 0} users affected`} />
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14, marginBottom: 20 }}>
+            {/* Activation funnel */}
+            {activation && (
+              <Section title="Activation funnel (30 days)">
+                <div style={{ display: "flex", gap: 4, alignItems: "flex-end", padding: "8px 0" }}>
+                  {[
+                    { label: "Signed up", value: activation.signedUp },
+                    { label: "Onboarded", value: activation.onboarded },
+                    { label: "Created client", value: activation.createdClient },
+                    { label: "Created job", value: activation.createdJob },
+                    { label: "Sent invoice", value: activation.sentInvoice },
+                    { label: "Got paid", value: activation.gotPaid },
+                  ].map((stage, i, arr) => {
+                    const maxVal = Math.max(arr[0].value, 1);
+                    const pct = Math.max(8, (stage.value / maxVal) * 100);
+                    const prev = i > 0 ? arr[i - 1].value : 0;
+                    const dropoff = i > 0 && prev > 0 ? Math.round(((prev - stage.value) / prev) * 100) : null;
+                    return (
+                      <div key={stage.label} style={{ flex: 1, textAlign: "center" as const }}>
+                        <div style={{
+                          fontFamily: "'Barlow Condensed', sans-serif", fontSize: 28, fontWeight: 900,
+                          color: i === 0 ? C.accent : stage.value > 0 ? C.text : C.textMuted,
+                        }}>{stage.value}</div>
+                        {dropoff !== null && dropoff > 0 && (
+                          <div style={{ fontSize: 10, color: C.red, fontWeight: 600, marginBottom: 4 }}>-{dropoff}%</div>
+                        )}
+                        <div style={{
+                          height: 6, borderRadius: 3, margin: "6px auto",
+                          width: `${pct}%`, minWidth: 8,
+                          background: i === arr.length - 1 && stage.value > 0
+                            ? C.green
+                            : stage.value > 0 ? C.accent : C.border,
+                          transition: "width 0.5s ease",
+                        }} />
+                        <div style={{ fontSize: 10, color: C.textSub, fontWeight: 600, letterSpacing: "0.02em" }}>{stage.label}</div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </Section>
+            )}
+
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14, marginBottom: 20, marginTop: 14 }}>
               <Section title="Recent signups">
                 {users.slice(0, 8).map(u => (
                   <div key={u.id} style={{ display: "flex", alignItems: "center", gap: 10, padding: "7px 0", borderBottom: `1px solid ${C.borderLight}` }}>
