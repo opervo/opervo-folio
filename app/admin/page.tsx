@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 
+/* ────── Types ────── */
 interface StripeData {
   mrr: number;
   activeCount: number;
@@ -11,70 +12,33 @@ interface StripeData {
   churnedLast30: number;
   recentCharges: { id: string; amount: number; email: string; created: number }[];
 }
-
 interface SupabaseUser {
-  id: string;
-  email: string;
-  created_at: string;
-  first_name?: string;
-  business_name?: string;
-  slug?: string;
-  plan?: string;
+  id: string; email: string; created_at: string;
+  first_name?: string; business_name?: string; slug?: string; plan?: string;
 }
-
 interface ResendEmail {
-  id: string;
-  to: string[];
-  subject: string;
-  created_at: string;
-  last_event: string;
+  id: string; to: string[]; subject: string; created_at: string; last_event: string;
 }
-
 interface PostHogData {
-  configured: boolean;
-  events24h?: number;
-  uniqueUsers24h?: number;
+  configured: boolean; events24h?: number; uniqueUsers24h?: number;
   topEvents7d?: { event: string; count: number }[];
-  error?: string;
-}
-
-interface SentryIssue {
-  id: string;
-  title: string;
-  count: number;
-  userCount: number;
-  level: string;
-  permalink: string;
 }
 interface SentryData {
-  configured: boolean;
-  totalErrors24h?: number;
-  uniqueIssues24h?: number;
+  configured: boolean; totalErrors24h?: number; uniqueIssues24h?: number;
   affectedUsers24h?: number;
-  topIssues?: SentryIssue[];
-  error?: string;
+  topIssues?: { id: string; title: string; count: number; userCount: number; level: string; permalink: string }[];
 }
-
 interface HealthProbe {
-  service: string;
-  status: "healthy" | "degraded" | "down" | "unknown";
-  detail?: string;
-  latencyMs?: number;
+  service: string; status: "healthy" | "degraded" | "down" | "unknown";
+  detail?: string; latencyMs?: number;
 }
-interface HealthData {
-  probes: HealthProbe[];
-  checkedAt: string;
-}
-
+interface HealthData { probes: HealthProbe[]; checkedAt: string }
 interface AdminTask {
-  id: string;
-  text: string;
-  priority: "high" | "med" | "low";
-  category: "week" | "v2" | "other";
-  done: boolean;
-  created_at: string;
+  id: string; text: string; priority: "high" | "med" | "low";
+  category: "week" | "v2" | "other"; done: boolean; created_at: string;
 }
 
+/* ────── Helpers ────── */
 function fmt$(n: number) {
   return "$" + (n / 100).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
@@ -92,17 +56,37 @@ function initials(name?: string, email?: string) {
   return "??";
 }
 
-function Badge({ type, label }: { type: "green" | "amber" | "red" | "blue" | "gray"; label: string }) {
+/* ────── Design tokens ────── */
+const C = {
+  bg: "#0A0A0A",
+  surface: "rgba(255,255,255,0.04)",
+  surfaceHover: "rgba(255,255,255,0.07)",
+  border: "rgba(255,255,255,0.08)",
+  borderLight: "rgba(255,255,255,0.04)",
+  text: "#F7F5F2",
+  textSub: "rgba(247,245,242,0.5)",
+  textMuted: "rgba(247,245,242,0.3)",
+  accent: "#F5620F",
+  accentDim: "rgba(245,98,15,0.15)",
+  green: "#22c55e",
+  amber: "#f59e0b",
+  red: "#ef4444",
+  blue: "#3b82f6",
+};
+
+/* ────── UI primitives (dark mode) ────── */
+function Badge({ type, label }: { type: "green" | "amber" | "red" | "blue" | "gray" | "accent"; label: string }) {
   const map: Record<string, { bg: string; color: string }> = {
-    green: { bg: "#d1fae5", color: "#065f46" },
-    amber: { bg: "#fef3c7", color: "#92400e" },
-    red:   { bg: "#fee2e2", color: "#991b1b" },
-    blue:  { bg: "#dbeafe", color: "#1e3a8a" },
-    gray:  { bg: "#f3f4f6", color: "#374151" },
+    green: { bg: "rgba(34,197,94,0.15)", color: "#4ade80" },
+    amber: { bg: "rgba(245,158,11,0.15)", color: "#fbbf24" },
+    red: { bg: "rgba(239,68,68,0.15)", color: "#f87171" },
+    blue: { bg: "rgba(59,130,246,0.15)", color: "#60a5fa" },
+    gray: { bg: "rgba(255,255,255,0.06)", color: C.textSub },
+    accent: { bg: C.accentDim, color: "#F5620F" },
   };
-  const { bg, color } = map[type];
+  const { bg, color } = map[type] || map.gray;
   return (
-    <span style={{ background: bg, color, fontSize: 11, fontWeight: 600, padding: "2px 8px", borderRadius: 6, whiteSpace: "nowrap" as const }}>
+    <span style={{ background: bg, color, fontSize: 10, fontWeight: 700, padding: "3px 8px", borderRadius: 6, whiteSpace: "nowrap" as const, letterSpacing: "0.03em" }}>
       {label}
     </span>
   );
@@ -110,18 +94,36 @@ function Badge({ type, label }: { type: "green" | "amber" | "red" | "blue" | "gr
 
 function StatCard({ label, value, sub, accent }: { label: string; value: string; sub?: string; accent?: boolean }) {
   return (
-    <div style={{ background: accent ? "#F5620F" : "#fff", border: "1px solid #E8E4DE", borderRadius: 12, padding: "16px 18px", boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
-      <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase" as const, color: accent ? "rgba(255,255,255,0.75)" : "#6B6B6B", marginBottom: 6 }}>{label}</div>
-      <div style={{ fontSize: 26, fontWeight: 700, color: accent ? "#fff" : "#0F0F0F", lineHeight: 1 }}>{value}</div>
-      {sub && <div style={{ fontSize: 12, color: accent ? "rgba(255,255,255,0.65)" : "#6B6B6B", marginTop: 4 }}>{sub}</div>}
+    <div style={{
+      background: accent ? "linear-gradient(135deg, #F5620F 0%, #d94e08 100%)" : C.surface,
+      border: `1px solid ${accent ? "transparent" : C.border}`,
+      borderRadius: 14, padding: "20px 22px",
+    }}>
+      <div style={{
+        fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700,
+        letterSpacing: "0.14em", textTransform: "uppercase" as const,
+        color: accent ? "rgba(255,255,255,0.7)" : C.textSub, marginBottom: 8,
+      }}>{label}</div>
+      <div style={{
+        fontFamily: "'Barlow Condensed', sans-serif", fontSize: 36, fontWeight: 900,
+        color: accent ? "#fff" : C.text, lineHeight: 1, letterSpacing: "-0.5px",
+      }}>{value}</div>
+      {sub && <div style={{ fontSize: 12, color: accent ? "rgba(255,255,255,0.6)" : C.textSub, marginTop: 6 }}>{sub}</div>}
     </div>
   );
 }
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div style={{ background: "#fff", border: "1px solid #E8E4DE", borderRadius: 12, padding: "18px 20px", boxShadow: "0 2px 8px rgba(0,0,0,0.04)" }}>
-      <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 3, textTransform: "uppercase" as const, color: "#F5620F", marginBottom: 14 }}>{title}</div>
+    <div style={{
+      background: C.surface, border: `1px solid ${C.border}`,
+      borderRadius: 14, padding: "20px 22px",
+    }}>
+      <div style={{
+        fontFamily: "'Barlow Condensed', sans-serif", fontSize: 11, fontWeight: 700,
+        letterSpacing: "0.14em", textTransform: "uppercase" as const,
+        color: C.accent, marginBottom: 16,
+      }}>{title}</div>
       {children}
     </div>
   );
@@ -129,10 +131,10 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 
 function Row({ left, right, sub }: { left: string; right: React.ReactNode; sub?: string }) {
   return (
-    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "8px 0", borderBottom: "1px solid #F3F0EB" }}>
+    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "9px 0", borderBottom: `1px solid ${C.borderLight}` }}>
       <div>
-        <div style={{ fontSize: 13, color: "#1a1a1a" }}>{left}</div>
-        {sub && <div style={{ fontSize: 11, color: "#6B6B6B" }}>{sub}</div>}
+        <div style={{ fontSize: 13, color: C.text, fontWeight: 500 }}>{left}</div>
+        {sub && <div style={{ fontSize: 11, color: C.textSub }}>{sub}</div>}
       </div>
       {right}
     </div>
@@ -141,51 +143,39 @@ function Row({ left, right, sub }: { left: string; right: React.ReactNode; sub?:
 
 function QLink({ href, label }: { href: string; label: string }) {
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 8, padding: "7px 12px", border: "1px solid #E8E4DE", borderRadius: 8, fontSize: 13, color: "#1a1a1a", textDecoration: "none", background: "#F7F5F2" }}>
-      <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#F5620F", flexShrink: 0 }} />
+    <a href={href} target="_blank" rel="noopener noreferrer" style={{
+      display: "flex", alignItems: "center", gap: 8,
+      padding: "8px 14px", border: `1px solid ${C.border}`, borderRadius: 10,
+      fontSize: 13, color: C.text, textDecoration: "none", background: C.surface,
+    }}>
+      <span style={{ width: 6, height: 6, borderRadius: "50%", background: C.accent, flexShrink: 0 }} />
       {label}
     </a>
   );
 }
 
-function TaskRow({
-  task,
-  onToggle,
-  onDelete,
-}: {
-  task: AdminTask;
-  onToggle: (id: string, done: boolean) => void;
-  onDelete: (id: string) => void;
-}) {
-  const colors = { high: "#fee2e2", med: "#fef3c7", low: "#f3f4f6" };
+function TaskRow({ task, onToggle, onDelete }: { task: AdminTask; onToggle: (id: string, done: boolean) => void; onDelete: (id: string) => void }) {
+  const colors = { high: "rgba(239,68,68,0.15)", med: "rgba(245,158,11,0.15)", low: "rgba(255,255,255,0.06)" };
+  const textColors = { high: "#f87171", med: "#fbbf24", low: C.textSub };
   const [hover, setHover] = useState(false);
   return (
-    <div
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
-      style={{ display: "flex", alignItems: "flex-start", gap: 10, padding: "8px 0", borderBottom: "1px solid #F3F0EB" }}
-    >
-      <div
-        onClick={() => onToggle(task.id, !task.done)}
-        style={{ width: 18, height: 18, borderRadius: 5, border: task.done ? "none" : "1.5px solid #E8E4DE", background: task.done ? "#F5620F" : "#fff", flexShrink: 0, marginTop: 1, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}
-      >
+    <div onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}
+      style={{ display: "flex", alignItems: "flex-start", gap: 10, padding: "9px 0", borderBottom: `1px solid ${C.borderLight}` }}>
+      <div onClick={() => onToggle(task.id, !task.done)} style={{
+        width: 18, height: 18, borderRadius: 5,
+        border: task.done ? "none" : `1.5px solid ${C.border}`,
+        background: task.done ? C.accent : "transparent",
+        flexShrink: 0, marginTop: 1, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer",
+      }}>
         {task.done && <span style={{ color: "#fff", fontSize: 11 }}>✓</span>}
       </div>
-      <span
-        onClick={() => onToggle(task.id, !task.done)}
-        style={{ fontSize: 13, color: task.done ? "#9CA3AF" : "#1a1a1a", textDecoration: task.done ? "line-through" : "none", flex: 1, cursor: "pointer" }}
-      >
-        {task.text}
-      </span>
-      {!task.done && <span style={{ fontSize: 10, padding: "2px 6px", borderRadius: 4, background: colors[task.priority], color: "#374151", flexShrink: 0 }}>{task.priority}</span>}
+      <span onClick={() => onToggle(task.id, !task.done)} style={{
+        fontSize: 13, color: task.done ? C.textMuted : C.text,
+        textDecoration: task.done ? "line-through" : "none", flex: 1, cursor: "pointer",
+      }}>{task.text}</span>
+      {!task.done && <span style={{ fontSize: 10, padding: "2px 7px", borderRadius: 5, background: colors[task.priority], color: textColors[task.priority], fontWeight: 600 }}>{task.priority}</span>}
       {hover && (
-        <button
-          onClick={() => onDelete(task.id)}
-          style={{ background: "transparent", border: "none", color: "#9CA3AF", cursor: "pointer", fontSize: 14, padding: "0 4px" }}
-          title="Delete"
-        >
-          ×
-        </button>
+        <button onClick={() => onDelete(task.id)} style={{ background: "transparent", border: "none", color: C.textMuted, cursor: "pointer", fontSize: 14, padding: "0 4px" }} title="Delete">×</button>
       )}
     </div>
   );
@@ -194,37 +184,27 @@ function TaskRow({
 function EmailRow({ email }: { email: ResendEmail }) {
   const [hover, setHover] = useState(false);
   return (
-    <a
-      href={`https://resend.com/emails/${email.id}`}
-      target="_blank"
-      rel="noopener noreferrer"
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
+    <a href={`https://resend.com/emails/${email.id}`} target="_blank" rel="noopener noreferrer"
+      onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}
       style={{
-        display: "block",
-        padding: "8px 10px",
-        margin: "0 -10px",
-        borderBottom: "1px solid #F3F0EB",
-        textDecoration: "none",
-        color: "inherit",
-        background: hover ? "#F7F5F2" : "transparent",
-        transition: "background 0.12s ease",
-        borderRadius: 6,
-      }}
-    >
-      <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 2 }}>
-        <span style={{ fontSize: 13, color: "#1a1a1a", fontWeight: 500 }}>{email.to?.[0] || "—"}</span>
-        <span style={{ fontSize: 11, color: "#6B6B6B" }}>{timeAgo(email.created_at)}</span>
+        display: "block", padding: "9px 10px", margin: "0 -10px",
+        borderBottom: `1px solid ${C.borderLight}`, textDecoration: "none", color: "inherit",
+        background: hover ? C.surfaceHover : "transparent", transition: "background 0.12s ease", borderRadius: 6,
+      }}>
+      <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 3 }}>
+        <span style={{ fontSize: 13, color: C.text, fontWeight: 500 }}>{email.to?.[0] || "—"}</span>
+        <span style={{ fontSize: 11, color: C.textMuted }}>{timeAgo(email.created_at)}</span>
       </div>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <span style={{ fontSize: 12, color: "#6B6B6B" }}>{email.subject}</span>
+        <span style={{ fontSize: 12, color: C.textSub }}>{email.subject}</span>
         <Badge type={email.last_event === "delivered" ? "green" : email.last_event === "bounced" ? "red" : "gray"} label={email.last_event || "sent"} />
       </div>
     </a>
   );
 }
 
-const TABS = ["Overview", "Revenue", "Users", "Inbox", "Marketing", "Tasks", "Links"];
+/* ────── Main ────── */
+const TABS = ["Overview", "Revenue", "Users", "Support", "Emails", "Marketing", "Tasks", "Links"];
 
 export default function AdminPage() {
   const [authed, setAuthed] = useState(false);
@@ -271,269 +251,245 @@ export default function AdminPage() {
         setTasks(data.tasks ?? []);
       }
       setLastRefresh(new Date());
-    } finally {
-      setLoading(false);
-    }
+    } finally { setLoading(false); }
   }, []);
 
   const toggleTask = async (id: string, done: boolean) => {
     setTasks((prev) => prev.map((t) => (t.id === id ? { ...t, done } : t)));
-    await fetch("/api/admin/tasks", {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ id, done }),
-    });
+    await fetch("/api/admin/tasks", { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id, done }) });
   };
-
   const deleteTask = async (id: string) => {
     setTasks((prev) => prev.filter((t) => t.id !== id));
     await fetch(`/api/admin/tasks?id=${id}`, { method: "DELETE" });
   };
-
   const addTask = async () => {
     if (!newTaskText.trim()) return;
-    const res = await fetch("/api/admin/tasks", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ text: newTaskText.trim(), priority: newTaskPriority, category: newTaskCategory }),
-    });
-    if (res.ok) {
-      const { task } = await res.json();
-      setTasks((prev) => [...prev, task]);
-      setNewTaskText("");
-    }
+    const res = await fetch("/api/admin/tasks", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ text: newTaskText.trim(), priority: newTaskPriority, category: newTaskCategory }) });
+    if (res.ok) { const { task } = await res.json(); setTasks((prev) => [...prev, task]); setNewTaskText(""); }
   };
 
   useEffect(() => { if (authed) fetchAll(); }, [authed, fetchAll]);
 
   const submitLogin = async () => {
     if (!pw.trim() || authLoading) return;
-    setAuthLoading(true);
-    setPwError(false);
+    setAuthLoading(true); setPwError(false);
     try {
-      const res = await fetch("/api/admin/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ password: pw }),
-      });
-      if (res.ok) {
-        setAuthed(true);
-        setPw("");
-      } else {
-        setPwError(true);
-      }
-    } catch {
-      setPwError(true);
-    } finally {
-      setAuthLoading(false);
-    }
+      const res = await fetch("/api/admin/login", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ password: pw }) });
+      if (res.ok) { setAuthed(true); setPw(""); } else { setPwError(true); }
+    } catch { setPwError(true); } finally { setAuthLoading(false); }
   };
 
   const askAI = async () => {
     if (!aiQ.trim()) return;
-    setAiLoading(true);
-    setAiA("");
+    setAiLoading(true); setAiA("");
     const context = `MRR: ${stripe ? fmt$(stripe.mrr) : "unknown"}, Active subscribers: ${stripe?.activeCount ?? "?"}, Trials: ${stripe?.trialCount ?? "?"}, Solo: ${stripe?.soloCount ?? "?"}, Team: ${stripe?.teamCount ?? "?"}, Total users in DB: ${users.length}. Recent users: ${users.slice(0, 5).map(u => u.email).join(", ")}.`;
     try {
-      const res = await fetch("/api/admin/ask", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question: aiQ, context }),
-      });
+      const res = await fetch("/api/admin/ask", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ question: aiQ, context }) });
       const data = await res.json();
       setAiA(data.answer ?? data.error ?? "No response.");
-    } catch {
-      setAiA("Error reaching AI. Check console.");
-    } finally {
-      setAiLoading(false);
-    }
+    } catch { setAiA("Error reaching AI."); } finally { setAiLoading(false); }
   };
 
+  /* ── Login ── */
   if (!authed) {
     return (
-      <div style={{ minHeight: "100vh", background: "#0F0F0F", display: "flex", alignItems: "center", justifyContent: "center" }}>
-        <div style={{ background: "#fff", borderRadius: 16, padding: "40px 48px", width: 360, textAlign: "center" }}>
-          <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 32, fontWeight: 900, color: "#0F0F0F", letterSpacing: -1, marginBottom: 4 }}>
-            Opervo<span style={{ color: "#F5620F" }}>.</span>
+      <div style={{ minHeight: "100vh", background: C.bg, display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div style={{ background: C.surface, border: `1px solid ${C.border}`, borderRadius: 20, padding: "48px 44px", width: 380, textAlign: "center" }}>
+          <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 36, fontWeight: 900, color: C.text, letterSpacing: -1, marginBottom: 2 }}>
+            Opervo<span style={{ color: C.accent }}>.</span>
           </div>
-          <div style={{ fontSize: 13, color: "#6B6B6B", marginBottom: 28 }}>Command Center</div>
+          <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 13, fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase" as const, color: C.textMuted, marginBottom: 36 }}>Corporate</div>
           <input
-            type="password"
-            placeholder="Password"
-            value={pw}
+            type="password" placeholder="Password" value={pw}
             onChange={e => { setPw(e.target.value); setPwError(false); }}
             onKeyDown={e => e.key === "Enter" && submitLogin()}
-            style={{ width: "100%", padding: "10px 14px", border: "1px solid #E8E4DE", borderRadius: 8, fontSize: 14, color: "#1a1a1a", marginBottom: 12, outline: "none", boxSizing: "border-box" as const }}
+            style={{ width: "100%", padding: "12px 16px", border: `1px solid ${C.border}`, borderRadius: 10, fontSize: 14, color: C.text, background: "rgba(255,255,255,0.03)", marginBottom: 14, outline: "none", boxSizing: "border-box" as const }}
           />
-          <button onClick={submitLogin} disabled={authLoading} style={{ width: "100%", padding: 11, background: "#F5620F", color: "#fff", border: "none", borderRadius: 8, fontSize: 14, fontWeight: 600, cursor: authLoading ? "wait" : "pointer", opacity: authLoading ? 0.7 : 1 }}>
-            {authLoading ? "Checking…" : "Enter"}
+          <button onClick={submitLogin} disabled={authLoading} style={{
+            width: "100%", padding: 13, background: C.accent, color: "#fff", border: "none", borderRadius: 10,
+            fontFamily: "'Barlow Condensed', sans-serif", fontSize: 15, fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase" as const,
+            cursor: authLoading ? "wait" : "pointer", opacity: authLoading ? 0.7 : 1,
+          }}>
+            {authLoading ? "Checking..." : "Enter"}
           </button>
-          {pwError && <div style={{ fontSize: 12, color: "#991b1b", marginTop: 10 }}>Incorrect password</div>}
+          {pwError && <div style={{ fontSize: 12, color: C.red, marginTop: 12 }}>Incorrect password</div>}
         </div>
       </div>
     );
   }
 
   const mrr = stripe?.mrr ?? 0;
+  const todaySignups = users.filter(u => {
+    const d = new Date(u.created_at);
+    const now = new Date();
+    return d.toDateString() === now.toDateString();
+  }).length;
+  const weekSignups = users.filter(u => {
+    const d = new Date(u.created_at).getTime();
+    return Date.now() - d < 7 * 86400000;
+  }).length;
 
+  /* ── Dashboard shell ── */
   return (
-    <div style={{ minHeight: "100vh", background: "#F7F5F2" }}>
-      {/* Topbar */}
-      <div style={{ background: "#0F0F0F", padding: "14px 32px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-        <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 22, fontWeight: 900, color: "#F7F5F2", letterSpacing: -0.5 }}>
-          Opervo<span style={{ color: "#F5620F" }}>.</span>{" "}
-          <span style={{ fontSize: 14, fontWeight: 400, color: "#6B6B6B" }}>Command Center</span>
+    <div style={{ minHeight: "100vh", background: C.bg, color: C.text }}>
+      {/* ── Header ── */}
+      <div style={{ background: "rgba(255,255,255,0.02)", borderBottom: `1px solid ${C.border}`, padding: "14px 32px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <div style={{ display: "flex", alignItems: "baseline", gap: 10 }}>
+          <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 22, fontWeight: 900, color: C.text, letterSpacing: -0.5 }}>
+            Opervo<span style={{ color: C.accent }}>.</span>
+          </span>
+          <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 12, fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase" as const, color: C.textMuted }}>Corporate</span>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-          {lastRefresh && <span style={{ fontSize: 12, color: "#6B6B6B" }}>Updated {lastRefresh.toLocaleTimeString()}</span>}
-          <button onClick={fetchAll} disabled={loading} style={{ padding: "6px 14px", background: "transparent", border: "1px solid #333", borderRadius: 7, color: "#F7F5F2", fontSize: 12, cursor: "pointer" }}>
-            {loading ? "Refreshing…" : "↻ Refresh"}
+          {lastRefresh && <span style={{ fontSize: 11, color: C.textMuted }}>{lastRefresh.toLocaleTimeString()}</span>}
+          <button onClick={fetchAll} disabled={loading} style={{
+            padding: "6px 16px", background: "transparent", border: `1px solid ${C.border}`,
+            borderRadius: 8, color: C.textSub, fontSize: 12, cursor: "pointer", fontWeight: 500,
+          }}>
+            {loading ? "..." : "↻ Refresh"}
           </button>
         </div>
       </div>
 
-      <div style={{ maxWidth: 1100, margin: "0 auto", padding: "28px 24px" }}>
-        {/* Tab bar */}
-        <div style={{ display: "flex", gap: 4, flexWrap: "wrap" as const, marginBottom: 24 }}>
+      <div style={{ maxWidth: 1120, margin: "0 auto", padding: "24px 24px 60px" }}>
+        {/* ── Tab bar ── */}
+        <div style={{ display: "flex", gap: 4, flexWrap: "wrap" as const, marginBottom: 28 }}>
           {TABS.map(t => (
-            <button key={t} onClick={() => setTab(t)} style={{ padding: "7px 16px", borderRadius: 8, fontSize: 13, fontWeight: 500, cursor: "pointer", border: "1px solid", borderColor: tab === t ? "#F5620F" : "#E8E4DE", background: tab === t ? "#F5620F" : "#fff", color: tab === t ? "#fff" : "#6B6B6B" }}>
+            <button key={t} onClick={() => setTab(t)} style={{
+              padding: "8px 18px", borderRadius: 10, fontSize: 13, fontWeight: 600, cursor: "pointer",
+              border: `1px solid ${tab === t ? C.accent : C.border}`,
+              background: tab === t ? C.accent : "transparent",
+              color: tab === t ? "#fff" : C.textSub,
+              fontFamily: "'Barlow', sans-serif",
+            }}>
               {t}
             </button>
           ))}
         </div>
 
-        {/* OVERVIEW */}
+        {/* ═════════ OVERVIEW ═════════ */}
         {tab === "Overview" && (
-          <div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, minmax(0,1fr))", gap: 12, marginBottom: 12 }}>
-              <StatCard label="MRR" value={fmt$(mrr)} sub={`ARR: $${((mrr * 12) / 100).toFixed(0)}`} accent />
-              <StatCard label="Active users" value={String(stripe?.activeCount ?? "—")} sub="paid subscribers" />
-              <StatCard label="Trial users" value={String(stripe?.trialCount ?? "—")} sub="30-day window" />
-              <StatCard label="Churn (30d)" value={String(stripe?.churnedLast30 ?? "—")} sub="canceled subs" />
+          <>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 14, marginBottom: 20 }}>
+              <StatCard label="Signups today" value={String(todaySignups)} sub={`${weekSignups} this week`} accent />
+              <StatCard label="Active trials" value={String(stripe?.trialCount ?? 0)} sub={`${stripe?.activeCount ?? 0} paid`} />
+              <StatCard label="MRR" value={fmt$(mrr)} sub={`ARR ${fmt$(mrr * 12)}`} />
+              <StatCard label="Errors 24h" value={String(sentry?.totalErrors24h ?? 0)} sub={`${sentry?.affectedUsers24h ?? 0} users affected`} />
             </div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, minmax(0,1fr))", gap: 12, marginBottom: 20 }}>
-              <StatCard
-                label="DAU (24h)"
-                value={posthog?.configured ? String(posthog.uniqueUsers24h ?? "—") : "—"}
-                sub={posthog?.configured ? `${posthog.events24h ?? 0} events` : "PostHog not configured"}
-              />
-              <StatCard
-                label="Errors (24h)"
-                value={sentry?.configured ? String(sentry.totalErrors24h ?? "—") : "—"}
-                sub={sentry?.configured ? `${sentry.uniqueIssues24h ?? 0} unique` : "Sentry not configured"}
-              />
-              <StatCard
-                label="Affected users"
-                value={sentry?.configured ? String(sentry.affectedUsers24h ?? "—") : "—"}
-                sub="hit by an error"
-              />
-              <StatCard
-                label="Total signups"
-                value={String(users.length)}
-                sub="all-time in DB"
-              />
-            </div>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 16 }}>
+
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14, marginBottom: 20 }}>
               <Section title="Recent signups">
-                {users.slice(0, 6).map(u => (
-                  <Row key={u.id} left={u.business_name || u.email} sub={timeAgo(u.created_at)} right={<Badge type="blue" label={u.plan || "Trial"} />} />
-                ))}
-                {users.length === 0 && <div style={{ fontSize: 13, color: "#6B6B6B" }}>Loading…</div>}
-              </Section>
-              <Section title="System health">
-                {health?.probes.map((p) => {
-                  const badgeType: "green" | "amber" | "red" | "gray" =
-                    p.status === "healthy" ? "green" :
-                    p.status === "degraded" ? "amber" :
-                    p.status === "down" ? "red" : "gray";
-                  const label = p.status === "healthy"
-                    ? `${p.detail || "OK"}${p.latencyMs ? ` · ${p.latencyMs}ms` : ""}`
-                    : p.detail || p.status;
-                  return <Row key={p.service} left={p.service} right={<Badge type={badgeType} label={label} />} />;
-                })}
-                {!health && <div style={{ fontSize: 13, color: "#6B6B6B" }}>Probing…</div>}
-                {health && (
-                  <div style={{ marginTop: 10, fontSize: 11, color: "#9CA3AF" }}>
-                    Last checked {new Date(health.checkedAt).toLocaleTimeString()}
+                {users.slice(0, 8).map(u => (
+                  <div key={u.id} style={{ display: "flex", alignItems: "center", gap: 10, padding: "7px 0", borderBottom: `1px solid ${C.borderLight}` }}>
+                    <div style={{ width: 32, height: 32, borderRadius: 8, background: C.accentDim, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, fontWeight: 700, color: C.accent, flexShrink: 0 }}>
+                      {initials(u.first_name || u.business_name, u.email)}
+                    </div>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div style={{ fontSize: 13, fontWeight: 600, color: C.text, whiteSpace: "nowrap" as const, overflow: "hidden", textOverflow: "ellipsis" }}>{u.business_name || u.first_name || u.email}</div>
+                      <div style={{ fontSize: 11, color: C.textMuted }}>{u.email}</div>
+                    </div>
+                    <div style={{ textAlign: "right" as const, flexShrink: 0 }}>
+                      <Badge type={u.plan === "active" ? "green" : u.plan === "trialing" ? "amber" : "gray"} label={u.plan || "trial"} />
+                      <div style={{ fontSize: 10, color: C.textMuted, marginTop: 3 }}>{timeAgo(u.created_at)}</div>
+                    </div>
                   </div>
-                )}
+                ))}
+              </Section>
+
+              <Section title="System health">
+                {health?.probes?.map(p => (
+                  <div key={p.service} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "8px 0", borderBottom: `1px solid ${C.borderLight}` }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                      <span style={{ width: 8, height: 8, borderRadius: "50%", background: p.status === "healthy" ? C.green : p.status === "degraded" ? C.amber : C.red }} />
+                      <span style={{ fontSize: 13, fontWeight: 500, color: C.text }}>{p.service}</span>
+                    </div>
+                    <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                      {p.latencyMs != null && <span style={{ fontSize: 11, color: C.textMuted }}>{p.latencyMs}ms</span>}
+                      <Badge type={p.status === "healthy" ? "green" : p.status === "degraded" ? "amber" : "red"} label={p.status} />
+                    </div>
+                  </div>
+                )) || <div style={{ fontSize: 13, color: C.textMuted }}>Loading...</div>}
               </Section>
             </div>
-            {posthog?.configured && posthog.topEvents7d && posthog.topEvents7d.length > 0 && (
-              <div style={{ marginBottom: 16 }}>
-                <Section title="Top events (last 7 days)">
-                  {posthog.topEvents7d.map((e) => (
-                    <Row key={e.event} left={e.event} right={<span style={{ fontSize: 13, fontWeight: 600, color: "#1a1a1a" }}>{e.count}</span>} />
+
+            {/* PostHog + Sentry sections */}
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14, marginBottom: 20 }}>
+              {posthog?.configured && posthog.topEvents7d && (
+                <Section title="Top events (7d)">
+                  {posthog.topEvents7d.map(ev => (
+                    <Row key={ev.event} left={ev.event} right={<span style={{ fontSize: 13, fontWeight: 700, color: C.text }}>{ev.count.toLocaleString()}</span>} />
                   ))}
                 </Section>
-              </div>
-            )}
-            {sentry?.configured && sentry.topIssues && sentry.topIssues.length > 0 && (
-              <div style={{ marginBottom: 16 }}>
-                <Section title="Top errors (last 24h)">
-                  {sentry.topIssues.map((i) => (
-                    <Row
-                      key={i.id}
-                      left={i.title}
-                      sub={`${i.count} events · ${i.userCount} users`}
-                      right={
-                        <a href={i.permalink} target="_blank" rel="noopener noreferrer" style={{ fontSize: 12, color: "#F5620F", textDecoration: "none" }}>
-                          View →
-                        </a>
-                      }
-                    />
+              )}
+              {sentry?.configured && sentry.topIssues && sentry.topIssues.length > 0 && (
+                <Section title="Top errors (24h)">
+                  {sentry.topIssues.map(issue => (
+                    <a key={issue.id} href={issue.permalink} target="_blank" rel="noopener noreferrer" style={{ display: "block", padding: "8px 0", borderBottom: `1px solid ${C.borderLight}`, textDecoration: "none" }}>
+                      <div style={{ fontSize: 13, color: C.text, fontWeight: 500, marginBottom: 2 }}>{issue.title.slice(0, 80)}</div>
+                      <div style={{ display: "flex", gap: 12, fontSize: 11, color: C.textMuted }}>
+                        <span>{issue.count} events</span>
+                        <span>{issue.userCount} users</span>
+                      </div>
+                    </a>
                   ))}
                 </Section>
-              </div>
-            )}
-            <Section title="Ask the command center">
-              <div style={{ display: "flex", gap: 8, marginBottom: aiA ? 12 : 0 }}>
-                <input value={aiQ} onChange={e => setAiQ(e.target.value)} onKeyDown={e => e.key === "Enter" && askAI()} placeholder="e.g. which trials expire this week? What's ARR if all trials convert?" style={{ flex: 1, padding: "9px 14px", border: "1px solid #E8E4DE", borderRadius: 8, fontSize: 13, color: "#1a1a1a", background: "#F7F5F2", outline: "none" }} />
-                <button onClick={askAI} disabled={aiLoading} style={{ padding: "9px 18px", background: "#F5620F", color: "#fff", border: "none", borderRadius: 8, fontSize: 13, fontWeight: 600, cursor: "pointer" }}>
-                  {aiLoading ? "…" : "Ask"}
+              )}
+            </div>
+
+            {/* AI Ask */}
+            <Section title="Ask Opervo Corporate">
+              <div style={{ display: "flex", gap: 10 }}>
+                <input value={aiQ} onChange={e => setAiQ(e.target.value)} onKeyDown={e => e.key === "Enter" && askAI()}
+                  placeholder="e.g. How many users signed up this week?"
+                  style={{ flex: 1, padding: "10px 14px", border: `1px solid ${C.border}`, borderRadius: 10, fontSize: 13, color: C.text, background: "rgba(255,255,255,0.03)", outline: "none" }}
+                />
+                <button onClick={askAI} disabled={aiLoading} style={{
+                  padding: "10px 20px", background: C.accent, color: "#fff", border: "none", borderRadius: 10,
+                  fontSize: 13, fontWeight: 700, cursor: aiLoading ? "wait" : "pointer",
+                }}>
+                  {aiLoading ? "..." : "Ask"}
                 </button>
               </div>
-              {aiA && <div style={{ background: "#F7F5F2", border: "1px solid #E8E4DE", borderRadius: 8, padding: "12px 16px", fontSize: 13, color: "#1a1a1a", lineHeight: 1.6 }}>{aiA}</div>}
+              {aiA && <div style={{ marginTop: 14, padding: 16, background: "rgba(255,255,255,0.02)", borderRadius: 10, border: `1px solid ${C.borderLight}`, fontSize: 13, color: C.text, lineHeight: 1.65, whiteSpace: "pre-wrap" as const }}>{aiA}</div>}
             </Section>
-          </div>
+          </>
         )}
 
-        {/* REVENUE */}
+        {/* ═════════ REVENUE ═════════ */}
         {tab === "Revenue" && (
-          <div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, minmax(0,1fr))", gap: 12, marginBottom: 20 }}>
+          <>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 14, marginBottom: 20 }}>
               <StatCard label="MRR" value={fmt$(mrr)} accent />
-              <StatCard label="ARR projected" value={`$${((mrr * 12) / 100).toFixed(0)}`} />
-              <StatCard label="Solo subscribers" value={String(stripe?.soloCount ?? "—")} sub="$24.99/mo" />
-              <StatCard label="Team subscribers" value={String(stripe?.teamCount ?? "—")} sub="$54.99/mo" />
+              <StatCard label="Projected ARR" value={fmt$(mrr * 12)} />
+              <StatCard label="Solo subscribers" value={String(stripe?.soloCount ?? 0)} sub="$24.99/mo" />
+              <StatCard label="Team subscribers" value={String(stripe?.teamCount ?? 0)} sub="$54.99/mo" />
             </div>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
               <Section title="Recent charges">
-                {(stripe?.recentCharges ?? []).slice(0, 8).map(c => (
-                  <Row key={c.id} left={c.email} sub={timeAgo(c.created)} right={<span style={{ fontSize: 13, fontWeight: 600, color: "#1a1a1a" }}>{fmt$(c.amount)}</span>} />
-                ))}
-                {!stripe && <div style={{ fontSize: 13, color: "#6B6B6B" }}>Loading…</div>}
+                {stripe?.recentCharges?.slice(0, 12).map(ch => (
+                  <Row key={ch.id} left={ch.email} right={<span style={{ fontSize: 14, fontWeight: 700, color: C.green }}>{fmt$(ch.amount)}</span>} sub={timeAgo(ch.created)} />
+                )) || <div style={{ color: C.textMuted, fontSize: 13 }}>No charges yet</div>}
               </Section>
               <Section title="Plan breakdown">
-                <Row left="Solo · $24.99/mo" right={<span style={{ fontSize: 13, fontWeight: 600 }}>{stripe?.soloCount ?? "—"} users</span>} />
-                <Row left="Team · $54.99/mo" right={<span style={{ fontSize: 13, fontWeight: 600 }}>{stripe?.teamCount ?? "—"} users</span>} />
-                <Row left="Active trials" right={<Badge type="amber" label={`${stripe?.trialCount ?? "—"} users`} />} />
-                <Row left="FOUNDING promo" right={<Badge type="blue" label="3 mo free" />} />
-                <div style={{ marginTop: 16, padding: "12px 14px", background: "#F7F5F2", borderRadius: 8 }}>
-                  <div style={{ fontSize: 11, color: "#6B6B6B", marginBottom: 4, fontWeight: 600, textTransform: "uppercase" as const, letterSpacing: 1 }}>If all trials convert</div>
-                  <div style={{ fontSize: 22, fontWeight: 700, color: "#F5620F" }}>
-                    {fmt$(mrr + (stripe?.trialCount ?? 0) * 2499)}/mo
+                <Row left="Active paid subscribers" right={<span style={{ fontWeight: 700, color: C.text }}>{stripe?.activeCount ?? 0}</span>} />
+                <Row left="Active trials (30-day)" right={<span style={{ fontWeight: 700, color: C.text }}>{stripe?.trialCount ?? 0}</span>} />
+                <Row left="Churned (last 30 days)" right={<span style={{ fontWeight: 700, color: stripe?.churnedLast30 ? C.red : C.text }}>{stripe?.churnedLast30 ?? 0}</span>} />
+                <Row left="Founding members ($14.99)" right={<Badge type="accent" label="25 slots" />} />
+                <div style={{ marginTop: 12, padding: 14, background: C.accentDim, borderRadius: 10 }}>
+                  <div style={{ fontSize: 12, color: C.accent, fontWeight: 600 }}>If all {stripe?.trialCount ?? 0} trials convert at Solo:</div>
+                  <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 24, fontWeight: 900, color: C.text, marginTop: 4 }}>
+                    {fmt$((stripe?.trialCount ?? 0) * 2499 + mrr)}/mo
                   </div>
                 </div>
               </Section>
             </div>
-          </div>
+          </>
         )}
 
-        {/* USERS */}
+        {/* ═════════ USERS ═════════ */}
         {tab === "Users" && (
-          <div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0,1fr))", gap: 12, marginBottom: 20 }}>
+          <>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 14, marginBottom: 20 }}>
               <StatCard label="Total users" value={String(users.length)} accent />
               <StatCard label="With business name" value={String(users.filter(u => u.business_name).length)} />
               <StatCard label="With folio slug" value={String(users.filter(u => u.slug).length)} />
@@ -542,191 +498,178 @@ export default function AdminPage() {
               <div style={{ overflowX: "auto" as const }}>
                 <table style={{ width: "100%", borderCollapse: "collapse" as const, fontSize: 13 }}>
                   <thead>
-                    <tr>
+                    <tr style={{ borderBottom: `2px solid ${C.border}` }}>
                       {["User", "Business", "Folio", "Joined", "Plan"].map(h => (
-                        <th key={h} style={{ textAlign: "left" as const, padding: "6px 10px", fontSize: 11, fontWeight: 700, color: "#6B6B6B", textTransform: "uppercase" as const, letterSpacing: 1, borderBottom: "1px solid #E8E4DE" }}>{h}</th>
+                        <th key={h} style={{ textAlign: "left" as const, padding: "8px 10px", fontSize: 10, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase" as const, color: C.textMuted }}>{h}</th>
                       ))}
                     </tr>
                   </thead>
                   <tbody>
                     {users.map(u => (
-                      <tr key={u.id} style={{ borderBottom: "1px solid #F3F0EB" }}>
-                        <td style={{ padding: "8px 10px" }}>
-                          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                            <div style={{ width: 28, height: 28, borderRadius: "50%", background: "#F5620F", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, fontWeight: 700, color: "#fff", flexShrink: 0 }}>
-                              {initials(u.first_name, u.email)}
-                            </div>
-                            <div>
-                              <div style={{ color: "#1a1a1a", fontWeight: 500 }}>{u.first_name || "—"}</div>
-                              <div style={{ color: "#6B6B6B", fontSize: 11 }}>{u.email}</div>
-                            </div>
+                      <tr key={u.id} style={{ borderBottom: `1px solid ${C.borderLight}` }}>
+                        <td style={{ padding: "10px 10px", display: "flex", alignItems: "center", gap: 10 }}>
+                          <div style={{ width: 30, height: 30, borderRadius: 8, background: C.accentDim, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 10, fontWeight: 700, color: C.accent, flexShrink: 0 }}>
+                            {initials(u.first_name || u.business_name, u.email)}
+                          </div>
+                          <div>
+                            <div style={{ fontWeight: 600, color: C.text }}>{u.first_name || u.email.split("@")[0]}</div>
+                            <div style={{ fontSize: 11, color: C.textMuted }}>{u.email}</div>
                           </div>
                         </td>
-                        <td style={{ padding: "8px 10px", color: "#1a1a1a" }}>{u.business_name || <span style={{ color: "#9CA3AF" }}>—</span>}</td>
-                        <td style={{ padding: "8px 10px" }}>
-                          {u.slug ? <a href={`https://opervo.io/p/${u.slug}`} target="_blank" rel="noopener noreferrer" style={{ color: "#F5620F", fontSize: 12 }}>/p/{u.slug}</a> : <span style={{ color: "#9CA3AF" }}>—</span>}
+                        <td style={{ padding: "10px", color: u.business_name ? C.text : C.textMuted }}>{u.business_name || "—"}</td>
+                        <td style={{ padding: "10px" }}>
+                          {u.slug ? <a href={`https://opervo.io/p/${u.slug}`} target="_blank" rel="noopener noreferrer" style={{ color: C.accent, textDecoration: "none", fontSize: 12 }}>/p/{u.slug}</a> : <span style={{ color: C.textMuted }}>—</span>}
                         </td>
-                        <td style={{ padding: "8px 10px", color: "#6B6B6B" }}>{timeAgo(u.created_at)}</td>
-                        <td style={{ padding: "8px 10px" }}><Badge type="blue" label={u.plan || "Trial"} /></td>
+                        <td style={{ padding: "10px", color: C.textSub }}>{timeAgo(u.created_at)}</td>
+                        <td style={{ padding: "10px" }}><Badge type={u.plan === "active" ? "green" : u.plan === "trialing" ? "amber" : "gray"} label={u.plan || "trial"} /></td>
                       </tr>
                     ))}
-                    {users.length === 0 && <tr><td colSpan={5} style={{ padding: 20, textAlign: "center" as const, color: "#6B6B6B" }}>Loading…</td></tr>}
                   </tbody>
                 </table>
               </div>
             </Section>
+          </>
+        )}
+
+        {/* ═════════ SUPPORT ═════════ */}
+        {tab === "Support" && (
+          <Section title="Support — help@opervo.io">
+            <div style={{ textAlign: "center" as const, padding: 40 }}>
+              <div style={{ fontSize: 14, color: C.textSub, marginBottom: 12 }}>Gmail integration coming soon.</div>
+              <a href="https://mail.google.com/mail/u/3/#inbox" target="_blank" rel="noopener noreferrer" style={{
+                display: "inline-flex", alignItems: "center", gap: 8,
+                padding: "10px 24px", background: C.accent, color: "#fff", borderRadius: 10,
+                textDecoration: "none", fontWeight: 700, fontSize: 13,
+              }}>Open help@opervo.io in Gmail</a>
+            </div>
+          </Section>
+        )}
+
+        {/* ═════════ EMAILS ═════════ */}
+        {tab === "Emails" && (
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+            <Section title="Recent outbound emails (Resend)">
+              {emails.slice(0, 15).map(em => <EmailRow key={em.id} email={em} />)}
+              {emails.length === 0 && <div style={{ color: C.textMuted, fontSize: 13 }}>No emails found</div>}
+            </Section>
+            <Section title="Quick actions">
+              <QLink href="https://resend.com/emails" label="Resend dashboard" />
+              <div style={{ height: 8 }} />
+              <QLink href="https://resend.com/domains" label="Domain settings" />
+              <div style={{ height: 8 }} />
+              <QLink href="https://mail.google.com/mail/u/3/#inbox" label="help@opervo.io inbox" />
+            </Section>
           </div>
         )}
 
-        {/* INBOX */}
-        {tab === "Inbox" && (
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
-            <Section title="Resend — recent emails">
-              {emails.slice(0, 12).map(e => (
-                <EmailRow key={e.id} email={e} />
-              ))}
-              {emails.length === 0 && <div style={{ fontSize: 13, color: "#6B6B6B" }}>Loading…</div>}
-            </Section>
-            <Section title="Support priorities">
-              <Row left="Google Calendar connection" sub="OAuth verified by Google" right={<Badge type="green" label="Live" />} />
-              <Row left="Invoice email delivery" sub="Monitor via Resend logs" right={<Badge type="blue" label="Watch" />} />
-              <Row left="Recurring jobs" sub="Feature request — V2 candidate" right={<Badge type="gray" label="Backlog" />} />
-              <div style={{ marginTop: 14 }}>
-                <a href="https://mail.google.com" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 13, color: "#F5620F", fontWeight: 600, textDecoration: "none" }}>
-                  Open help@opervo.io →
-                </a>
-              </div>
-            </Section>
-          </div>
-        )}
-
-        {/* MARKETING */}
+        {/* ═════════ MARKETING ═════════ */}
         {tab === "Marketing" && (
-          <div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, minmax(0,1fr))", gap: 12, marginBottom: 20 }}>
-              <StatCard label="Videos scripted" value="21" sub="Ready to film" accent />
+          <>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 14, marginBottom: 20 }}>
+              <StatCard label="Videos scripted" value="21" sub="Ready to film" />
               <StatCard label="TikTok live" value="0" sub="Filming pending" />
-              <StatCard label="Instagram ad" value="Ready" sub="1080×1080 approved" />
+              <StatCard label="Instagram ad" value="Ready" sub="1080x1080 approved" />
               <StatCard label="SEO pages" value="22" sub="8 Tier 1 targets" />
             </div>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
               <Section title="Content pipeline">
-                {([
-                  { name: "TikTok — first 5 videos", status: "Filming", pct: 30, badge: "amber" },
-                  { name: "Instagram ad campaign", status: "Ready to launch", pct: 85, badge: "green" },
-                  { name: "SEO landing pages (Tier 1)", status: "In progress", pct: 10, badge: "amber" },
-                  { name: "Affiliate / ambassador program", status: "Planned", pct: 5, badge: "gray" },
-                  { name: "Beehiiv email list", status: "Not wired yet", pct: 20, badge: "red" },
-                ] as { name: string; status: string; pct: number; badge: "green" | "amber" | "red" | "blue" | "gray" }[]).map(item => (
-                  <div key={item.name} style={{ padding: "9px 0", borderBottom: "1px solid #F3F0EB" }}>
-                    <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 4 }}>
-                      <span style={{ fontSize: 13, color: "#1a1a1a" }}>{item.name}</span>
-                      <Badge type={item.badge} label={item.status} />
+                {[
+                  { name: "TikTok batch", progress: 10, status: "Filming" },
+                  { name: "Instagram ad creative", progress: 85, status: "Review" },
+                  { name: "SEO industry pages", progress: 100, status: "Live" },
+                  { name: "Affiliate program", progress: 0, status: "Planned" },
+                  { name: "Beehiiv email list", progress: 30, status: "Setup" },
+                ].map(item => (
+                  <div key={item.name} style={{ padding: "10px 0", borderBottom: `1px solid ${C.borderLight}` }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 6 }}>
+                      <span style={{ fontSize: 13, fontWeight: 500, color: C.text }}>{item.name}</span>
+                      <Badge type={item.progress === 100 ? "green" : item.progress > 50 ? "amber" : "gray"} label={item.status} />
                     </div>
-                    <div style={{ height: 4, background: "#EDE9E3", borderRadius: 2 }}>
-                      <div style={{ width: `${item.pct}%`, height: 4, background: "#F5620F", borderRadius: 2 }} />
+                    <div style={{ height: 4, background: C.border, borderRadius: 2, overflow: "hidden" }}>
+                      <div style={{ height: "100%", width: `${item.progress}%`, background: item.progress === 100 ? C.green : C.accent, borderRadius: 2, transition: "width 0.3s ease" }} />
                     </div>
                   </div>
                 ))}
               </Section>
               <Section title="Competitor pulse">
-                <Row left="QuoteIQ" sub="AI Autopilot shipped Feb 2026 · $29.99 floor" right={<Badge type="red" label="Watch closely" />} />
-                <Row left="Jobber" sub="AI add-on $99/mo · drifting upmarket" right={<Badge type="gray" label="Less threat" />} />
-                <Row left="Housecall Pro" sub="No route optimization · bloated" right={<Badge type="gray" label="Drifting" />} />
-                <Row left="ServiceWizard" sub="$14.99 · credibility issues" right={<Badge type="gray" label="Low threat" />} />
-                <div style={{ marginTop: 14, padding: "12px 14px", background: "#F7F5F2", borderRadius: 8, fontSize: 12, color: "#6B6B6B" }}>
-                  Opervo moat: D2D canvassing + folio page — no competitor has this at any price.
+                {[
+                  { name: "Jobber", note: "Market leader, $50+/mo", threat: "Low" },
+                  { name: "Housecall Pro", note: "Similar market, higher price", threat: "Low" },
+                  { name: "GorillaDesk", note: "Niche competitor", threat: "Med" },
+                  { name: "thecontractor.app", note: "New entrant, website builder", threat: "Watch" },
+                ].map(c => (
+                  <Row key={c.name} left={c.name} right={<Badge type={c.threat === "Low" ? "green" : c.threat === "Med" ? "amber" : "blue"} label={c.threat} />} sub={c.note} />
+                ))}
+                <div style={{ marginTop: 12, padding: 12, background: C.accentDim, borderRadius: 8, fontSize: 12, color: C.accent, fontWeight: 500 }}>
+                  Moat: operator-built credibility + folio portfolio pages + sub-$25 pricing
                 </div>
               </Section>
             </div>
-          </div>
+          </>
         )}
 
-        {/* TASKS */}
+        {/* ═════════ TASKS ═════════ */}
         {tab === "Tasks" && (
-          <div>
-            <div style={{ display: "flex", gap: 8, marginBottom: 16, padding: "12px 14px", background: "#fff", border: "1px solid #E8E4DE", borderRadius: 12 }}>
-              <input
-                value={newTaskText}
-                onChange={(e) => setNewTaskText(e.target.value)}
-                onKeyDown={(e) => e.key === "Enter" && addTask()}
-                placeholder="Add a new task…"
-                style={{ flex: 1, padding: "9px 14px", border: "1px solid #E8E4DE", borderRadius: 8, fontSize: 13, color: "#1a1a1a", background: "#F7F5F2", outline: "none" }}
-              />
-              <select
-                value={newTaskCategory}
-                onChange={(e) => setNewTaskCategory(e.target.value as "week" | "v2")}
-                style={{ padding: "9px 12px", border: "1px solid #E8E4DE", borderRadius: 8, fontSize: 13, background: "#fff", color: "#1a1a1a" }}
-              >
+          <>
+            <div style={{ display: "flex", gap: 10, marginBottom: 20, alignItems: "center" }}>
+              <input value={newTaskText} onChange={e => setNewTaskText(e.target.value)} onKeyDown={e => e.key === "Enter" && addTask()}
+                placeholder="New task..." style={{ flex: 1, padding: "10px 14px", border: `1px solid ${C.border}`, borderRadius: 10, fontSize: 13, color: C.text, background: "rgba(255,255,255,0.03)", outline: "none" }} />
+              <select value={newTaskCategory} onChange={e => setNewTaskCategory(e.target.value as "week" | "v2")}
+                style={{ padding: "10px 12px", border: `1px solid ${C.border}`, borderRadius: 10, fontSize: 12, color: C.text, background: C.bg, outline: "none" }}>
                 <option value="week">This week</option>
                 <option value="v2">V2 pipeline</option>
               </select>
-              <select
-                value={newTaskPriority}
-                onChange={(e) => setNewTaskPriority(e.target.value as "high" | "med" | "low")}
-                style={{ padding: "9px 12px", border: "1px solid #E8E4DE", borderRadius: 8, fontSize: 13, background: "#fff", color: "#1a1a1a" }}
-              >
+              <select value={newTaskPriority} onChange={e => setNewTaskPriority(e.target.value as "high" | "med" | "low")}
+                style={{ padding: "10px 12px", border: `1px solid ${C.border}`, borderRadius: 10, fontSize: 12, color: C.text, background: C.bg, outline: "none" }}>
                 <option value="high">High</option>
                 <option value="med">Med</option>
                 <option value="low">Low</option>
               </select>
-              <button onClick={addTask} style={{ padding: "9px 18px", background: "#F5620F", color: "#fff", border: "none", borderRadius: 8, fontSize: 13, fontWeight: 600, cursor: "pointer" }}>
-                Add
-              </button>
+              <button onClick={addTask} style={{ padding: "10px 20px", background: C.accent, color: "#fff", border: "none", borderRadius: 10, fontSize: 13, fontWeight: 700, cursor: "pointer" }}>Add</button>
             </div>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
               <Section title="This week">
-                {tasks.filter((t) => t.category === "week").map((t) => (
-                  <TaskRow key={t.id} task={t} onToggle={toggleTask} onDelete={deleteTask} />
-                ))}
-                {tasks.filter((t) => t.category === "week").length === 0 && (
-                  <div style={{ fontSize: 13, color: "#6B6B6B" }}>{tasks.length === 0 ? "Loading…" : "No tasks. Add one above."}</div>
-                )}
+                {tasks.filter(t => t.category === "week").map(t => <TaskRow key={t.id} task={t} onToggle={toggleTask} onDelete={deleteTask} />)}
+                {tasks.filter(t => t.category === "week").length === 0 && <div style={{ fontSize: 13, color: C.textMuted }}>No tasks this week</div>}
               </Section>
               <Section title="V2 pipeline">
-                {tasks.filter((t) => t.category === "v2").map((t) => (
-                  <TaskRow key={t.id} task={t} onToggle={toggleTask} onDelete={deleteTask} />
-                ))}
-                {tasks.filter((t) => t.category === "v2").length === 0 && (
-                  <div style={{ fontSize: 13, color: "#6B6B6B" }}>{tasks.length === 0 ? "Loading…" : "No tasks. Add one above."}</div>
-                )}
+                {tasks.filter(t => t.category === "v2").map(t => <TaskRow key={t.id} task={t} onToggle={toggleTask} onDelete={deleteTask} />)}
+                {tasks.filter(t => t.category === "v2").length === 0 && <div style={{ fontSize: 13, color: C.textMuted }}>No V2 tasks</div>}
               </Section>
             </div>
-          </div>
+          </>
         )}
 
-        {/* LINKS */}
+        {/* ═════════ LINKS ═════════ */}
         {tab === "Links" && (
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0,1fr))", gap: 16 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 14 }}>
             <Section title="App & infrastructure">
-              <div style={{ display: "flex", flexDirection: "column" as const, gap: 8 }}>
-                <QLink href="https://app.opervo.io" label="app.opervo.io (PWA)" />
-                <QLink href="https://opervo.io" label="opervo.io (landing)" />
-                <QLink href="https://lovable.dev/projects/1321fdcc-acf5-4d61-811d-3dafe2f86092" label="Lovable project" />
-                <QLink href="https://supabase.com/dashboard/project/sbnykmxckfwkkxvhrkot" label="Supabase dashboard" />
-                <QLink href="https://app.netlify.com/sites/splendid-moxie-3f9a51" label="Netlify dashboard" />
-                <QLink href="https://vercel.com" label="Vercel dashboard" />
-                <QLink href="https://github.com/opervo/opervo-folio" label="opervo-folio repo" />
-                <QLink href="https://github.com/opervo/opervo-work-flow" label="opervo-work-flow repo" />
-              </div>
+              {[
+                ["https://app.opervo.io", "app.opervo.io"],
+                ["https://opervo.io", "opervo.io (landing)"],
+                ["https://supabase.com/dashboard/project/sbnykmxckfwkkxvhrkot", "Supabase dashboard"],
+                ["https://app.netlify.com/sites/splendid-moxie-3f9a51", "Netlify (app deploy)"],
+                ["https://vercel.com/opervo", "Vercel (landing deploy)"],
+                ["https://github.com/opervo/opervo-work-flow", "GitHub — app repo"],
+                ["https://github.com/opervo/opervo-folio", "GitHub — landing repo"],
+              ].map(([href, label]) => <div key={href} style={{ marginBottom: 6 }}><QLink href={href} label={label} /></div>)}
             </Section>
             <Section title="Revenue & email">
-              <div style={{ display: "flex", flexDirection: "column" as const, gap: 8 }}>
-                <QLink href="https://dashboard.stripe.com" label="Stripe dashboard" />
-                <QLink href="https://resend.com/emails" label="Resend email logs" />
-                <QLink href="https://mail.google.com" label="help@opervo.io inbox" />
-                <QLink href="https://resend.com/domains" label="Resend domain health" />
-              </div>
+              {[
+                ["https://dashboard.stripe.com", "Stripe dashboard"],
+                ["https://resend.com/emails", "Resend emails"],
+                ["https://resend.com/domains", "Resend domains"],
+                ["https://mail.google.com/mail/u/3/#inbox", "help@opervo.io"],
+              ].map(([href, label]) => <div key={href} style={{ marginBottom: 6 }}><QLink href={href} label={label} /></div>)}
             </Section>
-            <Section title="Marketing & content">
-              <div style={{ display: "flex", flexDirection: "column" as const, gap: 8 }}>
-                <QLink href="https://www.tiktok.com/@opervo" label="TikTok @opervo" />
-                <QLink href="https://console.cloud.google.com/auth/verification?project=project-89b6e33d-9488-47e6-843" label="Google OAuth verify" />
-                <QLink href="https://youtu.be/cQRXUKIUeAs" label="OAuth demo video" />
-                <QLink href="https://opervo.io/p/opervo-test-company" label="Test folio page" />
-                <QLink href="https://beehiiv.com" label="Beehiiv" />
-                <QLink href="https://github.com/settings/tokens" label="GitHub tokens (regenerate)" />
-              </div>
+            <Section title="Analytics & monitoring">
+              {[
+                ["https://us.posthog.com/project/372011", "PostHog analytics"],
+                ["https://opervo.sentry.io", "Sentry errors"],
+                ["https://portal.telnyx.com", "Telnyx SMS"],
+                ["https://console.cloud.google.com", "Google Cloud"],
+                ["https://search.google.com/search-console", "Search Console"],
+              ].map(([href, label]) => <div key={href} style={{ marginBottom: 6 }}><QLink href={href} label={label} /></div>)}
             </Section>
           </div>
         )}
