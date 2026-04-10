@@ -655,20 +655,8 @@ export default function AdminPage() {
         {tab === "Support" && (
           <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr", gap: 14 }}>
             <Section title={`Support inbox${support?.unreadCount ? ` (${support.unreadCount} unread)` : ""}`}>
-              {!support?.configured ? (
-                <div style={{ padding: 20, textAlign: "center" as const }}>
-                  <div style={{ fontSize: 13, color: C.textSub, marginBottom: 12 }}>
-                    Gmail not connected. Add <code style={{ background: C.surface, padding: "2px 6px", borderRadius: 4, fontSize: 12 }}>GMAIL_REFRESH_TOKEN</code> to Vercel env vars.
-                  </div>
-                  <a href="https://mail.google.com/mail/u/3/#inbox" target="_blank" rel="noopener noreferrer" style={{
-                    display: "inline-flex", alignItems: "center", gap: 8,
-                    padding: "10px 24px", background: C.accent, color: "#fff", borderRadius: 10,
-                    textDecoration: "none", fontWeight: 700, fontSize: 13,
-                  }}>Open in Gmail</a>
-                </div>
-              ) : support.emails.length === 0 ? (
-                <div style={{ fontSize: 13, color: C.textMuted, padding: 20, textAlign: "center" as const }}>No emails in inbox</div>
-              ) : (
+              {/* Gmail emails from API */}
+              {support?.configured && support.emails.length > 0 ? (
                 support.emails.map(em => (
                   <a key={em.id} href={em.gmailUrl} target="_blank" rel="noopener noreferrer" style={{
                     display: "block", padding: "12px 0", borderBottom: `1px solid ${C.borderLight}`,
@@ -685,15 +673,25 @@ export default function AdminPage() {
                     <div style={{ fontSize: 12, color: C.textMuted, marginLeft: em.unread ? 14 : 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" as const }}>{em.snippet}</div>
                   </a>
                 ))
+              ) : (
+                /* Fallback: always show a working Gmail link */
+                <div style={{ textAlign: "center" as const, padding: 30 }}>
+                  <div style={{ fontSize: 13, color: C.textSub, marginBottom: 16 }}>
+                    {support?.configured === false ? "Gmail API connecting..." : "Open your inbox to view and reply to support emails."}
+                  </div>
+                  <a href="https://mail.google.com/mail/u/3/#inbox" target="_blank" rel="noopener noreferrer" style={{
+                    display: "inline-flex", alignItems: "center", gap: 8,
+                    padding: "12px 28px", background: C.accent, color: "#fff", borderRadius: 10,
+                    textDecoration: "none", fontWeight: 700, fontSize: 14,
+                  }}>Open help@opervo.io</a>
+                </div>
               )}
             </Section>
             <div>
               <Section title="Quick actions">
-                <QLink href="https://mail.google.com/mail/u/3/#inbox" label="Open full inbox" />
-                <div style={{ height: 8 }} />
-                <QLink href="https://mail.google.com/mail/u/3/#sent" label="Sent messages" />
-                <div style={{ height: 8 }} />
-                <QLink href="https://mail.google.com/mail/u/3/#starred" label="Starred" />
+                <div style={{ marginBottom: 8 }}><QLink href="https://mail.google.com/mail/u/3/#inbox" label="Inbox" /></div>
+                <div style={{ marginBottom: 8 }}><QLink href="https://mail.google.com/mail/u/3/#sent" label="Sent" /></div>
+                <div style={{ marginBottom: 8 }}><QLink href="https://mail.google.com/mail/u/3/#starred" label="Starred" /></div>
               </Section>
               {support?.unreadCount != null && support.unreadCount > 0 && (
                 <div style={{ marginTop: 14, padding: 16, background: C.accentDim, borderRadius: 14, textAlign: "center" as const }}>
