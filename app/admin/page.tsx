@@ -241,6 +241,7 @@ export default function AdminPage() {
   const [loading, setLoading] = useState(false);
   const [lastRefresh, setLastRefresh] = useState<Date | null>(null);
   const [activation, setActivation] = useState<ActivationData | null>(null);
+  const [support, setSupport] = useState<{ configured: boolean; emails: { id: string; from: string; subject: string; snippet: string; date: string; unread: boolean; gmailUrl: string }[]; unreadCount: number } | null>(null);
   const [aiQ, setAiQ] = useState("");
   const [aiA, setAiA] = useState("");
   const [aiLoading, setAiLoading] = useState(false);
@@ -248,7 +249,7 @@ export default function AdminPage() {
   const fetchAll = useCallback(async () => {
     setLoading(true);
     try {
-      const [stripeRes, usersRes, emailsRes, posthogRes, sentryRes, healthRes, tasksRes, activationRes] = await Promise.allSettled([
+      const [stripeRes, usersRes, emailsRes, posthogRes, sentryRes, healthRes, tasksRes, activationRes, supportRes] = await Promise.allSettled([
         fetch("/api/admin/stripe"),
         fetch("/api/admin/users"),
         fetch("/api/admin/emails"),
@@ -257,6 +258,7 @@ export default function AdminPage() {
         fetch("/api/admin/health"),
         fetch("/api/admin/tasks"),
         fetch("/api/admin/activation"),
+        fetch("/api/admin/support"),
       ]);
       if (stripeRes.status === "fulfilled" && stripeRes.value.ok) setStripe(await stripeRes.value.json());
       if (usersRes.status === "fulfilled" && usersRes.value.ok) setUsers(await usersRes.value.json());
@@ -269,6 +271,7 @@ export default function AdminPage() {
         setTasks(data.tasks ?? []);
       }
       if (activationRes.status === "fulfilled" && activationRes.value.ok) setActivation(await activationRes.value.json());
+      if (supportRes.status === "fulfilled" && supportRes.value.ok) setSupport(await supportRes.value.json());
       setLastRefresh(new Date());
     } finally { setLoading(false); }
   }, []);
@@ -381,8 +384,12 @@ export default function AdminPage() {
               background: tab === t ? C.accent : "transparent",
               color: tab === t ? "#fff" : C.textSub,
               fontFamily: "'Barlow', sans-serif",
+              display: "inline-flex", alignItems: "center", gap: 6,
             }}>
               {t}
+              {t === "Support" && support?.unreadCount != null && support.unreadCount > 0 && (
+                <span style={{ background: C.red, color: "#fff", fontSize: 10, fontWeight: 700, padding: "1px 6px", borderRadius: 10, minWidth: 16, textAlign: "center" as const }}>{support.unreadCount}</span>
+              )}
             </button>
           ))}
         </div>
@@ -646,16 +653,56 @@ export default function AdminPage() {
 
         {/* ═════════ SUPPORT ═════════ */}
         {tab === "Support" && (
-          <Section title="Support — help@opervo.io">
-            <div style={{ textAlign: "center" as const, padding: 40 }}>
-              <div style={{ fontSize: 14, color: C.textSub, marginBottom: 12 }}>Gmail integration coming soon.</div>
-              <a href="https://mail.google.com/mail/u/3/#inbox" target="_blank" rel="noopener noreferrer" style={{
-                display: "inline-flex", alignItems: "center", gap: 8,
-                padding: "10px 24px", background: C.accent, color: "#fff", borderRadius: 10,
-                textDecoration: "none", fontWeight: 700, fontSize: 13,
-              }}>Open help@opervo.io in Gmail</a>
+          <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr", gap: 14 }}>
+            <Section title={`Support inbox${support?.unreadCount ? ` (${support.unreadCount} unread)` : ""}`}>
+              {!support?.configured ? (
+                <div style={{ padding: 20, textAlign: "center" as const }}>
+                  <div style={{ fontSize: 13, color: C.textSub, marginBottom: 12 }}>
+                    Gmail not connected. Add <code style={{ background: C.surface, padding: "2px 6px", borderRadius: 4, fontSize: 12 }}>GMAIL_REFRESH_TOKEN</code> to Vercel env vars.
+                  </div>
+                  <a href="https://mail.google.com/mail/u/3/#inbox" target="_blank" rel="noopener noreferrer" style={{
+                    display: "inline-flex", alignItems: "center", gap: 8,
+                    padding: "10px 24px", background: C.accent, color: "#fff", borderRadius: 10,
+                    textDecoration: "none", fontWeight: 700, fontSize: 13,
+                  }}>Open in Gmail</a>
+                </div>
+              ) : support.emails.length === 0 ? (
+                <div style={{ fontSize: 13, color: C.textMuted, padding: 20, textAlign: "center" as const }}>No emails in inbox</div>
+              ) : (
+                support.emails.map(em => (
+                  <a key={em.id} href={em.gmailUrl} target="_blank" rel="noopener noreferrer" style={{
+                    display: "block", padding: "12px 0", borderBottom: `1px solid ${C.borderLight}`,
+                    textDecoration: "none", color: "inherit",
+                  }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 3 }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                        {em.unread && <span style={{ width: 6, height: 6, borderRadius: "50%", background: C.accent, flexShrink: 0 }} />}
+                        <span style={{ fontSize: 13, fontWeight: em.unread ? 700 : 500, color: C.text }}>{em.from}</span>
+                      </div>
+                      <span style={{ fontSize: 11, color: C.textMuted, flexShrink: 0 }}>{timeAgo(em.date)}</span>
+                    </div>
+                    <div style={{ fontSize: 13, fontWeight: em.unread ? 600 : 400, color: em.unread ? C.text : C.textSub, marginBottom: 2, marginLeft: em.unread ? 14 : 0 }}>{em.subject}</div>
+                    <div style={{ fontSize: 12, color: C.textMuted, marginLeft: em.unread ? 14 : 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" as const }}>{em.snippet}</div>
+                  </a>
+                ))
+              )}
+            </Section>
+            <div>
+              <Section title="Quick actions">
+                <QLink href="https://mail.google.com/mail/u/3/#inbox" label="Open full inbox" />
+                <div style={{ height: 8 }} />
+                <QLink href="https://mail.google.com/mail/u/3/#sent" label="Sent messages" />
+                <div style={{ height: 8 }} />
+                <QLink href="https://mail.google.com/mail/u/3/#starred" label="Starred" />
+              </Section>
+              {support?.unreadCount != null && support.unreadCount > 0 && (
+                <div style={{ marginTop: 14, padding: 16, background: C.accentDim, borderRadius: 14, textAlign: "center" as const }}>
+                  <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 36, fontWeight: 900, color: C.accent }}>{support.unreadCount}</div>
+                  <div style={{ fontSize: 11, color: C.textSub, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" as const }}>Unread</div>
+                </div>
+              )}
             </div>
-          </Section>
+          </div>
         )}
 
         {/* ═════════ EMAILS ═════════ */}
