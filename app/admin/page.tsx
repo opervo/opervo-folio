@@ -207,6 +207,18 @@ function EmailRow({ email }: { email: ResendEmail }) {
   );
 }
 
+/* ────── Responsive styles injected once ────── */
+const RESPONSIVE_CSS = `
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600;700&display=swap');
+@media (max-width: 768px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr) !important; }
+  .grid-3 { grid-template-columns: 1fr !important; }
+  .grid-2 { grid-template-columns: 1fr !important; }
+  .tab-bar { overflow-x: auto; flex-wrap: nowrap !important; -webkit-overflow-scrolling: touch; }
+  .tab-bar::-webkit-scrollbar { display: none; }
+}
+`;
+
 /* ────── Main ────── */
 const TABS = ["Overview", "Revenue", "Users", "Support", "Emails", "Marketing", "Tasks", "Links"];
 
@@ -339,6 +351,7 @@ export default function AdminPage() {
   /* ── Dashboard shell ── */
   return (
     <div style={{ minHeight: "100vh", background: C.bg, color: C.text }}>
+      <style dangerouslySetInnerHTML={{ __html: RESPONSIVE_CSS }} />
       {/* ── Header ── */}
       <div style={{ background: "rgba(255,255,255,0.02)", borderBottom: `1px solid ${C.border}`, padding: "14px 32px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <div style={{ display: "flex", alignItems: "baseline", gap: 10 }}>
@@ -665,31 +678,45 @@ export default function AdminPage() {
         {/* ═════════ MARKETING ═════════ */}
         {tab === "Marketing" && (
           <>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 14, marginBottom: 20 }}>
-              <StatCard label="Videos scripted" value="21" sub="Ready to film" />
-              <StatCard label="TikTok live" value="0" sub="Filming pending" />
-              <StatCard label="Instagram ad" value="Ready" sub="1080x1080 approved" />
-              <StatCard label="SEO pages" value="22" sub="8 Tier 1 targets" />
+            {/* Add marketing task */}
+            <div style={{ display: "flex", gap: 10, marginBottom: 20, alignItems: "center" }}>
+              <input value={newTaskCategory === "marketing" ? newTaskText : ""} onChange={e => { setNewTaskCategory("marketing" as any); setNewTaskText(e.target.value); }}
+                onKeyDown={e => { if (e.key === "Enter") { setNewTaskCategory("marketing" as any); addTask(); } }}
+                placeholder="Add content pipeline item..."
+                style={{ flex: 1, padding: "10px 14px", border: `1px solid ${C.border}`, borderRadius: 10, fontSize: 13, color: C.text, background: "rgba(255,255,255,0.03)", outline: "none" }} />
+              <select value={newTaskPriority} onChange={e => setNewTaskPriority(e.target.value as "high" | "med" | "low")}
+                style={{ padding: "10px 12px", border: `1px solid ${C.border}`, borderRadius: 10, fontSize: 12, color: C.text, background: C.bg, outline: "none" }}>
+                <option value="high">Active</option>
+                <option value="med">In progress</option>
+                <option value="low">Planned</option>
+              </select>
+              <button onClick={() => { setNewTaskCategory("marketing" as any); addTask(); }} style={{ padding: "10px 20px", background: C.accent, color: "#fff", border: "none", borderRadius: 10, fontSize: 13, fontWeight: 700, cursor: "pointer" }}>Add</button>
             </div>
+
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
               <Section title="Content pipeline">
-                {[
-                  { name: "TikTok batch", progress: 10, status: "Filming" },
-                  { name: "Instagram ad creative", progress: 85, status: "Review" },
-                  { name: "SEO industry pages", progress: 100, status: "Live" },
-                  { name: "Affiliate program", progress: 0, status: "Planned" },
-                  { name: "Beehiiv email list", progress: 30, status: "Setup" },
-                ].map(item => (
-                  <div key={item.name} style={{ padding: "10px 0", borderBottom: `1px solid ${C.borderLight}` }}>
-                    <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 6 }}>
-                      <span style={{ fontSize: 13, fontWeight: 500, color: C.text }}>{item.name}</span>
-                      <Badge type={item.progress === 100 ? "green" : item.progress > 50 ? "amber" : "gray"} label={item.status} />
+                {tasks.filter(t => (t.category as string) === "marketing").length === 0 && (
+                  <div style={{ fontSize: 13, color: C.textMuted, padding: 8 }}>No pipeline items. Add one above.</div>
+                )}
+                {tasks.filter(t => (t.category as string) === "marketing").map(t => {
+                  const statusLabel = t.done ? "Done" : t.priority === "high" ? "Active" : t.priority === "med" ? "In progress" : "Planned";
+                  const badgeType = t.done ? "green" as const : t.priority === "high" ? "accent" as const : t.priority === "med" ? "amber" as const : "gray" as const;
+                  return (
+                    <div key={t.id} style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 0", borderBottom: `1px solid ${C.borderLight}` }}>
+                      <div onClick={() => toggleTask(t.id, !t.done)} style={{
+                        width: 18, height: 18, borderRadius: 5,
+                        border: t.done ? "none" : `1.5px solid ${C.border}`,
+                        background: t.done ? C.green : "transparent",
+                        flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer",
+                      }}>
+                        {t.done && <span style={{ color: "#fff", fontSize: 11 }}>✓</span>}
+                      </div>
+                      <span style={{ flex: 1, fontSize: 13, fontWeight: 500, color: t.done ? C.textMuted : C.text, textDecoration: t.done ? "line-through" : "none" }}>{t.text}</span>
+                      <Badge type={badgeType} label={statusLabel} />
+                      <button onClick={() => deleteTask(t.id)} style={{ background: "transparent", border: "none", color: C.textMuted, cursor: "pointer", fontSize: 14, padding: "0 4px" }} title="Delete">×</button>
                     </div>
-                    <div style={{ height: 4, background: C.border, borderRadius: 2, overflow: "hidden" }}>
-                      <div style={{ height: "100%", width: `${item.progress}%`, background: item.progress === 100 ? C.green : C.accent, borderRadius: 2, transition: "width 0.3s ease" }} />
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </Section>
               <Section title="Competitor pulse">
                 {[
