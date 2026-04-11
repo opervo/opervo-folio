@@ -20,6 +20,7 @@ const resources = [
   { name: 'Blog', href: '/blog' },
   { name: 'Marketing Materials', href: '/print' },
   { name: 'Guide', href: '/guide' },
+  { name: 'The Founder', href: '/founder' },
 ]
 
 export default function SiteNav() {

@@ -61,6 +61,7 @@ export default function SiteFooter() {
             <p style={colHeader}>Company</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
               <Link href="/blog" title="Opervo Blog" style={linkStyle}>Blog</Link>
+              <Link href="/founder" title="The Founder" style={linkStyle}>The Founder</Link>
               <Link href="/guide" title="Opervo Guide" style={linkStyle}>Guide</Link>
               <Link href="/privacy" title="Privacy Policy" style={linkStyle}>Privacy</Link>
               <Link href="/tos" title="Terms of Service" style={linkStyle}>Terms</Link>
