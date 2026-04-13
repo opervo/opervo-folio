@@ -46,7 +46,7 @@ export default async function OrderApprovalPage({
     const resendKey = process.env.RESEND_API_KEY
     if (resendKey) {
       // Notify Opervo
-      fetch('https://api.resend.com/emails', {
+      await fetch('https://api.resend.com/emails', {
         method: 'POST',
         headers: { Authorization: `Bearer ${resendKey}`, 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -58,7 +58,7 @@ export default async function OrderApprovalPage({
       }).catch(() => {})
 
       // Thank customer
-      fetch('https://api.resend.com/emails', {
+      await fetch('https://api.resend.com/emails', {
         method: 'POST',
         headers: { Authorization: `Bearer ${resendKey}`, 'Content-Type': 'application/json' },
         body: JSON.stringify({
