@@ -57,6 +57,11 @@ create table if not exists leads (
   phone            text,
   address          text,
   preferred_dates  text,
+  preferred_date   text,
+  preferred_window text,
+  request_type     text default 'quote_request',
+  service_price    numeric,
+  estimated_duration integer,
   notes            text,
   photo_url        text,
   status           text default 'new',   -- new | viewed | quoted | booked | lost
