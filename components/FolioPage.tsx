@@ -913,6 +913,9 @@ function QuoteForm({ profile }: { profile: OperatorProfile }) {
             <div className="f-label">Additional notes</div>
             <textarea className="f-textarea" placeholder="2-storey home · 16 solar panels…" value={notes} onChange={e => setNotes(e.target.value)} />
             <button className="btn-primary" onClick={() => setStep(2)}>Continue →</button>
+            <p style={{ fontSize: 11, lineHeight: 1.5, color: '#888', margin: '12px 0 0', textAlign: 'center' }}>
+              By providing your phone number, you consent to receive SMS updates about your service request. Msg & data rates may apply. Reply STOP to opt out. <a href="https://opervo.io/privacy" style={{ color: '#888', textDecoration: 'underline' }}>Privacy</a> · <a href="https://opervo.io/tos" style={{ color: '#888', textDecoration: 'underline' }}>Terms</a>
+            </p>
           </div>
         )}
 
