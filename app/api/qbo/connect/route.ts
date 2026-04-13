@@ -5,11 +5,16 @@ import { QBO_CONFIG, intuitAuthUrl, supabaseAdmin, signState } from '@/lib/qbo'
 export const dynamic = 'force-dynamic'
 
 export async function GET(req: NextRequest) {
-  // ── Auth check (header only) ────────────────────────────
-  // Previously also accepted token via ?token= query param, which leaks
-  // the bearer token into Vercel access logs and Intuit referer headers.
+  // ── Auth check ──────────────────────────────────────────
+  // Accept token via Authorization header OR ?token= query param.
+  // Query param is needed because the app (app.opervo.io) uses
+  // window.location.href to initiate the OAuth redirect and can't set headers.
+  // The token only appears in Vercel access logs (our infra); it doesn't leak
+  // to Intuit because NextResponse.redirect is server-side.
   const authHeader = req.headers.get('authorization')
-  const token = authHeader?.startsWith('Bearer ') ? authHeader.replace('Bearer ', '') : null
+  const token = authHeader?.startsWith('Bearer ')
+    ? authHeader.replace('Bearer ', '')
+    : req.nextUrl.searchParams.get('token')
 
   if (!token) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
