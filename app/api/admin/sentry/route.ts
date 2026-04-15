@@ -38,7 +38,7 @@ export async function GET() {
   try {
     // Issues from the last 24 hours, sorted by frequency
     const issues = (await sf(
-      `projects/${SENTRY_ORG}/${SENTRY_PROJECT}/issues/?statsPeriod=24h&query=is:unresolved&sort=freq&limit=10`
+      `projects/${SENTRY_ORG}/${SENTRY_PROJECT}/issues/?statsPeriod=24h&query=is:unresolved&sort=freq&limit=25`
     )) as SentryIssue[];
 
     const totalErrors = issues.reduce((sum, i) => sum + Number(i.count || 0), 0);
@@ -49,13 +49,15 @@ export async function GET() {
       totalErrors24h: totalErrors,
       uniqueIssues24h: issues.length,
       affectedUsers24h: affectedUsers,
-      topIssues: issues.slice(0, 5).map((i) => ({
+      topIssues: issues.map((i) => ({
         id: i.id,
         title: i.title,
         count: Number(i.count),
         userCount: i.userCount,
         level: i.level,
         permalink: i.permalink,
+        firstSeen: i.firstSeen,
+        lastSeen: i.lastSeen,
       })),
     });
   } catch (e) {

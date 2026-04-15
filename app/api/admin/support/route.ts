@@ -140,3 +140,58 @@ export async function GET() {
     );
   }
 }
+
+export async function POST(req: Request) {
+  if (!(await isAdmin())) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
+  if (!GMAIL_REFRESH_TOKEN) {
+    return NextResponse.json({ error: "Gmail not configured" }, { status: 400 });
+  }
+
+  try {
+    const { action, messageId } = await req.json();
+    if (!messageId || !["resolve", "escalate"].includes(action)) {
+      return NextResponse.json({ error: "Invalid action or messageId" }, { status: 400 });
+    }
+
+    const accessToken = await getAccessToken();
+    if (!accessToken) {
+      return NextResponse.json({ error: "Failed to refresh Gmail token" }, { status: 500 });
+    }
+
+    if (action === "resolve") {
+      // Archive: remove INBOX label
+      await fetch(
+        `https://gmail.googleapis.com/gmail/v1/users/me/messages/${messageId}/modify`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ removeLabelIds: ["INBOX"] }),
+        }
+      );
+    } else if (action === "escalate") {
+      // Star the message
+      await fetch(
+        `https://gmail.googleapis.com/gmail/v1/users/me/messages/${messageId}/modify`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ addLabelIds: ["STARRED"] }),
+        }
+      );
+    }
+
+    return NextResponse.json({ ok: true });
+  } catch (err) {
+    console.error("[admin/support] POST error:", err);
+    return NextResponse.json({ error: String(err) }, { status: 500 });
+  }
+}
