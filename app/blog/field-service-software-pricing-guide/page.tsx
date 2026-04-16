@@ -110,8 +110,9 @@ export default function FieldServiceSoftwarePricingGuide() {
         <p>
           This is where costs spike fast for growing crews. Jobber charges per additional user on the
           $119 and $199 plans. Housecall Pro does the same above the base tier. Opervo&rsquo;s Team plan at
-          $54.99/mo includes up to five users with role-based permissions, so you can add a crew without a
-          surprise bill.
+          $54.99/mo includes up to ten team members with role-based permissions, so you can add a crew
+          without a surprise bill. Crews larger than ten use our Growth tier (contact help@opervo.io for
+          custom pricing).
         </p>
         <h3>Setup and onboarding fees</h3>
         <p>

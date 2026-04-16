@@ -229,7 +229,7 @@ export default function HowToStartSolarPanelCleaningBusiness() {
           <li>Use automated job completion summaries so you know what happened at every site without being there.</li>
         </ul>
         <p>
-          Opervo&rsquo;s Team plan ($54.99/mo) supports up to five users and was built for exactly this
+          Opervo&rsquo;s Team plan ($54.99/mo) supports up to ten team members and was built for exactly this
           stage of growth. Compare that to Jobber at $119/mo or Housecall Pro at $189/mo for the same
           functionality.
         </p>
