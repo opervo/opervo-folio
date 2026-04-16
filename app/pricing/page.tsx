@@ -17,6 +17,7 @@ export const metadata: Metadata = {
 }
 
 const soloFeatures = [
+  '2 users (operator + 1 helper)',
   'Unlimited clients',
   'Scheduling + Google Calendar sync',
   'Estimates & invoicing',
@@ -30,12 +31,20 @@ const soloFeatures = [
 ]
 
 const teamFeatures = [
+  'Up to 10 team members',
   'Everything in Solo, plus:',
-  'Team member accounts',
   'Role-based permissions',
   'Assign jobs to crew members',
   'Team scheduling view',
   'All features included — no per-user fees',
+]
+
+const growthFeatures = [
+  'Unlimited team members',
+  'Everything in Team, plus:',
+  'Priority support',
+  'Custom onboarding',
+  'Dedicated account manager',
 ]
 
 const comparisonRows = [
@@ -48,7 +57,7 @@ const comparisonRows = [
   { feature: 'Auto-text (SMS)', oSolo: 'Included', oTeam: 'Included', jLite: 'Add-on', jConnect: 'Add-on', hcp: '✓', gd: '✓' },
   { feature: 'Google Calendar sync', oSolo: '✓', oTeam: '✓', jLite: '✓', jConnect: '✓', hcp: '✓', gd: '✓' },
   { feature: 'Recurring jobs', oSolo: '✓', oTeam: '✓', jLite: '✓', jConnect: '✓', hcp: '✓', gd: '✓' },
-  { feature: 'Team management', oSolo: '✗', oTeam: '✓', jLite: '✗', jConnect: '✓', hcp: '✓', gd: '✓' },
+  { feature: 'Team management', oSolo: 'Up to 1', oTeam: 'Up to 10', jLite: '✗', jConnect: '✓', hcp: '✓', gd: '✓' },
   { feature: 'Route optimization', oSolo: 'Coming soon', oTeam: 'Coming soon', jLite: '✗', jConnect: '✓', hcp: '✗', gd: '✓' },
 ]
 
@@ -59,6 +68,7 @@ const faqs = [
   { q: 'What payment methods do you accept?', a: 'All major credit and debit cards via Stripe. We don\'t store your card info.' },
   { q: 'What happens after the trial?', a: 'Your account stays active on the plan you choose. If you don\'t subscribe, your data is saved for 30 days so you can come back anytime.' },
   { q: 'Do you offer annual pricing?', a: 'Not yet, but it\'s coming. Monthly pricing keeps things flexible — cancel anytime.' },
+  { q: 'What\'s the Growth plan?', a: 'For teams with more than 10 members. Custom pricing and onboarding — email help@opervo.io and we\'ll set you up.' },
 ]
 
 export default function Pricing() {
@@ -90,8 +100,8 @@ export default function Pricing() {
       </section>
 
       {/* PRICING CARDS */}
-      <section style={{ maxWidth: 800, margin: '0 auto', padding: '0 24px 72px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 20 }}>
+      <section style={{ maxWidth: 1100, margin: '0 auto', padding: '0 24px 72px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 20 }}>
           {/* SOLO */}
           <div style={{ background: '#fff', border: '1px solid #E8E4DE', borderRadius: 12, padding: '36px 28px' }}>
             <p style={{ fontSize: 12, fontWeight: 700, color: '#F5620F', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 12 }}>Solo</p>
@@ -135,6 +145,27 @@ export default function Pricing() {
               Start Free Trial
             </a>
             <p style={{ fontSize: 12, color: '#6B6B6B', textAlign: 'center', marginTop: 8 }}>30 days free. No credit card.</p>
+          </div>
+
+          {/* GROWTH */}
+          <div style={{ background: '#fff', border: '1px solid #E8E4DE', borderRadius: 12, padding: '36px 28px' }}>
+            <p style={{ fontSize: 12, fontWeight: 700, color: '#F5620F', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 12 }}>Growth</p>
+            <div style={{ marginBottom: 8 }}>
+              <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 40, color: '#0F0F0F' }}>Contact us</span>
+            </div>
+            <p style={{ fontSize: 15, color: '#6B6B6B', marginBottom: 24 }}>For teams with more than 10 members.</p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 28 }}>
+              {growthFeatures.map((f) => (
+                <div key={f} style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
+                  <span style={{ color: '#F5620F', fontWeight: 700, fontSize: 14, lineHeight: '20px' }}>✓</span>
+                  <span style={{ fontSize: 14, color: '#1a1a1a', lineHeight: '20px', fontWeight: f.startsWith('Everything') ? 600 : 400 }}>{f}</span>
+                </div>
+              ))}
+            </div>
+            <a href="mailto:help@opervo.io?subject=Opervo%20Growth%20plan%20inquiry" style={{ display: 'block', textAlign: 'center', background: '#0F0F0F', color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 15, padding: '14px', borderRadius: 6, textDecoration: 'none', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+              Contact us
+            </a>
+            <p style={{ fontSize: 12, color: '#6B6B6B', textAlign: 'center', marginTop: 8 }}>help@opervo.io</p>
           </div>
         </div>
       </section>

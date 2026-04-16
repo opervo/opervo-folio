@@ -104,7 +104,7 @@ const sections: Section[] = [
   },
   {
     id: 'team', num: '10', title: 'Team Management (Team Plan)',
-    intro: 'Upgrade to Team ($54.99/mo) when you hire your first helper. Up to 5 crew members.',
+    intro: 'Solo ($24.99/mo) includes 1 helper. Upgrade to Team ($54.99/mo) for up to 10 team members.',
     steps: [
       { title: 'Invite crew', body: 'Settings → Team → Invite Member. Enter their email, they set a password and join. They see only the jobs you assign them.' },
       { title: 'Clock-in / clock-out', body: 'Crew members clock in and out from their phone. You see hours per week per person in the owner dashboard.' },

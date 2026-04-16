@@ -106,7 +106,7 @@ const categories = [
   {
     id: 'team', icon: '09', title: 'Team Management',
     features: [
-      { name: 'Invite crew via email', desc: 'Add up to 5 crew members on the Team plan. They get their own login.' },
+      { name: 'Invite crew via email', desc: 'Add up to 10 team members on the Team plan (1 helper on Solo). They get their own login.' },
       { name: 'Job assignment', desc: 'Assign specific jobs to specific people. They see only their work.' },
       { name: 'Clock-in/clock-out', desc: 'Crew members track their hours per job. You see it all on your dashboard.' },
       { name: 'Owner dashboard', desc: 'Bird\u2019s-eye view of team activity, job progress, and time tracking.' },
