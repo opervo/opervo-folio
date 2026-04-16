@@ -39,14 +39,6 @@ const teamFeatures = [
   'All features included — no per-user fees',
 ]
 
-const growthFeatures = [
-  'Unlimited team members',
-  'Everything in Team, plus:',
-  'Priority support',
-  'Custom onboarding',
-  'Dedicated account manager',
-]
-
 const comparisonRows = [
   { feature: 'Price', oSolo: '$24.99/mo', oTeam: '$54.99/mo', jLite: '$39/mo', jConnect: '$119/mo', hcp: '$79/mo', gd: '$49/mo' },
   { feature: 'Free trial', oSolo: '30 days', oTeam: '30 days', jLite: '14 days', jConnect: '14 days', hcp: '14 days', gd: '14 days' },
@@ -92,16 +84,16 @@ export default function Pricing() {
       <section style={{ maxWidth: 800, margin: '0 auto', padding: '72px 24px 48px', textAlign: 'center' }}>
         <span style={{ display: 'inline-block', fontSize: 11, fontWeight: 700, color: '#F5620F', textTransform: 'uppercase', letterSpacing: '0.14em', background: 'rgba(245,98,15,0.08)', padding: '6px 14px', borderRadius: 4, marginBottom: 20 }}>Pricing</span>
         <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 'clamp(28px, 5vw, 44px)', lineHeight: 1.1, color: '#0F0F0F', textTransform: 'uppercase', letterSpacing: '-1px', marginBottom: 16 }}>
-          Simple Pricing. No Hidden Fees.
+          Every Feature. Every Plan.
         </h1>
         <p style={{ fontSize: 16, color: '#6B6B6B', lineHeight: 1.6, maxWidth: 560, margin: '0 auto' }}>
-          Everything you need to run your service business. Start free for 30 days — no credit card required.
+          No features locked behind higher tiers. No per-user fees. Start free for 30 days — no credit card required.
         </p>
       </section>
 
       {/* PRICING CARDS */}
-      <section style={{ maxWidth: 1100, margin: '0 auto', padding: '0 24px 72px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 20 }}>
+      <section style={{ maxWidth: 900, margin: '0 auto', padding: '0 24px 72px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 20 }}>
           {/* SOLO */}
           <div style={{ background: '#fff', border: '1px solid #E8E4DE', borderRadius: 12, padding: '36px 28px' }}>
             <p style={{ fontSize: 12, fontWeight: 700, color: '#F5620F', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 12 }}>Solo</p>
@@ -109,7 +101,7 @@ export default function Pricing() {
               <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 48, color: '#0F0F0F' }}>$24.99</span>
               <span style={{ fontSize: 16, color: '#6B6B6B' }}>/mo</span>
             </div>
-            <p style={{ fontSize: 15, color: '#6B6B6B', marginBottom: 24 }}>Everything one operator needs.</p>
+            <p style={{ fontSize: 15, color: '#6B6B6B', marginBottom: 24 }}>Full feature access · 2 users</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 28 }}>
               {soloFeatures.map((f) => (
                 <div key={f} style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
@@ -132,7 +124,7 @@ export default function Pricing() {
               <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 48, color: '#0F0F0F' }}>$54.99</span>
               <span style={{ fontSize: 16, color: '#6B6B6B' }}>/mo</span>
             </div>
-            <p style={{ fontSize: 15, color: '#6B6B6B', marginBottom: 24 }}>For growing crews.</p>
+            <p style={{ fontSize: 15, color: '#6B6B6B', marginBottom: 24 }}>Full feature access · No per-user fees</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 28 }}>
               {teamFeatures.map((f) => (
                 <div key={f} style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
@@ -147,26 +139,18 @@ export default function Pricing() {
             <p style={{ fontSize: 12, color: '#6B6B6B', textAlign: 'center', marginTop: 8 }}>30 days free. No credit card.</p>
           </div>
 
-          {/* GROWTH */}
-          <div style={{ background: '#fff', border: '1px solid #E8E4DE', borderRadius: 12, padding: '36px 28px' }}>
-            <p style={{ fontSize: 12, fontWeight: 700, color: '#F5620F', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 12 }}>Growth</p>
-            <div style={{ marginBottom: 8 }}>
-              <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 40, color: '#0F0F0F' }}>Contact us</span>
-            </div>
-            <p style={{ fontSize: 15, color: '#6B6B6B', marginBottom: 24 }}>For teams with more than 10 members.</p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 28 }}>
-              {growthFeatures.map((f) => (
-                <div key={f} style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
-                  <span style={{ color: '#F5620F', fontWeight: 700, fontSize: 14, lineHeight: '20px' }}>✓</span>
-                  <span style={{ fontSize: 14, color: '#1a1a1a', lineHeight: '20px', fontWeight: f.startsWith('Everything') ? 600 : 400 }}>{f}</span>
-                </div>
-              ))}
-            </div>
-            <a href="mailto:help@opervo.io?subject=Opervo%20Growth%20plan%20inquiry" style={{ display: 'block', textAlign: 'center', background: '#0F0F0F', color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 15, padding: '14px', borderRadius: 6, textDecoration: 'none', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-              Contact us
-            </a>
-            <p style={{ fontSize: 12, color: '#6B6B6B', textAlign: 'center', marginTop: 8 }}>help@opervo.io</p>
+        </div>
+
+        {/* GROWTH strip — secondary to Solo/Team, for 10+ teams */}
+        <div style={{ marginTop: 24, background: '#fff', border: '1px solid #E8E4DE', borderRadius: 12, padding: '20px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 20, flexWrap: 'wrap' }}>
+          <div style={{ flex: '1 1 360px', minWidth: 0 }}>
+            <p style={{ fontSize: 11, fontWeight: 700, color: '#F5620F', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 6 }}>Growth · For 10+ teams</p>
+            <p style={{ fontSize: 15, color: '#0F0F0F', fontWeight: 600, marginBottom: 4 }}>Same full feature access. Unlimited team members.</p>
+            <p style={{ fontSize: 13, color: '#6B6B6B' }}>Priority support, custom onboarding, dedicated account manager.</p>
           </div>
+          <a href="mailto:help@opervo.io?subject=Opervo%20Growth%20plan%20inquiry" style={{ display: 'inline-block', background: '#0F0F0F', color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 14, padding: '12px 28px', borderRadius: 6, textDecoration: 'none', textTransform: 'uppercase', letterSpacing: '0.04em', whiteSpace: 'nowrap' }}>
+            Contact us →
+          </a>
         </div>
       </section>
 
