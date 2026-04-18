@@ -85,7 +85,7 @@ export default function FounderPage() {
             </p>
             <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 36, textTransform: 'uppercase', color: '#fff', lineHeight: 1.1, marginBottom: 24 }}>
               I WAS PAYING MORE FOR SOFTWARE<br />
-              <span style={{ color: '#F5620F' }}>THAN FOR MY TRUCK PAYMENT.</span>
+              <span style={{ color: '#F5620F' }}>BEFORE I BOOKED A SINGLE JOB.</span>
             </h2>
             <p style={{ fontSize: 17, color: '#9ca3af', fontFamily: "'Barlow', sans-serif", lineHeight: 1.75, marginBottom: 20 }}>
               I needed invoicing, scheduling, a way to track clients, photos for before-and-after proof, and something to help me win new work. Every tool wanted me to pay per feature, per user, per month. Stack three or four of them and you're bleeding $150+ before you've even sent your first invoice.
