@@ -687,7 +687,11 @@ nav {
   font-size: 22px; white-space: nowrap; color: white;
 }
 .compare-match-row.us .compare-match-price { color: var(--orange); }
-.compare-match-price.cant { color: #ef4444; font-size: 15px; letter-spacing: 0.02em; }
+.compare-match-price.cant {
+  color: rgba(255,255,255,0.55); font-size: 13px;
+  font-weight: 600; letter-spacing: 0.02em;
+  font-family: 'Barlow', sans-serif; text-transform: none;
+}
 @media (max-width: 640px) {
   .compare-match-row { grid-template-columns: 1fr; gap: 4px; padding: 14px 16px; }
   .compare-match-row .compare-match-price { justify-self: start; }
@@ -1328,7 +1332,7 @@ svg.ic {
             <td class="compare-us-col"><span class="compare-check">✓ Included</span></td>
             <td><span class="compare-partial">Pro plan</span></td>
             <td><span class="compare-partial">Pro plan</span></td>
-            <td><span class="compare-check">✓</span></td>
+            <td><span class="compare-partial">1 route only</span></td>
             <td><span class="compare-partial">Elite plan</span></td>
             <td><span class="compare-x">—</span></td>
           </tr>
@@ -1391,13 +1395,13 @@ svg.ic {
         </div>
         <div class="compare-match-row">
           <span class="compare-match-name">GorillaDesk</span>
-          <span class="compare-match-note">No built-in AI or live folio at any tier.</span>
-          <span class="compare-match-price cant">Can't match</span>
+          <span class="compare-match-note">$49/mo base plan caps you at 1 route. No AI or live folio at any tier.</span>
+          <span class="compare-match-price">$49+/mo</span>
         </div>
         <div class="compare-match-row">
           <span class="compare-match-name">Markate</span>
-          <span class="compare-match-note">No AI assistant or live folio at any tier.</span>
-          <span class="compare-match-price cant">Can't match</span>
+          <span class="compare-match-note">$49.95/mo for 1 user + $5 per additional user. No AI or live folio at any tier.</span>
+          <span class="compare-match-price">$49.95+/mo</span>
         </div>
       </div>
     </div>
