@@ -508,13 +508,26 @@ nav {
 .founder { padding: 90px 0; background: var(--warm); }
 .founder-wrap { max-width: 820px; margin: 0 auto; text-align: center; }
 .founder-avatar {
-  width: 96px; height: 96px; border-radius: 50%;
-  background: linear-gradient(135deg, #F5620F 0%, #d94e08 100%);
+  width: 120px; height: 120px; border-radius: 50%;
   margin: 0 auto 24px;
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 36px; color: white;
-  box-shadow: 0 10px 30px rgba(245,98,15,0.3);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(15,15,15,0.15), 0 0 0 4px rgba(245,98,15,0.2);
+  display: block;
 }
+.founder-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.founder-cta {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 18px;
+  font-size: 13px; font-weight: 700; color: var(--orange);
+  letter-spacing: 0.02em;
+  padding: 10px 20px;
+  background: rgba(245,98,15,0.08);
+  border: 1px solid rgba(245,98,15,0.25);
+  border-radius: 999px;
+  transition: background .15s ease, border-color .15s ease;
+}
+.founder-cta:hover { background: rgba(245,98,15,0.14); border-color: var(--orange); }
+.founder-cta::after { content: '→'; font-size: 15px; }
 .founder-label {
   font-size: 11px; font-weight: 700; letter-spacing: 0.15em;
   text-transform: uppercase; color: var(--orange); margin-bottom: 14px;
@@ -1419,7 +1432,9 @@ svg.ic {
 <section class="founder">
   <div class="container">
     <div class="founder-wrap">
-      <div class="founder-avatar">M</div>
+      <a href="/founder" class="founder-avatar" aria-label="Read the full founder story">
+        <img src="/founder-photo.jpg" alt="Max, founder of Opervo" />
+      </a>
       <div class="founder-label">A note from the founder</div>
       <h2 class="founder-quote">
         "I built Opervo from my experience in the field, not from a boardroom. It's the app I wish I'd had."
@@ -1433,6 +1448,7 @@ svg.ic {
       </p>
       <div class="founder-sig">Max<span class="orange">.</span></div>
       <div class="founder-role">Founder, Opervo</div>
+      <a href="/founder" class="founder-cta">Read the full story</a>
     </div>
   </div>
 </section>
