@@ -18,6 +18,7 @@ export const DEMO_PROFILE: OperatorProfile = {
   tagline: 'Window · Solar Panel · Pressure Washing',
   logo_url: null,
   location: 'Austin, Texas',
+  service_areas: ['Austin, Texas', 'Round Rock', 'Cedar Park'],
   phone: '9565594918',
   hero_photo_url: 'https://sbnykmxckfwkkxvhrkot.supabase.co/storage/v1/object/public/portfolio-photos/ead402ba-267b-4802-b184-99ada754dc81.jpeg',
   gallery_photos: [

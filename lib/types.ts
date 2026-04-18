@@ -5,6 +5,7 @@ export interface OperatorProfile {
   tagline: string | null
   logo_url: string | null
   location: string | null
+  service_areas: string[]
   phone: string | null
   hero_photo_url: string | null
   gallery_photos: string[]           // array of storage URLs

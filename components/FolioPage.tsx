@@ -128,14 +128,24 @@ function Hero({ profile }: { profile: OperatorProfile }) {
       </div>
 
       <div className="hero-body">
-        {profile.location && (
-          <div className="hero-location">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
-            </svg>
-            {profile.location}
-          </div>
-        )}
+        {(() => {
+          const areas = (profile.service_areas ?? []).filter(Boolean)
+          const fallback = profile.location ? [profile.location] : []
+          const list = areas.length > 0 ? areas : fallback
+          if (list.length === 0) return null
+          const display =
+            list.length <= 3
+              ? list.join(' · ')
+              : `${list.slice(0, 2).join(' · ')} + ${list.length - 2} more`
+          return (
+            <div className="hero-location">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+              </svg>
+              {display}
+            </div>
+          )
+        })()}
         {profile.logo_url && (
           <img
             className="hero-logo"
