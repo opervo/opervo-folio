@@ -287,17 +287,20 @@ nav {
   display: flex; align-items: center; gap: 14px;
   margin-top: 20px;
 }
-.hero-proof-avatars { display: flex; }
-.hero-proof-avatar {
-  width: 36px; height: 36px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  color: white; font-weight: 800; font-size: 12px; letter-spacing: 0.02em;
-  font-family: 'Barlow', sans-serif;
-  border: 2px solid var(--bg);
-  margin-left: -8px; position: relative;
-  box-shadow: 0 2px 6px rgba(15,15,15,0.15);
+.hero-proof-logos {
+  display: flex; align-items: center; gap: 22px; flex-wrap: wrap;
 }
-.hero-proof-avatar:first-child { margin-left: 0; }
+.hero-proof-logos img {
+  height: 44px; width: auto; display: block;
+  opacity: 0.78;
+  filter: grayscale(0.1);
+  transition: opacity .2s ease, filter .2s ease;
+}
+.hero-proof-logos img:hover { opacity: 1; filter: none; }
+@media (max-width: 520px) {
+  .hero-proof-logos { gap: 16px; }
+  .hero-proof-logos img { height: 36px; }
+}
 .hero-proof-text { font-size: 13px; line-height: 1.4; color: var(--muted); font-weight: 500; }
 .hero-proof-text strong { color: var(--ink); font-weight: 700; }
 
@@ -954,11 +957,10 @@ svg.ic {
         <div class="hero-trust">30-day free trial · No credit card required</div>
 
         <div class="hero-proof">
-          <div class="hero-proof-avatars">
-            <span class="hero-proof-avatar" style="background:linear-gradient(135deg,#F5620F,#d94e08)">MP</span>
-            <span class="hero-proof-avatar" style="background:linear-gradient(135deg,#1A6BF0,#0a4cc4)">JR</span>
-            <span class="hero-proof-avatar" style="background:linear-gradient(135deg,#10B981,#047857)">TK</span>
-            <span class="hero-proof-avatar" style="background:linear-gradient(135deg,#0D1B3E,#1a1a1a)">AL</span>
+          <div class="hero-proof-logos">
+            <img src="/logos/ironwood-excavation.png" alt="Ironwood Excavation" />
+            <img src="/logos/breezy-detailing.png" alt="Breezy Detailing" />
+            <img src="/logos/jc-air-pro.jpeg" alt="JC Air Pro" />
           </div>
           <div class="hero-proof-text">
             <strong>Trusted by solo operators</strong><br/>
