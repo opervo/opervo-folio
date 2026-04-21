@@ -53,7 +53,7 @@ export default function FounderPage() {
                 <img
                   src="/founder-photo.jpg"
                   alt="Founder of Opervo"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 16 }}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 35%', transform: 'scale(1.35)', borderRadius: 16 }}
                   onError={undefined}
                 />
               </div>
