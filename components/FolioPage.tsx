@@ -924,7 +924,7 @@ function QuoteForm({ profile }: { profile: OperatorProfile }) {
             <textarea className="f-textarea" placeholder="2-storey home · 16 solar panels…" value={notes} onChange={e => setNotes(e.target.value)} />
             <button className="btn-primary" onClick={() => setStep(2)}>Continue →</button>
             <p style={{ fontSize: 11, lineHeight: 1.5, color: '#888', margin: '12px 0 0', textAlign: 'center' }}>
-              By providing your phone number, you consent to receive automated transactional SMS from this business, including appointment reminders, on-my-way ETAs, job updates, and invoices. Message frequency varies. Msg & data rates may apply. Reply STOP to cancel, HELP for help. <a href="https://opervo.io/privacy" style={{ color: '#888', textDecoration: 'underline' }}>Privacy Policy</a> · <a href="https://opervo.io/tos" style={{ color: '#888', textDecoration: 'underline' }}>Terms</a>
+              By providing your phone number, you consent to receive automated transactional SMS from <strong style={{ color: '#555' }}>Opervo (opervo.io)</strong> on behalf of <strong style={{ color: '#555' }}>{profile.business_name}</strong>, including appointment reminders, on-my-way ETAs, job updates, and invoices. Message frequency varies. Msg & data rates may apply. Reply STOP to cancel, HELP for help. Opervo will not share or sell your mobile information with third parties for promotional or marketing purposes. <a href="https://opervo.io/privacy" style={{ color: '#888', textDecoration: 'underline' }}>Privacy Policy</a> · <a href="https://opervo.io/tos" style={{ color: '#888', textDecoration: 'underline' }}>Terms</a>
             </p>
           </div>
         )}
@@ -962,7 +962,7 @@ function QuoteForm({ profile }: { profile: OperatorProfile }) {
             </div>
             {error && <div className="submit-error">{error}</div>}
             <p style={{ fontSize: 11, lineHeight: 1.5, color: '#888', margin: '16px 0 0', textAlign: 'center' }}>
-              By submitting, you consent to receive automated SMS notifications from this business, including appointment reminders, on-my-way alerts, job updates, and invoices. Message frequency varies. Msg & data rates may apply. Reply STOP to opt out at any time. Reply HELP for help. <a href="https://opervo.io/privacy" style={{ color: '#888', textDecoration: 'underline' }}>Privacy Policy</a> · <a href="https://opervo.io/tos" style={{ color: '#888', textDecoration: 'underline' }}>Terms</a>
+              By submitting, you consent to receive automated SMS notifications from <strong style={{ color: '#555' }}>Opervo (opervo.io)</strong> on behalf of <strong style={{ color: '#555' }}>{profile.business_name}</strong>, including appointment reminders, on-my-way alerts, job updates, and invoices. Message frequency varies. Msg & data rates may apply. Reply STOP to opt out at any time. Reply HELP for help. Opervo will not share or sell your mobile information with third parties for promotional or marketing purposes. <a href="https://opervo.io/privacy" style={{ color: '#888', textDecoration: 'underline' }}>Privacy Policy</a> · <a href="https://opervo.io/tos" style={{ color: '#888', textDecoration: 'underline' }}>Terms</a>
             </p>
             <button className="btn-primary" onClick={submit} disabled={submitting}>
               {submitting ? 'Sending…' : requestType === 'direct_booking' ? 'Send Booking Request' : 'Send My Quote Request'}
