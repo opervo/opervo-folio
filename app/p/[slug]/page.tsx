@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getOperatorBySlug, DEMO_PROFILE } from '@/lib/data'
 import FolioPage from '@/components/FolioPage'
+import FolioViewPing from '@/components/FolioViewPing'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -64,5 +65,12 @@ export default async function Page({ params }: Props) {
     google_review_link: safeReviewLink,
   }
 
-  return <FolioPage profile={profile} />
+  return (
+    <>
+      <FolioPage profile={profile} />
+      {slug !== 'demo' && raw!.id && (
+        <FolioViewPing operatorUserId={raw!.id} slug={slug} />
+      )}
+    </>
+  )
 }
