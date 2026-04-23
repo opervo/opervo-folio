@@ -896,6 +896,115 @@ svg.ic {
 </head>
 <body>
 
+<!-- ── REFERRAL BANNER (hidden until resolve-code returns valid) ── -->
+<style>
+  #refBanner {
+    display: none;
+    background: linear-gradient(90deg, #F5620F, #d94e08);
+    color: #fff;
+    padding: 11px 36px 11px 16px;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.3;
+    text-align: center;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 101;
+  }
+  #refBanner.show { display: block; }
+  body.has-ref-banner nav { top: var(--ref-banner-h, 42px); }
+  body.has-ref-banner { padding-top: var(--ref-banner-h, 42px); }
+  #refBanner strong { font-weight: 700; }
+  #refBanner .emoji { margin-right: 6px; }
+  #refBanner .close {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: 0;
+    color: rgba(255,255,255,0.85);
+    font-size: 18px;
+    cursor: pointer;
+    padding: 4px 8px;
+    line-height: 1;
+  }
+  #refBanner .close:hover { color: #fff; }
+  @media (max-width: 520px) {
+    #refBanner { font-size: 13px; padding: 10px 32px 10px 12px; }
+  }
+</style>
+<div id="refBanner" role="status" aria-live="polite">
+  <span class="emoji">👋</span>
+  Invited by <strong id="refBannerName">a fellow operator</strong> —
+  sign up and get <strong>50% off your first paid month</strong>.
+  <button class="close" onclick="document.getElementById('refBanner').classList.remove('show');document.body.classList.remove('has-ref-banner');try{sessionStorage.setItem('opervo-ref-dismissed','1')}catch(_){}" aria-label="Dismiss">×</button>
+</div>
+
+<script>
+  // Referral link handler.
+  // 1. Read ?ref= from URL.
+  // 2. Store in sessionStorage so a dismiss doesn't kill the CTA rewrite.
+  // 3. Resolve code -> business_name via edge function, show banner.
+  // 4. Append ?ref=<code> to every href that points at app.opervo.io
+  //    so attribution follows the operator through to signup.
+  (function () {
+    try {
+      var params = new URLSearchParams(window.location.search);
+      var code = (params.get('ref') || '').toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 16);
+      if (!code) return;
+
+      // Stash for CTA rewriting even if banner is dismissed.
+      try { sessionStorage.setItem('opervo-ref', code); } catch (_) {}
+
+      // Rewrite app.opervo.io links now (runs before images, fonts, etc.).
+      var rewriteCtas = function () {
+        var links = document.querySelectorAll('a[href*="app.opervo.io"]');
+        links.forEach(function (a) {
+          var href = a.getAttribute('href');
+          if (!href || href.indexOf('ref=') !== -1) return;
+          a.setAttribute('href', href + (href.indexOf('?') === -1 ? '?' : '&') + 'ref=' + code);
+        });
+      };
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', rewriteCtas);
+      } else {
+        rewriteCtas();
+      }
+
+      // Skip banner fetch if already dismissed this session.
+      try {
+        if (sessionStorage.getItem('opervo-ref-dismissed') === '1') return;
+      } catch (_) {}
+
+      // Resolve code -> business_name.
+      fetch('https://sbnykmxckfwkkxvhrkot.supabase.co/functions/v1/resolve-referral-code?code=' + encodeURIComponent(code))
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (data) {
+          if (!data || !data.valid) return;
+          var name = (data.business_name || 'a fellow operator').toString().slice(0, 60);
+          var show = function () {
+            var el = document.getElementById('refBannerName');
+            if (el) el.textContent = name;
+            var b = document.getElementById('refBanner');
+            if (b) {
+              b.classList.add('show');
+              document.body.classList.add('has-ref-banner');
+              document.documentElement.style.setProperty('--ref-banner-h', b.offsetHeight + 'px');
+            }
+          };
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', show);
+          } else {
+            show();
+          }
+        })
+        .catch(function () {});
+    } catch (_) {}
+  })();
+</script>
+
 <!-- NAV -->
 <nav>
   <a href="/" class="nav-logo">Opervo<span>.</span></a>
