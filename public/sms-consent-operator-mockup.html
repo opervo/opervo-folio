@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Opervo — Operator SMS Consent (Onboarding Step 1)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #F7F5F2;
+    --surface: #FFFFFF;
+    --secondary: #EDE9E3;
+    --border: #E8E4DE;
+    --ink: #1a1a1a;
+    --black: #0F0F0F;
+    --muted: #6B6B6B;
+    --primary: #F5620F;
+    --primary-hover: #d94e08;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Barlow', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  .frame {
+    width: 800px;
+    min-height: 1620px;
+    background: var(--bg);
+    margin: 0 auto;
+    padding: 56px 48px 60px;
+  }
+  .logo-row { display: flex; align-items: center; gap: 10px; margin-bottom: 36px; }
+  .logo-icon {
+    width: 44px; height: 44px; border-radius: 14px;
+    background: var(--black); color: #F7F5F2;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 22px;
+  }
+  .logo-icon .dot { color: var(--primary); }
+  .logo-text {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 26px;
+    color: var(--black);
+  }
+  .logo-text .dot { color: var(--primary); }
+
+  .progress-wrap { margin-bottom: 28px; }
+  .progress-bar {
+    width: 100%; height: 6px; background: var(--secondary);
+    border-radius: 999px; overflow: hidden;
+  }
+  .progress-fill { height: 100%; width: 25%; background: var(--primary); border-radius: 999px; }
+  .progress-label { font-size: 13px; color: var(--muted); margin-top: 8px; }
+
+  h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800; font-size: 34px; line-height: 1.15;
+    color: var(--black); margin-bottom: 32px;
+  }
+
+  .field { margin-bottom: 20px; }
+  .field label.field-label {
+    display: block; font-size: 14px; color: var(--muted); margin-bottom: 8px;
+  }
+  .input {
+    width: 100%; height: 56px; padding: 0 18px;
+    background: var(--secondary); border: 1.5px solid var(--border);
+    border-radius: 14px; font-family: 'Barlow', sans-serif; font-size: 17px;
+    color: var(--ink);
+  }
+  .input.filled { background: #FFFFFF; border-color: var(--border); color: var(--ink); }
+
+  .consent {
+    margin-top: 12px; display: flex; gap: 12px; align-items: flex-start;
+    padding: 14px 16px; background: rgba(245,98,15,0.06);
+    border: 1px solid rgba(245,98,15,0.2); border-radius: 14px;
+  }
+  .consent input[type="checkbox"] {
+    margin-top: 3px; width: 18px; height: 18px; accent-color: var(--primary); flex-shrink: 0;
+  }
+  .consent-text {
+    font-size: 13px; color: var(--muted); line-height: 1.55;
+  }
+  .consent-text strong { color: var(--ink); font-weight: 700; }
+  .consent-text a { color: var(--muted); text-decoration: underline; }
+
+  .cta {
+    width: 100%; height: 60px; margin-top: 34px;
+    background: var(--primary); color: #FFFFFF;
+    border: 0; border-radius: 18px;
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 19px;
+    letter-spacing: 0.02em;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    cursor: pointer; box-shadow: 0 8px 24px rgba(245,98,15,0.25);
+  }
+
+  .footer-note {
+    margin-top: 40px; padding: 18px 20px; border-radius: 12px;
+    background: rgba(255,255,255,0.6); border: 1px dashed var(--border);
+    font-size: 12px; color: var(--muted); line-height: 1.6;
+  }
+  .footer-note strong { color: var(--ink); font-weight: 700; }
+  .footer-note .url {
+    display: inline-block; margin-top: 6px; font-family: ui-monospace, Menlo, monospace;
+    font-size: 12px; color: var(--black); background: var(--secondary);
+    padding: 3px 8px; border-radius: 6px;
+  }
+</style>
+</head>
+<body>
+<div class="frame">
+  <div class="logo-row">
+    <div class="logo-icon">Op<span class="dot">.</span></div>
+    <div class="logo-text">Opervo<span class="dot">.</span></div>
+  </div>
+
+  <div class="progress-wrap">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="progress-label">Step 1 of 4</div>
+  </div>
+
+  <h1>Let's set up your business</h1>
+
+  <div class="field">
+    <label class="field-label">Business Name</label>
+    <input class="input filled" value="Solar Wash ATX" readonly />
+  </div>
+
+  <div class="field">
+    <label class="field-label">Owner Name</label>
+    <input class="input filled" value="Max Ballesteros" readonly />
+  </div>
+
+  <div class="field">
+    <label class="field-label">Phone Number</label>
+    <input class="input filled" type="tel" value="(512) 555-0142" readonly />
+
+    <label class="consent">
+      <input type="checkbox" checked />
+      <span class="consent-text">
+        I agree to receive text messages from <strong>Opervo</strong> at this
+        number — lead alerts, payment confirmations, team invites, account
+        security codes, and onboarding tips. Message frequency varies.
+        Msg &amp; data rates may apply. Reply STOP to unsubscribe, HELP for
+        help. See our <a href="https://opervo.io/privacy">Privacy Policy</a>
+        and <a href="https://opervo.io/tos">Terms</a>.
+        This consent is not a condition of purchase.
+      </span>
+    </label>
+  </div>
+
+  <div class="field">
+    <label class="field-label">Email</label>
+    <input class="input filled" type="email" value="max@solarwashatx.com" readonly />
+  </div>
+
+  <div class="field">
+    <label class="field-label">What's your trade?</label>
+    <input class="input filled" value="Solar Panel Cleaning" readonly />
+  </div>
+
+  <button class="cta">Next →</button>
+
+  <div class="footer-note">
+    <strong>Screenshot for A2P 10DLC / Toll-Free Verification</strong><br />
+    This is the operator-facing SMS consent checkbox shown during signup
+    at <span class="url">https://app.opervo.io/onboarding</span>. The box is
+    unchecked by default, unbundled from the Terms of Service acceptance,
+    and consent is not required to create an account. A matching toggle
+    exists in Settings → Account → Notifications for revocation.
+  </div>
+</div>
+</body>
+</html>
