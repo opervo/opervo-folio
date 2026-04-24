@@ -931,14 +931,32 @@ svg.ic {
     line-height: 1;
   }
   #refBanner .close:hover { color: #fff; }
+  #refBanner .claim {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 4px 12px;
+    background: #fff;
+    color: #0F0F0F;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: transform 0.15s ease;
+  }
+  #refBanner .claim:hover { transform: scale(1.03); }
   @media (max-width: 520px) {
     #refBanner { font-size: 13px; padding: 10px 32px 10px 12px; }
+    #refBanner .claim { display: block; margin: 8px auto 0; width: fit-content; }
   }
 </style>
 <div id="refBanner" role="status" aria-live="polite">
   <span class="emoji">👋</span>
   Invited by <strong id="refBannerName">a fellow operator</strong> —
-  sign up and get <strong>50% off your first paid month</strong>.
+  get <strong>50% off your first paid month</strong>.
+  <a id="refBannerCta" class="claim" href="https://app.opervo.io/signup">Claim offer →</a>
   <button class="close" onclick="document.getElementById('refBanner').classList.remove('show');document.body.classList.remove('has-ref-banner');try{sessionStorage.setItem('opervo-ref-dismissed','1')}catch(_){}" aria-label="Dismiss">×</button>
 </div>
 
