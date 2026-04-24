@@ -971,6 +971,14 @@ svg.ic {
     try {
       var params = new URLSearchParams(window.location.search);
       var code = (params.get('ref') || '').toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 16);
+
+      // Fallback: if this visit has no ?ref= but an earlier page this session did,
+      // rehydrate from sessionStorage so attribution survives internal navigation
+      // (e.g. Features → back to / ).
+      if (!code) {
+        try { code = (sessionStorage.getItem('opervo-ref') || '').toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 16); } catch (_) {}
+      }
+
       if (!code) return;
 
       // Stash for CTA rewriting even if banner is dismissed.

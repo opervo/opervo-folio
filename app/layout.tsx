@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/next'
+import ReferralAttribution from '@/components/ReferralAttribution'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -38,7 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@700;800;900&display=swap" rel="stylesheet" />
       </head>
-      <body>{children}<Analytics /></body>
+      <body>{children}<ReferralAttribution /><Analytics /></body>
     </html>
   )
 }
