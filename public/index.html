@@ -5,7 +5,7 @@
 <meta name="google-site-verification" content="dqtkzyB8hQ_hB38N_" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Opervo — The app built for solo trade operators</title>
-<meta name="description" content="Run your jobs, invoice clients, and share a portfolio that wins you more business. Built by a solo operator for solo operators. 30 days free.">
+<meta name="description" content="Run your jobs, invoice clients, and get a folio that publishes every job you finish — automatically. Built by a solo operator for solo operators. 30 days free.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -422,8 +422,9 @@ nav {
 /* ─── FOLIO STRIP ─── */
 .folio-strip {
   margin-top: 56px;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px;
 }
+@media (max-width: 960px) { .folio-strip { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 720px) { .folio-strip { grid-template-columns: 1fr; } }
 .folio-strip-lead {
   grid-column: 1/-1; text-align: center;
@@ -849,7 +850,7 @@ svg.ic {
 }
 </style>
   <meta property="og:title" content="Opervo — Run your service business. Look pro.">
-  <meta property="og:description" content="Jobs, invoices, scheduling, and a live portfolio page that wins you new clients. Built for solo trade operators. 30 days free.">
+  <meta property="og:description" content="Every job you finish auto-publishes to your folio. Plus jobs, invoices, scheduling, and a quote form built in. Built for solo trade operators. 30 days free.">
   <meta property="og:image" content="https://opervo.io/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -858,7 +859,7 @@ svg.ic {
   <meta property="og:site_name" content="Opervo">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Opervo — Run your service business. Look pro.">
-  <meta name="twitter:description" content="Jobs, invoices, scheduling, and a live portfolio page that wins you new clients.">
+  <meta name="twitter:description" content="Every job you finish auto-publishes to your folio. Jobs, invoices, scheduling, quote form, all built in.">
   <meta name="twitter:image" content="https://opervo.io/og-image.png">
   <link rel="canonical" href="https://opervo.io" />
   <script type="application/ld+json">
@@ -1177,11 +1178,12 @@ svg.ic {
 
       <div class="problem-card">
         <div class="problem-num">03 / 03</div>
-        <h3 class="problem-title">No one turns your<br/>work into clients</h3>
+        <h3 class="problem-title">Static portfolios<br/>that look dead</h3>
         <p class="problem-body">
-          None of them help you build a live portfolio that wins you
-          new business automatically. That idea doesn't exist anywhere
-          except on Opervo.
+          Every other "portfolio page" is a gallery you uploaded six
+          months ago. Visitors can't tell if you're still in business.
+          Opervo is the only app that publishes every completed job
+          to your folio — automatically.
         </p>
       </div>
     </div>
@@ -1199,25 +1201,35 @@ svg.ic {
       </div>
 
       <div>
-        <span class="eyebrow eyebrow-orange">Your free website</span>
-        <h2 class="section-title">Folio<span class="accent">.</span><br/>Your portfolio.<br/>Your lead machine.</h2>
+        <span class="eyebrow eyebrow-orange">A folio that updates itself</span>
+        <h2 class="section-title">Folio<span class="accent">.</span><br/>The portfolio<br/>that markets while<br/>you work.</h2>
         <p class="section-sub">
-          Every operator gets a branded page at <strong>opervo.io/p/your-name</strong>.
-          Before/after gallery, service menu, reviews, quote form. All live in
-          under 5 minutes. Stop paying for Wix.
+          Every job you finish auto-publishes to your folio — photo,
+          neighborhood, "completed 2 days ago." Visitors don't see a stale gallery
+          from last summer. They see proof someone hired you yesterday.
+          Nobody else does this.
         </p>
         <ul class="bullets">
-          <li>Built-in quote form. Leads flow straight to your inbox.</li>
-          <li>Embed on your own domain with one line of code.</li>
-          <li>Before/after slider and drag-and-drop gallery.</li>
-          <li>Zero extra cost. Included on every plan.</li>
+          <li><strong>Finish a job → it shows up on your folio.</strong> No upload, no admin work. Just close the job out.</li>
+          <li><strong>Live counter:</strong> "14 jobs this month · most recent yesterday." Updates with every job you close.</li>
+          <li><strong>Anonymized by default.</strong> Neighborhood + photo only. Never client name, never full address.</li>
+          <li><strong>Plus the rest:</strong> branded page at opervo.io/p/your-name, before/after slider, quote form, embed code, font + color presets. Free on every plan.</li>
         </ul>
         <a href="https://www.opervo.io/p/solar-wash-atx" target="_blank" rel="noopener" class="btn btn-primary">See a live Folio</a>
       </div>
     </div>
 
     <div class="folio-strip">
-      <div class="folio-strip-lead">Keep scrolling and clients see <span>more</span></div>
+      <div class="folio-strip-lead">Every visitor sees fresh <span>proof</span></div>
+      <div class="folio-strip-item">
+        <div class="folio-strip-img">
+          <img src="/screenshots/hero-folio-1.jpg" alt="Folio Recent Jobs section showing live jobs this month and recent completed jobs with photos" />
+        </div>
+        <div class="folio-strip-label">
+          <span class="folio-strip-label-name">Recent Jobs <em style="color:var(--orange);font-style:normal;font-weight:600;">· LIVE</em></span>
+          <span class="folio-strip-label-desc">Auto-published when you finish a job</span>
+        </div>
+      </div>
       <div class="folio-strip-item">
         <div class="folio-strip-img">
           <img src="/screenshots/hero-folio-2.jpg" alt="Folio portfolio with before/after slider and Why Clients Choose Us grid" />
