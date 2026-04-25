@@ -21,8 +21,23 @@ export interface OperatorProfile {
   brand_color: string | null         // hex, defaults to #0b6e62
   portfolio_display_count: number | null  // how many gallery photos to show (default 6)
   folio_font_theme: 'classic' | 'modern' | 'bold' | 'editorial' | null
+  recent_jobs: RecentJob[] | null
+  recent_jobs_meta: RecentJobsMeta | null
   created_at: string
   updated_at: string
+}
+
+export interface RecentJob {
+  id: string
+  service_type: string | null
+  city: string | null              // null when address can't be parsed; folio falls back to service area
+  completed_at: string             // ISO timestamp
+  photo_url: string                // job_photos storage path (NOT a full URL — see lib/photoUrl.ts)
+}
+
+export interface RecentJobsMeta {
+  jobs_this_month: number
+  last_completed_at: string | null
 }
 
 export interface Service {

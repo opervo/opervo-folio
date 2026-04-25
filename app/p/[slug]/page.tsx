@@ -65,6 +65,8 @@ export default async function Page({ params }: Props) {
     brand_color:    safeBrandColor,
     google_review_link: safeReviewLink,
     folio_font_theme: resolveFolioFontTheme(raw!.folio_font_theme),
+    recent_jobs: Array.isArray(raw!.recent_jobs) ? raw!.recent_jobs : [],
+    recent_jobs_meta: raw!.recent_jobs_meta ?? null,
   }
 
   return (

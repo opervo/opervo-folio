@@ -49,6 +49,16 @@ export const DEMO_PROFILE: OperatorProfile = {
   brand_color: '#0b6e62',
   portfolio_display_count: 6,
   folio_font_theme: 'classic',
+  recent_jobs: [
+    { id: 'demo-1', service_type: 'Window Cleaning', city: 'Cedar Park',  completed_at: new Date(Date.now() - 2  * 86400000).toISOString(), photo_url: 'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=480&q=70' },
+    { id: 'demo-2', service_type: 'Solar Panels',    city: 'Round Rock',  completed_at: new Date(Date.now() - 5  * 86400000).toISOString(), photo_url: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=480&q=70' },
+    { id: 'demo-3', service_type: 'Pressure Wash',   city: 'Austin',      completed_at: new Date(Date.now() - 7  * 86400000).toISOString(), photo_url: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=480&q=70' },
+    { id: 'demo-4', service_type: 'Window Cleaning', city: 'Pflugerville',completed_at: new Date(Date.now() - 14 * 86400000).toISOString(), photo_url: 'https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?w=480&q=70' },
+  ],
+  recent_jobs_meta: {
+    jobs_this_month: 14,
+    last_completed_at: new Date(Date.now() - 2 * 86400000).toISOString(),
+  },
   created_at: new Date().toISOString(),
   updated_at: new Date().toISOString(),
 }

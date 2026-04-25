@@ -1,8 +1,9 @@
 'use client'
 
 import { useState, useRef, useEffect, useCallback, useMemo } from 'react'
-import { OperatorProfile, Service } from '@/lib/types'
+import { OperatorProfile, Service, RecentJob } from '@/lib/types'
 import { FOLIO_FONT_THEMES, resolveFolioFontTheme } from '@/lib/folioThemes'
+import { jobPhotoPublicUrl } from '@/lib/photoUrl'
 
 // Google Maps Places type shim
 declare global {
@@ -84,6 +85,7 @@ export default function FolioPage({ profile }: Props) {
         <Hero profile={profile} />
         <OverlapCard profile={profile} />
         <WorkSection profile={profile} />
+        <RecentJobsSection profile={profile} />
         <ServicesSection profile={profile} />
         <CredentialsSection />
         {profile.review && <ReviewSection review={profile.review} profile={profile} />}
@@ -308,6 +310,59 @@ function WorkSection({ profile }: { profile: OperatorProfile }) {
           <div className="lb-counter">{lightbox.idx + 1} / {lightbox.imgs.length}</div>
         </div>
       )}
+    </div>
+  )
+}
+
+/* ─────────────────────────────────────────
+   RECENT JOBS  (live social proof)
+───────────────────────────────────────── */
+function timeAgo(iso: string): string {
+  const diff = Date.now() - new Date(iso).getTime()
+  const day  = 86400000
+  if (diff < day)            return 'today'
+  if (diff < 2 * day)        return 'yesterday'
+  if (diff < 7 * day)        return `${Math.floor(diff / day)} days ago`
+  if (diff < 14 * day)       return '1 week ago'
+  if (diff < 30 * day)       return `${Math.floor(diff / (7 * day))} weeks ago`
+  if (diff < 60 * day)       return '1 month ago'
+  return `${Math.floor(diff / (30 * day))} months ago`
+}
+
+function RecentJobsSection({ profile }: { profile: OperatorProfile }) {
+  const jobs = profile.recent_jobs ?? []
+  if (jobs.length === 0) return null
+
+  const meta        = profile.recent_jobs_meta
+  const fallbackCity = profile.location ?? null
+  const monthCount  = meta?.jobs_this_month ?? 0
+  const lastDone    = meta?.last_completed_at ?? jobs[0]?.completed_at ?? null
+
+  return (
+    <div className="sec reveal rj-sec">
+      <div className="sec-eyebrow rj-eyebrow">
+        <span className="rj-dot" /> Active This Week
+      </div>
+      <div className="sec-title">Recent Jobs</div>
+      <div className="rj-sub">
+        {monthCount > 0 && <><strong>{monthCount}</strong> {monthCount === 1 ? 'job' : 'jobs'} this month · </>}
+        {lastDone && <>most recent <strong>{timeAgo(lastDone)}</strong></>}
+      </div>
+      <div className="rj-row">
+        {jobs.map((j: RecentJob) => (
+          <article key={j.id} className="rj-card">
+            <div className="rj-photo">
+              <img src={jobPhotoPublicUrl(j.photo_url)} alt={j.service_type ?? 'Recent job'} loading="lazy" />
+              {j.service_type && <div className="rj-tag">{j.service_type}</div>}
+              <div className="rj-when">{timeAgo(j.completed_at)}</div>
+            </div>
+            <div className="rj-meta">
+              <div className="rj-where">{j.city ?? fallbackCity ?? 'Local'}</div>
+              {j.service_type && <div className="rj-detail">{j.service_type}</div>}
+            </div>
+          </article>
+        ))}
+      </div>
     </div>
   )
 }
@@ -1124,6 +1179,24 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .sec-eyebrow{font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);margin-bottom:6px}
 .sec-title{font-family:var(--font-display);font-weight:700;font-size:34px;letter-spacing:-0.01em;color:var(--ink);line-height:1;margin-bottom:20px}
 .sec-rule{height:1px;background:var(--rule-2);margin-bottom:20px}
+
+/* RECENT JOBS */
+.rj-sec .sec-title{margin-bottom:6px}
+.rj-eyebrow{display:flex;align-items:center;gap:8px}
+.rj-dot{width:6px;height:6px;border-radius:50%;background:#4ade80;box-shadow:0 0 0 4px rgba(74,222,128,0.18)}
+.rj-sub{font-size:13px;font-weight:400;color:var(--ink-3);margin-bottom:18px}
+.rj-sub strong{font-weight:600;color:var(--ink)}
+.rj-row{display:flex;gap:12px;overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;padding:4px 4px 22px;margin:0 calc(-1 * var(--px));padding-left:var(--px);padding-right:var(--px);scrollbar-width:none}
+.rj-row::-webkit-scrollbar{display:none}
+.rj-card{flex:0 0 240px;scroll-snap-align:start;background:var(--white);border:1px solid var(--rule-2);border-radius:var(--r-md);overflow:hidden;box-shadow:var(--shadow-sm);transition:transform 0.2s,box-shadow 0.2s}
+.rj-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.rj-photo{position:relative;height:180px;background:linear-gradient(135deg,#cfd8d4,#a9b8b1);overflow:hidden}
+.rj-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.rj-tag{position:absolute;top:10px;left:10px;background:rgba(255,255,255,0.92);backdrop-filter:blur(6px);font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink);padding:5px 9px;border-radius:100px;max-width:calc(100% - 20px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rj-when{position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.55);backdrop-filter:blur(4px);font-size:10px;font-weight:500;letter-spacing:0.04em;color:#fff;padding:4px 8px;border-radius:100px}
+.rj-meta{padding:12px 14px 14px}
+.rj-where{font-family:var(--font-display);font-weight:700;font-size:18px;color:var(--ink);line-height:1.1;margin-bottom:2px}
+.rj-detail{font-size:12px;font-weight:400;color:var(--ink-3);line-height:1.35;text-transform:capitalize}
 
 /* B/A SLIDER */
 .ba-container{position:relative;height:220px;border-radius:var(--r-lg);overflow:hidden;cursor:ew-resize;box-shadow:var(--shadow-md);user-select:none;border:1px solid var(--rule-2)}
