@@ -2,8 +2,45 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getOperatorBySlug, DEMO_PROFILE } from '@/lib/data'
 import { resolveFolioFontTheme } from '@/lib/folioThemes'
+import { getSupabaseServer } from '@/lib/supabase-server'
 import FolioPage from '@/components/FolioPage'
 import FolioViewPing from '@/components/FolioViewPing'
+import type { RecentJob } from '@/lib/types'
+
+const JOB_PHOTOS_BUCKET = 'job-photos'
+// Signed URL TTL — long enough that ISR-cached pages keep working through
+// the next revalidation, short enough that leaked URLs don't outlive the
+// operator's intent. Page revalidates every 60s (export const revalidate),
+// so an hour gives plenty of headroom.
+const SIGNED_URL_TTL_SECONDS = 60 * 60
+
+/**
+ * job-photos is a private bucket — turn each storage path into a short-lived
+ * signed URL so the public folio can render the image without exposing the
+ * whole bucket. Skips entries that already look like full URLs (DEMO_PROFILE)
+ * or that fail to sign.
+ */
+async function signRecentJobPhotos(jobs: RecentJob[]): Promise<RecentJob[]> {
+  if (!jobs?.length) return jobs ?? []
+  // Demo data already uses full https URLs, no signing needed.
+  if (jobs.every((j) => /^https?:\/\//i.test(j.photo_url))) return jobs
+
+  try {
+    const supa = getSupabaseServer()
+    const paths = jobs.map((j) => j.photo_url.replace(/^\/+/, ''))
+    const { data, error } = await supa.storage
+      .from(JOB_PHOTOS_BUCKET)
+      .createSignedUrls(paths, SIGNED_URL_TTL_SECONDS)
+    if (error || !data) return jobs
+
+    return jobs.map((j, i) => {
+      const signed = data[i]?.signedUrl
+      return signed ? { ...j, photo_url: signed } : j
+    })
+  } catch {
+    return jobs
+  }
+}
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -65,7 +102,9 @@ export default async function Page({ params }: Props) {
     brand_color:    safeBrandColor,
     google_review_link: safeReviewLink,
     folio_font_theme: resolveFolioFontTheme(raw!.folio_font_theme),
-    recent_jobs: Array.isArray(raw!.recent_jobs) ? raw!.recent_jobs : [],
+    recent_jobs: await signRecentJobPhotos(
+      Array.isArray(raw!.recent_jobs) ? (raw!.recent_jobs as RecentJob[]) : [],
+    ),
     recent_jobs_meta: raw!.recent_jobs_meta ?? null,
   }
 
