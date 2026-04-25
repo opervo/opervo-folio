@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getOperatorBySlug, DEMO_PROFILE } from '@/lib/data'
+import { resolveFolioFontTheme } from '@/lib/folioThemes'
 import FolioPage from '@/components/FolioPage'
 import FolioViewPing from '@/components/FolioViewPing'
 
@@ -63,6 +64,7 @@ export default async function Page({ params }: Props) {
     trades:         raw!.trades?.length         ? raw!.trades         : [],
     brand_color:    safeBrandColor,
     google_review_link: safeReviewLink,
+    folio_font_theme: resolveFolioFontTheme(raw!.folio_font_theme),
   }
 
   return (

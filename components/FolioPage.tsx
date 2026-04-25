@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback, useMemo } from 'react'
 import { OperatorProfile, Service } from '@/lib/types'
+import { FOLIO_FONT_THEMES, resolveFolioFontTheme } from '@/lib/folioThemes'
 
 // Google Maps Places type shim
 declare global {
@@ -41,6 +42,7 @@ interface Props {
 
 export default function FolioPage({ profile }: Props) {
   const brand = profile.brand_color ?? '#0b6e62'
+  const fontTheme = FOLIO_FONT_THEMES[resolveFolioFontTheme(profile.folio_font_theme)]
 
   useEffect(() => {
     // Load Google Maps Places eagerly so it's ready when address input mounts
@@ -71,11 +73,13 @@ export default function FolioPage({ profile }: Props) {
     '--teal-lt':    hexToRgba(brand, 0.08),
     '--teal-mid':   shadeHex(brand, 10),
     '--shadow-teal':`0 8px 32px ${hexToRgba(brand, 0.28)}`,
+    '--font-display': fontTheme.display,
+    '--font-body':    fontTheme.body,
   } as React.CSSProperties
 
   return (
     <>
-      <style>{GLOBAL_STYLES}</style>
+      <style>{buildGlobalStyles(fontTheme.fontsHref, fontTheme.body)}</style>
       <div className="page" style={cssVars}>
         <Hero profile={profile} />
         <OverlapCard profile={profile} />
@@ -556,7 +560,7 @@ function QuoteForm({ profile }: { profile: OperatorProfile }) {
     color: active ? ORANGE : 'var(--stone)',
     fontSize: '13px',
     fontWeight: active ? 600 : 400,
-    fontFamily: "'Jost', sans-serif",
+    fontFamily: "var(--font-body)",
     cursor: 'pointer',
     transition: 'border-color 0.15s, background 0.15s',
     minHeight: '44px',
@@ -571,7 +575,7 @@ function QuoteForm({ profile }: { profile: OperatorProfile }) {
     color: active ? ORANGE : 'var(--stone)',
     fontSize: '12px',
     fontWeight: 600,
-    fontFamily: "'Jost', sans-serif",
+    fontFamily: "var(--font-body)",
     letterSpacing: '0.06em',
     textTransform: 'uppercase' as const,
     cursor: 'pointer',
@@ -811,7 +815,7 @@ function QuoteForm({ profile }: { profile: OperatorProfile }) {
                   fontWeight: 600,
                   color: 'var(--ink)',
                   marginBottom: '4px',
-                  fontFamily: "'Jost', sans-serif",
+                  fontFamily: "var(--font-body)",
                 }}>
                   {selectedService}
                 </div>
@@ -1039,8 +1043,8 @@ function StickyCta() {
 /* ─────────────────────────────────────────
    ALL STYLES (ported from production HTML)
 ───────────────────────────────────────── */
-const GLOBAL_STYLES = `
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600;700&display=swap');
+const buildGlobalStyles = (fontsHref: string, bodyFont: string) => `
+@import url('${fontsHref}');
 
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased}
 :root{
@@ -1055,7 +1059,7 @@ const GLOBAL_STYLES = `
   --shadow-lg:0 12px 48px rgba(26,36,26,0.12);
 }
 html{scroll-behavior:smooth}
-body{font-family:'Jost',sans-serif;background:var(--off);color:var(--ink);min-height:100vh;font-weight:300;line-height:1.5}
+body{font-family:${bodyFont};background:var(--off);color:var(--ink);min-height:100vh;font-weight:300;line-height:1.5}
 img{display:block;max-width:100%}
 a{text-decoration:none;color:inherit}
 button{font-family:inherit;cursor:pointer;border:none;background:none}
@@ -1063,7 +1067,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .page{max-width:430px;margin:0 auto;padding-bottom:110px;background:var(--off);min-height:100vh;position:relative}
 
 /* STICKY CTA */
-.sticky-cta{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:200;width:calc(100% - 40px);max-width:390px;background:var(--teal);color:white;font-family:'Jost',sans-serif;font-weight:600;font-size:15px;letter-spacing:0.06em;text-transform:uppercase;padding:17px 28px;border-radius:4px;display:flex;align-items:center;justify-content:center;gap:10px;cursor:pointer;box-shadow:var(--shadow-teal);transition:opacity 0.3s,transform 0.3s;animation:riseUp 0.6s 1s cubic-bezier(0.22,1,0.36,1) both}
+.sticky-cta{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:200;width:calc(100% - 40px);max-width:390px;background:var(--teal);color:white;font-family:var(--font-body);font-weight:600;font-size:15px;letter-spacing:0.06em;text-transform:uppercase;padding:17px 28px;border-radius:4px;display:flex;align-items:center;justify-content:center;gap:10px;cursor:pointer;box-shadow:var(--shadow-teal);transition:opacity 0.3s,transform 0.3s;animation:riseUp 0.6s 1s cubic-bezier(0.22,1,0.36,1) both}
 .sticky-cta:hover{background:var(--teal-2)}
 .sticky-cta--hidden{opacity:0;pointer-events:none;transform:translateX(-50%) translateY(12px)}
 @keyframes riseUp{from{opacity:0;transform:translateX(-50%) translateY(20px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
@@ -1089,7 +1093,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 .hero-location{display:flex;align-items:center;gap:5px;font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:10px}
 .hero-logo{width:64px;height:64px;border-radius:14px;object-fit:cover;border:2px solid rgba(255,255,255,0.3);margin-bottom:14px;box-shadow:0 4px 20px rgba(0,0,0,0.3)}
-.hero-name{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:58px;line-height:0.9;letter-spacing:-0.02em;color:#ffffff;margin-bottom:4px}
+.hero-name{font-family:var(--font-display);font-weight:700;font-size:58px;line-height:0.9;letter-spacing:-0.02em;color:#ffffff;margin-bottom:4px}
 .hero-name em{display:block;font-style:italic;font-weight:400;color:rgba(255,255,255,0.75);font-size:46px}
 .hero-divider{width:36px;height:1.5px;background:var(--teal-mid);margin:16px 0}
 .hero-descriptor{font-size:14px;font-weight:300;color:rgba(255,255,255,0.65);letter-spacing:0.02em;margin-bottom:20px;line-height:1.6}
@@ -1112,13 +1116,13 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .stats-row{display:grid;grid-template-columns:1fr 1fr 1fr}
 .stat-col{padding:16px 10px;text-align:center;position:relative}
 .stat-col:not(:last-child)::after{content:'';position:absolute;right:0;top:25%;bottom:25%;width:1px;background:var(--rule-2)}
-.stat-num{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:24px;color:var(--teal);line-height:1;margin-bottom:3px}
+.stat-num{font-family:var(--font-display);font-weight:700;font-size:24px;color:var(--teal);line-height:1;margin-bottom:3px}
 .stat-lbl{font-size:10px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;color:var(--stone-2)}
 
 /* SECTIONS */
 .sec{padding:36px var(--px) 0}
 .sec-eyebrow{font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);margin-bottom:6px}
-.sec-title{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:34px;letter-spacing:-0.01em;color:var(--ink);line-height:1;margin-bottom:20px}
+.sec-title{font-family:var(--font-display);font-weight:700;font-size:34px;letter-spacing:-0.01em;color:var(--ink);line-height:1;margin-bottom:20px}
 .sec-rule{height:1px;background:var(--rule-2);margin-bottom:20px}
 
 /* B/A SLIDER */
@@ -1159,11 +1163,11 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .svc-icon{width:52px;height:52px;border-radius:var(--r-md);border:1px solid var(--rule);background:var(--paper);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;transition:background 0.2s}
 .svc-item:hover .svc-icon{background:var(--teal-lt)}
 .svc-body{flex:1}
-.svc-name{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:20px;color:var(--ink);margin-bottom:2px;letter-spacing:-0.01em}
+.svc-name{font-family:var(--font-display);font-weight:600;font-size:20px;color:var(--ink);margin-bottom:2px;letter-spacing:-0.01em}
 .svc-desc{font-size:12px;color:var(--stone);line-height:1.5}
 .svc-price-col{text-align:right;flex-shrink:0}
 .svc-from{font-size:9px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--stone-2)}
-.svc-price{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:26px;color:var(--teal);letter-spacing:-0.01em;line-height:1}
+.svc-price{font-family:var(--font-display);font-weight:700;font-size:26px;color:var(--teal);letter-spacing:-0.01em;line-height:1}
 
 /* CREDENTIALS */
 .cred-strip{display:grid;grid-template-columns:1fr 1fr;gap:8px}
@@ -1174,13 +1178,13 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 
 /* REVIEW */
 .review-wrap{background:var(--white);border:1px solid var(--rule-2);border-radius:var(--r-lg);padding:24px;box-shadow:var(--shadow-sm);position:relative;overflow:hidden}
-.review-wrap::before{content:"\u201C";position:absolute;top:-10px;right:18px;font-family:'Cormorant Garamond',serif;font-size:100px;color:var(--teal-lt);line-height:1;pointer-events:none}
+.review-wrap::before{content:"\u201C";position:absolute;top:-10px;right:18px;font-family:var(--font-display);font-size:100px;color:var(--teal-lt);line-height:1;pointer-events:none}
 .rv-stars{display:flex;gap:3px;margin-bottom:12px}
 .rv-star{color:var(--gold);font-size:14px}
-.rv-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:19px;color:var(--ink-2);line-height:1.65;margin-bottom:18px}
+.rv-text{font-family:var(--font-display);font-style:italic;font-weight:400;font-size:19px;color:var(--ink-2);line-height:1.65;margin-bottom:18px}
 .rv-footer{display:flex;align-items:center;justify-content:space-between}
 .rv-person{display:flex;align-items:center;gap:10px}
-.rv-avatar{width:38px;height:38px;border-radius:50%;background:var(--teal-lt);border:1.5px solid rgba(11,110,98,0.15);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:17px;color:var(--teal);flex-shrink:0}
+.rv-avatar{width:38px;height:38px;border-radius:50%;background:var(--teal-lt);border:1.5px solid rgba(11,110,98,0.15);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:17px;color:var(--teal);flex-shrink:0}
 .rv-name{font-weight:600;font-size:13px;color:var(--ink)}
 .rv-date{font-size:11px;color:var(--stone);margin-top:1px}
 .rv-badge{font-size:10px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;background:var(--teal-lt);color:var(--teal);padding:4px 10px;border-radius:2px}
@@ -1194,7 +1198,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .form-header::before{width:180px;height:180px;top:-70px;right:-40px}
 .form-header::after{width:80px;height:80px;bottom:-20px;left:60px}
 .fh-kicker{font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:6px}
-.fh-title{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:38px;letter-spacing:-0.01em;color:white;line-height:0.95;margin-bottom:8px}
+.fh-title{font-family:var(--font-display);font-weight:700;font-size:38px;letter-spacing:-0.01em;color:white;line-height:0.95;margin-bottom:8px}
 .fh-title em{font-style:italic;font-weight:400;color:rgba(255,255,255,0.7)}
 .fh-sub{font-size:13px;font-weight:300;color:rgba(255,255,255,0.6);line-height:1.6}
 .form-body{background:var(--white);padding:24px var(--px)}
@@ -1209,7 +1213,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .st-name{font-size:10px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--stone);line-height:1.3;word-break:break-word;white-space:normal}
 .svc-tile--sel .st-name{color:var(--teal)}
 .f-label{display:block;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--stone);margin-bottom:7px;margin-top:16px}
-.f-input,.f-select,.f-textarea{width:100%;background:var(--off);border:1.5px solid var(--rule);border-radius:var(--r-sm);padding:13px 14px;font-family:'Jost',sans-serif;font-size:14px;font-weight:300;color:var(--ink);outline:none;transition:border-color 0.2s,background 0.2s;appearance:none;line-height:1.4}
+.f-input,.f-select,.f-textarea{width:100%;background:var(--off);border:1.5px solid var(--rule);border-radius:var(--r-sm);padding:13px 14px;font-family:var(--font-body);font-size:14px;font-weight:300;color:var(--ink);outline:none;transition:border-color 0.2s,background 0.2s;appearance:none;line-height:1.4}
 .f-input:focus,.f-select:focus,.f-textarea:focus{border-color:var(--teal);background:var(--white)}
 .f-textarea{resize:none;min-height:80px}
 .f-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
@@ -1226,19 +1230,19 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .pb-items{list-style:none}
 .pb-items li{font-size:12px;color:var(--ink-3);line-height:1.7;display:flex;align-items:flex-start;gap:7px}
 .pb-items li::before{content:'→';color:var(--teal);font-size:11px;margin-top:2px;flex-shrink:0}
-.btn-primary{width:100%;background:var(--teal);color:white;font-family:'Jost',sans-serif;font-weight:600;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;padding:16px;border-radius:var(--r-sm);border:none;cursor:pointer;margin-top:16px;display:flex;align-items:center;justify-content:center;gap:8px;transition:background 0.2s,transform 0.2s,box-shadow 0.2s}
+.btn-primary{width:100%;background:var(--teal);color:white;font-family:var(--font-body);font-weight:600;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;padding:16px;border-radius:var(--r-sm);border:none;cursor:pointer;margin-top:16px;display:flex;align-items:center;justify-content:center;gap:8px;transition:background 0.2s,transform 0.2s,box-shadow 0.2s}
 .btn-primary:hover{background:var(--teal-2);transform:translateY(-1px);box-shadow:var(--shadow-teal)}
 .btn-primary:disabled{opacity:0.7;cursor:not-allowed;transform:none}
 .submit-error{margin-top:10px;padding:10px 14px;background:#fff0f0;border:1px solid rgba(200,0,0,0.15);border-radius:8px;font-size:13px;color:#c00;text-align:center}
 .form-success{text-align:center;padding:16px 0 8px}
 .success-check{width:64px;height:64px;border-radius:50%;background:var(--teal-lt);border:1.5px solid rgba(11,110,98,0.2);display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto 16px;animation:checkPop 0.5s cubic-bezier(0.34,1.56,0.64,1) both}
 @keyframes checkPop{from{transform:scale(0.5);opacity:0}to{transform:scale(1);opacity:1}}
-.success-title{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:30px;color:var(--ink);margin-bottom:8px}
+.success-title{font-family:var(--font-display);font-weight:700;font-size:30px;color:var(--ink);margin-bottom:8px}
 .success-text{font-size:13px;font-weight:300;color:var(--stone);line-height:1.7}
 
 /* FOOTER */
 .footer{padding:32px var(--px) 16px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--stone-2)}
-.footer-o{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:15px;color:var(--teal);letter-spacing:0.06em}
+.footer-o{font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--teal);letter-spacing:0.06em}
 
 /* SCROLL REVEAL */
 .reveal{opacity:0;transform:translateY(20px);transition:opacity 0.65s ease,transform 0.65s ease}
