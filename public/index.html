@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Opervo — The app built for solo trade operators</title>
 <meta name="description" content="Run your jobs, invoice clients, and get a folio that publishes every job you finish — automatically. Built by a solo operator for solo operators. 30 days free.">
+<meta name="apple-itunes-app" content="app-id=6763399255">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -201,6 +202,15 @@ nav {
 .hero-sub strong { color: var(--ink); font-weight: 700; }
 
 .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; }
+
+.hero-app-store { margin: 14px 0 4px; }
+.hero-app-store img {
+  height: 44px;
+  width: auto;
+  display: block;
+  transition: opacity 0.15s ease;
+}
+.hero-app-store a:hover img { opacity: 0.85; }
 
 .hero-trust {
   display: flex; align-items: center; gap: 10px;
@@ -1111,6 +1121,11 @@ svg.ic {
           <a href="/p/solar-wash-atx" class="btn btn-secondary">See Live Folio</a>
         </div>
         <div class="hero-trust">30-day free trial · No credit card required</div>
+        <div class="hero-app-store">
+          <a href="https://apps.apple.com/us/app/opervo/id6763399255" target="_blank" rel="noopener" aria-label="Download Opervo on the App Store">
+            <img src="/app-store-badge.svg" alt="Download on the App Store" />
+          </a>
+        </div>
 
         <div class="hero-proof">
           <div class="hero-proof-logos">
