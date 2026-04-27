@@ -55,13 +55,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const profile = slug === 'demo' ? DEMO_PROFILE : await getOperatorBySlug(slug)
   if (!profile) return { title: 'Not Found' }
 
+  const description = profile.tagline ?? `${profile.business_name} — professional exterior cleaning services. Get a free quote today.`
+  const images = profile.hero_photo_url ? [profile.hero_photo_url] : []
+
   return {
     title: `${profile.business_name} — ${profile.location ?? 'Field Services'}`,
-    description: profile.tagline ?? `${profile.business_name} — professional exterior cleaning services. Get a free quote today.`,
+    description,
     openGraph: {
       title: profile.business_name,
-      description: profile.tagline ?? '',
-      images: profile.hero_photo_url ? [profile.hero_photo_url] : [],
+      description,
+      images,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: profile.business_name,
+      description,
+      images,
     },
   }
 }
