@@ -3,44 +3,22 @@ import Link from 'next/link'
 import SiteNav from '@/components/SiteNav'
 import SiteFooter from '@/components/SiteFooter'
 import ComparisonLinks from '@/components/ComparisonLinks'
+import PricingCards from './PricingCards'
 
 export const metadata: Metadata = {
-  title: 'Pricing — Opervo | Solo $24.99/mo, Team $54.99/mo',
-  description: 'Simple, transparent pricing for field service software. Solo plan $24.99/mo, Team plan $54.99/mo. All features included. 30-day free trial, no credit card required.',
+  title: 'Pricing — Opervo | Solo $24.99/mo or $249/yr, Team $54.99/mo or $549/yr',
+  description: 'Simple, transparent pricing. Solo $24.99/mo or $249/yr (save $51). Team $54.99/mo or $549/yr (save $111). All features included. 30-day free trial, no credit card required.',
   alternates: { canonical: 'https://opervo.io/pricing' },
   openGraph: {
-    title: 'Opervo Pricing — From $24.99/mo',
-    description: 'Simple pricing. All features included. 30-day free trial, no credit card.',
+    title: 'Opervo Pricing — From $24.99/mo or $249/yr',
+    description: 'Simple pricing. Annual saves 17%. All features included. 30-day free trial, no credit card.',
     url: 'https://opervo.io/pricing',
     type: 'website',
   },
 }
 
-const soloFeatures = [
-  '2 users (operator + 1 helper)',
-  'Unlimited clients',
-  'Scheduling + Google Calendar sync',
-  'Estimates & invoicing',
-  'Client portal with magic links',
-  'Portfolio page (opervo.io/p/your-name)',
-  'Automated texts (confirmations, on-my-way, reviews)',
-  'Recurring jobs',
-  'CSV export',
-  'Push notifications',
-  'Lead management',
-]
-
-const teamFeatures = [
-  'Up to 10 team members',
-  'Everything in Solo, plus:',
-  'Role-based permissions',
-  'Assign jobs to crew members',
-  'Team scheduling view',
-  'All features included — no per-user fees',
-]
-
 const comparisonRows = [
-  { feature: 'Price', oSolo: '$24.99/mo', oTeam: '$54.99/mo', jLite: '$39/mo', jConnect: '$119/mo', hcp: '$79/mo', gd: '$49/mo' },
+  { feature: 'Price', oSolo: '$24.99/mo or $249/yr', oTeam: '$54.99/mo or $549/yr', jLite: '$39/mo', jConnect: '$119/mo', hcp: '$79/mo', gd: '$49/mo' },
   { feature: 'Free trial', oSolo: '30 days', oTeam: '30 days', jLite: '14 days', jConnect: '14 days', hcp: '14 days', gd: '14 days' },
   { feature: 'Scheduling', oSolo: '✓', oTeam: '✓', jLite: '✓', jConnect: '✓', hcp: '✓', gd: '✓' },
   { feature: 'Estimates & Invoicing', oSolo: '✓', oTeam: '✓', jLite: '✓', jConnect: '✓', hcp: '✓', gd: '✓' },
@@ -59,7 +37,7 @@ const faqs = [
   { q: 'Can I switch between Solo and Team?', a: 'Yes, upgrade or downgrade anytime from your account settings.' },
   { q: 'What payment methods do you accept?', a: 'All major credit and debit cards via Stripe. We don\'t store your card info.' },
   { q: 'What happens after the trial?', a: 'Your account stays active on the plan you choose. If you don\'t subscribe, your data is saved for 30 days so you can come back anytime.' },
-  { q: 'Do you offer annual pricing?', a: 'Not yet, but it\'s coming. Monthly pricing keeps things flexible — cancel anytime.' },
+  { q: 'Do you offer annual pricing?', a: 'Yes. Solo Annual is $249/yr (saves $51 vs monthly), Team Annual is $549/yr (saves $111). Toggle Monthly or Annual on the pricing cards above, or pick Annual at checkout. Cancel anytime.' },
   { q: 'What\'s the Growth plan?', a: 'For teams with more than 10 members. Custom pricing and onboarding — email help@opervo.io and we\'ll set you up.' },
 ]
 
@@ -93,53 +71,7 @@ export default function Pricing() {
 
       {/* PRICING CARDS */}
       <section style={{ maxWidth: 900, margin: '0 auto', padding: '0 24px 72px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 20 }}>
-          {/* SOLO */}
-          <div style={{ background: '#fff', border: '1px solid #E8E4DE', borderRadius: 12, padding: '36px 28px' }}>
-            <p style={{ fontSize: 12, fontWeight: 700, color: '#F5620F', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 12 }}>Solo</p>
-            <div style={{ marginBottom: 8 }}>
-              <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 48, color: '#0F0F0F' }}>$24.99</span>
-              <span style={{ fontSize: 16, color: '#6B6B6B' }}>/mo</span>
-            </div>
-            <p style={{ fontSize: 15, color: '#6B6B6B', marginBottom: 24 }}>Full feature access · 2 users</p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 28 }}>
-              {soloFeatures.map((f) => (
-                <div key={f} style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
-                  <span style={{ color: '#F5620F', fontWeight: 700, fontSize: 14, lineHeight: '20px' }}>✓</span>
-                  <span style={{ fontSize: 14, color: '#1a1a1a', lineHeight: '20px' }}>{f}</span>
-                </div>
-              ))}
-            </div>
-            <a href="https://app.opervo.io" style={{ display: 'block', textAlign: 'center', background: '#F5620F', color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 15, padding: '14px', borderRadius: 6, textDecoration: 'none', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-              Start Free Trial
-            </a>
-            <p style={{ fontSize: 12, color: '#6B6B6B', textAlign: 'center', marginTop: 8 }}>30 days free. No credit card.</p>
-          </div>
-
-          {/* TEAM */}
-          <div style={{ background: '#fff', border: '2px solid #F5620F', borderRadius: 12, padding: '36px 28px', position: 'relative' }}>
-            <span style={{ position: 'absolute', top: -12, left: '50%', transform: 'translateX(-50%)', background: '#F5620F', color: '#fff', fontSize: 11, fontWeight: 700, padding: '4px 14px', borderRadius: 20, textTransform: 'uppercase', letterSpacing: '0.08em' }}>Most Popular</span>
-            <p style={{ fontSize: 12, fontWeight: 700, color: '#F5620F', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 12 }}>Team</p>
-            <div style={{ marginBottom: 8 }}>
-              <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 48, color: '#0F0F0F' }}>$54.99</span>
-              <span style={{ fontSize: 16, color: '#6B6B6B' }}>/mo</span>
-            </div>
-            <p style={{ fontSize: 15, color: '#6B6B6B', marginBottom: 24 }}>Full feature access · No per-user fees</p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 28 }}>
-              {teamFeatures.map((f) => (
-                <div key={f} style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
-                  <span style={{ color: '#F5620F', fontWeight: 700, fontSize: 14, lineHeight: '20px' }}>✓</span>
-                  <span style={{ fontSize: 14, color: '#1a1a1a', lineHeight: '20px', fontWeight: f.startsWith('Everything') ? 600 : 400 }}>{f}</span>
-                </div>
-              ))}
-            </div>
-            <a href="https://app.opervo.io" style={{ display: 'block', textAlign: 'center', background: '#F5620F', color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 15, padding: '14px', borderRadius: 6, textDecoration: 'none', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-              Start Free Trial
-            </a>
-            <p style={{ fontSize: 12, color: '#6B6B6B', textAlign: 'center', marginTop: 8 }}>30 days free. No credit card.</p>
-          </div>
-
-        </div>
+        <PricingCards />
 
         {/* GROWTH strip — secondary to Solo/Team, for 10+ teams */}
         <div style={{ marginTop: 24, background: '#fff', border: '1px solid #E8E4DE', borderRadius: 12, padding: '20px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 20, flexWrap: 'wrap' }}>

@@ -162,7 +162,12 @@ export default function FeaturesPage() {
     name: 'Opervo',
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Web, iOS, Android',
-    offers: { '@type': 'Offer', price: '24.99', priceCurrency: 'USD' },
+    offers: [
+      { '@type': 'Offer', name: 'Solo (Monthly)', price: '24.99', priceCurrency: 'USD' },
+      { '@type': 'Offer', name: 'Solo (Annual)', price: '249.00', priceCurrency: 'USD' },
+      { '@type': 'Offer', name: 'Team (Monthly)', price: '54.99', priceCurrency: 'USD' },
+      { '@type': 'Offer', name: 'Team (Annual)', price: '549.00', priceCurrency: 'USD' },
+    ],
     url: 'https://opervo.io/features',
     description: 'Field service management app for solo operators and small crews. Jobs, invoicing, scheduling, client portal, portfolio, SMS automation, and more.',
   }
