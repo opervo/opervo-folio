@@ -156,7 +156,7 @@ function emailHtml(i: Inputs) {
 async function sendResendEmail(to: string, subject: string, html: string) {
   const apiKey = process.env.RESEND_API_KEY
   if (!apiKey) {
-    console.warn('RESEND_API_KEY not set; skipping email send')
+    console.warn('[profit-calc] RESEND_API_KEY not set; skipping email send to', to)
     return { ok: false, reason: 'no_api_key' }
   }
   try {
@@ -176,12 +176,14 @@ async function sendResendEmail(to: string, subject: string, html: string) {
     })
     if (!res.ok) {
       const txt = await res.text()
-      console.error('Resend send error:', res.status, txt)
-      return { ok: false, reason: 'send_failed', status: res.status }
+      console.error('[profit-calc] Resend send error:', res.status, txt, 'to=', to)
+      return { ok: false, reason: 'send_failed', status: res.status, body: txt }
     }
-    return { ok: true }
+    const json = await res.json().catch(() => ({}))
+    console.log('[profit-calc] Resend OK:', JSON.stringify(json), 'to=', to)
+    return { ok: true, id: json?.id }
   } catch (err) {
-    console.error('Resend exception:', err)
+    console.error('[profit-calc] Resend exception:', err, 'to=', to)
     return { ok: false, reason: 'exception' }
   }
 }
