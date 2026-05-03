@@ -38,7 +38,7 @@ type MarkateConfig = {
 }
 type TieredConfig = {
   type: 'tiered' | 'tiered_per_user'
-  id: 'jobber' | 'housecall'
+  id: 'jobber' | 'housecall' | 'quoteiq'
   name: string
   tiers: Tier[]
   extraUserFee: number
@@ -47,7 +47,7 @@ type TieredConfig = {
 }
 type CompetitorConfig = MarkateConfig | TieredConfig
 
-const COMPETITORS: Record<'markate' | 'jobber' | 'housecall', CompetitorConfig> = {
+const COMPETITORS: Record<'markate' | 'jobber' | 'housecall' | 'quoteiq' | 'quoteiq', CompetitorConfig> = {
   markate: {
     type: 'addon',
     id: 'markate',
@@ -115,6 +115,26 @@ const COMPETITORS: Record<'markate' | 'jobber' | 'housecall', CompetitorConfig> 
     ],
     note: "Housecall Pro's pricing scales per user — every user pays the tier rate. Annual billing assumed.",
   },
+  quoteiq: {
+    type: 'tiered',
+    id: 'quoteiq',
+    name: 'QuoteIQ',
+    tiers: [
+      { id: 'standard', name: 'Standard', price: 29.99, includedUsers: 1 },
+      { id: 'elite', name: 'Elite', price: 299, includedUsers: 5 },
+    ],
+    extraUserFee: 20,
+    features: [
+      { id: 'invoicing', label: 'Invoicing & Estimates', tierId: 'standard', opervoIncluded: true },
+      { id: 'portal', label: 'Customer Portal', tierId: 'standard', opervoIncluded: true },
+      { id: 'booking', label: 'Online Booking', tierId: 'standard', opervoIncluded: true },
+      { id: 'ai-basic', label: 'AI Assistant (credit-capped)', tierId: 'standard', opervoIncluded: true },
+      { id: 'recurring', label: 'Recurring Service Plans', tierId: 'elite', opervoIncluded: true },
+      { id: 'route', label: 'Route Optimization', tierId: 'elite', opervoIncluded: true },
+      { id: 'ai-elite', label: 'Higher AI credits', tierId: 'elite', opervoIncluded: true },
+    ],
+    note: "QuoteIQ's AI is credit-capped per tier. Elite ($299/mo) unlocks route optimization and higher AI limits. Annual billing assumed.",
+  },
 }
 
 const OPERVO = {
@@ -157,10 +177,11 @@ function computeTiered(c: TieredConfig, selected: Set<string>, teamSize: number)
   return { total, base: tier.price, addonsTotal: 0, userFee, tier, extraUsers: Math.max(0, teamSize - tier.includedUsers) }
 }
 
-const COMPETITOR_TABS: Array<{ id: 'markate' | 'jobber' | 'housecall'; label: string }> = [
+const COMPETITOR_TABS: Array<{ id: 'markate' | 'jobber' | 'housecall' | 'quoteiq'; label: string }> = [
   { id: 'markate', label: 'Markate' },
   { id: 'jobber', label: 'Jobber' },
   { id: 'housecall', label: 'Housecall Pro' },
+  { id: 'quoteiq', label: 'QuoteIQ' },
 ]
 
 const TEAM_SIZES = [1, 2, 3, 5, 8, 10]
@@ -170,15 +191,17 @@ const DEFAULTS: Record<string, string[]> = {
   markate: ['portal', 'booking', 'lead', 'review', 'proposal'],
   jobber: ['portal', 'invoicing', 'booking', 'review', 'twoway'],
   housecall: ['invoicing', 'portal', 'booking', 'review', 'twoway'],
+  quoteiq: ['invoicing', 'portal', 'booking', 'ai-basic', 'route'],
 }
 
 export default function CostCalculatorPage() {
-  const [competitorId, setCompetitorId] = useState<'markate' | 'jobber' | 'housecall'>('markate')
+  const [competitorId, setCompetitorId] = useState<'markate' | 'jobber' | 'housecall' | 'quoteiq'>('markate')
   const [teamSize, setTeamSize] = useState(2)
   const [selected, setSelected] = useState<Record<string, Set<string>>>({
     markate: new Set(DEFAULTS.markate),
     jobber: new Set(DEFAULTS.jobber),
     housecall: new Set(DEFAULTS.housecall),
+    quoteiq: new Set(DEFAULTS.quoteiq),
   })
 
   const c = COMPETITORS[competitorId]
