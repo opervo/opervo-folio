@@ -1724,53 +1724,349 @@ svg.ic {
       Markate's $39.95 base excludes Customer Portal, Online Booking, Lead Form, Reviews, and Proposals — each $10/mo extra.
     </div>
 
-    <div class="compare-match">
-      <div class="compare-match-label">Cost to match Opervo</div>
-      <div class="compare-match-head">The real price,<br/>after the upsell<span class="dot">.</span></div>
-      <p class="compare-match-sub">
-        To get Opervo's feature set (AI, live folio, route optimization)
-        at each competitor, this is the plan you'd actually need.
-        Some can't match at any price.
-      </p>
-      <p style="text-align:center;margin-top:-4px;margin-bottom:24px;">
-        <a href="/cost-calculator" style="display:inline-flex;align-items:center;gap:8px;color:#F5620F;font-weight:700;font-size:14px;text-decoration:none;border-bottom:1px dashed rgba(245,98,15,0.4);padding-bottom:2px;">
-          → Run your real cost interactively (free tool)
-        </a>
-      </p>
-
-      <div class="compare-match-grid">
-        <div class="compare-match-row us">
-          <span class="compare-match-name">Opervo</span>
-          <span class="compare-match-note">Every feature on the base plan. No tiers.</span>
-          <span class="compare-match-price">$24.99/mo</span>
-        </div>
-        <div class="compare-match-row">
-          <span class="compare-match-name">Jobber</span>
-          <span class="compare-match-note">Higher tier required for route optimization. Still no live folio or AI.</span>
-          <span class="compare-match-price">$169/mo+</span>
-        </div>
-        <div class="compare-match-row">
-          <span class="compare-match-name">Housecall Pro</span>
-          <span class="compare-match-note">Higher tier required for route optimization. Still no live folio or AI.</span>
-          <span class="compare-match-price">$169/mo+</span>
-        </div>
-        <div class="compare-match-row">
-          <span class="compare-match-name">QuoteIQ</span>
-          <span class="compare-match-note">Elite plan required for route optimization. AI still credit-capped. No live folio.</span>
-          <span class="compare-match-price">$299/mo</span>
-        </div>
-        <div class="compare-match-row">
-          <span class="compare-match-name">GorillaDesk</span>
-          <span class="compare-match-note">$49/mo base plan caps you at 1 route. No AI or live folio at any tier.</span>
-          <span class="compare-match-price">$49+/mo</span>
-        </div>
-        <div class="compare-match-row">
-          <span class="compare-match-name">Markate</span>
-          <span class="compare-match-note">$39.95 base + $10/mo add-ons stack on top: Customer Portal, Online Booking, Lead Form, Reviews, Proposals are all separate. Realistic stack: $80–110/mo. <a href="/compare/opervo-vs-markate" style="color:#F5620F;text-decoration:underline">See the math →</a></span>
-          <span class="compare-match-price">$80–110/mo</span>
-        </div>
+    <!-- ── INTERACTIVE COST WIDGET ────────────────── -->
+    <!-- Pricing data here mirrors lib/cost-calculator-data.ts. Update both when prices change. -->
+    <div class="cost-widget" id="cost-widget">
+      <div class="cost-widget-head">
+        <span class="eyebrow eyebrow-orange">The Real Math · Interactive</span>
+        <h2 class="cost-widget-h2">See what you&rsquo;d <em>actually</em> pay<span class="dot">.</span></h2>
+        <p class="cost-widget-sub">Pick a competitor and your team size. We&rsquo;ll show what they&rsquo;d charge for the features Opervo includes by default.</p>
       </div>
+
+      <div class="cost-widget-tabs" id="cost-tabs"></div>
+
+      <div class="cost-widget-team">
+        <span class="cost-widget-team-label">Team size:</span>
+        <div class="cost-widget-team-buttons" id="cost-team-buttons"></div>
+      </div>
+
+      <div class="cost-widget-grid">
+        <div class="cost-widget-card cost-widget-competitor" id="cost-competitor-card"></div>
+        <div class="cost-widget-card cost-widget-opervo" id="cost-opervo-card"></div>
+        <div class="cost-widget-card cost-widget-savings" id="cost-savings-card"></div>
+      </div>
+
+      <div class="cost-widget-cta">
+        <a href="/cost-calculator" class="cost-widget-customize">Customize what YOU need →</a>
+        <span class="cost-widget-or">or</span>
+        <a href="https://app.opervo.io" class="cost-widget-trial">Start 14-Day Trial →</a>
+      </div>
+
+      <p class="cost-widget-fineprint">
+        Default stack reflects features most operators in this category actually use. Run the full version to add or remove features and see your real cost.
+      </p>
     </div>
+
+    <style>
+      .cost-widget { max-width: 1100px; margin: 0 auto; }
+      .cost-widget-head { text-align: center; margin-bottom: 24px; }
+      .cost-widget-h2 {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-size: clamp(28px, 4.5vw, 44px);
+        font-weight: 900;
+        color: #0F0F0F;
+        text-transform: uppercase;
+        letter-spacing: -0.5px;
+        line-height: 1;
+        margin: 14px 0 0;
+      }
+      .cost-widget-h2 em { font-style: italic; color: #F5620F; }
+      .cost-widget-h2 .dot { color: #F5620F; }
+      .cost-widget-sub {
+        font-size: 15px; color: #6B6B6B; max-width: 580px;
+        margin: 14px auto 0; line-height: 1.55;
+      }
+      .cost-widget-tabs {
+        display: flex; gap: 8px; justify-content: center;
+        flex-wrap: wrap; margin-bottom: 14px;
+      }
+      .cost-widget-tab {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-size: 13px; font-weight: 800;
+        text-transform: uppercase; letter-spacing: 0.1em;
+        padding: 10px 18px; background: #fff; color: #6B6B6B;
+        border: 1px solid #E8E4DE; border-radius: 8px;
+        cursor: pointer; transition: all 0.15s;
+      }
+      .cost-widget-tab.active { background: #0F0F0F; color: #F7F5F2; border-color: #0F0F0F; }
+      .cost-widget-team {
+        display: flex; gap: 10px; justify-content: center;
+        align-items: center; flex-wrap: wrap; margin-bottom: 24px;
+      }
+      .cost-widget-team-label { font-size: 13px; color: #6B6B6B; font-weight: 600; }
+      .cost-widget-team-buttons { display: flex; gap: 4px; }
+      .cost-widget-team-btn {
+        width: 36px; height: 36px;
+        background: #fff; color: #6B6B6B;
+        border: 1px solid #E8E4DE; border-radius: 8px;
+        font-family: 'Barlow Condensed', sans-serif;
+        font-size: 14px; font-weight: 800; cursor: pointer;
+        transition: all 0.15s;
+      }
+      .cost-widget-team-btn.active {
+        background: #F5620F; color: #fff; border-color: #F5620F;
+      }
+      .cost-widget-grid {
+        display: grid; gap: 16px;
+        grid-template-columns: 1fr;
+      }
+      @media (min-width: 880px) { .cost-widget-grid { grid-template-columns: 1fr 1fr 1fr; } }
+      .cost-widget-card {
+        border-radius: 14px; padding: 22px 24px;
+        position: relative; overflow: hidden;
+      }
+      .cost-widget-competitor { background: #fff; border: 1px solid #E8E4DE; }
+      .cost-widget-opervo { background: #0F0F0F; color: #F7F5F2; }
+      .cost-widget-opervo::before {
+        content: ''; position: absolute; top: -60px; right: -60px;
+        width: 220px; height: 220px;
+        background: radial-gradient(circle, rgba(245,98,15,0.16) 0%, transparent 70%);
+        pointer-events: none;
+      }
+      .cost-widget-savings {
+        background: linear-gradient(135deg, #F5620F 0%, #d94e08 100%);
+        color: #fff; box-shadow: 0 8px 24px rgba(245,98,15,0.25);
+      }
+      .cw-card-header {
+        display: flex; justify-content: space-between;
+        align-items: baseline; margin-bottom: 6px;
+      }
+      .cw-name {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-size: 18px; font-weight: 800; color: #0F0F0F;
+      }
+      .cost-widget-opervo .cw-name { color: #F7F5F2; font-weight: 900; letter-spacing: -0.3px; }
+      .cw-name .cw-dot { color: #F5620F; }
+      .cw-stack-label {
+        font-size: 11px; color: #6B6B6B; font-weight: 600;
+        text-transform: uppercase; letter-spacing: 0.06em;
+      }
+      .cost-widget-opervo .cw-stack-label { color: rgba(247,245,242,0.6); }
+      .cw-price-row {
+        display: flex; align-items: baseline; gap: 4px; margin-bottom: 8px;
+      }
+      .cw-dollar {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-size: 22px; font-weight: 700; color: #6B6B6B;
+      }
+      .cost-widget-opervo .cw-dollar { color: rgba(247,245,242,0.6); }
+      .cost-widget-savings .cw-dollar { color: rgba(255,255,255,0.9); }
+      .cw-amount {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-size: clamp(40px, 6vw, 56px);
+        font-weight: 900; color: #0F0F0F;
+        line-height: 1; letter-spacing: -1px;
+      }
+      .cost-widget-opervo .cw-amount { color: #F7F5F2; }
+      .cost-widget-savings .cw-amount { color: #fff; }
+      .cw-cents {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-size: 22px; font-weight: 900; color: #F7F5F2;
+      }
+      .cw-unit {
+        font-size: 14px; color: #6B6B6B; font-weight: 500; margin-left: 4px;
+      }
+      .cost-widget-opervo .cw-unit { color: rgba(247,245,242,0.6); }
+      .cost-widget-savings .cw-unit { color: rgba(255,255,255,0.9); }
+      .cw-detail {
+        font-size: 12px; color: #9CA3AF;
+        line-height: 1.5; margin: 0;
+      }
+      .cost-widget-opervo .cw-detail { color: rgba(247,245,242,0.7); }
+      .cost-widget-savings .cw-detail { color: rgba(255,255,255,0.95); }
+      .cost-widget-savings .cw-detail strong { color: #fff; }
+      .cw-savings-eyebrow {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-size: 11px; font-weight: 800; letter-spacing: 0.18em;
+        text-transform: uppercase; opacity: 0.9; margin: 0 0 12px;
+      }
+      .cost-widget-cta {
+        display: flex; gap: 10px; justify-content: center;
+        align-items: center; flex-wrap: wrap; margin-top: 20px;
+      }
+      .cost-widget-customize {
+        display: inline-flex; align-items: center; gap: 6px;
+        font-size: 14px; font-weight: 700; color: #F5620F;
+        text-decoration: none; border-bottom: 1px dashed rgba(245,98,15,0.4);
+        padding-bottom: 2px;
+      }
+      .cost-widget-or { color: #9CA3AF; font-size: 13px; }
+      .cost-widget-trial {
+        display: inline-block; background: #F5620F; color: #fff;
+        font-family: 'Barlow Condensed', sans-serif;
+        font-weight: 800; font-size: 14px;
+        padding: 11px 22px; border-radius: 6px;
+        text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em;
+      }
+      .cost-widget-fineprint {
+        font-size: 11px; color: #9CA3AF; text-align: center;
+        margin: 16px auto 0; max-width: 560px; line-height: 1.5;
+      }
+    </style>
+
+    <script>
+      (function() {
+        // Data — keep in sync with lib/cost-calculator-data.ts.
+        var COMPETITORS = {
+          markate: {
+            type: 'addon', name: 'Markate', base: 39.95, perUserFee: 5,
+            addons: [
+              { id: 'portal', label: 'Customer Portal', price: 10 },
+              { id: 'booking', label: 'Online Booking', price: 10 },
+              { id: 'lead', label: 'Lead Contact Form', price: 10 },
+              { id: 'review', label: 'Ask for Review', price: 10 },
+              { id: 'proposal', label: 'Proposal Kit', price: 10 }
+            ]
+          },
+          jobber: {
+            type: 'tiered', name: 'Jobber',
+            tiers: [
+              { id: 'core', name: 'Core', price: 39, includedUsers: 1 },
+              { id: 'connect', name: 'Connect', price: 119, includedUsers: 5 },
+              { id: 'grow', name: 'Grow', price: 249, includedUsers: 15 }
+            ],
+            extraUserFee: 29,
+            // Default stack hits Connect tier
+            requiredTier: 'connect'
+          },
+          housecall: {
+            type: 'tiered_per_user', name: 'Housecall Pro',
+            tiers: [
+              { id: 'basic', name: 'Basic', price: 65, includedUsers: 1 },
+              { id: 'essentials', name: 'Essentials', price: 169, includedUsers: 5 }
+            ],
+            extraUserFee: 35,
+            requiredTier: 'essentials'
+          },
+          quoteiq: {
+            type: 'tiered', name: 'QuoteIQ',
+            tiers: [
+              { id: 'standard', name: 'Standard', price: 29.99, includedUsers: 1 },
+              { id: 'elite', name: 'Elite', price: 299, includedUsers: 5 }
+            ],
+            extraUserFee: 20,
+            requiredTier: 'elite'
+          }
+        };
+        var TABS = [
+          { id: 'markate', label: 'Markate' },
+          { id: 'jobber', label: 'Jobber' },
+          { id: 'housecall', label: 'Housecall Pro' },
+          { id: 'quoteiq', label: 'QuoteIQ' }
+        ];
+        var TEAM_SIZES = [1, 2, 3, 5, 8, 10];
+        var OPERVO = { solo: { name: 'Solo', price: 24.99, users: 2 }, team: { name: 'Team', price: 54.99, users: 10 } };
+
+        var state = { competitorId: 'markate', teamSize: 2 };
+
+        function fmt(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
+
+        function compute() {
+          var c = COMPETITORS[state.competitorId];
+          var ts = state.teamSize;
+          if (c.type === 'addon') {
+            var addonsTotal = c.addons.reduce(function(s, a) { return s + a.price; }, 0);
+            var userFee = Math.max(0, ts - 1) * c.perUserFee;
+            return {
+              total: c.base + addonsTotal + userFee,
+              tier: null,
+              extraUsers: Math.max(0, ts - 1),
+              userFee: userFee,
+              stackLabel: c.base.toFixed(0) + ' base + ' + c.addons.length + ' add-ons' + (userFee > 0 ? ' + ' + Math.max(0, ts - 1) + ' user fee' : '')
+            };
+          }
+          var tier = c.tiers.find(function(t) { return t.id === c.requiredTier; });
+          var total, userFee;
+          if (c.type === 'tiered_per_user') {
+            total = tier.price * ts;
+            userFee = tier.price * Math.max(0, ts - 1);
+          } else {
+            var extraUsers = Math.max(0, ts - tier.includedUsers);
+            userFee = extraUsers * c.extraUserFee;
+            total = tier.price + userFee;
+          }
+          return {
+            total: total,
+            tier: tier,
+            extraUsers: Math.max(0, ts - tier.includedUsers),
+            userFee: userFee,
+            stackLabel: tier.name + ' tier' + (userFee > 0 ? ' + ' + Math.max(0, ts - tier.includedUsers) + ' extra ' + (Math.max(0, ts - tier.includedUsers) === 1 ? 'user' : 'users') : '')
+          };
+        }
+
+        function render() {
+          var tabsEl = document.getElementById('cost-tabs');
+          tabsEl.innerHTML = TABS.map(function(t) {
+            return '<button type="button" class="cost-widget-tab' + (state.competitorId === t.id ? ' active' : '') + '" data-tab="' + t.id + '">vs ' + t.label + '</button>';
+          }).join('');
+
+          var teamEl = document.getElementById('cost-team-buttons');
+          teamEl.innerHTML = TEAM_SIZES.map(function(n) {
+            return '<button type="button" class="cost-widget-team-btn' + (state.teamSize === n ? ' active' : '') + '" data-team="' + n + '">' + n + '</button>';
+          }).join('');
+
+          var c = COMPETITORS[state.competitorId];
+          var cost = compute();
+          var opervoPlan = state.teamSize <= 2 ? OPERVO.solo : OPERVO.team;
+          var monthlyDiff = cost.total - opervoPlan.price;
+          var yearlyDiff = monthlyDiff * 12;
+          var fiveYearDiff = yearlyDiff * 5;
+
+          document.getElementById('cost-competitor-card').innerHTML =
+            '<div class="cw-card-header">' +
+              '<p class="cw-name">' + c.name + '</p>' +
+              '<p class="cw-stack-label">typical stack</p>' +
+            '</div>' +
+            '<div class="cw-price-row">' +
+              '<span class="cw-dollar">$</span>' +
+              '<span class="cw-amount">' + Math.round(cost.total).toLocaleString('en-US') + '</span>' +
+              '<span class="cw-unit">/mo</span>' +
+            '</div>' +
+            '<p class="cw-detail">' + cost.stackLabel + '</p>';
+
+          var dollars = Math.floor(opervoPlan.price);
+          var cents = Math.round((opervoPlan.price - dollars) * 100).toString();
+          if (cents.length === 1) cents = '0' + cents;
+          document.getElementById('cost-opervo-card').innerHTML =
+            '<div class="cw-card-header">' +
+              '<p class="cw-name">Opervo<span class="cw-dot">.</span></p>' +
+              '<p class="cw-stack-label">' + opervoPlan.name + ' · flat</p>' +
+            '</div>' +
+            '<div class="cw-price-row">' +
+              '<span class="cw-dollar">$</span>' +
+              '<span class="cw-amount">' + dollars + '</span>' +
+              '<span class="cw-cents">.' + cents + '</span>' +
+              '<span class="cw-unit">/mo</span>' +
+            '</div>' +
+            '<p class="cw-detail">Up to ' + opervoPlan.users + ' users · all features included · 0% payment markup</p>';
+
+          var savingsEl = document.getElementById('cost-savings-card');
+          if (monthlyDiff > 0) {
+            savingsEl.style.display = '';
+            savingsEl.innerHTML =
+              '<p class="cw-savings-eyebrow">You&rsquo;d save</p>' +
+              '<div class="cw-price-row">' +
+                '<span class="cw-dollar">$</span>' +
+                '<span class="cw-amount">' + Math.round(monthlyDiff).toLocaleString('en-US') + '</span>' +
+                '<span class="cw-unit">/mo</span>' +
+              '</div>' +
+              '<p class="cw-detail"><strong>' + fmt(yearlyDiff) + '/year</strong> · $' + (fiveYearDiff / 1000).toFixed(1) + 'k over 5 years</p>';
+          } else {
+            savingsEl.style.display = 'none';
+          }
+        }
+
+        var widget = document.getElementById('cost-widget');
+        widget.addEventListener('click', function(e) {
+          var tab = e.target.closest('[data-tab]');
+          var team = e.target.closest('[data-team]');
+          if (tab) { state.competitorId = tab.getAttribute('data-tab'); render(); }
+          else if (team) { state.teamSize = parseInt(team.getAttribute('data-team'), 10); render(); }
+        });
+
+        render();
+      })();
+    </script>
   </div>
 </section>
 
