@@ -32,7 +32,7 @@ const comparisonRows = [
   { feature: 'Team permissions', opervo: '✓ (Team plan)', jobber: '✓ (Connect+)' },
   { feature: 'Route optimization', opervo: '✓', jobber: '✓ (Grow plan only)' },
   { feature: 'QuickBooks Online sync', opervo: '✓', jobber: '✓' },
-  { feature: 'Mobile-first PWA', opervo: '✓', jobber: 'Native app' },
+  { feature: 'Native iOS app', opervo: '✓ (App Store)', jobber: '✓' },
   { feature: 'Built for solo operators', opervo: '✓', jobber: 'Built for teams' },
 ]
 

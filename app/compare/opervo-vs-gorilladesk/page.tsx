@@ -29,10 +29,11 @@ const comparisonRows = [
   { feature: 'Portfolio page (Folio)', opervo: '✓', gd: '✗' },
   { feature: 'Quote request from portfolio', opervo: '✓', gd: '✗' },
   { feature: 'Recurring jobs', opervo: '✓', gd: '✓' },
-  { feature: 'Route optimization', opervo: '✗', gd: '✓ (Pro plan)' },
+  { feature: 'Route optimization', opervo: '✓', gd: '✓ (Pro plan only)' },
+  { feature: 'QuickBooks Online sync', opervo: '✓', gd: '✓' },
   { feature: 'FIFRA chemical tracking', opervo: '✗', gd: '✓' },
   { feature: 'Team permissions', opervo: '✓ (Team plan)', gd: '✓ (Pro plan)' },
-  { feature: 'Mobile-first PWA', opervo: '✓', gd: 'Native app' },
+  { feature: 'Native iOS app', opervo: '✓ (App Store)', gd: '✓' },
   { feature: 'Built for solo operators', opervo: '✓', gd: 'Pest control focus' },
 ]
 
@@ -58,7 +59,7 @@ const faqs = [
   },
   {
     q: 'What does GorillaDesk have that Opervo doesn\'t?',
-    a: 'GorillaDesk offers FIFRA chemical tracking for pest control operators, route optimization (on their Pro plan at $99/mo), and a native mobile app. If you\'re in pest control and need regulatory compliance features, GorillaDesk is purpose-built for that. For most other home service trades, Opervo covers everything you need at a lower price.',
+    a: 'GorillaDesk offers FIFRA chemical tracking for pest control operators and pest-specific regulatory compliance tools. If you\'re in pest control and need those features, GorillaDesk is purpose-built for that. For most other home service trades, Opervo covers everything you need — including route optimization, QuickBooks sync, and a native iOS app — at a lower price.',
   },
 ]
 
@@ -138,7 +139,7 @@ export default function OpervoVsGorillaDesk() {
           When GorillaDesk Might Be Better
         </h2>
         <p style={{ fontSize: 15, color: '#6B6B6B', lineHeight: 1.7, textAlign: 'center', maxWidth: 640, margin: '0 auto' }}>
-          GorillaDesk is purpose-built for pest control operators. If you need FIFRA chemical tracking, regulatory compliance tools, and pest-specific workflows, GorillaDesk is one of the best options on the market. It also offers route optimization on its Pro plan ($99/mo). For window cleaners, pressure washers, solar panel cleaners, landscapers, and other home service trades — Opervo is the more affordable, better-fit option.
+          GorillaDesk is purpose-built for pest control operators. If you need FIFRA chemical tracking, regulatory compliance tools, and pest-specific workflows, GorillaDesk is one of the best options on the market. For window cleaners, pressure washers, solar panel cleaners, landscapers, and other home service trades — Opervo is the more affordable, better-fit option, with route optimization, QuickBooks sync, and a native iOS app included on every plan.
         </p>
         <div style={{ marginTop: 24 }}>
           <TradesMention />

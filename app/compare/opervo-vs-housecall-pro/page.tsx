@@ -31,7 +31,9 @@ const comparisonRows = [
   { feature: 'Recurring jobs', opervo: '✓', hcp: '✓' },
   { feature: 'Online booking', opervo: 'Via Folio page', hcp: '✓' },
   { feature: 'Team permissions', opervo: '✓ (Team plan)', hcp: '✓' },
-  { feature: 'Mobile-first PWA', opervo: '✓', hcp: 'Native app' },
+  { feature: 'Route optimization', opervo: '✓', hcp: '✓' },
+  { feature: 'QuickBooks Online sync', opervo: '✓', hcp: '✓' },
+  { feature: 'Native iOS app', opervo: '✓ (App Store)', hcp: '✓' },
   { feature: 'Built for solo operators', opervo: '✓', hcp: 'Built for teams' },
 ]
 
@@ -49,7 +51,7 @@ const faqs = [
   },
   {
     q: 'Is Housecall Pro worth $79 per month?',
-    a: 'Housecall Pro is a mature product with a native mobile app and online booking. For larger teams with 5+ employees, the feature set can justify the cost. But for solo operators and small crews, you\'re paying for features and scale you don\'t need. Opervo gives you everything essential at $24.99/mo.',
+    a: 'Housecall Pro is a mature product with a built-in online booking widget and Google Local Services Ads integration. For larger teams with 5+ employees, the feature set can justify the cost. But for solo operators and small crews, you\'re paying for features and scale you don\'t need. Opervo gives you everything essential — including a native iOS app, route optimization, and QuickBooks sync — at $24.99/mo.',
   },
   {
     q: 'Can I switch from Housecall Pro to Opervo?',
@@ -57,7 +59,7 @@ const faqs = [
   },
   {
     q: 'What does Housecall Pro have that Opervo doesn\'t?',
-    a: 'Housecall Pro offers a native mobile app, a built-in online booking widget, and deeper integrations with platforms like QuickBooks and Google Local Services Ads. If you rely heavily on those specific integrations, Housecall Pro may be a better fit. For most solo operators, Opervo covers everything you need at a third of the price.',
+    a: 'Housecall Pro offers a built-in online booking widget and a Google Local Services Ads integration. If you rely heavily on those specific tools, Housecall Pro may be a better fit. For most solo operators, Opervo covers everything you need — native iOS app, route optimization, QuickBooks sync — at a third of the price.',
   },
 ]
 
@@ -137,7 +139,7 @@ export default function OpervoVsHousecallPro() {
           When Housecall Pro Might Be Better
         </h2>
         <p style={{ fontSize: 15, color: '#6B6B6B', lineHeight: 1.7, textAlign: 'center', maxWidth: 640, margin: '0 auto' }}>
-          Housecall Pro is a strong choice for established businesses with larger teams that need a native mobile app, a built-in online booking widget, and deep integrations with Google Local Services Ads. If those specific features are critical to your workflow, Housecall Pro may justify the higher price. For solo operators and small crews who want professional tools without paying $79+/mo — Opervo is the better fit.
+          Housecall Pro is a strong choice for established businesses with larger teams that need a built-in online booking widget and Google Local Services Ads integration. If those specific features are critical to your workflow, Housecall Pro may justify the higher price. For solo operators and small crews who want professional tools — including a native iOS app, route optimization, and QuickBooks sync — without paying $79+/mo, Opervo is the better fit.
         </p>
         <div style={{ marginTop: 24 }}>
           <TradesMention />
