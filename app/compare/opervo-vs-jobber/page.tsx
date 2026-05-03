@@ -30,7 +30,8 @@ const comparisonRows = [
   { feature: 'Quote request from portfolio', opervo: '✓', jobber: '✗' },
   { feature: 'Recurring jobs', opervo: '✓', jobber: '✓' },
   { feature: 'Team permissions', opervo: '✓ (Team plan)', jobber: '✓ (Connect+)' },
-  { feature: 'Route optimization', opervo: '✗', jobber: '✓ (Grow plan)' },
+  { feature: 'Route optimization', opervo: '✓', jobber: '✓ (Grow plan only)' },
+  { feature: 'QuickBooks Online sync', opervo: '✓', jobber: '✓' },
   { feature: 'Mobile-first PWA', opervo: '✓', jobber: 'Native app' },
   { feature: 'Built for solo operators', opervo: '✓', jobber: 'Built for teams' },
 ]
@@ -49,7 +50,7 @@ const faqs = [
   },
   {
     q: 'Is Jobber worth $39 per month?',
-    a: 'Jobber is a solid product for established teams that need route optimization and advanced reporting. But if you\'re a solo operator or small crew, you\'re paying for features you don\'t use. Opervo gives you everything you need at $24.99/mo.',
+    a: 'Jobber is a solid product for established teams that need advanced reporting and deeper integrations. But if you\'re a solo operator or small crew, you\'re paying for features you don\'t use. Opervo gives you everything you need at $24.99/mo — including route optimization and QuickBooks sync, no upgrade required.',
   },
   {
     q: 'Can I switch from Jobber to Opervo?',
@@ -57,7 +58,7 @@ const faqs = [
   },
   {
     q: 'What does Jobber have that Opervo doesn\'t?',
-    a: 'Jobber offers route optimization (on their Grow plan at $199/mo), a native mobile app, and deeper integrations with tools like Mailchimp and Zapier. If you need those specific features, Jobber may be a better fit. For most solo operators and small crews, Opervo covers everything you need at a fraction of the price.',
+    a: 'Jobber offers advanced reporting and deeper third-party integrations (Mailchimp, Zapier, etc.). If your business depends on those specific tools, Jobber may be a better fit. For most solo operators and small crews, Opervo covers everything you need — including route optimization and QuickBooks sync — at a fraction of the price.',
   },
 ]
 
@@ -141,7 +142,7 @@ export default function OpervoVsJobber() {
           When Jobber Might Be Better
         </h2>
         <p style={{ fontSize: 15, color: '#6B6B6B', lineHeight: 1.7, textAlign: 'center', maxWidth: 640, margin: '0 auto' }}>
-          Jobber is a great product for larger teams that need route optimization, advanced reporting, and deep integrations with tools like QuickBooks, Mailchimp, and Zapier. If you have 10+ employees and need enterprise-level scheduling, Jobber&apos;s Grow plan ($199/mo) may be worth the investment. For solo operators and small crews who need a professional, affordable tool — Opervo is the better fit.
+          Jobber is a great product for larger teams that need advanced reporting and deep third-party integrations (Mailchimp, Zapier, and more). If you have 10+ employees and need enterprise-level scheduling, Jobber&apos;s Grow plan ($199/mo) may be worth the investment. For solo operators and small crews who need a professional, affordable tool — including route optimization and QuickBooks sync out of the box — Opervo is the better fit.
         </p>
         <div style={{ marginTop: 24 }}>
           <TradesMention />
