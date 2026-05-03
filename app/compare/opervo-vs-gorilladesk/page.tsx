@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 const comparisonRows = [
   { feature: 'Starting price', opervo: '$24.99/mo', gd: '$49/mo' },
   { feature: 'Team plan', opervo: '$54.99/mo', gd: '$99/mo (Pro)' },
-  { feature: 'Free trial', opervo: '30 days', gd: '14 days' },
+  { feature: 'Free trial', opervo: '14 days', gd: '14 days' },
   { feature: 'Scheduling', opervo: '✓', gd: '✓' },
   { feature: 'Estimates & Invoicing', opervo: '✓', gd: '✓' },
   { feature: 'Client portal', opervo: '✓', gd: '✗' },
@@ -40,7 +40,7 @@ const switchReasons = [
   { title: 'Save $288+/year', desc: 'Opervo Solo is $24.99/mo vs GorillaDesk Basic at $49/mo. That\'s $288/year you keep — enough to cover a month of gas or new equipment.' },
   { title: 'Portfolio page included', desc: 'GorillaDesk doesn\'t offer a public portfolio page or client portal. With Opervo, you get both — clients see your work, request quotes, and access their job history.' },
   { title: 'Client portal included', desc: 'GorillaDesk doesn\'t have a client portal on any plan. Opervo includes one on every plan — clients can view jobs, pay invoices, and request new service.' },
-  { title: 'Longer free trial', desc: '30 days to try everything vs GorillaDesk\'s 14 days. Enough time to actually run your business on it before deciding.' },
+  { title: 'Built for any home-service trade', desc: 'Window cleaning, pressure washing, landscaping, solar — Opervo fits any field service. GorillaDesk leans hard on pest control and the rest of the product follows that bias.' },
 ]
 
 const faqs = [
@@ -54,7 +54,7 @@ const faqs = [
   },
   {
     q: 'Can I switch from GorillaDesk to Opervo?',
-    a: 'Yes. You can export your client list from GorillaDesk and import it into Opervo. Most operators are fully set up within an hour. Your Opervo 30-day free trial gives you time to migrate without paying for both.',
+    a: 'Yes. You can export your client list from GorillaDesk and import it into Opervo. Most operators are fully set up within an hour. Run your free trial in parallel with GorillaDesk so you can migrate without missing a beat.',
   },
   {
     q: 'What does GorillaDesk have that Opervo doesn\'t?',
@@ -163,7 +163,7 @@ export default function OpervoVsGorillaDesk() {
         <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 'clamp(24px, 4vw, 36px)', color: '#F7F5F2', textTransform: 'uppercase', letterSpacing: '-0.5px', marginBottom: 12 }}>
           Ready to Try the GorillaDesk Alternative Built for Solos?
         </h2>
-        <p style={{ fontSize: 16, color: '#9ca3af', marginBottom: 28 }}>Start free — 30 days, no credit card. $24.99/mo after.</p>
+        <p style={{ fontSize: 16, color: '#9ca3af', marginBottom: 28 }}>Start free — 14 days, no credit card. $24.99/mo after.</p>
         <a href="https://app.opervo.io" style={{ display: 'inline-block', background: '#F5620F', color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 15, padding: '14px 36px', borderRadius: 6, textDecoration: 'none', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
           Start Free Trial →
         </a>

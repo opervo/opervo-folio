@@ -142,7 +142,7 @@ export default function FounderPage() {
             <span style={{ color: '#F5620F' }}>FOR THE ONES STILL ON IT.</span>
           </h2>
           <p style={{ fontSize: 17, color: '#6B6B6B', fontFamily: "'Barlow', sans-serif", lineHeight: 1.7, marginBottom: 32, maxWidth: 500, margin: '0 auto 32px' }}>
-            30-day free trial. No credit card required. Set up in minutes.
+            14-day free trial. No credit card required. Set up in minutes.
           </p>
           <Link
             href="https://app.opervo.io"

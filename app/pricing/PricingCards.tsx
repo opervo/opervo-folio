@@ -155,7 +155,7 @@ export default function PricingCards() {
           >
             Start Free Trial
           </a>
-          <p style={{ fontSize: 12, color: '#6B6B6B', textAlign: 'center', marginTop: 8 }}>30 days free. No credit card.</p>
+          <p style={{ fontSize: 12, color: '#6B6B6B', textAlign: 'center', marginTop: 8 }}>14 days free. No credit card.</p>
         </div>
 
         {/* TEAM */}
@@ -224,7 +224,7 @@ export default function PricingCards() {
           >
             Start Free Trial
           </a>
-          <p style={{ fontSize: 12, color: '#6B6B6B', textAlign: 'center', marginTop: 8 }}>30 days free. No credit card.</p>
+          <p style={{ fontSize: 12, color: '#6B6B6B', textAlign: 'center', marginTop: 8 }}>14 days free. No credit card.</p>
         </div>
       </div>
     </>

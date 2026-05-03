@@ -23,7 +23,7 @@ const sections: Section[] = [
     id: 'setup', num: '01', title: 'First 15 Minutes — Account Setup',
     intro: 'Get signed up and configured so every invoice, estimate, and client page looks pro from day one.',
     steps: [
-      { title: 'Create your account', body: 'Go to app.opervo.io and tap Sign up. Use email + password or a magic link. No email confirmation needed during beta — you are in immediately. Your 30-day free trial starts automatically. No credit card required.' },
+      { title: 'Create your account', body: 'Go to app.opervo.io and tap Sign up. Use email + password or a magic link. No email confirmation needed during beta — you are in immediately. Your 14-day free trial starts automatically. No credit card required.' },
       { title: 'Fill in Business Info', body: 'Settings → Edit Business Info. This content appears on every client-facing page.', bullets: ['Business name, your name, title', 'Phone and business email', 'Street address', 'Logo (square PNG) — skip if you do not have one yet', 'Default tax rate (e.g. 8.25) — auto-fills estimates and invoices', 'Google review link — clients are prompted to leave a review after paying'] },
       { title: 'Connect Stripe', body: 'Settings → Payments → Connect Stripe. Complete the Express onboarding — ID, bank, tax info. Once approved, payouts land in your bank 2 business days after a client pays. Opervo takes 0% of your payment — you keep 100%.' },
       { title: 'Connect Google Calendar (optional)', body: 'Settings → Integrations → Connect Google Calendar. Two-way sync: jobs you schedule in Opervo show up in Google Calendar, and vice versa. Google verification was approved April 2026 — no warning screens.' },
@@ -165,7 +165,7 @@ export default function GuidePage() {
             Start Free Trial &rarr;
           </a>
           <p style={{ fontSize: 13, color: '#6B6B6B', fontFamily: "'Barlow', sans-serif", marginTop: 14 }}>
-            30 days free. No credit card.
+            14 days free. No credit card.
           </p>
         </section>
 
@@ -243,7 +243,7 @@ export default function GuidePage() {
             Ready to Get Started?
           </h2>
           <p style={{ fontSize: 16, color: '#9CA3AF', fontFamily: "'Barlow', sans-serif", marginBottom: 24 }}>
-            Sign up in 60 seconds. 30 days free. No credit card.
+            Sign up in 60 seconds. 14 days free. No credit card.
           </p>
           <a href="https://app.opervo.io" style={{ display: 'inline-block', background: '#F5620F', color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 17, textTransform: 'uppercase', padding: '16px 36px', borderRadius: 6, textDecoration: 'none', letterSpacing: '0.04em' }}>
             Start Free Trial &rarr;

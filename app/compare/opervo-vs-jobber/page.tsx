@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 const comparisonRows = [
   { feature: 'Starting price', opervo: '$24.99/mo', jobber: '$39/mo' },
   { feature: 'Team plan', opervo: '$54.99/mo', jobber: '$119/mo (Connect)' },
-  { feature: 'Free trial', opervo: '30 days', jobber: '14 days' },
+  { feature: 'Free trial', opervo: '14 days', jobber: '14 days' },
   { feature: 'Scheduling', opervo: '✓', jobber: '✓' },
   { feature: 'Estimates & Invoicing', opervo: '✓', jobber: '✓' },
   { feature: 'Client portal', opervo: '✓', jobber: '✓' },
@@ -39,7 +39,7 @@ const switchReasons = [
   { title: 'Save $170+/year', desc: 'Opervo Solo is $24.99/mo vs Jobber Core at $39/mo. That\'s $168/year back in your pocket — and you get more features included.' },
   { title: 'Portfolio page included', desc: 'Jobber doesn\'t offer a public portfolio page. With Opervo, every operator gets a shareable Folio page where clients can see your work and request quotes.' },
   { title: 'Texts included, not an add-on', desc: 'Opervo includes automated appointment reminders, on-my-way alerts, and review request texts. Jobber charges extra for similar functionality.' },
-  { title: 'Longer free trial', desc: '30 days to try everything vs Jobber\'s 14 days. Enough time to actually run your business on it before committing.' },
+  { title: 'Everything unlocked, no upsells', desc: 'Every feature is included on every plan — folio, AI assistant, automated texts, canvassing. Jobber locks core features behind higher tiers.' },
 ]
 
 const faqs = [
@@ -53,7 +53,7 @@ const faqs = [
   },
   {
     q: 'Can I switch from Jobber to Opervo?',
-    a: 'Yes. You can export your client list from Jobber as a CSV and import it into Opervo. Most operators are fully set up within an hour. Your Opervo 30-day free trial gives you time to migrate without paying for both.',
+    a: 'Yes. You can export your client list from Jobber as a CSV and import it into Opervo. Most operators are fully set up within an hour. Run your free trial in parallel with Jobber so you can migrate without missing a beat.',
   },
   {
     q: 'What does Jobber have that Opervo doesn\'t?',
@@ -168,7 +168,7 @@ export default function OpervoVsJobber() {
         <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 'clamp(24px, 4vw, 36px)', color: '#F7F5F2', textTransform: 'uppercase', letterSpacing: '-0.5px', marginBottom: 12 }}>
           Ready to Try the Jobber Alternative Built for Solos?
         </h2>
-        <p style={{ fontSize: 16, color: '#9ca3af', marginBottom: 28 }}>Start free — 30 days, no credit card. $24.99/mo after.</p>
+        <p style={{ fontSize: 16, color: '#9ca3af', marginBottom: 28 }}>Start free — 14 days, no credit card. $24.99/mo after.</p>
         <a href="https://app.opervo.io" style={{ display: 'inline-block', background: '#F5620F', color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 15, padding: '14px 36px', borderRadius: 6, textDecoration: 'none', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
           Start Free Trial →
         </a>

@@ -15,7 +15,7 @@ export default function TermsOfService() {
           ["1","About Opervo","Opervo is a SaaS platform for home service trade operators — job scheduling, client management, invoicing, estimates, and payment processing at app.opervo.io. Operated as a sole proprietorship in Austin, Texas."],
           ["2","Acceptance","By using Opervo you confirm you are 18+, have legal authority to agree, will use the service lawfully, and have read our Privacy Policy."],
           ["3","Your Account","You are responsible for account security and all activity under your account. Notify us at help@opervo.io of any unauthorized access."],
-          ["4","Subscription and Billing","Solo Plan: $24.99/month. Team Plan: $54.99/month. 30-day free trial, no credit card required. Monthly auto-renewing billing. 30 days notice for price changes. Payments via Stripe."],
+          ["4","Subscription and Billing","Solo Plan: $24.99/month. Team Plan: $54.99/month. 14-day free trial, no credit card required. Monthly auto-renewing billing. 30 days notice for price changes. Payments via Stripe or Square."],
           ["5","Refunds","7-day money-back guarantee on your first paid month. Email help@opervo.io within 7 days for a full refund. After 7 days charges are final."],
           ["6","Acceptable Use","Do not violate laws, infringe IP, transmit malware, gain unauthorized access, scrape, or misrepresent your identity."],
           ["7","Your Data","You own all content you input. We do not sell your data. Request a data export within 30 days of account termination."],

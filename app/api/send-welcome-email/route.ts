@@ -66,7 +66,7 @@ export async function POST(req: NextRequest) {
         .replace(/\{\{\{unsubscribe_url\}\}\}/g, '#')
     } else {
       // Fallback plain HTML if template fetch fails
-      html = `<p>Hey ${firstName}, welcome to Opervo! Your 30-day free trial runs until ${trialEndDate}.</p><p><a href="https://app.opervo.io">Open Opervo</a></p>`
+      html = `<p>Hey ${firstName}, welcome to Opervo! Your free trial runs until ${trialEndDate}.</p><p><a href="https://app.opervo.io">Open Opervo</a></p>`
     }
 
     // Send the email with rendered HTML
@@ -79,7 +79,7 @@ export async function POST(req: NextRequest) {
       body: JSON.stringify({
         from: 'Max at Opervo <welcome@opervo.io>',
         to: [email],
-        subject: 'You are in. 30 days free starts now.',
+        subject: 'You are in. Your free trial starts now.',
         html: html,
       }),
     })

@@ -436,7 +436,7 @@ export default function CompareServiceWizardPage() {
             Both built for field service operators. One gives you a portfolio that wins clients. Here&apos;s how they stack up.
           </p>
           <div className="cta-row">
-            <a href="https://app.opervo.io" className="btn-primary">Start free &mdash; 30 days</a>
+            <a href="https://app.opervo.io" className="btn-primary">Start free &mdash; 14 days</a>
             <a href="https://www.opervo.io/p/solarwashatx" className="btn-ghost">See a Folio page live &rarr;</a>
           </div>
         </div>
@@ -454,7 +454,7 @@ export default function CompareServiceWizardPage() {
             <div className="detail"><strong>Target:</strong> Solo operators &amp; small crews</div>
             <div className="detail"><strong>Verticals:</strong> Pressure washing, window cleaning, lawn care, detailing, gutter cleaning</div>
             <div className="detail"><strong>Pricing:</strong> $24.99/mo Solo &middot; $54.99/mo Team</div>
-            <div className="detail"><strong>Trial:</strong> 30-day free trial, no credit card</div>
+            <div className="detail"><strong>Trial:</strong> 14-day free trial, no credit card</div>
             <div className="detail"><strong>Unique:</strong> Folio &mdash; live portfolio page that wins you clients</div>
           </div>
           <div className="glance-card sw">
@@ -535,7 +535,7 @@ export default function CompareServiceWizardPage() {
           <div className="price-card op">
             <div className="plan-label">Opervo Solo</div>
             <div className="price">$24.99</div>
-            <div className="price-sub">/month &middot; 30 days free</div>
+            <div className="price-sub">/month &middot; 14 days free</div>
             <ul>
               <li>Unlimited jobs &amp; invoices</li>
               <li>Live Folio portfolio page</li>
@@ -589,7 +589,7 @@ export default function CompareServiceWizardPage() {
       {/* ── FINAL CTA ── */}
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="final-cta">
-          <h2>Try Opervo free for 30 days.</h2>
+          <h2>Try Opervo free for 14 days.</h2>
           <p className="sub">No credit card. No demo call. Live in 90 seconds.</p>
           <a href="https://app.opervo.io" className="btn-white">Start free trial</a>
           <div className="final-badges">
@@ -597,7 +597,7 @@ export default function CompareServiceWizardPage() {
             <span>&middot;</span>
             <span>No demo call</span>
             <span>&middot;</span>
-            <span>30 days free</span>
+            <span>14 days free</span>
           </div>
         </div>
       </section>

@@ -7,11 +7,11 @@ import PricingCards from './PricingCards'
 
 export const metadata: Metadata = {
   title: 'Pricing — Opervo | Solo $24.99/mo or $249/yr, Team $54.99/mo or $549/yr',
-  description: 'Simple, transparent pricing. Solo $24.99/mo or $249/yr (save $51). Team $54.99/mo or $549/yr (save $111). All features included. 30-day free trial, no credit card required.',
+  description: 'Simple, transparent pricing. Solo $24.99/mo or $249/yr (save $51). Team $54.99/mo or $549/yr (save $111). All features included. 14-day free trial, no credit card required.',
   alternates: { canonical: 'https://opervo.io/pricing' },
   openGraph: {
     title: 'Opervo Pricing — From $24.99/mo or $249/yr',
-    description: 'Simple pricing. Annual saves 17%. All features included. 30-day free trial, no credit card.',
+    description: 'Simple pricing. Annual saves 17%. All features included. 14-day free trial, no credit card.',
     url: 'https://opervo.io/pricing',
     type: 'website',
   },
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 const comparisonRows = [
   { feature: 'Price', oSolo: '$24.99/mo or $249/yr', oTeam: '$54.99/mo or $549/yr', jLite: '$39/mo', jConnect: '$119/mo', hcp: '$79/mo', gd: '$49/mo' },
-  { feature: 'Free trial', oSolo: '30 days', oTeam: '30 days', jLite: '14 days', jConnect: '14 days', hcp: '14 days', gd: '14 days' },
+  { feature: 'Free trial', oSolo: '14 days', oTeam: '14 days', jLite: '14 days', jConnect: '14 days', hcp: '14 days', gd: '14 days' },
   { feature: 'Scheduling', oSolo: '✓', oTeam: '✓', jLite: '✓', jConnect: '✓', hcp: '✓', gd: '✓' },
   { feature: 'Estimates & Invoicing', oSolo: '✓', oTeam: '✓', jLite: '✓', jConnect: '✓', hcp: '✓', gd: '✓' },
   { feature: 'Client portal', oSolo: '✓', oTeam: '✓', jLite: '✓', jConnect: '✓', hcp: '✓', gd: '✗' },
@@ -32,7 +32,7 @@ const comparisonRows = [
 ]
 
 const faqs = [
-  { q: 'Is there a free trial?', a: 'Yes, 30 days. No credit card required. You get full access to every feature.' },
+  { q: 'Is there a free trial?', a: 'Yes, 14 days. No credit card required. You get full access to every feature.' },
   { q: 'Are there any hidden fees?', a: 'No. The price you see is the price you pay. SMS, client portal, portfolio page, estimates, invoicing — all included.' },
   { q: 'Can I switch between Solo and Team?', a: 'Yes, upgrade or downgrade anytime from your account settings.' },
   { q: 'What payment methods do you accept?', a: 'All major credit and debit cards via Stripe. We don\'t store your card info.' },
@@ -65,7 +65,7 @@ export default function Pricing() {
           Every Feature. Every Plan.
         </h1>
         <p style={{ fontSize: 16, color: '#6B6B6B', lineHeight: 1.6, maxWidth: 560, margin: '0 auto' }}>
-          No features locked behind higher tiers. No per-user fees. Start free for 30 days — no credit card required.
+          No features locked behind higher tiers. No per-user fees. Start free for 14 days — no credit card required.
         </p>
       </section>
 
@@ -151,7 +151,7 @@ export default function Pricing() {
         <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 'clamp(24px, 4vw, 36px)', color: '#F7F5F2', textTransform: 'uppercase', letterSpacing: '-0.5px', marginBottom: 12 }}>
           Start Running Your Business Like a Pro.
         </h2>
-        <p style={{ fontSize: 16, color: '#9ca3af', marginBottom: 28 }}>30 days free. All features. No credit card.</p>
+        <p style={{ fontSize: 16, color: '#9ca3af', marginBottom: 28 }}>14 days free. All features. No credit card.</p>
         <a href="https://app.opervo.io" style={{ display: 'inline-block', background: '#F5620F', color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 15, padding: '14px 36px', borderRadius: 6, textDecoration: 'none', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
           Start Free Trial →
         </a>

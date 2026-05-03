@@ -7,7 +7,7 @@ import ComparisonLinks from '@/components/ComparisonLinks'
 
 export const metadata: Metadata = {
   title: 'Pressure Washing Software — Scheduling, Invoicing & CRM | Opervo',
-  description: 'The #1 app for pressure washing businesses. Schedule jobs, send professional estimates, invoice clients, and showcase before & after work — all from your phone. $24.99/mo. Try free for 30 days.',
+  description: 'The #1 app for pressure washing businesses. Schedule jobs, send professional estimates, invoice clients, and showcase before & after work — all from your phone. $24.99/mo. Try free for 14 days.',
   alternates: { canonical: 'https://opervo.io/pressure-washing' },
   openGraph: {
     title: 'Pressure Washing Software — Opervo',
@@ -39,7 +39,7 @@ const comparisonRows = [
   { feature: 'Client portal', opervo: '✓', jobber: '✓', housecall: '✓', gorilla: '✗' },
   { feature: 'Portfolio page', opervo: '✓', jobber: '✗', housecall: '✗', gorilla: '✗' },
   { feature: 'Auto-text notifications', opervo: '✓', jobber: 'Add-on', housecall: '✓', gorilla: '✓' },
-  { feature: '30-day free trial', opervo: '✓', jobber: '14 days', housecall: '14 days', gorilla: '14 days' },
+  { feature: '14-day free trial', opervo: '✓', jobber: '✓', housecall: '✓', gorilla: '✓' },
 ]
 
 const faqs = [
@@ -234,7 +234,7 @@ export default function PressureWashing() {
         <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 'clamp(24px, 4vw, 36px)', color: '#F7F5F2', textTransform: 'uppercase', letterSpacing: '-0.5px', marginBottom: 12 }}>
           Ready to Level Up Your Pressure Washing Business?
         </h2>
-        <p style={{ fontSize: 16, color: '#9ca3af', marginBottom: 28 }}>Start free — 30 days, no credit card.</p>
+        <p style={{ fontSize: 16, color: '#9ca3af', marginBottom: 28 }}>Start free — 14 days, no credit card.</p>
         <a href="https://app.opervo.io" style={{ display: 'inline-block', background: '#F5620F', color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 15, padding: '14px 36px', borderRadius: 6, textDecoration: 'none', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
           Start Free Trial →
         </a>

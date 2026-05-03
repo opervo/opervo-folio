@@ -349,8 +349,8 @@ export default function JobberVsHousecallProVsOpervo() {
           <strong>Recommendation: Opervo Solo at $24.99/mo.</strong> You get every feature you need at
           the lowest price, including automated SMS and a portfolio page. You are not paying for team
           management features you do not use, and there are no upsells waiting on your second month.
-          The 30-day free trial is the longest of the three, giving you a full month to test it with
-          real clients and real jobs.
+          All three offer a 14-day free trial — long enough to run real jobs through Opervo and feel
+          the difference before deciding.
         </p>
 
         <h3>Small crew (2-5 people)</h3>

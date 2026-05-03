@@ -79,7 +79,7 @@ export default function BlogLayout({ title, category, date, readTime, children }
           READY TO LOOK PRO?
         </h2>
         <p style={{ fontSize: 16, color: '#9ca3af', margin: '0 0 24px', fontFamily: "'Barlow', sans-serif" }}>
-          Start free — 30 days, no credit card.
+          Start free — 14 days, no credit card.
         </p>
         <a
           href="https://app.opervo.io"

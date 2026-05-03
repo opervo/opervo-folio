@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 const comparisonRows = [
   { feature: 'Starting price', opervo: '$24.99/mo', hcp: '$79/mo' },
   { feature: 'Team plan', opervo: '$54.99/mo', hcp: '$189/mo (Essentials)' },
-  { feature: 'Free trial', opervo: '30 days', hcp: '14 days' },
+  { feature: 'Free trial', opervo: '14 days', hcp: '14 days' },
   { feature: 'Scheduling', opervo: '✓', hcp: '✓' },
   { feature: 'Estimates & Invoicing', opervo: '✓', hcp: '✓' },
   { feature: 'Client portal', opervo: '✓', hcp: '✓' },
@@ -39,7 +39,7 @@ const switchReasons = [
   { title: 'Save $648+/year', desc: 'Opervo Solo is $24.99/mo vs Housecall Pro Basic at $79/mo. That\'s $648/year — enough to cover your insurance or buy new equipment.' },
   { title: 'Portfolio page included', desc: 'Housecall Pro doesn\'t offer a public portfolio page. With Opervo, you get a shareable Folio page where clients see your work and request quotes directly.' },
   { title: 'No feature gating', desc: 'Opervo includes all features on every plan. Housecall Pro locks key features behind their Essentials ($189/mo) and MAX tiers.' },
-  { title: 'Longer free trial', desc: '30 days to try everything vs Housecall Pro\'s 14 days. Run your actual business on it before committing a dollar.' },
+  { title: 'Built for the operator on the truck', desc: 'Opervo is mobile-first, voice-input everywhere, fast on a phone with one hand. Housecall Pro is built for office staff to run techs in the field.' },
 ]
 
 const faqs = [
@@ -53,7 +53,7 @@ const faqs = [
   },
   {
     q: 'Can I switch from Housecall Pro to Opervo?',
-    a: 'Yes. You can export your client list from Housecall Pro and import it into Opervo. Most operators are fully set up within an hour. Your Opervo 30-day free trial gives you time to migrate without paying for both.',
+    a: 'Yes. You can export your client list from Housecall Pro and import it into Opervo. Most operators are fully set up within an hour. Run your free trial in parallel with Housecall Pro so you can migrate without missing a beat.',
   },
   {
     q: 'What does Housecall Pro have that Opervo doesn\'t?',
@@ -162,7 +162,7 @@ export default function OpervoVsHousecallPro() {
         <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 'clamp(24px, 4vw, 36px)', color: '#F7F5F2', textTransform: 'uppercase', letterSpacing: '-0.5px', marginBottom: 12 }}>
           Ready to Try the Housecall Pro Alternative Built for Solos?
         </h2>
-        <p style={{ fontSize: 16, color: '#9ca3af', marginBottom: 28 }}>Start free — 30 days, no credit card. $24.99/mo after.</p>
+        <p style={{ fontSize: 16, color: '#9ca3af', marginBottom: 28 }}>Start free — 14 days, no credit card. $24.99/mo after.</p>
         <a href="https://app.opervo.io" style={{ display: 'inline-block', background: '#F5620F', color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 15, padding: '14px 36px', borderRadius: 6, textDecoration: 'none', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
           Start Free Trial →
         </a>

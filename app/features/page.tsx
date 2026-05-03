@@ -240,7 +240,7 @@ export default function FeaturesPage() {
                     {ci === 3 ? 'All of this for $24.99/mo.' : ci === 7 ? 'No add-ons. No hidden fees.' : 'Built for the truck, not the desk.'}
                   </p>
                   <p style={{ fontSize: 14, color: '#9CA3AF', fontFamily: "'Barlow', sans-serif", marginBottom: 16 }}>
-                    30-day free trial. No credit card required.
+                    14-day free trial. No credit card required.
                   </p>
                   <a href="https://app.opervo.io" style={{ display: 'inline-block', background: '#F5620F', color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 15, textTransform: 'uppercase', padding: '12px 28px', borderRadius: 6, textDecoration: 'none' }}>
                     Start Free Trial &rarr;
@@ -263,7 +263,7 @@ export default function FeaturesPage() {
             {[
               { num: '60+', label: 'Features included' },
               { num: '$24.99', label: 'Per month (Solo)' },
-              { num: '30', label: 'Day free trial' },
+              { num: '14', label: 'Day free trial' },
               { num: '0', label: 'Credit card required' },
             ].map((s) => (
               <div key={s.label} style={{ textAlign: 'center' }}>
@@ -283,7 +283,7 @@ export default function FeaturesPage() {
             {[
               { name: 'Opervo vs Jobber', href: '/compare/opervo-vs-jobber', price: '$24.99/mo vs $39/mo', desc: 'Save $168/year. Get a portfolio page and SMS included.' },
               { name: 'Opervo vs Housecall Pro', href: '/compare/opervo-vs-housecall-pro', price: '$24.99/mo vs $79/mo', desc: 'Save $648/year. All the features solos actually need.' },
-              { name: 'Opervo vs GorillaDesk', href: '/compare/opervo-vs-gorilladesk', price: '$24.99/mo vs $49/mo', desc: 'Save $288/year. 30-day trial vs 14 days.' },
+              { name: 'Opervo vs GorillaDesk', href: '/compare/opervo-vs-gorilladesk', price: '$24.99/mo vs $49/mo', desc: 'Save $288/year. Built for any home-service trade.' },
             ].map((c) => (
               <Link key={c.href} href={c.href} title={c.name} style={{ background: '#fff', border: '1px solid #E8E4DE', borderRadius: 10, padding: '24px', textDecoration: 'none' }}>
                 <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 18, textTransform: 'uppercase', color: '#0F0F0F', marginBottom: 4 }}>{c.name}</p>
@@ -321,7 +321,7 @@ export default function FeaturesPage() {
             Ready to Run Your Business Like a Pro?
           </h2>
           <p style={{ fontSize: 16, color: '#9CA3AF', fontFamily: "'Barlow', sans-serif", marginBottom: 24 }}>
-            Start free — 30 days, no credit card.
+            Start free — 14 days, no credit card.
           </p>
           <a href="https://app.opervo.io" style={{ display: 'inline-block', background: '#F5620F', color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 17, textTransform: 'uppercase', padding: '16px 36px', borderRadius: 6, textDecoration: 'none', letterSpacing: '0.04em' }}>
             Start Free Trial &rarr;
