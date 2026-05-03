@@ -84,8 +84,29 @@ export default function Pricing() {
       <section style={{ maxWidth: 900, margin: '0 auto', padding: '0 24px 72px' }}>
         <PricingCards />
 
+        {/* FOUNDING 50 strip — limited founder pricing */}
+        <div style={{ marginTop: 24, background: 'linear-gradient(135deg, #0F0F0F 0%, #1A1A1A 100%)', borderRadius: 12, padding: '24px 28px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 20, flexWrap: 'wrap', position: 'relative', overflow: 'hidden' }}>
+          <div style={{ flex: '1 1 380px', minWidth: 0, position: 'relative', zIndex: 1 }}>
+            <p style={{ fontSize: 11, fontWeight: 800, color: '#F5620F', textTransform: 'uppercase', letterSpacing: '0.16em', marginBottom: 6 }}>Founding 50 · Limited Spots</p>
+            <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 22, color: '#F7F5F2', fontWeight: 800, marginBottom: 6, textTransform: 'uppercase', lineHeight: 1.15 }}>Lock <span style={{ color: '#F5620F' }}>$15/mo Solo</span> for life</p>
+            <p style={{ fontSize: 13, color: '#B8B8B8', lineHeight: 1.55, marginBottom: 12 }}>40% off forever in exchange for honest feedback — a survey here, a quick call there. Capped at 50 operators.</p>
+            <div style={{ maxWidth: 320 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontFamily: "'Barlow Condensed', sans-serif", textTransform: 'uppercase', letterSpacing: '0.06em', fontSize: 11, fontWeight: 800, marginBottom: 6 }}>
+                <span style={{ color: '#F7F5F2' }}>17 of 50 claimed</span>
+                <span style={{ color: '#F5620F' }}>33 remaining</span>
+              </div>
+              <div style={{ position: 'relative', height: 6, background: 'rgba(255,255,255,0.08)', borderRadius: 999, overflow: 'hidden' }}>
+                <div style={{ position: 'absolute', top: 0, left: 0, height: '100%', width: '34%', background: 'linear-gradient(90deg, #F5620F 0%, #FF8A3D 100%)', borderRadius: 999, boxShadow: '0 0 10px rgba(245,98,15,0.5)' }} />
+              </div>
+            </div>
+          </div>
+          <a href="mailto:help@opervo.io?subject=Founding%2050%20application&body=Hi%20Max%2C%0A%0AI%27d%20like%20to%20be%20a%20Founding%20Operator.%0A%0AMy%20business%3A%20%0AMy%20trade%3A%20%0AHow%20I%20heard%20about%20Opervo%3A%20%0A%0A--%20A%20few%20quick%20questions%20--%0A%0AWhat%20I%27m%20currently%20using%20to%20run%20my%20business%3A%20%0AWhat%20I%20like%20about%20it%3A%20%0AWhat%20frustrates%20me%20about%20it%3A%20%0A%0ATop%20features%20I%20look%20for%20in%20field-service%20software%20%28in%20priority%20order%29%3A%0A1.%20%0A2.%20%0A3.%20%0A%0AThanks%21" style={{ display: 'inline-block', background: '#F5620F', color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 14, padding: '12px 28px', borderRadius: 6, textDecoration: 'none', textTransform: 'uppercase', letterSpacing: '0.05em', whiteSpace: 'nowrap', position: 'relative', zIndex: 1 }}>
+            Apply →
+          </a>
+        </div>
+
         {/* GROWTH strip — secondary to Solo/Team, for 10+ teams */}
-        <div style={{ marginTop: 24, background: '#fff', border: '1px solid #E8E4DE', borderRadius: 12, padding: '20px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 20, flexWrap: 'wrap' }}>
+        <div style={{ marginTop: 16, background: '#fff', border: '1px solid #E8E4DE', borderRadius: 12, padding: '20px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 20, flexWrap: 'wrap' }}>
           <div style={{ flex: '1 1 360px', minWidth: 0 }}>
             <p style={{ fontSize: 11, fontWeight: 700, color: '#F5620F', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 6 }}>Growth · For 10+ teams</p>
             <p style={{ fontSize: 15, color: '#0F0F0F', fontWeight: 600, marginBottom: 4 }}>Same full feature access. Unlimited team members.</p>

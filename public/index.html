@@ -222,6 +222,136 @@ nav {
   box-shadow: 0 0 0 3px rgba(16,185,129,0.2);
 }
 
+.hero-text-founder {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 14px;
+  font-size: 14px; font-weight: 600; color: var(--orange);
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(245,98,15,0.4);
+  padding-bottom: 3px;
+  transition: color 0.15s, border-color 0.15s;
+}
+.hero-text-founder:hover { color: var(--orange-hover); border-bottom-color: var(--orange-hover); }
+.hero-text-founder strong { font-weight: 700; }
+
+/* Founding 50 strip */
+.founding-strip {
+  background: linear-gradient(135deg, #0F0F0F 0%, #1A1A1A 100%);
+  padding: 64px 0;
+  position: relative;
+  overflow: hidden;
+}
+.founding-strip::before {
+  content: '';
+  position: absolute;
+  top: -50%; right: -10%;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(245,98,15,0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+.founding-strip-inner {
+  max-width: 760px; margin: 0 auto;
+  text-align: center; padding: 0 24px;
+  position: relative; z-index: 1;
+}
+.founding-strip-eyebrow {
+  display: inline-block;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 12px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--orange);
+  background: rgba(245,98,15,0.12);
+  padding: 7px 14px; border-radius: 4px;
+  margin-bottom: 20px;
+}
+.founding-strip-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900; font-size: clamp(28px, 4.4vw, 40px);
+  text-transform: uppercase;
+  color: #F7F5F2; line-height: 1.05;
+  letter-spacing: -0.5px;
+  margin-bottom: 18px;
+}
+.founding-strip-title .accent { color: var(--orange); }
+.founding-strip-sub {
+  font-size: 15px; color: #B8B8B8;
+  line-height: 1.65;
+  max-width: 600px; margin: 0 auto 28px;
+}
+.founding-strip-ctas {
+  display: flex; gap: 12px;
+  justify-content: center; flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.founding-strip-cta-primary {
+  display: inline-block;
+  background: var(--orange); color: #fff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 15px;
+  text-transform: uppercase; letter-spacing: 0.05em;
+  padding: 14px 32px; border-radius: 6px;
+  text-decoration: none;
+}
+.founding-strip-cta-primary:hover { background: var(--orange-hover); }
+.founding-strip-cta-secondary {
+  display: inline-block;
+  background: transparent; color: #fff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 15px;
+  text-transform: uppercase; letter-spacing: 0.05em;
+  padding: 14px 24px; border-radius: 6px;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+.founding-strip-cta-secondary:hover { border-color: rgba(255,255,255,0.55); }
+.founding-strip-fineprint {
+  font-size: 12px; color: #888;
+  margin-top: 4px;
+}
+
+/* Founding 50 progress meter */
+.founding-progress {
+  max-width: 460px; margin: 0 auto 24px;
+}
+.founding-progress-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 8px;
+  font-family: 'Barlow Condensed', sans-serif;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.founding-progress-claimed {
+  font-size: 13px; font-weight: 800; color: #F7F5F2;
+}
+.founding-progress-remaining {
+  font-size: 12px; font-weight: 700; color: var(--orange);
+}
+.founding-progress-bar {
+  position: relative;
+  height: 8px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.founding-progress-fill {
+  position: absolute; top: 0; left: 0; height: 100%;
+  background: linear-gradient(90deg, var(--orange) 0%, #FF8A3D 100%);
+  border-radius: 999px;
+  box-shadow: 0 0 12px rgba(245,98,15,0.5);
+  transition: width 0.6s ease-out;
+}
+.founding-progress-fill::after {
+  content: '';
+  position: absolute; top: 0; right: -2px;
+  width: 4px; height: 100%;
+  background: #FFB37D;
+  border-radius: 999px;
+  animation: founding-pulse 2s ease-in-out infinite;
+}
+@keyframes founding-pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.4); }
+}
+
 /* Phone mockup */
 .phone {
   width: 100%; max-width: 340px;
@@ -1135,6 +1265,9 @@ svg.ic {
           <a href="/p/solar-wash-atx" class="btn btn-secondary">See Live Folio</a>
         </div>
         <div class="hero-trust">14-day free trial · No credit card required</div>
+        <a href="sms:+15127616054" class="hero-text-founder" data-event="hero_text_founder">
+          💬 Got a question? <strong>Text Max → (512) 761-6054</strong>
+        </a>
         <div class="hero-app-store">
           <a href="https://apps.apple.com/us/app/opervo/id6763399255" target="_blank" rel="noopener" aria-label="Download Opervo on the App Store">
             <img src="/app-store-badge.svg" alt="Download on the App Store" />
@@ -1676,6 +1809,34 @@ svg.ic {
       <div class="founder-role">Founder, Opervo</div>
       <a href="/founder" class="founder-cta">Read the full story</a>
     </div>
+  </div>
+</section>
+
+<!-- ── FOUNDING 50 STRIP ───────────────────────── -->
+<section class="founding-strip" id="founding-50">
+  <div class="founding-strip-inner">
+    <div class="founding-strip-eyebrow">Founding 50 · Limited Spots</div>
+    <h2 class="founding-strip-title">
+      Lock <span class="accent">$15/mo Solo</span> for life.<br/>
+      Help shape the product.
+    </h2>
+    <p class="founding-strip-sub">
+      Founding Operators get 40% off forever in exchange for honest feedback — a survey here, a quick call there. We&rsquo;re capping it at 50 so the loop stays small enough to actually use what you tell us.
+    </p>
+    <div class="founding-progress" data-claimed="17" data-total="50">
+      <div class="founding-progress-row">
+        <span class="founding-progress-claimed">17 of 50 spots claimed</span>
+        <span class="founding-progress-remaining">33 remaining</span>
+      </div>
+      <div class="founding-progress-bar">
+        <div class="founding-progress-fill" style="width: 34%"></div>
+      </div>
+    </div>
+    <div class="founding-strip-ctas">
+      <a href="mailto:help@opervo.io?subject=Founding%2050%20application&amp;body=Hi%20Max%2C%0A%0AI%27d%20like%20to%20be%20a%20Founding%20Operator.%0A%0AMy%20business%3A%20%0AMy%20trade%3A%20%0AHow%20I%20heard%20about%20Opervo%3A%20%0A%0A--%20A%20few%20quick%20questions%20--%0A%0AWhat%20I%27m%20currently%20using%20to%20run%20my%20business%3A%20%0AWhat%20I%20like%20about%20it%3A%20%0AWhat%20frustrates%20me%20about%20it%3A%20%0A%0ATop%20features%20I%20look%20for%20in%20field-service%20software%20%28in%20priority%20order%29%3A%0A1.%20%0A2.%20%0A3.%20%0A%0AThanks%21" class="founding-strip-cta-primary" data-event="founding_50_apply">Apply for Founding 50 →</a>
+      <a href="sms:+15127616054" class="founding-strip-cta-secondary" data-event="founding_50_text">Text Max instead</a>
+    </div>
+    <p class="founding-strip-fineprint">No commitment beyond paying for your subscription &amp; sharing feedback. Cancel anytime — but you&rsquo;ll lose the founder rate.</p>
   </div>
 </section>
 
