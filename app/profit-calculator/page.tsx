@@ -266,12 +266,17 @@ export default function ProfitCalculatorPage() {
               <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 26, color: '#0F0F0F', textTransform: 'uppercase', letterSpacing: '-0.5px', marginBottom: 10 }}>
                 Sent. Check your inbox.
               </h2>
-              <p style={{ fontSize: 14, color: '#6B6B6B', maxWidth: 520, margin: '0 auto 18px', lineHeight: 1.6 }}>
-                We saved your numbers. Want a tool that auto-tracks every job like this — chem cost, mileage, helpers, profit margin — in real time?
+              <p style={{ fontSize: 14, color: '#6B6B6B', maxWidth: 540, margin: '0 auto 18px', lineHeight: 1.6 }}>
+                Your numbers are on the way. The pattern shows up after 5 jobs, not 1 — try the Multi-Job Profit Tracker to log them all in one place (saves to your phone, no account).
               </p>
-              <a href="https://app.opervo.io" style={{ display: 'inline-block', background: '#F5620F', color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 14, padding: '13px 28px', borderRadius: 6, textDecoration: 'none', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-                Try Opervo Free for 14 Days →
-              </a>
+              <div style={{ display: 'flex', gap: 10, justifyContent: 'center', flexWrap: 'wrap' }}>
+                <Link href="/multi-job-tracker" style={{ display: 'inline-block', background: '#F5620F', color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 14, padding: '13px 28px', borderRadius: 6, textDecoration: 'none', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                  Open the Multi-Job Tracker →
+                </Link>
+                <a href="https://app.opervo.io" style={{ display: 'inline-block', background: 'transparent', color: '#0F0F0F', border: '1px solid #E8E4DE', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 14, padding: '13px 24px', borderRadius: 6, textDecoration: 'none', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                  Try Opervo Free
+                </a>
+              </div>
             </>
           )}
         </div>

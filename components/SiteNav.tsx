@@ -20,6 +20,7 @@ const comparisons = [
 
 const resources = [
   { name: 'Job Profit Calculator', href: '/profit-calculator' },
+  { name: 'Multi-Job Profit Tracker', href: '/multi-job-tracker' },
   { name: 'Blog', href: '/blog' },
   { name: 'Marketing Materials', href: '/print' },
   { name: 'Guide', href: '/guide' },

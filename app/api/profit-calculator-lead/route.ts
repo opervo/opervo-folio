@@ -36,22 +36,28 @@ function emailHtml(i: Inputs) {
   const trade = i.trade || 'home service'
   const profitColor = c.margin >= 0.4 ? '#10B981' : c.margin >= 0.2 ? '#F5620F' : '#DC2626'
 
-  // Insights
+  // Personalized insights (max 2)
   const insights: string[] = []
   if (c.rev > 0 && c.hourly < 25 && c.h > 0) {
-    insights.push(`<strong>Your effective hourly is ${$(c.hourly)}/hr.</strong> That’s below most trades’ break-even after taxes, insurance, and equipment. Re-price or re-scope.`)
+    insights.push(`<strong>Your effective hourly is ${$(c.hourly)}/hr.</strong> That’s below most trades’ break-even after taxes, insurance, and equipment depreciation. Either re-price the job or scope it tighter next time.`)
   } else if (c.rev > 0 && c.hourly >= 75) {
-    insights.push(`<strong>${$(c.hourly)}/hr is strong.</strong> Anything you can do to repeat this exact job (recurring agreement, similar property type) is gold.`)
+    insights.push(`<strong>${$(c.hourly)}/hr is strong.</strong> Anything you can do to repeat this exact job (recurring agreement, similar property type, same neighborhood) is gold.`)
   }
   if (c.mileageCost > 0 && c.mileageCost / Math.max(c.rev, 1) > 0.08) {
     insights.push(`<strong>Drive time is eating you.</strong> Mileage cost (${$$(c.mileageCost)}) is over 8% of revenue. Cluster nearby jobs into the same day, or charge a travel fee outside your zone.`)
   }
-  if (c.mat > 0 && c.mat / Math.max(c.rev, 1) > 0.25) {
+  if (c.mat > 0 && c.mat / Math.max(c.rev, 1) > 0.25 && insights.length < 2) {
     insights.push(`<strong>Materials are heavy.</strong> Materials are ${(c.mat / c.rev * 100).toFixed(0)}% of revenue. Worth tracking per-job — bulk-buy, switch suppliers, or raise prices on jobs where chems dominate.`)
   }
   if (insights.length === 0) {
-    insights.push(`<strong>Looks healthy.</strong> Profit, margin, and hourly are all in a good range for this trade. Run more jobs through the calculator and find the patterns that pay best.`)
+    insights.push(`<strong>Looks healthy.</strong> Profit, margin, and hourly are all in a good range. The pattern shows up after 5–10 jobs, not 1.`)
   }
+
+  // 2 universal "ways operators leak profit" tips
+  const leakTips = [
+    `<strong>Drive time is invisible work.</strong> An average operator burns 6–8 hours/week on the road. If you’re not pricing it in, it eats your margin silently — every $0.67 per mile is a tax-deductible cost you should be charging back.`,
+    `<strong>Materials creep is real.</strong> Most operators underestimate chem/product cost by 15–30%. A $20-off-brand swap on a recurring service plan compounds to thousands per year.`,
+  ]
 
   return `<!DOCTYPE html>
 <html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Your job profit numbers</title></head>
@@ -107,13 +113,32 @@ function emailHtml(i: Inputs) {
         ${insights.map((i) => `<p style="margin:0 0 10px;font-size:14px;color:#1a1a1a;line-height:1.55;">• ${i}</p>`).join('')}
       </td></tr>
 
-      <tr><td style="padding:8px 28px 28px;">
+      <!-- TRACKER CTA — the carrot -->
+      <tr><td style="padding:16px 28px 8px;">
+        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:rgba(245,98,15,0.08);border:1px solid rgba(245,98,15,0.3);border-radius:10px;">
+          <tr><td style="padding:24px 22px;">
+            <p style="margin:0;font-size:11px;font-weight:800;color:#F5620F;text-transform:uppercase;letter-spacing:0.14em;">Track every job · Free, no login</p>
+            <p style="margin:8px 0 6px;font-size:20px;font-weight:900;color:#0F0F0F;letter-spacing:-0.5px;line-height:1.2;">The pattern shows up after 5 jobs.<br>Not 1.</p>
+            <p style="margin:0 0 16px;font-size:14px;color:#3a3a3a;line-height:1.55;">One job tells you a number. Five jobs tell you which work actually pays. Use the Multi-Job Profit Tracker to log them — saves to your phone, exports to CSV, no account needed.</p>
+            <a href="https://opervo.io/multi-job-tracker" style="display:inline-block;background:#0F0F0F;color:#fff;font-weight:800;font-size:14px;padding:12px 24px;border-radius:6px;text-decoration:none;text-transform:uppercase;letter-spacing:0.04em;">Open the tracker →</a>
+          </td></tr>
+        </table>
+      </td></tr>
+
+      <!-- 2 educational tips -->
+      <tr><td style="padding:24px 28px 8px;">
+        <p style="margin:0 0 14px;font-size:11px;font-weight:700;color:#6B6B6B;text-transform:uppercase;letter-spacing:0.12em;">Two things most operators leak</p>
+        ${leakTips.map((t) => `<p style="margin:0 0 14px;font-size:14px;color:#1a1a1a;line-height:1.6;">• ${t}</p>`).join('')}
+        <p style="margin:14px 0 0;font-size:13px;color:#6B6B6B;font-style:italic;">More on this in a few days — we’ll send a couple short notes on profit patterns operators usually miss.</p>
+      </td></tr>
+
+      <tr><td style="padding:16px 28px 28px;">
         <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#0F0F0F;border-radius:10px;">
           <tr><td style="padding:24px 24px;text-align:center;">
-            <p style="margin:0;font-size:11px;font-weight:700;color:#F5620F;text-transform:uppercase;letter-spacing:0.14em;">What if every job tracked this?</p>
-            <p style="margin:10px 0 12px;font-size:20px;font-weight:900;color:#F7F5F2;letter-spacing:-0.5px;line-height:1.15;">Opervo logs the chems, the miles, and the math<br>on every single job.</p>
-            <p style="margin:0 0 18px;font-size:14px;color:#B8B8B8;line-height:1.55;">Build a catalog of supplies, log usage in seconds, see Revenue − Supplies = Profit live on every job. $24.99/mo, all-in.</p>
-            <a href="https://app.opervo.io" style="display:inline-block;background:#F5620F;color:#fff;font-weight:800;font-size:14px;padding:13px 28px;border-radius:6px;text-decoration:none;text-transform:uppercase;letter-spacing:0.04em;">Try Opervo Free for 14 Days →</a>
+            <p style="margin:0;font-size:11px;font-weight:700;color:#F5620F;text-transform:uppercase;letter-spacing:0.14em;">When you’re ready to stop tracking manually</p>
+            <p style="margin:10px 0 12px;font-size:18px;font-weight:900;color:#F7F5F2;letter-spacing:-0.5px;line-height:1.2;">Opervo logs the chems, the miles, and the math<br>on every single job.</p>
+            <p style="margin:0 0 18px;font-size:13px;color:#B8B8B8;line-height:1.55;">$24.99/mo, all-in. Founding 50 operators lock $15/mo for life.</p>
+            <a href="https://app.opervo.io" style="display:inline-block;background:#F5620F;color:#fff;font-weight:800;font-size:14px;padding:13px 28px;border-radius:6px;text-decoration:none;text-transform:uppercase;letter-spacing:0.04em;">Start Free — 14 Days</a>
           </td></tr>
         </table>
       </td></tr>
