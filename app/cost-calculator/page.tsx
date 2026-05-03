@@ -152,7 +152,7 @@ export default function CostCalculatorPage() {
               {featureItems.map((item) => {
                 const isSelected = sel.has(item.id)
                 const tieredItem = c.type !== 'addon' ? (item as TieredFeature) : null
-                const tier = tieredItem ? c.tiers.find((t) => t.id === tieredItem.tierId) : null
+                const tier = tieredItem && c.type !== 'addon' ? c.tiers.find((t) => t.id === tieredItem.tierId) : null
                 const addonItem = c.type === 'addon' ? (item as Addon) : null
                 return (
                   <label
