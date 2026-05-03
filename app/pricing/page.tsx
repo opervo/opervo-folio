@@ -18,27 +18,27 @@ export const metadata: Metadata = {
 }
 
 const comparisonRows = [
-  { feature: 'Price', oSolo: '$24.99/mo or $249/yr', oTeam: '$54.99/mo or $549/yr', jLite: '$39/mo', jConnect: '$119/mo', hcp: '$79/mo', gd: '$49/mo' },
-  { feature: 'Free trial', oSolo: '14 days', oTeam: '14 days', jLite: '14 days', jConnect: '14 days', hcp: '14 days', gd: '14 days' },
-  { feature: 'Scheduling', oSolo: '✓', oTeam: '✓', jLite: '✓', jConnect: '✓', hcp: '✓', gd: '✓' },
-  { feature: 'Estimates & Invoicing', oSolo: '✓', oTeam: '✓', jLite: '✓', jConnect: '✓', hcp: '✓', gd: '✓' },
-  { feature: 'Client portal', oSolo: '✓', oTeam: '✓', jLite: '✓', jConnect: '✓', hcp: '✓', gd: '✗' },
-  { feature: 'Portfolio page', oSolo: '✓', oTeam: '✓', jLite: '✗', jConnect: '✗', hcp: '✗', gd: '✗' },
-  { feature: 'Auto-text (SMS)', oSolo: 'Included', oTeam: 'Included', jLite: 'Add-on', jConnect: 'Add-on', hcp: '✓', gd: '✓' },
-  { feature: 'Google Calendar sync', oSolo: '✓', oTeam: '✓', jLite: '✓', jConnect: '✓', hcp: '✓', gd: '✓' },
-  { feature: 'Recurring jobs', oSolo: '✓', oTeam: '✓', jLite: '✓', jConnect: '✓', hcp: '✓', gd: '✓' },
-  { feature: 'Service plans (e-signed agreements)', oSolo: '✓', oTeam: '✓', jLite: '✗', jConnect: '✗', hcp: '✗', gd: '✗' },
-  { feature: 'Team management', oSolo: 'Up to 1', oTeam: 'Up to 10', jLite: '✗', jConnect: '✓', hcp: '✓', gd: '✓' },
-  { feature: 'Route optimization', oSolo: '✓', oTeam: '✓', jLite: '✗', jConnect: '✓', hcp: '✗', gd: '✓' },
-  { feature: 'Door-to-door canvassing', oSolo: '✓', oTeam: '✓', jLite: '✗', jConnect: '✗', hcp: '✗', gd: '✗' },
-  { feature: 'Measurement tool (sq ft / linear ft)', oSolo: '✓', oTeam: '✓', jLite: '✗', jConnect: '✗', hcp: '✗', gd: '✗' },
-  { feature: 'Supplies & materials tracking', oSolo: '✓', oTeam: '✓', jLite: '✗', jConnect: '✗', hcp: '✗', gd: '✗' },
-  { feature: 'Public portfolio page (Folio)', oSolo: '✓', oTeam: '✓', jLite: '✗', jConnect: '✗', hcp: '✗', gd: '✗' },
-  { feature: 'Embeddable quote widget', oSolo: '✓', oTeam: '✓', jLite: '✗', jConnect: '✗', hcp: '✗', gd: '✗' },
-  { feature: 'AI Assistant (data-aware)', oSolo: '✓', oTeam: '✓', jLite: '✗', jConnect: '✗', hcp: '✗', gd: '✗' },
-  { feature: 'Tipping + post-pay review prompt', oSolo: '✓', oTeam: '✓', jLite: '✗', jConnect: '✗', hcp: '✗', gd: '✗' },
-  { feature: 'Mileage + tax reports', oSolo: '✓', oTeam: '✓', jLite: '✗', jConnect: '✗', hcp: '✗', gd: '✗' },
-  { feature: 'Payments — your processor, no markup', oSolo: 'Square or Stripe', oTeam: 'Square or Stripe', jLite: 'Jobber Payments', jConnect: 'Jobber Payments', hcp: 'HCP Pay', gd: 'GD Pay' },
+  { feature: 'Price', oSolo: '$24.99/mo or $249/yr', oTeam: '$54.99/mo or $549/yr', jLite: '$39/mo', jConnect: '$119/mo', hcp: '$79/mo', gd: '$49/mo', mk: '$39.95 + add-ons' },
+  { feature: 'Free trial', oSolo: '14 days', oTeam: '14 days', jLite: '14 days', jConnect: '14 days', hcp: '14 days', gd: '14 days', mk: '14 days' },
+  { feature: 'Scheduling', oSolo: '✓', oTeam: '✓', jLite: '✓', jConnect: '✓', hcp: '✓', gd: '✓', mk: '✓' },
+  { feature: 'Estimates & Invoicing', oSolo: '✓', oTeam: '✓', jLite: '✓', jConnect: '✓', hcp: '✓', gd: '✓', mk: '✓' },
+  { feature: 'Client portal', oSolo: '✓', oTeam: '✓', jLite: '✓', jConnect: '✓', hcp: '✓', gd: '✗', mk: '+$10/mo' },
+  { feature: 'Portfolio page', oSolo: '✓', oTeam: '✓', jLite: '✗', jConnect: '✗', hcp: '✗', gd: '✗', mk: '✗' },
+  { feature: 'Auto-text (SMS)', oSolo: 'Included', oTeam: 'Included', jLite: 'Add-on', jConnect: 'Add-on', hcp: '✓', gd: '✓', mk: '+$10/mo' },
+  { feature: 'Google Calendar sync', oSolo: '✓', oTeam: '✓', jLite: '✓', jConnect: '✓', hcp: '✓', gd: '✓', mk: '✓' },
+  { feature: 'Recurring jobs', oSolo: '✓', oTeam: '✓', jLite: '✓', jConnect: '✓', hcp: '✓', gd: '✓', mk: '✓' },
+  { feature: 'Service plans (e-signed agreements)', oSolo: '✓', oTeam: '✓', jLite: '✗', jConnect: '✗', hcp: '✗', gd: '✗', mk: '✗' },
+  { feature: 'Team management', oSolo: 'Up to 1', oTeam: 'Up to 10', jLite: '✗', jConnect: '✓', hcp: '✓', gd: '✓', mk: '+$5/user/mo' },
+  { feature: 'Route optimization', oSolo: '✓', oTeam: '✓', jLite: '✗', jConnect: '✓', hcp: '✗', gd: '✓', mk: '✗' },
+  { feature: 'Door-to-door canvassing', oSolo: '✓', oTeam: '✓', jLite: '✗', jConnect: '✗', hcp: '✗', gd: '✗', mk: '✗' },
+  { feature: 'Measurement tool (sq ft / linear ft)', oSolo: '✓', oTeam: '✓', jLite: '✗', jConnect: '✗', hcp: '✗', gd: '✗', mk: '✗' },
+  { feature: 'Supplies & materials tracking', oSolo: '✓', oTeam: '✓', jLite: '✗', jConnect: '✗', hcp: '✗', gd: '✗', mk: '✗' },
+  { feature: 'Public portfolio page (Folio)', oSolo: '✓', oTeam: '✓', jLite: '✗', jConnect: '✗', hcp: '✗', gd: '✗', mk: '✗' },
+  { feature: 'Embeddable quote widget', oSolo: '✓', oTeam: '✓', jLite: '✗', jConnect: '✗', hcp: '✗', gd: '✗', mk: '+$10/mo' },
+  { feature: 'AI Assistant (data-aware)', oSolo: '✓', oTeam: '✓', jLite: '✗', jConnect: '✗', hcp: '✗', gd: '✗', mk: 'Estimator only' },
+  { feature: 'Tipping + post-pay review prompt', oSolo: '✓', oTeam: '✓', jLite: '✗', jConnect: '✗', hcp: '✗', gd: '✗', mk: '+$10/mo' },
+  { feature: 'Mileage + tax reports', oSolo: '✓', oTeam: '✓', jLite: '✗', jConnect: '✗', hcp: '✗', gd: '✗', mk: '✗' },
+  { feature: 'Payments — your processor, no markup', oSolo: 'Square or Stripe', oTeam: 'Square or Stripe', jLite: 'Jobber Payments', jConnect: 'Jobber Payments', hcp: 'HCP Pay', gd: 'GD Pay', mk: 'Markate Payments' },
 ]
 
 const faqs = [
@@ -142,6 +142,9 @@ export default function Pricing() {
                 <th style={{ textAlign: 'center', padding: '10px 12px', borderBottom: '2px solid #E8E4DE', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, color: '#6B6B6B', textTransform: 'uppercase', fontSize: 11 }}>
                   <Link href="/compare/opervo-vs-gorilladesk" title="Compare Opervo vs GorillaDesk" style={{ color: '#6B6B6B', textDecoration: 'none' }}>GorillaDesk</Link>
                 </th>
+                <th style={{ textAlign: 'center', padding: '10px 12px', borderBottom: '2px solid #E8E4DE', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, color: '#6B6B6B', textTransform: 'uppercase', fontSize: 11 }}>
+                  <Link href="/compare/opervo-vs-markate" title="Compare Opervo vs Markate" style={{ color: '#6B6B6B', textDecoration: 'none' }}>Markate</Link>
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -154,6 +157,7 @@ export default function Pricing() {
                   <td style={{ padding: '10px 12px', textAlign: 'center', color: row.jConnect === '✗' ? '#ccc' : '#6B6B6B', fontSize: 13 }}>{row.jConnect}</td>
                   <td style={{ padding: '10px 12px', textAlign: 'center', color: row.hcp === '✗' ? '#ccc' : '#6B6B6B', fontSize: 13 }}>{row.hcp}</td>
                   <td style={{ padding: '10px 12px', textAlign: 'center', color: row.gd === '✗' ? '#ccc' : '#6B6B6B', fontSize: 13 }}>{row.gd}</td>
+                  <td style={{ padding: '10px 12px', textAlign: 'center', color: row.mk === '✗' ? '#ccc' : '#6B6B6B', fontSize: 13 }}>{row.mk}</td>
                 </tr>
               ))}
             </tbody>

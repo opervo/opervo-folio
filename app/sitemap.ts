@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/compare/opervo-vs-jobber`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.7 },
     { url: `${baseUrl}/compare/opervo-vs-housecall-pro`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.7 },
     { url: `${baseUrl}/compare/opervo-vs-gorilladesk`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.7 },
+    { url: `${baseUrl}/compare/opervo-vs-markate`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.7 },
     { url: `${baseUrl}/pricing`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.9 },
     { url: `${baseUrl}/features`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.9 },
     { url: `${baseUrl}/print`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.6 },

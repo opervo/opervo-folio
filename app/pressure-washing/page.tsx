@@ -51,16 +51,18 @@ const features = [
 ]
 
 const comparisonRows = [
-  { feature: 'Monthly price', opervo: '$24.99', jobber: '$119+', housecall: '$79+', gorilla: '$49+' },
-  { feature: 'Chem & supplies tracking', opervo: '✓', jobber: '✗', housecall: '✗', gorilla: '✗' },
-  { feature: 'Before/after auto-publish to portfolio', opervo: '✓', jobber: '✗', housecall: '✗', gorilla: '✗' },
-  { feature: 'Sketch & price by square foot', opervo: '✓', jobber: '✗', housecall: '✗', gorilla: '✗' },
-  { feature: 'Route optimization (one tap)', opervo: '✓', jobber: 'Add-on', housecall: '✗', gorilla: '✓' },
-  { feature: 'Recurring agreements (e-signed)', opervo: '✓', jobber: '✗', housecall: '✗', gorilla: '✗' },
-  { feature: 'Auto-text "on my way"', opervo: '✓', jobber: 'Add-on', housecall: '✓', gorilla: '✓' },
-  { feature: 'Public portfolio page', opervo: '✓', jobber: '✗', housecall: '✗', gorilla: '✗' },
-  { feature: 'Payment markup', opervo: '0%', jobber: 'Jobber Payments', housecall: '2.59% + $0.10', gorilla: 'GD Pay' },
-  { feature: '14-day free trial', opervo: '✓', jobber: '✓', housecall: '✓', gorilla: '✓' },
+  { feature: 'Monthly price', opervo: '$24.99', jobber: '$119+', housecall: '$79+', gorilla: '$49+', markate: '$39.95 + add-ons' },
+  { feature: 'Chem & supplies tracking', opervo: '✓', jobber: '✗', housecall: '✗', gorilla: '✗', markate: '✗' },
+  { feature: 'Before/after auto-publish to portfolio', opervo: '✓', jobber: '✗', housecall: '✗', gorilla: '✗', markate: '✗' },
+  { feature: 'Sketch & price by square foot', opervo: '✓', jobber: '✗', housecall: '✗', gorilla: '✗', markate: '✗' },
+  { feature: 'Route optimization (one tap)', opervo: '✓', jobber: 'Add-on', housecall: '✗', gorilla: '✓', markate: '✗' },
+  { feature: 'Recurring agreements (e-signed)', opervo: '✓', jobber: '✗', housecall: '✗', gorilla: '✗', markate: '✗' },
+  { feature: 'Customer portal', opervo: '✓ Included', jobber: '✓', housecall: '✓', gorilla: '✗', markate: '+$10/mo' },
+  { feature: 'Online booking / quote form', opervo: '✓ Included', jobber: 'Add-on', housecall: '✓', gorilla: '✓', markate: '+$10/mo' },
+  { feature: 'Auto-text "on my way"', opervo: '✓', jobber: 'Add-on', housecall: '✓', gorilla: '✓', markate: '+$10/mo' },
+  { feature: 'Public portfolio page', opervo: '✓', jobber: '✗', housecall: '✗', gorilla: '✗', markate: '✗' },
+  { feature: 'Payment markup', opervo: '0%', jobber: 'Jobber Payments', housecall: '2.59% + $0.10', gorilla: 'GD Pay', markate: 'Markate Payments' },
+  { feature: '14-day free trial', opervo: '✓', jobber: '✓', housecall: '✓', gorilla: '✓', markate: '✓' },
 ]
 
 const faqs = [
@@ -130,7 +132,7 @@ export default function PressureWashing() {
             Pressure Washing
           </span>
           <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 'clamp(34px, 5.2vw, 52px)', lineHeight: 1.02, color: '#0F0F0F', textTransform: 'uppercase', letterSpacing: '-1px', marginBottom: 18 }}>
-            Built for operators who actually pull the wand<span style={{ color: '#F5620F' }}>.</span>
+            Built for the ones still on the rig<span style={{ color: '#F5620F' }}>.</span>
           </h1>
           <p style={{ fontSize: 17, color: '#3a3a3a', lineHeight: 1.55, maxWidth: 560, marginBottom: 14, fontWeight: 500 }}>
             Track chem cost on every job. Sketch driveways and auto-price by square foot. Auto-publish before/after photos to your portfolio. Optimize your route in one tap.
@@ -249,6 +251,9 @@ export default function PressureWashing() {
                 <th style={{ textAlign: 'center', padding: '12px 14px', borderBottom: '2px solid #E8E4DE', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, color: '#6B6B6B', textTransform: 'uppercase', fontSize: 11 }}>
                   <Link href="/compare/opervo-vs-gorilladesk" title="Compare Opervo vs GorillaDesk" style={{ color: '#6B6B6B', textDecoration: 'none' }}>GorillaDesk</Link>
                 </th>
+                <th style={{ textAlign: 'center', padding: '12px 14px', borderBottom: '2px solid #E8E4DE', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, color: '#6B6B6B', textTransform: 'uppercase', fontSize: 11 }}>
+                  <Link href="/compare/opervo-vs-markate" title="Compare Opervo vs Markate" style={{ color: '#6B6B6B', textDecoration: 'none' }}>Markate</Link>
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -259,6 +264,7 @@ export default function PressureWashing() {
                   <td style={{ padding: '12px 14px', textAlign: 'center', color: row.jobber === '✗' ? '#ccc' : '#6B6B6B' }}>{row.jobber}</td>
                   <td style={{ padding: '12px 14px', textAlign: 'center', color: row.housecall === '✗' ? '#ccc' : '#6B6B6B' }}>{row.housecall}</td>
                   <td style={{ padding: '12px 14px', textAlign: 'center', color: row.gorilla === '✗' ? '#ccc' : '#6B6B6B' }}>{row.gorilla}</td>
+                  <td style={{ padding: '12px 14px', textAlign: 'center', color: row.markate === '✗' ? '#ccc' : '#6B6B6B' }}>{row.markate}</td>
                 </tr>
               ))}
             </tbody>

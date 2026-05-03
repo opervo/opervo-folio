@@ -9,6 +9,8 @@ export default function ComparisonLinks() {
       <Link href="/compare/opervo-vs-housecall-pro" title="Opervo vs Housecall Pro — Feature Comparison" style={{ color: '#F5620F', textDecoration: 'none', fontWeight: 500 }}>Opervo vs Housecall Pro</Link>
       {' · '}
       <Link href="/compare/opervo-vs-gorilladesk" title="Opervo vs GorillaDesk — Feature Comparison" style={{ color: '#F5620F', textDecoration: 'none', fontWeight: 500 }}>Opervo vs GorillaDesk</Link>
+      {' · '}
+      <Link href="/compare/opervo-vs-markate" title="Opervo vs Markate — Feature Comparison" style={{ color: '#F5620F', textDecoration: 'none', fontWeight: 500 }}>Opervo vs Markate</Link>
     </p>
   )
 }
