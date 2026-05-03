@@ -8,12 +8,14 @@ const industries = [
   { name: 'Window Cleaning', href: '/window-cleaning' },
   { name: 'Pressure Washing', href: '/pressure-washing' },
   { name: 'Landscaping', href: '/landscaping' },
+  { name: 'Auto Detailing', href: '/auto-detailing' },
 ]
 
 const comparisons = [
   { name: 'Opervo vs Jobber', href: '/compare/opervo-vs-jobber' },
   { name: 'Opervo vs Housecall Pro', href: '/compare/opervo-vs-housecall-pro' },
   { name: 'Opervo vs GorillaDesk', href: '/compare/opervo-vs-gorilladesk' },
+  { name: 'Opervo vs Markate', href: '/compare/opervo-vs-markate' },
 ]
 
 const resources = [

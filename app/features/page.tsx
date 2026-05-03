@@ -350,6 +350,7 @@ export default function FeaturesPage() {
               { name: 'Window Cleaning', href: '/window-cleaning' },
               { name: 'Pressure Washing', href: '/pressure-washing' },
               { name: 'Landscaping', href: '/landscaping' },
+              { name: 'Auto Detailing', href: '/auto-detailing' },
             ].map((t) => (
               <Link key={t.href} href={t.href} title={`${t.name} Software — Opervo`} style={{ background: '#fff', border: '1px solid #E8E4DE', borderRadius: 10, padding: '20px', textDecoration: 'none', textAlign: 'center' }}>
                 <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 16, textTransform: 'uppercase', color: '#0F0F0F', marginBottom: 4 }}>{t.name}</p>
@@ -386,6 +387,7 @@ export default function FeaturesPage() {
               { title: 'Window Cleaning', desc: 'Software built for window cleaners', href: '/window-cleaning' },
               { title: 'Pressure Washing', desc: 'Software built for pressure washers', href: '/pressure-washing' },
               { title: 'Landscaping', desc: 'Software built for landscapers', href: '/landscaping' },
+              { title: 'Auto Detailing', desc: 'Software built for detailers', href: '/auto-detailing' },
               { title: 'Blog', desc: 'Tips to grow your business', href: '/blog' },
             ].map((item) => (
               <a key={item.href} href={item.href} style={{ display: 'block', background: '#fff', border: '1px solid #E8E4DE', borderRadius: 10, padding: '16px 14px', textDecoration: 'none' }}>

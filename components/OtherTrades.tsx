@@ -5,6 +5,7 @@ const allTrades = [
   { name: 'Window Cleaning', href: '/window-cleaning', desc: 'Route planning, invoicing & client management for window cleaners.' },
   { name: 'Pressure Washing', href: '/pressure-washing', desc: 'Job tracking, before-and-after photos & fast invoicing for pressure washers.' },
   { name: 'Landscaping', href: '/landscaping', desc: 'Recurring schedules, seasonal services & property notes for landscapers.' },
+  { name: 'Auto Detailing', href: '/auto-detailing', desc: 'Packages, before/after gallery & route optimization for mobile detailers and bay shops.' },
 ]
 
 export default function OtherTrades({ exclude }: { exclude: string }) {

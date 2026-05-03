@@ -1,246 +1,77 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
-import SiteNav from '@/components/SiteNav'
-import SiteFooter from '@/components/SiteFooter'
-import OtherTrades from '@/components/OtherTrades'
-import ComparisonLinks from '@/components/ComparisonLinks'
+import TradeLandingPage, { type TradePageConfig } from '@/components/TradeLandingPage'
 
 export const metadata: Metadata = {
-  title: 'Window Cleaning Software — Scheduling, Invoicing & CRM | Opervo',
-  description: 'The #1 app for window cleaning businesses. Schedule residential and commercial jobs, send professional estimates, invoice clients, and showcase your work — all from your phone. $24.99/mo. Try free for 14 days.',
+  title: 'Window Cleaning Software — Routes, Recurring Agreements, Folio | Opervo',
+  description: 'Run your window cleaning routes from your phone. Recurring monthly/quarterly agreements that auto-bill, before/after photos that auto-publish to your folio, route optimization for 12+ daily stops. $24.99/mo. 14-day free trial.',
   alternates: { canonical: 'https://opervo.io/window-cleaning' },
   openGraph: {
     title: 'Window Cleaning Software — Opervo',
-    description: 'Run your window cleaning business like a pro. Scheduling, estimates, invoices, client portal & portfolio — $24.99/mo.',
+    description: 'Recurring routes, e-signed agreements, before/after photos to your folio, one-tap route optimization. $24.99/mo all-in.',
     url: 'https://opervo.io/window-cleaning',
     type: 'website',
   },
 }
 
-const features = [
-  { title: 'Smart Scheduling', desc: 'Drag-and-drop calendar built for route days. Syncs with Google Calendar. Auto-text "on my way" to clients.' },
-  { title: 'Estimates & Invoicing', desc: 'Price by pane, by floor, or flat rate. Send branded estimates in 60 seconds. Convert to invoices with one tap.' },
-  { title: 'Client Management', desc: 'Track residential and commercial accounts with full job history, window counts, access notes, and gate codes.' },
-  { title: 'Portfolio Page', desc: 'Your own professional page at opervo.io/p/your-name. Show off streak-free results — share it everywhere.' },
-  { title: 'Automated Texts', desc: 'Appointment reminders, on-my-way alerts, and review requests. Keep clients in the loop without lifting a finger.' },
-  { title: 'Recurring Jobs', desc: 'Set up monthly, bi-monthly, or quarterly cleanings. Auto-schedule and auto-invoice — never chase a rebooking.' },
-]
-
-const steps = [
-  { num: '1', title: 'Sign up free', desc: 'Create your account in 60 seconds. No credit card required.' },
-  { num: '2', title: 'Add your services', desc: 'Set up your window cleaning packages — residential, commercial, interior, exterior.' },
-  { num: '3', title: 'Send your first estimate', desc: 'Your client gets a branded, professional estimate with a "Book Now" button.' },
-]
-
-const comparisonRows = [
-  { feature: 'Monthly price', opervo: '$24.99', jobber: '$39+', housecall: '$79+', gorilla: '$49+' },
-  { feature: 'Scheduling', opervo: '✓', jobber: '✓', housecall: '✓', gorilla: '✓' },
-  { feature: 'Estimates & Invoicing', opervo: '✓', jobber: '✓', housecall: '✓', gorilla: '✓' },
-  { feature: 'Client portal', opervo: '✓', jobber: '✓', housecall: '✓', gorilla: '✗' },
-  { feature: 'Portfolio page', opervo: '✓', jobber: '✗', housecall: '✗', gorilla: '✗' },
-  { feature: 'Auto-text notifications', opervo: '✓', jobber: 'Add-on', housecall: '✓', gorilla: '✓' },
-  { feature: '14-day free trial', opervo: '✓', jobber: '✓', housecall: '✓', gorilla: '✓' },
-]
-
-const faqs = [
-  {
-    q: 'What is the best software for a window cleaning business?',
-    a: 'Opervo is built specifically for solo operators and small crews in the window cleaning industry. It includes scheduling, estimates, invoicing, a client portal, automated texts, and a portfolio page — all for $24.99/mo. Other options like Jobber ($39/mo) and Housecall Pro ($79/mo) cost more and aren\'t tailored to window cleaners.',
-  },
-  {
-    q: 'How much does window cleaning software cost?',
-    a: 'Window cleaning software ranges from $24.99 to $79+ per month. Opervo starts at $24.99/mo for solo operators and $54.99/mo for teams — the most affordable full-featured option on the market. All features are included with no hidden fees.',
-  },
-  {
-    q: 'Can I manage both residential and commercial window cleaning clients?',
-    a: 'Yes. Opervo handles both residential and commercial accounts. You can track window counts, access notes, multi-story pricing, and set different recurring schedules for each client — all from your phone.',
-  },
-  {
-    q: 'Does Opervo work for solo window cleaners?',
-    a: 'Opervo was built for solo operators. The Solo plan ($24.99/mo) gives you everything you need — scheduling, estimates, invoicing, client management, automated texts, and a portfolio page. When you\'re ready to add crew members, the Team plan ($54.99/mo) adds permissions and team management.',
-  },
-]
-
-const benefits = [
-  { title: 'Look professional from day one', desc: 'Branded estimates, invoices, and your own portfolio page make a one-person window cleaning operation look like an established business.' },
-  { title: 'Win more jobs', desc: 'Clients can see your work and request quotes directly from your portfolio page. No more missed leads from unreturned calls.' },
-  { title: 'Get paid faster', desc: 'Send invoices the moment you finish a job. Clients pay online. No more chasing checks or waiting on payments.' },
-]
+const config: TradePageConfig = {
+  slug: 'window-cleaning',
+  trade: 'Window Cleaning',
+  metaTitle: 'Window Cleaning Software',
+  metaDescription: 'Run your window cleaning routes from your phone.',
+  schemaName: 'Opervo for Window Cleaning',
+  h1: 'Run your window cleaning routes from your phone.',
+  heroSub: 'Recurring monthly and quarterly agreements that auto-bill. One-tap route optimization for 12+ daily stops. Before/after photos that auto-publish to your folio. Soap, blades, and fuel cost on every job.',
+  heroSubExtra: 'All in one app. <strong style="color:#0F0F0F">$24.99/mo, all features included.</strong> No add-on fees. No payment markup. Cancel any time.',
+  heroImage: '/screenshots/hero-folio-3.jpg',
+  heroImageAlt: 'Opervo folio for a window cleaning operator with services and review count',
+  stats: [
+    { stat: '70%', label: 'Average share of window cleaning revenue from recurring customers (industry avg).' },
+    { stat: '12+', label: 'Typical stops on a residential window cleaning route day.' },
+    { stat: '$1,128', label: 'Yearly savings vs Jobber Connect — same features, no upsells.' },
+  ],
+  featuresHeading: 'What window cleaners actually need',
+  featuresSub: 'You make money on routes, recurring customers, and clean handoffs. These features are built around that loop.',
+  features: [
+    { icon: '🔁', title: 'Auto-recurring monthly & quarterly routes', desc: 'Build a residential quarterly or storefront monthly plan. Client e-signs the agreement once. Jobs auto-generate 30 days out, auto-bill on completion. Vacation pause + auto-resume baked in.' },
+    { icon: '🗺️', title: 'Route My Day for 12+ stops', desc: 'One tap: geolocate, geocode every stop, order by shortest path, total miles + ETA. Opens Google Maps as a multi-leg trip. Saves 40+ min on a typical route day.' },
+    { icon: '📸', title: 'Before/after auto-publish', desc: 'Snap before/after on the job — they auto-publish to your folio at opervo.io/p/your-slug. Drag-and-drop reorder, gallery up to 20 photos. The transformation IS the marketing.' },
+    { icon: '💧', title: 'Profit on every clean', desc: 'Track soap, squeegee blades, mops, fuel per job. Revenue − Supplies = Profit, live on every job. Find out which storefronts and resi accounts actually pay you well.' },
+    { icon: '📐', title: 'Sketch a building, count panes', desc: 'Drop points on a Google Maps satellite view to measure facades and floors. Auto-price by square foot or pane count. Right-angle snap keeps shapes clean.' },
+    { icon: '💬', title: 'Client texts that close the loop', desc: 'On my way → photos delivered → invoice sent → "Pay now" → tip → Google review. All automated. Your residential customers think you have an office. You don\'t.' },
+  ],
+  mathHeading: 'Why window cleaners move from Jobber<br />and Markate',
+  pricingCards: [
+    { name: 'Jobber Connect', price: '$119/mo', sub: 'plus per-text SMS, no portfolio, no chem tracking' },
+    { name: 'Housecall Pro', price: '$79/mo', sub: 'plus 2.59% + $0.10 on every client payment' },
+    { name: 'Markate (real stack)', price: '$80–110/mo', sub: '$39.95 base + $10/mo each for Customer Portal, Online Booking, Lead Form, Reviews' },
+    { name: 'Opervo Solo', price: '$24.99/mo', sub: 'all-in. 0% payment markup. Founding 50: $15/mo for life.', highlight: true },
+  ],
+  mathTakeaway: 'A residential route day on Opervo: 12 stops auto-routed, every customer texted automatically, every wash photographed to your folio, every recurring agreement billing itself on schedule. Zero double-entry.',
+  comparisonRows: [
+    { feature: 'Monthly price', opervo: '$24.99', jobber: '$119+', housecall: '$79+', gorilla: '$49+', markate: '$39.95 + add-ons' },
+    { feature: 'Recurring agreements (e-signed)', opervo: '✓', jobber: '✗', housecall: '✗', gorilla: '✗', markate: '✗' },
+    { feature: 'Route optimization (one tap)', opervo: '✓', jobber: 'Add-on', housecall: '✗', gorilla: '✓', markate: '✗' },
+    { feature: 'Before/after auto-publish', opervo: '✓', jobber: '✗', housecall: '✗', gorilla: '✗', markate: '✗' },
+    { feature: 'Soap & supplies tracking', opervo: '✓', jobber: '✗', housecall: '✗', gorilla: '✗', markate: '✗' },
+    { feature: 'Customer portal', opervo: '✓ Included', jobber: '✓', housecall: '✓', gorilla: '✗', markate: '+$10/mo' },
+    { feature: 'Online booking / quote form', opervo: '✓ Included', jobber: 'Add-on', housecall: '✓', gorilla: '✓', markate: '+$10/mo' },
+    { feature: 'Auto-text "on my way"', opervo: '✓', jobber: 'Add-on', housecall: '✓', gorilla: '✓', markate: '+$10/mo' },
+    { feature: 'Public portfolio page', opervo: '✓', jobber: '✗', housecall: '✗', gorilla: '✗', markate: '✗' },
+    { feature: 'Payment markup', opervo: '0%', jobber: 'Jobber Payments', housecall: '2.59% + $0.10', gorilla: 'GD Pay', markate: 'Markate Payments' },
+    { feature: '14-day free trial', opervo: '✓', jobber: '✓', housecall: '✓', gorilla: '✓', markate: '✓' },
+  ],
+  faqs: [
+    { q: 'Can I run recurring monthly and quarterly window cleaning routes in Opervo?', a: 'Yes. Build a Service Plan (weekly, biweekly, monthly, quarterly, or custom). Send the client a magic-link agreement they e-sign once. Jobs auto-generate 30 days out, land on your Schedule with a "Plan" badge, and auto-bill on completion. Pause for client vacation; comes back the day they\'re back.' },
+    { q: 'Does Opervo optimize my route for a 12-stop day?', a: 'Yes. On the Schedule page, tap Route My Day: we geolocate you, geocode every stop, order them shortest-path using nearest-neighbor TSP, and show total miles + ETA. Tap "Start Route" to launch Google Maps as a multi-leg trip with all stops as waypoints.' },
+    { q: 'Where do my before/after window cleaning photos go?', a: 'They auto-publish to your portfolio at opervo.io/p/your-slug. Drag-and-drop reorder, before/after slider, gallery up to 20 photos. Up to 10 service areas per folio. Embeddable quote widget so you can drop the form on your existing site or Instagram bio link.' },
+    { q: 'How does Opervo compare to Jobber, Housecall Pro, or Markate for window cleaning?', a: 'Jobber Connect is $119/mo and SMS is an add-on. Housecall Pro is $79/mo and they take 2.59% + $0.10 on every payment. Markate starts at $39.95 but Customer Portal, Online Booking, Lead Form, Reviews, and Proposals are each separate $10/mo add-ons — a realistic Markate stack is $80–110/mo. Opervo Solo is $24.99/mo all-in, zero payment markup. None of those competitors auto-publish before/after photos to a public folio or track soap/blade cost per job.' },
+    { q: 'Does Opervo work for storefront / commercial window cleaning routes?', a: 'Yes. Build storefront monthly plans, route days that pack 15+ commercial stops, recurring auto-billing, and a portfolio page that signals legitimacy to commercial property managers. Service Plan agreements e-signed via magic link work the same for commercial as resi.' },
+    { q: 'Can I switch from Jobber, Housecall Pro, or Markate?', a: 'Take 10 minutes. CSV import handles Jobber, Housecall Pro, ServiceTitan, QuickBooks, and Google Contacts with auto-column mapping and duplicate detection. Run your 14-day Opervo trial in parallel with your current tool — no credit card required.' },
+    { q: 'Does it work on iPhone?', a: 'Yes — Opervo is on the App Store, and the same login works on Android (via PWA install) and any browser. Updates push to your phone within 24 hours. No App Store delays when we ship a fix.' },
+  ],
+  finalCtaH2: 'Stop juggling apps.<br />Start running routes.',
+}
 
 export default function WindowCleaning() {
-  const jsonLd = [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'SoftwareApplication',
-      name: 'Opervo',
-      applicationCategory: 'BusinessApplication',
-      operatingSystem: 'Web',
-      offers: {
-        '@type': 'Offer',
-        price: '24.99',
-        priceCurrency: 'USD',
-      },
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: faqs.map((f) => ({
-        '@type': 'Question',
-        name: f.q,
-        acceptedAnswer: { '@type': 'Answer', text: f.a },
-      })),
-    },
-  ]
-
-  return (
-    <div style={{ fontFamily: "'Barlow', sans-serif", background: '#F7F5F2', minHeight: '100vh', color: '#1a1a1a' }}>
-      {jsonLd.map((schema, i) => (
-        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      ))}
-
-      <SiteNav />
-
-      {/* HERO */}
-      <section style={{ maxWidth: 1100, margin: '0 auto', padding: '72px 24px 64px', display: 'flex', flexWrap: 'wrap', gap: 48, alignItems: 'center' }}>
-        <div style={{ flex: '1 1 480px', minWidth: 280 }}>
-          <span style={{ display: 'inline-block', fontSize: 11, fontWeight: 700, color: '#F5620F', textTransform: 'uppercase', letterSpacing: '0.14em', background: 'rgba(245,98,15,0.08)', padding: '6px 14px', borderRadius: 4, marginBottom: 20 }}>
-            Window Cleaning
-          </span>
-          <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 'clamp(32px, 5vw, 48px)', lineHeight: 1.05, color: '#0F0F0F', textTransform: 'uppercase', letterSpacing: '-1px', marginBottom: 20 }}>
-            Run Your Window Cleaning Business Like a Pro.
-          </h1>
-          <p style={{ fontSize: 16, color: '#6B6B6B', lineHeight: 1.6, maxWidth: 600, marginBottom: 28 }}>
-            Scheduling, estimates, invoicing, client texts, and your own portfolio page — all from your phone. Built for solo window cleaners and small crews.
-          </p>
-          <a href="https://app.opervo.io" style={{ display: 'inline-block', background: '#F5620F', color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 15, padding: '14px 32px', borderRadius: 6, textDecoration: 'none', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-            Start Free — 30 Days, No Card
-          </a>
-          <p style={{ fontSize: 12, color: '#6B6B6B', marginTop: 10 }}>Solo plan: $24.99/mo after trial</p>
-        </div>
-        <div style={{ flex: '1 1 400px', minWidth: 280, display: 'flex', justifyContent: 'center' }}>
-          <div style={{ width: '100%', maxWidth: 420, aspectRatio: '4/3', background: '#fff', border: '1px solid #E8E4DE', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#6B6B6B', fontSize: 14, fontWeight: 500 }}>
-            [ App Screenshot ]
-          </div>
-        </div>
-      </section>
-
-      {/* FEATURES GRID */}
-      <section id="features" style={{ maxWidth: 1100, margin: '0 auto', padding: '0 24px 72px' }}>
-        <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 28, color: '#0F0F0F', textTransform: 'uppercase', textAlign: 'center', marginBottom: 48, letterSpacing: '-0.5px' }}>
-          Everything You Need to Run Your Business
-        </h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 20 }}>
-          {features.map((f) => (
-            <div key={f.title} style={{ background: '#fff', border: '1px solid #E8E4DE', borderRadius: 8, padding: '28px 24px' }}>
-              <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 17, color: '#0F0F0F', textTransform: 'uppercase', marginBottom: 8 }}>{f.title}</h3>
-              <p style={{ fontSize: 14, color: '#6B6B6B', lineHeight: 1.55 }}>{f.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* HOW IT WORKS */}
-      <section style={{ background: '#fff', borderTop: '1px solid #E8E4DE', borderBottom: '1px solid #E8E4DE', padding: '64px 24px' }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-          <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 28, color: '#0F0F0F', textTransform: 'uppercase', textAlign: 'center', marginBottom: 48, letterSpacing: '-0.5px' }}>
-            How It Works
-          </h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 32 }}>
-            {steps.map((s) => (
-              <div key={s.num} style={{ textAlign: 'center' }}>
-                <div style={{ display: 'inline-flex', width: 48, height: 48, borderRadius: '50%', background: '#F5620F', color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 20, alignItems: 'center', justifyContent: 'center', marginBottom: 16 }}>
-                  {s.num}
-                </div>
-                <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 17, color: '#0F0F0F', textTransform: 'uppercase', marginBottom: 8 }}>{s.title}</h3>
-                <p style={{ fontSize: 14, color: '#6B6B6B', lineHeight: 1.55, maxWidth: 320, margin: '0 auto' }}>{s.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* PRICE COMPARISON */}
-      <section id="pricing" style={{ maxWidth: 1100, margin: '0 auto', padding: '72px 24px' }}>
-        <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 28, color: '#0F0F0F', textTransform: 'uppercase', textAlign: 'center', marginBottom: 48, letterSpacing: '-0.5px' }}>
-          How Opervo Compares
-        </h2>
-        <div style={{ overflowX: 'auto' }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 14 }}>
-            <thead>
-              <tr>
-                <th style={{ textAlign: 'left', padding: '12px 16px', borderBottom: '2px solid #E8E4DE', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, color: '#6B6B6B', textTransform: 'uppercase', fontSize: 12 }}>Feature</th>
-                <th style={{ textAlign: 'center', padding: '12px 16px', borderBottom: '2px solid #F5620F', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, color: '#F5620F', textTransform: 'uppercase', fontSize: 12, background: 'rgba(245,98,15,0.06)' }}>Opervo</th>
-                <th style={{ textAlign: 'center', padding: '12px 16px', borderBottom: '2px solid #E8E4DE', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, color: '#6B6B6B', textTransform: 'uppercase', fontSize: 12 }}>
-                  <Link href="/compare/opervo-vs-jobber" title="Compare Opervo vs Jobber" style={{ color: '#6B6B6B', textDecoration: 'none' }}>Jobber</Link>
-                </th>
-                <th style={{ textAlign: 'center', padding: '12px 16px', borderBottom: '2px solid #E8E4DE', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, color: '#6B6B6B', textTransform: 'uppercase', fontSize: 12 }}>
-                  <Link href="/compare/opervo-vs-housecall-pro" title="Compare Opervo vs Housecall Pro" style={{ color: '#6B6B6B', textDecoration: 'none' }}>Housecall Pro</Link>
-                </th>
-                <th style={{ textAlign: 'center', padding: '12px 16px', borderBottom: '2px solid #E8E4DE', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, color: '#6B6B6B', textTransform: 'uppercase', fontSize: 12 }}>
-                  <Link href="/compare/opervo-vs-gorilladesk" title="Compare Opervo vs GorillaDesk" style={{ color: '#6B6B6B', textDecoration: 'none' }}>GorillaDesk</Link>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {comparisonRows.map((row, i) => (
-                <tr key={row.feature} style={{ background: i % 2 === 0 ? '#fff' : '#F7F5F2' }}>
-                  <td style={{ padding: '12px 16px', fontWeight: 500, color: '#1a1a1a' }}>{row.feature}</td>
-                  <td style={{ padding: '12px 16px', textAlign: 'center', fontWeight: 700, color: row.opervo === '✓' ? '#F5620F' : '#0F0F0F', background: 'rgba(245,98,15,0.06)' }}>{row.opervo}</td>
-                  <td style={{ padding: '12px 16px', textAlign: 'center', color: row.jobber === '✗' ? '#ccc' : '#6B6B6B' }}>{row.jobber}</td>
-                  <td style={{ padding: '12px 16px', textAlign: 'center', color: row.housecall === '✗' ? '#ccc' : '#6B6B6B' }}>{row.housecall}</td>
-                  <td style={{ padding: '12px 16px', textAlign: 'center', color: row.gorilla === '✗' ? '#ccc' : '#6B6B6B' }}>{row.gorilla}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <ComparisonLinks />
-      </section>
-
-      {/* WHY WINDOW CLEANERS CHOOSE OPERVO */}
-      <section style={{ background: '#fff', borderTop: '1px solid #E8E4DE', borderBottom: '1px solid #E8E4DE', padding: '64px 24px' }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-          <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 28, color: '#0F0F0F', textTransform: 'uppercase', textAlign: 'center', marginBottom: 48, letterSpacing: '-0.5px' }}>
-            Why Window Cleaners Choose Opervo
-          </h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 24 }}>
-            {benefits.map((b) => (
-              <div key={b.title} style={{ borderLeft: '3px solid #F5620F', paddingLeft: 20 }}>
-                <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 17, color: '#0F0F0F', textTransform: 'uppercase', marginBottom: 8 }}>{b.title}</h3>
-                <p style={{ fontSize: 14, color: '#6B6B6B', lineHeight: 1.55 }}>{b.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section style={{ maxWidth: 800, margin: '0 auto', padding: '72px 24px' }}>
-        <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 28, color: '#0F0F0F', textTransform: 'uppercase', textAlign: 'center', marginBottom: 48, letterSpacing: '-0.5px' }}>
-          Frequently Asked Questions
-        </h2>
-        {faqs.map((f) => (
-          <div key={f.q} style={{ borderBottom: '1px solid #E8E4DE', padding: '24px 0' }}>
-            <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 16, color: '#0F0F0F', marginBottom: 10 }}>{f.q}</h3>
-            <p style={{ fontSize: 14, color: '#6B6B6B', lineHeight: 1.6 }}>{f.a}</p>
-          </div>
-        ))}
-      </section>
-
-      <OtherTrades exclude="/window-cleaning" />
-
-      {/* CTA BAND */}
-      <section style={{ background: '#0F0F0F', padding: '64px 24px', textAlign: 'center' }}>
-        <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 'clamp(24px, 4vw, 36px)', color: '#F7F5F2', textTransform: 'uppercase', letterSpacing: '-0.5px', marginBottom: 12 }}>
-          Ready to Level Up Your Window Cleaning Business?
-        </h2>
-        <p style={{ fontSize: 16, color: '#9ca3af', marginBottom: 28 }}>Start free — 14 days, no credit card.</p>
-        <a href="https://app.opervo.io" style={{ display: 'inline-block', background: '#F5620F', color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 15, padding: '14px 36px', borderRadius: 6, textDecoration: 'none', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-          Start Free Trial →
-        </a>
-      </section>
-
-      <SiteFooter />
-    </div>
-  )
+  return <TradeLandingPage config={config} />
 }
