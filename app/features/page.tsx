@@ -48,8 +48,9 @@ const categories = [
       { name: 'Professional invoices', desc: 'Line items, tax, due dates, and your branding. Looks like you have a back office.' },
       { name: 'Custom invoice titles', desc: 'Name your invoices however you want. Standalone invoicing without creating a job.' },
       { name: 'Status filters', desc: 'Draft, Sent, Paid, Overdue — auto-calculated. See exactly what\u2019s outstanding.' },
-      { name: 'Online payments', desc: 'Stripe-powered — credit cards, Apple Pay, Google Pay. Clients pay in seconds.' },
-      { name: 'Post-payment tipping', desc: 'Clients can add a tip after paying. Averages 15-20% in the trades.' },
+      { name: 'Online payments — your processor', desc: 'Connect Square (recommended) or Stripe. Cards, Apple Pay, Google Pay. Funds go straight to your bank — Opervo takes zero markup, ever.' },
+      { name: 'Record offline payments', desc: 'Cash, check, Venmo, CashApp, Zelle, or Other. Auto-creates the invoice if there isn’t one yet. One unified record.' },
+      { name: 'Post-payment tipping', desc: 'Clients can add a tip after paying. Averages 15-20% in the trades. You keep 100%.' },
       { name: 'Google review prompt', desc: 'After payment, clients see a prompt to leave a Google review. Builds your rating on autopilot.' },
       { name: 'Payment notifications', desc: 'Push notification the second a client pays. Auto-updates invoice status.' },
     ],
@@ -124,7 +125,11 @@ const categories = [
   {
     id: 'ai', icon: '11', title: 'AI Assistant',
     features: [
-      { name: 'Built-in AI chat', desc: 'Ask anything about running your business. Get help writing estimates, emails, and follow-ups.' },
+      { name: 'Asks your real data', desc: 'Not a generic chatbot. Ask "what’s my revenue this month" or "which clients haven’t booked since February" — it queries your jobs, invoices, leads, and clients live.' },
+      { name: 'Creates records by voice', desc: '"Add a client named Ramon, found us on Google" — it writes the row. Same for jobs, expenses, and mileage. No menus, no typing.' },
+      { name: 'Knows what page you’re on', desc: 'Says "this job" or "this client" while you’re looking at one — it resolves the reference automatically. No copy-paste.' },
+      { name: 'Streams answers in real time', desc: 'No spinners. Answers appear word-by-word as the model thinks. Faster than waiting for a wall of text.' },
+      { name: 'Drafts the rest', desc: 'Estimates, follow-up emails, on-my-way texts, review requests. Trained on the way trades operators actually talk.' },
     ],
   },
   {
@@ -141,16 +146,55 @@ const categories = [
     features: [
       { name: 'QuickBooks Online', desc: 'Connect your QBO account. Sync invoices one way — Opervo to QuickBooks.' },
       { name: 'Google Calendar', desc: 'Two-way sync. Your jobs and your personal calendar in one view.' },
-      { name: 'Stripe', desc: 'Payments, subscriptions, and tipping. PCI-compliant. Funds hit your bank in 2 days.' },
-      { name: 'SMS Notifications', desc: '"On My Way!" texts, appointment reminders, job completion alerts, and invoice delivery — all automatic.' },
+      { name: 'Square (recommended)', desc: 'Connect your own Square account in 90 seconds. Funds hit your bank next business day. Opervo takes zero platform fee.' },
+      { name: 'Stripe (legacy)', desc: 'Existing Stripe operators stay supported. New operators are guided to Square. Either way: no markup from us.' },
+      { name: 'SMS Notifications', desc: '"On My Way!" texts, appointment reminders, job completion alerts, and invoice delivery.' },
       { name: 'Google Maps / Apple Maps', desc: 'One-tap navigation to any job address from the job detail screen.' },
     ],
   },
   {
-    id: 'field-tools', icon: '14', title: 'Field Tools',
+    id: 'routes', icon: '14', title: 'Routes & Canvassing',
     features: [
-      { name: 'Door-to-door canvassing', desc: 'Map-based canvassing with pin statuses. Closed loop from door knock to estimate to invoice.' },
-      { name: 'Square footage & linear foot tool', desc: 'Measure properties on-site. Auto-calculate pricing based on area or linear feet.' },
+      { name: 'Route My Day — one tap', desc: 'On the Schedule, hit one button: we geolocate you, geocode your jobs, order them by shortest path, and show miles + ETA. Tap "Start Route" to launch Google Maps with all stops as a multi-leg trip. Competitors charge $30+/mo for this.' },
+      { name: 'Full route planner with road distance', desc: 'For longer days, the dedicated Route page uses Google’s Distance Matrix for real road miles and drive time — not straight-line estimates.' },
+      { name: 'Door-to-door canvassing', desc: 'Map-first territories with drawn boundaries. Drop pins as you knock — Knocked, Not Home, Not Interested, Lead, Sold. Replaces SalesRabbit/Spotio (~$35/mo).' },
+      { name: 'Canvassing leaderboard', desc: 'Crew leaderboard by knocks, leads, and conversions. Hot Neighborhoods surface where leads are concentrating.' },
+      { name: 'Closed loop knock → estimate → invoice', desc: 'Convert a Lead pin to an estimate without re-typing the address. Convert the approved estimate to a job. Track conversion rate per territory.' },
+    ],
+  },
+  {
+    id: 'measure', icon: '15', title: 'Measurement Tool',
+    features: [
+      { name: 'Sketch on the satellite map', desc: 'Drop points around a roof, driveway, lawn, or facade. Total square footage and perimeter compute as you draw.' },
+      { name: 'Drag any vertex to fix mistakes', desc: 'Tap and drag points — even on completed shapes. Edges and totals re-calc live. No starting over because of one bad tap.' },
+      { name: 'Right-angle snap', desc: 'When you’re drawing close to a 90° angle, the tool snaps it square within 6° tolerance. Clean shapes, fast.' },
+      { name: 'Live edge labels in feet', desc: 'Every edge shows its length in feet while you’re drawing. Quote pane counts, brick courses, fence runs without a tape measure.' },
+      { name: 'Long-press to undo', desc: 'Long-press the map to undo the last point. Per-shape rename and delete from the overlay. Multiple shapes per property.' },
+      { name: 'Auto-price into the estimate', desc: 'Set a $/sq ft rate per service. Measured area pushes straight into the estimate line item — no calculator needed.' },
+    ],
+  },
+  {
+    id: 'service-plans', icon: '16', title: 'Service Plans',
+    features: [
+      { name: 'Recurring agreements your clients e-sign', desc: 'Build a plan (weekly, biweekly, monthly, quarterly, custom). Send the client a magic-link agreement to sign. Status moves to Active when signed.' },
+      { name: 'Auto-generated jobs, 30 days out', desc: 'A daily background job tops up the next 30 days of work for every active plan. Jobs land on your Schedule with a "Plan" badge — no manual scheduling.' },
+      { name: 'Vacation pauses with auto-resume', desc: 'Client going out of town? Pause the plan until a date. Jobs stop being created, then resume automatically the day they’re back.' },
+      { name: 'Preferred day honored', desc: 'Client wants Tuesdays? Weekly and biweekly plans land on the day they picked.' },
+      { name: 'Plan-first OR client-first enrollment', desc: 'Build the plan and enroll clients into it, or open a client and add them to a plan. Same data, two flows — pick whichever matches how you sell.' },
+      { name: '14-day signing window with regenerate', desc: 'Unsigned agreement links expire in 14 days for security. One tap regenerates a fresh link.' },
+      { name: 'Clean cancellation', desc: 'Cancel a plan and only future auto-generated jobs are removed. Past completed jobs stay on the books, untouched.' },
+    ],
+  },
+  {
+    id: 'supplies', icon: '17', title: 'Supplies & Materials',
+    features: [
+      { name: 'Catalog of what you actually use', desc: 'Define your own categories and units — gallons of SH, yards of mulch, ounces of surfactant, gallons of fuel, pounds of fertilizer. Industry-agnostic.' },
+      { name: 'Per-job logging in 5 seconds', desc: 'On any job, tap the supply, hit + or − to set quantity. Unit cost, unit type, and supply name are snapshotted at the moment of logging — historical rows survive price changes.' },
+      { name: 'Live profit math on every job', desc: 'Revenue − Supplies = Profit, shown in green or red right on the job. Stop guessing whether that $400 driveway actually paid.' },
+      { name: 'Smart pre-fill from your last 5 jobs', desc: 'Open a pressure-washing job — if your last 5 pressure-washing jobs used SH and surfactant, we suggest the average quantities. One tap to accept.' },
+      { name: 'Auto-deducted as a tax expense', desc: 'Log a purchase ("$84 for 4 gallons of SH at Lowe’s") — it auto-creates an Expense entry in your books and bumps your stock count. Tax season is one button.' },
+      { name: 'Low-stock alerts on the dashboard', desc: 'Set a reorder threshold per supply. The dashboard tile turns red when you’re running low so you don’t show up to a job dry.' },
+      { name: 'CSV export', desc: 'Per-line CSV joining supplies to jobs, clients, and dates. Hand to your accountant or import to QBO.' },
     ],
   },
 ]
@@ -190,7 +234,7 @@ export default function FeaturesPage() {
             Jobs, invoices, scheduling, client portal, portfolio page, SMS automation, mileage tracking, team management — all in one app. Starting at $24.99/mo.
           </p>
           <a href="https://app.opervo.io" style={{ display: 'inline-block', background: '#F5620F', color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 16, textTransform: 'uppercase', padding: '14px 32px', borderRadius: 6, textDecoration: 'none', letterSpacing: '0.04em' }}>
-            Start Free — 30 Days, No Card
+            Start Free — 14 Days, No Card
           </a>
           <p style={{ fontSize: 12, color: '#6B6B6B', fontFamily: "'Barlow', sans-serif", marginTop: 10 }}>
             Solo plan: $24.99/mo after trial &middot; Team plan: $54.99/mo
@@ -254,14 +298,14 @@ export default function FeaturesPage() {
         {/* Feature Count Summary */}
         <section style={{ background: '#fff', borderTop: '1px solid #E8E4DE', borderBottom: '1px solid #E8E4DE', padding: '48px 24px', textAlign: 'center' }}>
           <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 32, textTransform: 'uppercase', color: '#0F0F0F', marginBottom: 8 }}>
-            60+ Features. One App. $24.99/mo.
+            90+ Features. One App. $24.99/mo.
           </h2>
           <p style={{ fontSize: 16, color: '#6B6B6B', fontFamily: "'Barlow', sans-serif", maxWidth: 560, margin: '0 auto 32px', lineHeight: 1.6 }}>
             No feature gates. No add-on pricing. Every Solo plan customer gets access to everything above. Team plan adds crew management for $54.99/mo.
           </p>
           <div style={{ display: 'flex', justifyContent: 'center', gap: 40, flexWrap: 'wrap', marginBottom: 32 }}>
             {[
-              { num: '60+', label: 'Features included' },
+              { num: '90+', label: 'Features included' },
               { num: '$24.99', label: 'Per month (Solo)' },
               { num: '14', label: 'Day free trial' },
               { num: '0', label: 'Credit card required' },
