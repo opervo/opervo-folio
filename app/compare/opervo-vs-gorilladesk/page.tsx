@@ -61,6 +61,22 @@ const faqs = [
     q: 'What does GorillaDesk have that Opervo doesn\'t?',
     a: 'GorillaDesk offers FIFRA chemical tracking for pest control operators and pest-specific regulatory compliance tools. If you\'re in pest control and need those features, GorillaDesk is purpose-built for that. For most other home service trades, Opervo covers everything you need — including route optimization, QuickBooks sync, and a native iOS app — at a lower price.',
   },
+  {
+    q: 'Does Opervo have route optimization like GorillaDesk?',
+    a: 'Yes. Opervo\'s Route My Day is included on every plan — one tap geolocates you, geocodes today\'s stops, orders them shortest-path, and shows total miles and ETA before opening Google Maps as a multi-leg trip. Saves 40+ minutes on a 6-stop day. GorillaDesk has route optimization too; the difference is the $24/mo price gap and Opervo\'s public folio page on top.',
+  },
+  {
+    q: 'Is Opervo or GorillaDesk better for solo operators?',
+    a: 'Opervo, in most cases. GorillaDesk\'s feature depth is built around dispatching multiple techs from a central office. As a solo operator you\'re paying for back-office complexity you don\'t need. Opervo is mobile-first, voice-input everywhere, designed for the operator who IS the field tech — and is $24.99/mo vs GorillaDesk\'s $49.',
+  },
+  {
+    q: 'Does Opervo have a customer portal like GorillaDesk?',
+    a: 'Yes — and Opervo\'s is included while GorillaDesk\'s requires a higher-tier plan. The Opervo Client Portal sends a magic link (no password), so the client can view job history, invoices, and estimates, and submit a service request. No login wall, mobile-first, branded with the operator\'s logo and colors.',
+  },
+  {
+    q: 'Can I switch from GorillaDesk to Opervo without losing client data?',
+    a: 'Yes. Export your client list from GorillaDesk as a CSV and import it into Opervo — auto-column mapping handles GorillaDesk\'s export format. Duplicate detection prevents double-imports. Most operators are fully set up within an hour. Photos and historical job notes need to be re-uploaded manually since GorillaDesk doesn\'t export those.',
+  },
 ]
 
 export default function OpervoVsGorillaDesk() {
@@ -146,7 +162,20 @@ export default function OpervoVsGorillaDesk() {
         </div>
       </section>
 
-      <section style={{ maxWidth: 800, margin: '0 auto', padding: '0 24px 72px' }}>
+      {/* THE KILLER DIFFERENTIATOR — folio screenshot */}
+      <section style={{ background: '#fff', borderTop: '1px solid #E8E4DE', borderBottom: '1px solid #E8E4DE', padding: '64px 24px' }}>
+        <div style={{ maxWidth: 800, margin: '0 auto', textAlign: 'center' }}>
+          <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 28, color: '#0F0F0F', textTransform: 'uppercase', marginBottom: 12, letterSpacing: '-0.5px' }}>
+            What GorillaDesk operators don&apos;t have
+          </h2>
+          <p style={{ fontSize: 15, color: '#6B6B6B', lineHeight: 1.6, maxWidth: 600, margin: '0 auto 32px' }}>
+            Every Opervo operator gets a public Folio page at <strong style={{ color: '#0F0F0F' }}>opervo.io/p/your-slug</strong> — auto-published before/after photos, services, reviews, and a built-in quote form. New leads land here from a Google search and request a quote without you ever picking up the phone. GorillaDesk has no equivalent.
+          </p>
+          <img src="/screenshots/hero-folio-2.jpg" alt="Opervo Folio page with before/after slider and customer reviews — the public portfolio every operator gets included with the $24.99/mo plan" loading="lazy" decoding="async" style={{ width: '100%', maxWidth: 540, height: 'auto', borderRadius: 12, border: '1px solid #E8E4DE' }} />
+        </div>
+      </section>
+
+      <section style={{ maxWidth: 800, margin: '0 auto', padding: '64px 24px 72px' }}>
         <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 28, color: '#0F0F0F', textTransform: 'uppercase', textAlign: 'center', marginBottom: 48, letterSpacing: '-0.5px' }}>
           Frequently Asked Questions
         </h2>

@@ -60,6 +60,22 @@ const faqs = [
     q: 'What does Jobber have that Opervo doesn\'t?',
     a: 'Jobber offers advanced reporting and deeper third-party integrations (Mailchimp, Zapier, etc.). If your business depends on those specific tools, Jobber may be a better fit. For most solo operators and small crews, Opervo covers everything you need — including route optimization and QuickBooks sync — at a fraction of the price.',
   },
+  {
+    q: 'Does Opervo have route optimization like Jobber?',
+    a: 'Yes. Opervo\'s Route My Day feature is included on every plan. Tap one button: it geolocates you, geocodes today\'s stops, orders them shortest-path, and shows total miles and ETA. Jobber\'s route optimization is locked behind their Grow plan ($199/mo). Opervo Solo at $24.99/mo gets the same one-tap experience.',
+  },
+  {
+    q: 'Is Opervo cheaper than Jobber for a 2-person team?',
+    a: 'Yes by a wide margin. Opervo Team is $54.99/mo for up to 10 team members. Jobber Connect — the closest equivalent — is $119/mo and only covers 5 users. For a 2-person operation that\'s $780/year in your pocket, with the same scheduling, dispatch, and reporting features.',
+  },
+  {
+    q: 'Does Opervo support recurring jobs and service agreements?',
+    a: 'Yes. Build a recurring service plan (weekly, biweekly, monthly, quarterly), send a magic-link agreement to the client, they e-sign with their finger, and jobs auto-generate 30 days out. Pause for vacations, resume on a date. Jobber supports recurring jobs but doesn\'t do e-signed agreements with auto-renewal — that\'s an Opervo-only feature.',
+  },
+  {
+    q: 'Can I send invoices from my phone with Opervo?',
+    a: 'Yes. Every action in Opervo is mobile-first. Create the invoice, add line items by voice, attach photos, send via SMS or email — all from a phone with one hand. The same applies to estimates, scheduling, and client management. Jobber\'s mobile app is functional but the experience is built around an office worker on a desktop dispatching field techs; Opervo is built for the operator who IS the field tech.',
+  },
 ]
 
 export default function OpervoVsJobber() {
@@ -149,8 +165,21 @@ export default function OpervoVsJobber() {
         </div>
       </section>
 
+      {/* THE KILLER DIFFERENTIATOR — folio screenshot */}
+      <section style={{ background: '#fff', borderTop: '1px solid #E8E4DE', borderBottom: '1px solid #E8E4DE', padding: '64px 24px' }}>
+        <div style={{ maxWidth: 800, margin: '0 auto', textAlign: 'center' }}>
+          <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 28, color: '#0F0F0F', textTransform: 'uppercase', marginBottom: 12, letterSpacing: '-0.5px' }}>
+            What Jobber operators don&apos;t have
+          </h2>
+          <p style={{ fontSize: 15, color: '#6B6B6B', lineHeight: 1.6, maxWidth: 600, margin: '0 auto 32px' }}>
+            Every Opervo operator gets a public Folio page at <strong style={{ color: '#0F0F0F' }}>opervo.io/p/your-slug</strong> — auto-published before/after photos, services, reviews, and a built-in quote form. New leads land here from a Google search and request a quote without you ever picking up the phone.
+          </p>
+          <img src="/screenshots/hero-folio-2.jpg" alt="Opervo Folio page with before/after slider and customer reviews — the public portfolio every operator gets included with the $24.99/mo plan" loading="lazy" decoding="async" style={{ width: '100%', maxWidth: 540, height: 'auto', borderRadius: 12, border: '1px solid #E8E4DE' }} />
+        </div>
+      </section>
+
       {/* FAQ */}
-      <section style={{ maxWidth: 800, margin: '0 auto', padding: '0 24px 72px' }}>
+      <section style={{ maxWidth: 800, margin: '0 auto', padding: '64px 24px 72px' }}>
         <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 28, color: '#0F0F0F', textTransform: 'uppercase', textAlign: 'center', marginBottom: 48, letterSpacing: '-0.5px' }}>
           Frequently Asked Questions
         </h2>
