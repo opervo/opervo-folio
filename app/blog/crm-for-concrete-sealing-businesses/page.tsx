@@ -5,11 +5,11 @@ import BlogLayout from '@/components/BlogLayout'
 export const metadata: Metadata = {
   title: 'CRM for Concrete Sealing Businesses | Opervo',
   description: 'Concrete sealing businesses often rely on quick response, clear scheduling, and property specific notes. A CRM makes it easier to manage leads, send estimate...',
-  alternates: { canonical: 'https://opervo.io/blog/crm-for-concrete-sealing-businesses' },
+  alternates: { canonical: 'https://www.opervo.io/blog/crm-for-concrete-sealing-businesses' },
   openGraph: {
     title: 'CRM for Concrete Sealing Businesses | Opervo',
     description: 'Concrete sealing businesses often rely on quick response, clear scheduling, and property specific notes. A CRM makes it easier to manage leads, send estimate...',
-    url: 'https://opervo.io/blog/crm-for-concrete-sealing-businesses',
+    url: 'https://www.opervo.io/blog/crm-for-concrete-sealing-businesses',
     type: 'article',
   },
 }

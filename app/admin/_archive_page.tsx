@@ -638,7 +638,7 @@ export default function AdminPage() {
                         </td>
                         <td style={{ padding: "10px", color: u.business_name ? C.text : C.textMuted }}>{u.business_name || "—"}</td>
                         <td style={{ padding: "10px" }}>
-                          {u.slug ? <a href={`https://opervo.io/p/${u.slug}`} target="_blank" rel="noopener noreferrer" style={{ color: C.accent, textDecoration: "none", fontSize: 12 }}>/p/{u.slug}</a> : <span style={{ color: C.textMuted }}>—</span>}
+                          {u.slug ? <a href={`https://www.opervo.io/p/${u.slug}`} target="_blank" rel="noopener noreferrer" style={{ color: C.accent, textDecoration: "none", fontSize: 12 }}>/p/{u.slug}</a> : <span style={{ color: C.textMuted }}>—</span>}
                         </td>
                         <td style={{ padding: "10px", color: C.textSub }}>{timeAgo(u.created_at)}</td>
                         <td style={{ padding: "10px" }}><Badge type={u.plan === "active" ? "green" : u.plan === "trialing" ? "amber" : "gray"} label={u.plan || "trial"} /></td>
@@ -818,7 +818,7 @@ export default function AdminPage() {
             <Section title="App & infrastructure">
               {[
                 ["https://app.opervo.io", "app.opervo.io"],
-                ["https://opervo.io", "opervo.io (landing)"],
+                ["https://www.opervo.io", "opervo.io (landing)"],
                 ["https://supabase.com/dashboard/project/sbnykmxckfwkkxvhrkot", "Supabase dashboard"],
                 ["https://app.netlify.com/sites/splendid-moxie-3f9a51", "Netlify (app deploy)"],
                 ["https://vercel.com/opervo", "Vercel (landing deploy)"],

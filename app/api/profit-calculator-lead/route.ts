@@ -120,7 +120,7 @@ function emailHtml(i: Inputs) {
             <p style="margin:0;font-size:11px;font-weight:800;color:#F5620F;text-transform:uppercase;letter-spacing:0.14em;">Track every job · Free, no login</p>
             <p style="margin:8px 0 6px;font-size:20px;font-weight:900;color:#0F0F0F;letter-spacing:-0.5px;line-height:1.2;">The pattern shows up after 5 jobs.<br>Not 1.</p>
             <p style="margin:0 0 16px;font-size:14px;color:#3a3a3a;line-height:1.55;">One job tells you a number. Five jobs tell you which work actually pays. Use the Multi-Job Profit Tracker to log them — saves to your phone, exports to CSV, no account needed.</p>
-            <a href="https://opervo.io/multi-job-tracker" style="display:inline-block;background:#0F0F0F;color:#fff;font-weight:800;font-size:14px;padding:12px 24px;border-radius:6px;text-decoration:none;text-transform:uppercase;letter-spacing:0.04em;">Open the tracker →</a>
+            <a href="https://www.opervo.io/multi-job-tracker" style="display:inline-block;background:#0F0F0F;color:#fff;font-weight:800;font-size:14px;padding:12px 24px;border-radius:6px;text-decoration:none;text-transform:uppercase;letter-spacing:0.04em;">Open the tracker →</a>
           </td></tr>
         </table>
       </td></tr>
@@ -144,7 +144,7 @@ function emailHtml(i: Inputs) {
       </td></tr>
 
       <tr><td style="padding:0 28px 24px;text-align:center;">
-        <p style="margin:0;font-size:12px;color:#9CA3AF;">You’re getting this because you used the Job Profit Calculator at <a href="https://opervo.io/profit-calculator" style="color:#6B6B6B;">opervo.io/profit-calculator</a>.</p>
+        <p style="margin:0;font-size:12px;color:#9CA3AF;">You’re getting this because you used the Job Profit Calculator at <a href="https://www.opervo.io/profit-calculator" style="color:#6B6B6B;">opervo.io/profit-calculator</a>.</p>
         <p style="margin:6px 0 0;font-size:12px;color:#9CA3AF;">No spam ever. Reply to this email to reach Max directly.</p>
       </td></tr>
     </table>

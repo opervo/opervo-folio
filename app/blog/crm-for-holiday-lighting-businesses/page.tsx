@@ -5,11 +5,11 @@ import BlogLayout from '@/components/BlogLayout'
 export const metadata: Metadata = {
   title: 'CRM for Holiday Lighting Businesses | Opervo',
   description: 'Holiday lighting businesses have compressed selling seasons, lots of estimate activity, and a strong need for repeat customers. A CRM helps you keep leads or...',
-  alternates: { canonical: 'https://opervo.io/blog/crm-for-holiday-lighting-businesses' },
+  alternates: { canonical: 'https://www.opervo.io/blog/crm-for-holiday-lighting-businesses' },
   openGraph: {
     title: 'CRM for Holiday Lighting Businesses | Opervo',
     description: 'Holiday lighting businesses have compressed selling seasons, lots of estimate activity, and a strong need for repeat customers. A CRM helps you keep leads or...',
-    url: 'https://opervo.io/blog/crm-for-holiday-lighting-businesses',
+    url: 'https://www.opervo.io/blog/crm-for-holiday-lighting-businesses',
     type: 'article',
   },
 }

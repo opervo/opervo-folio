@@ -4,11 +4,11 @@ import TradeLandingPage, { type TradePageConfig } from '@/components/TradeLandin
 export const metadata: Metadata = {
   title: 'Pressure Washing Software — Track Chem Cost, Auto-Publish Before/After, Route Your Day | Opervo',
   description: 'Built for solo pressure washers. Track SH/surfactant cost per job, sketch and price driveways on Google Maps, auto-publish before/after photos to your folio, optimize your route in one tap. $24.99/mo. 14-day free trial.',
-  alternates: { canonical: 'https://opervo.io/pressure-washing' },
+  alternates: { canonical: 'https://www.opervo.io/pressure-washing' },
   openGraph: {
     title: 'Pressure Washing Software — Opervo',
     description: 'Track chem cost, sketch driveways, auto-publish before/after photos, optimize routes. $24.99/mo. Built for the operator on the rig.',
-    url: 'https://opervo.io/pressure-washing',
+    url: 'https://www.opervo.io/pressure-washing',
     type: 'website',
   },
 }

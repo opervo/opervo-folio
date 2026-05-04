@@ -5,11 +5,11 @@ import BlogLayout from '@/components/BlogLayout'
 export const metadata: Metadata = {
   title: 'CRM for Gutter Cleaning Businesses | Opervo',
   description: 'Running a gutter cleaning business sounds simple until you are juggling calls, texts, estimates, and repeat customers all at once. A CRM keeps customer infor...',
-  alternates: { canonical: 'https://opervo.io/blog/crm-for-gutter-cleaning-businesses' },
+  alternates: { canonical: 'https://www.opervo.io/blog/crm-for-gutter-cleaning-businesses' },
   openGraph: {
     title: 'CRM for Gutter Cleaning Businesses | Opervo',
     description: 'Running a gutter cleaning business sounds simple until you are juggling calls, texts, estimates, and repeat customers all at once. A CRM keeps customer infor...',
-    url: 'https://opervo.io/blog/crm-for-gutter-cleaning-businesses',
+    url: 'https://www.opervo.io/blog/crm-for-gutter-cleaning-businesses',
     type: 'article',
   },
 }

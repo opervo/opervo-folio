@@ -5,11 +5,11 @@ import BlogLayout from '@/components/BlogLayout'
 export const metadata: Metadata = {
   title: 'How to Look Professional as a Solo Contractor (Without Spending a Fortune) | Opervo',
   description: '7 proven ways to build trust, win more jobs, and charge higher rates as a solo home service contractor. Portfolio pages, branded estimates, Google reviews, and more.',
-  alternates: { canonical: 'https://opervo.io/blog/how-to-look-professional-solo-contractor' },
+  alternates: { canonical: 'https://www.opervo.io/blog/how-to-look-professional-solo-contractor' },
   openGraph: {
     title: 'How to Look Professional as a Solo Contractor (Without Spending a Fortune) | Opervo',
     description: '7 proven ways to build trust, win more jobs, and charge more — without spending a fortune.',
-    url: 'https://opervo.io/blog/how-to-look-professional-solo-contractor',
+    url: 'https://www.opervo.io/blog/how-to-look-professional-solo-contractor',
     type: 'article',
   },
 }

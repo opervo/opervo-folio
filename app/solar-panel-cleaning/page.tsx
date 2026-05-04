@@ -4,11 +4,11 @@ import TradeLandingPage, { type TradePageConfig } from '@/components/TradeLandin
 export const metadata: Metadata = {
   title: 'Solar Panel Cleaning Software — Annual Agreements, Routes, Before/After Folio | Opervo',
   description: 'Built for solar panel cleaners — residential and commercial. Annual and biannual cleaning agreements that auto-bill, route days for 4-6 residential stops, before/after panel photos that auto-publish to your folio. $24.99/mo. 14-day free trial.',
-  alternates: { canonical: 'https://opervo.io/solar-panel-cleaning' },
+  alternates: { canonical: 'https://www.opervo.io/solar-panel-cleaning' },
   openGraph: {
     title: 'Solar Panel Cleaning Software — Opervo',
     description: 'Annual & biannual agreements, route optimization, before/after panel photos to your folio. $24.99/mo all-in.',
-    url: 'https://opervo.io/solar-panel-cleaning',
+    url: 'https://www.opervo.io/solar-panel-cleaning',
     type: 'website',
   },
 }

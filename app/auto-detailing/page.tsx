@@ -4,11 +4,11 @@ import TradeLandingPage, { type TradePageConfig } from '@/components/TradeLandin
 export const metadata: Metadata = {
   title: 'Auto Detailing Software — Packages, Before/After Folio, Mobile Routes | Opervo',
   description: 'For mobile detailers and bay shops. Branded packages (Bronze/Silver/Gold), before/after auto-publish to your folio, route optimization for mobile detailing, product cost on every detail. $24.99/mo. 14-day free trial.',
-  alternates: { canonical: 'https://opervo.io/auto-detailing' },
+  alternates: { canonical: 'https://www.opervo.io/auto-detailing' },
   openGraph: {
     title: 'Auto Detailing Software — Opervo',
     description: 'Packages, before/after gallery, mobile route optimization, product cost on every detail. $24.99/mo all-in.',
-    url: 'https://opervo.io/auto-detailing',
+    url: 'https://www.opervo.io/auto-detailing',
     type: 'website',
   },
 }

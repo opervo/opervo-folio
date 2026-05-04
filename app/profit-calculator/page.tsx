@@ -96,7 +96,7 @@ export default function ProfitCalculatorPage() {
         name: 'Opervo Job Profit Calculator',
         applicationCategory: 'BusinessApplication',
         operatingSystem: 'Web',
-        url: 'https://opervo.io/profit-calculator',
+        url: 'https://www.opervo.io/profit-calculator',
         description: 'Free job profit calculator for home-service operators. Enter revenue, hours, materials, and mileage — see your profit, hourly rate, and margin live.',
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
       }) }} />

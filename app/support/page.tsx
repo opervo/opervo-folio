@@ -55,7 +55,7 @@ export default function SupportPage() {
         }}
       >
         <a
-          href="https://opervo.io"
+          href="https://www.opervo.io"
           style={{
             fontFamily: "'Barlow Condensed',sans-serif",
             fontWeight: 900,
@@ -67,7 +67,7 @@ export default function SupportPage() {
         >
           Opervo<span style={{ color: "#F5620F" }}>.</span>
         </a>
-        <a href="https://opervo.io" style={{ fontSize: 14, color: "#6B6B6B", textDecoration: "none" }}>
+        <a href="https://www.opervo.io" style={{ fontSize: 14, color: "#6B6B6B", textDecoration: "none" }}>
           ← Back to Opervo
         </a>
       </header>
@@ -179,7 +179,7 @@ export default function SupportPage() {
           <a href="/tos" style={{ fontSize: 14, color: "#6B6B6B", textDecoration: "underline" }}>
             Terms of Service
           </a>
-          <a href="https://opervo.io" style={{ fontSize: 14, color: "#6B6B6B", textDecoration: "underline" }}>
+          <a href="https://www.opervo.io" style={{ fontSize: 14, color: "#6B6B6B", textDecoration: "underline" }}>
             Home
           </a>
         </div>

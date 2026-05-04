@@ -4,11 +4,11 @@ import TradeLandingPage, { type TradePageConfig } from '@/components/TradeLandin
 export const metadata: Metadata = {
   title: 'Landscaping Software — Mow-Day Routes, Maintenance Agreements, Mulch Cost | Opervo',
   description: 'The app for solo landscapers and small crews. Mow-day route optimization for 25+ stops, e-signed maintenance agreements that auto-bill, mulch and fuel cost on every job. $24.99/mo. 14-day free trial.',
-  alternates: { canonical: 'https://opervo.io/landscaping' },
+  alternates: { canonical: 'https://www.opervo.io/landscaping' },
   openGraph: {
     title: 'Landscaping Software — Opervo',
     description: 'Mow-day route optimization, e-signed maintenance agreements, supplies cost on every job. Built for crews who\'d rather mow than do paperwork.',
-    url: 'https://opervo.io/landscaping',
+    url: 'https://www.opervo.io/landscaping',
     type: 'website',
   },
 }

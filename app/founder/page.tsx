@@ -6,11 +6,11 @@ import SiteFooter from '@/components/SiteFooter'
 export const metadata: Metadata = {
   title: 'The Founder — Opervo | Built From the Truck Up',
   description: 'Opervo was built by a solo operator who was tired of paying enterprise prices for software that never fit. This is the story behind the app.',
-  alternates: { canonical: 'https://opervo.io/founder' },
+  alternates: { canonical: 'https://www.opervo.io/founder' },
   openGraph: {
     title: 'The Founder — Opervo',
     description: 'Built by someone who was on the truck. For the ones still on it.',
-    url: 'https://opervo.io/founder',
+    url: 'https://www.opervo.io/founder',
     type: 'website',
   },
 }
@@ -186,7 +186,7 @@ export default function FounderPage() {
             worksFor: {
               '@type': 'Organization',
               name: 'Opervo',
-              url: 'https://opervo.io',
+              url: 'https://www.opervo.io',
             },
             description: 'Solo operator turned software founder. Built Opervo for the trades.',
           }),

@@ -5,11 +5,11 @@ import BlogLayout from '@/components/BlogLayout'
 export const metadata: Metadata = {
   title: 'Best Software for Pressure Washing Businesses (2026) — 5 Apps Ranked | Opervo',
   description: 'We ranked the 5 best software tools for pressure washing businesses in 2026. Compared pricing, features, before/after portfolios, and mobile usability.',
-  alternates: { canonical: 'https://opervo.io/blog/best-software-for-pressure-washing-businesses' },
+  alternates: { canonical: 'https://www.opervo.io/blog/best-software-for-pressure-washing-businesses' },
   openGraph: {
     title: 'Best Software for Pressure Washing Businesses (2026) — 5 Apps Ranked | Opervo',
     description: 'The 5 best apps for pressure washing businesses ranked by price, features, and real-world usability.',
-    url: 'https://opervo.io/blog/best-software-for-pressure-washing-businesses',
+    url: 'https://www.opervo.io/blog/best-software-for-pressure-washing-businesses',
     type: 'article',
   },
 }

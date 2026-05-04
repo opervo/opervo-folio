@@ -61,7 +61,7 @@ export default function CostCalculatorPage() {
         name: 'Opervo True Cost Calculator',
         applicationCategory: 'BusinessApplication',
         operatingSystem: 'Web',
-        url: 'https://opervo.io/cost-calculator',
+        url: 'https://www.opervo.io/cost-calculator',
         description: 'Interactive cost calculator comparing Opervo to Markate, Jobber, and Housecall Pro. See your real monthly, yearly, and 5-year cost based on the features you actually need.',
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
       }) }} />

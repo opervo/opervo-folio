@@ -5,11 +5,11 @@ import BlogLayout from '@/components/BlogLayout'
 export const metadata: Metadata = {
   title: 'Field Service Software Pricing Guide (2026) — What You\'ll Actually Pay | Opervo',
   description: 'Compare real pricing for Opervo, Jobber, Housecall Pro, and GorillaDesk. See monthly costs, hidden fees, and which platform gives solos the most value in 2026.',
-  alternates: { canonical: 'https://opervo.io/blog/field-service-software-pricing-guide' },
+  alternates: { canonical: 'https://www.opervo.io/blog/field-service-software-pricing-guide' },
   openGraph: {
     title: 'Field Service Software Pricing Guide (2026) — What You\'ll Actually Pay | Opervo',
     description: 'Compare real pricing for Opervo, Jobber, Housecall Pro, and GorillaDesk. Monthly costs, hidden fees, and which platform gives solos the most value.',
-    url: 'https://opervo.io/blog/field-service-software-pricing-guide',
+    url: 'https://www.opervo.io/blog/field-service-software-pricing-guide',
     type: 'article',
   },
 }

@@ -5,11 +5,11 @@ import BlogLayout from '@/components/BlogLayout'
 export const metadata: Metadata = {
   title: 'CRM for HVAC Businesses | Opervo',
   description: 'HVAC businesses need to balance urgent service calls, quotes, maintenance agreements, and customer communication. A CRM helps keep that process organized so ...',
-  alternates: { canonical: 'https://opervo.io/blog/crm-for-hvac-businesses' },
+  alternates: { canonical: 'https://www.opervo.io/blog/crm-for-hvac-businesses' },
   openGraph: {
     title: 'CRM for HVAC Businesses | Opervo',
     description: 'HVAC businesses need to balance urgent service calls, quotes, maintenance agreements, and customer communication. A CRM helps keep that process organized so ...',
-    url: 'https://opervo.io/blog/crm-for-hvac-businesses',
+    url: 'https://www.opervo.io/blog/crm-for-hvac-businesses',
     type: 'article',
   },
 }

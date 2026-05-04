@@ -6,11 +6,11 @@ import SiteFooter from '@/components/SiteFooter'
 export const metadata: Metadata = {
   title: 'Opervo User Guide — Complete Walkthrough for New Users',
   description: 'The full Opervo user guide — account setup, clients, jobs, estimates, invoicing, Folio, mileage, team, and every feature in between. Your first-week walkthrough.',
-  alternates: { canonical: 'https://opervo.io/guide' },
+  alternates: { canonical: 'https://www.opervo.io/guide' },
   openGraph: {
     title: 'Opervo User Guide — Complete Walkthrough',
     description: 'Your complete first-week walkthrough. Get set up, get paid, and look pro.',
-    url: 'https://opervo.io/guide',
+    url: 'https://www.opervo.io/guide',
     type: 'article',
   },
 }

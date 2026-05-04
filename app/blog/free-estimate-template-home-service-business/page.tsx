@@ -5,11 +5,11 @@ import BlogLayout from '@/components/BlogLayout'
 export const metadata: Metadata = {
   title: 'Free Estimate Template for Home Service Businesses | Opervo',
   description: 'Download a free estimate template for window cleaning, pressure washing, solar panel cleaning, and other home service trades. Learn what to include and how to send estimates in 60 seconds.',
-  alternates: { canonical: 'https://opervo.io/blog/free-estimate-template-home-service-business' },
+  alternates: { canonical: 'https://www.opervo.io/blog/free-estimate-template-home-service-business' },
   openGraph: {
     title: 'Free Estimate Template for Home Service Businesses | Opervo',
     description: 'What to include in a professional estimate and how to send one from your phone in 60 seconds.',
-    url: 'https://opervo.io/blog/free-estimate-template-home-service-business',
+    url: 'https://www.opervo.io/blog/free-estimate-template-home-service-business',
     type: 'article',
   },
 }

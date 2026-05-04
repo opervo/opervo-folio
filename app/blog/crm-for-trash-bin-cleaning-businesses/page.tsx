@@ -5,11 +5,11 @@ import BlogLayout from '@/components/BlogLayout'
 export const metadata: Metadata = {
   title: 'CRM for Trash Bin Cleaning Businesses | Opervo',
   description: 'Trash bin cleaning businesses are built around route density and repeat customers. A CRM helps you keep recurring schedules, customer notes, and invoices org...',
-  alternates: { canonical: 'https://opervo.io/blog/crm-for-trash-bin-cleaning-businesses' },
+  alternates: { canonical: 'https://www.opervo.io/blog/crm-for-trash-bin-cleaning-businesses' },
   openGraph: {
     title: 'CRM for Trash Bin Cleaning Businesses | Opervo',
     description: 'Trash bin cleaning businesses are built around route density and repeat customers. A CRM helps you keep recurring schedules, customer notes, and invoices org...',
-    url: 'https://opervo.io/blog/crm-for-trash-bin-cleaning-businesses',
+    url: 'https://www.opervo.io/blog/crm-for-trash-bin-cleaning-businesses',
     type: 'article',
   },
 }

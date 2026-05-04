@@ -5,11 +5,11 @@ import BlogLayout from '@/components/BlogLayout'
 export const metadata: Metadata = {
   title: 'CRM for Roof Cleaning Businesses | Opervo',
   description: 'Roof cleaning businesses often sell based on quick response, strong follow up, and trust. A CRM helps you keep leads organized, schedule jobs efficiently, an...',
-  alternates: { canonical: 'https://opervo.io/blog/crm-for-roof-cleaning-businesses' },
+  alternates: { canonical: 'https://www.opervo.io/blog/crm-for-roof-cleaning-businesses' },
   openGraph: {
     title: 'CRM for Roof Cleaning Businesses | Opervo',
     description: 'Roof cleaning businesses often sell based on quick response, strong follow up, and trust. A CRM helps you keep leads organized, schedule jobs efficiently, an...',
-    url: 'https://opervo.io/blog/crm-for-roof-cleaning-businesses',
+    url: 'https://www.opervo.io/blog/crm-for-roof-cleaning-businesses',
     type: 'article',
   },
 }

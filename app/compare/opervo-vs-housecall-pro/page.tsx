@@ -8,11 +8,11 @@ import TradesMention from '@/components/TradesMention'
 export const metadata: Metadata = {
   title: 'Opervo vs Housecall Pro — Which Is Better for Solo Contractors? | Opervo',
   description: 'Compare Opervo and Housecall Pro side by side. Opervo starts at $24.99/mo vs Housecall Pro at $79+/mo. See which field service app is better for solo operators and small crews.',
-  alternates: { canonical: 'https://opervo.io/compare/opervo-vs-housecall-pro' },
+  alternates: { canonical: 'https://www.opervo.io/compare/opervo-vs-housecall-pro' },
   openGraph: {
     title: 'Opervo vs Housecall Pro — Honest Comparison',
     description: 'Opervo starts at $24.99/mo. Housecall Pro starts at $79/mo. See the full feature-by-feature breakdown.',
-    url: 'https://opervo.io/compare/opervo-vs-housecall-pro',
+    url: 'https://www.opervo.io/compare/opervo-vs-housecall-pro',
     type: 'website',
   },
 }

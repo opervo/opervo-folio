@@ -6,11 +6,11 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'Opervo — Run Your Trade Business Like a Pro',
   description: 'Jobs, estimates, invoices, scheduling, client portal, and a public portfolio — built mobile-first for solo trade operators.',
-  metadataBase: new URL('https://opervo.io'),
+  metadataBase: new URL('https://www.opervo.io'),
   openGraph: {
     title: 'Opervo — Run Your Trade Business Like a Pro',
     description: 'Jobs, estimates, invoices, scheduling, client portal, and a public portfolio — built mobile-first for solo trade operators.',
-    url: 'https://opervo.io',
+    url: 'https://www.opervo.io',
     siteName: 'Opervo',
     images: [
       {

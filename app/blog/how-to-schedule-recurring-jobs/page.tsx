@@ -5,11 +5,11 @@ import BlogLayout from '@/components/BlogLayout'
 export const metadata: Metadata = {
   title: 'How to Schedule Recurring Jobs Efficiently (and Stop Losing Revenue) | Opervo',
   description: 'Learn how recurring jobs create predictable monthly revenue for service businesses. Setup tips, pricing strategies, and the compound math that turns 3 new recurring clients per month into a $3,000+ baseline.',
-  alternates: { canonical: 'https://opervo.io/blog/how-to-schedule-recurring-jobs' },
+  alternates: { canonical: 'https://www.opervo.io/blog/how-to-schedule-recurring-jobs' },
   openGraph: {
     title: 'How to Schedule Recurring Jobs Efficiently (and Stop Losing Revenue) | Opervo',
     description: 'Recurring jobs create predictable revenue. Learn setup tips, pricing strategies, and the compound math behind a $3,000+ monthly baseline.',
-    url: 'https://opervo.io/blog/how-to-schedule-recurring-jobs',
+    url: 'https://www.opervo.io/blog/how-to-schedule-recurring-jobs',
     type: 'article',
   },
 }

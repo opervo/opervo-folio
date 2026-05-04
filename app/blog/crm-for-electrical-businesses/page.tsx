@@ -5,11 +5,11 @@ import BlogLayout from '@/components/BlogLayout'
 export const metadata: Metadata = {
   title: 'CRM for Electrical Businesses | Opervo',
   description: 'Electrical businesses need strong organization to manage service calls, project quotes, and repeat customers. A CRM keeps the customer side of the business c...',
-  alternates: { canonical: 'https://opervo.io/blog/crm-for-electrical-businesses' },
+  alternates: { canonical: 'https://www.opervo.io/blog/crm-for-electrical-businesses' },
   openGraph: {
     title: 'CRM for Electrical Businesses | Opervo',
     description: 'Electrical businesses need strong organization to manage service calls, project quotes, and repeat customers. A CRM keeps the customer side of the business c...',
-    url: 'https://opervo.io/blog/crm-for-electrical-businesses',
+    url: 'https://www.opervo.io/blog/crm-for-electrical-businesses',
     type: 'article',
   },
 }

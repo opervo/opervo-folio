@@ -6,11 +6,11 @@ import SiteFooter from '@/components/SiteFooter'
 export const metadata: Metadata = {
   title: 'All Features — Opervo | Field Service Management for Solo Operators',
   description: 'Every feature in Opervo: job management, scheduling, estimates, invoicing, client portal, portfolio page, SMS automation, mileage tracking, team management, and more. Starting at $24.99/mo.',
-  alternates: { canonical: 'https://opervo.io/features' },
+  alternates: { canonical: 'https://www.opervo.io/features' },
   openGraph: {
     title: 'All Features — Opervo',
     description: 'Every feature in Opervo. Job management, invoicing, scheduling, client portal, portfolio, SMS, mileage tracking, and more — $24.99/mo.',
-    url: 'https://opervo.io/features',
+    url: 'https://www.opervo.io/features',
     type: 'website',
   },
 }
@@ -212,7 +212,7 @@ export default function FeaturesPage() {
       { '@type': 'Offer', name: 'Team (Monthly)', price: '54.99', priceCurrency: 'USD' },
       { '@type': 'Offer', name: 'Team (Annual)', price: '549.00', priceCurrency: 'USD' },
     ],
-    url: 'https://opervo.io/features',
+    url: 'https://www.opervo.io/features',
     description: 'Field service management app for solo operators and small crews. Jobs, invoicing, scheduling, client portal, portfolio, SMS automation, and more.',
   }
 

@@ -103,7 +103,7 @@ export async function POST(req: NextRequest) {
               <h2 style="font-family:sans-serif;">Changes Requested</h2>
               <p style="font-family:sans-serif;font-size:14px;"><strong>${order.owner_name}</strong> from <strong>${order.business_name}</strong> requested changes:</p>
               <blockquote style="font-family:sans-serif;font-size:14px;background:#F7F5F2;border-left:3px solid #F5620F;padding:12px 16px;margin:0;">${changes}</blockquote>
-              <p style="font-family:sans-serif;font-size:13px;color:#6B6B6B;margin-top:16px;">Revise and re-send a new proof at: <a href="https://opervo.io/print/order/${token}">order page</a></p>
+              <p style="font-family:sans-serif;font-size:13px;color:#6B6B6B;margin-top:16px;">Revise and re-send a new proof at: <a href="https://www.opervo.io/print/order/${token}">order page</a></p>
             `,
           }),
         })

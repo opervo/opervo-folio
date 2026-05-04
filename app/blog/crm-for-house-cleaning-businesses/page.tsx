@@ -5,11 +5,11 @@ import BlogLayout from '@/components/BlogLayout'
 export const metadata: Metadata = {
   title: 'CRM for House Cleaning Businesses | Opervo',
   description: 'House cleaning businesses depend on recurring clients, clear notes, and fast scheduling changes. A CRM helps you manage recurring jobs, customer details, inv...',
-  alternates: { canonical: 'https://opervo.io/blog/crm-for-house-cleaning-businesses' },
+  alternates: { canonical: 'https://www.opervo.io/blog/crm-for-house-cleaning-businesses' },
   openGraph: {
     title: 'CRM for House Cleaning Businesses | Opervo',
     description: 'House cleaning businesses depend on recurring clients, clear notes, and fast scheduling changes. A CRM helps you manage recurring jobs, customer details, inv...',
-    url: 'https://opervo.io/blog/crm-for-house-cleaning-businesses',
+    url: 'https://www.opervo.io/blog/crm-for-house-cleaning-businesses',
     type: 'article',
   },
 }

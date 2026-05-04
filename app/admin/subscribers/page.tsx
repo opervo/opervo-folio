@@ -152,7 +152,7 @@ export default function SubscribersPage() {
             <div><Badge type={u.plan === "active" ? "green" : u.plan === "trialing" ? "amber" : u.plan === "canceled" ? "red" : "gray"} label={u.plan || "trialing"} /></div>
             <div>
               {u.slug ? (
-                <a href={`https://opervo.io/p/${u.slug}`} target="_blank" rel="noopener noreferrer" style={{ fontSize: 12, color: T.primary, textDecoration: "none" }}>
+                <a href={`https://www.opervo.io/p/${u.slug}`} target="_blank" rel="noopener noreferrer" style={{ fontSize: 12, color: T.primary, textDecoration: "none" }}>
                   /p/{u.slug}
                 </a>
               ) : (

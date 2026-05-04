@@ -140,7 +140,7 @@ export default function MultiJobTrackerPage() {
         name: 'Opervo Multi-Job Profit Tracker',
         applicationCategory: 'BusinessApplication',
         operatingSystem: 'Web',
-        url: 'https://opervo.io/multi-job-tracker',
+        url: 'https://www.opervo.io/multi-job-tracker',
         description: 'Free multi-job profit tracker for home-service operators. Log jobs over time, see your effective hourly rate, find your best- and worst-paying job types.',
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
       }) }} />

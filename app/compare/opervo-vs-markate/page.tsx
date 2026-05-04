@@ -8,11 +8,11 @@ import TradesMention from '@/components/TradesMention'
 export const metadata: Metadata = {
   title: 'Opervo vs Markate — The Real Cost After Add-Ons | Opervo',
   description: 'Markate starts at $39.95/mo but most features (Customer Portal, Online Booking, Lead Form, Reviews, Proposals) are $10/mo add-ons. A realistic Markate stack is $80-110/mo. Opervo includes all of it for $24.99/mo.',
-  alternates: { canonical: 'https://opervo.io/compare/opervo-vs-markate' },
+  alternates: { canonical: 'https://www.opervo.io/compare/opervo-vs-markate' },
   openGraph: {
     title: 'Opervo vs Markate — Honest Comparison',
     description: 'Markate stacks $10/mo add-ons on top of the base plan. Opervo includes everything at $24.99/mo. See the real math.',
-    url: 'https://opervo.io/compare/opervo-vs-markate',
+    url: 'https://www.opervo.io/compare/opervo-vs-markate',
     type: 'website',
   },
 }

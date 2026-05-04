@@ -5,11 +5,11 @@ import BlogLayout from '@/components/BlogLayout'
 export const metadata: Metadata = {
   title: 'Jobber vs Housecall Pro vs Opervo (2026) — Which One Should You Pick? | Opervo',
   description: 'An honest three-way comparison of Jobber, Housecall Pro, and Opervo for 2026. Detailed pricing, feature-by-feature breakdown, and recommendations by business size for solo contractors and small crews.',
-  alternates: { canonical: 'https://opervo.io/blog/jobber-vs-housecall-pro-vs-opervo' },
+  alternates: { canonical: 'https://www.opervo.io/blog/jobber-vs-housecall-pro-vs-opervo' },
   openGraph: {
     title: 'Jobber vs Housecall Pro vs Opervo (2026) — Which One Should You Pick? | Opervo',
     description: 'Honest three-way comparison of Jobber, Housecall Pro, and Opervo. Pricing, features, and recommendations by business size.',
-    url: 'https://opervo.io/blog/jobber-vs-housecall-pro-vs-opervo',
+    url: 'https://www.opervo.io/blog/jobber-vs-housecall-pro-vs-opervo',
     type: 'article',
   },
 }

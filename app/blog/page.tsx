@@ -6,11 +6,11 @@ import SiteFooter from '@/components/SiteFooter'
 export const metadata: Metadata = {
   title: 'Blog — Field Service Business Tips & Guides | Opervo',
   description: 'Practical guides, pricing breakdowns, and business tips for solo contractors and small field service crews. Learn how to win more jobs and run your trade like a pro.',
-  alternates: { canonical: 'https://opervo.io/blog' },
+  alternates: { canonical: 'https://www.opervo.io/blog' },
   openGraph: {
     title: 'Blog — Field Service Business Tips & Guides | Opervo',
     description: 'Practical guides, pricing breakdowns, and business tips for solo contractors and small field service crews.',
-    url: 'https://opervo.io/blog',
+    url: 'https://www.opervo.io/blog',
     type: 'website',
   },
 }

@@ -5,11 +5,11 @@ import BlogLayout from '@/components/BlogLayout'
 export const metadata: Metadata = {
   title: 'The 7 Cheapest Field Service Management Software Options in 2026 | Opervo',
   description: 'Ranked by actual monthly cost. Compare Opervo, Jobber, GorillaDesk, Housecall Pro, and more. See what you get at every price point and which hidden fees to avoid.',
-  alternates: { canonical: 'https://opervo.io/blog/cheapest-field-service-management-software' },
+  alternates: { canonical: 'https://www.opervo.io/blog/cheapest-field-service-management-software' },
   openGraph: {
     title: 'The 7 Cheapest Field Service Management Software Options in 2026 | Opervo',
     description: 'Ranked by actual cost. See what you get at every price point and which hidden fees to watch for.',
-    url: 'https://opervo.io/blog/cheapest-field-service-management-software',
+    url: 'https://www.opervo.io/blog/cheapest-field-service-management-software',
     type: 'article',
   },
 }

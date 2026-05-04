@@ -5,11 +5,11 @@ import BlogLayout from '@/components/BlogLayout'
 export const metadata: Metadata = {
   title: 'CRM for Fence and Deck Cleaning Businesses | Opervo',
   description: 'Fence and deck cleaning businesses often sell based on visuals, quick quotes, and seasonal demand. A CRM helps keep leads moving while organizing jobs, estim...',
-  alternates: { canonical: 'https://opervo.io/blog/crm-for-fence-and-deck-cleaning-businesses' },
+  alternates: { canonical: 'https://www.opervo.io/blog/crm-for-fence-and-deck-cleaning-businesses' },
   openGraph: {
     title: 'CRM for Fence and Deck Cleaning Businesses | Opervo',
     description: 'Fence and deck cleaning businesses often sell based on visuals, quick quotes, and seasonal demand. A CRM helps keep leads moving while organizing jobs, estim...',
-    url: 'https://opervo.io/blog/crm-for-fence-and-deck-cleaning-businesses',
+    url: 'https://www.opervo.io/blog/crm-for-fence-and-deck-cleaning-businesses',
     type: 'article',
   },
 }

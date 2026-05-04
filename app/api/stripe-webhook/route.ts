@@ -184,7 +184,7 @@ export async function POST(req: NextRequest) {
             <tr><td style="padding:6px 16px 6px 0;color:#6B6B6B;font-weight:600;">Amount Paid</td><td>$${order.price_paid.toFixed(2)}</td></tr>
           </table>
           <p style="margin-top:20px;color:#6B6B6B;font-size:13px;">Proof email sent to customer. Waiting for approval.</p>
-          <p><a href="https://opervo.io/print/order/${esc(order.approval_token)}" style="color:#F5620F;">View order page →</a></p>
+          <p><a href="https://www.opervo.io/print/order/${esc(order.approval_token)}" style="color:#F5620F;">View order page →</a></p>
         `,
       }),
     })

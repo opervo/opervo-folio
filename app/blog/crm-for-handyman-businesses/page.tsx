@@ -5,11 +5,11 @@ import BlogLayout from '@/components/BlogLayout'
 export const metadata: Metadata = {
   title: 'CRM for Handyman Businesses | Opervo',
   description: 'Handyman businesses handle a wide range of small jobs, which means scheduling, quoting, notes, and follow up can get disorganized quickly. A CRM helps keep e...',
-  alternates: { canonical: 'https://opervo.io/blog/crm-for-handyman-businesses' },
+  alternates: { canonical: 'https://www.opervo.io/blog/crm-for-handyman-businesses' },
   openGraph: {
     title: 'CRM for Handyman Businesses | Opervo',
     description: 'Handyman businesses handle a wide range of small jobs, which means scheduling, quoting, notes, and follow up can get disorganized quickly. A CRM helps keep e...',
-    url: 'https://opervo.io/blog/crm-for-handyman-businesses',
+    url: 'https://www.opervo.io/blog/crm-for-handyman-businesses',
     type: 'article',
   },
 }

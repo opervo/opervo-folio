@@ -5,11 +5,11 @@ import BlogLayout from '@/components/BlogLayout'
 export const metadata: Metadata = {
   title: 'CRM for Junk Removal Businesses | Opervo',
   description: 'Junk removal businesses move fast. A CRM helps manage leads, schedule jobs, send estimates, invoice customers, and keep records organized so nothing slips th...',
-  alternates: { canonical: 'https://opervo.io/blog/crm-for-junk-removal-businesses' },
+  alternates: { canonical: 'https://www.opervo.io/blog/crm-for-junk-removal-businesses' },
   openGraph: {
     title: 'CRM for Junk Removal Businesses | Opervo',
     description: 'Junk removal businesses move fast. A CRM helps manage leads, schedule jobs, send estimates, invoice customers, and keep records organized so nothing slips th...',
-    url: 'https://opervo.io/blog/crm-for-junk-removal-businesses',
+    url: 'https://www.opervo.io/blog/crm-for-junk-removal-businesses',
     type: 'article',
   },
 }

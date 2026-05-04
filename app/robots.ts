@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/api/', '/p/*/edit'],
       },
     ],
-    sitemap: 'https://opervo.io/sitemap.xml',
+    sitemap: 'https://www.opervo.io/sitemap.xml',
   }
 }

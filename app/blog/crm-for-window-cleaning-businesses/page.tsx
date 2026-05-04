@@ -5,11 +5,11 @@ import BlogLayout from '@/components/BlogLayout'
 export const metadata: Metadata = {
   title: 'CRM for Window Cleaning Businesses | Opervo',
   description: 'Window cleaning businesses live on consistency. If you miss follow ups, forget pricing, or lose track of which properties need recurring service, growth gets...',
-  alternates: { canonical: 'https://opervo.io/blog/crm-for-window-cleaning-businesses' },
+  alternates: { canonical: 'https://www.opervo.io/blog/crm-for-window-cleaning-businesses' },
   openGraph: {
     title: 'CRM for Window Cleaning Businesses | Opervo',
     description: 'Window cleaning businesses live on consistency. If you miss follow ups, forget pricing, or lose track of which properties need recurring service, growth gets...',
-    url: 'https://opervo.io/blog/crm-for-window-cleaning-businesses',
+    url: 'https://www.opervo.io/blog/crm-for-window-cleaning-businesses',
     type: 'article',
   },
 }

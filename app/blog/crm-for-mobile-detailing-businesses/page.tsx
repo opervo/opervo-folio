@@ -5,11 +5,11 @@ import BlogLayout from '@/components/BlogLayout'
 export const metadata: Metadata = {
   title: 'CRM for Mobile Detailing Businesses | Opervo',
   description: 'Mobile detailing businesses need tight scheduling, strong customer communication, and repeat booking systems. A CRM helps you keep client details, vehicle no...',
-  alternates: { canonical: 'https://opervo.io/blog/crm-for-mobile-detailing-businesses' },
+  alternates: { canonical: 'https://www.opervo.io/blog/crm-for-mobile-detailing-businesses' },
   openGraph: {
     title: 'CRM for Mobile Detailing Businesses | Opervo',
     description: 'Mobile detailing businesses need tight scheduling, strong customer communication, and repeat booking systems. A CRM helps you keep client details, vehicle no...',
-    url: 'https://opervo.io/blog/crm-for-mobile-detailing-businesses',
+    url: 'https://www.opervo.io/blog/crm-for-mobile-detailing-businesses',
     type: 'article',
   },
 }

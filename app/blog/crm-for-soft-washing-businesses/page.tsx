@@ -5,11 +5,11 @@ import BlogLayout from '@/components/BlogLayout'
 export const metadata: Metadata = {
   title: 'CRM for Soft Washing Businesses | Opervo',
   description: 'Soft washing businesses need efficient lead handling, clean scheduling, and a way to track recurring exterior maintenance opportunities. A CRM helps you mana...',
-  alternates: { canonical: 'https://opervo.io/blog/crm-for-soft-washing-businesses' },
+  alternates: { canonical: 'https://www.opervo.io/blog/crm-for-soft-washing-businesses' },
   openGraph: {
     title: 'CRM for Soft Washing Businesses | Opervo',
     description: 'Soft washing businesses need efficient lead handling, clean scheduling, and a way to track recurring exterior maintenance opportunities. A CRM helps you mana...',
-    url: 'https://opervo.io/blog/crm-for-soft-washing-businesses',
+    url: 'https://www.opervo.io/blog/crm-for-soft-washing-businesses',
     type: 'article',
   },
 }

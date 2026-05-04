@@ -2,8 +2,8 @@ export default function TermsOfService() {
   return (
     <div style={{fontFamily:"'Barlow',sans-serif",background:"#F7F5F2",minHeight:"100vh",color:"#1a1a1a"}}>
       <header style={{background:"#fff",borderBottom:"1px solid #E8E4DE",padding:"20px 24px",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
-        <a href="https://opervo.io" style={{fontFamily:"'Barlow Condensed',sans-serif",fontWeight:900,fontSize:22,color:"#0F0F0F",textDecoration:"none"}}>Opervo<span style={{color:"#F5620F"}}>.</span></a>
-        <a href="https://opervo.io" style={{fontSize:14,color:"#6B6B6B",textDecoration:"none"}}>Back to Opervo</a>
+        <a href="https://www.opervo.io" style={{fontFamily:"'Barlow Condensed',sans-serif",fontWeight:900,fontSize:22,color:"#0F0F0F",textDecoration:"none"}}>Opervo<span style={{color:"#F5620F"}}>.</span></a>
+        <a href="https://www.opervo.io" style={{fontSize:14,color:"#6B6B6B",textDecoration:"none"}}>Back to Opervo</a>
       </header>
       <div style={{maxWidth:760,margin:"0 auto",padding:"56px 24px 80px"}}>
         <h1 style={{fontFamily:"'Barlow Condensed',sans-serif",fontWeight:900,fontSize:36,color:"#0F0F0F",marginBottom:8}}>Terms of Service</h1>

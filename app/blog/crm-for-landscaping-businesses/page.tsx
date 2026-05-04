@@ -5,11 +5,11 @@ import BlogLayout from '@/components/BlogLayout'
 export const metadata: Metadata = {
   title: 'CRM for Landscaping Businesses | Opervo',
   description: 'Landscaping businesses juggle recurring maintenance, one time projects, seasonal swings, and customer communication. A CRM helps bring that complexity into o...',
-  alternates: { canonical: 'https://opervo.io/blog/crm-for-landscaping-businesses' },
+  alternates: { canonical: 'https://www.opervo.io/blog/crm-for-landscaping-businesses' },
   openGraph: {
     title: 'CRM for Landscaping Businesses | Opervo',
     description: 'Landscaping businesses juggle recurring maintenance, one time projects, seasonal swings, and customer communication. A CRM helps bring that complexity into o...',
-    url: 'https://opervo.io/blog/crm-for-landscaping-businesses',
+    url: 'https://www.opervo.io/blog/crm-for-landscaping-businesses',
     type: 'article',
   },
 }

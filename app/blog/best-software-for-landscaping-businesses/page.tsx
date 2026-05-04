@@ -5,11 +5,11 @@ import BlogLayout from '@/components/BlogLayout'
 export const metadata: Metadata = {
   title: 'Best Software for Landscaping Businesses (2026) — 5 Apps Ranked | Opervo',
   description: 'We ranked the 5 best software tools for landscaping businesses in 2026. Compared pricing, recurring job scheduling, crew management, and portfolio features.',
-  alternates: { canonical: 'https://opervo.io/blog/best-software-for-landscaping-businesses' },
+  alternates: { canonical: 'https://www.opervo.io/blog/best-software-for-landscaping-businesses' },
   openGraph: {
     title: 'Best Software for Landscaping Businesses (2026) — 5 Apps Ranked | Opervo',
     description: 'The 5 best apps for landscaping businesses ranked by price, recurring scheduling, and real-world usability.',
-    url: 'https://opervo.io/blog/best-software-for-landscaping-businesses',
+    url: 'https://www.opervo.io/blog/best-software-for-landscaping-businesses',
     type: 'article',
   },
 }

@@ -5,11 +5,11 @@ import BlogLayout from '@/components/BlogLayout'
 export const metadata: Metadata = {
   title: 'CRM for Solar Panel Cleaning Businesses | Opervo',
   description: 'Solar panel cleaning businesses often grow from referrals, recurring service, and fast response times. Once you start managing more than a few customers, man...',
-  alternates: { canonical: 'https://opervo.io/blog/crm-for-solar-panel-cleaning-businesses' },
+  alternates: { canonical: 'https://www.opervo.io/blog/crm-for-solar-panel-cleaning-businesses' },
   openGraph: {
     title: 'CRM for Solar Panel Cleaning Businesses | Opervo',
     description: 'Solar panel cleaning businesses often grow from referrals, recurring service, and fast response times. Once you start managing more than a few customers, man...',
-    url: 'https://opervo.io/blog/crm-for-solar-panel-cleaning-businesses',
+    url: 'https://www.opervo.io/blog/crm-for-solar-panel-cleaning-businesses',
     type: 'article',
   },
 }

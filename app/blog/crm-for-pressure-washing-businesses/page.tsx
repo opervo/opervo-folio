@@ -5,11 +5,11 @@ import BlogLayout from '@/components/BlogLayout'
 export const metadata: Metadata = {
   title: 'CRM for Pressure Washing Businesses | Opervo',
   description: 'Pressure washing businesses need speed. Leads come in quickly, estimates are often time sensitive, and route efficiency matters. A CRM helps you keep the ope...',
-  alternates: { canonical: 'https://opervo.io/blog/crm-for-pressure-washing-businesses' },
+  alternates: { canonical: 'https://www.opervo.io/blog/crm-for-pressure-washing-businesses' },
   openGraph: {
     title: 'CRM for Pressure Washing Businesses | Opervo',
     description: 'Pressure washing businesses need speed. Leads come in quickly, estimates are often time sensitive, and route efficiency matters. A CRM helps you keep the ope...',
-    url: 'https://opervo.io/blog/crm-for-pressure-washing-businesses',
+    url: 'https://www.opervo.io/blog/crm-for-pressure-washing-businesses',
     type: 'article',
   },
 }

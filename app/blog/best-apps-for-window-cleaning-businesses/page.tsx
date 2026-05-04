@@ -5,11 +5,11 @@ import BlogLayout from '@/components/BlogLayout'
 export const metadata: Metadata = {
   title: 'Best Apps for Window Cleaning Businesses (2026) — 5 Tools Ranked | Opervo',
   description: 'Ranked list of the best apps for window cleaning businesses in 2026. Compare Opervo, Jobber, GorillaDesk, Housecall Pro, and Squeegee by pricing, features, portfolio tools, and route planning.',
-  alternates: { canonical: 'https://opervo.io/blog/best-apps-for-window-cleaning-businesses' },
+  alternates: { canonical: 'https://www.opervo.io/blog/best-apps-for-window-cleaning-businesses' },
   openGraph: {
     title: 'Best Apps for Window Cleaning Businesses (2026) — 5 Tools Ranked | Opervo',
     description: 'Ranked list of the best apps for window cleaning businesses in 2026. Compare pricing, features, portfolio tools, and route planning.',
-    url: 'https://opervo.io/blog/best-apps-for-window-cleaning-businesses',
+    url: 'https://www.opervo.io/blog/best-apps-for-window-cleaning-businesses',
     type: 'article',
   },
 }

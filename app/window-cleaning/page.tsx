@@ -4,11 +4,11 @@ import TradeLandingPage, { type TradePageConfig } from '@/components/TradeLandin
 export const metadata: Metadata = {
   title: 'Window Cleaning Software — Routes, Recurring Agreements, Folio | Opervo',
   description: 'Run your window cleaning routes from your phone. Recurring monthly/quarterly agreements that auto-bill, before/after photos that auto-publish to your folio, route optimization for 12+ daily stops. $24.99/mo. 14-day free trial.',
-  alternates: { canonical: 'https://opervo.io/window-cleaning' },
+  alternates: { canonical: 'https://www.opervo.io/window-cleaning' },
   openGraph: {
     title: 'Window Cleaning Software — Opervo',
     description: 'Recurring routes, e-signed agreements, before/after photos to your folio, one-tap route optimization. $24.99/mo all-in.',
-    url: 'https://opervo.io/window-cleaning',
+    url: 'https://www.opervo.io/window-cleaning',
     type: 'website',
   },
 }

@@ -5,11 +5,11 @@ import BlogLayout from '@/components/BlogLayout'
 export const metadata: Metadata = {
   title: 'CRM for Pool Service Businesses | Opervo',
   description: 'Pool service businesses run on consistency. Weekly routes, service notes, customer communication, and invoicing all need to happen smoothly. A CRM helps you ...',
-  alternates: { canonical: 'https://opervo.io/blog/crm-for-pool-service-businesses' },
+  alternates: { canonical: 'https://www.opervo.io/blog/crm-for-pool-service-businesses' },
   openGraph: {
     title: 'CRM for Pool Service Businesses | Opervo',
     description: 'Pool service businesses run on consistency. Weekly routes, service notes, customer communication, and invoicing all need to happen smoothly. A CRM helps you ...',
-    url: 'https://opervo.io/blog/crm-for-pool-service-businesses',
+    url: 'https://www.opervo.io/blog/crm-for-pool-service-businesses',
     type: 'article',
   },
 }

@@ -5,11 +5,11 @@ import BlogLayout from '@/components/BlogLayout'
 export const metadata: Metadata = {
   title: 'Do Small Contractors Need a CRM? (Honest Answer) | Opervo',
   description: 'Find out when a CRM actually makes sense for solo contractors and small service businesses — and when you can skip it. Real math, no hype.',
-  alternates: { canonical: 'https://opervo.io/blog/do-small-contractors-need-crm' },
+  alternates: { canonical: 'https://www.opervo.io/blog/do-small-contractors-need-crm' },
   openGraph: {
     title: 'Do Small Contractors Need a CRM? (Honest Answer) | Opervo',
     description: 'When a CRM makes sense for solo contractors — and when you can skip it. Real math, no hype.',
-    url: 'https://opervo.io/blog/do-small-contractors-need-crm',
+    url: 'https://www.opervo.io/blog/do-small-contractors-need-crm',
     type: 'article',
   },
 }

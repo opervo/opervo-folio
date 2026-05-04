@@ -5,11 +5,11 @@ import BlogLayout from '@/components/BlogLayout'
 export const metadata: Metadata = {
   title: 'CRM for RV and Boat Cleaning Businesses | Opervo',
   description: 'RV and boat cleaning businesses rely on customer trust, clear service history, and flexible scheduling. A CRM helps you manage mobile appointments, track not...',
-  alternates: { canonical: 'https://opervo.io/blog/crm-for-rv-and-boat-cleaning-businesses' },
+  alternates: { canonical: 'https://www.opervo.io/blog/crm-for-rv-and-boat-cleaning-businesses' },
   openGraph: {
     title: 'CRM for RV and Boat Cleaning Businesses | Opervo',
     description: 'RV and boat cleaning businesses rely on customer trust, clear service history, and flexible scheduling. A CRM helps you manage mobile appointments, track not...',
-    url: 'https://opervo.io/blog/crm-for-rv-and-boat-cleaning-businesses',
+    url: 'https://www.opervo.io/blog/crm-for-rv-and-boat-cleaning-businesses',
     type: 'article',
   },
 }

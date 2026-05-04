@@ -5,11 +5,11 @@ import BlogLayout from '@/components/BlogLayout'
 export const metadata: Metadata = {
   title: 'CRM for Commercial Cleaning Businesses | Opervo',
   description: 'Commercial cleaning businesses have more moving parts than most service businesses. Multiple locations, recurring schedules, employee coordination, and accou...',
-  alternates: { canonical: 'https://opervo.io/blog/crm-for-commercial-cleaning-businesses' },
+  alternates: { canonical: 'https://www.opervo.io/blog/crm-for-commercial-cleaning-businesses' },
   openGraph: {
     title: 'CRM for Commercial Cleaning Businesses | Opervo',
     description: 'Commercial cleaning businesses have more moving parts than most service businesses. Multiple locations, recurring schedules, employee coordination, and accou...',
-    url: 'https://opervo.io/blog/crm-for-commercial-cleaning-businesses',
+    url: 'https://www.opervo.io/blog/crm-for-commercial-cleaning-businesses',
     type: 'article',
   },
 }

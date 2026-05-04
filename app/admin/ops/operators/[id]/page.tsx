@@ -197,7 +197,7 @@ export default async function OperatorDetailPage({ params }: PageProps) {
           />
           {profile.slug && (
             <ActionLink
-              href={`https://opervo.io/p/${profile.slug}`}
+              href={`https://www.opervo.io/p/${profile.slug}`}
               external
               label="🌐 View Folio"
               sub={`opervo.io/p/${profile.slug}`}

@@ -8,11 +8,11 @@ import TradesMention from '@/components/TradesMention'
 export const metadata: Metadata = {
   title: 'Opervo vs GorillaDesk — Which Is Better for Solo Contractors? | Opervo',
   description: 'Compare Opervo and GorillaDesk side by side. Opervo starts at $24.99/mo vs GorillaDesk at $49+/mo. See which field service app is better for solo operators and small crews.',
-  alternates: { canonical: 'https://opervo.io/compare/opervo-vs-gorilladesk' },
+  alternates: { canonical: 'https://www.opervo.io/compare/opervo-vs-gorilladesk' },
   openGraph: {
     title: 'Opervo vs GorillaDesk — Honest Comparison',
     description: 'Opervo starts at $24.99/mo. GorillaDesk starts at $49/mo. See the full feature-by-feature breakdown.',
-    url: 'https://opervo.io/compare/opervo-vs-gorilladesk',
+    url: 'https://www.opervo.io/compare/opervo-vs-gorilladesk',
     type: 'website',
   },
 }

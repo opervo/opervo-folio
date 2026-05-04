@@ -5,11 +5,11 @@ import BlogLayout from '@/components/BlogLayout'
 export const metadata: Metadata = {
   title: 'CRM for Irrigation Businesses | Opervo',
   description: 'Irrigation businesses often handle seasonal startups, repairs, maintenance, and recurring service. A CRM helps you manage that mix while keeping customer det...',
-  alternates: { canonical: 'https://opervo.io/blog/crm-for-irrigation-businesses' },
+  alternates: { canonical: 'https://www.opervo.io/blog/crm-for-irrigation-businesses' },
   openGraph: {
     title: 'CRM for Irrigation Businesses | Opervo',
     description: 'Irrigation businesses often handle seasonal startups, repairs, maintenance, and recurring service. A CRM helps you manage that mix while keeping customer det...',
-    url: 'https://opervo.io/blog/crm-for-irrigation-businesses',
+    url: 'https://www.opervo.io/blog/crm-for-irrigation-businesses',
     type: 'article',
   },
 }

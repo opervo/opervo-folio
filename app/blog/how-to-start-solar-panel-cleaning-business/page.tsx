@@ -5,11 +5,11 @@ import BlogLayout from '@/components/BlogLayout'
 export const metadata: Metadata = {
   title: 'How to Start a Solar Panel Cleaning Business in 2026 (Step-by-Step) | Opervo',
   description: 'Everything you need to launch a solar panel cleaning business: equipment costs ($500-$2,000), pricing strategies, how to find clients, and the software to manage it all.',
-  alternates: { canonical: 'https://opervo.io/blog/how-to-start-solar-panel-cleaning-business' },
+  alternates: { canonical: 'https://www.opervo.io/blog/how-to-start-solar-panel-cleaning-business' },
   openGraph: {
     title: 'How to Start a Solar Panel Cleaning Business in 2026 (Step-by-Step) | Opervo',
     description: 'Equipment costs, pricing strategies, finding clients, and the software to run a solar panel cleaning business.',
-    url: 'https://opervo.io/blog/how-to-start-solar-panel-cleaning-business',
+    url: 'https://www.opervo.io/blog/how-to-start-solar-panel-cleaning-business',
     type: 'article',
   },
 }

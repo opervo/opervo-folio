@@ -70,7 +70,7 @@ export async function GET() {
       return { ok: r.ok, detail: r.ok ? "Delivering" : `HTTP ${r.status}` };
     }),
     probe("Vercel (folio)", async () => {
-      const r = await fetch("https://opervo.io", { cache: "no-store" });
+      const r = await fetch("https://www.opervo.io", { cache: "no-store" });
       return { ok: r.ok, detail: `HTTP ${r.status}` };
     }),
     probe("Netlify (app)", async () => {

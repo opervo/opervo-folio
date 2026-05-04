@@ -5,11 +5,11 @@ import BlogLayout from '@/components/BlogLayout'
 export const metadata: Metadata = {
   title: 'CRM for Plumbing Businesses | Opervo',
   description: 'Plumbing businesses deal with urgent jobs, estimates, repeat service, and customer trust. A CRM helps keep all of that organized while making it easier to ma...',
-  alternates: { canonical: 'https://opervo.io/blog/crm-for-plumbing-businesses' },
+  alternates: { canonical: 'https://www.opervo.io/blog/crm-for-plumbing-businesses' },
   openGraph: {
     title: 'CRM for Plumbing Businesses | Opervo',
     description: 'Plumbing businesses deal with urgent jobs, estimates, repeat service, and customer trust. A CRM helps keep all of that organized while making it easier to ma...',
-    url: 'https://opervo.io/blog/crm-for-plumbing-businesses',
+    url: 'https://www.opervo.io/blog/crm-for-plumbing-businesses',
     type: 'article',
   },
 }

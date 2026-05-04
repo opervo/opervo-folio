@@ -34,7 +34,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Stripe not configured' }, { status: 500 })
     }
 
-    const baseUrl = 'https://opervo.io'
+    const baseUrl = 'https://www.opervo.io'
 
     // Build form data for Stripe checkout session
     const params = new URLSearchParams()

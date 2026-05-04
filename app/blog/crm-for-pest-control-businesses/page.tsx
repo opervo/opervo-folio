@@ -5,11 +5,11 @@ import BlogLayout from '@/components/BlogLayout'
 export const metadata: Metadata = {
   title: 'CRM for Pest Control Businesses | Opervo',
   description: 'Pest control businesses often depend on recurring service plans, detailed property notes, and timely communication. A CRM helps you keep those pieces organiz...',
-  alternates: { canonical: 'https://opervo.io/blog/crm-for-pest-control-businesses' },
+  alternates: { canonical: 'https://www.opervo.io/blog/crm-for-pest-control-businesses' },
   openGraph: {
     title: 'CRM for Pest Control Businesses | Opervo',
     description: 'Pest control businesses often depend on recurring service plans, detailed property notes, and timely communication. A CRM helps you keep those pieces organiz...',
-    url: 'https://opervo.io/blog/crm-for-pest-control-businesses',
+    url: 'https://www.opervo.io/blog/crm-for-pest-control-businesses',
     type: 'article',
   },
 }

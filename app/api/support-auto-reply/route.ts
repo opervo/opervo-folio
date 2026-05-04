@@ -43,7 +43,7 @@ const SUPPORT_AUTO_REPLY_HTML = (senderName: string) => `
         Opervo — Look pro. Win jobs.
       </p>
       <p style="margin:4px 0 0;font-size:11px;color:#9ca3af;">
-        <a href="https://opervo.io" style="color:#9ca3af;text-decoration:none;">opervo.io</a>
+        <a href="https://www.opervo.io" style="color:#9ca3af;text-decoration:none;">opervo.io</a>
       </p>
     </div>
   </div>
