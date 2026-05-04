@@ -48,6 +48,7 @@ export type TradePageConfig = {
 
 export default function TradeLandingPage({ config }: { config: TradePageConfig }) {
   const c = config
+  const pageUrl = `https://www.opervo.io/${c.slug}`
   const jsonLd = [
     {
       '@context': 'https://schema.org',
@@ -56,6 +57,34 @@ export default function TradeLandingPage({ config }: { config: TradePageConfig }
       applicationCategory: 'BusinessApplication',
       operatingSystem: 'Web, iOS, Android',
       offers: { '@type': 'Offer', price: '24.99', priceCurrency: 'USD' },
+    },
+    // Service entity for long-tail intent: "{trade} software", "{trade} app",
+    // and "{trade} CRM" queries. Provider links to the Organization defined
+    // by @id on the homepage so Google can stitch the entity graph together.
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: `${c.trade} Software`,
+      serviceType: `${c.trade} Software`,
+      description: c.metaDescription,
+      url: pageUrl,
+      areaServed: { '@type': 'Country', name: 'United States' },
+      provider: { '@id': 'https://www.opervo.io/#organization' },
+      offers: {
+        '@type': 'Offer',
+        price: '24.99',
+        priceCurrency: 'USD',
+        priceSpecification: {
+          '@type': 'UnitPriceSpecification',
+          price: '24.99',
+          priceCurrency: 'USD',
+          referenceQuantity: { '@type': 'QuantitativeValue', value: 1, unitCode: 'MON' },
+        },
+      },
+      audience: {
+        '@type': 'BusinessAudience',
+        audienceType: `Solo and small-crew ${c.trade.toLowerCase()} operators`,
+      },
     },
     {
       '@context': 'https://schema.org',
