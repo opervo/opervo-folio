@@ -4,6 +4,13 @@ export const metadata: Metadata = {
   title: "Support — Opervo",
   description:
     "Get help with Opervo. Email help@opervo.io for any question about jobs, invoices, billing, or your account. Real human reply, typically within one business day.",
+  alternates: { canonical: "https://www.opervo.io/support" },
+  openGraph: {
+    title: "Support — Opervo",
+    description: "Email help@opervo.io for any question about your Opervo account. Real human reply within one business day.",
+    url: "https://www.opervo.io/support",
+    type: "website",
+  },
 };
 
 const FAQ: Array<[string, string]> = [

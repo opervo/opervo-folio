@@ -1025,47 +1025,67 @@ svg.ic {
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Opervo",
-    "applicationCategory": "BusinessApplication",
-    "operatingSystem": "Web, iOS, Android",
-    "description": "Mobile-first field service management app for solo trade operators. Jobs, estimates, invoices, scheduling, client portal, and a live portfolio page.",
-    "url": "https://www.opervo.io",
-    "offers": [
+    "@graph": [
       {
-        "@type": "Offer",
-        "name": "Solo Plan (Monthly)",
-        "price": "24.99",
-        "priceCurrency": "USD",
-        "url": "https://www.opervo.io/pricing"
+        "@type": "Organization",
+        "@id": "https://www.opervo.io/#organization",
+        "name": "Opervo",
+        "alternateName": ["Opervo.io", "Opervo App"],
+        "url": "https://www.opervo.io",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.opervo.io/og-image.png",
+          "width": 1200,
+          "height": 630
+        },
+        "description": "Field service management software for solo home-service operators — window cleaners, pressure washers, landscapers, and other trades.",
+        "founder": {
+          "@type": "Person",
+          "name": "Maximiliano Ballesteros"
+        },
+        "foundingLocation": {
+          "@type": "Place",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Austin",
+            "addressRegion": "TX",
+            "addressCountry": "US"
+          }
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "help@opervo.io",
+          "contactType": "customer support",
+          "availableLanguage": "English"
+        },
+        "sameAs": [
+          "https://app.opervo.io"
+        ]
       },
       {
-        "@type": "Offer",
-        "name": "Solo Plan (Annual)",
-        "price": "249.00",
-        "priceCurrency": "USD",
-        "url": "https://www.opervo.io/pricing"
+        "@type": "WebSite",
+        "@id": "https://www.opervo.io/#website",
+        "url": "https://www.opervo.io",
+        "name": "Opervo",
+        "publisher": { "@id": "https://www.opervo.io/#organization" }
       },
       {
-        "@type": "Offer",
-        "name": "Team Plan (Monthly)",
-        "price": "54.99",
-        "priceCurrency": "USD",
-        "url": "https://www.opervo.io/pricing"
-      },
-      {
-        "@type": "Offer",
-        "name": "Team Plan (Annual)",
-        "price": "549.00",
-        "priceCurrency": "USD",
-        "url": "https://www.opervo.io/pricing"
+        "@type": "SoftwareApplication",
+        "@id": "https://www.opervo.io/#software",
+        "name": "Opervo",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web, iOS, Android",
+        "description": "Mobile-first field service management app for solo trade operators. Jobs, estimates, invoices, scheduling, client portal, and a live portfolio page.",
+        "url": "https://www.opervo.io",
+        "publisher": { "@id": "https://www.opervo.io/#organization" },
+        "offers": [
+          { "@type": "Offer", "name": "Solo Plan (Monthly)", "price": "24.99", "priceCurrency": "USD", "url": "https://www.opervo.io/pricing" },
+          { "@type": "Offer", "name": "Solo Plan (Annual)",  "price": "249.00", "priceCurrency": "USD", "url": "https://www.opervo.io/pricing" },
+          { "@type": "Offer", "name": "Team Plan (Monthly)", "price": "54.99", "priceCurrency": "USD", "url": "https://www.opervo.io/pricing" },
+          { "@type": "Offer", "name": "Team Plan (Annual)",  "price": "549.00", "priceCurrency": "USD", "url": "https://www.opervo.io/pricing" }
+        ]
       }
-    ],
-    "creator": {
-      "@type": "Organization",
-      "name": "Opervo",
-      "url": "https://www.opervo.io"
-    }
+    ]
   }
   </script>
 </head>

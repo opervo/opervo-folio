@@ -1,3 +1,17 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Terms of Service — Opervo',
+  description: 'The terms of using Opervo: subscription, billing, refunds, acceptable use, and account responsibilities for solo home-service operators.',
+  alternates: { canonical: 'https://www.opervo.io/tos' },
+  openGraph: {
+    title: 'Terms of Service — Opervo',
+    description: 'Plain-English terms for Opervo: subscription, billing, refunds, acceptable use.',
+    url: 'https://www.opervo.io/tos',
+    type: 'website',
+  },
+};
+
 export default function TermsOfService() {
   return (
     <div style={{fontFamily:"'Barlow',sans-serif",background:"#F7F5F2",minHeight:"100vh",color:"#1a1a1a"}}>

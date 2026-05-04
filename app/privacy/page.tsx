@@ -1,3 +1,17 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy — Opervo',
+  description: 'How Opervo collects, uses, and protects your information. Plain-English data, SMS, and Google API privacy practices for solo home-service operators.',
+  alternates: { canonical: 'https://www.opervo.io/privacy' },
+  openGraph: {
+    title: 'Privacy Policy — Opervo',
+    description: 'Plain-English privacy policy for Opervo: what we collect, how we use it, who we share with.',
+    url: 'https://www.opervo.io/privacy',
+    type: 'website',
+  },
+};
+
 export default function PrivacyPolicy() {
   return (
     <div style={{fontFamily:"'Barlow',sans-serif",background:"#F7F5F2",minHeight:"100vh",color:"#1a1a1a"}}>
