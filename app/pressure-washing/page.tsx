@@ -71,6 +71,23 @@ const config: TradePageConfig = {
     { q: 'I\'m on Jobber/Housecall Pro/Markate now. How hard is the switch?', a: 'Take 10 minutes. CSV import handles Jobber, Housecall Pro, ServiceTitan, QuickBooks, and Google Contacts with auto-column mapping and duplicate detection. You\'re live by lunch.' },
   ],
   finalCtaH2: 'Stop juggling apps.<br />Start running washes.',
+  relatedPosts: [
+    {
+      href: '/blog/best-software-for-pressure-washing-businesses',
+      title: 'The best software for pressure washing businesses',
+      blurb: 'Side-by-side breakdown of the 6 most-used pressure washing CRMs — what each gets right, what they\'re missing, and where Opervo fits.',
+    },
+    {
+      href: '/blog/crm-for-pressure-washing-businesses',
+      title: 'A CRM built for pressure washing operators',
+      blurb: 'Why generic field-service CRMs fail wash-day reality, and what a CRM purpose-built for pressure washers actually tracks.',
+    },
+    {
+      href: '/blog/crm-for-soft-washing-businesses',
+      title: 'CRM for soft washing businesses — chem cost included',
+      blurb: 'How to track SH ratio, surfactant usage, and chemical cost per soft wash job so every quote is profitable.',
+    },
+  ],
 }
 
 export default function PressureWashing() {

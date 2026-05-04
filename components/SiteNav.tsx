@@ -16,6 +16,7 @@ const comparisons = [
   { name: 'Opervo vs Housecall Pro', href: '/compare/opervo-vs-housecall-pro' },
   { name: 'Opervo vs GorillaDesk', href: '/compare/opervo-vs-gorilladesk' },
   { name: 'Opervo vs Markate', href: '/compare/opervo-vs-markate' },
+  { name: 'Opervo vs ServiceWizard', href: '/compare/servicewizard' },
 ]
 
 const resources = [

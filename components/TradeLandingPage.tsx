@@ -9,6 +9,7 @@ export type TradeStat = { stat: string; label: string }
 export type TradeRow = { feature: string; opervo: string; jobber: string; housecall: string; gorilla: string; markate: string }
 export type TradeFAQ = { q: string; a: string }
 export type TradePricingCard = { name: string; price: string; sub: string; highlight?: boolean }
+export type TradeRelatedPost = { href: string; title: string; blurb: string }
 
 export type TradePageConfig = {
   slug: string // e.g. "pressure-washing"
@@ -39,6 +40,10 @@ export type TradePageConfig = {
   finalCtaH2: string // e.g. "Stop juggling apps.\nStart running washes."
   // Schema
   schemaName: string // e.g. "Opervo for Pressure Washing"
+  // Optional: 2-3 contextual blog links rendered between FAQ and OtherTrades.
+  // Use to funnel internal-link equity from the trade page to topic-cluster
+  // blog posts that already rank for related queries.
+  relatedPosts?: TradeRelatedPost[]
 }
 
 export default function TradeLandingPage({ config }: { config: TradePageConfig }) {
@@ -245,6 +250,23 @@ export default function TradeLandingPage({ config }: { config: TradePageConfig }
           </div>
         ))}
       </section>
+
+      {/* Related blog posts (optional, populated per trade) */}
+      {c.relatedPosts && c.relatedPosts.length > 0 && (
+        <section style={{ maxWidth: 800, margin: '0 auto', padding: '0 24px 64px' }}>
+          <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 24, color: '#0F0F0F', textTransform: 'uppercase', textAlign: 'center', marginBottom: 32, letterSpacing: '-0.5px' }}>
+            Further Reading
+          </h2>
+          <div style={{ display: 'grid', gap: 16 }}>
+            {c.relatedPosts.map((p) => (
+              <a key={p.href} href={p.href} style={{ display: 'block', padding: '20px 22px', background: '#fff', border: '1px solid #E8E4DE', borderRadius: 10, textDecoration: 'none' }}>
+                <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 17, color: '#F5620F', marginBottom: 6 }}>{p.title} →</h3>
+                <p style={{ fontSize: 14, color: '#6B6B6B', lineHeight: 1.55, margin: 0 }}>{p.blurb}</p>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
 
       <OtherTrades exclude={`/${c.slug}`} />
 
