@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import TradeLandingPage, { type TradePageConfig } from '@/components/TradeLandingPage'
 
 export const metadata: Metadata = {
-  title: 'Landscaping Software — Mow-Day Routes, Maintenance Agreements, Mulch Cost | Opervo',
+  title: 'Landscaping Software for Solo Crews — Opervo',
   description: 'The app for solo landscapers and small crews. Mow-day route optimization for 25+ stops, e-signed maintenance agreements that auto-bill, mulch and fuel cost on every job. $24.99/mo. 14-day free trial.',
   alternates: { canonical: 'https://www.opervo.io/landscaping' },
   openGraph: {

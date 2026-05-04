@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Opervo vs ServiceWizard — Comparison for Field Service Operators',
+  title: 'Opervo vs ServiceWizard — Field Service Comparison',
   description:
     'Compare Opervo and ServiceWizard side by side. See which field service app gives you invoicing, scheduling, a live portfolio, and review automation — all for $24.99/mo.',
   alternates: { canonical: 'https://www.opervo.io/compare/servicewizard' },

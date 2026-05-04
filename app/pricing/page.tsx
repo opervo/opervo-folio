@@ -6,7 +6,7 @@ import ComparisonLinks from '@/components/ComparisonLinks'
 import PricingCards from './PricingCards'
 
 export const metadata: Metadata = {
-  title: 'Pricing — Opervo | Solo $24.99/mo or $249/yr, Team $54.99/mo or $549/yr',
+  title: 'Pricing — Opervo | Solo $24.99/mo, Team $54.99/mo',
   description: 'Simple, transparent pricing. Solo $24.99/mo or $249/yr (save $51). Team $54.99/mo or $549/yr (save $111). All features included. 14-day free trial, no credit card required.',
   alternates: { canonical: 'https://www.opervo.io/pricing' },
   openGraph: {

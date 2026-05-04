@@ -4,7 +4,7 @@ import SiteNav from '@/components/SiteNav'
 import SiteFooter from '@/components/SiteFooter'
 
 export const metadata: Metadata = {
-  title: 'All Features — Opervo | Field Service Management for Solo Operators',
+  title: 'Features — Field Service Software for Solo Trades | Opervo',
   description: 'Every feature in Opervo: job management, scheduling, estimates, invoicing, client portal, portfolio page, SMS automation, mileage tracking, team management, and more. Starting at $24.99/mo.',
   alternates: { canonical: 'https://www.opervo.io/features' },
   openGraph: {

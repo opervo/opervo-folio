@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import TradeLandingPage, { type TradePageConfig } from '@/components/TradeLandingPage'
 
 export const metadata: Metadata = {
-  title: 'Window Cleaning Software — Routes, Recurring Agreements, Folio | Opervo',
+  title: 'Window Cleaning Software for Solo Operators — Opervo',
   description: 'Run your window cleaning routes from your phone. Recurring monthly/quarterly agreements that auto-bill, before/after photos that auto-publish to your folio, route optimization for 12+ daily stops. $24.99/mo. 14-day free trial.',
   alternates: { canonical: 'https://www.opervo.io/window-cleaning' },
   openGraph: {

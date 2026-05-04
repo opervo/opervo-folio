@@ -6,7 +6,7 @@ import MoreComparisons from '@/components/MoreComparisons'
 import TradesMention from '@/components/TradesMention'
 
 export const metadata: Metadata = {
-  title: 'Opervo vs Housecall Pro — Which Is Better for Solo Contractors? | Opervo',
+  title: 'Opervo vs Housecall Pro — Solo Contractor Comparison',
   description: 'Compare Opervo and Housecall Pro side by side. Opervo starts at $24.99/mo vs Housecall Pro at $79+/mo. See which field service app is better for solo operators and small crews.',
   alternates: { canonical: 'https://www.opervo.io/compare/opervo-vs-housecall-pro' },
   openGraph: {

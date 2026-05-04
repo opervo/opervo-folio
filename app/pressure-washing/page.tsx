@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import TradeLandingPage, { type TradePageConfig } from '@/components/TradeLandingPage'
 
 export const metadata: Metadata = {
-  title: 'Pressure Washing Software — Track Chem Cost, Auto-Publish Before/After, Route Your Day | Opervo',
+  title: 'Pressure Washing Software with Chem-Cost Tracking — Opervo',
   description: 'Built for solo pressure washers. Track SH/surfactant cost per job, sketch and price driveways on Google Maps, auto-publish before/after photos to your folio, optimize your route in one tap. $24.99/mo. 14-day free trial.',
   alternates: { canonical: 'https://www.opervo.io/pressure-washing' },
   openGraph: {

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import TradeLandingPage, { type TradePageConfig } from '@/components/TradeLandingPage'
 
 export const metadata: Metadata = {
-  title: 'Solar Panel Cleaning Software — Annual Agreements, Routes, Before/After Folio | Opervo',
+  title: 'Solar Panel Cleaning Software for Operators — Opervo',
   description: 'Built for solar panel cleaners — residential and commercial. Annual and biannual cleaning agreements that auto-bill, route days for 4-6 residential stops, before/after panel photos that auto-publish to your folio. $24.99/mo. 14-day free trial.',
   alternates: { canonical: 'https://www.opervo.io/solar-panel-cleaning' },
   openGraph: {

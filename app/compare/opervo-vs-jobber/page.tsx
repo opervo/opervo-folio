@@ -6,7 +6,7 @@ import MoreComparisons from '@/components/MoreComparisons'
 import TradesMention from '@/components/TradesMention'
 
 export const metadata: Metadata = {
-  title: 'Opervo vs Jobber — Which Is Better for Solo Contractors? | Opervo',
+  title: 'Opervo vs Jobber — Solo Contractor Comparison',
   description: 'Compare Opervo and Jobber side by side. Opervo starts at $24.99/mo vs Jobber at $39+/mo. See which field service app is better for solo operators and small crews.',
   alternates: { canonical: 'https://www.opervo.io/compare/opervo-vs-jobber' },
   openGraph: {
