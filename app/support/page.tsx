@@ -49,8 +49,29 @@ const FAQ: Array<[string, string]> = [
 ];
 
 export default function SupportPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ContactPage",
+        url: "https://www.opervo.io/support",
+        name: "Opervo Support",
+        description: "Get help with Opervo. Email help@opervo.io for any question about jobs, invoices, billing, or your account.",
+        publisher: { "@id": "https://www.opervo.io/#organization" },
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: FAQ.map(([q, a]) => ({
+          "@type": "Question",
+          name: q,
+          acceptedAnswer: { "@type": "Answer", text: a },
+        })),
+      },
+    ],
+  };
   return (
     <div style={{ fontFamily: "'Barlow',sans-serif", background: "#F7F5F2", minHeight: "100vh", color: "#1a1a1a" }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <header
         style={{
           background: "#fff",

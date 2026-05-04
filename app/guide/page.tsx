@@ -146,8 +146,38 @@ const checklist = [
 ]
 
 export default function GuidePage() {
+  // HowTo schema — eligible for rich-snippet display in Google SERPs.
+  // Each section becomes a HowToSection with its steps as HowToStep
+  // entries.
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: "Opervo User Guide — Complete First-Week Walkthrough",
+    description: "Set up Opervo end-to-end: account, clients, jobs, estimates, invoicing, Folio, mileage, and team — your first-week walkthrough.",
+    url: "https://www.opervo.io/guide",
+    totalTime: "PT4H",
+    estimatedCost: { "@type": "MonetaryAmount", currency: "USD", value: "0" },
+    supply: [],
+    tool: [
+      { "@type": "HowToTool", name: "iPhone or Android phone" },
+      { "@type": "HowToTool", name: "Opervo account (free 14-day trial at app.opervo.io)" },
+    ],
+    step: sections.map((s) => ({
+      "@type": "HowToSection",
+      name: s.title,
+      itemListElement: s.steps.map((step, idx) => ({
+        "@type": "HowToStep",
+        position: idx + 1,
+        name: step.title,
+        text: step.body + (step.bullets && step.bullets.length ? ' ' + step.bullets.join('. ') + '.' : ''),
+        url: `https://www.opervo.io/guide#${s.id}`,
+      })),
+    })),
+    publisher: { "@id": "https://www.opervo.io/#organization" },
+  }
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <SiteNav />
       <main style={{ background: '#F7F5F2', minHeight: '100vh', fontFamily: "'Barlow', sans-serif", color: '#1a1a1a' }}>
         {/* Hero */}

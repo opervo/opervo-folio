@@ -16,8 +16,34 @@ export const metadata: Metadata = {
 }
 
 export default function EmbedGuidePage() {
+  // HowTo schema — embedding a quote form is a step-by-step task that
+  // Google can render as a rich-snippet in SERPs for "embed quote form"
+  // type queries.
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: "How to Embed an Opervo Quote Form on Your Website",
+    description: "Add an Opervo quote request form to any website with one line of code. Works on WordPress, Squarespace, Wix, and custom HTML sites.",
+    url: "https://www.opervo.io/embed-guide",
+    totalTime: "PT5M",
+    estimatedCost: { "@type": "MonetaryAmount", currency: "USD", value: "0" },
+    tool: [
+      { "@type": "HowToTool", name: "Opervo account with a published Folio page" },
+      { "@type": "HowToTool", name: "A website you can edit (WordPress, Squarespace, Wix, or custom HTML)" },
+    ],
+    step: [
+      { "@type": "HowToStep", position: 1, name: "Copy your embed snippet", text: "In Opervo, open Settings → Folio → Embed and copy the one-line script tag that includes your operator slug." },
+      { "@type": "HowToStep", position: 2, name: "Paste into WordPress", text: "Edit your page, click the + button to add a block, search for Custom HTML, paste the snippet, and publish." },
+      { "@type": "HowToStep", position: 3, name: "Paste into Squarespace", text: "Edit your page, click an insert point, add a Code block, paste the snippet, and save." },
+      { "@type": "HowToStep", position: 4, name: "Paste into Wix", text: "Open the Wix Editor, click Add Elements → Embed Code → Embed HTML, paste the snippet, and publish." },
+      { "@type": "HowToStep", position: 5, name: "Paste into a custom HTML site", text: "Open your HTML file in a code editor, paste the snippet where you want the form to appear, and upload the file." },
+      { "@type": "HowToStep", position: 6, name: "Verify the form loads", text: "Open the page in a fresh browser tab. The Opervo quote form should render inline. Submit a test quote — it lands in your Opervo Leads inbox within a few seconds." },
+    ],
+    publisher: { "@id": "https://www.opervo.io/#organization" },
+  }
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <SiteNav />
       <main style={{ background: '#F7F5F2', minHeight: '100vh' }}>
         {/* Hero */}

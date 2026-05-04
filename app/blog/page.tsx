@@ -147,8 +147,32 @@ const posts = [
 ]
 
 export default function BlogIndex() {
+  // Blog schema — Google uses this to understand the index page is a
+  // blog roll, and the blogPost array tells it which posts belong to
+  // the publication. Helps surface a sitelinks-style cluster of blog
+  // results under the brand SERP.
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "@id": "https://www.opervo.io/blog#blog",
+    url: "https://www.opervo.io/blog",
+    name: "Opervo Blog — Field Service Business Tips & Guides",
+    description: "Practical guides, pricing breakdowns, and business tips for solo contractors and small field service crews.",
+    publisher: { "@id": "https://www.opervo.io/#organization" },
+    blogPost: posts.map((p) => ({
+      "@type": "BlogPosting",
+      "@id": `https://www.opervo.io/blog/${p.slug}`,
+      url: `https://www.opervo.io/blog/${p.slug}`,
+      headline: p.title,
+      description: p.excerpt,
+      datePublished: new Date(p.date).toISOString().split('T')[0],
+      author: { "@id": "https://www.opervo.io/#organization" },
+      publisher: { "@id": "https://www.opervo.io/#organization" },
+    })),
+  }
   return (
     <div style={{ background: '#F7F5F2', minHeight: '100vh' }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <SiteNav />
 
       <section style={{ maxWidth: 1100, margin: '0 auto', padding: '56px 24px 72px' }}>
