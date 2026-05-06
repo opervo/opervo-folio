@@ -1,40 +1,46 @@
 'use client'
 
-import Link from 'next/link'
 import { useState } from 'react'
-
-const industries = [
-  { name: 'Solar Panel Cleaning', href: '/solar-panel-cleaning' },
-  { name: 'Window Cleaning', href: '/window-cleaning' },
-  { name: 'Pressure Washing', href: '/pressure-washing' },
-  { name: 'Landscaping', href: '/landscaping' },
-  { name: 'Auto Detailing', href: '/auto-detailing' },
-]
-
-const comparisons = [
-  { name: 'Opervo vs Jobber', href: '/compare/opervo-vs-jobber' },
-  { name: 'Opervo vs Housecall Pro', href: '/compare/opervo-vs-housecall-pro' },
-  { name: 'Opervo vs GorillaDesk', href: '/compare/opervo-vs-gorilladesk' },
-  { name: 'Opervo vs Markate', href: '/compare/opervo-vs-markate' },
-  { name: 'Opervo vs ServiceWizard', href: '/compare/servicewizard' },
-]
-
-const resources = [
-  { name: 'True Cost Calculator', href: '/cost-calculator' },
-  { name: 'Job Profit Calculator', href: '/profit-calculator' },
-  { name: 'Multi-Job Profit Tracker', href: '/multi-job-tracker' },
-  { name: 'Blog', href: '/blog' },
-  { name: 'Marketing Materials', href: '/print' },
-  { name: 'Guide', href: '/guide' },
-  { name: 'The Founder', href: '/founder' },
-  { name: 'Apprentice (Ages 13–17)', href: '/apprentice' },
-]
+import { useTranslations, useLocale } from 'next-intl'
+import { Link } from '@/i18n/navigation'
 
 export default function SiteNav() {
+  const t = useTranslations('nav')
+  const locale = useLocale()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [industriesOpen, setIndustriesOpen] = useState(false)
   const [compareOpen, setCompareOpen] = useState(false)
   const [resourcesOpen, setResourcesOpen] = useState(false)
+
+  const industries = [
+    { name: t('industries.solarPanelCleaning'), href: '/solar-panel-cleaning' as const },
+    { name: t('industries.windowCleaning'), href: '/window-cleaning' as const },
+    { name: t('industries.pressureWashing'), href: '/pressure-washing' as const },
+    { name: t('industries.landscaping'), href: '/landscaping' as const },
+    { name: t('industries.autoDetailing'), href: '/auto-detailing' as const },
+  ]
+
+  const comparisons = [
+    { name: 'Opervo vs Jobber', href: '/compare/opervo-vs-jobber' as const },
+    { name: 'Opervo vs Housecall Pro', href: '/compare/opervo-vs-housecall-pro' as const },
+    { name: 'Opervo vs GorillaDesk', href: '/compare/opervo-vs-gorilladesk' as const },
+    { name: 'Opervo vs Markate', href: '/compare/opervo-vs-markate' as const },
+    { name: 'Opervo vs ServiceWizard', href: '/compare/servicewizard' as const },
+  ]
+
+  const resources = [
+    { name: t('resources.trueCostCalculator'), href: '/cost-calculator' as const },
+    { name: t('resources.jobProfitCalculator'), href: '/profit-calculator' as const },
+    { name: t('resources.multiJobTracker'), href: '/multi-job-tracker' as const },
+    { name: t('resources.blog'), href: '/blog' as const },
+    { name: t('resources.marketingMaterials'), href: '/print' as const },
+    { name: t('resources.guide'), href: '/guide' as const },
+    { name: t('resources.theFounder'), href: '/founder' as const },
+    { name: t('resources.apprentice'), href: '/apprentice' as const },
+  ]
+
+  const otherLocale = locale === 'en' ? 'es' : 'en'
+  const otherLocaleLabel = locale === 'en' ? 'ES' : 'EN'
 
   const dropdownStyle = { position: 'absolute' as const, top: '100%', left: -8, background: '#fff', border: '1px solid #E8E4DE', borderRadius: 8, padding: '8px 0', minWidth: 220, boxShadow: '0 4px 12px rgba(0,0,0,0.08)' }
   const dropdownLinkStyle = { display: 'block', padding: '10px 16px', fontSize: 14, fontWeight: 500, color: '#1a1a1a', textDecoration: 'none' } as const
@@ -50,11 +56,11 @@ export default function SiteNav() {
 
         {/* Desktop Nav */}
         <nav style={{ display: 'flex', alignItems: 'center', gap: 24 }} className="desktop-nav">
-          <Link href="/features" style={navLinkStyle}>Features</Link>
+          <Link href="/features" style={navLinkStyle}>{t('features')}</Link>
 
           {/* Industries Dropdown */}
           <div style={{ position: 'relative' }} onMouseEnter={() => setIndustriesOpen(true)} onMouseLeave={() => setIndustriesOpen(false)}>
-            <button style={navBtnStyle}>Industries &#9662;</button>
+            <button style={navBtnStyle}>{t('industriesLabel')} &#9662;</button>
             {industriesOpen && (
               <div style={dropdownStyle}>
                 {industries.map((item) => (
@@ -70,7 +76,7 @@ export default function SiteNav() {
 
           {/* Compare Dropdown */}
           <div style={{ position: 'relative' }} onMouseEnter={() => setCompareOpen(true)} onMouseLeave={() => setCompareOpen(false)}>
-            <button style={navBtnStyle}>Compare &#9662;</button>
+            <button style={navBtnStyle}>{t('compareLabel')} &#9662;</button>
             {compareOpen && (
               <div style={dropdownStyle}>
                 {comparisons.map((item) => (
@@ -84,11 +90,11 @@ export default function SiteNav() {
             )}
           </div>
 
-          <Link href="/pricing" style={navLinkStyle}>Pricing</Link>
+          <Link href="/pricing" style={navLinkStyle}>{t('pricing')}</Link>
 
           {/* Resources Dropdown */}
           <div style={{ position: 'relative' }} onMouseEnter={() => setResourcesOpen(true)} onMouseLeave={() => setResourcesOpen(false)}>
-            <button style={navBtnStyle}>Resources &#9662;</button>
+            <button style={navBtnStyle}>{t('resourcesLabel')} &#9662;</button>
             {resourcesOpen && (
               <div style={dropdownStyle}>
                 {resources.map((item) => (
@@ -102,8 +108,9 @@ export default function SiteNav() {
             )}
           </div>
 
-          <a href="https://app.opervo.io" style={navLinkStyle}>Sign In</a>
-          <a href="https://app.opervo.io" style={{ display: 'inline-block', background: '#F5620F', color: '#fff', fontWeight: 700, fontSize: 13, padding: '10px 20px', borderRadius: 6, textDecoration: 'none', letterSpacing: '0.02em' }}>Try Free</a>
+          <a href="https://app.opervo.io" style={navLinkStyle}>{t('signIn')}</a>
+          <a href="https://app.opervo.io" style={{ display: 'inline-block', background: '#F5620F', color: '#fff', fontWeight: 700, fontSize: 13, padding: '10px 20px', borderRadius: 6, textDecoration: 'none', letterSpacing: '0.02em' }}>{t('tryFree')}</a>
+          <a href={`/${otherLocale}`} style={{ fontSize: 13, fontWeight: 700, color: '#6B6B6B', textDecoration: 'none', padding: '4px 8px', border: '1px solid #E8E4DE', borderRadius: 4 }}>{otherLocaleLabel}</a>
         </nav>
 
         {/* Mobile Hamburger */}
@@ -129,30 +136,31 @@ export default function SiteNav() {
       {mobileOpen && (
         <nav className="mobile-nav" style={{ padding: '16px 0 8px', borderTop: '1px solid #E8E4DE', marginTop: 16 }}>
           <Link href="/features" onClick={() => setMobileOpen(false)} style={{ display: 'block', padding: '10px 0', fontSize: 15, fontWeight: 600, color: '#0F0F0F', textDecoration: 'none' }}>
-            Features
+            {t('features')}
           </Link>
-          <p style={{ fontSize: 11, fontWeight: 700, color: '#F5620F', textTransform: 'uppercase', letterSpacing: '0.1em', padding: '16px 0 4px' }}>Industries</p>
+          <p style={{ fontSize: 11, fontWeight: 700, color: '#F5620F', textTransform: 'uppercase', letterSpacing: '0.1em', padding: '16px 0 4px' }}>{t('industriesLabel')}</p>
           {industries.map((item) => (
             <Link key={item.href} href={item.href} onClick={() => setMobileOpen(false)} style={{ display: 'block', padding: '10px 0', fontSize: 15, fontWeight: 500, color: '#1a1a1a', textDecoration: 'none' }}>
               {item.name}
             </Link>
           ))}
-          <p style={{ fontSize: 11, fontWeight: 700, color: '#F5620F', textTransform: 'uppercase', letterSpacing: '0.1em', padding: '16px 0 4px' }}>Compare</p>
+          <p style={{ fontSize: 11, fontWeight: 700, color: '#F5620F', textTransform: 'uppercase', letterSpacing: '0.1em', padding: '16px 0 4px' }}>{t('compareLabel')}</p>
           {comparisons.map((item) => (
             <Link key={item.href} href={item.href} onClick={() => setMobileOpen(false)} style={{ display: 'block', padding: '10px 0', fontSize: 15, fontWeight: 500, color: '#1a1a1a', textDecoration: 'none' }}>
               {item.name}
             </Link>
           ))}
-          <p style={{ fontSize: 11, fontWeight: 700, color: '#F5620F', textTransform: 'uppercase', letterSpacing: '0.1em', padding: '16px 0 4px' }}>Resources</p>
+          <p style={{ fontSize: 11, fontWeight: 700, color: '#F5620F', textTransform: 'uppercase', letterSpacing: '0.1em', padding: '16px 0 4px' }}>{t('resourcesLabel')}</p>
           {resources.map((item) => (
             <Link key={item.href} href={item.href} onClick={() => setMobileOpen(false)} style={{ display: 'block', padding: '10px 0', fontSize: 15, fontWeight: 500, color: '#1a1a1a', textDecoration: 'none' }}>
               {item.name}
             </Link>
           ))}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 0, paddingTop: 16, borderTop: '1px solid #E8E4DE', marginTop: 16 }}>
-            <Link href="/pricing" onClick={() => setMobileOpen(false)} style={{ display: 'block', padding: '10px 0', fontSize: 15, fontWeight: 500, color: '#1a1a1a', textDecoration: 'none' }}>Pricing</Link>
-            <a href="https://app.opervo.io" style={{ fontSize: 14, fontWeight: 500, color: '#6B6B6B', textDecoration: 'none', padding: '10px 0' }}>Sign In</a>
-            <a href="https://app.opervo.io" style={{ display: 'inline-block', background: '#F5620F', color: '#fff', fontWeight: 700, fontSize: 13, padding: '10px 20px', borderRadius: 6, textDecoration: 'none' }}>Try Free</a>
+            <Link href="/pricing" onClick={() => setMobileOpen(false)} style={{ display: 'block', padding: '10px 0', fontSize: 15, fontWeight: 500, color: '#1a1a1a', textDecoration: 'none' }}>{t('pricing')}</Link>
+            <a href="https://app.opervo.io" style={{ fontSize: 14, fontWeight: 500, color: '#6B6B6B', textDecoration: 'none', padding: '10px 0' }}>{t('signIn')}</a>
+            <a href="https://app.opervo.io" style={{ display: 'inline-block', background: '#F5620F', color: '#fff', fontWeight: 700, fontSize: 13, padding: '10px 20px', borderRadius: 6, textDecoration: 'none' }}>{t('tryFree')}</a>
+            <a href={`/${otherLocale}`} style={{ display: 'block', padding: '10px 0', fontSize: 15, fontWeight: 700, color: '#6B6B6B', textDecoration: 'none' }}>{otherLocaleLabel === 'ES' ? 'Espanol' : 'English'}</a>
           </div>
         </nav>
       )}

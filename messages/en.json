@@ -1,0 +1,1060 @@
+{
+  "nav": {
+    "features": "Features",
+    "industriesLabel": "Industries",
+    "compareLabel": "Compare",
+    "pricing": "Pricing",
+    "resourcesLabel": "Resources",
+    "signIn": "Sign In",
+    "tryFree": "Try Free",
+    "industries": {
+      "solarPanelCleaning": "Solar Panel Cleaning",
+      "windowCleaning": "Window Cleaning",
+      "pressureWashing": "Pressure Washing",
+      "landscaping": "Landscaping",
+      "autoDetailing": "Auto Detailing"
+    },
+    "resources": {
+      "trueCostCalculator": "True Cost Calculator",
+      "jobProfitCalculator": "Job Profit Calculator",
+      "multiJobTracker": "Multi-Job Profit Tracker",
+      "blog": "Blog",
+      "marketingMaterials": "Marketing Materials",
+      "guide": "Guide",
+      "theFounder": "The Founder",
+      "apprentice": "Apprentice (Ages 13-17)"
+    }
+  },
+
+  "footer": {
+    "tagline": "Look pro. Win jobs.",
+    "copyright": "Built for the trades. © 2026 Opervo.",
+    "productHeading": "Product",
+    "features": "Features",
+    "pricing": "Pricing",
+    "marketingMaterials": "Marketing Materials",
+    "industriesHeading": "Software for Your Trade",
+    "solarPanelCleaning": "Solar Panel Cleaning",
+    "windowCleaning": "Window Cleaning",
+    "pressureWashing": "Pressure Washing",
+    "landscaping": "Landscaping",
+    "compareHeading": "Compare",
+    "companyHeading": "Company",
+    "blog": "Blog",
+    "theFounder": "The Founder",
+    "guide": "Guide",
+    "apprentice": "Apprentice",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "signIn": "Sign In",
+    "startFreeTrial": "Start Free Trial →"
+  },
+
+  "home": {
+    "hero": {
+      "tagline": "Built by someone who was on the truck. For the ones still on it.",
+      "sub": "Schedule jobs, send invoices, get paid and win more work without juggling apps.",
+      "subBold": "$24.99/mo. Every Feature. Every Plan.",
+      "ctaPrimary": "Start Free",
+      "ctaSecondary": "See Live Folio",
+      "trust": "14-day free trial · No credit card required",
+      "textFounder": "Got a question? Text Max → (512) 761-6054",
+      "appStoreBadgeAlt": "Download on the App Store",
+      "proofText": "Trusted by solo operators",
+      "proofSubtext": "in pressure washing, window cleaning & more",
+      "callout1Main": "Invoice paid · $175",
+      "callout1Sub": "Just now",
+      "callout2Main": "14 Folio views today",
+      "callout2Sub": "opervo.io/solar-wash-atx",
+      "callout3Main": "New 5-star review",
+      "callout3Sub": "\"Amazing work as always!\""
+    },
+    "problem": {
+      "eyebrow": "The problem",
+      "title": "Every other app was built for companies with crews.",
+      "sub": "You're one person and a truck. You don't need fleet dispatch or enterprise dashboards. You need to look pro, get paid fast, and win more work.",
+      "card1": {
+        "num": "01 / 03",
+        "title": "Priced for teams you don't have",
+        "body": "Jobber starts at $49. Housecall Pro at $69. Both built for 5+ person teams. You pay for seats you'll never fill."
+      },
+      "card2": {
+        "num": "02 / 03",
+        "title": "Photo apps that don't invoice",
+        "body": "CompanyCam charges per user for photos only. You still need a separate invoicing app, a separate CRM, a separate scheduler. More apps, more bills, more tabs open in the truck."
+      },
+      "card3": {
+        "num": "03 / 03",
+        "title": "Static portfolios that look dead",
+        "body": "Every other \"portfolio page\" is a gallery you uploaded six months ago. Visitors can't tell if you're still in business. Opervo is the only app that publishes every completed job to your folio — automatically."
+      }
+    },
+    "folio": {
+      "eyebrow": "A folio that updates itself",
+      "title": "Folio. The portfolio that markets while you work.",
+      "sub": "Every job you finish auto-publishes to your folio — photo, neighborhood, \"completed 2 days ago.\" Visitors don't see a stale gallery from last summer. They see proof someone hired you yesterday. Nobody else does this.",
+      "bullet1Bold": "Finish a job → it shows up on your folio.",
+      "bullet1": "No upload, no admin work — just close the job out.",
+      "bullet2Bold": "Live counter at the top:",
+      "bullet2": "\"14 jobs this month · most recent yesterday.\" Updates as you work.",
+      "bullet3Bold": "Plus the rest you'd expect:",
+      "bullet3": "branded page, gallery, before/after slider, quote form, embed code. Free on every plan.",
+      "cta": "See a live Folio",
+      "stripLead": "Every visitor sees fresh proof",
+      "strip1Name": "Recent Jobs",
+      "strip1Live": "LIVE",
+      "strip1Desc": "Auto-published when you finish a job",
+      "strip2Name": "Portfolio",
+      "strip2Desc": "Before/after slider, gallery, trust grid",
+      "strip3Name": "Quote Form",
+      "strip3Desc": "Captures leads 24/7, no login needed"
+    },
+    "ai": {
+      "eyebrow": "Built-in AI",
+      "title": "Talk to your business.",
+      "sub": "Most field service apps make you tap through menus. Opervo's AI knows your jobs, invoices, and revenue in real time, and just handles it. Built for the one-person shop.",
+      "bullet1": "Add a client, log a trip, or create a job by voice. No forms.",
+      "bullet2": "Ask \"what's my revenue?\" and get a real answer in under a second.",
+      "bullet3": "Knows what page you're on. Say \"this job\" and it knows which.",
+      "bullet4": "Works hands-free. Made for the truck, not the desk.",
+      "cta": "See it in action",
+      "demoTitle": "Opervo. Assistant",
+      "demoStatus": "Live",
+      "demoUser1": "What's my revenue this month?",
+      "demoReply1": "$3,240 across 12 jobs. Up $410 from March. Want a breakdown?",
+      "demoUser2": "Add John Smith, 555-1234",
+      "demoReply2": "Got it. Adding John Smith to your client list.",
+      "demoActionBtn": "View Client →",
+      "demoPill1": "\"Schedule lawn care for Sarah Friday 2pm\"",
+      "demoPill2": "\"Who hasn't paid me?\"",
+      "demoPill3": "\"Log a 27-mile trip to Rivers St\""
+    },
+    "servicePlans": {
+      "eyebrow": "Service Plans",
+      "title": "Recurring work that runs itself.",
+      "sub": "Biweekly lawn care, monthly window cleaning, quarterly pressure wash. Set the cadence once and Opervo generates the jobs, sends the reminders, and bills the client. The kind of automation an owner-operator actually has time to set up.",
+      "bullet1": "Any cadence: weekly, biweekly, monthly, quarterly, or custom.",
+      "bullet2": "Jobs auto-create in the schedule so you never forget a client.",
+      "bullet3": "Clients get an \"On my way\" SMS on the morning of service.",
+      "bullet4": "Invoice, review request, QBO sync. All on autopilot.",
+      "cta": "Start a plan"
+    },
+    "routes": {
+      "eyebrow": "Route & Territory",
+      "title": "Plan the day. Drive less.",
+      "sub": "One-tap route planning from your schedule. Canvass a neighborhood door-to-door, drop pins, turn knocks into estimates. Built on Google Maps. Made for the one-truck operation (or five).",
+      "bullet1": "Optimize today's jobs for the shortest drive. Save about 40 minutes a day.",
+      "bullet2": "Route templates. Save favorite neighborhoods and reuse them.",
+      "bullet3": "Door-to-door canvassing with pin statuses (knocked, quoted, sold).",
+      "bullet4": "One-tap navigation straight to Google Maps or Apple Maps.",
+      "cta": "Plan a route"
+    },
+    "featureGrid": {
+      "eyebrow": "No corners cut",
+      "title": "Everything else, too.",
+      "sub": "The tools any field service app should have. All included. No \"Pro plan\" gates.",
+      "payments": {
+        "name": "Payments — Your Processor",
+        "desc": "Connect Square or Stripe. Cards, Apple Pay, Google Pay, tipping. Funds go straight to your bank — Opervo takes zero markup, ever."
+      },
+      "offlinePayments": {
+        "name": "Offline Payments",
+        "desc": "Record cash, check, Venmo, CashApp, Zelle. Auto-invoice generated."
+      },
+      "estimates": {
+        "name": "Estimates",
+        "desc": "Photos, digital approval, decline tracking. Convert to a job in one tap."
+      },
+      "clientPortal": {
+        "name": "Client Portal",
+        "desc": "Branded, magic-link access. Clients view history and pay without signing up."
+      },
+      "photoDocumentation": {
+        "name": "Photo Documentation",
+        "desc": "Before, during, after. Voice notes on every job. Branded PDF reports."
+      },
+      "mileageExpenses": {
+        "name": "Mileage & Expenses",
+        "desc": "Tax-ready reports, quarterly summaries, CSV export for your accountant."
+      },
+      "qboGcal": {
+        "name": "QBO & Google Calendar",
+        "desc": "Two-way sync with QuickBooks Online and Google Calendar. Set it once."
+      },
+      "smsEmail": {
+        "name": "SMS & Email",
+        "desc": "On-my-way texts, reminders, review requests. Sent from your branded number."
+      },
+      "canvassing": {
+        "name": "Door-to-Door Canvassing",
+        "desc": "Map territories, drop pins as you knock, leaderboard for the crew. Replaces SalesRabbit (~$35/mo)."
+      },
+      "measurementTool": {
+        "name": "Measurement Tool",
+        "desc": "Sketch a roof, driveway, or lawn on the satellite map. Square footage, perimeter, right-angle snap, live edge labels."
+      },
+      "supplies": {
+        "name": "Supplies & Materials",
+        "desc": "Track SH, mulch, fuel, fertilizer per job. Auto-deducted as a tax expense. Live profit math: Revenue − Supplies."
+      },
+      "aiAssistant": {
+        "name": "AI Assistant",
+        "desc": "Asks your real data (\"revenue this month?\"), creates records by voice (\"add a client named Ramon\"), drafts estimates and emails."
+      }
+    },
+    "compare": {
+      "eyebrow": "The real math",
+      "title": "Most apps look cheap until you actually use them.",
+      "sub": "They start you at $49. Then upgrade for features. Then add users. Then add more tools. Suddenly you're paying $150 to $300 a month.",
+      "tableHeaders": {
+        "opervo": "Opervo",
+        "jobber": "Jobber",
+        "housecallPro": "Housecall Pro",
+        "gorillaDesk": "GorillaDesk",
+        "quoteIQ": "QuoteIQ",
+        "markate": "Markate"
+      },
+      "rows": {
+        "startingPrice": "Starting price",
+        "perUserFees": "Per-user fees",
+        "none": "None",
+        "yes": "Yes",
+        "tiered": "Tiered",
+        "builtInAi": "Built-in AI assistant",
+        "noCaps": "No caps",
+        "creditCapped": "Credit-capped",
+        "liveFolioPage": "Live folio page",
+        "routeOptimization": "Route optimization",
+        "included": "Included",
+        "proPlan": "Pro plan",
+        "oneRouteOnly": "1 route only",
+        "elitePlan": "Elite plan",
+        "recurringServicePlans": "Recurring service plans",
+        "builtForSoloOperators": "Built for solo operators",
+        "partial": "Partial"
+      },
+      "note": "Prices reflect each vendor's lowest published plan (annual billing where offered). QuoteIQ AI is credit-capped per tier; Opervo AI has no credit limits. Markate's $39.95 base excludes Customer Portal, Online Booking, Lead Form, Reviews, and Proposals — each $10/mo extra."
+    },
+    "costWidget": {
+      "eyebrow": "The Real Math · Interactive",
+      "title": "See what you'd actually pay.",
+      "sub": "Pick a competitor and your team size. We'll show what they'd charge for the features Opervo includes by default.",
+      "teamSizeLabel": "Team size:",
+      "typicalStack": "typical stack",
+      "flat": "flat",
+      "youdSave": "You'd save",
+      "perMo": "/mo",
+      "perYear": "/year",
+      "over5Years": "over 5 years",
+      "allFeaturesIncluded": "all features included",
+      "zeroPaymentMarkup": "0% payment markup",
+      "upToUsers": "Up to {count} users",
+      "customizeLink": "Customize what YOU need →",
+      "or": "or",
+      "startTrialLink": "Start 14-Day Trial →",
+      "fineprint": "Default stack reflects features most operators in this category actually use. Run the full version to add or remove features and see your real cost.",
+      "tabs": {
+        "vsMarkate": "vs Markate",
+        "vsJobber": "vs Jobber",
+        "vsHousecallPro": "vs Housecall Pro",
+        "vsQuoteIQ": "vs QuoteIQ"
+      }
+    },
+    "profitCalculatorStrip": {
+      "eyebrow": "Free tool · No login · ~30 seconds",
+      "title": "Did that last job actually pay?",
+      "body": "Run your numbers through the Job Profit Calculator — see profit, effective hourly, and margin live. Find out which jobs really paid you.",
+      "cta": "Try it →"
+    },
+    "switchCta": {
+      "title": "Already on Jobber or Housecall Pro?",
+      "body": "Import your entire client list in 2 minutes. Upload a CSV and every contact transfers instantly. No manual re-entry. No starting from scratch.",
+      "pill": "Free transfer"
+    },
+    "founder": {
+      "label": "A note from the founder",
+      "quote": "\"I built Opervo from my experience in the field, not from a boardroom. It's the app I wish I'd had.\"",
+      "body": "I ran a cleaning crew before I wrote a single line of this. I know what it's like to chase payments from the cab of a truck, to miss a quote because my hands were wet, to lose a customer because I forgot the follow-up text. Opervo is everything I wanted and couldn't afford. If you're a solo operator or a small crew, this one's for you. I'm still building it every day.",
+      "sig": "Max.",
+      "role": "Founder, Opervo",
+      "cta": "Read the full story"
+    },
+    "founding50": {
+      "eyebrow": "Founding 50 · Limited Spots",
+      "title": "Lock $15/mo Solo for life. Help shape the product.",
+      "sub": "Founding Operators get 40% off forever in exchange for honest feedback — a survey here, a quick call there. We're capping it at 50 so the loop stays small enough to actually use what you tell us.",
+      "claimed": "{claimed} of {total} spots claimed",
+      "remaining": "{count} remaining",
+      "ctaPrimary": "Apply for Founding 50 →",
+      "ctaSecondary": "Text Max instead",
+      "fineprint": "No commitment beyond paying for your subscription & sharing feedback. Cancel anytime — but you'll lose the founder rate."
+    },
+    "pricingBand": {
+      "title": "Every Feature. Every Plan.",
+      "sub": "No features locked behind higher tiers. No per-user fees. Seriously.",
+      "solo": {
+        "name": "Solo",
+        "price": "$24.99",
+        "unit": "/mo",
+        "tag": "Full feature access · 2 users (operator + 1 helper)",
+        "annual": "or $249/yr — save $51",
+        "cta": "Start Free"
+      },
+      "team": {
+        "name": "Team",
+        "price": "$54.99",
+        "unit": "/mo",
+        "tag": "Full feature access · Up to 10 team members",
+        "annual": "or $549/yr — save $111",
+        "cta": "Start Free"
+      },
+      "growth": {
+        "name": "Growth",
+        "desc": "Unlimited team · Custom · contact help@opervo.io",
+        "cta": "Get in touch"
+      },
+      "note": "14-day free trial · No credit card required · Cancel anytime · Save 17% with annual"
+    },
+    "trades": {
+      "eyebrow": "Built for your trade",
+      "title": "Pick your lane.",
+      "sub": "Opervo works for solo operators and small crews across home services. Tap your trade for how it's set up for you.",
+      "solarPanelCleaning": {
+        "name": "Solar Panel Cleaning",
+        "desc": "Schedule jobs, send estimates, showcase before-and-afters on your folio."
+      },
+      "windowCleaning": {
+        "name": "Window Cleaning",
+        "desc": "Route planning, invoicing, client management. All from your phone."
+      },
+      "pressureWashing": {
+        "name": "Pressure Washing",
+        "desc": "Job tracking, before-and-after photos, fast invoicing with offline payments."
+      },
+      "landscaping": {
+        "name": "Landscaping",
+        "desc": "Recurring schedules, seasonal service plans, property notes per client."
+      },
+      "autoDetailing": {
+        "name": "Auto Detailing",
+        "desc": "Branded packages, before/after gallery, route days for mobile detailers and bay shops."
+      },
+      "learnMore": "Learn more",
+      "compareText": "See how Opervo compares:",
+      "compareVsJobber": "vs Jobber",
+      "compareVsHousecallPro": "vs Housecall Pro",
+      "compareVsGorillaDesk": "vs GorillaDesk",
+      "compareVsMarkate": "vs Markate"
+    },
+    "finalCta": {
+      "eyebrow": "Your business deserves",
+      "title": "Look pro. Win jobs.",
+      "sub": "Stop paying more for less. Stop stacking four apps to do one job. Opervo is $24.99 a month for everything. Try it for 14 days, no credit card.",
+      "ctaPrimary": "Start Free",
+      "ctaSecondary": "See Live Folio",
+      "note": "Cancel anytime · No per-user fees · Import in 2 minutes"
+    },
+    "referralBanner": {
+      "invitedBy": "Invited by {name} —",
+      "defaultName": "a fellow operator",
+      "offer": "get 50% off your first paid month",
+      "claimCta": "Claim offer →",
+      "dismiss": "Dismiss"
+    }
+  },
+
+  "features": {
+    "pageTitle": "Features — Field Service Software for Solo Trades | Opervo",
+    "eyebrow": "ALL FEATURES",
+    "heroTitle": "Everything You Need. Nothing You Don't.",
+    "heroSub": "Jobs, invoices, scheduling, client portal, portfolio page, SMS automation, mileage tracking, team management — all in one app. Starting at $24.99/mo.",
+    "heroCta": "Start Free — 14 Days, No Card",
+    "heroNote": "Solo plan: $24.99/mo after trial · Team plan: $54.99/mo",
+    "featureCount": "features",
+    "featureCountSingular": "feature",
+    "categories": {
+      "jobs": {
+        "title": "Job Management",
+        "features": {
+          "create": {
+            "name": "Create & edit jobs",
+            "desc": "Google Places autocomplete for addresses — no manual entry."
+          },
+          "statusFlow": {
+            "name": "Status flow",
+            "desc": "Documented → Scheduled → In Progress → Completed → Paid. Always know where every job stands."
+          },
+          "recurringScheduling": {
+            "name": "Recurring scheduling",
+            "desc": "Set jobs to repeat weekly, biweekly, monthly, or custom. Auto-creates and auto-invoices."
+          },
+          "checklists": {
+            "name": "Job checklists",
+            "desc": "Add task checklists to any job. Crew members check off as they go."
+          },
+          "navigation": {
+            "name": "One-tap navigation",
+            "desc": "Open job address in Google Maps or Apple Maps with a single tap."
+          },
+          "serviceAutoFill": {
+            "name": "Service auto-fill",
+            "desc": "Save your service catalog. Auto-fill line items, pricing, and descriptions on new jobs."
+          },
+          "teamAssignment": {
+            "name": "Team assignment",
+            "desc": "Assign jobs to specific crew members. They see only their jobs."
+          },
+          "photoDocumentation": {
+            "name": "Photo documentation",
+            "desc": "Before, during, and after photos attached to every job. Build proof of work."
+          },
+          "voiceNotes": {
+            "name": "Voice-to-text notes",
+            "desc": "Hands-free job notes. Speak instead of type — ideal when your hands are dirty."
+          },
+          "brandedReports": {
+            "name": "Branded job reports",
+            "desc": "Send professional job summaries to clients via magic link — SMS, email, or direct link."
+          }
+        }
+      },
+      "clients": {
+        "title": "Client Management",
+        "features": {
+          "database": {
+            "name": "Client database",
+            "desc": "Centralized contacts, addresses, notes, and full job history for every client."
+          },
+          "leadSource": {
+            "name": "Lead source tracking",
+            "desc": "Know where every client came from — Google, referral, door knock, Folio page."
+          },
+          "csvImport": {
+            "name": "CSV import",
+            "desc": "Import from Jobber, Housecall Pro, ServiceTitan, QuickBooks, or Google Contacts."
+          },
+          "autoMapping": {
+            "name": "Auto-column mapping",
+            "desc": "Smart column detection and duplicate detection on import. No manual cleanup."
+          },
+          "portal": {
+            "name": "Client portal",
+            "desc": "Branded portal via magic link — no login required. Clients view jobs, invoices, and estimates."
+          },
+          "serviceRequest": {
+            "name": "Service request form",
+            "desc": "Clients submit service requests through the portal. You get notified instantly."
+          }
+        }
+      },
+      "billing": {
+        "title": "Billing & Invoicing",
+        "features": {
+          "invoices": {
+            "name": "Professional invoices",
+            "desc": "Line items, tax, due dates, and your branding. Looks like you have a back office."
+          },
+          "customTitles": {
+            "name": "Custom invoice titles",
+            "desc": "Name your invoices however you want. Standalone invoicing without creating a job."
+          },
+          "statusFilters": {
+            "name": "Status filters",
+            "desc": "Draft, Sent, Paid, Overdue — auto-calculated. See exactly what's outstanding."
+          },
+          "onlinePayments": {
+            "name": "Online payments — your processor",
+            "desc": "Connect Square (recommended) or Stripe. Cards, Apple Pay, Google Pay. Funds go straight to your bank — Opervo takes zero markup, ever."
+          },
+          "offlinePayments": {
+            "name": "Record offline payments",
+            "desc": "Cash, check, Venmo, CashApp, Zelle, or Other. Auto-creates the invoice if there isn't one yet. One unified record."
+          },
+          "tipping": {
+            "name": "Post-payment tipping",
+            "desc": "Clients can add a tip after paying. Averages 15-20% in the trades. You keep 100%."
+          },
+          "reviewPrompt": {
+            "name": "Google review prompt",
+            "desc": "After payment, clients see a prompt to leave a Google review. Builds your rating on autopilot."
+          },
+          "notifications": {
+            "name": "Payment notifications",
+            "desc": "Push notification the second a client pays. Auto-updates invoice status."
+          }
+        }
+      },
+      "estimates": {
+        "title": "Estimates & Proposals",
+        "features": {
+          "branded": {
+            "name": "Branded estimates",
+            "desc": "Line items, tax, discounts, and photo attachments. Send in under 60 seconds."
+          },
+          "digitalApproval": {
+            "name": "Digital approval",
+            "desc": "Client-facing approval with IP logging and timestamp. No printing, no scanning."
+          },
+          "declineTracking": {
+            "name": "Decline tracking",
+            "desc": "If a client declines, capture their reason. Use it to improve your pitch."
+          },
+          "statusTracking": {
+            "name": "Status tracking",
+            "desc": "Draft, Sent, Approved, Declined, Expired. Know where every estimate stands."
+          },
+          "convertToJob": {
+            "name": "One-tap convert to job",
+            "desc": "Approved estimate? Convert to a scheduled job with one tap. No re-entering data."
+          }
+        }
+      },
+      "schedule": {
+        "title": "Schedule",
+        "features": {
+          "views": {
+            "name": "Week strip & month views",
+            "desc": "Toggle between a quick week strip and full month calendar."
+          },
+          "mapView": {
+            "name": "Map view",
+            "desc": "See all scheduled jobs on an interactive map. Plan your route visually."
+          },
+          "tasks": {
+            "name": "Personal tasks & reminders",
+            "desc": "Add non-job tasks and reminders to your calendar. Everything in one place."
+          },
+          "gcalSync": {
+            "name": "Google Calendar sync",
+            "desc": "Two-way sync. Jobs appear on Google Calendar. Personal events appear in Opervo."
+          }
+        }
+      },
+      "folio": {
+        "title": "Folio — Public Portfolio",
+        "features": {
+          "customPage": {
+            "name": "Custom portfolio page",
+            "desc": "Your own page at opervo.io/p/your-slug. Share it everywhere."
+          },
+          "beforeAfterSlider": {
+            "name": "Before/after slider",
+            "desc": "Interactive comparison slider. Clients drag to see the transformation."
+          },
+          "galleryGrid": {
+            "name": "Gallery grid",
+            "desc": "Drag-and-drop reordering. Show 1 to 20 photos of your best work."
+          },
+          "serviceCatalog": {
+            "name": "Service catalog",
+            "desc": "List your services with emoji icons, descriptions, and pricing."
+          },
+          "googleRating": {
+            "name": "Google rating display",
+            "desc": "Show your Google star rating and review count. Social proof built in."
+          },
+          "acceptingBadge": {
+            "name": "\"Accepting New Clients\" badge",
+            "desc": "Toggle on when you want new leads. Signals availability."
+          },
+          "quoteForm": {
+            "name": "Quote request form",
+            "desc": "Built-in lead capture. Clients request a quote directly from your Folio."
+          },
+          "seo": {
+            "name": "SEO optimized",
+            "desc": "Open Graph meta tags, semantic HTML. Your Folio ranks on Google."
+          }
+        }
+      },
+      "mileage": {
+        "title": "Mileage & Expense Tracking",
+        "features": {
+          "tripLogging": {
+            "name": "Trip logging",
+            "desc": "Log trips with start and end locations. Link trips to specific jobs."
+          },
+          "mileageSummary": {
+            "name": "Monthly mileage summary",
+            "desc": "See your total miles and estimated tax deduction at a glance."
+          },
+          "expenseLogging": {
+            "name": "Expense logging",
+            "desc": "Log expenses by category. Attach receipt photos."
+          },
+          "expenseSummary": {
+            "name": "Expense summary widgets",
+            "desc": "Monthly totals, category breakdowns, and trends on your dashboard."
+          }
+        }
+      },
+      "reviews": {
+        "title": "Reputation & Reviews",
+        "features": {
+          "requests": {
+            "name": "Review requests",
+            "desc": "Request reviews from clients via email after a job. One tap to send."
+          },
+          "starRating": {
+            "name": "Star-rating collection",
+            "desc": "Clients rate your work and leave feedback directly in Opervo."
+          },
+          "googleLink": {
+            "name": "Google Business link",
+            "desc": "Automatic Google review link on your Folio page and post-payment screen."
+          }
+        }
+      },
+      "team": {
+        "title": "Team Management",
+        "features": {
+          "invite": {
+            "name": "Invite crew via email",
+            "desc": "Add up to 10 team members on the Team plan (1 helper on Solo). They get their own login."
+          },
+          "assignment": {
+            "name": "Job assignment",
+            "desc": "Assign specific jobs to specific people. They see only their work."
+          },
+          "clockInOut": {
+            "name": "Clock-in/clock-out",
+            "desc": "Crew members track their hours per job. You see it all on your dashboard."
+          },
+          "ownerDashboard": {
+            "name": "Owner dashboard",
+            "desc": "Bird's-eye view of team activity, job progress, and time tracking."
+          }
+        }
+      },
+      "sms": {
+        "title": "SMS Automation",
+        "features": {
+          "onMyWay": {
+            "name": "\"On My Way\" notifications",
+            "desc": "Clients get a text with your ETA when you're heading to the job."
+          },
+          "jobCompletion": {
+            "name": "Job completion texts",
+            "desc": "Automatic text when a job is marked complete. Includes a link to the job report."
+          },
+          "invoiceDelivery": {
+            "name": "Invoice delivery via SMS",
+            "desc": "Send invoices by text. Clients tap to view and pay instantly."
+          },
+          "a2p": {
+            "name": "A2P 10DLC compliant",
+            "desc": "Twilio-powered. Fully registered for carrier-approved business texting."
+          }
+        }
+      },
+      "ai": {
+        "title": "AI Assistant",
+        "features": {
+          "realData": {
+            "name": "Asks your real data",
+            "desc": "Not a generic chatbot. Ask \"what's my revenue this month\" or \"which clients haven't booked since February\" — it queries your jobs, invoices, leads, and clients live."
+          },
+          "voiceRecords": {
+            "name": "Creates records by voice",
+            "desc": "\"Add a client named Ramon, found us on Google\" — it writes the row. Same for jobs, expenses, and mileage. No menus, no typing."
+          },
+          "pageContext": {
+            "name": "Knows what page you're on",
+            "desc": "Says \"this job\" or \"this client\" while you're looking at one — it resolves the reference automatically. No copy-paste."
+          },
+          "streaming": {
+            "name": "Streams answers in real time",
+            "desc": "No spinners. Answers appear word-by-word as the model thinks. Faster than waiting for a wall of text."
+          },
+          "drafts": {
+            "name": "Drafts the rest",
+            "desc": "Estimates, follow-up emails, on-my-way texts, review requests. Trained on the way trades operators actually talk."
+          }
+        }
+      },
+      "mobile": {
+        "title": "Mobile-First PWA",
+        "features": {
+          "installable": {
+            "name": "Installable on any device",
+            "desc": "Add to your home screen on iPhone, Android, tablet, or desktop. No app store needed."
+          },
+          "pushNotifications": {
+            "name": "Push notifications",
+            "desc": "Real-time alerts for new jobs, payments, reviews, leads, and team activity."
+          },
+          "darkMode": {
+            "name": "Dark mode",
+            "desc": "Easy on the eyes for early morning or late-night work."
+          },
+          "voiceInput": {
+            "name": "Voice input everywhere",
+            "desc": "Tap the mic icon on any text field. Speak your notes, descriptions, or messages."
+          }
+        }
+      },
+      "integrations": {
+        "title": "Integrations",
+        "features": {
+          "quickbooks": {
+            "name": "QuickBooks Online",
+            "desc": "Connect your QBO account. Sync invoices one way — Opervo to QuickBooks."
+          },
+          "googleCalendar": {
+            "name": "Google Calendar",
+            "desc": "Two-way sync. Your jobs and your personal calendar in one view."
+          },
+          "square": {
+            "name": "Square (recommended)",
+            "desc": "Connect your own Square account in 90 seconds. Funds hit your bank next business day. Opervo takes zero platform fee."
+          },
+          "stripe": {
+            "name": "Stripe (legacy)",
+            "desc": "Existing Stripe operators stay supported. New operators are guided to Square. Either way: no markup from us."
+          },
+          "smsNotifications": {
+            "name": "SMS Notifications",
+            "desc": "\"On My Way!\" texts, appointment reminders, job completion alerts, and invoice delivery."
+          },
+          "maps": {
+            "name": "Google Maps / Apple Maps",
+            "desc": "One-tap navigation to any job address from the job detail screen."
+          }
+        }
+      },
+      "routes": {
+        "title": "Routes & Canvassing",
+        "features": {
+          "routeMyDay": {
+            "name": "Route My Day — one tap",
+            "desc": "On the Schedule, hit one button: we geolocate you, geocode your jobs, order them by shortest path, and show miles + ETA. Tap \"Start Route\" to launch Google Maps with all stops as a multi-leg trip. Competitors charge $30+/mo for this."
+          },
+          "routePlanner": {
+            "name": "Full route planner with road distance",
+            "desc": "For longer days, the dedicated Route page uses Google's Distance Matrix for real road miles and drive time — not straight-line estimates."
+          },
+          "canvassing": {
+            "name": "Door-to-door canvassing",
+            "desc": "Map-first territories with drawn boundaries. Drop pins as you knock — Knocked, Not Home, Not Interested, Lead, Sold. Replaces SalesRabbit/Spotio (~$35/mo)."
+          },
+          "leaderboard": {
+            "name": "Canvassing leaderboard",
+            "desc": "Crew leaderboard by knocks, leads, and conversions. Hot Neighborhoods surface where leads are concentrating."
+          },
+          "closedLoop": {
+            "name": "Closed loop knock → estimate → invoice",
+            "desc": "Convert a Lead pin to an estimate without re-typing the address. Convert the approved estimate to a job. Track conversion rate per territory."
+          }
+        }
+      },
+      "measure": {
+        "title": "Measurement Tool",
+        "features": {
+          "sketch": {
+            "name": "Sketch on the satellite map",
+            "desc": "Drop points around a roof, driveway, lawn, or facade. Total square footage and perimeter compute as you draw."
+          },
+          "dragVertex": {
+            "name": "Drag any vertex to fix mistakes",
+            "desc": "Tap and drag points — even on completed shapes. Edges and totals re-calc live. No starting over because of one bad tap."
+          },
+          "rightAngle": {
+            "name": "Right-angle snap",
+            "desc": "When you're drawing close to a 90° angle, the tool snaps it square within 6° tolerance. Clean shapes, fast."
+          },
+          "edgeLabels": {
+            "name": "Live edge labels in feet",
+            "desc": "Every edge shows its length in feet while you're drawing. Quote pane counts, brick courses, fence runs without a tape measure."
+          },
+          "undo": {
+            "name": "Long-press to undo",
+            "desc": "Long-press the map to undo the last point. Per-shape rename and delete from the overlay. Multiple shapes per property."
+          },
+          "autoPrice": {
+            "name": "Auto-price into the estimate",
+            "desc": "Set a $/sq ft rate per service. Measured area pushes straight into the estimate line item — no calculator needed."
+          }
+        }
+      },
+      "servicePlans": {
+        "title": "Service Plans",
+        "features": {
+          "agreements": {
+            "name": "Recurring agreements your clients e-sign",
+            "desc": "Build a plan (weekly, biweekly, monthly, quarterly, custom). Send the client a magic-link agreement to sign. Status moves to Active when signed."
+          },
+          "autoGenerated": {
+            "name": "Auto-generated jobs, 30 days out",
+            "desc": "A daily background job tops up the next 30 days of work for every active plan. Jobs land on your Schedule with a \"Plan\" badge — no manual scheduling."
+          },
+          "vacationPause": {
+            "name": "Vacation pauses with auto-resume",
+            "desc": "Client going out of town? Pause the plan until a date. Jobs stop being created, then resume automatically the day they're back."
+          },
+          "preferredDay": {
+            "name": "Preferred day honored",
+            "desc": "Client wants Tuesdays? Weekly and biweekly plans land on the day they picked."
+          },
+          "enrollment": {
+            "name": "Plan-first OR client-first enrollment",
+            "desc": "Build the plan and enroll clients into it, or open a client and add them to a plan. Same data, two flows — pick whichever matches how you sell."
+          },
+          "signingWindow": {
+            "name": "14-day signing window with regenerate",
+            "desc": "Unsigned agreement links expire in 14 days for security. One tap regenerates a fresh link."
+          },
+          "cancellation": {
+            "name": "Clean cancellation",
+            "desc": "Cancel a plan and only future auto-generated jobs are removed. Past completed jobs stay on the books, untouched."
+          }
+        }
+      },
+      "supplies": {
+        "title": "Supplies & Materials",
+        "features": {
+          "catalog": {
+            "name": "Catalog of what you actually use",
+            "desc": "Define your own categories and units — gallons of SH, yards of mulch, ounces of surfactant, gallons of fuel, pounds of fertilizer. Industry-agnostic."
+          },
+          "perJobLogging": {
+            "name": "Per-job logging in 5 seconds",
+            "desc": "On any job, tap the supply, hit + or − to set quantity. Unit cost, unit type, and supply name are snapshotted at the moment of logging — historical rows survive price changes."
+          },
+          "profitMath": {
+            "name": "Live profit math on every job",
+            "desc": "Revenue − Supplies = Profit, shown in green or red right on the job. Stop guessing whether that $400 driveway actually paid."
+          },
+          "preFill": {
+            "name": "Smart pre-fill from your last 5 jobs",
+            "desc": "Open a pressure-washing job — if your last 5 pressure-washing jobs used SH and surfactant, we suggest the average quantities. One tap to accept."
+          },
+          "taxExpense": {
+            "name": "Auto-deducted as a tax expense",
+            "desc": "Log a purchase (\"$84 for 4 gallons of SH at Lowe's\") — it auto-creates an Expense entry in your books and bumps your stock count. Tax season is one button."
+          },
+          "lowStock": {
+            "name": "Low-stock alerts on the dashboard",
+            "desc": "Set a reorder threshold per supply. The dashboard tile turns red when you're running low so you don't show up to a job dry."
+          },
+          "csvExport": {
+            "name": "CSV export",
+            "desc": "Per-line CSV joining supplies to jobs, clients, and dates. Hand to your accountant or import to QBO."
+          }
+        }
+      }
+    },
+    "midCtas": {
+      "after3": "All of this for $24.99/mo.",
+      "after7": "No add-ons. No hidden fees.",
+      "after11": "Built for the truck, not the desk.",
+      "trialNote": "14-day free trial. No credit card required.",
+      "startTrial": "Start Free Trial"
+    },
+    "summary": {
+      "title": "90+ Features. One App. $24.99/mo.",
+      "sub": "No feature gates. No add-on pricing. Every Solo plan customer gets access to everything above. Team plan adds crew management for $54.99/mo.",
+      "stats": {
+        "features": { "num": "90+", "label": "Features included" },
+        "price": { "num": "$24.99", "label": "Per month (Solo)" },
+        "trial": { "num": "14", "label": "Day free trial" },
+        "card": { "num": "0", "label": "Credit card required" }
+      }
+    },
+    "compareSection": {
+      "title": "See How Opervo Compares",
+      "cards": {
+        "vsJobber": {
+          "name": "Opervo vs Jobber",
+          "price": "$24.99/mo vs $39/mo",
+          "desc": "Save $168/year. Get a portfolio page and SMS included."
+        },
+        "vsHousecallPro": {
+          "name": "Opervo vs Housecall Pro",
+          "price": "$24.99/mo vs $79/mo",
+          "desc": "Save $648/year. All the features solos actually need."
+        },
+        "vsGorillaDesk": {
+          "name": "Opervo vs GorillaDesk",
+          "price": "$24.99/mo vs $49/mo",
+          "desc": "Save $288/year. Built for any home-service trade."
+        }
+      },
+      "seeFullComparison": "See full comparison"
+    },
+    "industrySection": {
+      "title": "Built for Your Trade"
+    },
+    "finalCta": {
+      "title": "Ready to Run Your Business Like a Pro?",
+      "sub": "Start free — 14 days, no credit card.",
+      "cta": "Start Free Trial"
+    },
+    "exploreMore": {
+      "eyebrow": "Explore More",
+      "cards": {
+        "pricing": { "title": "Pricing", "desc": "Plans starting at $24.99/mo" },
+        "solarPanelCleaning": { "title": "Solar Panel Cleaning", "desc": "Software built for solar cleaners" },
+        "windowCleaning": { "title": "Window Cleaning", "desc": "Software built for window cleaners" },
+        "pressureWashing": { "title": "Pressure Washing", "desc": "Software built for pressure washers" },
+        "landscaping": { "title": "Landscaping", "desc": "Software built for landscapers" },
+        "autoDetailing": { "title": "Auto Detailing", "desc": "Software built for detailers" },
+        "blog": { "title": "Blog", "desc": "Tips to grow your business" }
+      }
+    }
+  },
+
+  "pricing": {
+    "eyebrow": "Pricing",
+    "heroTitle": "Every Feature. Every Plan.",
+    "heroSub": "No features locked behind higher tiers. No per-user fees. Start free for 14 days — no credit card required.",
+    "toggle": {
+      "monthly": "Monthly",
+      "annual": "Annual",
+      "save17": "SAVE 17%"
+    },
+    "solo": {
+      "name": "Solo",
+      "monthlyPrice": "$24.99",
+      "monthlyUnit": "/mo",
+      "annualPrice": "$249",
+      "annualUnit": "/yr",
+      "monthlyTag": "Full feature access · 2 users",
+      "annualTag": "Just ${perMonth}/mo · save ${savings} vs monthly",
+      "features": [
+        "2 users (operator + 1 helper)",
+        "Unlimited clients",
+        "Scheduling + Google Calendar sync",
+        "Estimates & invoicing",
+        "Client portal with magic links",
+        "Portfolio page (opervo.io/p/your-name)",
+        "Automated texts (confirmations, on-my-way, reviews)",
+        "Recurring jobs",
+        "CSV export",
+        "Push notifications",
+        "Lead management"
+      ],
+      "cta": "Start Free Trial",
+      "trialNote": "14 days free. No credit card."
+    },
+    "team": {
+      "name": "Team",
+      "badge": "Most Popular",
+      "monthlyPrice": "$54.99",
+      "monthlyUnit": "/mo",
+      "annualPrice": "$549",
+      "annualUnit": "/yr",
+      "monthlyTag": "Full feature access · No per-user fees",
+      "annualTag": "Just ${perMonth}/mo · save ${savings} vs monthly",
+      "features": [
+        "Up to 10 team members",
+        "Everything in Solo, plus:",
+        "Role-based permissions",
+        "Assign jobs to crew members",
+        "Team scheduling view",
+        "All features included — no per-user fees"
+      ],
+      "cta": "Start Free Trial",
+      "trialNote": "14 days free. No credit card."
+    },
+    "founding50": {
+      "eyebrow": "Founding 50 · Limited Spots",
+      "title": "Lock $15/mo Solo for life",
+      "sub": "40% off forever in exchange for honest feedback — a survey here, a quick call there. Capped at 50 operators.",
+      "claimed": "{claimed} of {total} claimed",
+      "remaining": "{count} remaining",
+      "cta": "Apply →"
+    },
+    "growth": {
+      "eyebrow": "Growth · For 10+ teams",
+      "title": "Same full feature access. Unlimited team members.",
+      "sub": "Priority support, custom onboarding, dedicated account manager.",
+      "cta": "Contact us →"
+    },
+    "comparisonTable": {
+      "title": "How We Compare",
+      "headers": {
+        "feature": "Feature",
+        "opervoSolo": "Opervo Solo",
+        "opervoTeam": "Opervo Team",
+        "jobberLite": "Jobber Lite",
+        "jobberConnect": "Jobber Connect",
+        "hcpBasic": "HCP Basic",
+        "gorillaDesk": "GorillaDesk",
+        "markate": "Markate"
+      },
+      "rows": [
+        { "feature": "Price", "oSolo": "$24.99/mo or $249/yr", "oTeam": "$54.99/mo or $549/yr", "jLite": "$39/mo", "jConnect": "$119/mo", "hcp": "$79/mo", "gd": "$49/mo", "mk": "$39.95 + add-ons" },
+        { "feature": "Free trial", "oSolo": "14 days", "oTeam": "14 days", "jLite": "14 days", "jConnect": "14 days", "hcp": "14 days", "gd": "14 days", "mk": "14 days" },
+        { "feature": "Scheduling", "oSolo": "check", "oTeam": "check", "jLite": "check", "jConnect": "check", "hcp": "check", "gd": "check", "mk": "check" },
+        { "feature": "Estimates & Invoicing", "oSolo": "check", "oTeam": "check", "jLite": "check", "jConnect": "check", "hcp": "check", "gd": "check", "mk": "check" },
+        { "feature": "Client portal", "oSolo": "check", "oTeam": "check", "jLite": "check", "jConnect": "check", "hcp": "check", "gd": "cross", "mk": "+$10/mo" },
+        { "feature": "Portfolio page", "oSolo": "check", "oTeam": "check", "jLite": "cross", "jConnect": "cross", "hcp": "cross", "gd": "cross", "mk": "cross" },
+        { "feature": "Auto-text (SMS)", "oSolo": "Included", "oTeam": "Included", "jLite": "Add-on", "jConnect": "Add-on", "hcp": "check", "gd": "check", "mk": "+$10/mo" },
+        { "feature": "Google Calendar sync", "oSolo": "check", "oTeam": "check", "jLite": "check", "jConnect": "check", "hcp": "check", "gd": "check", "mk": "check" },
+        { "feature": "Recurring jobs", "oSolo": "check", "oTeam": "check", "jLite": "check", "jConnect": "check", "hcp": "check", "gd": "check", "mk": "check" },
+        { "feature": "Service plans (e-signed agreements)", "oSolo": "check", "oTeam": "check", "jLite": "cross", "jConnect": "cross", "hcp": "cross", "gd": "cross", "mk": "cross" },
+        { "feature": "Team management", "oSolo": "Up to 1", "oTeam": "Up to 10", "jLite": "cross", "jConnect": "check", "hcp": "check", "gd": "check", "mk": "+$5/user/mo" },
+        { "feature": "Route optimization", "oSolo": "check", "oTeam": "check", "jLite": "cross", "jConnect": "check", "hcp": "cross", "gd": "check", "mk": "cross" },
+        { "feature": "Door-to-door canvassing", "oSolo": "check", "oTeam": "check", "jLite": "cross", "jConnect": "cross", "hcp": "cross", "gd": "cross", "mk": "cross" },
+        { "feature": "Measurement tool (sq ft / linear ft)", "oSolo": "check", "oTeam": "check", "jLite": "cross", "jConnect": "cross", "hcp": "cross", "gd": "cross", "mk": "cross" },
+        { "feature": "Supplies & materials tracking", "oSolo": "check", "oTeam": "check", "jLite": "cross", "jConnect": "cross", "hcp": "cross", "gd": "cross", "mk": "cross" },
+        { "feature": "Public portfolio page (Folio)", "oSolo": "check", "oTeam": "check", "jLite": "cross", "jConnect": "cross", "hcp": "cross", "gd": "cross", "mk": "cross" },
+        { "feature": "Embeddable quote widget", "oSolo": "check", "oTeam": "check", "jLite": "cross", "jConnect": "cross", "hcp": "cross", "gd": "cross", "mk": "+$10/mo" },
+        { "feature": "AI Assistant (data-aware)", "oSolo": "check", "oTeam": "check", "jLite": "cross", "jConnect": "cross", "hcp": "cross", "gd": "cross", "mk": "Estimator only" },
+        { "feature": "Tipping + post-pay review prompt", "oSolo": "check", "oTeam": "check", "jLite": "cross", "jConnect": "cross", "hcp": "cross", "gd": "cross", "mk": "+$10/mo" },
+        { "feature": "Mileage + tax reports", "oSolo": "check", "oTeam": "check", "jLite": "cross", "jConnect": "cross", "hcp": "cross", "gd": "cross", "mk": "cross" },
+        { "feature": "Payments — your processor, no markup", "oSolo": "Square or Stripe", "oTeam": "Square or Stripe", "jLite": "Jobber Payments", "jConnect": "Jobber Payments", "hcp": "HCP Pay", "gd": "GD Pay", "mk": "Markate Payments" }
+      ],
+      "pricingGuideLink": "Read our full pricing guide →"
+    },
+    "faqs": [
+      { "q": "Is there a free trial?", "a": "Yes, 14 days. No credit card required. You get full access to every feature." },
+      { "q": "Are there any hidden fees?", "a": "No. The price you see is the price you pay. SMS, client portal, portfolio page, estimates, invoicing — all included." },
+      { "q": "Can I switch between Solo and Team?", "a": "Yes, upgrade or downgrade anytime from your account settings." },
+      { "q": "What payment methods do you accept?", "a": "For your subscription, all major credit and debit cards via Stripe. We don't store your card info. For payments from your clients, you connect your own Square or Stripe account — funds go straight to your bank, and Opervo takes zero markup." },
+      { "q": "Does Opervo take a cut of my client payments?", "a": "No. Zero platform fee, ever. You connect Square (recommended for new operators) or Stripe to your account, and your clients' payments go directly from them to you. We never touch the money." },
+      { "q": "What happens after the trial?", "a": "Your account stays active on the plan you choose. If you don't subscribe, your data is saved for 30 days so you can come back anytime." },
+      { "q": "Do you offer annual pricing?", "a": "Yes. Solo Annual is $249/yr (saves $51 vs monthly), Team Annual is $549/yr (saves $111). Toggle Monthly or Annual on the pricing cards above, or pick Annual at checkout. Cancel anytime." },
+      { "q": "What's the Growth plan?", "a": "For teams with more than 10 members. Custom pricing and onboarding — email help@opervo.io and we'll set you up." }
+    ],
+    "faqTitle": "Frequently Asked Questions",
+    "ctaBand": {
+      "title": "Start Running Your Business Like a Pro.",
+      "sub": "14 days free. All features. No credit card.",
+      "cta": "Start Free Trial →"
+    }
+  },
+
+  "common": {
+    "startFree": "Start Free",
+    "startFreeTrial": "Start Free Trial",
+    "tryFree": "Try Free",
+    "signIn": "Sign In",
+    "fourteenDayTrial": "14-day free trial",
+    "noCreditCard": "No credit card required",
+    "learnMore": "Learn more",
+    "seeFullComparison": "See full comparison",
+    "cancelAnytime": "Cancel anytime",
+    "contactUs": "Contact us",
+    "getInTouch": "Get in touch",
+    "apply": "Apply",
+    "perMonth": "/mo",
+    "perYear": "/yr",
+    "check": "✓",
+    "cross": "✗",
+    "included": "Included",
+    "addOn": "Add-on",
+    "soloPlan": "Solo",
+    "teamPlan": "Team",
+    "growthPlan": "Growth",
+    "soloPrice": "$24.99/mo",
+    "teamPrice": "$54.99/mo",
+    "soloAnnualPrice": "$249/yr",
+    "teamAnnualPrice": "$549/yr",
+    "allFeaturesIncluded": "All features included",
+    "noPerUserFees": "No per-user fees",
+    "zeroMarkup": "Zero markup",
+    "opervo": "Opervo",
+    "opervoDot": "Opervo."
+  }
+}
