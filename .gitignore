@@ -17,3 +17,6 @@ out/
 .DS_Store
 Thumbs.db
 .vercel
+
+# Apprentice photo backups (originals before iOS-screenshot black-bar cropping; kept locally only)
+public/apprentice/*.original.png
