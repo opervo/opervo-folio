@@ -57,6 +57,7 @@ const entries: Entry[] = [
   { path: '/print', changeFrequency: 'monthly', priority: 0.6 },
   { path: '/guide', changeFrequency: 'monthly', priority: 0.5 },
   { path: '/founder', changeFrequency: 'monthly', priority: 0.7 },
+  { path: '/switch', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/support', changeFrequency: 'monthly', priority: 0.5 },
   { path: '/embed-guide', changeFrequency: 'monthly', priority: 0.5 },
   { path: '/privacy', changeFrequency: 'yearly', priority: 0.3 },
