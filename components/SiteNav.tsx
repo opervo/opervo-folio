@@ -27,6 +27,7 @@ const resources = [
   { name: 'Marketing Materials', href: '/print' },
   { name: 'Guide', href: '/guide' },
   { name: 'The Founder', href: '/founder' },
+  { name: 'Apprentice (Ages 13–17)', href: '/apprentice' },
 ]
 
 export default function SiteNav() {

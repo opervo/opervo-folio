@@ -63,6 +63,7 @@ export default function SiteFooter() {
               <Link href="/blog" title="Opervo Blog" style={linkStyle}>Blog</Link>
               <Link href="/founder" title="The Founder" style={linkStyle}>The Founder</Link>
               <Link href="/guide" title="Opervo Guide" style={linkStyle}>Guide</Link>
+              <Link href="/apprentice" title="Opervo Apprentice" style={linkStyle}>Apprentice</Link>
               <Link href="/privacy" title="Privacy Policy" style={linkStyle}>Privacy</Link>
               <Link href="/tos" title="Terms of Service" style={linkStyle}>Terms</Link>
               <a href="https://app.opervo.io" style={linkStyle}>Sign In</a>
