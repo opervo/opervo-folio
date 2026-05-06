@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="google-site-verification" content="dqtkzyB8hQ_hB38N_" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Opervo — La app hecha para operadores independientes de oficios</title>
-<meta name="description" content="Gestiona tus trabajos, factura a clientes y obtiene un folio que publica cada trabajo que terminas — automaticamente. Hecho por un operador independiente para operadores independientes. 14 dias gratis.">
+<title>Opervo — La app hecha para operadores independientes</title>
+<meta name="description" content="Gestiona tus trabajos, factura a tus clientes y obtiene un folio que publica cada trabajo que terminas — automaticamente. Hecho por un operador independiente para operadores independientes. 14 dias gratis.">
 <meta name="apple-itunes-app" content="app-id=6763399255">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -159,7 +159,7 @@ nav {
 }
 .btn-primary { background: var(--orange); color: white; }
 .btn-primary:hover { background: var(--orange-hover); }
-.btn-primary::after { content: '→'; font-size: 18px; }
+.btn-primary::after { content: '\2192'; font-size: 18px; }
 .btn-secondary {
   background: transparent; color: var(--ink);
   border: 2px solid var(--border);
@@ -370,6 +370,7 @@ nav {
 }
 .phone-screen-img { background: var(--black); line-height: 0; }
 .phone-screen-img img { width: 100%; height: auto; display: block; }
+/* Live folio embed inside the phone frame — same-origin iframe of /p/solar-wash-atx */
 .phone-screen-live {
   background: var(--black);
   aspect-ratio: 9 / 19;
@@ -381,6 +382,8 @@ nav {
   background: var(--bg);
 }
 @media (max-width: 720px) {
+  /* On mobile, don't let the iframe trap scroll inside the phone frame.
+     Visitors see the live folio, but the page keeps scrolling. */
   .phone-screen-live iframe { pointer-events: none; }
 }
 
@@ -492,6 +495,8 @@ nav {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
   background-size: 11px 11px; background-repeat: no-repeat; background-position: center; margin-top: 3px;
 }
+/* When a bullet leads with bold text, lock the bold to a fixed-width column so the trailing
+   explainer text starts at the same x across every bullet in the list. */
 .bullets li > strong:first-child { flex: 0 0 220px; }
 @media (max-width: 720px) { .bullets li > strong:first-child { flex: 0 0 auto; } }
 
@@ -661,7 +666,7 @@ nav {
   font-weight: 700; font-size: 13px; white-space: nowrap;
   border: 1px solid rgba(16,185,129,0.22);
 }
-.switch-pill::after { content: '→'; font-size: 15px; }
+.switch-pill::after { content: '\2192'; font-size: 15px; }
 
 /* ─── FOUNDER ─── */
 .founder { padding: 90px 0; background: var(--warm); }
@@ -686,7 +691,7 @@ nav {
   transition: background .15s ease, border-color .15s ease;
 }
 .founder-cta:hover { background: rgba(245,98,15,0.14); border-color: var(--orange); }
-.founder-cta::after { content: '→'; font-size: 15px; }
+.founder-cta::after { content: '\2192'; font-size: 15px; }
 .founder-label {
   font-size: 11px; font-weight: 700; letter-spacing: 0.15em;
   text-transform: uppercase; color: var(--orange); margin-bottom: 14px;
@@ -755,7 +760,7 @@ nav {
   text-align: center; margin-top: 32px; font-size: 13px; color: rgba(255,255,255,0.55); font-weight: 500;
 }
 
-/* ─── SERVICE PLANS VISUAL ─── */
+/* ─── SERVICE PLANS VISUAL (not used — uses real screenshot, but kept for fallback) ─── */
 .plan-row-cadence {
   padding: 5px 10px; background: rgba(26,107,240,0.08); color: var(--blue);
   border-radius: 999px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em;
@@ -911,7 +916,7 @@ nav {
   font-size: 13px; font-weight: 700; color: var(--orange);
   display: inline-flex; align-items: center; gap: 4px;
 }
-.trade-card-more::after { content: '→'; }
+.trade-card-more::after { content: '\2192'; }
 .trades-compare { text-align: center; font-size: 13.5px; color: var(--muted); font-weight: 500; }
 .trades-compare a { color: var(--orange); font-weight: 700; margin: 0 3px; }
 .trades-compare a:hover { text-decoration: underline; }
@@ -990,14 +995,14 @@ nav {
 .footer-bottom a { color: var(--muted); margin: 0 8px; }
 .footer-bottom a:hover { color: var(--orange); }
 
-/* ─── SCROLL REVEAL ─── */
+/* ─── SCROLL REVEAL (preserved from original) ─── */
 .reveal {
   opacity: 0; transform: translateY(24px);
   transition: opacity .6s ease-out, transform .6s ease-out;
 }
 .reveal.vis { opacity: 1; transform: translateY(0); }
 
-/* SVG icons utility */
+/* SVG icons utility (preserved) */
 svg.ic {
   display: inline-block; vertical-align: middle;
   fill: none; stroke: currentColor;
@@ -1009,14 +1014,14 @@ svg.ic {
   <meta property="og:image" content="https://www.opervo.io/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:url" content="https://www.opervo.io/es/">
+  <meta property="og:url" content="https://www.opervo.io">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Opervo">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Opervo — Gestiona tu negocio de servicios. Luce profesional.">
   <meta name="twitter:description" content="Cada trabajo que terminas se publica automaticamente en tu folio. Trabajos, facturas, agenda y formulario de cotizacion incluidos.">
   <meta name="twitter:image" content="https://www.opervo.io/og-image.png">
-  <link rel="canonical" href="https://www.opervo.io/es/" />
+  <link rel="canonical" href="https://www.opervo.io" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -1033,7 +1038,7 @@ svg.ic {
           "width": 1200,
           "height": 630
         },
-        "description": "Field service management software for solo home-service operators — window cleaners, pressure washers, landscapers, and other trades.",
+        "description": "Software de gestion de servicios en campo para operadores independientes — limpiadores de ventanas, lavado a presion, jardineros y otros oficios.",
         "founder": {
           "@type": "Person",
           "name": "Maximiliano Ballesteros"
@@ -1051,7 +1056,7 @@ svg.ic {
           "@type": "ContactPoint",
           "email": "help@opervo.io",
           "contactType": "customer support",
-          "availableLanguage": "English"
+          "availableLanguage": ["English", "Spanish"]
         },
         "sameAs": [
           "https://app.opervo.io"
@@ -1070,7 +1075,7 @@ svg.ic {
         "name": "Opervo",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Web, iOS, Android",
-        "description": "Mobile-first field service management app for solo trade operators. Jobs, estimates, invoices, scheduling, client portal, and a live portfolio page.",
+        "description": "App movil de gestion de servicios en campo para operadores independientes. Trabajos, presupuestos, facturas, agenda, portal de clientes y pagina de portafolio en vivo.",
         "url": "https://www.opervo.io",
         "publisher": { "@id": "https://www.opervo.io/#organization" },
         "offers": [
@@ -1086,7 +1091,7 @@ svg.ic {
 </head>
 <body>
 
-<!-- ── REFERRAL BANNER ── -->
+<!-- ── REFERRAL BANNER (hidden until resolve-code returns valid) ── -->
 <style>
   #refBanner {
     display: none;
@@ -1143,22 +1148,38 @@ svg.ic {
   }
 </style>
 <div id="refBanner" role="status" aria-live="polite">
+  <span class="emoji">&#128075;</span>
   Invitado por <strong id="refBannerName">un colega operador</strong> —
-  obtiene <strong>50% de descuento en tu primer mes</strong>.
-  <a id="refBannerCta" class="claim" href="https://app.opervo.io/signup">Reclamar oferta →</a>
-  <button class="close" onclick="document.getElementById('refBanner').classList.remove('show');document.body.classList.remove('has-ref-banner');try{sessionStorage.setItem('opervo-ref-dismissed','1')}catch(_){}" aria-label="Cerrar">×</button>
+  obtiene <strong>50% de descuento en tu primer mes pagado</strong>.
+  <a id="refBannerCta" class="claim" href="https://app.opervo.io/signup">Reclamar oferta &#8594;</a>
+  <button class="close" onclick="document.getElementById('refBanner').classList.remove('show');document.body.classList.remove('has-ref-banner');try{sessionStorage.setItem('opervo-ref-dismissed','1')}catch(_){}" aria-label="Cerrar">&#215;</button>
 </div>
 
 <script>
+  // Referral link handler.
+  // 1. Read ?ref= from URL.
+  // 2. Store in sessionStorage so a dismiss doesn't kill the CTA rewrite.
+  // 3. Resolve code -> business_name via edge function, show banner.
+  // 4. Append ?ref=<code> to every href that points at app.opervo.io
+  //    so attribution follows the operator through to signup.
   (function () {
     try {
       var params = new URLSearchParams(window.location.search);
       var code = (params.get('ref') || '').toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 16);
+
+      // Fallback: if this visit has no ?ref= but an earlier page this session did,
+      // rehydrate from sessionStorage so attribution survives internal navigation
+      // (e.g. Features -> back to / ).
       if (!code) {
         try { code = (sessionStorage.getItem('opervo-ref') || '').toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 16); } catch (_) {}
       }
+
       if (!code) return;
+
+      // Stash for CTA rewriting even if banner is dismissed.
       try { sessionStorage.setItem('opervo-ref', code); } catch (_) {}
+
+      // Rewrite app.opervo.io links now (runs before images, fonts, etc.).
       var rewriteCtas = function () {
         var links = document.querySelectorAll('a[href*="app.opervo.io"]');
         links.forEach(function (a) {
@@ -1172,9 +1193,13 @@ svg.ic {
       } else {
         rewriteCtas();
       }
+
+      // Skip banner fetch if already dismissed this session.
       try {
         if (sessionStorage.getItem('opervo-ref-dismissed') === '1') return;
       } catch (_) {}
+
+      // Resolve code -> business_name.
       fetch('https://sbnykmxckfwkkxvhrkot.supabase.co/functions/v1/resolve-referral-code?code=' + encodeURIComponent(code))
         .then(function (r) { return r.ok ? r.json() : null; })
         .then(function (data) {
@@ -1203,17 +1228,16 @@ svg.ic {
 
 <!-- NAV -->
 <nav>
-  <a href="/es/" class="nav-logo">Opervo<span>.</span></a>
+  <a href="/" class="nav-logo">Opervo<span>.</span></a>
   <ul class="nav-links">
-    <li><a href="/es/features">Funciones</a></li>
+    <li><a href="/features">Funciones</a></li>
     <li><a href="#pricing">Precios</a></li>
-    <li><a href="/es/blog">Blog</a></li>
-    <li><a href="/es/compare/opervo-vs-jobber">Comparar</a></li>
-    <li><a href="/es/print">Marketing</a></li>
-    <li><a href="/" style="font-size:12px;font-weight:800;color:var(--orange);letter-spacing:0.08em;">EN</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/compare/opervo-vs-jobber">Comparar</a></li>
+    <li><a href="/print">Marketing</a></li>
   </ul>
   <a href="https://app.opervo.io" class="nav-cta">
-    Empieza tu prueba gratis
+    Prueba gratis
     <svg class="ic" width="14" height="14" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
   </a>
   <button class="nav-hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open');this.dataset.open=this.dataset.open==='1'?'0':'1';this.innerHTML=this.dataset.open==='1'?'<svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#0F0F0F&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot;><line x1=&quot;18&quot; y1=&quot;6&quot; x2=&quot;6&quot; y2=&quot;18&quot;/><line x1=&quot;6&quot; y1=&quot;6&quot; x2=&quot;18&quot; y2=&quot;18&quot;/></svg>':'<svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#0F0F0F&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot;><line x1=&quot;3&quot; y1=&quot;6&quot; x2=&quot;21&quot; y2=&quot;6&quot;/><line x1=&quot;3&quot; y1=&quot;12&quot; x2=&quot;21&quot; y2=&quot;12&quot;/><line x1=&quot;3&quot; y1=&quot;18&quot; x2=&quot;21&quot; y2=&quot;18&quot;/></svg>'" data-open="0">
@@ -1222,35 +1246,34 @@ svg.ic {
 </nav>
 
 <div id="mobileMenu" class="mobile-menu">
-  <a href="/es/features">Funciones</a>
-  <a href="/es/pricing">Precios</a>
+  <a href="/features">Funciones</a>
+  <a href="/pricing">Precios</a>
   <p class="mobile-menu-section">Industrias</p>
-  <a href="/es/solar-panel-cleaning">Limpieza de paneles solares</a>
-  <a href="/es/window-cleaning">Limpieza de ventanas</a>
-  <a href="/es/pressure-washing">Lavado a presion</a>
-  <a href="/es/landscaping">Paisajismo</a>
-  <a href="/es/auto-detailing">Detallado automotriz</a>
+  <a href="/solar-panel-cleaning">Limpieza de Paneles Solares</a>
+  <a href="/window-cleaning">Limpieza de Ventanas</a>
+  <a href="/pressure-washing">Lavado a Presion</a>
+  <a href="/landscaping">Jardineria</a>
+  <a href="/auto-detailing">Detallado Automotriz</a>
   <p class="mobile-menu-section">Comparar</p>
-  <a href="/es/compare/opervo-vs-jobber">Opervo vs Jobber</a>
-  <a href="/es/compare/opervo-vs-housecall-pro">Opervo vs Housecall Pro</a>
-  <a href="/es/compare/opervo-vs-gorilladesk">Opervo vs GorillaDesk</a>
-  <a href="/es/compare/opervo-vs-markate">Opervo vs Markate</a>
+  <a href="/compare/opervo-vs-jobber">Opervo vs Jobber</a>
+  <a href="/compare/opervo-vs-housecall-pro">Opervo vs Housecall Pro</a>
+  <a href="/compare/opervo-vs-gorilladesk">Opervo vs GorillaDesk</a>
+  <a href="/compare/opervo-vs-markate">Opervo vs Markate</a>
   <p class="mobile-menu-section">Recursos</p>
-  <a href="/es/cost-calculator">Calculadora de costo real</a>
-  <a href="/es/profit-calculator">Calculadora de ganancia</a>
-  <a href="/es/multi-job-tracker">Rastreador de trabajos</a>
-  <a href="/es/blog">Blog</a>
-  <a href="/es/print">Materiales de marketing</a>
-  <a href="/es/guide">Guia</a>
-  <a href="/es/apprentice">Aprendiz (13-17 anos)</a>
+  <a href="/cost-calculator">Calculadora de Costo Real</a>
+  <a href="/profit-calculator">Calculadora de Ganancia</a>
+  <a href="/multi-job-tracker">Rastreador Multi-Trabajo</a>
+  <a href="/blog">Blog</a>
+  <a href="/print">Materiales de Marketing</a>
+  <a href="/guide">Guia</a>
+  <a href="/apprentice">Aprendiz (13-17 anos)</a>
   <div style="border-top:1px solid #E8E4DE;margin-top:16px;padding-top:16px;">
     <a href="https://app.opervo.io" style="color:#6B6B6B;font-size:14px;">Iniciar sesion</a>
     <a href="https://app.opervo.io" class="mobile-menu-cta">Prueba gratis</a>
-    <a href="/" style="display:block;padding:10px 0;font-size:14px;font-weight:700;color:var(--orange);">English (EN)</a>
   </div>
 </div>
 
-<!-- ── HERO ── -->
+<!-- ── HERO ────────────────────────────────────── -->
 <section class="hero">
   <div class="container">
     <div class="hero-grid">
@@ -1260,8 +1283,8 @@ svg.ic {
           Para los que<br/>siguen en ella<span class="accent">.</span>
         </h1>
         <p class="hero-sub">
-          Agenda trabajos, envia facturas, cobra y gana mas trabajo sin tener que malabarear apps.
-          <strong>$24.99/mo. Todas las funciones. Todos los planes.</strong>
+          Agenda trabajos, envia facturas, cobra y consigue mas clientes sin hacer malabares con apps.
+          <strong>$24.99/mes. Todas las funciones. Todos los planes.</strong>
         </p>
         <div class="hero-ctas">
           <a href="https://app.opervo.io" class="btn btn-primary">Empieza gratis</a>
@@ -1269,11 +1292,11 @@ svg.ic {
         </div>
         <div class="hero-trust">Prueba gratis de 14 dias · Sin tarjeta de credito</div>
         <a href="sms:+15127616054" class="hero-text-founder" data-event="hero_text_founder">
-          Tienes una pregunta? <strong>Escribele a Max → (512) 761-6054</strong>
+          &#128172; Tienes una pregunta? <strong>Escribele a Max &#8594; (512) 761-6054</strong>
         </a>
         <div class="hero-app-store">
-          <a href="https://apps.apple.com/us/app/opervo/id6763399255" target="_blank" rel="noopener" aria-label="Descargar Opervo en la App Store">
-            <img src="/app-store-badge.svg" alt="Download on the App Store" />
+          <a href="https://apps.apple.com/us/app/opervo/id6763399255" target="_blank" rel="noopener" aria-label="Descargar Opervo en el App Store">
+            <img src="/app-store-badge.svg" alt="Descargar en el App Store" />
           </a>
         </div>
 
@@ -1284,21 +1307,22 @@ svg.ic {
             <img src="/logos/jc-air-pro.jpeg" alt="JC Air Pro" />
           </div>
           <div class="hero-proof-text">
-            <strong>Confiado por operadores independientes</strong><br/>
+            <strong>Confianza de operadores independientes</strong><br/>
             en lavado a presion, limpieza de ventanas y mas
           </div>
         </div>
       </div>
 
+      <!-- Real app screenshot + floating social-proof callouts -->
       <div class="hero-phone-wrap">
         <div class="phone">
           <div class="phone-screen phone-screen-img">
-            <img src="/screenshots/hero-dashboard.png" alt="Panel de Opervo: tarjeta de proximo trabajo, acciones rapidas, agenda de hoy" fetchpriority="high" decoding="async" />
+            <img src="/screenshots/hero-dashboard.png" alt="Panel de Opervo: tarjeta de trabajo siguiente, acciones rapidas, agenda del dia" fetchpriority="high" decoding="async" />
           </div>
         </div>
 
         <div class="hero-callout hero-callout-1">
-          <div class="hero-callout-icon" style="background:rgba(16,185,129,0.15);color:#10B981">✓</div>
+          <div class="hero-callout-icon" style="background:rgba(16,185,129,0.15);color:#10B981">&#10003;</div>
           <div class="hero-callout-text">
             <div class="hero-callout-main">Factura pagada · $175</div>
             <div class="hero-callout-sub">Justo ahora</div>
@@ -1310,15 +1334,15 @@ svg.ic {
             <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
           </div>
           <div class="hero-callout-text">
-            <div class="hero-callout-main">14 visitas al Folio hoy</div>
+            <div class="hero-callout-main">14 visitas a Folio hoy</div>
             <div class="hero-callout-sub">opervo.io/solar-wash-atx</div>
           </div>
         </div>
 
         <div class="hero-callout hero-callout-3">
-          <div class="hero-callout-icon" style="background:rgba(245,158,11,0.18);color:#F59E0B">★</div>
+          <div class="hero-callout-icon" style="background:rgba(245,158,11,0.18);color:#F59E0B">&#9733;</div>
           <div class="hero-callout-text">
-            <div class="hero-callout-main">Nueva resena 5 estrellas</div>
+            <div class="hero-callout-main">Nueva resena de 5 estrellas</div>
             <div class="hero-callout-sub">"Excelente trabajo como siempre!"</div>
           </div>
         </div>
@@ -1327,15 +1351,15 @@ svg.ic {
   </div>
 </section>
 
-<!-- ── PROBLEM SECTION ── -->
+<!-- ── PROBLEM SECTION ─────────────────────────── -->
 <section class="section" id="problem">
   <div class="container">
     <div class="problem-head">
       <span class="eyebrow eyebrow-orange">El problema</span>
-      <h2 class="section-title">Todas las demas apps<br/>fueron hechas para<br/>empresas con equipos grandes<span class="accent">.</span></h2>
+      <h2 class="section-title">Todas las demas apps<br/>fueron hechas para<br/>empresas con cuadrillas<span class="accent">.</span></h2>
       <p class="section-sub">
         Tu eres una persona y una camioneta. No necesitas despacho de flotas ni
-        tableros empresariales. Necesitas lucir profesional, cobrar rapido y
+        paneles empresariales. Necesitas lucir profesional, cobrar rapido y
         ganar mas trabajo.
       </p>
     </div>
@@ -1346,7 +1370,7 @@ svg.ic {
         <h3 class="problem-title">Precios para equipos<br/>que no tienes</h3>
         <p class="problem-body">
           Jobber empieza en $49. Housecall Pro en $69. Ambos hechos para
-          equipos de 5+ personas. Pagas por asientos que nunca vas a llenar.
+          equipos de 5+ personas. Tu pagas por asientos que nunca vas a llenar.
         </p>
       </div>
 
@@ -1354,8 +1378,9 @@ svg.ic {
         <div class="problem-num">02 / 03</div>
         <h3 class="problem-title">Apps de fotos que<br/>no facturan</h3>
         <p class="problem-body">
-          CompanyCam cobra por usuario solo por fotos. Igual necesitas
-          otra app para facturar, otro CRM, otra agenda. Mas apps, mas cuentas, mas pestanas abiertas en la camioneta.
+          CompanyCam cobra por usuario solo para fotos. Todavia necesitas
+          una app de facturacion aparte, un CRM aparte, un calendario
+          aparte. Mas apps, mas cuentas, mas pestanas abiertas en la camioneta.
         </p>
       </div>
 
@@ -1363,9 +1388,9 @@ svg.ic {
         <div class="problem-num">03 / 03</div>
         <h3 class="problem-title">Portafolios estaticos<br/>que se ven muertos</h3>
         <p class="problem-body">
-          Cualquier otra "pagina de portafolio" es una galeria que subiste hace
-          seis meses. Los visitantes no saben si sigues en el negocio.
-          Opervo es la unica app que publica cada trabajo terminado
+          Todos los demas "portafolios" son galerias que subiste hace
+          seis meses. Los visitantes no saben si sigues activo.
+          Opervo es la unica app que publica cada trabajo completado
           en tu folio — automaticamente.
         </p>
       </div>
@@ -1373,7 +1398,7 @@ svg.ic {
   </div>
 </section>
 
-<!-- ── FOLIO SECTION ── -->
+<!-- ── FOLIO SECTION ───────────────────────────── -->
 <section class="section section-alt" id="folio">
   <div class="container">
     <div class="two-col">
@@ -1390,7 +1415,7 @@ svg.ic {
 
       <div>
         <span class="eyebrow eyebrow-orange">Un folio que se actualiza solo</span>
-        <h2 class="section-title">Folio<span class="accent">.</span><br/>El portafolio<br/>que hace marketing<br/>mientras trabajas.</h2>
+        <h2 class="section-title">Folio<span class="accent">.</span><br/>El portafolio<br/>que te promociona<br/>mientras trabajas.</h2>
         <p class="section-sub">
           Cada trabajo que terminas se publica automaticamente en tu folio — foto,
           colonia, "completado hace 2 dias." Los visitantes no ven una galeria vieja
@@ -1398,22 +1423,22 @@ svg.ic {
           Nadie mas hace esto.
         </p>
         <ul class="bullets">
-          <li><strong>Terminas un trabajo → aparece en tu folio.</strong> Sin subir nada, sin trabajo administrativo — solo cierra el trabajo.</li>
+          <li><strong>Terminas un trabajo &#8594; aparece en tu folio.</strong> Sin subir nada, sin trabajo extra — solo cierra el trabajo.</li>
           <li><strong>Contador en vivo arriba:</strong> "14 trabajos este mes · el mas reciente ayer." Se actualiza mientras trabajas.</li>
-          <li><strong>Mas todo lo que esperarias:</strong> pagina con tu marca, galeria, slider antes/despues, formulario de cotizacion, codigo para insertar. Gratis en todos los planes.</li>
+          <li><strong>Ademas, lo que esperarias:</strong> pagina con tu marca, galeria, slider antes/despues, formulario de cotizacion, codigo para embed. Gratis en todos los planes.</li>
         </ul>
         <a href="https://www.opervo.io/p/solar-wash-atx" target="_blank" rel="noopener" class="btn btn-primary">Ver un Folio en vivo</a>
       </div>
     </div>
 
     <div class="folio-strip">
-      <div class="folio-strip-lead">Cada visitante ve <span>prueba</span> fresca</div>
+      <div class="folio-strip-lead">Cada visitante ve <span>prueba</span> reciente</div>
       <div class="folio-strip-item">
         <div class="folio-strip-img">
-          <img src="/screenshots/hero-folio-1.jpg" alt="Seccion de trabajos recientes del Folio mostrando trabajos completados con fotos" loading="lazy" decoding="async" />
+          <img src="/screenshots/hero-folio-1.jpg" alt="Seccion de Trabajos Recientes del Folio mostrando trabajos completados con fotos" loading="lazy" decoding="async" />
         </div>
         <div class="folio-strip-label">
-          <span class="folio-strip-label-name">Trabajos recientes <em style="color:var(--orange);font-style:normal;font-weight:600;">· EN VIVO</em></span>
+          <span class="folio-strip-label-name">Trabajos Recientes <em style="color:var(--orange);font-style:normal;font-weight:600;">· EN VIVO</em></span>
           <span class="folio-strip-label-desc">Se publican al terminar un trabajo</span>
         </div>
       </div>
@@ -1423,23 +1448,23 @@ svg.ic {
         </div>
         <div class="folio-strip-label">
           <span class="folio-strip-label-name">Portafolio</span>
-          <span class="folio-strip-label-desc">Slider antes/despues, galeria, seccion de confianza</span>
+          <span class="folio-strip-label-desc">Slider antes/despues, galeria, cuadricula de confianza</span>
         </div>
       </div>
       <div class="folio-strip-item">
         <div class="folio-strip-img">
-          <img src="/screenshots/hero-folio-3.jpg" alt="Formulario de cotizacion integrado en el Folio con selector de servicios" loading="lazy" decoding="async" />
+          <img src="/screenshots/hero-folio-3.jpg" alt="Formulario de cotizacion del Folio con selector de servicio" loading="lazy" decoding="async" />
         </div>
         <div class="folio-strip-label">
-          <span class="folio-strip-label-name">Formulario de cotizacion</span>
-          <span class="folio-strip-label-desc">Captura clientes potenciales 24/7, sin login</span>
+          <span class="folio-strip-label-name">Formulario de Cotizacion</span>
+          <span class="folio-strip-label-desc">Captura prospectos 24/7, sin login</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── AI SECTION ── -->
+<!-- ── AI SECTION ──────────────────────────────── -->
 <section class="section" id="ai">
   <div class="container">
     <div class="two-col">
@@ -1447,74 +1472,74 @@ svg.ic {
         <span class="eyebrow eyebrow-blue">IA integrada</span>
         <h2 class="section-title">Habla con tu<br/>negocio<span class="accent">.</span></h2>
         <p class="section-sub">
-          La mayoria de apps de servicios te hacen navegar por menus. La IA de Opervo
+          La mayoria de las apps de servicios te hacen navegar por menus. La IA de Opervo
           conoce tus trabajos, facturas e ingresos en tiempo real, y simplemente
-          se encarga. Hecha para el negocio de una persona.
+          lo resuelve. Hecha para el negocio de una persona.
         </p>
         <ul class="bullets">
           <li>Agrega un cliente, registra un viaje o crea un trabajo por voz. Sin formularios.</li>
           <li>Pregunta "cual es mi ingreso?" y obtiene una respuesta real en menos de un segundo.</li>
-          <li>Sabe en que pagina estas. Di "este trabajo" y sabe cual.</li>
-          <li>Funciona sin usar las manos. Hecho para la camioneta, no para el escritorio.</li>
+          <li>Sabe en que pagina estas. Di "este trabajo" y sabe cual es.</li>
+          <li>Funciona manos libres. Hecho para la camioneta, no para el escritorio.</li>
         </ul>
         <a href="https://app.opervo.io" class="btn btn-primary">Verlo en accion</a>
       </div>
 
       <div class="ai-demo">
         <div class="ai-demo-header">
-          <div class="ai-demo-dot">✦</div>
+          <div class="ai-demo-dot">&#10022;</div>
           <div class="ai-demo-title">Opervo<span class="dot">.</span> Asistente</div>
           <div class="ai-demo-status">En vivo</div>
         </div>
         <div class="bubble user">Cual es mi ingreso este mes?</div>
         <div class="bubble assistant" id="reply"></div>
-        <div class="bubble user" style="animation-delay:2.4s">Agrega a Juan Garcia, 555-1234</div>
+        <div class="bubble user" style="animation-delay:2.4s">Agrega a Juan Perez, 555-1234</div>
         <div class="bubble assistant" style="animation-delay:3.2s">
-          Listo. Agregando a Juan Garcia a tu lista de clientes.
+          Listo. Agregando a Juan Perez a tu lista de clientes. &#9989;
         </div>
-        <div class="ai-action-btn" style="animation-delay:3.6s">Ver cliente →</div>
+        <div class="ai-action-btn" style="animation-delay:3.6s">Ver Cliente &#8594;</div>
         <div class="ai-pills">
-          <span class="ai-pill">"Agenda corte de pasto para Sara el viernes 2pm"</span>
+          <span class="ai-pill">"Agenda jardineria para Sara el viernes 2pm"</span>
           <span class="ai-pill">"Quien no me ha pagado?"</span>
-          <span class="ai-pill">"Registra un viaje de 43 km a la calle Rivers"</span>
+          <span class="ai-pill">"Registra un viaje de 43 km a calle Rios"</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── SERVICE PLANS SECTION ── -->
+<!-- ── SERVICE PLANS SECTION ───────────────────── -->
 <section class="section section-alt" id="plans">
   <div class="container">
     <div class="two-col">
       <div>
-        <span class="eyebrow eyebrow-orange">Planes de servicio</span>
-        <h2 class="section-title">Trabajo recurrente<br/>que se maneja solo<span class="accent">.</span></h2>
+        <span class="eyebrow eyebrow-orange">Planes de Servicio</span>
+        <h2 class="section-title">Trabajo recurrente<br/>que se gestiona solo<span class="accent">.</span></h2>
         <p class="section-sub">
-          Corte de pasto quincenal, limpieza de ventanas mensual, lavado a presion trimestral.
+          Jardineria quincenal, limpieza de ventanas mensual, lavado a presion trimestral.
           Configura la frecuencia una vez y Opervo genera los trabajos, envia los recordatorios
           y factura al cliente. El tipo de automatizacion que un operador independiente
-          tiene tiempo de configurar.
+          realmente tiene tiempo de configurar.
         </p>
         <ul class="bullets">
           <li>Cualquier frecuencia: semanal, quincenal, mensual, trimestral o personalizada.</li>
-          <li>Los trabajos se crean automaticamente en la agenda para que nunca olvides un cliente.</li>
-          <li>Los clientes reciben un SMS "Voy en camino" la manana del servicio.</li>
+          <li>Los trabajos se crean automaticamente en la agenda para que nunca olvides a un cliente.</li>
+          <li>Los clientes reciben un SMS de "Voy en camino" la manana del servicio.</li>
           <li>Factura, solicitud de resena, sincronizacion con QBO. Todo en piloto automatico.</li>
         </ul>
-        <a href="https://app.opervo.io" class="btn btn-primary">Crear un plan</a>
+        <a href="https://app.opervo.io" class="btn btn-primary">Iniciar un plan</a>
       </div>
 
       <div class="phone">
         <div class="phone-screen phone-screen-img">
-          <img src="/screenshots/hero-service-plans.jpg" alt="Planes de servicio de Opervo: 5 acuerdos activos con clientes e ingresos recurrentes" loading="lazy" decoding="async" />
+          <img src="/screenshots/hero-service-plans.jpg" alt="Planes de servicio de Opervo: 5 acuerdos activos con ingresos recurrentes" loading="lazy" decoding="async" />
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── ROUTE OPTIMIZATION SECTION ── -->
+<!-- ── ROUTE OPTIMIZATION SECTION ──────────────── -->
 <section class="section" id="routes">
   <div class="container">
     <div class="two-col">
@@ -1525,18 +1550,18 @@ svg.ic {
       </div>
 
       <div>
-        <span class="eyebrow eyebrow-blue">Rutas y territorio</span>
+        <span class="eyebrow eyebrow-blue">Ruta y Territorio</span>
         <h2 class="section-title">Planifica el dia.<br/>Maneja menos<span class="accent">.</span></h2>
         <p class="section-sub">
-          Planificacion de rutas con un toque desde tu agenda. Recorre un vecindario
-          puerta a puerta, pon marcadores, convierte toques en presupuestos. Hecho con Google Maps.
-          Para la operacion de una camioneta (o cinco).
+          Planificacion de ruta con un toque desde tu agenda. Recorre un vecindario
+          puerta a puerta, deja pines, convierte toques de puerta en presupuestos. Basado en Google Maps.
+          Hecho para la operacion de una camioneta (o cinco).
         </p>
         <ul class="bullets">
           <li>Optimiza los trabajos del dia para el recorrido mas corto. Ahorra unos 40 minutos al dia.</li>
-          <li>Plantillas de rutas. Guarda vecindarios favoritos y reusalos.</li>
-          <li>Canvassing puerta a puerta con estados de marcadores (tocado, cotizado, vendido).</li>
-          <li>Navegacion con un toque directo a Google Maps o Apple Maps.</li>
+          <li>Plantillas de ruta. Guarda tus vecindarios favoritos y reusalos.</li>
+          <li>Canvassing puerta a puerta con estados de pin (tocado, cotizado, vendido).</li>
+          <li>Navegacion directa a Google Maps o Apple Maps con un toque.</li>
         </ul>
         <a href="https://app.opervo.io" class="btn btn-primary">Planificar una ruta</a>
       </div>
@@ -1544,91 +1569,91 @@ svg.ic {
   </div>
 </section>
 
-<!-- ── EVERYTHING ELSE, TOO ── -->
+<!-- ── EVERYTHING ELSE, TOO ────────────────────── -->
 <section class="section section-alt">
   <div class="container">
     <div class="feature-grid-head">
-      <span class="eyebrow eyebrow-orange">Sin atajos</span>
+      <span class="eyebrow eyebrow-orange">Sin recortes</span>
       <h2 class="section-title">Todo lo demas, tambien<span class="accent">.</span></h2>
       <p class="section-sub" style="margin-left:auto;margin-right:auto">
-        Las herramientas que toda app de servicios deberia tener. Todas incluidas. Sin puertas de "plan Pro".
+        Las herramientas que cualquier app de servicios deberia tener. Todas incluidas. Sin puertas de "Plan Pro".
       </p>
     </div>
 
     <div class="feature-grid">
       <div class="feature-card">
-        <div class="feature-card-icon">💳</div>
-        <div class="feature-card-name">Pagos — Tu procesador</div>
-        <div class="feature-card-desc">Conecta Square o Stripe. Tarjetas, Apple Pay, Google Pay, propinas. Los fondos van directo a tu banco — Opervo no cobra comision, nunca.</div>
+        <div class="feature-card-icon">&#128179;</div>
+        <div class="feature-card-name">Pagos — Tu Procesador</div>
+        <div class="feature-card-desc">Conecta Square o Stripe. Tarjetas, Apple Pay, Google Pay, propinas. Los fondos van directo a tu banco — Opervo no cobra comision extra, nunca.</div>
       </div>
       <div class="feature-card">
-        <div class="feature-card-icon">💵</div>
-        <div class="feature-card-name">Pagos en efectivo</div>
+        <div class="feature-card-icon">&#128181;</div>
+        <div class="feature-card-name">Pagos en Efectivo</div>
         <div class="feature-card-desc">Registra efectivo, cheque, Venmo, CashApp, Zelle. Factura auto-generada.</div>
       </div>
       <div class="feature-card">
-        <div class="feature-card-icon">📝</div>
+        <div class="feature-card-icon">&#128221;</div>
         <div class="feature-card-name">Presupuestos</div>
         <div class="feature-card-desc">Fotos, aprobacion digital, seguimiento de rechazos. Convierte a trabajo con un toque.</div>
       </div>
       <div class="feature-card">
-        <div class="feature-card-icon">🪪</div>
-        <div class="feature-card-name">Portal de clientes</div>
-        <div class="feature-card-desc">Con tu marca, acceso por enlace. Los clientes ven historial y pagan sin registrarse.</div>
+        <div class="feature-card-icon">&#129458;</div>
+        <div class="feature-card-name">Portal de Clientes</div>
+        <div class="feature-card-desc">Con tu marca, acceso por enlace magico. Los clientes ven historial y pagan sin registrarse.</div>
       </div>
       <div class="feature-card">
-        <div class="feature-card-icon">📷</div>
-        <div class="feature-card-name">Documentacion fotografica</div>
+        <div class="feature-card-icon">&#128247;</div>
+        <div class="feature-card-name">Documentacion Fotografica</div>
         <div class="feature-card-desc">Antes, durante, despues. Notas de voz en cada trabajo. Reportes PDF con tu marca.</div>
       </div>
       <div class="feature-card">
-        <div class="feature-card-icon">🧾</div>
-        <div class="feature-card-name">Kilometraje y gastos</div>
+        <div class="feature-card-icon">&#129534;</div>
+        <div class="feature-card-name">Kilometraje y Gastos</div>
         <div class="feature-card-desc">Reportes listos para impuestos, resumenes trimestrales, exportacion CSV para tu contador.</div>
       </div>
       <div class="feature-card">
-        <div class="feature-card-icon">🔗</div>
+        <div class="feature-card-icon">&#128279;</div>
         <div class="feature-card-name">QBO y Google Calendar</div>
-        <div class="feature-card-desc">Sincronizacion bidireccional con QuickBooks Online y Google Calendar. Configura una vez.</div>
+        <div class="feature-card-desc">Sincronizacion bidireccional con QuickBooks Online y Google Calendar. Configuralo una vez.</div>
       </div>
       <div class="feature-card">
-        <div class="feature-card-icon">💬</div>
-        <div class="feature-card-name">SMS y correo</div>
-        <div class="feature-card-desc">Textos "voy en camino", recordatorios, solicitudes de resena. Enviados desde tu numero con marca.</div>
+        <div class="feature-card-icon">&#128172;</div>
+        <div class="feature-card-name">SMS y Correo</div>
+        <div class="feature-card-desc">Textos de "voy en camino", recordatorios, solicitudes de resena. Enviados desde tu numero.</div>
       </div>
       <div class="feature-card">
-        <div class="feature-card-icon">📍</div>
-        <div class="feature-card-name">Canvassing puerta a puerta</div>
-        <div class="feature-card-desc">Mapea territorios, pon marcadores al tocar, tabla de posiciones para el equipo. Reemplaza a SalesRabbit (~$35/mo).</div>
+        <div class="feature-card-icon">&#128205;</div>
+        <div class="feature-card-name">Canvassing Puerta a Puerta</div>
+        <div class="feature-card-desc">Mapea territorios, deja pines mientras tocas puertas, tabla de liderazgo para tu equipo. Reemplaza SalesRabbit (~$35/mes).</div>
       </div>
       <div class="feature-card">
-        <div class="feature-card-icon">📐</div>
-        <div class="feature-card-name">Herramienta de medicion</div>
-        <div class="feature-card-desc">Dibuja un techo, entrada o jardin en el mapa satelital. Metros cuadrados, perimetro, ajuste de angulo recto, etiquetas en vivo.</div>
+        <div class="feature-card-icon">&#128208;</div>
+        <div class="feature-card-name">Herramienta de Medicion</div>
+        <div class="feature-card-desc">Dibuja un techo, entrada o jardin en el mapa satelital. Metros cuadrados, perimetro, angulo recto, etiquetas en vivo.</div>
       </div>
       <div class="feature-card">
-        <div class="feature-card-icon">🧪</div>
-        <div class="feature-card-name">Insumos y materiales</div>
-        <div class="feature-card-desc">Rastrea quimicos, tierra, combustible, fertilizante por trabajo. Deduccion automatica como gasto fiscal. Ganancia en vivo: Ingreso - Insumos.</div>
+        <div class="feature-card-icon">&#129514;</div>
+        <div class="feature-card-name">Insumos y Materiales</div>
+        <div class="feature-card-desc">Rastrea quimicos, abono, combustible, fertilizante por trabajo. Se deduce automaticamente como gasto fiscal. Ganancia en vivo: Ingreso - Insumos.</div>
       </div>
       <div class="feature-card">
-        <div class="feature-card-icon">🤖</div>
-        <div class="feature-card-name">Asistente de IA</div>
-        <div class="feature-card-desc">Consulta tus datos reales ("ingreso este mes?"), crea registros por voz ("agrega un cliente llamado Ramon"), redacta presupuestos y correos.</div>
+        <div class="feature-card-icon">&#129302;</div>
+        <div class="feature-card-name">Asistente IA</div>
+        <div class="feature-card-desc">Consulta tus datos reales ("ingreso de este mes?"), crea registros por voz ("agrega un cliente llamado Ramon"), redacta presupuestos y correos.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── COMPARISON TABLE ── -->
+<!-- ── COMPARISON TABLE ────────────────────────── -->
 <section class="section section-alt" id="compare">
   <div class="container">
     <div class="compare-head">
       <span class="eyebrow eyebrow-orange">Las cuentas reales</span>
-      <h2 class="section-title">La mayoria de apps se ven baratas<br/>hasta que las usas de verdad<span class="accent">.</span></h2>
+      <h2 class="section-title">La mayoria de las apps se ven baratas<br/>hasta que las usas de verdad<span class="accent">.</span></h2>
       <p class="section-sub">
-        Empiezan en $49. Despues upgrade por funciones.<br/>
-        Despues agregan usuarios. Despues mas herramientas.<br/>
+        Empiezan en $49. Despues sube de plan por funciones.<br/>
+        Despues agrega usuarios. Despues agrega mas herramientas.<br/>
         De repente estas pagando $150 a $300 al mes.
       </p>
     </div>
@@ -1649,7 +1674,7 @@ svg.ic {
         <tbody>
           <tr>
             <td>Precio inicial</td>
-            <td class="compare-us-col"><span class="compare-price-us">$24.99<span class="mo">/mo</span></span></td>
+            <td class="compare-us-col"><span class="compare-price-us">$24.99<span class="mo">/mes</span></span></td>
             <td><span class="compare-text">$49</span></td>
             <td><span class="compare-text">$69</span></td>
             <td><span class="compare-text">$49</span></td>
@@ -1666,8 +1691,8 @@ svg.ic {
             <td><span class="compare-text-muted">Si</span></td>
           </tr>
           <tr>
-            <td>Asistente de IA integrado</td>
-            <td class="compare-us-col"><span class="compare-check">✓ Sin limites</span></td>
+            <td>Asistente IA integrado</td>
+            <td class="compare-us-col"><span class="compare-check">&#10003; Sin limites</span></td>
             <td><span class="compare-x">—</span></td>
             <td><span class="compare-x">—</span></td>
             <td><span class="compare-x">—</span></td>
@@ -1676,7 +1701,7 @@ svg.ic {
           </tr>
           <tr>
             <td>Pagina Folio en vivo</td>
-            <td class="compare-us-col"><span class="compare-check">✓</span></td>
+            <td class="compare-us-col"><span class="compare-check">&#10003;</span></td>
             <td><span class="compare-x">—</span></td>
             <td><span class="compare-x">—</span></td>
             <td><span class="compare-x">—</span></td>
@@ -1685,7 +1710,7 @@ svg.ic {
           </tr>
           <tr>
             <td>Optimizacion de rutas</td>
-            <td class="compare-us-col"><span class="compare-check">✓ Incluido</span></td>
+            <td class="compare-us-col"><span class="compare-check">&#10003; Incluido</span></td>
             <td><span class="compare-partial">Plan Pro</span></td>
             <td><span class="compare-partial">Plan Pro</span></td>
             <td><span class="compare-partial">Solo 1 ruta</span></td>
@@ -1693,34 +1718,35 @@ svg.ic {
             <td><span class="compare-x">—</span></td>
           </tr>
           <tr>
-            <td>Planes de servicio recurrente</td>
-            <td class="compare-us-col"><span class="compare-check">✓</span></td>
-            <td><span class="compare-check">✓</span></td>
-            <td><span class="compare-check">✓</span></td>
-            <td><span class="compare-check">✓</span></td>
+            <td>Planes de servicio recurrentes</td>
+            <td class="compare-us-col"><span class="compare-check">&#10003;</span></td>
+            <td><span class="compare-check">&#10003;</span></td>
+            <td><span class="compare-check">&#10003;</span></td>
+            <td><span class="compare-check">&#10003;</span></td>
             <td><span class="compare-x">—</span></td>
-            <td><span class="compare-check">✓</span></td>
+            <td><span class="compare-check">&#10003;</span></td>
           </tr>
           <tr>
-            <td>Hecho para operadores independientes</td>
-            <td class="compare-us-col"><span class="compare-check">✓</span></td>
+            <td>Hecho para operadores solos</td>
+            <td class="compare-us-col"><span class="compare-check">&#10003;</span></td>
             <td><span class="compare-x">—</span></td>
             <td><span class="compare-x">—</span></td>
             <td><span class="compare-partial">Parcial</span></td>
-            <td><span class="compare-check">✓</span></td>
-            <td><span class="compare-check">✓</span></td>
+            <td><span class="compare-check">&#10003;</span></td>
+            <td><span class="compare-check">&#10003;</span></td>
           </tr>
         </tbody>
       </table>
     </div>
 
     <div class="compare-note">
-      Los precios reflejan el plan mas bajo publicado por cada proveedor (facturacion anual cuando aplica).
-      La IA de QuoteIQ tiene creditos limitados por nivel; la IA de Opervo no tiene limites.
-      El precio base de Markate de $39.95 no incluye Portal de Clientes, Reservas en Linea, Formulario de Prospectos, Resenas ni Propuestas — cada uno $10/mo extra.
+      Los precios reflejan el plan mas bajo publicado por cada proveedor (facturacion anual cuando se ofrece).
+      La IA de QuoteIQ tiene creditos limitados por nivel; la IA de Opervo no tiene limites de creditos.
+      La base de $39.95 de Markate excluye Portal de Clientes, Reservas en Linea, Formulario de Prospectos, Resenas y Propuestas — cada uno $10/mes extra.
     </div>
 
-    <!-- ── INTERACTIVE COST WIDGET ── -->
+    <!-- ── INTERACTIVE COST WIDGET ────────────────── -->
+    <!-- Pricing data here mirrors lib/cost-calculator-data.ts. Update both when prices change. -->
     <div class="cost-widget" id="cost-widget">
       <div class="cost-widget-head">
         <span class="eyebrow eyebrow-orange">Las cuentas reales · Interactivo</span>
@@ -1742,13 +1768,13 @@ svg.ic {
       </div>
 
       <div class="cost-widget-cta">
-        <a href="/es/cost-calculator" class="cost-widget-customize">Personaliza lo que TU necesitas →</a>
+        <a href="/cost-calculator" class="cost-widget-customize">Personaliza lo que TU necesitas &#8594;</a>
         <span class="cost-widget-or">o</span>
-        <a href="https://app.opervo.io" class="cost-widget-trial">Prueba 14 dias gratis →</a>
+        <a href="https://app.opervo.io" class="cost-widget-trial">Prueba gratis 14 dias &#8594;</a>
       </div>
 
       <p class="cost-widget-fineprint">
-        El paquete predeterminado refleja las funciones que la mayoria de los operadores en esta categoria realmente usan. Usa la version completa para agregar o quitar funciones y ver tu costo real.
+        El paquete por defecto refleja las funciones que la mayoria de operadores en esta categoria usan. Usa la version completa para agregar o quitar funciones y ver tu costo real.
       </p>
     </div>
 
@@ -1901,6 +1927,7 @@ svg.ic {
 
     <script>
       (function() {
+        // Data — keep in sync with lib/cost-calculator-data.ts.
         var COMPETITORS = {
           markate: {
             type: 'addon', name: 'Markate', base: 39.95, perUserFee: 5,
@@ -1908,7 +1935,7 @@ svg.ic {
               { id: 'portal', label: 'Portal de Clientes', price: 10 },
               { id: 'booking', label: 'Reservas en Linea', price: 10 },
               { id: 'lead', label: 'Formulario de Prospectos', price: 10 },
-              { id: 'review', label: 'Solicitar Resena', price: 10 },
+              { id: 'review', label: 'Solicitud de Resena', price: 10 },
               { id: 'proposal', label: 'Kit de Propuestas', price: 10 }
             ]
           },
@@ -1965,7 +1992,7 @@ svg.ic {
               tier: null,
               extraUsers: Math.max(0, ts - 1),
               userFee: userFee,
-              stackLabel: c.base.toFixed(0) + ' base + ' + c.addons.length + ' extras' + (userFee > 0 ? ' + ' + Math.max(0, ts - 1) + ' cobro por usuario' : '')
+              stackLabel: c.base.toFixed(0) + ' base + ' + c.addons.length + ' extras' + (userFee > 0 ? ' + cobro por ' + Math.max(0, ts - 1) + ' usuario' + (Math.max(0, ts - 1) > 1 ? 's' : '') : '')
             };
           }
           var tier = c.tiers.find(function(t) { return t.id === c.requiredTier; });
@@ -1983,7 +2010,7 @@ svg.ic {
             tier: tier,
             extraUsers: Math.max(0, ts - tier.includedUsers),
             userFee: userFee,
-            stackLabel: 'Nivel ' + tier.name + (userFee > 0 ? ' + ' + Math.max(0, ts - tier.includedUsers) + ' usuario' + (Math.max(0, ts - tier.includedUsers) === 1 ? '' : 's') + ' extra' : '')
+            stackLabel: 'nivel ' + tier.name + (userFee > 0 ? ' + ' + Math.max(0, ts - tier.includedUsers) + ' usuario' + (Math.max(0, ts - tier.includedUsers) === 1 ? ' extra' : 's extra') : '')
           };
         }
 
@@ -2013,7 +2040,7 @@ svg.ic {
             '<div class="cw-price-row">' +
               '<span class="cw-dollar">$</span>' +
               '<span class="cw-amount">' + Math.round(cost.total).toLocaleString('en-US') + '</span>' +
-              '<span class="cw-unit">/mo</span>' +
+              '<span class="cw-unit">/mes</span>' +
             '</div>' +
             '<p class="cw-detail">' + cost.stackLabel + '</p>';
 
@@ -2029,19 +2056,19 @@ svg.ic {
               '<span class="cw-dollar">$</span>' +
               '<span class="cw-amount">' + dollars + '</span>' +
               '<span class="cw-cents">.' + cents + '</span>' +
-              '<span class="cw-unit">/mo</span>' +
+              '<span class="cw-unit">/mes</span>' +
             '</div>' +
-            '<p class="cw-detail">Hasta ' + opervoPlan.users + ' usuarios · todas las funciones incluidas · 0% de comision en pagos</p>';
+            '<p class="cw-detail">Hasta ' + opervoPlan.users + ' usuarios · todas las funciones incluidas · 0% comision extra</p>';
 
           var savingsEl = document.getElementById('cost-savings-card');
           if (monthlyDiff > 0) {
             savingsEl.style.display = '';
             savingsEl.innerHTML =
-              '<p class="cw-savings-eyebrow">Ahorrar&iacute;as</p>' +
+              '<p class="cw-savings-eyebrow">Ahorrarias</p>' +
               '<div class="cw-price-row">' +
                 '<span class="cw-dollar">$</span>' +
                 '<span class="cw-amount">' + Math.round(monthlyDiff).toLocaleString('en-US') + '</span>' +
-                '<span class="cw-unit">/mo</span>' +
+                '<span class="cw-unit">/mes</span>' +
               '</div>' +
               '<p class="cw-detail"><strong>' + fmt(yearlyDiff) + '/ano</strong> · $' + (fiveYearDiff / 1000).toFixed(1) + 'k en 5 anos</p>';
           } else {
@@ -2063,23 +2090,23 @@ svg.ic {
   </div>
 </section>
 
-<!-- ── PROFIT CALCULATOR STRIP ── -->
+<!-- ── PROFIT CALCULATOR STRIP ─────────────────── -->
 <section style="padding:32px 24px;">
   <div class="container">
-    <a href="/es/profit-calculator" style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;background:rgba(245,98,15,0.06);border:1px solid rgba(245,98,15,0.25);border-radius:14px;padding:24px 28px;text-decoration:none;color:inherit;max-width:1100px;margin:0 auto;">
+    <a href="/profit-calculator" style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;background:rgba(245,98,15,0.06);border:1px solid rgba(245,98,15,0.25);border-radius:14px;padding:24px 28px;text-decoration:none;color:inherit;max-width:1100px;margin:0 auto;">
       <div style="flex:1 1 420px;min-width:0;">
         <p style="margin:0 0 8px;font-size:11px;font-weight:800;color:#F5620F;text-transform:uppercase;letter-spacing:0.14em;">Herramienta gratis · Sin login · ~30 segundos</p>
         <p style="margin:0 0 6px;font-family:'Barlow Condensed',sans-serif;font-size:24px;font-weight:900;color:#0F0F0F;text-transform:uppercase;letter-spacing:-0.5px;line-height:1.1;">
-          Ese ultimo trabajo realmente pago<span style="color:#F5620F">?</span>
+          Ese ultimo trabajo realmente te pago<span style="color:#F5620F">?</span>
         </p>
         <p style="margin:0;font-size:14px;color:#6B6B6B;line-height:1.55;">Pasa tus numeros por la Calculadora de Ganancia — ve ganancia, tarifa por hora efectiva y margen en vivo. Descubre cuales trabajos realmente te pagaron.</p>
       </div>
-      <span style="display:inline-block;background:#F5620F;color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:14px;padding:13px 28px;border-radius:6px;text-transform:uppercase;letter-spacing:0.04em;white-space:nowrap;">Pruebala →</span>
+      <span style="display:inline-block;background:#F5620F;color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:14px;padding:13px 28px;border-radius:6px;text-transform:uppercase;letter-spacing:0.04em;white-space:nowrap;">Pruebalo &#8594;</span>
     </a>
   </div>
 </section>
 
-<!-- ── SWITCH CTA ── -->
+<!-- ── SWITCH CTA (Already on Jobber / HCP) ────── -->
 <section class="switch-cta">
   <div class="container">
     <div class="switch-card">
@@ -2095,7 +2122,7 @@ svg.ic {
         <div class="switch-text-title">Ya usas Jobber o Housecall Pro?</div>
         <div class="switch-text-body">
           Importa toda tu lista de clientes en 2 minutos. Sube un CSV y cada
-          contacto se transfiere al instante. Sin re-ingreso manual. Sin empezar de cero.
+          contacto se transfiere al instante. Sin captura manual. Sin empezar de cero.
         </div>
       </div>
       <a href="https://app.opervo.io" class="switch-pill">Transferencia gratis</a>
@@ -2103,80 +2130,80 @@ svg.ic {
   </div>
 </section>
 
-<!-- ── FOUNDER ── -->
+<!-- ── FOUNDER ─────────────────────────────────── -->
 <section class="founder">
   <div class="container">
     <div class="founder-wrap">
-      <a href="/es/founder" class="founder-avatar" aria-label="Lee la historia completa del fundador">
+      <a href="/founder" class="founder-avatar" aria-label="Lee la historia completa del fundador">
         <img src="/founder-photo.jpg" alt="Max, fundador de Opervo" loading="lazy" decoding="async" />
       </a>
       <div class="founder-label">Una nota del fundador</div>
       <h2 class="founder-quote">
-        "Construi Opervo desde mi experiencia en el campo, no desde una oficina corporativa. Es la app que me hubiera gustado tener."
+        "Construi Opervo desde mi experiencia en el campo, no desde una oficina. Es la app que me hubiera gustado tener."
       </h2>
       <p class="founder-body">
-        Dirigi un equipo de limpieza antes de escribir una sola linea de codigo. Se lo
-        que es perseguir pagos desde la cabina de una camioneta, perder una cotizacion
-        porque tenia las manos mojadas, perder un cliente porque olvide el mensaje de seguimiento.
+        Dirigi un equipo de limpieza antes de escribir una sola linea de esto. Se lo que es
+        perseguir pagos desde la cabina de una camioneta, perder una cotizacion porque tenia
+        las manos mojadas, perder un cliente porque olvide el mensaje de seguimiento.
         Opervo es todo lo que yo queria y no podia pagar. Si eres un operador independiente
-        o un equipo pequeno, esto es para ti. Sigo construyendolo todos los dias.
+        o un equipo pequeno, esto es para ti. Sigo construyendolo cada dia.
       </p>
       <div class="founder-sig">Max<span class="orange">.</span></div>
       <div class="founder-role">Fundador, Opervo</div>
-      <a href="/es/founder" class="founder-cta">Lee la historia completa</a>
+      <a href="/founder" class="founder-cta">Lee la historia completa</a>
     </div>
   </div>
 </section>
 
-<!-- ── FOUNDING 50 STRIP ── -->
+<!-- ── FOUNDING 50 STRIP ───────────────────────── -->
 <section class="founding-strip" id="founding-50">
   <div class="founding-strip-inner">
-    <div class="founding-strip-eyebrow">Founding 50 · Lugares limitados</div>
+    <div class="founding-strip-eyebrow">Founding 50 · Lugares Limitados</div>
     <h2 class="founding-strip-title">
-      Asegura <span class="accent">$15/mo Solo</span> de por vida.<br/>
-      Ayuda a formar el producto.
+      Asegura <span class="accent">$15/mes Solo</span> de por vida.<br/>
+      Ayuda a darle forma al producto.
     </h2>
     <p class="founding-strip-sub">
-      Los Operadores Fundadores obtienen 40% de descuento para siempre a cambio de retroalimentacion honesta — una encuesta aqui, una llamada rapida alla. Lo limitamos a 50 para que el circulo sea lo suficientemente pequeno para realmente usar lo que nos digan.
+      Los Operadores Fundadores obtienen 40% de descuento permanente a cambio de retroalimentacion honesta — una encuesta aqui, una llamada rapida alla. Lo limitamos a 50 para que el ciclo de retroalimentacion sea lo suficientemente pequeno para realmente usar lo que nos dicen.
     </p>
     <div class="founding-progress" data-claimed="17" data-total="50">
       <div class="founding-progress-row">
         <span class="founding-progress-claimed">17 de 50 lugares tomados</span>
-        <span class="founding-progress-remaining">33 disponibles</span>
+        <span class="founding-progress-remaining">33 restantes</span>
       </div>
       <div class="founding-progress-bar">
         <div class="founding-progress-fill" style="width: 34%"></div>
       </div>
     </div>
     <div class="founding-strip-ctas">
-      <a href="mailto:help@opervo.io?subject=Founding%2050%20application&amp;body=Hola%20Max%2C%0A%0AMe%20gustaria%20ser%20un%20Operador%20Fundador.%0A%0AMi%20negocio%3A%20%0AMi%20oficio%3A%20%0AComo%20escuche%20de%20Opervo%3A%20%0A%0A--%20Unas%20preguntas%20rapidas%20--%0A%0ALo%20que%20uso%20actualmente%20para%20mi%20negocio%3A%20%0ALo%20que%20me%20gusta%3A%20%0ALo%20que%20me%20frustra%3A%20%0A%0AFunciones%20principales%20que%20busco%20%28en%20orden%20de%20prioridad%29%3A%0A1.%20%0A2.%20%0A3.%20%0A%0AGracias!" class="founding-strip-cta-primary" data-event="founding_50_apply">Aplicar para Founding 50 →</a>
+      <a href="mailto:help@opervo.io?subject=Founding%2050%20application&amp;body=Hi%20Max%2C%0A%0AI%27d%20like%20to%20be%20a%20Founding%20Operator.%0A%0AMy%20business%3A%20%0AMy%20trade%3A%20%0AHow%20I%20heard%20about%20Opervo%3A%20%0A%0A--%20A%20few%20quick%20questions%20--%0A%0AWhat%20I%27m%20currently%20using%20to%20run%20my%20business%3A%20%0AWhat%20I%20like%20about%20it%3A%20%0AWhat%20frustrates%20me%20about%20it%3A%20%0A%0ATop%20features%20I%20look%20for%20in%20field-service%20software%20%28in%20priority%20order%29%3A%0A1.%20%0A2.%20%0A3.%20%0A%0AThanks%21" class="founding-strip-cta-primary" data-event="founding_50_apply">Aplicar para Founding 50 &#8594;</a>
       <a href="sms:+15127616054" class="founding-strip-cta-secondary" data-event="founding_50_text">Escribele a Max</a>
     </div>
     <p class="founding-strip-fineprint">Sin compromiso mas alla de pagar tu suscripcion y compartir retroalimentacion. Cancela cuando quieras — pero perderas la tarifa de fundador.</p>
   </div>
 </section>
 
-<!-- ── PRICING BAND ── -->
+<!-- ── PRICING BAND ────────────────────────────── -->
 <section class="pricing" id="pricing">
   <div class="container">
     <div class="pricing-head">
       <h2 class="section-title">Todas las funciones.<br/>Todos los planes<span class="accent">.</span></h2>
       <p class="section-sub">
-        Sin funciones bloqueadas en planes mas caros. Sin cobro por usuario. En serio.
+        Sin funciones bloqueadas detras de planes mas altos. Sin cobro por usuario. En serio.
       </p>
     </div>
 
     <div class="pricing-grid">
       <div class="price-card">
         <div class="price-card-name">Solo</div>
-        <div class="price-card-num">$24.99<span class="small">/mo</span></div>
+        <div class="price-card-num">$24.99<span class="small">/mes</span></div>
         <div class="price-card-tag">Acceso completo · <strong>2 usuarios</strong> (operador + 1 ayudante)</div>
         <div style="display:inline-block;font-size:15px;color:#fff;font-weight:700;margin:12px 0 18px;background:#F5620F;padding:7px 16px;border-radius:999px;letter-spacing:0.01em;box-shadow:0 1px 3px rgba(245,98,15,0.25);">o $249/ano — <strong>ahorra $51</strong></div>
         <a href="https://app.opervo.io" class="btn btn-primary">Empieza gratis</a>
       </div>
       <div class="price-card featured">
         <div class="price-card-name">Team</div>
-        <div class="price-card-num">$54.99<span class="small">/mo</span></div>
+        <div class="price-card-num">$54.99<span class="small">/mes</span></div>
         <div class="price-card-tag">Acceso completo · <strong>Hasta 10 miembros</strong></div>
         <div style="display:inline-block;font-size:15px;color:#fff;font-weight:700;margin:12px 0 18px;background:#F5620F;padding:7px 16px;border-radius:999px;letter-spacing:0.01em;box-shadow:0 1px 3px rgba(245,98,15,0.25);">o $549/ano — <strong>ahorra $111</strong></div>
         <a href="https://app.opervo.io" class="btn btn-primary">Empieza gratis</a>
@@ -2197,7 +2224,7 @@ svg.ic {
   </div>
 </section>
 
-<!-- ── TRADE CARDS ── -->
+<!-- ── TRADE CARDS ─────────────────────────────── -->
 <section class="trades" id="trades">
   <div class="container">
     <div class="trades-head">
@@ -2210,64 +2237,64 @@ svg.ic {
     </div>
 
     <div class="trades-grid">
-      <a href="/es/solar-panel-cleaning" class="trade-card">
-        <div class="trade-card-name">Limpieza de paneles solares</div>
+      <a href="/solar-panel-cleaning" class="trade-card">
+        <div class="trade-card-name">Limpieza de Paneles Solares</div>
         <p class="trade-card-desc">
           Agenda trabajos, envia presupuestos, muestra antes y despues en tu folio.
         </p>
         <span class="trade-card-more">Saber mas</span>
       </a>
 
-      <a href="/es/window-cleaning" class="trade-card">
-        <div class="trade-card-name">Limpieza de ventanas</div>
+      <a href="/window-cleaning" class="trade-card">
+        <div class="trade-card-name">Limpieza de Ventanas</div>
         <p class="trade-card-desc">
           Planificacion de rutas, facturacion, gestion de clientes. Todo desde tu telefono.
         </p>
         <span class="trade-card-more">Saber mas</span>
       </a>
 
-      <a href="/es/pressure-washing" class="trade-card">
-        <div class="trade-card-name">Lavado a presion</div>
+      <a href="/pressure-washing" class="trade-card">
+        <div class="trade-card-name">Lavado a Presion</div>
         <p class="trade-card-desc">
           Seguimiento de trabajos, fotos antes y despues, facturacion rapida con pagos offline.
         </p>
         <span class="trade-card-more">Saber mas</span>
       </a>
 
-      <a href="/es/landscaping" class="trade-card">
-        <div class="trade-card-name">Paisajismo</div>
+      <a href="/landscaping" class="trade-card">
+        <div class="trade-card-name">Jardineria</div>
         <p class="trade-card-desc">
           Agendas recurrentes, planes de servicio por temporada, notas de propiedad por cliente.
         </p>
         <span class="trade-card-more">Saber mas</span>
       </a>
 
-      <a href="/es/auto-detailing" class="trade-card">
-        <div class="trade-card-name">Detallado automotriz</div>
+      <a href="/auto-detailing" class="trade-card">
+        <div class="trade-card-name">Detallado Automotriz</div>
         <p class="trade-card-desc">
-          Paquetes con tu marca, galeria antes/despues, dias de ruta para detalladores moviles y talleres.
+          Paquetes con tu marca, galeria antes/despues, dias de ruta para detailers moviles y talleres.
         </p>
         <span class="trade-card-more">Saber mas</span>
       </a>
     </div>
 
     <div class="trades-compare">
-      Mira como se compara Opervo:
-      <a href="/es/compare/opervo-vs-jobber">vs Jobber</a> ·
-      <a href="/es/compare/opervo-vs-housecall-pro">vs Housecall Pro</a> ·
-      <a href="/es/compare/opervo-vs-gorilladesk">vs GorillaDesk</a> ·
-      <a href="/es/compare/opervo-vs-markate">vs Markate</a>
+      Mira como Opervo se compara:
+      <a href="/compare/opervo-vs-jobber">vs Jobber</a> ·
+      <a href="/compare/opervo-vs-housecall-pro">vs Housecall Pro</a> ·
+      <a href="/compare/opervo-vs-gorilladesk">vs GorillaDesk</a> ·
+      <a href="/compare/opervo-vs-markate">vs Markate</a>
     </div>
   </div>
 </section>
 
-<!-- ── FINAL CTA BAND ── -->
+<!-- ── FINAL CTA BAND ──────────────────────────── -->
 <section class="final-cta">
   <div class="final-cta-inner">
-    <div class="final-cta-eyebrow">Tu negocio merece</div>
+    <div class="final-cta-eyebrow">Tu negocio se merece</div>
     <h2 class="final-cta-title">Luce profesional<span class="accent">.</span><br/>Gana trabajos<span class="accent">.</span></h2>
     <p class="final-cta-sub">
-      Deja de pagar mas por menos. Deja de apilar cuatro apps para hacer un solo trabajo.
+      Deja de pagar mas por menos. Deja de apilar cuatro apps para hacer un trabajo.
       Opervo cuesta $24.99 al mes por todo. Pruebalo 14 dias, sin tarjeta de credito.
     </p>
     <div class="final-cta-ctas">
@@ -2278,14 +2305,14 @@ svg.ic {
   </div>
 </section>
 
-<!-- ── FOOTER ── -->
+<!-- ── FOOTER ─────────────────────────────────── -->
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="/es/" class="logo">Opervo<span class="dot">.</span></a>
+        <a href="/" class="logo">Opervo<span class="dot">.</span></a>
         <div class="footer-tag">Luce profesional. Gana trabajos.<br/>Hecho para el operador independiente o equipo pequeno.</div>
-        <div class="footer-copyright">© 2026 Opervo. Hecho para los oficios.</div>
+        <div class="footer-copyright">&#169; 2026 Opervo. Hecho para los oficios.</div>
         <div class="footer-social">
           <a href="https://www.instagram.com/opervo.io" target="_blank" rel="noopener" aria-label="Instagram">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
@@ -2298,39 +2325,39 @@ svg.ic {
 
       <div class="footer-col">
         <div class="footer-col-head">Producto</div>
-        <a href="#ai">Asistente de IA</a>
+        <a href="#ai">Asistente IA</a>
         <a href="#folio">Folio</a>
-        <a href="#plans">Planes de servicio</a>
+        <a href="#plans">Planes de Servicio</a>
         <a href="#routes">Rutas</a>
         <a href="#pricing">Precios</a>
       </div>
 
       <div class="footer-col">
-        <div class="footer-col-head">Para tu oficio</div>
-        <a href="/es/solar-panel-cleaning">Limpieza de paneles solares</a>
-        <a href="/es/window-cleaning">Limpieza de ventanas</a>
-        <a href="/es/pressure-washing">Lavado a presion</a>
-        <a href="/es/landscaping">Paisajismo</a>
-        <a href="/es/auto-detailing">Detallado automotriz</a>
+        <div class="footer-col-head">Para Tu Oficio</div>
+        <a href="/solar-panel-cleaning">Limpieza de Paneles Solares</a>
+        <a href="/window-cleaning">Limpieza de Ventanas</a>
+        <a href="/pressure-washing">Lavado a Presion</a>
+        <a href="/landscaping">Jardineria</a>
+        <a href="/auto-detailing">Detallado Automotriz</a>
       </div>
 
       <div class="footer-col">
         <div class="footer-col-head">Comparar</div>
-        <a href="/es/compare/opervo-vs-jobber">vs Jobber</a>
-        <a href="/es/compare/opervo-vs-housecall-pro">vs Housecall Pro</a>
-        <a href="/es/compare/opervo-vs-gorilladesk">vs GorillaDesk</a>
-        <a href="/es/compare/opervo-vs-markate">vs Markate</a>
+        <a href="/compare/opervo-vs-jobber">vs Jobber</a>
+        <a href="/compare/opervo-vs-housecall-pro">vs Housecall Pro</a>
+        <a href="/compare/opervo-vs-gorilladesk">vs GorillaDesk</a>
+        <a href="/compare/opervo-vs-markate">vs Markate</a>
       </div>
 
       <div class="footer-col">
         <div class="footer-col-head">Empresa</div>
-        <a href="/es/cost-calculator">Calculadora de costo real</a>
-        <a href="/es/profit-calculator">Calculadora de ganancia</a>
-        <a href="/es/blog">Blog</a>
-        <a href="/es/guide">Guia</a>
-        <a href="/es/apprentice">Aprendiz</a>
-        <a href="/es/privacy">Privacidad</a>
-        <a href="/es/tos">Terminos</a>
+        <a href="/cost-calculator">Calculadora de Costo Real</a>
+        <a href="/profit-calculator">Calculadora de Ganancia</a>
+        <a href="/blog">Blog</a>
+        <a href="/guide">Guia</a>
+        <a href="/apprentice">Aprendiz</a>
+        <a href="/privacy">Privacidad</a>
+        <a href="/tos">Terminos</a>
         <a href="https://app.opervo.io">Iniciar sesion</a>
       </div>
     </div>
@@ -2338,8 +2365,8 @@ svg.ic {
     <div class="footer-bottom">
       <div>help@opervo.io · Construido por alguien que estaba en la camioneta.</div>
       <div>
-        <a href="/es/privacy">Privacidad</a>·
-        <a href="/es/tos">Terminos</a>·
+        <a href="/privacy">Privacidad</a>·
+        <a href="/tos">Terminos</a>·
         <a href="/sitemap.xml">Sitemap</a>
       </div>
     </div>
@@ -2361,7 +2388,7 @@ svg.ic {
     }, 800);
   }
 
-  // Scroll reveal
+  // Scroll reveal (preserved from original)
   const obs = new IntersectionObserver((entries) => {
     entries.forEach((e, i) => {
       if (e.isIntersecting) {
@@ -2372,7 +2399,7 @@ svg.ic {
   }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-  // Nav shrink on scroll
+  // Nav shrink on scroll (preserved)
   const navEl = document.querySelector('nav');
   if (navEl) {
     window.addEventListener('scroll', () => {
