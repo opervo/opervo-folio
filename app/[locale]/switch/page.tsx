@@ -65,7 +65,7 @@ const FAQ = [
   },
   {
     q: "What if my CRM isn't on the list?",
-    a: "Text Max at (512) 761-6054 with your receipt. If it's a real field service CRM, we'll make it work.",
+    a: "Email help@opervo.io with your receipt. If it's a real field service CRM, we'll make it work.",
   },
   {
     q: 'Is my receipt private?',
