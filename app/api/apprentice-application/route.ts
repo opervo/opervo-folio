@@ -21,6 +21,15 @@ type Payload = {
 const FOUNDER_EMAIL = 'help@opervo.io'
 const REPLY_TO = 'help@opervo.io'
 
+function generateReferralCode(): string {
+  const chars = 'abcdefghijklmnopqrstuvwxyz0123456789'
+  let code = ''
+  const arr = new Uint8Array(6)
+  crypto.getRandomValues(arr)
+  for (let i = 0; i < 6; i++) code += chars[arr[i] % chars.length]
+  return code
+}
+
 function calcAge(dobStr: string) {
   const dob = new Date(dobStr)
   if (isNaN(dob.getTime())) return null
@@ -203,13 +212,15 @@ export async function POST(req: NextRequest) {
   p.email = (p.email || '').toLowerCase().trim()
   p.parent_email = (p.parent_email || '').toLowerCase().trim()
 
-  // 1. Save lead to Supabase (graceful degrade — uses guide_leads with source 'apprentice')
+  // 1. Save lead to Supabase + generate referral code
+  const referralCode = generateReferralCode()
   const url = process.env.GUIDE_SUPABASE_URL
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY
+  let referralCodeSaved = false
   if (url && key) {
     try {
       const supabase = createClient(url, key)
-      const { error } = await supabase.from('guide_leads').insert({
+      const { data: leadData, error } = await supabase.from('guide_leads').insert({
         email: p.email,
         source: 'apprentice',
         downloaded_at: new Date().toISOString(),
@@ -226,8 +237,9 @@ export async function POST(req: NextRequest) {
           parent_name: p.parent_name,
           parent_email: p.parent_email,
           story: p.story,
+          referral_code: referralCode,
         },
-      })
+      }).select('id').single()
       if (error && error.code !== '23505') {
         if (error.code === 'PGRST204' || /metadata/.test(error.message || '')) {
           await supabase.from('guide_leads').insert({
@@ -237,6 +249,32 @@ export async function POST(req: NextRequest) {
           })
         } else {
           console.error('[apprentice] Supabase insert error:', error.code, error.message)
+        }
+      }
+
+      // Save referral code to apprentice_referral_codes table
+      if (leadData?.id) {
+        const { error: rcError } = await supabase.from('apprentice_referral_codes').insert({
+          code: referralCode,
+          guide_lead_id: leadData.id,
+          email: p.email,
+          business_name: p.business_name,
+        })
+        if (rcError) {
+          if (rcError.code === '23505') {
+            // Collision — regenerate once
+            const retry = generateReferralCode()
+            await supabase.from('apprentice_referral_codes').insert({
+              code: retry,
+              guide_lead_id: leadData.id,
+              email: p.email,
+              business_name: p.business_name,
+            })
+          } else {
+            console.error('[apprentice] referral code insert error:', rcError.code, rcError.message)
+          }
+        } else {
+          referralCodeSaved = true
         }
       }
     } catch (err) {
@@ -261,5 +299,5 @@ export async function POST(req: NextRequest) {
     parentEmailHtml(p),
   )
 
-  return NextResponse.json({ ok: true })
+  return NextResponse.json({ ok: true, referral_code: referralCodeSaved ? referralCode : null })
 }

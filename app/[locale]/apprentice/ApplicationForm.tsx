@@ -47,6 +47,8 @@ export default function ApplicationForm() {
   const [submitting, setSubmitting] = useState(false)
   const [done, setDone] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [referralCode, setReferralCode] = useState<string | null>(null)
+  const [copied, setCopied] = useState(false)
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -115,17 +117,37 @@ export default function ApplicationForm() {
         body: JSON.stringify(payload),
       })
 
+      const data = await res.json().catch(() => ({}))
       if (!res.ok) {
-        const data = await res.json().catch(() => ({}))
         throw new Error(data?.error || 'Something went wrong. Try again or email max@opervo.io.')
       }
 
+      if (data?.referral_code) setReferralCode(data.referral_code)
       setDone(true)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong. Try again or email max@opervo.io.')
     } finally {
       setSubmitting(false)
     }
+  }
+
+  const referralLink = referralCode ? `https://opervo.io/r/${referralCode}` : null
+
+  function handleCopy() {
+    if (!referralLink) return
+    navigator.clipboard.writeText(referralLink).then(() => {
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    })
+  }
+
+  function handleShare() {
+    if (!referralLink || typeof navigator.share !== 'function') return
+    navigator.share({
+      title: 'Try Opervo',
+      text: 'I use Opervo to run my service business. Sign up with my link and I earn gear credits.',
+      url: referralLink,
+    }).catch(() => {})
   }
 
   if (done) {
@@ -146,9 +168,123 @@ export default function ApplicationForm() {
         <p style={{ fontSize: 16, color: '#1a1a1a', fontFamily: "'Barlow', sans-serif", lineHeight: 1.7, marginBottom: 12 }}>
           Max reads every application personally. You'll hear back within a few days, usually faster.
         </p>
-        <p style={{ fontSize: 15, color: '#6B6B6B', fontFamily: "'Barlow', sans-serif", lineHeight: 1.7 }}>
+        <p style={{ fontSize: 15, color: '#6B6B6B', fontFamily: "'Barlow', sans-serif", lineHeight: 1.7, marginBottom: 0 }}>
           We just sent your parent a heads-up email so they know you applied.
         </p>
+
+        {referralLink && (
+          <div style={{ marginTop: 32, borderTop: '1px solid #E8E4DE', paddingTop: 28 }}>
+            <p style={{ fontSize: 12, fontWeight: 700, color: '#F5620F', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: 8, fontFamily: "'Barlow Condensed', sans-serif" }}>
+              WHILE YOU WAIT — START EARNING
+            </p>
+            <h4 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 22, color: '#0F0F0F', textTransform: 'uppercase', lineHeight: 1.15, marginBottom: 12 }}>
+              GEAR CREDITS
+            </h4>
+            <p style={{ fontSize: 15, color: '#1a1a1a', fontFamily: "'Barlow', sans-serif", lineHeight: 1.65, marginBottom: 20, maxWidth: 420, marginLeft: 'auto', marginRight: 'auto' }}>
+              Share your link. When someone signs up and pays for 2 months, you earn $15 in gear credits toward real equipment — gift cards, squeegees, pressure washer gear, business cards.
+            </p>
+
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 8,
+              background: '#F7F5F2',
+              border: '1px solid #E8E4DE',
+              borderRadius: 8,
+              padding: '10px 12px',
+              marginBottom: 12,
+              maxWidth: 420,
+              marginLeft: 'auto',
+              marginRight: 'auto',
+            }}>
+              <span style={{
+                flex: 1,
+                fontSize: 14,
+                fontFamily: "'Barlow', sans-serif",
+                color: '#0F0F0F',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                whiteSpace: 'nowrap',
+                textAlign: 'left',
+              }}>
+                {referralLink}
+              </span>
+              <button
+                onClick={handleCopy}
+                type="button"
+                style={{
+                  background: copied ? '#0F0F0F' : '#F5620F',
+                  color: '#fff',
+                  border: 'none',
+                  borderRadius: 6,
+                  padding: '8px 16px',
+                  fontSize: 13,
+                  fontWeight: 700,
+                  fontFamily: "'Barlow Condensed', sans-serif",
+                  textTransform: 'uppercase',
+                  cursor: 'pointer',
+                  letterSpacing: '0.04em',
+                  whiteSpace: 'nowrap',
+                  transition: 'background 0.15s',
+                }}
+              >
+                {copied ? 'COPIED' : 'COPY'}
+              </button>
+            </div>
+
+            <button
+              onClick={handleShare}
+              type="button"
+              style={{
+                background: 'transparent',
+                border: '1px solid #E8E4DE',
+                borderRadius: 6,
+                padding: '10px 20px',
+                fontSize: 13,
+                fontWeight: 700,
+                fontFamily: "'Barlow Condensed', sans-serif",
+                textTransform: 'uppercase',
+                color: '#0F0F0F',
+                cursor: 'pointer',
+                letterSpacing: '0.04em',
+                marginBottom: 24,
+              }}
+            >
+              SHARE LINK
+            </button>
+
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: '1fr 1fr',
+              gap: 10,
+              maxWidth: 420,
+              marginLeft: 'auto',
+              marginRight: 'auto',
+              textAlign: 'left',
+            }}>
+              {[
+                { credits: '$15', label: 'Sticker pack + business cards' },
+                { credits: '$30', label: "Lowe's / Home Depot gift card" },
+                { credits: '$45', label: 'Pro squeegee kit or tool upgrade' },
+                { credits: '$75', label: 'Pressure washer gear' },
+              ].map((tier) => (
+                <div key={tier.credits} style={{
+                  background: '#F7F5F2',
+                  borderRadius: 8,
+                  padding: '12px 14px',
+                  border: '1px solid #E8E4DE',
+                }}>
+                  <p style={{ margin: 0, fontSize: 18, fontWeight: 900, color: '#F5620F', fontFamily: "'Barlow Condensed', sans-serif" }}>
+                    {tier.credits}
+                  </p>
+                  <p style={{ margin: '4px 0 0', fontSize: 13, color: '#1a1a1a', fontFamily: "'Barlow', sans-serif", lineHeight: 1.4 }}>
+                    {tier.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     )
   }
