@@ -283,6 +283,23 @@ export default function ApplicationForm() {
                 </div>
               ))}
             </div>
+
+            <a
+              href={`/apprentice/credits?code=${referralCode}`}
+              style={{
+                display: 'inline-block',
+                marginTop: 20,
+                fontFamily: "'Barlow Condensed', sans-serif",
+                fontWeight: 700,
+                fontSize: 13,
+                color: '#F5620F',
+                textDecoration: 'none',
+                textTransform: 'uppercase',
+                letterSpacing: '0.04em',
+              }}
+            >
+              View your credits dashboard
+            </a>
           </div>
         )}
       </div>
