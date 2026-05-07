@@ -80,6 +80,25 @@ export default async function Page({ params }: Props) {
   const raw = slug === 'demo' ? DEMO_PROFILE : await getOperatorBySlug(slug)
   if (!raw) notFound()
 
+  // Does this operator have line-item-driven quoting turned on for any service?
+  // If so, the folio swaps the inline QuoteForm with an iframe to the app's
+  // QuoteEngine (line-item driven, single source of truth across folio + embed).
+  let hasQuoteEngine = false
+  if (slug !== 'demo' && raw!.id) {
+    try {
+      const supa = getSupabaseServer()
+      const { count } = await supa
+        .from('services')
+        .select('id', { count: 'exact', head: true })
+        .eq('user_id', raw!.id)
+        .eq('show_on_quote_form', true)
+      hasQuoteEngine = (count ?? 0) > 0
+    } catch {
+      // Fail-closed: if the count query errors, fall back to legacy form.
+      hasQuoteEngine = false
+    }
+  }
+
   // ── Sanitize user-controlled fields ────────────────────
   const safeBrandColor = /^#[0-9a-fA-F]{6}$/.test(raw!.brand_color ?? '')
     ? raw!.brand_color!
@@ -119,7 +138,7 @@ export default async function Page({ params }: Props) {
 
   return (
     <>
-      <FolioPage profile={profile} />
+      <FolioPage profile={profile} hasQuoteEngine={hasQuoteEngine} slug={slug} />
       {slug !== 'demo' && raw!.id && (
         <FolioViewPing operatorUserId={raw!.id} slug={slug} />
       )}

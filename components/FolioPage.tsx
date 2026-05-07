@@ -4,6 +4,7 @@ import { useState, useRef, useEffect, useCallback, useMemo } from 'react'
 import { OperatorProfile, Service, RecentJob } from '@/lib/types'
 import { FOLIO_FONT_THEMES, resolveFolioFontTheme } from '@/lib/folioThemes'
 import { jobPhotoPublicUrl } from '@/lib/photoUrl'
+import FolioQuoteEngine from './FolioQuoteEngine'
 
 // Google Maps Places type shim
 declare global {
@@ -39,9 +40,11 @@ function shadeHex(hex: string, percent: number): string {
 
 interface Props {
   profile: OperatorProfile
+  hasQuoteEngine?: boolean
+  slug?: string
 }
 
-export default function FolioPage({ profile }: Props) {
+export default function FolioPage({ profile, hasQuoteEngine, slug }: Props) {
   const brand = profile.brand_color ?? '#0b6e62'
   const fontTheme = FOLIO_FONT_THEMES[resolveFolioFontTheme(profile.folio_font_theme)]
 
@@ -89,7 +92,11 @@ export default function FolioPage({ profile }: Props) {
         <ServicesSection profile={profile} />
         <CredentialsSection />
         {profile.review && <ReviewSection review={profile.review} profile={profile} />}
-        <QuoteForm profile={profile} />
+        {hasQuoteEngine && slug ? (
+          <FolioQuoteEngine operatorUserId={profile.id} businessName={profile.business_name} slug={slug} />
+        ) : (
+          <QuoteForm profile={profile} />
+        )}
         <Footer />
         <StickyCta />
       </div>
@@ -465,6 +472,7 @@ function ReviewSection({ review, profile }: { review: NonNullable<OperatorProfil
 /* ─────────────────────────────────────────
    QUOTE FORM
 ───────────────────────────────────────── */
+
 function QuoteForm({ profile }: { profile: OperatorProfile }) {
   const [step, setStep] = useState(0)
   const [selectedService, setSelectedService] = useState('')
