@@ -126,10 +126,13 @@ export default async function LifetimePage() {
               <span style={{ fontSize: 11, fontWeight: 800, color: '#F5620F', textTransform: 'uppercase', letterSpacing: '0.14em' }}>Solo Lifetime</span>
               <span style={{ fontSize: 11, fontWeight: 700, color: '#6B6B6B', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{SOLO_CAP} total · {soloLeft} left</span>
             </div>
-            <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 8 }}>
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 4 }}>
               <span style={{ ...heading, fontSize: 56, lineHeight: 1, color: '#0F0F0F' }}>$999</span>
               <span style={{ fontSize: 14, color: '#6B6B6B', fontWeight: 500 }}>once</span>
             </div>
+            <p style={{ fontSize: 12, color: '#6B6B6B', fontWeight: 500, marginBottom: 12 }}>
+              or 4 payments of $249.75 — interest-free with Klarna at checkout
+            </p>
             <p style={{ fontSize: 14, color: '#6B6B6B', lineHeight: 1.55, marginBottom: 20 }}>
               You + a helper. Every Solo feature we ship, forever. Compare to $24.99/mo or $249/yr.
             </p>
@@ -167,10 +170,13 @@ export default async function LifetimePage() {
               <span style={{ fontSize: 11, fontWeight: 800, color: '#F5620F', textTransform: 'uppercase', letterSpacing: '0.14em' }}>Team Lifetime</span>
               <span style={{ fontSize: 11, fontWeight: 700, color: '#b0aaa0', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{TEAM_CAP} total · {teamLeft} left</span>
             </div>
-            <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 8 }}>
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 4 }}>
               <span style={{ ...heading, fontSize: 56, lineHeight: 1, color: '#fff' }}>$1,999</span>
               <span style={{ fontSize: 14, color: '#b0aaa0', fontWeight: 500 }}>once</span>
             </div>
+            <p style={{ fontSize: 12, color: '#b0aaa0', fontWeight: 500, marginBottom: 12 }}>
+              or 4 payments of $499.75 — interest-free with Klarna at checkout
+            </p>
             <p style={{ fontSize: 14, color: '#b0aaa0', lineHeight: 1.55, marginBottom: 20 }}>
               Up to 10 team members. Every Team feature we ship, forever. Compare to $54.99/mo or $549/yr.
             </p>
@@ -305,6 +311,10 @@ export default async function LifetimePage() {
             {
               q: 'What if I\'m already paying for Opervo?',
               a: 'Your last 12 months of payments come off the lifetime price. If you\'ve paid us $300 over the year, you pay $699 instead of $999. Email help@opervo.io to apply the credit.',
+            },
+            {
+              q: 'Can I split the payment up?',
+              a: 'Yes. At checkout, choose Klarna and split it into 4 interest-free payments — $249.75 every two weeks for Solo, $499.75 every two weeks for Team. Klarna handles the financing; from our side it\'s still one payment, and you\'re a Lifetime Pass holder from day one.',
             },
             {
               q: 'What does "lifetime" actually mean?',
