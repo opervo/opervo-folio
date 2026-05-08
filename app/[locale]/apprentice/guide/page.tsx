@@ -19,7 +19,7 @@ const steps = [
   {
     number: '03',
     title: 'SHARE YOUR CODE',
-    body: 'Your referral code is a short word based on your business name. When someone signs up for Opervo and types your code in the promo code field on their payment screen, that referral is linked to you. You earn $15 in gear credits after they complete their second paid month.',
+    body: 'Your referral code is a short word based on your business name. When someone signs up for Opervo and types your code in the promo code field on their payment screen, they get 50% off their first month — and that referral is linked to you. You earn gear credits after they complete their second paid month.',
     highlight: true,
   },
   {
@@ -30,12 +30,12 @@ const steps = [
   {
     number: '05',
     title: 'TRACK YOUR CREDITS',
-    body: 'You can check your gear credits balance two ways: in the app at Settings, search "Gear Credits" — or on the web at opervo.io/apprentice/credits with your code. Both show your balance, referral count, and what you can redeem.',
+    body: 'Go to opervo.io/apprentice/credits and sign in with your Opervo login. You can also go directly with opervo.io/apprentice/credits?code=yourcode. Both show your balance, referral count, and what you can redeem.',
   },
   {
     number: '06',
     title: 'REDEEM GEAR',
-    body: 'When you hit a reward tier, tap Redeem on the gear you want. That sends an email to Max and he\'ll get it shipped. $15 gets you stickers + business cards. $30 gets a Lowe\'s or Home Depot gift card. $45 gets pro tools. $75 gets pressure washer gear.',
+    body: 'When you hit a reward tier, tap Redeem on the gear you want. That sends an email to Max and he\'ll get it shipped. Reward tiers are coming soon — we\'ll let you know when they go live.',
   },
 ]
 
@@ -103,53 +103,6 @@ export default function GuidePage() {
               }}>
                 {step.body}
               </p>
-            </div>
-          ))}
-        </div>
-
-        {/* Reward tiers quick ref */}
-        <div style={{
-          background: '#0F0F0F',
-          borderRadius: 12,
-          padding: '24px',
-          marginTop: 16,
-        }}>
-          <p style={{
-            fontFamily: "'Barlow Condensed', sans-serif",
-            fontWeight: 900,
-            fontSize: 14,
-            color: '#F5620F',
-            textTransform: 'uppercase',
-            letterSpacing: '0.14em',
-            margin: '0 0 12px',
-          }}>
-            REWARD TIERS
-          </p>
-          {[
-            { amount: '$15', label: 'Sticker pack + NFC business cards' },
-            { amount: '$30', label: "Lowe's / Home Depot gift card" },
-            { amount: '$45', label: 'Pro squeegee kit or tool upgrade' },
-            { amount: '$75', label: 'Pressure washer gear' },
-          ].map((tier) => (
-            <div key={tier.amount} style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 12,
-              padding: '10px 0',
-              borderTop: '1px solid rgba(255,255,255,0.08)',
-            }}>
-              <span style={{
-                fontFamily: "'Barlow Condensed', sans-serif",
-                fontWeight: 900,
-                fontSize: 20,
-                color: '#F5620F',
-                minWidth: 44,
-              }}>
-                {tier.amount}
-              </span>
-              <span style={{ fontSize: 14, color: '#E8E4DE' }}>
-                {tier.label}
-              </span>
             </div>
           ))}
         </div>
