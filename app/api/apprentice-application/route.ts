@@ -21,13 +21,18 @@ type Payload = {
 const FOUNDER_EMAIL = 'help@opervo.io'
 const REPLY_TO = 'help@opervo.io'
 
-function generateReferralCode(): string {
-  const chars = 'abcdefghijklmnopqrstuvwxyz0123456789'
-  let code = ''
-  const arr = new Uint8Array(6)
+function slugFromBusinessName(name: string): string {
+  return name
+    .toLowerCase()
+    .replace(/[''`]/g, '')
+    .replace(/[^a-z0-9]+/g, '')
+    .slice(0, 20)
+}
+
+function randomSuffix(): string {
+  const arr = new Uint8Array(3)
   crypto.getRandomValues(arr)
-  for (let i = 0; i < 6; i++) code += chars[arr[i] % chars.length]
-  return code
+  return Array.from(arr, (b) => (b % 36).toString(36)).join('')
 }
 
 function calcAge(dobStr: string) {
@@ -212,8 +217,9 @@ export async function POST(req: NextRequest) {
   p.email = (p.email || '').toLowerCase().trim()
   p.parent_email = (p.parent_email || '').toLowerCase().trim()
 
-  // 1. Save lead to Supabase + generate referral code
-  const referralCode = generateReferralCode()
+  // 1. Save lead to Supabase + generate referral code (slug from business name)
+  const slug = slugFromBusinessName(p.business_name || '')
+  let referralCode = slug || 'app' + randomSuffix()
   const url = process.env.GUIDE_SUPABASE_URL
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY
   let referralCodeSaved = false
@@ -242,9 +248,10 @@ export async function POST(req: NextRequest) {
         })
         if (rcError) {
           if (rcError.code === '23505') {
-            const retry = generateReferralCode()
+            // Slug collision — append random suffix
+            referralCode = slug + randomSuffix()
             const { error: retryErr } = await supabase.from('apprentice_referral_codes').insert({
-              code: retry,
+              code: referralCode,
               guide_lead_id: leadId,
               email: p.email,
               business_name: p.business_name,
