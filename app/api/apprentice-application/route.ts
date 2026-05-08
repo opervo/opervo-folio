@@ -220,56 +220,36 @@ export async function POST(req: NextRequest) {
   if (url && key) {
     try {
       const supabase = createClient(url, key)
+
+      // guide_leads has no metadata column — insert base fields only
       const { data: leadData, error } = await supabase.from('guide_leads').insert({
         email: p.email,
         source: 'apprentice',
         downloaded_at: new Date().toISOString(),
-        metadata: {
-          first_name: p.first_name,
-          last_name: p.last_name,
-          date_of_birth: p.date_of_birth,
-          age,
-          city: p.city,
-          state: p.state,
-          business_name: p.business_name,
-          trade: p.trade,
-          social_handle: p.social_handle || null,
-          parent_name: p.parent_name,
-          parent_email: p.parent_email,
-          story: p.story,
-          referral_code: referralCode,
-        },
       }).select('id').single()
+
       if (error && error.code !== '23505') {
-        if (error.code === 'PGRST204' || /metadata/.test(error.message || '')) {
-          await supabase.from('guide_leads').insert({
-            email: p.email,
-            source: 'apprentice',
-            downloaded_at: new Date().toISOString(),
-          })
-        } else {
-          console.error('[apprentice] Supabase insert error:', error.code, error.message)
-        }
+        console.error('[apprentice] Supabase insert error:', error.code, error.message)
       }
 
-      // Save referral code to apprentice_referral_codes table
-      if (leadData?.id) {
+      const leadId = leadData?.id
+      if (leadId) {
         const { error: rcError } = await supabase.from('apprentice_referral_codes').insert({
           code: referralCode,
-          guide_lead_id: leadData.id,
+          guide_lead_id: leadId,
           email: p.email,
           business_name: p.business_name,
         })
         if (rcError) {
           if (rcError.code === '23505') {
-            // Collision — regenerate once
             const retry = generateReferralCode()
-            await supabase.from('apprentice_referral_codes').insert({
+            const { error: retryErr } = await supabase.from('apprentice_referral_codes').insert({
               code: retry,
-              guide_lead_id: leadData.id,
+              guide_lead_id: leadId,
               email: p.email,
               business_name: p.business_name,
             })
+            if (!retryErr) referralCodeSaved = true
           } else {
             console.error('[apprentice] referral code insert error:', rcError.code, rcError.message)
           }
