@@ -437,13 +437,18 @@ export default function CreditsClient() {
     const email = (await supabase.auth.getSession()).data.session?.user?.email
     if (!email) { setRedeeming(false); return }
 
-    const { error: insertErr } = await supabase.from('gear_redemptions').insert({
-      apprentice_email: email.toLowerCase(),
-      items: cart.map((c) => ({ id: c.item.id, title: c.item.title, credit_cost: c.item.credit_cost, qty: c.qty })),
-      total_credits: total,
-    })
-
-    if (insertErr) {
+    try {
+      const res = await fetch('/api/apprentice-redeem', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: email.toLowerCase(),
+          items: cart.map((c) => ({ id: c.item.id, title: c.item.title, credit_cost: c.item.credit_cost, qty: c.qty })),
+          total_credits: total,
+        }),
+      })
+      if (!res.ok) { setRedeeming(false); return }
+    } catch {
       setRedeeming(false)
       return
     }
