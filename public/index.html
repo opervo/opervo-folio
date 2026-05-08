@@ -1472,13 +1472,8 @@ svg.ic {
   <div class="container">
     <div class="two-col">
       <div class="phone">
-        <div class="phone-screen phone-screen-live">
-          <iframe
-            src="/p/solar-wash-atx#quoteform"
-            title="Live folio with instant quote form — Solar Wash ATX"
-            loading="lazy"
-            referrerpolicy="same-origin"
-          ></iframe>
+        <div class="phone-screen phone-screen-img">
+          <img src="/screenshots/instaquote.jpg" alt="Customer's instant quote screen showing a real ballpark price the moment they ask" loading="lazy" decoding="async" />
         </div>
       </div>
 
@@ -1486,47 +1481,157 @@ svg.ic {
         <span class="eyebrow eyebrow-orange">NEW · Instant Quoting</span>
         <h2 class="section-title">Customers see<br/>a price in<br/>30 seconds<span class="accent">.</span></h2>
         <p class="section-sub">
-          Not "we'll get back to you." A real ballpark price —
-          based on your rates — the moment they ask. The lead lands
-          with answers, photos, and address ready to convert.
+          <strong style="color: var(--ink);">78% of leads go to whoever answers first.</strong>
+          By the time you tap their message back at 9pm Saturday, your
+          competitor's already booked the job. Instant Quoting closes
+          that window — a real ballpark price, on your rates, the moment
+          they ask. The lead lands with answers, photos, and address ready
+          to convert.
         </p>
-        <ul class="bullets">
-          <li><strong>You set the prices.</strong> We give you the structure for your trade. Setup takes about two minutes.</li>
-          <li><strong>Multi-service combos with real tax.</strong> Window + screen cleaning + frame wipe in one quote. Most tools hand-wave "+ tax." We compute it.</li>
-          <li><strong>Lead lands ready to convert.</strong> Status pipeline + one-tap convert to estimate, line items pre-filled.</li>
-        </ul>
+        <style>
+          .quoting-mini-cards { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+          .quoting-mini-card {
+            display: grid; grid-template-columns: 36px 1fr; gap: 12px; align-items: flex-start;
+            background: white; border: 1px solid var(--border); border-radius: 14px;
+            padding: 14px 16px;
+          }
+          .quoting-mini-card .qmc-icon {
+            width: 36px; height: 36px; border-radius: 10px; background: var(--warm);
+            display: flex; align-items: center; justify-content: center;
+          }
+          .quoting-mini-card .qmc-name {
+            font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 16px;
+            text-transform: uppercase; letter-spacing: 0.01em; margin-bottom: 2px; line-height: 1.15;
+          }
+          .quoting-mini-card .qmc-desc { font-size: 13px; color: var(--muted); line-height: 1.45; font-weight: 500; }
+
+          .quoting-vs {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+            margin: 8px 0 24px;
+          }
+          .quoting-vs-col {
+            background: white; border: 1px solid var(--border); border-radius: 14px;
+            padding: 14px 16px;
+          }
+          .quoting-vs-col.us { border-color: rgba(245,98,15,0.35); background: rgba(245,98,15,0.04); }
+          .quoting-vs-eyebrow {
+            font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 11px;
+            text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 8px;
+          }
+          .quoting-vs-col.us .quoting-vs-eyebrow { color: var(--orange); }
+          .quoting-vs-row { font-size: 12.5px; color: var(--ink); line-height: 1.45; margin-bottom: 4px; font-weight: 500; }
+          .quoting-vs-row strong { font-weight: 700; }
+          @media (max-width: 520px) { .quoting-vs { grid-template-columns: 1fr; } }
+        </style>
+        <div class="quoting-mini-cards">
+          <div class="quoting-mini-card">
+            <div class="qmc-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5620F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <div>
+              <div class="qmc-name">You set the prices</div>
+              <div class="qmc-desc">We give you the structure for your trade. Setup takes about two minutes.</div>
+            </div>
+          </div>
+          <div class="quoting-mini-card">
+            <div class="qmc-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5620F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div>
+              <div class="qmc-name">Multi-service combos with real tax</div>
+              <div class="qmc-desc">Window + screen cleaning + frame wipe in one quote. Most tools hand-wave "+ tax." We compute it.</div>
+            </div>
+          </div>
+          <div class="quoting-mini-card">
+            <div class="qmc-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5620F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <div class="qmc-name">Lead lands ready to convert</div>
+              <div class="qmc-desc">Status pipeline with one-tap convert to a job or estimate — line items pre-filled, no manual re-entry.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="quoting-vs">
+          <div class="quoting-vs-col">
+            <div class="quoting-vs-eyebrow">Other tools</div>
+            <div class="quoting-vs-row"><strong>Markate</strong> — $10/mo extra for a basic lead form (no auto-pricing).</div>
+            <div class="quoting-vs-row"><strong>Jobber, HCP, GorillaDesk</strong> — "request a quote" forms that make customers wait.</div>
+          </div>
+          <div class="quoting-vs-col us">
+            <div class="quoting-vs-eyebrow">Opervo</div>
+            <div class="quoting-vs-row">Auto-priced instant quoting on <strong>every plan.</strong></div>
+            <div class="quoting-vs-row">No upcharge, no higher tier.</div>
+          </div>
+        </div>
+
         <a href="https://app.opervo.io/#/quoting" class="btn btn-primary">Try it free for 14 days</a>
       </div>
     </div>
 
-    <div class="folio-strip">
-      <div class="folio-strip-lead">From <span>setup</span> to <span>signed</span> in minutes</div>
-      <div class="folio-strip-item">
-        <div class="folio-strip-img">
-          <img src="/screenshots/quoting-1-bundles.jpg" alt="Add-a-pricing-item modal with Quick Start trade bundles: By the Job, Per Item, Linear Footage, Hourly" loading="lazy" decoding="async" />
+    <style>
+      .pain-banner { margin-top: 72px; background: #0F0F0F; border-radius: 24px; padding: 40px 32px; color: #F7F5F2; }
+      .pain-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; text-align: center; }
+      .pain-stat { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 56px; color: var(--orange); line-height: 1; }
+      .pain-label { font-size: 13px; color: rgba(247,245,242,0.7); margin-top: 8px; line-height: 1.45; }
+      .quoting-where-grid { grid-template-columns: repeat(3, 1fr) !important; }
+      @media (max-width: 720px) {
+        .pain-banner { padding: 32px 20px; }
+        .pain-grid { grid-template-columns: 1fr; gap: 24px; }
+        .pain-stat { font-size: 44px; }
+        .quoting-where-grid { grid-template-columns: 1fr !important; }
+      }
+    </style>
+
+    <!-- Pain banner -->
+    <div class="pain-banner">
+      <div class="pain-grid">
+        <div>
+          <div class="pain-stat">5 min</div>
+          <div class="pain-label">Average response window before a lead picks someone else</div>
         </div>
-        <div class="folio-strip-label">
-          <span class="folio-strip-label-name">Trade Bundles Ready</span>
-          <span class="folio-strip-label-desc">Pre-built structure for your work. Window, pressure wash, HVAC, more.</span>
+        <div>
+          <div class="pain-stat">78%</div>
+          <div class="pain-label">Of home-service jobs go to the first quote — not the best one</div>
+        </div>
+        <div>
+          <div class="pain-stat">$0</div>
+          <div class="pain-label">What you make on every "we'll get back to you" lead that ghosts</div>
         </div>
       </div>
-      <div class="folio-strip-item">
-        <div class="folio-strip-img">
-          <img src="/screenshots/quoting-2-reveal.jpg" alt="Customer's reveal screen with a $135 ballpark estimate for window cleaning" loading="lazy" decoding="async" />
+    </div>
+
+    <!-- Where it lives -->
+    <div style="margin-top: 56px; text-align: center;">
+      <span class="eyebrow eyebrow-orange">Where it lives</span>
+      <h3 style="font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 32px; text-transform: uppercase; margin: 16px 0 12px; line-height: 1.05;">One quote form. Two places to put it.</h3>
+      <p style="font-size: 15px; color: var(--muted); max-width: 580px; margin: 0 auto 32px; line-height: 1.55;">
+        Already shipped a folio? It's there. Already have a website? Drop in one line of code. Either way, every lead lands in the same pipeline.
+      </p>
+    </div>
+
+    <div class="feature-grid quoting-where-grid">
+      <div class="feature-card">
+        <div class="feature-card-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F5620F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2.5"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
         </div>
-        <div class="folio-strip-label">
-          <span class="folio-strip-label-name">Real Ballpark, Instant</span>
-          <span class="folio-strip-label-desc">Customer answers, sees a real price, submits — all on one screen.</span>
-        </div>
+        <div class="feature-card-name">On your folio</div>
+        <p class="feature-card-desc">Lives at the bottom of your Opervo folio out of the box. If you've shipped one, it's already collecting leads — flip it on in Quoting settings.</p>
       </div>
-      <div class="folio-strip-item">
-        <div class="folio-strip-img">
-          <img src="/screenshots/quoting-3-pipeline.jpg" alt="Operator's Quoting dashboard showing the requests / quoted / won pipeline funnel and How It Works setup guide" loading="lazy" decoding="async" />
+      <div class="feature-card">
+        <div class="feature-card-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F5620F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
         </div>
-        <div class="folio-strip-label">
-          <span class="folio-strip-label-name">Pipeline Built In</span>
-          <span class="folio-strip-label-desc">Track requests → quoted → won. One-tap convert to estimate.</span>
+        <div class="feature-card-name">On your own website</div>
+        <p class="feature-card-desc">One line of embed code — works on Squarespace, Wix, WordPress, GoDaddy, anything. Same form, your domain, your branding wrapping it.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F5620F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
         </div>
+        <div class="feature-card-name">One inbox, one pipeline</div>
+        <p class="feature-card-desc">Both surfaces feed the same Quote Requests inbox. Answers, photos, address — ready to convert in one tap.</p>
       </div>
     </div>
   </div>
