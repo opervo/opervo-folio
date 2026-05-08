@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import { unstable_noStore as noStore } from 'next/cache'
 import { getOperatorBySlug, DEMO_PROFILE } from '@/lib/data'
 import { resolveFolioFontTheme } from '@/lib/folioThemes'
 import { getSupabaseServer } from '@/lib/supabase-server'
@@ -44,14 +45,17 @@ async function signRecentJobPhotos(jobs: RecentJob[]): Promise<RecentJob[]> {
 
 interface Props {
   params: Promise<{ slug: string }>
+  searchParams: Promise<{ preview?: string }>
 }
 
 // ISR — revalidate every 60 seconds
 // When operator updates their profile, the page rebuilds in background
 export const revalidate = 60
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params, searchParams }: Props): Promise<Metadata> {
   const { slug } = await params
+  const sp = await searchParams
+  const isPreview = sp?.preview === '1'
   const profile = slug === 'demo' ? DEMO_PROFILE : await getOperatorBySlug(slug)
   if (!profile) return { title: 'Not Found' }
 
@@ -61,6 +65,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${profile.business_name} — ${profile.location ?? 'Field Services'}`,
     description,
+    // Editor preview iframes append ?preview=1 — keep half-built folios out
+    // of the search index. Public visits (no query param) index normally.
+    robots: isPreview ? { index: false, follow: false } : undefined,
     openGraph: {
       title: profile.business_name,
       description,
@@ -75,8 +82,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default async function Page({ params }: Props) {
+export default async function Page({ params, searchParams }: Props) {
   const { slug } = await params
+  const sp = await searchParams
+  const isPreview = sp?.preview === '1'
+  // Bypass ISR cache so the editor preview iframe shows the latest save
+  // immediately. Public traffic (no preview param) keeps the 60s ISR.
+  if (isPreview) noStore()
   const raw = slug === 'demo' ? DEMO_PROFILE : await getOperatorBySlug(slug)
   if (!raw) notFound()
 
@@ -139,7 +151,7 @@ export default async function Page({ params }: Props) {
   return (
     <>
       <FolioPage profile={profile} hasQuoteEngine={hasQuoteEngine} slug={slug} />
-      {slug !== 'demo' && raw!.id && (
+      {slug !== 'demo' && raw!.id && !isPreview && (
         <FolioViewPing operatorUserId={raw!.id} slug={slug} />
       )}
     </>
