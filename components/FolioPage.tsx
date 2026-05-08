@@ -4,7 +4,7 @@ import { useState, useRef, useEffect, useCallback, useMemo } from 'react'
 import { OperatorProfile, Service, RecentJob } from '@/lib/types'
 import { FOLIO_FONT_THEMES, resolveFolioFontTheme } from '@/lib/folioThemes'
 import { jobPhotoPublicUrl } from '@/lib/photoUrl'
-import FolioQuoteEngine from './FolioQuoteEngine'
+import QuoteFormIframe from './QuoteFormIframe'
 
 // Google Maps Places type shim
 declare global {
@@ -93,12 +93,12 @@ export default function FolioPage({ profile, hasQuoteEngine, slug }: Props) {
         <CredentialsSection />
         {profile.review && <ReviewSection review={profile.review} profile={profile} />}
         {hasQuoteEngine && slug ? (
-          <FolioQuoteEngine operatorUserId={profile.id} businessName={profile.business_name} slug={slug} />
+          <QuoteFormIframe slug={slug} />
         ) : (
           <QuoteForm profile={profile} />
         )}
         <Footer />
-        <StickyCta />
+        <StickyCta hasQuoteEngine={!!(hasQuoteEngine && slug)} />
       </div>
     </>
   )
@@ -1080,7 +1080,7 @@ function Footer() {
   )
 }
 
-function StickyCta() {
+function StickyCta({ hasQuoteEngine = false }: { hasQuoteEngine?: boolean }) {
   const [hidden, setHidden] = useState(false)
   useEffect(() => {
     const form = document.getElementById('quoteform')
@@ -1093,12 +1093,16 @@ function StickyCta() {
     return () => obs.disconnect()
   }, [])
 
+  // When the operator has the line-item quote engine wired up, customers get
+  // a real instant number — the CTA should promise that, not "request a quote."
+  const label = hasQuoteEngine ? 'Get an Instant Quote' : 'Request a Free Quote'
+
   return (
     <div
       className={`sticky-cta ${hidden ? 'sticky-cta--hidden' : ''}`}
       onClick={() => document.getElementById('quoteform')?.scrollIntoView({ behavior: 'smooth' })}
     >
-      Request a Free Quote
+      {label}
     </div>
   )
 }
