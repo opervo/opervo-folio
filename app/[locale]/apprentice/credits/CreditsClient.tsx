@@ -1,7 +1,8 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { useSearchParams } from 'next/navigation'
+import { supabase } from '@/lib/supabase'
 
 type LedgerEntry = {
   type: 'earn' | 'redeem'
@@ -35,21 +36,172 @@ function formatDollars(cents: number) {
   return `$${(cents / 100).toFixed(0)}`
 }
 
-export default function CreditsClient() {
-  const params = useSearchParams()
-  const code = params.get('code') || ''
-  const [data, setData] = useState<CreditsData | null>(null)
-  const [loading, setLoading] = useState(true)
+function LoginForm({ onLogin }: { onLogin: (code: string) => void }) {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const [copied, setCopied] = useState(false)
 
-  useEffect(() => {
-    if (!code) {
-      setError('No referral code provided. Check the link from your application confirmation.')
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setLoading(true)
+    setError(null)
+
+    const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
+      email: email.trim(),
+      password,
+    })
+
+    if (authError || !authData.user) {
+      setError(authError?.message || 'Could not sign in.')
       setLoading(false)
       return
     }
-    fetch(`/api/apprentice-credits?code=${encodeURIComponent(code)}`)
+
+    const userEmail = authData.user.email?.toLowerCase()
+    if (!userEmail) {
+      setError('No email on account.')
+      setLoading(false)
+      return
+    }
+
+    const { data: codeRow } = await supabase
+      .from('apprentice_referral_codes')
+      .select('code')
+      .eq('email', userEmail)
+      .maybeSingle()
+
+    if (!codeRow) {
+      setError('No Apprentice account found for this email.')
+      await supabase.auth.signOut()
+      setLoading(false)
+      return
+    }
+
+    onLogin(codeRow.code)
+  }
+
+  return (
+    <div style={{ minHeight: '100vh', background: '#F7F5F2', fontFamily: "'Barlow', sans-serif" }}>
+      <div style={{ background: '#0F0F0F', padding: '24px 0' }}>
+        <div style={{ maxWidth: 440, margin: '0 auto', padding: '0 20px' }}>
+          <a href="/" style={{ textDecoration: 'none' }}>
+            <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 22, color: '#F7F5F2' }}>
+              Opervo<span style={{ color: '#F5620F' }}>.</span>
+            </span>
+          </a>
+          <p style={{ margin: '4px 0 0', fontSize: 13, color: '#9CA3AF' }}>Apprentice Gear Credits</p>
+        </div>
+      </div>
+
+      <div style={{ maxWidth: 440, margin: '0 auto', padding: '40px 20px' }}>
+        <div style={{ background: '#fff', border: '1px solid #E8E4DE', borderRadius: 12, padding: '32px 24px' }}>
+          <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 24, color: '#0F0F0F', textTransform: 'uppercase', margin: '0 0 4px', textAlign: 'center' }}>
+            Sign in
+          </h1>
+          <p style={{ fontSize: 14, color: '#6B6B6B', textAlign: 'center', margin: '0 0 24px', lineHeight: 1.5 }}>
+            Use your Opervo login to view your gear credits.
+          </p>
+
+          <form onSubmit={handleSubmit}>
+            <label style={{ display: 'block', fontSize: 12, fontWeight: 700, color: '#0F0F0F', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 6, fontFamily: "'Barlow Condensed', sans-serif" }}>
+              Email
+            </label>
+            <input
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="you@example.com"
+              style={{
+                width: '100%',
+                padding: '10px 14px',
+                fontSize: 15,
+                border: '1px solid #E8E4DE',
+                borderRadius: 8,
+                background: '#F7F5F2',
+                color: '#0F0F0F',
+                marginBottom: 16,
+                boxSizing: 'border-box',
+                fontFamily: "'Barlow', sans-serif",
+                outline: 'none',
+              }}
+            />
+
+            <label style={{ display: 'block', fontSize: 12, fontWeight: 700, color: '#0F0F0F', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 6, fontFamily: "'Barlow Condensed', sans-serif" }}>
+              Password
+            </label>
+            <input
+              type="password"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Your password"
+              style={{
+                width: '100%',
+                padding: '10px 14px',
+                fontSize: 15,
+                border: '1px solid #E8E4DE',
+                borderRadius: 8,
+                background: '#F7F5F2',
+                color: '#0F0F0F',
+                marginBottom: 20,
+                boxSizing: 'border-box',
+                fontFamily: "'Barlow', sans-serif",
+                outline: 'none',
+              }}
+            />
+
+            {error && (
+              <p style={{ fontSize: 13, color: '#dc2626', margin: '0 0 16px', textAlign: 'center' }}>{error}</p>
+            )}
+
+            <button
+              type="submit"
+              disabled={loading}
+              style={{
+                width: '100%',
+                padding: '12px',
+                background: loading ? '#6B6B6B' : '#F5620F',
+                color: '#fff',
+                border: 'none',
+                borderRadius: 8,
+                fontSize: 14,
+                fontWeight: 800,
+                fontFamily: "'Barlow Condensed', sans-serif",
+                textTransform: 'uppercase',
+                letterSpacing: '0.06em',
+                cursor: loading ? 'not-allowed' : 'pointer',
+                transition: 'background 0.15s',
+              }}
+            >
+              {loading ? 'Signing in...' : 'View my credits'}
+            </button>
+          </form>
+        </div>
+
+        <p style={{ fontSize: 12, color: '#9CA3AF', textAlign: 'center', marginTop: 20 }}>
+          Not an apprentice? <a href="/apprentice" style={{ color: '#6B6B6B' }}>Learn about the program</a>
+        </p>
+      </div>
+    </div>
+  )
+}
+
+export default function CreditsClient() {
+  const params = useSearchParams()
+  const codeFromUrl = params.get('code') || ''
+  const [code, setCode] = useState(codeFromUrl)
+  const [data, setData] = useState<CreditsData | null>(null)
+  const [loading, setLoading] = useState(!!codeFromUrl)
+  const [error, setError] = useState<string | null>(null)
+  const [copied, setCopied] = useState(false)
+  const [checkingSession, setCheckingSession] = useState(!codeFromUrl)
+
+  const fetchCredits = useCallback((c: string) => {
+    setLoading(true)
+    setError(null)
+    fetch(`/api/apprentice-credits?code=${encodeURIComponent(c)}`)
       .then(async (res) => {
         if (!res.ok) throw new Error(res.status === 404 ? 'Referral code not found.' : 'Something went wrong.')
         return res.json()
@@ -57,7 +209,45 @@ export default function CreditsClient() {
       .then(setData)
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false))
-  }, [code])
+  }, [])
+
+  // If no code in URL, check for existing Supabase session
+  useEffect(() => {
+    if (codeFromUrl) {
+      fetchCredits(codeFromUrl)
+      return
+    }
+
+    (async () => {
+      const { data: { session } } = await supabase.auth.getSession()
+      if (session?.user?.email) {
+        const { data: codeRow } = await supabase
+          .from('apprentice_referral_codes')
+          .select('code')
+          .eq('email', session.user.email.toLowerCase())
+          .maybeSingle()
+
+        if (codeRow) {
+          setCode(codeRow.code)
+          fetchCredits(codeRow.code)
+          setCheckingSession(false)
+          return
+        }
+      }
+      setCheckingSession(false)
+    })()
+  }, [codeFromUrl, fetchCredits])
+
+  const handleLogin = (loginCode: string) => {
+    setCode(loginCode)
+    setCheckingSession(false)
+    fetchCredits(loginCode)
+  }
+
+  // Show login form if no code and no session
+  if (!code && !checkingSession && !loading) {
+    return <LoginForm onLogin={handleLogin} />
+  }
 
   const referralLink = `https://opervo.io/r/${code}`
 
@@ -77,7 +267,7 @@ export default function CreditsClient() {
     }).catch(() => {})
   }
 
-  if (loading) {
+  if (loading || checkingSession) {
     return (
       <div style={{ minHeight: '100vh', background: '#F7F5F2', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <p style={{ fontFamily: "'Barlow', sans-serif", color: '#6B6B6B', fontSize: 16 }}>Loading your credits...</p>
@@ -232,7 +422,7 @@ export default function CreditsClient() {
             </button>
           </div>
           <p style={{ fontSize: 13, color: '#6B6B6B', lineHeight: 1.5, marginTop: 12, marginBottom: 0 }}>
-            When someone signs up with your link and pays for 2 months, you earn $15 in gear credits.
+            When someone signs up with your link and pays for 2 months, you earn $15 in gear credits. They can also type <strong style={{ color: '#0F0F0F' }}>{code}</strong> in the promo code field.
           </p>
         </div>
 
