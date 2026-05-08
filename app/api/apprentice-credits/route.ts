@@ -48,6 +48,20 @@ export async function GET(req: NextRequest) {
     .reduce((sum, c) => sum + Math.abs(c.amount_cents), 0)
   const balance = earned - redeemed
 
+  // Fetch gear store items
+  const { data: gearItems } = await supabase
+    .from('gear_items')
+    .select('id, title, description, image_url, credit_cost, category, sort_order')
+    .eq('active', true)
+    .order('sort_order', { ascending: true })
+
+  // Fetch past redemptions
+  const { data: redemptions } = await supabase
+    .from('gear_redemptions')
+    .select('id, items, total_credits, status, created_at')
+    .eq('apprentice_email', apprentice.email)
+    .order('created_at', { ascending: false })
+
   return NextResponse.json({
     business_name: apprentice.business_name,
     code,
@@ -60,6 +74,21 @@ export async function GET(req: NextRequest) {
       amount_cents: c.amount_cents,
       description: c.description,
       date: c.created_at,
+    })),
+    gear_items: (gearItems || []).map((g) => ({
+      id: g.id,
+      title: g.title,
+      description: g.description,
+      image_url: g.image_url,
+      credit_cost: g.credit_cost,
+      category: g.category,
+    })),
+    redemptions: (redemptions || []).map((r) => ({
+      id: r.id,
+      items: r.items,
+      total_credits: r.total_credits,
+      status: r.status,
+      date: r.created_at,
     })),
   }, {
     headers: { 'Cache-Control': 'no-store' },
