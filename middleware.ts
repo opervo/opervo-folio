@@ -31,9 +31,9 @@ export function middleware(req: NextRequest) {
   // Skip intl for non-localizable paths
   if (
     pathname.startsWith('/api/') ||
-    pathname.startsWith('/admin/') ||
-    pathname.startsWith('/p/') ||
-    pathname.startsWith('/r/') ||
+    pathname === '/admin' || pathname.startsWith('/admin/') ||
+    pathname === '/p' || pathname.startsWith('/p/') ||
+    pathname === '/r' || pathname.startsWith('/r/') ||
     pathname.startsWith('/_next/') ||
     pathname.startsWith('/_vercel/') ||
     /\.(.*)$/.test(pathname)
