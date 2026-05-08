@@ -79,7 +79,7 @@ const faqs = [
 ]
 
 export default function OpervoVsJobber() {
-  const jsonLd = {
+  const faqLd = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: faqs.map((f) => ({
@@ -89,9 +89,26 @@ export default function OpervoVsJobber() {
     })),
   }
 
+  const softwareLd = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'Opervo',
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: 'iOS, Web',
+    description: 'Field service management software for solo operators and small crews. Scheduling, invoicing, estimates, client portal, route optimization, and a public portfolio page — starting at $24.99/mo.',
+    url: 'https://www.opervo.io',
+    offers: {
+      '@type': 'Offer',
+      price: '24.99',
+      priceCurrency: 'USD',
+      priceValidUntil: '2027-12-31',
+    },
+  }
+
   return (
     <div style={{ fontFamily: "'Barlow', sans-serif", background: '#F7F5F2', minHeight: '100vh', color: '#1a1a1a' }}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareLd) }} />
 
       <SiteNav />
 
@@ -104,7 +121,7 @@ export default function OpervoVsJobber() {
           Opervo vs Jobber
         </h1>
         <p style={{ fontSize: 18, color: '#6B6B6B', lineHeight: 1.6, maxWidth: 600, margin: '0 auto 12px' }}>
-          Which is better for solo contractors and small crews?
+          Opervo is field service management software built for solo operators and small crews in window cleaning, pressure washing, landscaping, and solar panel cleaning. Here&apos;s how it compares to Jobber.
         </p>
         <p style={{ fontSize: 15, color: '#1a1a1a', fontWeight: 600 }}>
           <span style={{ color: '#F5620F' }}>$24.99/mo</span> vs $39/mo — save $168/year with Opervo
