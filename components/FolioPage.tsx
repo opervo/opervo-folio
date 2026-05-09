@@ -386,7 +386,7 @@ function ServicesSection({ profile }: { profile: OperatorProfile }) {
       <div className="sec-rule" />
       {profile.services.map(svc => (
         <div key={svc.id} className="svc-item">
-          {svc.icon ? <div className="svc-icon">{svc.icon}</div> : null}
+          {svc.icon && !/\p{Emoji_Presentation}/u.test(svc.icon) ? <div className="svc-icon">{svc.icon}</div> : null}
           <div className="svc-body">
             <div className="svc-name">{svc.name}</div>
             <div className="svc-desc">{svc.description}</div>
@@ -408,10 +408,10 @@ function ServicesSection({ profile }: { profile: OperatorProfile }) {
 ───────────────────────────────────────── */
 function CredentialsSection() {
   const creds = [
-    { icon: '📅', title: 'Same-Day Quotes',    text: 'Request online — hear back within hours.' },
-    { icon: '📸', title: 'Job Documentation',  text: 'Before & after photos sent directly to you.' },
-    { icon: '🔒', title: 'Fully Insured',       text: 'Licensed & insured for your peace of mind.' },
-    { icon: '💳', title: 'Easy Payments',       text: 'Card, Apple Pay or Google Pay. No cash needed.' },
+    { title: 'Same-Day Quotes',    text: 'Request online — hear back within hours.' },
+    { title: 'Job Documentation',  text: 'Before & after photos sent directly to you.' },
+    { title: 'Fully Insured',       text: 'Licensed & insured for your peace of mind.' },
+    { title: 'Easy Payments',       text: 'Card, Apple Pay or Google Pay. No cash needed.' },
   ]
   return (
     <div className="sec reveal">
@@ -420,7 +420,6 @@ function CredentialsSection() {
       <div className="cred-strip">
         {creds.map(c => (
           <div key={c.title} className="cred-card">
-            <div className="cred-icon">{c.icon}</div>
             <div className="cred-body">
               <div className="cred-title">{c.title}</div>
               <div className="cred-text">{c.text}</div>
