@@ -1088,6 +1088,21 @@ svg.ic {
     ]
   }
   </script>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1634207697801976');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1634207697801976&ev=PageView&noscript=1" /></noscript>
+<!-- End Meta Pixel -->
 </head>
 <body>
 
@@ -1235,6 +1250,7 @@ svg.ic {
     <li><a href="/blog">Blog</a></li>
     <li><a href="/compare/opervo-vs-jobber">Compare</a></li>
     <li><a href="/print">Marketing</a></li>
+    <li><a href="/demo" data-event="nav_book_demo">Book demo</a></li>
   </ul>
   <a href="https://app.opervo.io" class="nav-cta">
     Start free trial
@@ -2397,7 +2413,8 @@ svg.ic {
     </div>
 
     <div class="pricing-note">
-      14-day free trial · No credit card required · Cancel anytime · Save 17% with annual
+      14-day free trial · No credit card required · Cancel anytime · Save 17% with annual<br/>
+      <a href="/demo" data-event="pricing_book_demo" style="color:#F5620F;font-weight:600;text-decoration:none;border-bottom:1px dashed rgba(245,98,15,0.4);">Want help setting it up? Book a 15-min demo with Max →</a>
     </div>
   </div>
 </section>
