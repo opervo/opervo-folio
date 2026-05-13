@@ -127,16 +127,29 @@ function Hero({ profile }: { profile: OperatorProfile }) {
             Accepting Clients
           </div>
         )}
-        {profile.google_rating && (
-          profile.google_review_link
-            ? <a href={profile.google_review_link} target="_blank" rel="noopener noreferrer" className="hero-google hero-google--link">
-                <span className="hero-google-stars">★★★★★</span>
-                {profile.google_rating.toFixed(1)} Google
-              </a>
-            : <div className="hero-google">
-                <span className="hero-google-stars">★★★★★</span>
-                {profile.google_rating.toFixed(1)} Google
-              </div>
+        {profile.google_rating && profile.google_review_link && (
+          <a href={profile.google_review_link} target="_blank" rel="noopener noreferrer" className="hero-google hero-google--link">
+            <span className="hero-google-stars">★★★★★</span>
+            {profile.google_rating.toFixed(1)} Google
+          </a>
+        )}
+        {profile.google_rating && !profile.google_review_link && !profile.facebook_rating && (
+          <div className="hero-google">
+            <span className="hero-google-stars">★★★★★</span>
+            {profile.google_rating.toFixed(1)} Google
+          </div>
+        )}
+        {profile.facebook_rating && profile.facebook_review_link && (
+          <a href={profile.facebook_review_link} target="_blank" rel="noopener noreferrer" className="hero-google hero-google--link">
+            <span className="hero-google-stars">★★★★★</span>
+            {profile.facebook_rating.toFixed(1)} Facebook
+          </a>
+        )}
+        {profile.facebook_rating && !profile.facebook_review_link && !profile.google_rating && (
+          <div className="hero-google">
+            <span className="hero-google-stars">★★★★★</span>
+            {profile.facebook_rating.toFixed(1)} Facebook
+          </div>
         )}
       </div>
 
@@ -461,6 +474,17 @@ function ReviewSection({ review, profile }: { review: NonNullable<OperatorProfil
             : <div className="google-row">
                 <div className="google-g">G</div>
                 <span>Verified Google Review</span>
+              </div>
+        )}
+        {review.source === 'facebook' && (
+          profile.facebook_review_link
+            ? <a href={profile.facebook_review_link} target="_blank" rel="noopener noreferrer" className="google-row google-row--link">
+                <div className="google-g" style={{ background: '#1877F2' }}>f</div>
+                <span>Verified Facebook Review ↗</span>
+              </a>
+            : <div className="google-row">
+                <div className="google-g" style={{ background: '#1877F2' }}>f</div>
+                <span>Verified Facebook Review</span>
               </div>
         )}
       </div>

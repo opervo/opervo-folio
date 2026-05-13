@@ -18,6 +18,9 @@ export interface OperatorProfile {
   google_rating: number | null
   google_review_count: number | null
   google_review_link: string | null
+  facebook_rating: number | null
+  facebook_review_count: number | null
+  facebook_review_link: string | null
   brand_color: string | null         // hex, defaults to #0b6e62
   portfolio_display_count: number | null  // how many gallery photos to show (default 6)
   folio_font_theme: 'classic' | 'modern' | 'bold' | 'editorial' | null
@@ -64,7 +67,7 @@ export interface Review {
   reviewer_initial: string
   date: string
   service_tag: string
-  source: 'google' | 'manual'
+  source: 'google' | 'facebook' | 'manual'
 }
 
 export type Trade = 'windows' | 'solar' | 'pressure'

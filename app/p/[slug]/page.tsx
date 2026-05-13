@@ -119,6 +119,9 @@ export default async function Page({ params, searchParams }: Props) {
   const rawLink = raw!.google_review_link ?? null
   const safeReviewLink = rawLink && /^https?:\/\//i.test(rawLink) ? rawLink : null
 
+  const rawFbLink = raw!.facebook_review_link ?? null
+  const safeFbReviewLink = rawFbLink && /^https?:\/\//i.test(rawFbLink) ? rawFbLink : null
+
   const safeHero = raw!.hero_photo_url && /^https?:\/\//i.test(raw!.hero_photo_url)
     ? raw!.hero_photo_url
     : null
@@ -134,13 +137,14 @@ export default async function Page({ params, searchParams }: Props) {
     services:       raw!.services?.length       ? raw!.services       : [],
     stats:          raw!.stats ?? {
       jobs_done:     raw!.jobs_done ? `${raw!.jobs_done}+` : '—',
-      rating:        raw!.google_rating ? `${raw!.google_rating}★` : '5.0★',
+      rating:        raw!.google_rating ? `${raw!.google_rating}★` : raw!.facebook_rating ? `${raw!.facebook_rating}★` : '5.0★',
       response_time: 'Same Day',
     },
     review:         raw!.review ?? null,
     trades:         raw!.trades?.length         ? raw!.trades         : [],
     brand_color:    safeBrandColor,
     google_review_link: safeReviewLink,
+    facebook_review_link: safeFbReviewLink,
     folio_font_theme: resolveFolioFontTheme(raw!.folio_font_theme),
     recent_jobs: await signRecentJobPhotos(
       Array.isArray(raw!.recent_jobs) ? (raw!.recent_jobs as RecentJob[]) : [],
