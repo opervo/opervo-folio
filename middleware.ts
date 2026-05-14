@@ -34,6 +34,8 @@ export function middleware(req: NextRequest) {
     pathname === '/admin' || pathname.startsWith('/admin/') ||
     pathname === '/p' || pathname.startsWith('/p/') ||
     pathname === '/r' || pathname.startsWith('/r/') ||
+    pathname === '/s' || pathname.startsWith('/s/') ||
+    pathname === '/go' ||
     pathname.startsWith('/_next/') ||
     pathname.startsWith('/_vercel/') ||
     /\.(.*)$/.test(pathname)
