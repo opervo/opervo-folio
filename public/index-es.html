@@ -192,6 +192,25 @@ nav {
 @media (max-width: 900px) { .hero-tagline { font-size: 54px; } }
 @media (max-width: 520px) { .hero-tagline { font-size: 44px; } }
 
+.hero-kicker {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 36px; line-height: 1.02;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--black);
+  margin-bottom: 20px;
+}
+.hero-kicker .strike { position: relative; color: var(--muted); }
+.hero-kicker .strike::after {
+  content: ""; position: absolute;
+  left: -2px; right: -2px; top: 54%;
+  height: 5px; background: var(--orange);
+  transform: rotate(-2deg); border-radius: 2px;
+}
+@media (max-width: 900px) { .hero-kicker { font-size: 28px; } }
+@media (max-width: 520px) { .hero-kicker { font-size: 22px; } }
+
 .hero-sub {
   font-size: 20px;
   color: var(--muted);
@@ -1282,6 +1301,7 @@ svg.ic {
           Construido por alguien<br/>que estaba en la camioneta<span class="accent">.</span><br/>
           Para los que<br/>siguen en ella<span class="accent">.</span>
         </h1>
+        <p class="hero-kicker">Deja de <span class="strike">parecer</span> un trabajito<span class="accent">.</span></p>
         <p class="hero-sub">
           Agenda trabajos, envia facturas, cobra y consigue mas clientes sin hacer malabares con apps.
           <strong>$24.99/mes. Todas las funciones. Todos los planes.</strong>
