@@ -15,24 +15,15 @@ const NAV_SECTIONS: { label: string; items: NavItem[] }[] = [
     label: "Command",
     items: [
       { label: "Overview", path: "/admin", icon: "⬡" },
-      { label: "Errors", path: "/admin/errors", icon: "⚠" },
-      { label: "Support", path: "/admin/support", icon: "✉" },
-      { label: "Onboarding", path: "/admin/onboarding", icon: "◎" },
+      { label: "Operators", path: "/admin/operators", icon: "◉" },
+      { label: "Inbox", path: "/admin/inbox", icon: "✉" },
     ],
   },
   {
     label: "Business",
     items: [
-      { label: "Subscribers", path: "/admin/subscribers", icon: "◈" },
       { label: "Revenue", path: "/admin/revenue", icon: "$" },
-      { label: "Churn Risk", path: "/admin/churn", icon: "↑" },
-    ],
-  },
-  {
-    label: "System",
-    items: [
-      { label: "Edge Functions", path: "/admin/edge-functions", icon: "▷" },
-      { label: "Logs", path: "/admin/logs", icon: "≡" },
+      { label: "DevTools", path: "/admin/devtools", icon: "⚡" },
     ],
   },
 ];

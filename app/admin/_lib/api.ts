@@ -3,6 +3,8 @@ import type {
   StripeData, SupabaseUser, SentryData, SupportData,
   ActivationData, HealthData, PostHogData, AdminTask,
   DiagnoseResult, DraftReplyResult, ChurnData, EdgeFunction, LogEntry,
+  OperatorProfile, FunnelData, SentryIssueDetail,
+  PostHogEventsData, GmailThread, GmailThreadDetail,
 } from "./types";
 
 async function get<T>(url: string): Promise<T> {
@@ -22,6 +24,7 @@ async function post<T>(url: string, body: Record<string, unknown>): Promise<T> {
 }
 
 export const api = {
+  // Existing
   stripe: () => get<StripeData>("/api/admin/stripe"),
   users: () => get<SupabaseUser[]>("/api/admin/users"),
   sentry: () => get<SentryData>("/api/admin/sentry"),
@@ -48,4 +51,51 @@ export const api = {
     post<{ ok: boolean }>("/api/admin/support", { action, messageId }),
   askAI: (question: string, context: string) =>
     post<{ answer: string }>("/api/admin/ask", { question, context }),
+
+  // New: Operator detail
+  operator: (id: string) => get<OperatorProfile>(`/api/admin/operator/${id}`),
+
+  // New: Activation funnel
+  funnel: () => get<FunnelData>("/api/admin/funnel"),
+
+  // New: Nudge email
+  nudge: (userId: string, template: string) =>
+    post<{ ok: boolean; emailId?: string; to?: string }>("/api/admin/nudge", {
+      userId,
+      template,
+    }),
+
+  // New: Sentry deep issue
+  sentryIssue: (id: string) =>
+    get<SentryIssueDetail>(`/api/admin/sentry/issue/${id}`),
+
+  // New: PostHog events
+  posthogEvents: (params?: { userId?: string; period?: string }) => {
+    const qs = new URLSearchParams();
+    if (params?.userId) qs.set("userId", params.userId);
+    if (params?.period) qs.set("period", params.period);
+    const query = qs.toString();
+    return get<PostHogEventsData>(
+      `/api/admin/posthog/events${query ? `?${query}` : ""}`
+    );
+  },
+
+  // New: Gmail
+  gmailSearch: (params?: { q?: string; label?: string }) => {
+    const qs = new URLSearchParams();
+    if (params?.q) qs.set("q", params.q);
+    if (params?.label) qs.set("label", params.label);
+    return get<{ threads: GmailThread[]; total: number }>(
+      `/api/admin/gmail/search?${qs.toString()}`
+    );
+  },
+  gmailThread: (id: string) =>
+    get<GmailThreadDetail>(`/api/admin/gmail/thread/${id}`),
+  gmailSend: (params: {
+    to: string;
+    subject: string;
+    body: string;
+    threadId?: string;
+    inReplyTo?: string;
+  }) => post<{ ok: boolean; messageId?: string }>("/api/admin/gmail/send", params),
 };
