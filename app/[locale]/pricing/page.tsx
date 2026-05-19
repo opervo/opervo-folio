@@ -92,11 +92,11 @@ export default function Pricing() {
             <p style={{ fontSize: 13, color: '#B8B8B8', lineHeight: 1.55, marginBottom: 12 }}>40% off forever in exchange for honest feedback — a survey here, a quick call there. Capped at 50 operators.</p>
             <div style={{ maxWidth: 320 }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', fontFamily: "'Barlow Condensed', sans-serif", textTransform: 'uppercase', letterSpacing: '0.06em', fontSize: 11, fontWeight: 800, marginBottom: 6 }}>
-                <span style={{ color: '#F7F5F2' }}>17 of 50 claimed</span>
-                <span style={{ color: '#F5620F' }}>33 remaining</span>
+                <span style={{ color: '#F7F5F2' }}>19 of 50 claimed</span>
+                <span style={{ color: '#F5620F' }}>31 remaining</span>
               </div>
               <div style={{ position: 'relative', height: 6, background: 'rgba(255,255,255,0.08)', borderRadius: 999, overflow: 'hidden' }}>
-                <div style={{ position: 'absolute', top: 0, left: 0, height: '100%', width: '34%', background: 'linear-gradient(90deg, #F5620F 0%, #FF8A3D 100%)', borderRadius: 999, boxShadow: '0 0 10px rgba(245,98,15,0.5)' }} />
+                <div style={{ position: 'absolute', top: 0, left: 0, height: '100%', width: '38%', background: 'linear-gradient(90deg, #F5620F 0%, #FF8A3D 100%)', borderRadius: 999, boxShadow: '0 0 10px rgba(245,98,15,0.5)' }} />
               </div>
             </div>
           </div>
