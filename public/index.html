@@ -192,6 +192,25 @@ nav {
 @media (max-width: 900px) { .hero-tagline { font-size: 54px; } }
 @media (max-width: 520px) { .hero-tagline { font-size: 44px; } }
 
+.hero-kicker {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 36px; line-height: 1.02;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--black);
+  margin-bottom: 20px;
+}
+.hero-kicker .strike { position: relative; color: var(--muted); }
+.hero-kicker .strike::after {
+  content: ""; position: absolute;
+  left: -2px; right: -2px; top: 54%;
+  height: 5px; background: var(--orange);
+  transform: rotate(-2deg); border-radius: 2px;
+}
+@media (max-width: 900px) { .hero-kicker { font-size: 28px; } }
+@media (max-width: 520px) { .hero-kicker { font-size: 22px; } }
+
 .hero-sub {
   font-size: 20px;
   color: var(--muted);
@@ -1299,8 +1318,9 @@ fbq('track', 'PageView');
           Built by someone<br/>who was on the truck<span class="accent">.</span><br/>
           For the ones<br/>still on it<span class="accent">.</span>
         </h1>
+        <p class="hero-kicker">Stop <span class="strike">looking like</span> a side hustle<span class="accent">.</span></p>
         <p class="hero-sub">
-          Schedule jobs, send invoices, get paid and win more work without juggling apps.
+          Branded quotes. Branded invoices. A real folio page that publishes every job you finish.
           <strong>$24.99/mo. Every Feature. Every Plan.</strong>
         </p>
         <div class="hero-ctas">
