@@ -36,6 +36,7 @@ export default function PrivacyPolicy() {
           ["7. Data Retention","We keep your data while your account is active. On cancellation, data is retained for 30 days then deleted. You can request deletion at any time by emailing help@opervo.io."],
           ["8. Your Rights","Access, correct, export, or delete your data at any time. Email help@opervo.io."],
           ["9. Cookies","We use essential cookies only for authentication and session management. No advertising or tracking cookies."],
+          ["9a. Read Receipts on Estimates and Invoices","When you open an estimate, invoice, or job report we sent you, Opervo records the time of opening, your approximate location (city and state, derived from your IP address), and your device type. This information is shared only with the service professional who sent you the document so they can follow up. We do not use it for advertising or share it with any third party."],
           ["10. Children","Opervo is not intended for users under 18."],
           ["11. Changes","We will notify you of material changes by email at least 14 days before they take effect."],
           ["12. Contact","help@opervo.io · opervo.io · Austin, Texas"],
