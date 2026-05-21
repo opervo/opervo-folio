@@ -624,7 +624,23 @@ nav {
 /* When a bullet leads with bold text, lock the bold to a fixed-width column so the trailing
    explainer text starts at the same x across every bullet in the list. */
 .bullets li > strong:first-child { flex: 0 0 220px; }
-@media (max-width: 720px) { .bullets li > strong:first-child { flex: 0 0 auto; } }
+@media (max-width: 720px) {
+  /* On mobile, switch from a flex row to a hanging-indent block so the
+   * explainer text that follows the bold lead wraps cleanly under itself
+   * (aligned with the bold), not under the bullet circle. */
+  .bullets li {
+    display: block;
+    position: relative;
+    padding-left: 30px;
+  }
+  .bullets li::before {
+    position: absolute;
+    left: 0;
+    top: 4px;
+    margin-top: 0;
+  }
+  .bullets li > strong:first-child { display: inline; flex: none; margin-right: 4px; }
+}
 
 .two-col {
   display: grid; grid-template-columns: 1fr 1fr;
