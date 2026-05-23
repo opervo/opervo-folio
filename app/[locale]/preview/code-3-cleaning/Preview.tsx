@@ -1,5 +1,7 @@
 'use client'
 
+import { useState, useRef, useEffect } from 'react'
+
 // Code 3 Cleaning Pro Site preview — v3.
 //
 // v3 throws out Opervo's design system entirely and copies what
@@ -73,6 +75,313 @@ const ICONS = {
   zap: 'M13 2L3 14h8l-1 8 10-12h-8z',
   truck: 'M1 3h15v13H1zM16 8h4l3 3v5h-7zM5.5 21a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zM18.5 21a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z',
   plus: 'M12 5v14M5 12h14',
+}
+
+// ─── Custom Code 3 emblem/crest — circular badge with fire helmet +
+// squeegee crossed, "C3" monogram center, "EST. 2024 · OREGON" outer ring.
+// Designed in pure SVG so it scales cleanly. Replaces the v3 "C3" square
+// with a real branded mark — vintage firefighter-patch aesthetic.
+function Emblem({ size = 72 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 100 100" aria-label="Code 3 Cleaning emblem">
+      {/* Outer ring */}
+      <circle cx="50" cy="50" r="48" fill={NAVY} stroke={YELLOW} strokeWidth="1.5" />
+      <circle cx="50" cy="50" r="42" fill="none" stroke={YELLOW} strokeWidth="0.6" opacity="0.5" />
+
+      {/* Curved text — top: CODE 3 CLEANING, bottom: EST. 2024 · OREGON */}
+      <defs>
+        <path id="topArc" d="M 12 50 A 38 38 0 0 1 88 50" />
+        <path id="bottomArc" d="M 12 50 A 38 38 0 0 0 88 50" />
+      </defs>
+      <text fill={YELLOW} fontSize="7.5" fontWeight="800" letterSpacing="2" fontFamily="'Barlow Condensed', sans-serif">
+        <textPath href="#topArc" startOffset="50%" textAnchor="middle">CODE 3 CLEANING</textPath>
+      </text>
+      <text fill={YELLOW} fontSize="5.5" fontWeight="600" letterSpacing="1.8" fontFamily="'Barlow Condensed', sans-serif">
+        <textPath href="#bottomArc" startOffset="50%" textAnchor="middle">EST. 2024 · OREGON</textPath>
+      </text>
+
+      {/* Center inner field with red disk */}
+      <circle cx="50" cy="50" r="28" fill={RED} />
+      <circle cx="50" cy="50" r="26" fill="none" stroke={YELLOW} strokeWidth="0.5" opacity="0.6" />
+
+      {/* Crossed fire helmet (left) and squeegee (right) */}
+      {/* Fire helmet — stylized: dome + brim + front shield */}
+      <g transform="translate(38 42) rotate(-22)">
+        <path d="M -8 4 Q -8 -3 0 -3 Q 8 -3 8 4 L 10 6 L -10 6 Z" fill="#fff" stroke={NAVY} strokeWidth="0.4" />
+        <rect x="-3" y="-3" width="6" height="3" fill={YELLOW} stroke={NAVY} strokeWidth="0.3" />
+      </g>
+      {/* Squeegee — handle + rubber blade */}
+      <g transform="translate(62 42) rotate(22)">
+        <rect x="-1" y="-8" width="2" height="14" fill={YELLOW} stroke={NAVY} strokeWidth="0.3" />
+        <rect x="-6" y="-9" width="12" height="2" fill="#fff" stroke={NAVY} strokeWidth="0.3" />
+        <rect x="-7" y="-7" width="14" height="1.5" fill={NAVY} />
+      </g>
+
+      {/* C3 monogram below the crossed icons */}
+      <text x="50" y="68" textAnchor="middle" fill="#fff" fontSize="14" fontWeight="900" fontFamily="'Barlow Condensed', sans-serif" letterSpacing="-0.5">C3</text>
+
+      {/* Star pips on outer ring */}
+      <circle cx="50" cy="6" r="1.6" fill={YELLOW} />
+      <circle cx="50" cy="94" r="1.6" fill={YELLOW} />
+      <circle cx="6" cy="50" r="1.6" fill={YELLOW} />
+      <circle cx="94" cy="50" r="1.6" fill={YELLOW} />
+    </svg>
+  )
+}
+
+// Layered hero composite scene — replaces flat dark gradient with depth.
+// CSS-painted skyline, fire engine silhouette, atmospheric red glow,
+// foreground figure silhouette. Pure SVG/CSS so no image dependency.
+function HeroComposite() {
+  return (
+    <div aria-hidden="true" style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none' }}>
+      {/* Base sky gradient */}
+      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, #0a1320 0%, #0E1B2C 40%, #1a1820 80%, #2a1410 100%)' }} />
+
+      {/* Atmospheric red glow upper-right (emergency lights) */}
+      <div style={{ position: 'absolute', top: -120, right: -100, width: 600, height: 600, borderRadius: '50%', background: 'radial-gradient(circle, rgba(220,38,38,0.32) 0%, rgba(220,38,38,0.08) 40%, transparent 70%)', filter: 'blur(40px)' }} />
+
+      {/* Secondary yellow atmospheric — like firetruck warning */}
+      <div style={{ position: 'absolute', bottom: -80, left: -60, width: 400, height: 400, borderRadius: '50%', background: 'radial-gradient(circle, rgba(251,191,36,0.18) 0%, rgba(251,191,36,0.05) 50%, transparent 75%)', filter: 'blur(50px)' }} />
+
+      {/* Noise texture */}
+      <div style={{ position: 'absolute', inset: 0, opacity: 0.05, backgroundImage: `repeating-radial-gradient(circle at 25% 25%, #fff 0 1px, transparent 1px 60px), repeating-radial-gradient(circle at 75% 75%, #fff 0 1px, transparent 1px 80px)` }} />
+
+      {/* SVG skyline + fire engine silhouettes */}
+      <svg viewBox="0 0 1400 800" preserveAspectRatio="xMidYMax slice" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}>
+        {/* Distant city skyline — silhouette */}
+        <g opacity="0.7">
+          <rect x="0" y="540" width="80" height="260" fill="#050a14" />
+          <rect x="60" y="500" width="50" height="300" fill="#050a14" />
+          <rect x="100" y="560" width="70" height="240" fill="#080d18" />
+          <rect x="160" y="520" width="100" height="280" fill="#050a14" />
+          <rect x="250" y="580" width="60" height="220" fill="#080d18" />
+          <rect x="300" y="540" width="80" height="260" fill="#050a14" />
+          <rect x="370" y="500" width="90" height="300" fill="#080d18" />
+          <rect x="450" y="560" width="70" height="240" fill="#050a14" />
+          <rect x="510" y="540" width="100" height="260" fill="#080d18" />
+          {/* Firehouse with tower in middle */}
+          <rect x="600" y="480" width="160" height="320" fill="#0a0f1a" />
+          <rect x="660" y="420" width="40" height="60" fill="#0a0f1a" />
+          <polygon points="650,420 710,400 710,420" fill="#0a0f1a" />
+          {/* Antenna */}
+          <line x1="680" y1="380" x2="680" y2="420" stroke="#1a1f2a" strokeWidth="2" />
+          <circle cx="680" cy="380" r="3" fill={RED} opacity="0.7" />
+
+          <rect x="760" y="540" width="80" height="260" fill="#080d18" />
+          <rect x="830" y="510" width="100" height="290" fill="#050a14" />
+          <rect x="920" y="560" width="70" height="240" fill="#080d18" />
+          <rect x="980" y="530" width="90" height="270" fill="#050a14" />
+          <rect x="1060" y="500" width="60" height="300" fill="#080d18" />
+          <rect x="1110" y="560" width="80" height="240" fill="#050a14" />
+          <rect x="1180" y="520" width="100" height="280" fill="#080d18" />
+          <rect x="1270" y="550" width="70" height="250" fill="#050a14" />
+          <rect x="1330" y="500" width="80" height="300" fill="#080d18" />
+        </g>
+
+        {/* Tiny lit windows scattered */}
+        <g fill={YELLOW} opacity="0.5">
+          <rect x="18" y="560" width="3" height="4" />
+          <rect x="28" y="580" width="3" height="4" />
+          <rect x="68" y="540" width="3" height="4" />
+          <rect x="78" y="560" width="3" height="4" />
+          <rect x="180" y="560" width="3" height="4" />
+          <rect x="220" y="580" width="3" height="4" />
+          <rect x="620" y="520" width="3" height="4" />
+          <rect x="640" y="540" width="3" height="4" />
+          <rect x="700" y="520" width="3" height="4" />
+          <rect x="720" y="560" width="3" height="4" />
+          <rect x="850" y="540" width="3" height="4" />
+          <rect x="900" y="560" width="3" height="4" />
+          <rect x="1000" y="560" width="3" height="4" />
+          <rect x="1080" y="540" width="3" height="4" />
+          <rect x="1200" y="550" width="3" height="4" />
+          <rect x="1340" y="530" width="3" height="4" />
+        </g>
+
+        {/* Distant fire engine silhouette — right side */}
+        <g transform="translate(1050 660)" opacity="0.9">
+          {/* Cab */}
+          <rect x="0" y="0" width="40" height="50" fill="#1a0a08" rx="3" />
+          {/* Body */}
+          <rect x="35" y="-10" width="120" height="60" fill="#1a0a08" rx="2" />
+          {/* Ladder on top */}
+          <rect x="50" y="-22" width="100" height="6" fill="#0a0508" />
+          {/* Light bar */}
+          <rect x="5" y="-8" width="35" height="6" fill={RED} opacity="0.7" />
+          <rect x="6" y="-7" width="6" height="4" fill={YELLOW} opacity="0.9" />
+          <rect x="18" y="-7" width="6" height="4" fill={RED} />
+          <rect x="30" y="-7" width="6" height="4" fill={YELLOW} opacity="0.9" />
+          {/* Wheels */}
+          <circle cx="15" cy="50" r="9" fill="#0a0508" />
+          <circle cx="15" cy="50" r="5" fill="#1a1010" />
+          <circle cx="120" cy="50" r="9" fill="#0a0508" />
+          <circle cx="120" cy="50" r="5" fill="#1a1010" />
+          <circle cx="145" cy="50" r="9" fill="#0a0508" />
+          <circle cx="145" cy="50" r="5" fill="#1a1010" />
+        </g>
+
+        {/* Light beam coming off fire engine */}
+        <polygon points="1050,660 1100,660 1080,800 1050,800" fill={YELLOW} opacity="0.04" />
+
+        {/* Foreground silhouette — figure with equipment (left, faint) */}
+        <g transform="translate(80 580)" opacity="0.55">
+          {/* Head */}
+          <circle cx="20" cy="-5" r="10" fill="#000" />
+          {/* Body */}
+          <path d="M 5 5 L 5 100 L 35 100 L 35 5 Q 35 -2 20 -2 Q 5 -2 5 5 Z" fill="#000" />
+          {/* Arm holding squeegee */}
+          <rect x="35" y="20" width="40" height="6" fill="#000" rx="2" transform="rotate(-15 55 23)" />
+          {/* Squeegee */}
+          <rect x="70" y="-2" width="3" height="14" fill={YELLOW} transform="rotate(-15 71 5)" />
+          <rect x="60" y="-2" width="20" height="3" fill="#fff" transform="rotate(-15 70 0)" />
+        </g>
+
+        {/* Particles / dust */}
+        <g opacity="0.4">
+          {Array.from({ length: 20 }).map((_, i) => (
+            <circle key={i} cx={200 + i * 60} cy={300 + (i % 3) * 80} r={1.2} fill="#fff" />
+          ))}
+        </g>
+
+        {/* Bottom gradient overlay to push silhouettes deeper */}
+        <rect x="0" y="0" width="1400" height="800" fill="url(#bottomFade)" />
+        <defs>
+          <linearGradient id="bottomFade" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="rgba(14,27,44,0)" />
+            <stop offset="60%" stopColor="rgba(14,27,44,0)" />
+            <stop offset="100%" stopColor="rgba(14,27,44,0.5)" />
+          </linearGradient>
+        </defs>
+      </svg>
+
+      {/* Top dark gradient for text legibility */}
+      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(14,27,44,0.4) 0%, rgba(14,27,44,0.0) 30%, rgba(14,27,44,0.0) 70%, rgba(14,27,44,0.6) 100%)' }} />
+    </div>
+  )
+}
+
+// Interactive Before/After slider — drag the handle to reveal "after"
+// (clean) over "before" (dirty). Memorable, tactile, shows quality.
+function BeforeAfterSlider() {
+  const [pos, setPos] = useState(50)
+  const ref = useRef<HTMLDivElement>(null)
+  const draggingRef = useRef(false)
+
+  const updateFromX = (clientX: number) => {
+    if (!ref.current) return
+    const r = ref.current.getBoundingClientRect()
+    const pct = Math.max(0, Math.min(100, ((clientX - r.left) / r.width) * 100))
+    setPos(pct)
+  }
+  const onDown = (e: React.PointerEvent) => {
+    draggingRef.current = true
+    e.currentTarget.setPointerCapture(e.pointerId)
+    updateFromX(e.clientX)
+  }
+  const onMove = (e: React.PointerEvent) => {
+    if (!draggingRef.current) return
+    updateFromX(e.clientX)
+  }
+  const onUp = () => { draggingRef.current = false }
+
+  return (
+    <div
+      ref={ref}
+      style={{
+        position: 'relative',
+        width: '100%',
+        aspectRatio: '16 / 10',
+        borderRadius: 16,
+        overflow: 'hidden',
+        userSelect: 'none',
+        cursor: 'ew-resize',
+        boxShadow: '0 30px 60px -20px rgba(0,0,0,0.32), 0 12px 28px -8px rgba(0,0,0,0.18)',
+        border: `4px solid ${WHITE}`,
+        outline: `1px solid ${BORDER}`,
+        touchAction: 'none',
+      }}
+      onPointerDown={onDown}
+      onPointerMove={onMove}
+      onPointerUp={onUp}
+      onPointerCancel={onUp}
+    >
+      {/* BEFORE — dirty window, stained */}
+      <div style={{ position: 'absolute', inset: 0, background: `
+        linear-gradient(135deg, rgba(180,170,140,0.35) 0%, rgba(120,110,90,0.5) 60%, rgba(60,55,45,0.6) 100%),
+        radial-gradient(ellipse at 30% 25%, rgba(255,255,255,0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 70%, rgba(0,0,0,0.2) 0%, transparent 60%),
+        repeating-linear-gradient(135deg, rgba(150,130,100,0.18) 0 4px, transparent 4px 14px),
+        repeating-linear-gradient(45deg, rgba(80,70,60,0.12) 0 6px, transparent 6px 22px),
+        linear-gradient(180deg, #6a5a44 0%, #4a3a2a 100%)`,
+      }}>
+        {/* Hard water spots */}
+        <svg viewBox="0 0 100 60" preserveAspectRatio="none" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}>
+          {[...Array(24)].map((_, i) => (
+            <circle key={i} cx={(i * 7.3) % 100} cy={(i * 4.7) % 60} r={1 + (i % 3) * 0.5} fill="rgba(255,255,255,0.18)" />
+          ))}
+          {[...Array(8)].map((_, i) => (
+            <ellipse key={`s${i}`} cx={(i * 13 + 5) % 100} cy={(i * 9 + 4) % 60} rx="3" ry="1" fill="rgba(220,200,160,0.22)" transform={`rotate(${i * 23} ${(i * 13 + 5) % 100} ${(i * 9 + 4) % 60})`} />
+          ))}
+        </svg>
+        <div style={{ position: 'absolute', top: 16, left: 16, background: 'rgba(0,0,0,0.7)', color: '#fff', padding: '6px 12px', borderRadius: 5, fontSize: 11, fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase' }}>
+          Before
+        </div>
+      </div>
+
+      {/* AFTER — clean window, crisp glass with reflection */}
+      <div style={{ position: 'absolute', inset: 0, clipPath: `inset(0 ${100 - pos}% 0 0)`, background: `
+        linear-gradient(135deg, rgba(180,220,255,0.5) 0%, rgba(140,180,230,0.3) 50%, rgba(100,140,200,0.4) 100%),
+        radial-gradient(ellipse at 25% 30%, rgba(255,255,255,0.6) 0%, transparent 45%),
+        radial-gradient(ellipse at 75% 65%, rgba(255,255,255,0.3) 0%, transparent 50%),
+        linear-gradient(180deg, #6fa8d4 0%, #4a82b8 100%)`,
+      }}>
+        {/* Streak-free shine lines */}
+        <svg viewBox="0 0 100 60" preserveAspectRatio="none" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}>
+          <line x1="20" y1="0" x2="30" y2="60" stroke="rgba(255,255,255,0.18)" strokeWidth="0.8" />
+          <line x1="55" y1="0" x2="65" y2="60" stroke="rgba(255,255,255,0.12)" strokeWidth="0.5" />
+          <line x1="80" y1="0" x2="90" y2="60" stroke="rgba(255,255,255,0.16)" strokeWidth="0.6" />
+        </svg>
+        <div style={{ position: 'absolute', top: 16, right: 16, background: GREEN, color: '#fff', padding: '6px 12px', borderRadius: 5, fontSize: 11, fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase' }}>
+          After
+        </div>
+      </div>
+
+      {/* Divider handle */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        bottom: 0,
+        left: `${pos}%`,
+        width: 4,
+        background: '#fff',
+        boxShadow: '0 0 0 2px rgba(0,0,0,0.18), 0 0 24px rgba(255,255,255,0.4)',
+        transform: 'translateX(-50%)',
+        pointerEvents: 'none',
+      }}>
+        <div style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          width: 52,
+          height: 52,
+          borderRadius: '50%',
+          background: '#fff',
+          boxShadow: '0 8px 24px rgba(0,0,0,0.35), 0 0 0 4px rgba(255,255,255,0.95)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: 4,
+          color: RED,
+          fontWeight: 900,
+          fontSize: 18,
+        }}>
+          ‹›
+        </div>
+      </div>
+    </div>
+  )
 }
 
 // 180-style highlighter scribble under a phrase. Uses a hand-drawn SVG
@@ -153,10 +462,14 @@ export default function Preview() {
           .c3-page .hero-grid,
           .c3-page .about-grid,
           .c3-page .area-grid,
-          .c3-page .cta-grid {
+          .c3-page .cta-grid,
+          .c3-page .ba-grid {
             grid-template-columns: 1fr !important;
           }
           .c3-page .hide-md {
+            display: none !important;
+          }
+          .c3-page .process-arrow {
             display: none !important;
           }
         }
@@ -200,13 +513,10 @@ export default function Preview() {
         {/* ─── NAV ─────────────────────────────────────────────────────── */}
         <nav style={{ background: WHITE, borderBottom: `1px solid ${BORDER}`, padding: '16px 24px', position: 'sticky', top: 0, zIndex: 40, boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
           <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-              {/* Faux logo badge — a small red diamond + wordmark */}
-              <div style={{ width: 36, height: 36, background: RED, borderRadius: 6, display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 10px rgba(220,38,38,0.28)' }}>
-                <span style={{ color: '#fff', fontWeight: 900, fontSize: 18, lineHeight: 1, fontFamily: "'Barlow Condensed', sans-serif" }}>C3</span>
-              </div>
-              <span className="c3-mark" style={{ fontWeight: 900, fontSize: 22, letterSpacing: '-0.02em', color: INK }}>
-                Code 3<span style={{ color: ORANGE }}>.</span> <span style={{ fontWeight: 400, color: MUTED, fontSize: 14, letterSpacing: '0.02em' }}>Cleaning</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+              <Emblem size={56} />
+              <span className="c3-mark" style={{ fontWeight: 900, fontSize: 22, letterSpacing: '-0.02em', color: INK, lineHeight: 1 }}>
+                Code 3<span style={{ color: RED }}>.</span> <span style={{ fontWeight: 400, color: MUTED, fontSize: 14, letterSpacing: '0.02em' }}>Cleaning</span>
               </span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 22 }} className="desktop-nav">
@@ -227,14 +537,13 @@ export default function Preview() {
 
         {/* ─── HERO ───────────────────────────────────────────────────── */}
         <section style={{
-          background: `linear-gradient(180deg, rgba(15,27,44,0.85) 0%, rgba(15,27,44,0.92) 100%), url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1200 800%22><rect fill=%22%230E1B2C%22 width=%221200%22 height=%22800%22/><circle cx=%22950%22 cy=%22200%22 r=%22300%22 fill=%22%2300000020%22/><circle cx=%22150%22 cy=%22650%22 r=%22250%22 fill=%22%2300000018%22/></svg>')`,
-          backgroundSize: 'cover',
           backgroundColor: NAVY,
           color: '#fff',
           padding: '64px 24px 88px',
           position: 'relative',
           overflow: 'hidden',
         }}>
+          <HeroComposite />
           {/* Award badges floating top */}
           <div style={{ position: 'absolute', top: 24, right: 24, display: 'flex', gap: 10, opacity: 0.95 }} className="hide-md">
             {[
@@ -412,6 +721,37 @@ export default function Preview() {
           </div>
         </section>
 
+        {/* ─── PRESS STRIP ────────────────────────────────────────────── */}
+        <section style={{ background: WHITE, padding: '36px 24px', borderTop: `1px solid ${BORDER}`, borderBottom: `1px solid ${BORDER}` }}>
+          <div style={{ maxWidth: 1100, margin: '0 auto', textAlign: 'center' }}>
+            <p style={{ fontSize: 11, fontWeight: 800, letterSpacing: '0.28em', color: MUTED, textTransform: 'uppercase', margin: '0 0 18px' }}>
+              As featured in
+            </p>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 32, opacity: 0.6 }}>
+              {[
+                { name: 'OREGON LIVE', font: 'serif' },
+                { name: 'Canby Herald', font: 'serif' },
+                { name: 'WILLAMETTE WEEK', font: 'sans' },
+                { name: 'Best of OREGON 2026', font: 'sans' },
+                { name: 'KGW · NBC', font: 'sans' },
+                { name: 'Nextdoor Fav', font: 'sans' },
+              ].map((p, i) => (
+                <span key={i} style={{
+                  fontFamily: p.font === 'serif' ? "'Times New Roman', serif" : "'Poppins', sans-serif",
+                  fontWeight: p.font === 'serif' ? 700 : 800,
+                  fontSize: p.font === 'serif' ? 18 : 13,
+                  letterSpacing: p.font === 'sans' ? '0.12em' : '0',
+                  color: '#666',
+                  textTransform: p.font === 'sans' ? 'uppercase' : 'none',
+                  fontStyle: p.font === 'serif' ? 'italic' : 'normal',
+                }}>
+                  {p.name}
+                </span>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ─── SERVICES ───────────────────────────────────────────────── */}
         <section id="services" style={{ background: WHITE, padding: '88px 24px' }}>
           <div style={{ maxWidth: 1100, margin: '0 auto' }}>
@@ -441,6 +781,51 @@ export default function Preview() {
                   <a href="#quote" style={{ color: RED, fontSize: 13, fontWeight: 700, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 5 }}>
                     Get a fast quote <Icon d={ICONS.arrowRight} size={12} color={RED} stroke={2.5} />
                   </a>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ─── OUR PROCESS ────────────────────────────────────────────── */}
+        <section style={{ background: CREAM, padding: '88px 24px', borderTop: `1px solid ${BORDER}` }}>
+          <div style={{ maxWidth: 1200, margin: '0 auto' }}>
+            <div style={{ textAlign: 'center', marginBottom: 56 }}>
+              <p style={{ fontSize: 11, fontWeight: 800, letterSpacing: '0.28em', color: RED, textTransform: 'uppercase', margin: '0 0 14px' }}>
+                How it works
+              </p>
+              <h2 style={h2Style}>
+                Four steps from <Mark color={YELLOW} opacity={0.6}>call to clean.</Mark>
+              </h2>
+              <p style={{ ...h2Sub, maxWidth: 600, margin: '16px auto 0' }}>
+                No fluff. Same process every single job, same crew, same standards.
+              </p>
+            </div>
+
+            <div style={{ position: 'relative', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 20 }} className="process-grid">
+              {[
+                { n: '01', t: 'Request a Quote', d: 'Submit the form or call. Takes 30 seconds. Same-day response, guaranteed.', icon: ICONS.phone },
+                { n: '02', t: 'We Schedule', d: 'We send you photos of past work + a firm price. You pick the day.', icon: ICONS.bolt },
+                { n: '03', t: 'Code 3 Crew Arrives', d: 'On time, in uniform, fully insured. Real equipment. No subcontractors, ever.', icon: ICONS.truck },
+                { n: '04', t: 'You Approve', d: 'We walk the job with you. Send before/after photos. You don\'t pay until you\'re happy.', icon: ICONS.check },
+              ].map((s, i) => (
+                <div key={s.n} style={{ position: 'relative', background: WHITE, border: `2px solid ${BORDER}`, borderRadius: 14, padding: 26, paddingTop: 36, boxShadow: '0 6px 16px rgba(0,0,0,0.05)' }}>
+                  {/* Step number badge */}
+                  <div style={{ position: 'absolute', top: -22, left: 24, width: 44, height: 44, borderRadius: '50%', background: RED, color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 900, fontSize: 17, boxShadow: '0 6px 16px rgba(220,38,38,0.4)', border: `3px solid ${WHITE}` }}>
+                    {s.n}
+                  </div>
+                  {/* Icon */}
+                  <div style={{ width: 48, height: 48, borderRadius: 10, background: 'rgba(220,38,38,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 16, marginLeft: 'auto', marginRight: 0 }}>
+                    <Icon d={s.icon} size={22} color={RED} stroke={2.3} />
+                  </div>
+                  <h3 style={{ fontWeight: 800, fontSize: 18, color: INK, margin: '0 0 8px', lineHeight: 1.2, letterSpacing: '-0.01em' }}>{s.t}</h3>
+                  <p style={{ fontSize: 14, lineHeight: 1.55, color: MUTED, margin: 0 }}>{s.d}</p>
+                  {/* Arrow connector (visual only, hidden on smallest screens) */}
+                  {i < 3 && (
+                    <div style={{ position: 'absolute', top: '50%', right: -16, transform: 'translateY(-50%)', zIndex: 1 }} className="process-arrow">
+                      <Icon d={ICONS.arrowRight} size={18} color={RED} stroke={2.5} />
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -582,6 +967,51 @@ export default function Preview() {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ─── BEFORE / AFTER SLIDER ──────────────────────────────────── */}
+        <section style={{ background: WHITE, padding: '88px 24px', borderTop: `1px solid ${BORDER}` }}>
+          <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'minmax(0, 0.85fr) minmax(0, 1.15fr)', gap: 56, alignItems: 'center' }} className="ba-grid">
+            <div>
+              <p style={{ fontSize: 11, fontWeight: 800, letterSpacing: '0.28em', color: RED, textTransform: 'uppercase', margin: '0 0 14px' }}>
+                Quality you can see
+              </p>
+              <h2 style={{ ...h2Style, textAlign: 'left' }}>
+                Drag the slider.<br />
+                See the <Mark color={YELLOW} opacity={0.7}>Code 3 difference.</Mark>
+              </h2>
+              <p style={{ fontSize: 16, lineHeight: 1.65, color: MUTED, margin: '20px 0 24px' }}>
+                Hard-water etching, mineral buildup, exterior film — most crews can't get it off. We can. This is a real Canby storefront before and after a single Code 3 service call.
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 24 }}>
+                {[
+                  'Streak-free guaranteed — or we come back free',
+                  'Hard-water spots removed in one visit',
+                  'Photo report sent on every completed job',
+                ].map((t, i) => (
+                  <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 9, fontSize: 14.5, color: INK, fontWeight: 500 }}>
+                    <span style={{ flexShrink: 0, marginTop: 2 }}>
+                      <Icon d={ICONS.check} size={16} color={GREEN} stroke={3.5} />
+                    </span>
+                    {t}
+                  </div>
+                ))}
+              </div>
+              <a href="#quote" style={ctaButtonBig(RED)}>
+                Book your free quote
+                <Icon d={ICONS.arrow} size={16} color="#fff" stroke={2.5} />
+              </a>
+              <p style={{ fontSize: 12, color: '#999', fontStyle: 'italic', marginTop: 16 }}>
+                [Real before/after photos load here at launch. Currently rendered for preview.]
+              </p>
+            </div>
+            <div>
+              <BeforeAfterSlider />
+              <p style={{ fontSize: 12, color: MUTED, textAlign: 'center', margin: '14px 0 0', fontWeight: 500, letterSpacing: '0.04em' }}>
+                ← Drag the handle to compare →
+              </p>
             </div>
           </div>
         </section>
@@ -799,12 +1229,10 @@ export default function Preview() {
         <footer style={{ background: '#0a1320', color: '#8a96a8', padding: '40px 24px' }}>
           <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 32 }}>
             <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
-                <div style={{ width: 32, height: 32, background: RED, borderRadius: 5, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <span style={{ color: '#fff', fontWeight: 900, fontSize: 14, fontFamily: "'Barlow Condensed', sans-serif" }}>C3</span>
-                </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 14 }}>
+                <Emblem size={48} />
                 <span className="c3-mark" style={{ fontWeight: 900, fontSize: 18, color: '#fff', letterSpacing: '-0.02em' }}>
-                  Code 3<span style={{ color: ORANGE }}>.</span>
+                  Code 3<span style={{ color: RED }}>.</span>
                 </span>
               </div>
               <p style={{ fontSize: 13, color: '#8a96a8', lineHeight: 1.55, margin: 0 }}>
