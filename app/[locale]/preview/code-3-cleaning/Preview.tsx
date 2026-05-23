@@ -23,12 +23,15 @@
 //   - Salesy copy patterns: "We'll INSTANTLY..." / "You'll be amazed..."
 //   - Brighter colors overall — less black, more white/cream.
 
-const ORANGE = '#F5620F' // CTA accent — Code 3's signaling
-const RED = '#DC2626' // fire-engine red, secondary accent
-const RED_DARK = '#991B1B'
-const ORANGE_DARK = '#D94E08'
+// Code 3 palette — red + yellow + navy. Fire truck colors. Drops orange
+// entirely (orange reads as Opervo brand DNA, not firefighter brand).
+const RED = '#DC2626' // primary brand — fire engine red
+const RED_DARK = '#991B1B' // hover state, deeper trust
+const YELLOW = '#FBBF24' // highlights, stars, attention pops
+const YELLOW_DEEP = '#F59E0B' // alternate accent
+const NAVY = '#0E1B2C' // dark sections, professional secondary
+const NAVY_LIGHT = '#1a2030'
 const BLACK = '#0F0F0F'
-const NAVY = '#0E1B2C'
 const INK = '#1a1a1a'
 const MUTED = '#525252'
 const CREAM = '#FAF8F4'
@@ -36,7 +39,8 @@ const WHITE = '#FFFFFF'
 const BORDER = '#E8E4DE'
 const GREEN = '#16a34a'
 const LIME = '#84cc16'
-const YELLOW = '#FBBF24'
+// alias kept for transition — every "ORANGE" usage is actually red now
+const ORANGE = RED
 
 function Icon({ d, size = 22, color = ORANGE, stroke = 2, fill = 'none' }: { d: string; size?: number; color?: string; stroke?: number; fill?: string }) {
   return (
@@ -262,9 +266,9 @@ export default function Preview() {
                 margin: '0 0 22px',
                 color: '#fff',
               }}>
-                Oregon's <Mark color={ORANGE} opacity={0.55}>most trusted</Mark><br />
+                Oregon's <Mark color={YELLOW} opacity={0.7}>most trusted</Mark><br />
                 window, gutter & carpet<br />
-                <span style={{ color: ORANGE }}>cleaning team.</span>
+                <span style={{ color: RED }}>cleaning team.</span>
               </h1>
 
               <p style={{ fontSize: 18, lineHeight: 1.55, color: '#c8d1dc', margin: '0 0 28px', maxWidth: 540, fontWeight: 400 }}>
@@ -413,7 +417,7 @@ export default function Preview() {
           <div style={{ maxWidth: 1100, margin: '0 auto' }}>
             <div style={{ textAlign: 'center', marginBottom: 48 }}>
               <h2 style={h2Style}>
-                What we do, <Mark color={ORANGE} opacity={0.4}>done right</Mark><br />
+                What we do, <Mark color={YELLOW} opacity={0.6}>done right</Mark><br />
                 the first time.
               </h2>
               <p style={{ ...h2Sub, maxWidth: 600, margin: '18px auto 0' }}>
@@ -449,7 +453,7 @@ export default function Preview() {
             <div style={{ textAlign: 'center', marginBottom: 48 }}>
               <h2 style={{ ...h2Style, color: '#fff' }}>
                 Four reasons people<br />
-                <Mark color={ORANGE} opacity={0.6}>keep calling us back.</Mark>
+                <Mark color={YELLOW} opacity={0.7}>keep calling us back.</Mark>
               </h2>
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 24 }}>
@@ -530,7 +534,7 @@ export default function Preview() {
             <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 36 }}>
               <h2 style={{ ...h2Style, textAlign: 'left', maxWidth: 720 }}>
                 Recent jobs.<br />
-                <Mark color={ORANGE} opacity={0.4}>Real Willamette Valley homes.</Mark>
+                <Mark color={YELLOW} opacity={0.6}>Real Willamette Valley homes.</Mark>
               </h2>
               <p style={{ fontSize: 12, color: '#999', fontStyle: 'italic', maxWidth: 280, textAlign: 'right' }}>
                 [Gallery populated from your Folio photos + 15-20 new ones during intake.]
@@ -632,7 +636,7 @@ export default function Preview() {
             <div>
               <h2 style={{ ...h2Style, textAlign: 'left' }}>
                 Based in Canby.<br />
-                <Mark color={ORANGE} opacity={0.4}>Serving the whole Valley.</Mark>
+                <Mark color={YELLOW} opacity={0.6}>Serving the whole Valley.</Mark>
               </h2>
               <p style={{ fontSize: 16, lineHeight: 1.6, color: MUTED, margin: '20px 0 28px' }}>
                 We cover north to Wilsonville, south to Salem-adjacent towns, east into Estacada and Sandy. Don't see your town? Just ask — we travel for the right job.
@@ -708,7 +712,7 @@ export default function Preview() {
           <div style={{ maxWidth: 800, margin: '0 auto' }}>
             <div style={{ textAlign: 'center', marginBottom: 40 }}>
               <h2 style={h2Style}>
-                You probably <Mark color={ORANGE} opacity={0.4}>want to know.</Mark>
+                You probably <Mark color={YELLOW} opacity={0.6}>want to know.</Mark>
               </h2>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
@@ -734,7 +738,7 @@ export default function Preview() {
             <div>
               <h2 style={{ ...h2Style, color: '#fff', textAlign: 'left' }}>
                 Quote in your<br />
-                <Mark color={ORANGE} opacity={0.6}>inbox today.</Mark>
+                <Mark color={YELLOW} opacity={0.75}>inbox today.</Mark>
               </h2>
               <p style={{ fontSize: 16, lineHeight: 1.65, color: '#c8d1dc', margin: '20px 0 32px', maxWidth: 460 }}>
                 Tell us the property, the service, your timeline. We'll INSTANTLY get back to you with a full quote — same day, every day, guaranteed.
