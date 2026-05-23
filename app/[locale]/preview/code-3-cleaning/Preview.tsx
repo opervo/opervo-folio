@@ -446,17 +446,29 @@ const FAQS = [
 export default function Preview() {
   return (
     <>
-      {/* Inject Poppins (180-style wide grotesk) — bypasses opervo-folio's
-          default font system without modifying the shared layout. */}
+      {/* v5 Phase 1 — Anton (display, headlines) + Inter (body). Matches the
+          industrial-trade-business aesthetic of Haro Electric / FL Pro Wash /
+          Volt Vikings. Drops Poppins, which read too "tech startup".
+          Barlow Condensed retained ONLY for the "Code 3." wordmark. */}
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
       <style jsx global>{`
         .c3-page * {
-          font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+          font-family: 'Inter', system-ui, -apple-system, sans-serif;
         }
-        .c3-page .c3-mark {
-          font-family: 'Barlow Condensed', sans-serif;
+        .c3-page h1,
+        .c3-page h2,
+        .c3-page h3 {
+          font-family: 'Anton', 'Inter', sans-serif !important;
+          font-weight: 400 !important;
+          text-transform: uppercase !important;
+          letter-spacing: 0.01em !important;
+          line-height: 1.05 !important;
+        }
+        .c3-page .c3-mark,
+        .c3-page .c3-mark * {
+          font-family: 'Barlow Condensed', sans-serif !important;
         }
         @media (max-width: 900px) {
           .c3-page .hero-grid,
