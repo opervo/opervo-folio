@@ -34,6 +34,7 @@ export default function SiteNav() {
     { name: t('resources.multiJobTracker'), href: '/multi-job-tracker' as const },
     { name: t('resources.blog'), href: '/blog' as const },
     { name: t('resources.marketingMaterials'), href: '/print' as const },
+    { name: t('resources.proWebsites'), href: '/sites' as const },
     { name: t('resources.guide'), href: '/guide' as const },
     { name: t('resources.theFounder'), href: '/founder' as const },
     { name: t('resources.apprentice'), href: '/apprentice' as const },
