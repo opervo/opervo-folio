@@ -532,23 +532,25 @@ export default function InboxPage() {
                           </span>
                         </div>
 
-                        {/* Email body */}
+                        {/* Email body.
+                            HTML emails are rendered inside a sandboxed iframe
+                            (no scripts, no forms, no top-nav, no plugins) so a
+                            malicious email body can't steal the admin session.
+                            Was: dangerouslySetInnerHTML directly — XSS surface
+                            because Gmail bodies are externally controlled. */}
                         {msg.body.includes("<") ? (
-                          <div
+                          <iframe
+                            sandbox=""
+                            srcDoc={`<!doctype html><html><head><meta charset="utf-8"><base target="_blank"></head><body style="margin:0;padding:12px 16px;font:13px/1.6 -apple-system,system-ui,sans-serif;color:${T.ink};background:${T.bg};">${msg.body}</body></html>`}
                             style={{
-                              fontSize: 13,
-                              lineHeight: 1.6,
-                              color: T.ink,
-                              background: T.bg,
-                              padding: "12px 16px",
+                              width: "100%",
+                              maxHeight: 400,
+                              minHeight: 200,
                               borderRadius: 8,
                               border: `1px solid ${T.border}`,
-                              maxHeight: 400,
-                              overflowY: "auto",
+                              background: T.bg,
                             }}
-                            dangerouslySetInnerHTML={{
-                              __html: msg.body,
-                            }}
+                            title="Email body"
                           />
                         ) : (
                           <div
