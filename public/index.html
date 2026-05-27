@@ -1433,7 +1433,7 @@ fbq('track', 'PageView');
 </div>
 
 <!-- ── HERO ────────────────────────────────────── -->
-<section class="hero">
+<section class="hero" data-section="hero">
   <div class="container">
     <div class="hero-grid">
       <div>
@@ -1518,7 +1518,7 @@ fbq('track', 'PageView');
 </section>
 
 <!-- ── PROBLEM SECTION ─────────────────────────── -->
-<section class="section" id="problem">
+<section class="section" id="problem" data-section="problem">
   <div class="container">
     <div class="problem-head">
       <span class="eyebrow eyebrow-orange">The problem</span>
@@ -1565,7 +1565,7 @@ fbq('track', 'PageView');
 </section>
 
 <!-- ── FOLIO SECTION ───────────────────────────── -->
-<section class="section section-alt" id="folio">
+<section class="section section-alt" id="folio" data-section="folio">
   <div class="container">
     <div class="two-col">
       <div class="phone">
@@ -1591,6 +1591,7 @@ fbq('track', 'PageView');
         <ul class="bullets">
           <li><strong>Finish a job → it shows up on your folio.</strong> No upload, no admin work — just close the job out.</li>
           <li><strong>Live counter at the top:</strong> "14 jobs this month · most recent yesterday." Updates as you work.</li>
+          <li><strong>Every client gets a private dashboard, too.</strong> Branded portal with their job history, photos &amp; invoices — no login required. Markate charges $10/mo extra for this; we include it.</li>
           <li><strong>Plus the rest you'd expect:</strong> branded page, gallery, before/after slider, quote form, embed code. Free on every plan.</li>
         </ul>
         <a href="https://www.opervo.io/p/solar-wash-atx" target="_blank" rel="noopener" class="btn btn-primary">See a live Folio</a>
@@ -1622,7 +1623,7 @@ fbq('track', 'PageView');
 </section>
 
 <!-- ── INSTANT QUOTING SECTION ─────────────────── -->
-<section class="section" id="quoting">
+<section class="section" id="quoting" data-section="quoting">
   <div class="container">
     <div class="two-col">
       <div class="phone">
@@ -1792,7 +1793,7 @@ fbq('track', 'PageView');
 </section>
 
 <!-- ── AI SECTION ──────────────────────────────── -->
-<section class="section" id="ai">
+<section class="section" id="ai" data-section="ai">
   <div class="container">
     <div class="two-col">
       <div>
@@ -1836,7 +1837,7 @@ fbq('track', 'PageView');
 </section>
 
 <!-- ── SERVICE PLANS SECTION ───────────────────── -->
-<section class="section section-alt" id="plans">
+<section class="section section-alt" id="plans" data-section="plans">
   <div class="container">
     <div class="two-col">
       <div>
@@ -1867,7 +1868,7 @@ fbq('track', 'PageView');
 </section>
 
 <!-- ── ROUTE OPTIMIZATION SECTION ──────────────── -->
-<section class="section" id="routes">
+<section class="section" id="routes" data-section="routes">
   <div class="container">
     <div class="two-col">
       <div class="phone">
@@ -1897,7 +1898,7 @@ fbq('track', 'PageView');
 </section>
 
 <!-- ── EVERYTHING ELSE, TOO ────────────────────── -->
-<section class="section section-alt">
+<section class="section section-alt" data-section="everything_else">
   <div class="container">
     <div class="feature-grid-head">
       <span class="eyebrow eyebrow-orange">No corners cut</span>
@@ -1917,16 +1918,6 @@ fbq('track', 'PageView');
         <div class="feature-card-icon">💵</div>
         <div class="feature-card-name">Offline Payments</div>
         <div class="feature-card-desc">Record cash, check, Venmo, CashApp, Zelle. Auto-invoice generated.</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card-icon">📝</div>
-        <div class="feature-card-name">Estimates</div>
-        <div class="feature-card-desc">Photos, digital approval, decline tracking. Convert to a job in one tap.</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card-icon">🪪</div>
-        <div class="feature-card-name">Client Portal</div>
-        <div class="feature-card-desc">Branded, magic-link access. Clients view history and pay without signing up.</div>
       </div>
       <div class="feature-card">
         <div class="feature-card-icon">📷</div>
@@ -1963,17 +1954,12 @@ fbq('track', 'PageView');
         <div class="feature-card-name">Supplies &amp; Materials</div>
         <div class="feature-card-desc">Track SH, mulch, fuel, fertilizer per job. Auto-deducted as a tax expense. Live profit math: Revenue − Supplies.</div>
       </div>
-      <div class="feature-card">
-        <div class="feature-card-icon">🤖</div>
-        <div class="feature-card-name">AI Assistant</div>
-        <div class="feature-card-desc">Asks your real data ("revenue this month?"), creates records by voice ("add a client named Ramon"), drafts estimates and emails.</div>
-      </div>
     </div>
   </div>
 </section>
 
 <!-- ── COMPARISON TABLE ────────────────────────── -->
-<section class="section section-alt" id="compare">
+<section class="section section-alt" id="compare" data-section="compare">
   <div class="container">
     <div class="compare-head">
       <span class="eyebrow eyebrow-orange">The real math</span>
@@ -2034,6 +2020,15 @@ fbq('track', 'PageView');
             <td><span class="compare-x">—</span></td>
             <td><span class="compare-x">—</span></td>
             <td><span class="compare-x">—</span></td>
+          </tr>
+          <tr>
+            <td>Branded client portal</td>
+            <td class="compare-us-col"><span class="compare-check">✓ Included</span></td>
+            <td><span class="compare-partial">Limited</span></td>
+            <td><span class="compare-partial">Limited</span></td>
+            <td><span class="compare-x">—</span></td>
+            <td><span class="compare-x">—</span></td>
+            <td><span class="compare-partial">$10/mo extra</span></td>
           </tr>
           <tr>
             <td>Route optimization</td>
@@ -2418,24 +2413,10 @@ fbq('track', 'PageView');
   </div>
 </section>
 
-<!-- ── PROFIT CALCULATOR STRIP ─────────────────── -->
-<section style="padding:32px 24px;">
-  <div class="container">
-    <a href="/profit-calculator" style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;background:rgba(245,98,15,0.06);border:1px solid rgba(245,98,15,0.25);border-radius:14px;padding:24px 28px;text-decoration:none;color:inherit;max-width:1100px;margin:0 auto;">
-      <div style="flex:1 1 420px;min-width:0;">
-        <p style="margin:0 0 8px;font-size:11px;font-weight:800;color:#F5620F;text-transform:uppercase;letter-spacing:0.14em;">Free tool · No login · ~30 seconds</p>
-        <p style="margin:0 0 6px;font-family:'Barlow Condensed',sans-serif;font-size:24px;font-weight:900;color:#0F0F0F;text-transform:uppercase;letter-spacing:-0.5px;line-height:1.1;">
-          Did that last job actually pay<span style="color:#F5620F">?</span>
-        </p>
-        <p style="margin:0;font-size:14px;color:#6B6B6B;line-height:1.55;">Run your numbers through the Job Profit Calculator — see profit, effective hourly, and margin live. Find out which jobs really paid you.</p>
-      </div>
-      <span style="display:inline-block;background:#F5620F;color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:14px;padding:13px 28px;border-radius:6px;text-transform:uppercase;letter-spacing:0.04em;white-space:nowrap;">Try it →</span>
-    </a>
-  </div>
-</section>
+<!-- Profit Calculator strip removed — already linked in the nav "Free Tools" dropdown (line ~1423) and footer. -->
 
 <!-- ── SWITCH CTA (Already on Jobber / HCP) ────── -->
-<section class="switch-cta">
+<section class="switch-cta" data-section="switch_cta">
   <div class="container">
     <div class="switch-card">
       <div class="switch-icon">
@@ -2459,7 +2440,7 @@ fbq('track', 'PageView');
 </section>
 
 <!-- ── FOUNDER ─────────────────────────────────── -->
-<section class="founder">
+<section class="founder" data-section="founder">
   <div class="container">
     <div class="founder-wrap">
       <a href="/founder" class="founder-avatar" aria-label="Read the full founder story">
@@ -2484,7 +2465,7 @@ fbq('track', 'PageView');
 </section>
 
 <!-- ── COMMAND CENTER ──────────────────────────── -->
-<section class="section section-alt cc-section" id="command-center">
+<section class="section section-alt cc-section" id="command-center" data-section="command_center">
   <div class="container">
     <div class="section-head" style="text-align:center;max-width:720px;margin:0 auto 56px;">
       <span class="eyebrow eyebrow-orange">Built for the truck and the desk</span>
@@ -2550,7 +2531,7 @@ fbq('track', 'PageView');
 </section>
 
 <!-- ── FOUNDING 50 STRIP ───────────────────────── -->
-<section class="founding-strip" id="founding-50">
+<section class="founding-strip" id="founding-50" data-section="founding_50">
   <div class="founding-strip-inner">
     <div class="founding-strip-eyebrow">Founding 50 · Limited Spots</div>
     <h2 class="founding-strip-title">
@@ -2578,7 +2559,7 @@ fbq('track', 'PageView');
 </section>
 
 <!-- ── PRICING BAND ────────────────────────────── -->
-<section class="pricing" id="pricing">
+<section class="pricing" id="pricing" data-section="pricing">
   <div class="container">
     <div class="pricing-head">
       <h2 class="section-title">Every Feature.<br/>Every Plan<span class="accent">.</span></h2>
@@ -2620,7 +2601,7 @@ fbq('track', 'PageView');
 </section>
 
 <!-- ── TRADE CARDS ─────────────────────────────── -->
-<section class="trades" id="trades">
+<section class="trades" id="trades" data-section="trades">
   <div class="container">
     <div class="trades-head">
       <span class="eyebrow eyebrow-orange">Built for your trade</span>
@@ -2684,7 +2665,7 @@ fbq('track', 'PageView');
 </section>
 
 <!-- ── FINAL CTA BAND ──────────────────────────── -->
-<section class="final-cta">
+<section class="final-cta" data-section="final_cta">
   <div class="final-cta-inner">
     <div class="final-cta-eyebrow">Your business deserves</div>
     <h2 class="final-cta-title">Look pro<span class="accent">.</span><br/>Win jobs<span class="accent">.</span></h2>
@@ -2801,6 +2782,93 @@ fbq('track', 'PageView');
       navEl.style.boxShadow = window.scrollY > 20 ? '0 1px 20px rgba(15,15,15,0.08)' : 'none';
     });
   }
+</script>
+
+<!-- ── SECTION ANALYTICS ─────────────────────────
+     IntersectionObserver tracks which sections actually get seen + for how
+     long, plus CTA clicks tagged with section context. Events:
+       landing_section_viewed { section } — first time ≥50% visible
+       landing_section_dwell_ended { section, seconds } — when it leaves view
+       landing_cta_clicked { section, label, href } — clicks on a/button inside a tracked section
+     Together these give us scroll-depth, time-per-section, and which sections
+     drive sign-ups. PostHog autocapture already covers raw clicks; this gives
+     them a section property for funnel analysis. -->
+<script>
+(function () {
+  if (!("IntersectionObserver" in window)) return;
+  var fire = function (event, props) {
+    try {
+      if (window.posthog && window.posthog.capture) {
+        window.posthog.capture(event, props || {});
+      }
+    } catch (e) { /* telemetry isn't load-bearing */ }
+  };
+
+  var sections = document.querySelectorAll("[data-section]");
+  var dwellStart = Object.create(null);
+  var viewedOnce = Object.create(null);
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      var name = entry.target.getAttribute("data-section");
+      if (!name) return;
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+        if (!dwellStart[name]) {
+          dwellStart[name] = Date.now();
+          if (!viewedOnce[name]) {
+            viewedOnce[name] = true;
+            fire("landing_section_viewed", { section: name });
+          }
+        }
+      } else if (dwellStart[name]) {
+        var seconds = Math.round((Date.now() - dwellStart[name]) / 1000);
+        if (seconds >= 1) {
+          fire("landing_section_dwell_ended", { section: name, seconds: seconds });
+        }
+        delete dwellStart[name];
+      }
+    });
+  }, { threshold: [0, 0.5, 1.0] });
+
+  sections.forEach(function (s) { io.observe(s); });
+
+  // CTA clicks scoped to a section — links + buttons. Stops at the closest
+  // section ancestor so anchor nav links etc. get attributed correctly.
+  document.addEventListener("click", function (e) {
+    var el = e.target;
+    while (el && el !== document.body) {
+      if (el.tagName === "A" || el.tagName === "BUTTON") {
+        var section = el.closest("[data-section]");
+        if (section) {
+          fire("landing_cta_clicked", {
+            section: section.getAttribute("data-section"),
+            label: (el.innerText || "").trim().slice(0, 80),
+            href: el.getAttribute("href") || null,
+            tag: el.tagName.toLowerCase(),
+          });
+        }
+        return;
+      }
+      el = el.parentElement;
+    }
+  }, { capture: true });
+
+  // Flush any open dwell timers on hide (mobile back-grounds the tab without
+  // unload firing reliably) — use pagehide / visibilitychange.
+  var flush = function (reason) {
+    Object.keys(dwellStart).forEach(function (name) {
+      var seconds = Math.round((Date.now() - dwellStart[name]) / 1000);
+      if (seconds >= 1) {
+        fire("landing_section_dwell_ended", { section: name, seconds: seconds, reason: reason });
+      }
+      delete dwellStart[name];
+    });
+  };
+  window.addEventListener("pagehide", function () { flush("pagehide"); });
+  document.addEventListener("visibilitychange", function () {
+    if (document.visibilityState === "hidden") flush("hidden");
+  });
+})();
 </script>
 
 </body>
