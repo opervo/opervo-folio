@@ -2,14 +2,14 @@ import type { Metadata } from 'next'
 import SitesPage from './SitesPage'
 
 export const metadata: Metadata = {
-  title: 'Pro Websites for Home Service Pros — Opervo Sites | $1,499 + $49/mo',
+  title: 'Pro Websites for Home Service Pros — Opervo Sites | $1,499 once',
   description:
-    'Done-for-you SEO websites built specifically for home service operators. Real local SEO, your domain, 30-day delivery — and you own it. From the team behind Opervo.',
+    'Done-for-you SEO websites built specifically for home service operators. $1,499 one-time. You own it forever. Real local SEO, your domain, 30-day delivery. From the team behind Opervo.',
   alternates: { canonical: 'https://www.opervo.io/sites' },
   openGraph: {
     title: 'Look pro. Win jobs. Online too. — Opervo Sites',
     description:
-      'Real custom websites for window cleaners, pressure washers, landscapers and home service operators. $1,499 build + $49/mo, 30-day delivery, you own it.',
+      'Real custom websites for window cleaners, pressure washers, landscapers and home service operators. $1,499 one-time, you own it forever. 30-day delivery.',
     url: 'https://www.opervo.io/sites',
     type: 'website',
   },
@@ -17,34 +17,25 @@ export const metadata: Metadata = {
 
 // Service schema for the DFY website offering, plus FAQPage for the FAQ
 // section. Service is the right fit because pricing is published and the
-// offering is a service (build + maintenance), not a packaged product.
+// offering is a service (one-time build with optional hosting bundle).
 const jsonLd = [
   {
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: 'Opervo Sites — Done-For-You Websites for Home Service Operators',
     description:
-      'Custom-built SEO websites for window cleaners, pressure washers, landscapers, solar panel cleaners, gutter cleaners, and other home service businesses. Includes design, copy, hosting, SSL, and ongoing maintenance. Built by the team behind Opervo.',
+      'Custom-built SEO websites for window cleaners, pressure washers, landscapers, solar panel cleaners, gutter cleaners, and other home service businesses. $1,499 one-time. You own it forever. Optional $19/mo hosting bundle (free with Opervo CRM). Built by the team behind Opervo.',
     serviceType: 'Website design and build',
     provider: { '@id': 'https://www.opervo.io/#organization' },
     areaServed: { '@type': 'Country', name: 'United States' },
     url: 'https://www.opervo.io/sites',
-    offers: [
-      {
-        '@type': 'Offer',
-        name: 'Pro Site',
-        price: '1499',
-        priceCurrency: 'USD',
-        description: 'Up to 7-page custom website with real SEO, your domain, hosting and SSL. 30-day delivery. $49/mo maintenance ("Pro Site Live").',
-      },
-      {
-        '@type': 'Offer',
-        name: 'Pro Site Plus',
-        price: '2499',
-        priceCurrency: 'USD',
-        description: 'Pro Site plus 5 service-specific SEO landing pages, location pages, blog setup with starter posts, and deeper Google Business Profile integration. $49/mo maintenance.',
-      },
-    ],
+    offers: {
+      '@type': 'Offer',
+      name: 'Opervo Pro Website',
+      price: '1499',
+      priceCurrency: 'USD',
+      description: 'Custom multi-page SEO website for home service operators. One-time $1,499. You own it forever. Includes service pages, location pages, gallery, quote forms, custom domain, 30-day delivery, 60-day money-back guarantee. Hosting + edits available at $19/mo (or free with Opervo CRM).',
+    },
   },
   {
     '@context': 'https://schema.org',
@@ -79,11 +70,11 @@ const jsonLd = [
       },
       {
         '@type': 'Question',
-        name: 'What does the $49/mo cover?',
+        name: 'Is there an ongoing fee?',
         acceptedAnswer: {
           '@type': 'Answer',
           text:
-            'Hosting, SSL, security updates, and minor edits (hours, prices, swap a photo, add a service). Beyond that, additional pages are $99/page and major redesigns are quoted separately. You can cancel maintenance any time — site stays online via static export.',
+            'The $1,499 is one-time. You own the site forever. If you want us to keep hosting + handling edits, it’s $19/mo (or free when you add Opervo CRM at $24.99/mo). You can cancel any time — we hand you the static export and your domain. No ongoing fee is required.',
         },
       },
       {

@@ -420,7 +420,7 @@ export default function SitesPage() {
               <a href="#case-study" style={secondaryBtn}>See it in action</a>
             </div>
             <p style={{ fontSize: 13, color: MUTED, marginTop: 24 }}>
-              $1,499 build · $49/mo · No contract · 60-day money back
+              $1,499 one-time · You own it forever · 60-day money back
             </p>
           </div>
 
@@ -443,7 +443,7 @@ export default function SitesPage() {
                 Six trades. <Highlight>One slot each.</Highlight>
               </h2>
               <p style={{ fontSize: 16, lineHeight: 1.5, color: MUTED, margin: '14px 0 0', maxWidth: 560 }}>
-                Code 3 is the first build — launching this month. The other five are Founding slots, $749 + $49/mo. One per trade. As they ship, real screenshots replace these previews.
+                Code 3 is the first build — launching this month. The other five are Founding slots: same $1,499 price, but the first 5 get priority queue, free Opervo CRM for 12 months, and a public Founding Customer placement. One per trade.
               </p>
             </div>
             <a href="#founding-5" style={{ ...secondaryBtn, whiteSpace: 'nowrap' }}>
@@ -577,58 +577,30 @@ export default function SitesPage() {
             No contracts. No sales calls. No "request a custom quote." We charge what we charge.
           </p>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 20 }}>
-            {/* Pro Site */}
-            <div style={pricingCard}>
-              <p style={pricingTier}>Pro Site</p>
-              <p style={pricingPrice}>
-                <span style={{ fontSize: 56 }}>$1,499</span>
-                <span style={pricingMo}>+ $49/mo</span>
-              </p>
-              <p style={pricingSubLine}>build + maintenance · no contract</p>
-              <ul style={pricingList}>
-                {[
-                  'Up to 7 custom pages',
-                  'Trade-specific design + copy',
-                  'Real local SEO (schema + GBP)',
-                  'Custom domain, hosting, SSL',
-                  'Mobile-first, lightning fast',
-                  'Photo gallery from your work',
-                  'Quote form (email or Opervo CRM)',
-                  '30-day delivery',
-                  'Pro Site Live ready',
-                ].map((item, i) => (
-                  <li key={i} style={pricingLi}>
-                    <Icon d={ICONS.check} size={16} color={ORANGE} stroke={3} />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <a href="mailto:help@opervo.io?subject=Pro%20Site%20order" style={{ ...primaryBtn, display: 'block', textAlign: 'center', marginTop: 24 }}>
-                Get Pro Site
-              </a>
-            </div>
-
-            {/* Pro Site Plus */}
-            <div style={{ ...pricingCard, borderColor: ORANGE, borderWidth: 2, position: 'relative' }}>
+          {/* Single tier — like Opervo Solo. One price. Everything in. */}
+          <div style={{ maxWidth: 560, margin: '0 auto' }}>
+            <div style={{ ...pricingCard, borderColor: ORANGE, borderWidth: 2, position: 'relative', padding: 36 }}>
               <div style={{ position: 'absolute', top: -12, left: 24, background: ORANGE, color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase', padding: '4px 12px', borderRadius: 4 }}>
-                Most chosen
+                One price · Everything in
               </div>
-              <p style={pricingTier}>Pro Site Plus</p>
+              <p style={pricingTier}>Opervo Pro Website</p>
               <p style={pricingPrice}>
-                <span style={{ fontSize: 56 }}>$2,499</span>
-                <span style={pricingMo}>+ $49/mo</span>
+                <span style={{ fontSize: 72 }}>$1,499</span>
+                <span style={pricingMo}>once</span>
               </p>
-              <p style={pricingSubLine}>build + maintenance · no contract</p>
+              <p style={pricingSubLine}>You own it forever · no contract · 60-day money back</p>
               <ul style={pricingList}>
                 {[
-                  'Everything in Pro Site',
-                  '+ 5 service-specific SEO landing pages',
-                  '+ Location pages (city / zip targeting)',
-                  '+ Blog setup with 3 starter posts',
-                  '+ Deeper GBP integration',
-                  '+ Schema for every service',
-                  '+ Priority intake (48-hour scheduling)',
+                  'Custom multi-page website built for your trade',
+                  'Service-specific SEO landing pages',
+                  'Location-targeting pages (city / zip)',
+                  'Real local SEO + Google Business Profile schema',
+                  'Photo gallery + quote forms',
+                  'Custom domain (we register + transfer to you)',
+                  'Mobile-first, lightning fast',
+                  '30-day delivery from kickoff',
+                  '60-day money-back guarantee',
+                  'You own everything · static export on exit',
                 ].map((item, i) => (
                   <li key={i} style={pricingLi}>
                     <Icon d={ICONS.check} size={16} color={ORANGE} stroke={3} />
@@ -636,18 +608,28 @@ export default function SitesPage() {
                   </li>
                 ))}
               </ul>
-              <a href="mailto:help@opervo.io?subject=Pro%20Site%20Plus%20order" style={{ ...primaryBtn, display: 'block', textAlign: 'center', marginTop: 24 }}>
-                Get Pro Site Plus
+              <a href="mailto:help@opervo.io?subject=Opervo%20Pro%20Website%20order" style={{ ...primaryBtn, display: 'block', textAlign: 'center', marginTop: 28, padding: '16px 28px', fontSize: 16 }}>
+                Buy it now — $1,499
               </a>
+              <p style={{ fontSize: 13, color: MUTED, textAlign: 'center', margin: '14px 0 0' }}>
+                Or pay <strong style={{ color: BLACK }}>$135/mo for 12 months</strong>. Same total, no contract.
+              </p>
             </div>
           </div>
 
-          <div style={{ background: WARM, border: `1px solid ${BORDER}`, borderRadius: 12, padding: 20, marginTop: 32, textAlign: 'center' }}>
-            <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 18, textTransform: 'uppercase', color: BLACK, margin: '0 0 6px', letterSpacing: '0.02em' }}>
-              $0 down. Financing available.
+          {/* Hosting + edits callout */}
+          <div style={{ background: WARM, border: `1px solid ${BORDER}`, borderRadius: 12, padding: 24, marginTop: 32, textAlign: 'center' }}>
+            <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 18, textTransform: 'uppercase', color: BLACK, margin: '0 0 8px', letterSpacing: '0.02em' }}>
+              Want us to host it + handle edits forever?
             </p>
-            <p style={{ fontSize: 14, color: MUTED, margin: 0 }}>
-              Split the build over 12 months at $135/mo, then drop to $49/mo for maintenance. Less than 180Sites year one, way less every year after.
+            <p style={{ fontSize: 15, color: INK, margin: '0 0 4px' }}>
+              <strong>$19/mo</strong> — hosting, SSL, security, domain renewal, unlimited minor edits (48-hour response).
+            </p>
+            <p style={{ fontSize: 15, color: ORANGE, fontWeight: 700, margin: 0 }}>
+              Or <strong>FREE</strong> when you add Opervo CRM ($24.99/mo) — your website + CRM, smarter together.
+            </p>
+            <p style={{ fontSize: 12, color: MUTED, margin: '12px 0 0', fontStyle: 'italic' }}>
+              Optional. Cancel any time — we hand you the static export and your domain.
             </p>
           </div>
         </div>
@@ -663,7 +645,7 @@ export default function SitesPage() {
               { n: '01', title: 'Order', body: 'Pick your tier. Pay or finance. No call required.' },
               { n: '02', title: '60-min intake', body: 'We jump on Zoom, extract your voice, photos, service areas, prices. 60 minutes total.' },
               { n: '03', title: 'Build', body: 'First draft by day 21. Review, revise, finalize. Live by day 30.' },
-              { n: '04', title: 'Maintained forever', body: 'We host it, secure it, and handle minor edits. Cancel maintenance any time — you keep the site.' },
+              { n: '04', title: 'Yours forever', body: 'We hand off the keys. Host with us ($19/mo, free with Opervo CRM) or migrate it out — you own it either way.' },
             ].map((step) => (
               <div key={step.n} style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 12, padding: 22 }}>
                 <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 32, color: ORANGE, margin: '0 0 8px', letterSpacing: '-0.02em' }}>{step.n}</p>
@@ -689,7 +671,7 @@ export default function SitesPage() {
               Half off. <Highlight dark>One slot per trade.</Highlight>
             </h2>
             <p style={{ fontSize: 17, lineHeight: 1.6, color: '#c8c4be', margin: '0 0 28px', maxWidth: 680 }}>
-              We’re taking our first 5 paid customers at <strong style={{ color: '#F7F5F2' }}>$749 build + $49/mo</strong> — half the regular price. In exchange: be a public case study, on-camera testimonial, and listed as a Founding Customer on this page forever.
+              Same <strong style={{ color: '#F7F5F2' }}>$1,499</strong> price as everyone else — but our first 5 paid customers get serious extras: <strong style={{ color: '#F7F5F2' }}>priority queue</strong> (built first), <strong style={{ color: '#F7F5F2' }}>free Opervo CRM for 12 months</strong> ($299 value, includes hosting bundle), public Founding Customer placement on this page, and an on-camera testimonial we shoot together. One slot per trade.
             </p>
             <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', marginBottom: 28 }}>
               {[
@@ -766,7 +748,7 @@ export default function SitesPage() {
               </thead>
               <tbody>
                 {([
-                  { row: 'Year-1 cost', opervo: '$2,087 paid up / $1,620 financed', s180: '$2,340 (locked 24mo)', hcp: '~$3,000+ (hidden)', hibu: '$13,200+ (sales call)', diy: '$300–$900 + your time' },
+                  { row: 'Total cost', opervo: '$1,499 one-time', s180: '$4,680 over 24mo (locked)', hcp: '~$3,000+/yr (hidden)', hibu: '$13,200+/yr (sales call)', diy: '$300–$900/yr + your time' },
                   { row: 'Contract', opervo: <Verdict ok>None — cancel anytime</Verdict>, s180: <Verdict ok={false}>24 months</Verdict>, hcp: <Verdict ok={false}>Bundled with CRM</Verdict>, hibu: <Verdict ok={false}>12–24 months</Verdict>, diy: <Verdict ok={false}>Annual subscription</Verdict> },
                   { row: 'Ownership on exit', opervo: <Verdict ok>Yes — static export + domain</Verdict>, s180: <Verdict ok={false}>After 24mo</Verdict>, hcp: <Verdict ok={false}>Locked to HCP</Verdict>, hibu: <Verdict ok={false}>Proprietary CMS</Verdict>, diy: <Verdict ok>Yes</Verdict> },
                   { row: 'Turnaround', opervo: '30 days', s180: '30 days', hcp: 'Weeks (varies)', hibu: 'Not published', diy: 'Your weekends' },
@@ -801,7 +783,7 @@ export default function SitesPage() {
               { q: 'Do I own my website?', a: 'Yes. The build is yours. Your domain is yours. If you ever leave, we hand you a static export of the site and transfer your domain. No proprietary CMS, no hostage situation.' },
               { q: 'Do I need to use the Opervo CRM?', a: 'No. Opervo Sites is a standalone product. Your site works on its own — quote forms email you, the contact info routes wherever you want. Connect the Opervo CRM later if you want your services, photos, and reviews to update themselves on the site.' },
               { q: 'How long does the build take?', a: '30 days from kickoff. We schedule a 60-minute intake call within 72 hours of order, send a first draft by day 21, finalize revisions, and ship live by day 30.' },
-              { q: 'What does the $49/mo cover?', a: 'Hosting, SSL, security updates, and minor edits (hours, prices, swap a photo, add a service). Beyond that, additional pages are $99/page and major redesigns are quoted separately. You can cancel maintenance any time — site stays online via static export.' },
+              { q: 'Is there an ongoing fee?', a: 'The $1,499 is one-time. You own the site forever. If you want us to keep hosting + handling edits, it’s $19/mo (or free when you add Opervo CRM at $24.99/mo). No ongoing fee is required — you can cancel any time and we hand you the static export and your domain.' },
               { q: 'What trades do you build for?', a: 'Window cleaning, pressure washing, soft washing, gutter cleaning, solar panel cleaning, landscaping, lawn care, junk removal, mobile detailing, roof cleaning, concrete sealing, and most other home service trades. If you serve homes or commercial properties on a route, we build for you.' },
               { q: 'What about my existing domain?', a: 'We work with whatever you have. Keep your existing domain — we point it to the new site. Or we register a new one for you at cost. No upcharge.' },
               { q: 'Who writes the copy?', a: 'We do. We extract your voice during the intake call and write trade-specific SEO copy that ranks. You review and approve every page before it goes live.' },
@@ -839,7 +821,7 @@ export default function SitesPage() {
             Your business deserves<br /> <Highlight dark>a real website</Highlight>.
           </h2>
           <p style={{ fontSize: 18, lineHeight: 1.5, color: '#c8c4be', margin: '24px auto 36px', maxWidth: 540 }}>
-            $1,499 build. $49/mo to keep it living. 30 days from order to live. You own it.
+            $1,499 one-time. 30 days from order to live. You own it forever.
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href="#pricing" style={primaryBtn}>See pricing</a>
