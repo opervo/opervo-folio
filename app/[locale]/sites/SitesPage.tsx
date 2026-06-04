@@ -392,6 +392,22 @@ const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
 
 export default function SitesPage() {
   const [faqOpen, setFaqOpen] = useState<number | null>(0)
+  // ROI calculator state
+  const [avgJob, setAvgJob] = useState<number>(350)
+  const [leadsPerMo, setLeadsPerMo] = useState<number>(20)
+  // Industry-typical conversion uplifts (we publish these as conservative).
+  // Markate quotes +212% inquiries — we use a more credible +50% on lead volume
+  // from a real Pro Site vs no site. Customer can override mentally.
+  const incrementalLeadsPerMo = Math.round(leadsPerMo * 0.5)
+  const closeRate = 0.30
+  const newJobsPerMo = Math.round(incrementalLeadsPerMo * closeRate)
+  const newRevenuePerMo = newJobsPerMo * avgJob
+  const breakEvenJobs = Math.max(1, Math.ceil(39.99 / avgJob))
+  const opervoCost24mo = 39.99 * 24
+  const markateCost24mo = 89 * 24
+  const opervoOwnCost24mo = 499 // one-time, no renewal in 24mo window
+  const savings24moVsMarkate = markateCost24mo - opervoCost24mo
+  const savings24moVsMarkateOwn = markateCost24mo - opervoOwnCost24mo
 
   return (
     <div style={{ background: BG, minHeight: '100vh', fontFamily: "'Barlow', sans-serif", color: INK }}>
@@ -428,7 +444,7 @@ export default function SitesPage() {
               <a href="#case-study" style={secondaryBtn}>See it in action</a>
             </div>
             <p style={{ fontSize: 13, color: MUTED, marginTop: 24 }}>
-              ~20 minutes · auto-saves in your browser · $1,499 one-time · 60-day money back
+              $39.99/mo or $499 to own · custom domain included · 30-day delivery · 60-day money back
             </p>
           </div>
 
@@ -451,7 +467,7 @@ export default function SitesPage() {
                 Six trades. <Highlight>One slot each.</Highlight>
               </h2>
               <p style={{ fontSize: 16, lineHeight: 1.5, color: MUTED, margin: '14px 0 0', maxWidth: 560 }}>
-                Code 3 is the first build — launching this month. The other five are Founding slots: same $1,499 price, but the first 5 get priority queue, free Opervo CRM for 12 months, and a public Founding Customer placement. One per trade.
+                Code 3 is the first build — launching this month. The other five are Founding slots: free Pro Site Ownership ($499 value) + free Opervo CRM for 12 months ($299 value) + priority queue + Founding Customer placement. One per trade.
               </p>
             </div>
             <a href="#founding-5" style={{ ...secondaryBtn, whiteSpace: 'nowrap' }}>
@@ -578,37 +594,39 @@ export default function SitesPage() {
 
       {/* ─── PRICING ───────────────────────────────────────────────────── */}
       <section id="pricing" style={{ padding: '80px 24px' }}>
-        <div style={{ maxWidth: 1000, margin: '0 auto' }}>
+        <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <p style={eyebrow}>Pricing</p>
-          <h2 style={{ ...sectionH2, textAlign: 'center' }}>One honest price. Published right here.</h2>
-          <p style={{ ...sectionSub, textAlign: 'center', maxWidth: 540, margin: '12px auto 48px' }}>
-            No contracts. No sales calls. No "request a custom quote." We charge what we charge.
+          <h2 style={{ ...sectionH2, textAlign: 'center' }}>Three on-ramps. All published. No sales calls.</h2>
+          <p style={{ ...sectionSub, textAlign: 'center', maxWidth: 640, margin: '12px auto 14px' }}>
+            Markate charges $89/mo for a website. We do it for $39.99/mo with custom domain included, or $499 to own forever.
+            Every Opervo customer already gets a free <a href="/" style={{ color: ORANGE, fontWeight: 700 }}>Folio</a> with their CRM — this is for operators who want more.
+          </p>
+          <p style={{ fontSize: 13, color: MUTED, textAlign: 'center', maxWidth: 640, margin: '0 auto 40px' }}>
+            All tiers include 60-day money back. No contracts. Cancel any time.
           </p>
 
-          {/* Single tier — like Opervo Solo. One price. Everything in. */}
-          <div style={{ maxWidth: 560, margin: '0 auto' }}>
-            <div style={{ ...pricingCard, borderColor: ORANGE, borderWidth: 2, position: 'relative', padding: 36 }}>
+          {/* Three pricing cards */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20, marginBottom: 32 }}>
+            {/* Tier 1: Monthly (most popular) */}
+            <div style={{ ...pricingCard, borderColor: ORANGE, borderWidth: 2, position: 'relative', padding: 32 }}>
               <div style={{ position: 'absolute', top: -12, left: 24, background: ORANGE, color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase', padding: '4px 12px', borderRadius: 4 }}>
-                One price · Everything in
+                Most popular
               </div>
-              <p style={pricingTier}>Opervo Pro Website</p>
+              <p style={pricingTier}>Pro Site · Monthly</p>
               <p style={pricingPrice}>
-                <span style={{ fontSize: 72 }}>$1,499</span>
-                <span style={pricingMo}>once</span>
+                <span style={{ fontSize: 56 }}>$39.99</span>
+                <span style={pricingMo}>/mo</span>
               </p>
-              <p style={pricingSubLine}>You own it forever · no contract · 60-day money back</p>
+              <p style={pricingSubLine}>Hosted, maintained, custom domain included.</p>
               <ul style={pricingList}>
                 {[
-                  'Custom multi-page website built for your trade',
-                  'Service-specific SEO landing pages',
-                  'Location-targeting pages (city / zip)',
-                  'Real local SEO + Google Business Profile schema',
-                  'Photo gallery + quote forms',
-                  'Custom domain (we register + transfer to you)',
-                  'Mobile-first, lightning fast',
-                  '30-day delivery from kickoff',
-                  '60-day money-back guarantee',
-                  'You own everything · static export on exit',
+                  'Full multi-page site, your trade',
+                  'Service + location SEO pages',
+                  'Custom domain included',
+                  'Hosting + SSL + renewals',
+                  'Unlimited minor edits',
+                  '30-day delivery',
+                  '60-day money back',
                 ].map((item, i) => (
                   <li key={i} style={pricingLi}>
                     <Icon d={ICONS.check} size={16} color={ORANGE} stroke={3} />
@@ -620,31 +638,234 @@ export default function SitesPage() {
                 href="https://opervo-pro-sites.vercel.app/intake"
                 target="_blank"
                 rel="noreferrer"
-                style={{ ...primaryBtn, display: 'block', textAlign: 'center', marginTop: 28, padding: '16px 28px', fontSize: 16 }}
+                style={{ ...primaryBtn, display: 'block', textAlign: 'center', marginTop: 24, padding: '14px 22px', fontSize: 15 }}
               >
-                Start your questionnaire — $1,499
+                Start your questionnaire
               </a>
-              <p style={{ fontSize: 13, color: MUTED, textAlign: 'center', margin: '14px 0 0' }}>
-                Or pay <strong style={{ color: BLACK }}>$135/mo for 12 months</strong>. Same total, no contract.
+              <p style={{ fontSize: 12, color: MUTED, textAlign: 'center', margin: '12px 0 0' }}>
+                Markate Growth: <strong style={{ color: BLACK }}>$89/mo</strong>. You save $49/mo.
+              </p>
+            </div>
+
+            {/* Tier 2: Ownership */}
+            <div style={{ ...pricingCard, padding: 32, position: 'relative' }}>
+              <div style={{ position: 'absolute', top: -12, left: 24, background: BLACK, color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase', padding: '4px 12px', borderRadius: 4 }}>
+                Own it
+              </div>
+              <p style={pricingTier}>Pro Site · Ownership</p>
+              <p style={pricingPrice}>
+                <span style={{ fontSize: 56 }}>$499</span>
+                <span style={pricingMo}>once</span>
+              </p>
+              <p style={pricingSubLine}>Hand me the keys. I&apos;ll take it from here.</p>
+              <ul style={pricingList}>
+                {[
+                  'Everything in Monthly, plus:',
+                  'Static export — fully yours',
+                  'Domain transferred to your name',
+                  'Netlify Drop hosting instructions',
+                  'No ongoing fee. Walk away clean.',
+                  'Re-engage anytime (we don’t lock you out)',
+                ].map((item, i) => (
+                  <li key={i} style={pricingLi}>
+                    <Icon d={ICONS.check} size={16} color={ORANGE} stroke={3} />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="https://opervo-pro-sites.vercel.app/intake"
+                target="_blank"
+                rel="noreferrer"
+                style={{ ...secondaryBtn, display: 'block', textAlign: 'center', marginTop: 24, padding: '14px 22px', fontSize: 15 }}
+              >
+                Start your questionnaire
+              </a>
+              <p style={{ fontSize: 12, color: MUTED, textAlign: 'center', margin: '12px 0 0' }}>
+                $39.99 × 12 = $479. Buy it out after year 1 if you stay.
+              </p>
+            </div>
+
+            {/* Tier 3: Folio + custom domain (coming soon) */}
+            <div style={{ ...pricingCard, padding: 32, position: 'relative', opacity: 0.85 }}>
+              <div style={{ position: 'absolute', top: -12, left: 24, background: WARM, color: BLACK, fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase', padding: '4px 12px', borderRadius: 4, border: `1px solid ${BORDER}` }}>
+                Coming Q3
+              </div>
+              <p style={pricingTier}>Folio · Custom domain</p>
+              <p style={pricingPrice}>
+                <span style={{ fontSize: 56 }}>+$19.99</span>
+                <span style={pricingMo}>/mo</span>
+              </p>
+              <p style={pricingSubLine}>Already on Opervo CRM? Put your Folio at your own URL.</p>
+              <ul style={pricingList}>
+                {[
+                  'Your existing Folio (single-page site)',
+                  'Point your domain at it',
+                  'Auto-updates from your CRM',
+                  'No DFY build — instant',
+                  'Cheapest path to a real URL',
+                  'Requires Opervo CRM ($24.99/mo)',
+                ].map((item, i) => (
+                  <li key={i} style={pricingLi}>
+                    <Icon d={ICONS.check} size={16} color={ORANGE} stroke={3} />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <div style={{ ...secondaryBtn, display: 'block', textAlign: 'center', marginTop: 24, padding: '14px 22px', fontSize: 15, opacity: 0.6, cursor: 'not-allowed' }}>
+                Notify me when live
+              </div>
+              <p style={{ fontSize: 12, color: MUTED, textAlign: 'center', margin: '12px 0 0' }}>
+                CRM + this = <strong style={{ color: BLACK }}>$44.98/mo all-in</strong>. Below Markate&apos;s floor.
               </p>
             </div>
           </div>
 
-          {/* Hosting + edits callout */}
-          <div style={{ background: WARM, border: `1px solid ${BORDER}`, borderRadius: 12, padding: 24, marginTop: 32, textAlign: 'center' }}>
-            <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 18, textTransform: 'uppercase', color: BLACK, margin: '0 0 8px', letterSpacing: '0.02em' }}>
-              Want us to host it + handle edits forever?
+          {/* Domain policy callout */}
+          <div style={{ background: WARM, border: `1px solid ${BORDER}`, borderRadius: 12, padding: 24, marginTop: 8 }}>
+            <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 18, textTransform: 'uppercase', color: BLACK, margin: '0 0 12px', letterSpacing: '0.02em' }}>
+              How domains work — honest version
             </p>
-            <p style={{ fontSize: 15, color: INK, margin: '0 0 4px' }}>
-              <strong>$19/mo</strong> — hosting, SSL, security, domain renewal, unlimited minor edits (48-hour response).
-            </p>
-            <p style={{ fontSize: 15, color: ORANGE, fontWeight: 700, margin: 0 }}>
-              Or <strong>FREE</strong> when you add Opervo CRM ($24.99/mo) — your website + CRM, smarter together.
-            </p>
-            <p style={{ fontSize: 12, color: MUTED, margin: '12px 0 0', fontStyle: 'italic' }}>
-              Optional. Cancel any time — we hand you the static export and your domain.
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16, fontSize: 14, color: INK, lineHeight: 1.55 }}>
+              <div>
+                <strong>Standard TLDs included.</strong> .com, .net, .org, .co. We register in <em>your</em> name, no markup. Renewal baked into your tier.
+              </div>
+              <div>
+                <strong>Premium TLDs at cost.</strong> .io, .ai, .pro, .plumber, etc. We pass through what the registrar charges. No surprise.
+              </div>
+              <div>
+                <strong>Already have a domain?</strong> Keep it. We&apos;ll point DNS at the site. No fee to bring your own.
+              </div>
+            </div>
+            <p style={{ fontSize: 12, color: MUTED, margin: '14px 0 0', fontStyle: 'italic' }}>
+              Domain registration is always in your name — we never own your URL. Markate registers in theirs. That&apos;s the gatekeeping we don&apos;t do.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* ─── ROI CALCULATOR ────────────────────────────────────────────── */}
+      <section style={{ background: WARM, padding: '80px 24px', borderTop: `1px solid ${BORDER}` }}>
+        <div style={{ maxWidth: 1000, margin: '0 auto' }}>
+          <p style={eyebrow}>Run the math</p>
+          <h2 style={{ ...sectionH2, textAlign: 'center' }}>How many jobs to pay for the site?</h2>
+          <p style={{ ...sectionSub, textAlign: 'center', maxWidth: 580, margin: '12px auto 40px' }}>
+            Plug in your numbers. We&apos;ll show you the break-even, the realistic new revenue, and what 24 months looks like vs Markate.
+          </p>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1.3fr)', gap: 28 }} className="roi-grid">
+            {/* Inputs */}
+            <div style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 12, padding: 28 }}>
+              <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 14, textTransform: 'uppercase', letterSpacing: '0.1em', color: MUTED, margin: '0 0 18px' }}>
+                Your business
+              </p>
+              <label style={{ display: 'block', fontSize: 13, fontWeight: 700, color: INK, marginBottom: 6 }}>
+                Average job value
+              </label>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 6 }}>
+                <span style={{ fontSize: 22, fontWeight: 800, color: BLACK }}>$</span>
+                <input
+                  type="number"
+                  value={avgJob}
+                  min={0}
+                  step={25}
+                  onChange={(e) => setAvgJob(Math.max(0, parseInt(e.target.value || '0', 10)))}
+                  style={{ flex: 1, fontFamily: 'inherit', fontSize: 22, fontWeight: 800, color: BLACK, border: `1.5px solid ${BORDER}`, borderRadius: 8, padding: '8px 12px', outline: 'none' }}
+                />
+              </div>
+              <input
+                type="range"
+                min={50}
+                max={2500}
+                step={25}
+                value={avgJob}
+                onChange={(e) => setAvgJob(parseInt(e.target.value, 10))}
+                style={{ width: '100%', accentColor: ORANGE, marginBottom: 24 }}
+              />
+
+              <label style={{ display: 'block', fontSize: 13, fontWeight: 700, color: INK, marginBottom: 6 }}>
+                Leads per month (today)
+              </label>
+              <input
+                type="number"
+                value={leadsPerMo}
+                min={0}
+                step={1}
+                onChange={(e) => setLeadsPerMo(Math.max(0, parseInt(e.target.value || '0', 10)))}
+                style={{ width: '100%', fontFamily: 'inherit', fontSize: 22, fontWeight: 800, color: BLACK, border: `1.5px solid ${BORDER}`, borderRadius: 8, padding: '8px 12px', outline: 'none', marginBottom: 6, boxSizing: 'border-box' }}
+              />
+              <input
+                type="range"
+                min={0}
+                max={200}
+                step={1}
+                value={leadsPerMo}
+                onChange={(e) => setLeadsPerMo(parseInt(e.target.value, 10))}
+                style={{ width: '100%', accentColor: ORANGE, marginBottom: 12 }}
+              />
+              <p style={{ fontSize: 11, color: MUTED, margin: 0, fontStyle: 'italic' }}>
+                Our math assumes +50% leads from having a real site, 30% close rate. Conservative.
+              </p>
+            </div>
+
+            {/* Outputs */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+              <div style={{ background: BLACK, color: '#F7F5F2', borderRadius: 12, padding: 22 }}>
+                <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.15em', color: ORANGE, margin: '0 0 6px' }}>
+                  Break-even on Pro Site Monthly
+                </p>
+                <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 'clamp(36px, 4vw, 48px)', lineHeight: 1, margin: '0 0 6px', color: '#F7F5F2' }}>
+                  {breakEvenJobs} job{breakEvenJobs === 1 ? '' : 's'}/mo
+                </p>
+                <p style={{ fontSize: 14, color: '#c8c4be', margin: 0 }}>
+                  At ${avgJob} average, you pay back $39.99/mo with just {breakEvenJobs} extra job per month.
+                </p>
+              </div>
+
+              <div style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 12, padding: 22 }}>
+                <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.15em', color: MUTED, margin: '0 0 6px' }}>
+                  Realistic new revenue
+                </p>
+                <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 'clamp(28px, 3.5vw, 40px)', lineHeight: 1, margin: '0 0 4px', color: BLACK }}>
+                  +${newRevenuePerMo.toLocaleString()}/mo
+                </p>
+                <p style={{ fontSize: 13, color: MUTED, margin: 0 }}>
+                  {incrementalLeadsPerMo} more leads × {Math.round(closeRate * 100)}% close × ${avgJob}.
+                  That&apos;s <strong style={{ color: BLACK }}>${(newRevenuePerMo * 12).toLocaleString()}/yr</strong>.
+                </p>
+              </div>
+
+              <div style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 12, padding: 22 }}>
+                <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.15em', color: MUTED, margin: '0 0 12px' }}>
+                  24-month total cost
+                </p>
+                <div style={{ display: 'grid', gap: 8, fontSize: 14 }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <span style={{ color: INK }}>Opervo Pro Site Monthly</span>
+                    <strong style={{ color: ORANGE }}>${opervoCost24mo.toLocaleString()}</strong>
+                  </div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <span style={{ color: INK }}>Opervo Pro Site Ownership</span>
+                    <strong style={{ color: ORANGE }}>${opervoOwnCost24mo.toLocaleString()}</strong>
+                  </div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <span style={{ color: MUTED }}>Markate Growth ($89/mo)</span>
+                    <strong style={{ color: MUTED, textDecoration: 'line-through' }}>${markateCost24mo.toLocaleString()}</strong>
+                  </div>
+                </div>
+                <p style={{ fontSize: 13, color: INK, margin: '14px 0 0', borderTop: `1px solid ${BORDER}`, paddingTop: 14 }}>
+                  You save <strong style={{ color: ORANGE }}>${savings24moVsMarkate.toLocaleString()}</strong> over 2 years on Monthly,
+                  or <strong style={{ color: ORANGE }}>${savings24moVsMarkateOwn.toLocaleString()}</strong> on Ownership.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <p style={{ fontSize: 12, color: MUTED, margin: '24px auto 0', maxWidth: 720, textAlign: 'center', fontStyle: 'italic' }}>
+            Honest disclosure: +50% lead lift and 30% close rate are reasonable midpoints, not guarantees.
+            Your business will perform better or worse depending on your offer, market, and reviews.
+            We picked numbers we believe we can defend in court if a competitor challenges them.
+          </p>
         </div>
       </section>
 
@@ -655,10 +876,10 @@ export default function SitesPage() {
           <h2 style={{ ...sectionH2, textAlign: 'center', marginBottom: 48 }}>From order to live in 30 days.</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 16 }}>
             {[
-              { n: '01', title: 'Order', body: 'Pick your tier. Pay or finance. No call required.' },
-              { n: '02', title: '60-min intake', body: 'We jump on Zoom, extract your voice, photos, service areas, prices. 60 minutes total.' },
+              { n: '01', title: 'Questionnaire', body: 'Self-serve form — ~20 minutes, auto-saves in your browser. No sales call.' },
+              { n: '02', title: 'Pick a tier', body: '$39.99/mo (we host + edit) or $499 to own outright. You decide after we review the questionnaire.' },
               { n: '03', title: 'Build', body: 'First draft by day 21. Review, revise, finalize. Live by day 30.' },
-              { n: '04', title: 'Yours forever', body: 'We hand off the keys. Host with us ($19/mo, free with Opervo CRM) or migrate it out — you own it either way.' },
+              { n: '04', title: 'Yours forever', body: 'Custom domain in your name. Static export on exit. No lock-in either way.' },
             ].map((step) => (
               <div key={step.n} style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 12, padding: 22 }}>
                 <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 32, color: ORANGE, margin: '0 0 8px', letterSpacing: '-0.02em' }}>{step.n}</p>
@@ -681,10 +902,10 @@ export default function SitesPage() {
               Founding 5
             </p>
             <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 'clamp(36px, 5vw, 56px)', fontWeight: 900, textTransform: 'uppercase', lineHeight: 1, margin: '0 0 20px', letterSpacing: '-0.01em' }}>
-              Half off. <Highlight dark>One slot per trade.</Highlight>
+              Free Pro Site. <Highlight dark>One slot per trade.</Highlight>
             </h2>
             <p style={{ fontSize: 17, lineHeight: 1.6, color: '#c8c4be', margin: '0 0 28px', maxWidth: 680 }}>
-              Same <strong style={{ color: '#F7F5F2' }}>$1,499</strong> price as everyone else — but our first 5 paid customers get serious extras: <strong style={{ color: '#F7F5F2' }}>priority queue</strong> (built first), <strong style={{ color: '#F7F5F2' }}>free Opervo CRM for 12 months</strong> ($299 value, includes hosting bundle), public Founding Customer placement on this page, and an on-camera testimonial we shoot together. One slot per trade.
+              Our first 5 paid CRM customers get the <strong style={{ color: '#F7F5F2' }}>$499 Ownership tier free</strong>, plus <strong style={{ color: '#F7F5F2' }}>free Opervo CRM for 12 months</strong> ($299 value), <strong style={{ color: '#F7F5F2' }}>priority queue</strong> (built first), public Founding Customer placement on this page, and an on-camera testimonial we shoot together. Total value: <strong style={{ color: '#F7F5F2' }}>$798</strong>. One slot per trade.
             </p>
             <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', marginBottom: 28 }}>
               {[
@@ -766,7 +987,7 @@ export default function SitesPage() {
               </thead>
               <tbody>
                 {([
-                  { row: 'Total cost', opervo: '$1,499 one-time', s180: '$4,680 over 24mo (locked)', hcp: '~$3,000+/yr (hidden)', hibu: '$13,200+/yr (sales call)', diy: '$300–$900/yr + your time' },
+                  { row: 'Total cost', opervo: '$39.99/mo or $499 to own', s180: '$4,680 over 24mo (locked)', hcp: '~$3,000+/yr (hidden)', hibu: '$13,200+/yr (sales call)', diy: '$300–$900/yr + your time' },
                   { row: 'Contract', opervo: <Verdict ok>None — cancel anytime</Verdict>, s180: <Verdict ok={false}>24 months</Verdict>, hcp: <Verdict ok={false}>Bundled with CRM</Verdict>, hibu: <Verdict ok={false}>12–24 months</Verdict>, diy: <Verdict ok={false}>Annual subscription</Verdict> },
                   { row: 'Ownership on exit', opervo: <Verdict ok>Yes — static export + domain</Verdict>, s180: <Verdict ok={false}>After 24mo</Verdict>, hcp: <Verdict ok={false}>Locked to HCP</Verdict>, hibu: <Verdict ok={false}>Proprietary CMS</Verdict>, diy: <Verdict ok>Yes</Verdict> },
                   { row: 'Turnaround', opervo: '30 days', s180: '30 days', hcp: 'Weeks (varies)', hibu: 'Not published', diy: 'Your weekends' },
@@ -801,7 +1022,7 @@ export default function SitesPage() {
               { q: 'Do I own my website?', a: 'Yes. The build is yours. Your domain is yours. If you ever leave, we hand you a static export of the site and transfer your domain. No proprietary CMS, no hostage situation.' },
               { q: 'Do I need to use the Opervo CRM?', a: 'No. Opervo Sites is a standalone product. Your site works on its own — quote forms email you, the contact info routes wherever you want. Connect the Opervo CRM later if you want your services, photos, and reviews to update themselves on the site.' },
               { q: 'How long does the build take?', a: '30 days from kickoff. We schedule a 60-minute intake call within 72 hours of order, send a first draft by day 21, finalize revisions, and ship live by day 30.' },
-              { q: 'Is there an ongoing fee?', a: 'The $1,499 is one-time. You own the site forever. If you want us to keep hosting + handling edits, it’s $19/mo (or free when you add Opervo CRM at $24.99/mo). No ongoing fee is required — you can cancel any time and we hand you the static export and your domain.' },
+              { q: 'Is there an ongoing fee?', a: 'Depends on the tier you pick. Pro Site Monthly is $39.99/mo — hosting, edits, custom domain all included. Pro Site Ownership is $499 one-time and you walk away with everything. No tier locks you in: 60-day money-back guarantee, cancel any time, we hand you the static export and your domain.' },
               { q: 'What trades do you build for?', a: 'Window cleaning, pressure washing, soft washing, gutter cleaning, solar panel cleaning, landscaping, lawn care, junk removal, mobile detailing, roof cleaning, concrete sealing, and most other home service trades. If you serve homes or commercial properties on a route, we build for you.' },
               { q: 'What about my existing domain?', a: 'We work with whatever you have. Keep your existing domain — we point it to the new site. Or we register a new one for you at cost. No upcharge.' },
               { q: 'Who writes the copy?', a: 'We do. We extract your voice during the intake call and write trade-specific SEO copy that ranks. You review and approve every page before it goes live.' },
@@ -839,7 +1060,7 @@ export default function SitesPage() {
             Your business deserves<br /> <Highlight dark>a real website</Highlight>.
           </h2>
           <p style={{ fontSize: 18, lineHeight: 1.5, color: '#c8c4be', margin: '24px auto 36px', maxWidth: 540 }}>
-            $1,499 one-time. 30 days from order to live. You own it forever.
+            $39.99/mo or $499 to own. 30 days from order to live. Custom domain included.
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href="#pricing" style={primaryBtn}>See pricing</a>
@@ -869,6 +1090,9 @@ export default function SitesPage() {
         }
         @media (max-width: 768px) {
           :global(.live-grid) {
+            grid-template-columns: 1fr !important;
+          }
+          :global(.roi-grid) {
             grid-template-columns: 1fr !important;
           }
         }

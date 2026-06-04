@@ -2,14 +2,14 @@ import type { Metadata } from 'next'
 import SitesPage from './SitesPage'
 
 export const metadata: Metadata = {
-  title: 'Pro Websites for Home Service Pros — Opervo Sites | $1,499 once',
+  title: 'Pro Websites for Home Service Pros — Opervo Sites | $39.99/mo or $499 to own',
   description:
-    'Done-for-you SEO websites built specifically for home service operators. $1,499 one-time. You own it forever. Real local SEO, your domain, 30-day delivery. From the team behind Opervo.',
+    'Done-for-you SEO websites built specifically for home service operators. $39.99/mo with custom domain included, or $499 to own forever. 30-day delivery. From the team behind Opervo.',
   alternates: { canonical: 'https://www.opervo.io/sites' },
   openGraph: {
     title: 'Look pro. Win jobs. Online too. — Opervo Sites',
     description:
-      'Real custom websites for window cleaners, pressure washers, landscapers and home service operators. $1,499 one-time, you own it forever. 30-day delivery.',
+      'Real custom websites for window cleaners, pressure washers, landscapers and home service operators. $39.99/mo or $499 to own. Custom domain included.',
     url: 'https://www.opervo.io/sites',
     type: 'website',
   },
@@ -24,18 +24,33 @@ const jsonLd = [
     '@type': 'Service',
     name: 'Opervo Sites — Done-For-You Websites for Home Service Operators',
     description:
-      'Custom-built SEO websites for window cleaners, pressure washers, landscapers, solar panel cleaners, gutter cleaners, and other home service businesses. $1,499 one-time. You own it forever. Optional $19/mo hosting bundle (free with Opervo CRM). Built by the team behind Opervo.',
+      'Custom-built SEO websites for window cleaners, pressure washers, landscapers, solar panel cleaners, gutter cleaners, and other home service businesses. $39.99/mo (hosted, edited, custom domain included) or $499 one-time ownership. Built by the team behind Opervo.',
     serviceType: 'Website design and build',
     provider: { '@id': 'https://www.opervo.io/#organization' },
     areaServed: { '@type': 'Country', name: 'United States' },
     url: 'https://www.opervo.io/sites',
-    offers: {
-      '@type': 'Offer',
-      name: 'Opervo Pro Website',
-      price: '1499',
-      priceCurrency: 'USD',
-      description: 'Custom multi-page SEO website for home service operators. One-time $1,499. You own it forever. Includes service pages, location pages, gallery, quote forms, custom domain, 30-day delivery, 60-day money-back guarantee. Hosting + edits available at $19/mo (or free with Opervo CRM).',
-    },
+    offers: [
+      {
+        '@type': 'Offer',
+        name: 'Pro Site Monthly',
+        price: '39.99',
+        priceCurrency: 'USD',
+        priceSpecification: {
+          '@type': 'UnitPriceSpecification',
+          price: '39.99',
+          priceCurrency: 'USD',
+          unitText: 'MONTH',
+        },
+        description: 'Full multi-page DFY website with hosting, custom domain, SSL, and unlimited minor edits included. 30-day delivery, 60-day money-back guarantee, cancel any time.',
+      },
+      {
+        '@type': 'Offer',
+        name: 'Pro Site Ownership',
+        price: '499',
+        priceCurrency: 'USD',
+        description: 'One-time $499 build. Full multi-page DFY site with custom domain transferred to operator. Static export on completion. No ongoing fee.',
+      },
+    ],
   },
   {
     '@context': 'https://schema.org',
@@ -74,7 +89,7 @@ const jsonLd = [
         acceptedAnswer: {
           '@type': 'Answer',
           text:
-            'The $1,499 is one-time. You own the site forever. If you want us to keep hosting + handling edits, it’s $19/mo (or free when you add Opervo CRM at $24.99/mo). You can cancel any time — we hand you the static export and your domain. No ongoing fee is required.',
+            'Depends on the tier. Pro Site Monthly is $39.99/mo with hosting, edits, and custom domain included. Pro Site Ownership is $499 one-time and you walk away with everything — no ongoing fee at all. Either tier has 60-day money back and you can cancel any time. We always hand you the static export and transfer the domain.',
         },
       },
       {
