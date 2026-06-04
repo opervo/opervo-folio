@@ -596,7 +596,7 @@ export default function SitesPage() {
       <section id="pricing" style={{ padding: '80px 24px' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <p style={eyebrow}>Pricing</p>
-          <h2 style={{ ...sectionH2, textAlign: 'center' }}>Three on-ramps. All published. No sales calls.</h2>
+          <h2 style={{ ...sectionH2, textAlign: 'center' }}>Two on-ramps. Both published. No sales calls.</h2>
           <p style={{ ...sectionSub, textAlign: 'center', maxWidth: 640, margin: '12px auto 14px' }}>
             Markate charges $89/mo for a website. We do it for $39.99/mo with custom domain included, or $499 to own forever.
             Every Opervo customer already gets a free <a href="/" style={{ color: ORANGE, fontWeight: 700 }}>Folio</a> with their CRM — this is for operators who want more.
@@ -605,8 +605,8 @@ export default function SitesPage() {
             All tiers include 60-day money back. No contracts. Cancel any time.
           </p>
 
-          {/* Three pricing cards */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20, marginBottom: 32 }}>
+          {/* Two pricing cards */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 24, marginBottom: 32, maxWidth: 820, margin: '0 auto 32px' }}>
             {/* Tier 1: Monthly (most popular) */}
             <div style={{ ...pricingCard, borderColor: ORANGE, borderWidth: 2, position: 'relative', padding: 32 }}>
               <div style={{ position: 'absolute', top: -12, left: 24, background: ORANGE, color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase', padding: '4px 12px', borderRadius: 4 }}>
@@ -686,39 +686,6 @@ export default function SitesPage() {
               </p>
             </div>
 
-            {/* Tier 3: Folio + custom domain (coming soon) */}
-            <div style={{ ...pricingCard, padding: 32, position: 'relative', opacity: 0.85 }}>
-              <div style={{ position: 'absolute', top: -12, left: 24, background: WARM, color: BLACK, fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase', padding: '4px 12px', borderRadius: 4, border: `1px solid ${BORDER}` }}>
-                Coming Q3
-              </div>
-              <p style={pricingTier}>Folio · Custom domain</p>
-              <p style={pricingPrice}>
-                <span style={{ fontSize: 56 }}>+$19.99</span>
-                <span style={pricingMo}>/mo</span>
-              </p>
-              <p style={pricingSubLine}>Already on Opervo CRM? Put your Folio at your own URL.</p>
-              <ul style={pricingList}>
-                {[
-                  'Your existing Folio (single-page site)',
-                  'Point your domain at it',
-                  'Auto-updates from your CRM',
-                  'No DFY build — instant',
-                  'Cheapest path to a real URL',
-                  'Requires Opervo CRM ($24.99/mo)',
-                ].map((item, i) => (
-                  <li key={i} style={pricingLi}>
-                    <Icon d={ICONS.check} size={16} color={ORANGE} stroke={3} />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <div style={{ ...secondaryBtn, display: 'block', textAlign: 'center', marginTop: 24, padding: '14px 22px', fontSize: 15, opacity: 0.6, cursor: 'not-allowed' }}>
-                Notify me when live
-              </div>
-              <p style={{ fontSize: 12, color: MUTED, textAlign: 'center', margin: '12px 0 0' }}>
-                CRM + this = <strong style={{ color: BLACK }}>$44.98/mo all-in</strong>. Below Markate&apos;s floor.
-              </p>
-            </div>
           </div>
 
           {/* Domain policy callout */}
