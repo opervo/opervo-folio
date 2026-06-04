@@ -688,6 +688,16 @@ export default function SitesPage() {
 
           </div>
 
+          {/* Pro Site customer loyalty perk on CRM */}
+          <div style={{ background: SURFACE, border: `1.5px solid ${ORANGE}`, borderRadius: 10, padding: '16px 22px', margin: '0 auto 24px', maxWidth: 720, textAlign: 'center' }}>
+            <p style={{ fontSize: 14, color: INK, margin: 0, lineHeight: 1.55 }}>
+              <strong style={{ color: ORANGE, fontFamily: "'Barlow Condensed', sans-serif", fontSize: 13, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', display: 'inline-block', marginRight: 8 }}>
+                Loyalty perk
+              </strong>
+              Pro Site customers get <strong style={{ color: BLACK }}>20% off Opervo CRM</strong> for life. Solo <strong>$19.99/mo</strong>, Team <strong>$44.99/mo</strong>. Discount runs as long as your Pro Site is active.
+            </p>
+          </div>
+
           {/* Domain policy callout */}
           <div style={{ background: WARM, border: `1px solid ${BORDER}`, borderRadius: 12, padding: 24, marginTop: 8 }}>
             <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 18, textTransform: 'uppercase', color: BLACK, margin: '0 0 12px', letterSpacing: '0.02em' }}>
