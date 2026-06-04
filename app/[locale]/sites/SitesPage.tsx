@@ -416,11 +416,19 @@ export default function SitesPage() {
               Done-for-you SEO websites built specifically for home service operators. Real local SEO, your domain, 30-day delivery — and <Highlight>you own it</Highlight>.
             </p>
             <div style={{ display: 'flex', gap: 12, marginTop: 36, flexWrap: 'wrap' }}>
-              <a href="#pricing" style={primaryBtn}>See pricing</a>
+              <a
+                href="https://opervo-pro-sites.vercel.app/intake"
+                target="_blank"
+                rel="noreferrer"
+                style={primaryBtn}
+              >
+                Start your questionnaire
+              </a>
+              <a href="#pricing" style={secondaryBtn}>See pricing</a>
               <a href="#case-study" style={secondaryBtn}>See it in action</a>
             </div>
             <p style={{ fontSize: 13, color: MUTED, marginTop: 24 }}>
-              $1,499 one-time · You own it forever · 60-day money back
+              ~20 minutes · auto-saves in your browser · $1,499 one-time · 60-day money back
             </p>
           </div>
 
@@ -608,8 +616,13 @@ export default function SitesPage() {
                   </li>
                 ))}
               </ul>
-              <a href="mailto:help@opervo.io?subject=Opervo%20Pro%20Website%20order" style={{ ...primaryBtn, display: 'block', textAlign: 'center', marginTop: 28, padding: '16px 28px', fontSize: 16 }}>
-                Buy it now — $1,499
+              <a
+                href="https://opervo-pro-sites.vercel.app/intake"
+                target="_blank"
+                rel="noreferrer"
+                style={{ ...primaryBtn, display: 'block', textAlign: 'center', marginTop: 28, padding: '16px 28px', fontSize: 16 }}
+              >
+                Start your questionnaire — $1,499
               </a>
               <p style={{ fontSize: 13, color: MUTED, textAlign: 'center', margin: '14px 0 0' }}>
                 Or pay <strong style={{ color: BLACK }}>$135/mo for 12 months</strong>. Same total, no contract.
@@ -686,7 +699,12 @@ export default function SitesPage() {
                 </div>
               ))}
             </div>
-            <a href="mailto:help@opervo.io?subject=Founding%205%20Pro%20Site%20application&body=Trade%3A%20%0AYour%20business%20name%3A%20%0AYour%20current%20website%20(if%20any)%3A%20%0AOne%20sentence%20on%20why%20your%20current%20site%20is%20hurting%20you%3A%20" style={{ ...primaryBtn, display: 'inline-block' }}>
+            <a
+              href="https://opervo-pro-sites.vercel.app/intake"
+              target="_blank"
+              rel="noreferrer"
+              style={{ ...primaryBtn, display: 'inline-block' }}
+            >
               Apply for Founding 5
             </a>
             <p style={{ fontSize: 13, color: '#8a8580', margin: '20px 0 0' }}>
