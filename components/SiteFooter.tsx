@@ -36,6 +36,7 @@ export default function SiteFooter() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
               <Link href="/features" title="Opervo Features" style={linkStyle}>{t('features')}</Link>
               <Link href="/pricing" title="Opervo Pricing" style={linkStyle}>{t('pricing')}</Link>
+              <Link href="/lifetime" title="Opervo Lifetime Pass" style={linkStyle}>{t('lifetimePass')}</Link>
               <Link href="/print" title="Marketing Materials" style={linkStyle}>{t('marketingMaterials')}</Link>
             </div>
           </div>

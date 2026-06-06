@@ -371,6 +371,122 @@ nav {
   50% { opacity: 1; transform: scale(1.4); }
 }
 
+/* Lifetime Pass strip */
+.lifetime-strip {
+  background: linear-gradient(135deg, #0F0F0F 0%, #1F1B17 100%);
+  color: #fff;
+  padding: 80px 24px;
+  position: relative;
+  overflow: hidden;
+}
+.lifetime-strip::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 80% 30%, rgba(245,98,15,0.18) 0%, transparent 55%);
+  pointer-events: none;
+}
+.lifetime-strip-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.lifetime-strip-eyebrow {
+  font-size: 11px;
+  font-weight: 800;
+  color: #F5620F;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin-bottom: 18px;
+}
+.lifetime-strip-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: clamp(40px, 6vw, 64px);
+  line-height: 1.0;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  margin: 0 0 24px;
+}
+.lifetime-strip-title .accent { color: #F5620F; }
+.lifetime-strip-lede {
+  font-size: 17px;
+  line-height: 1.6;
+  color: #d4cec3;
+  margin: 0 0 28px;
+  max-width: 640px;
+}
+.lifetime-strip-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px;
+  display: grid;
+  gap: 12px;
+}
+.lifetime-strip-bullets li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 15px;
+  line-height: 1.55;
+  color: #f5f1ea;
+}
+.lifetime-strip-bullets svg { flex-shrink: 0; margin-top: 3px; }
+.lifetime-strip-quote {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #b0aaa0;
+  border-left: 3px solid #F5620F;
+  padding-left: 18px;
+  margin: 0 0 28px;
+  font-style: italic;
+}
+.lifetime-strip-meta {
+  font-size: 13px;
+  font-weight: 700;
+  color: #F5620F;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 20px;
+}
+.lifetime-strip-ctas {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.lifetime-strip-cta-primary {
+  display: inline-block;
+  background: #F5620F;
+  color: #fff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  padding: 16px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  transition: background 0.18s ease;
+}
+.lifetime-strip-cta-primary:hover { background: var(--orange-hover); }
+.lifetime-strip-cta-secondary {
+  display: inline-block;
+  background: transparent;
+  color: #fff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  padding: 16px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border: 1px solid rgba(255,255,255,0.35);
+  transition: border-color 0.18s ease;
+}
+.lifetime-strip-cta-secondary:hover { border-color: rgba(255,255,255,0.6); }
+
 /* Phone mockup */
 .phone {
   width: 100%; max-width: 340px;
@@ -2526,6 +2642,31 @@ fbq('track', 'PageView');
 
     <div class="cc-cta">
       <a href="https://app.opervo.io/signup" class="btn btn-primary">Start free 14-day trial</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── LIFETIME PASS STRIP ─────────────────────── -->
+<section class="lifetime-strip" id="lifetime-pass" data-section="lifetime_pass">
+  <div class="lifetime-strip-inner">
+    <p class="lifetime-strip-eyebrow">Sick of another monthly subscription?</p>
+    <h2 class="lifetime-strip-title">Own your software<span class="accent">.</span></h2>
+    <p class="lifetime-strip-lede">
+      Most software companies start cheap, then raise prices year after year. We built Opervo differently. 150 Founder Lifetime Passes. Pay once. You're in. Forever.
+    </p>
+    <ul class="lifetime-strip-bullets">
+      <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5620F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Lifetime access to Opervo. Every feature, every update.</span></li>
+      <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5620F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>No monthly bill. No annual renewal. No surprise price increases.</span></li>
+      <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5620F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Solo $999 once. Team $1,999 once. 30-day money-back.</span></li>
+      <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5620F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Once the 150 are gone, the door closes. No reopening.</span></li>
+    </ul>
+    <p class="lifetime-strip-quote">
+      For the operators who'd rather invest in their business once than rent software forever.
+    </p>
+    <p class="lifetime-strip-meta">150 Founder Passes &middot; Never offered again</p>
+    <div class="lifetime-strip-ctas">
+      <a href="/lifetime" class="lifetime-strip-cta-primary" data-event="lifetime_pass_landing_cta">Read the full letter &rarr;</a>
+      <a href="/lifetime#offer" class="lifetime-strip-cta-secondary" data-event="lifetime_pass_landing_cta_secondary">See the offer</a>
     </div>
   </div>
 </section>
