@@ -371,19 +371,23 @@ nav {
   50% { opacity: 1; transform: scale(1.4); }
 }
 
-/* Lifetime Pass strip */
+/* Lifetime Pass strip — light treatment to break dark chain between
+   Command Center and Founding 50 strip. Premium-calm tone for the
+   "Pay once. Be done." principled-ownership story. */
 .lifetime-strip {
-  background: linear-gradient(135deg, #0F0F0F 0%, #1F1B17 100%);
-  color: #fff;
+  background: #F7F5F2;
+  color: #0F0F0F;
   padding: 80px 24px;
   position: relative;
   overflow: hidden;
+  border-top: 1px solid #E8E4DE;
+  border-bottom: 1px solid #E8E4DE;
 }
 .lifetime-strip::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 80% 30%, rgba(245,98,15,0.18) 0%, transparent 55%);
+  background: radial-gradient(circle at 85% 25%, rgba(245,98,15,0.08) 0%, transparent 55%);
   pointer-events: none;
 }
 .lifetime-strip-inner {
@@ -408,12 +412,13 @@ nav {
   text-transform: uppercase;
   letter-spacing: -1px;
   margin: 0 0 24px;
+  color: #0F0F0F;
 }
 .lifetime-strip-title .accent { color: #F5620F; }
 .lifetime-strip-lede {
   font-size: 17px;
   line-height: 1.6;
-  color: #d4cec3;
+  color: #3a3a3a;
   margin: 0 0 28px;
   max-width: 640px;
 }
@@ -430,13 +435,13 @@ nav {
   align-items: flex-start;
   font-size: 15px;
   line-height: 1.55;
-  color: #f5f1ea;
+  color: #1a1a1a;
 }
 .lifetime-strip-bullets svg { flex-shrink: 0; margin-top: 3px; }
 .lifetime-strip-quote {
   font-size: 16px;
   line-height: 1.6;
-  color: #b0aaa0;
+  color: #6B6B6B;
   border-left: 3px solid #F5620F;
   padding-left: 18px;
   margin: 0 0 28px;
@@ -473,7 +478,7 @@ nav {
 .lifetime-strip-cta-secondary {
   display: inline-block;
   background: transparent;
-  color: #fff;
+  color: #0F0F0F;
   font-family: 'Barlow Condensed', sans-serif;
   font-weight: 800;
   font-size: 15px;
@@ -482,10 +487,10 @@ nav {
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  border: 1px solid rgba(255,255,255,0.35);
-  transition: border-color 0.18s ease;
+  border: 1px solid #0F0F0F;
+  transition: background 0.18s ease, color 0.18s ease;
 }
-.lifetime-strip-cta-secondary:hover { border-color: rgba(255,255,255,0.6); }
+.lifetime-strip-cta-secondary:hover { background: #0F0F0F; color: #fff; }
 
 /* Phone mockup */
 .phone {
