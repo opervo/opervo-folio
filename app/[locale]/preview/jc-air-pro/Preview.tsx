@@ -21,11 +21,11 @@ const BG_SOFT = '#f7f5f2'
 
 const OPERVO_ORANGE = '#F5620F'
 
-// Iframe src for the live JC Air Pro site. Falls back to localhost:3210
-// for dev. Set NEXT_PUBLIC_JC_AIR_PRO_URL in production once Emilio's
-// domain is registered + the site is deployed.
+// Iframe src for the live JC Air Pro site. Default: the Vercel interim
+// deploy at jc-air-pro.vercel.app. Swap to Emilio's real domain when his
+// hosting is up. Override per-env via NEXT_PUBLIC_JC_AIR_PRO_URL.
 const JC_URL =
-  process.env.NEXT_PUBLIC_JC_AIR_PRO_URL || 'http://localhost:3210'
+  process.env.NEXT_PUBLIC_JC_AIR_PRO_URL || 'https://jc-air-pro.vercel.app'
 
 // (Static screenshot tour replaced by the live iframe embed in the hero.)
 
