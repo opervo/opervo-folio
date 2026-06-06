@@ -134,7 +134,7 @@ export default async function LifetimePage() {
               or 4 payments of $249.75, interest-free with Klarna at checkout
             </p>
             <p style={{ fontSize: 14, color: '#6B6B6B', lineHeight: 1.55, marginBottom: 20 }}>
-              You + a helper. Every Solo feature we ship, forever. Compare to $24.99/mo or $249/yr.
+              You + a helper. Every Solo feature we ship, forever. Compare to $24.99/mo.
             </p>
 
             {/* Counter bar */}
@@ -178,7 +178,7 @@ export default async function LifetimePage() {
               or 4 payments of $499.75, interest-free with Klarna at checkout
             </p>
             <p style={{ fontSize: 14, color: '#b0aaa0', lineHeight: 1.55, marginBottom: 20 }}>
-              Up to 10 team members. Every Team feature we ship, forever. Compare to $54.99/mo or $549/yr.
+              Up to 10 team members. Every Team feature we ship, forever. Compare to $54.99/mo.
             </p>
 
             <div style={{ marginBottom: 20 }}>
