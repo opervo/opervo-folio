@@ -394,6 +394,253 @@ function JcAirProShowcase({ entry }: { entry: PortfolioEntry }) {
   )
 }
 
+// Special-case card for Breezy Detailing. Renders a faithful mini of the
+// actual Breezy homepage hero (real logo, real chrome silver + electric
+// blue brand on carbon black) instead of the generic dark+orange
+// Opervo template. Same reason as JcAirProShowcase — the portfolio
+// should preview what the operator's site actually looks like.
+function BreezyDetailingShowcase({ entry }: { entry: PortfolioEntry }) {
+  const isReal = entry.status === 'real'
+  const CHROME_GRADIENT =
+    'linear-gradient(180deg, #ffffff 0%, #ffffff 22%, #c8ccd1 52%, #8a8e93 78%, #c8ccd1 100%)'
+  return (
+    <div
+      style={{
+        background: '#0a0a0c',
+        borderRadius: 12,
+        overflow: 'hidden',
+        boxShadow: '0 12px 30px -12px rgba(0,0,0,0.45), 0 4px 10px -4px rgba(0,0,0,0.2)',
+        position: 'relative',
+        transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+      }}
+      className="portfolio-card"
+    >
+      {/* Browser chrome */}
+      <div style={{ background: '#0a0a0a', padding: '6px 9px', display: 'flex', alignItems: 'center', gap: 5, borderBottom: '1px solid #1a1b1f' }}>
+        <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#ff5f57' }} />
+        <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#febc2e' }} />
+        <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#28c840' }} />
+        <span style={{ flex: 1, background: '#1a1b1f', borderRadius: 3, padding: '2px 8px', fontSize: 9, color: '#8a8e93', textAlign: 'center', fontFamily: "'Barlow', sans-serif", letterSpacing: '0.02em' }}>
+          {entry.domain}
+        </span>
+      </div>
+
+      {/* Page composition — Breezy hero in miniature */}
+      <div
+        style={{
+          position: 'relative',
+          aspectRatio: '4 / 3',
+          display: 'flex',
+          flexDirection: 'column',
+          background: '#0a0a0c',
+          color: '#fff',
+          overflow: 'hidden',
+        }}
+      >
+        {/* Electric blue glow + subtle grid */}
+        <div
+          aria-hidden
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background:
+              'radial-gradient(55% 60% at 92% 0%, rgba(0,176,255,0.30) 0%, transparent 60%), radial-gradient(45% 50% at 5% 100%, rgba(0,145,234,0.10) 0%, transparent 65%)',
+            pointerEvents: 'none',
+          }}
+        />
+        <div
+          aria-hidden
+          style={{
+            position: 'absolute',
+            inset: 0,
+            opacity: 0.04,
+            backgroundImage:
+              'linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)',
+            backgroundSize: '24px 24px',
+            pointerEvents: 'none',
+          }}
+        />
+
+        {/* Header strip */}
+        <div
+          style={{
+            position: 'relative',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            padding: '6px 10px 5px',
+            borderBottom: '1px solid rgba(255,255,255,0.05)',
+            flexShrink: 0,
+          }}
+        >
+          <span style={{ display: 'inline-flex', flexDirection: 'column', lineHeight: 1 }}>
+            <span
+              style={{
+                background: CHROME_GRADIENT,
+                WebkitBackgroundClip: 'text',
+                backgroundClip: 'text',
+                color: 'transparent',
+                fontWeight: 900,
+                fontSize: 11,
+                letterSpacing: '-0.02em',
+              }}
+            >
+              BREEZY
+            </span>
+            <span
+              style={{
+                color: '#00b0ff',
+                fontWeight: 800,
+                fontSize: 4.5,
+                letterSpacing: '0.32em',
+                textTransform: 'uppercase',
+                marginTop: 1,
+              }}
+            >
+              Detailing
+            </span>
+          </span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 6, fontWeight: 600, color: 'rgba(255,255,255,0.6)' }}>
+            <span>Services</span>
+            <span>About</span>
+            <span>Service Area</span>
+          </div>
+          <span
+            style={{
+              background: '#0091ea',
+              color: '#fff',
+              padding: '3px 7px',
+              borderRadius: 999,
+              fontSize: 7,
+              fontWeight: 800,
+              boxShadow: '0 4px 10px -4px rgba(0,145,234,0.6)',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            ☎ (972) 697-5531
+          </span>
+        </div>
+
+        {/* Hero body — chrome headline left, logo lockup right */}
+        <div
+          style={{
+            position: 'relative',
+            flex: 1,
+            padding: '10px 12px',
+            display: 'grid',
+            gridTemplateColumns: '1.05fr 0.95fr',
+            gap: 10,
+            alignItems: 'center',
+          }}
+        >
+          {/* Left: eyebrow + chrome headline */}
+          <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <span
+              style={{
+                fontSize: 5.5,
+                fontWeight: 800,
+                color: '#00b0ff',
+                textTransform: 'uppercase',
+                letterSpacing: '0.16em',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 4,
+              }}
+            >
+              <span style={{ width: 3, height: 3, borderRadius: '50%', background: '#00b0ff', boxShadow: '0 0 6px rgba(0,176,255,0.8)' }} />
+              The Colony, TX · DFW Mobile
+            </span>
+            <span
+              style={{
+                fontWeight: 900,
+                fontSize: 'clamp(14px, 2vw, 22px)',
+                lineHeight: 1.0,
+                letterSpacing: '-0.025em',
+                marginTop: 5,
+                display: 'flex',
+                flexDirection: 'column',
+              }}
+            >
+              <span
+                style={{
+                  background: CHROME_GRADIENT,
+                  WebkitBackgroundClip: 'text',
+                  backgroundClip: 'text',
+                  color: 'transparent',
+                }}
+              >
+                Showroom finish.
+              </span>
+              <span style={{ color: '#fff' }}>Every drive,</span>
+              <span style={{ color: '#00b0ff' }}>no compromise.</span>
+            </span>
+            <span style={{ fontSize: 7, color: 'rgba(255,255,255,0.55)', marginTop: 5, maxWidth: '94%', lineHeight: 1.35 }}>
+              Lexus-trained · Mobile + in-shop · DFW-wide
+            </span>
+            <div style={{ display: 'flex', gap: 4, marginTop: 6, flexWrap: 'wrap' }}>
+              <span style={{ background: '#0091ea', color: '#fff', padding: '3px 8px', borderRadius: 999, fontSize: 7, fontWeight: 800, boxShadow: '0 4px 10px -4px rgba(0,145,234,0.6)' }}>
+                Call now
+              </span>
+              <span style={{ background: 'rgba(255,255,255,0.06)', color: '#fff', padding: '3px 8px', borderRadius: 999, fontSize: 7, fontWeight: 800, border: '1px solid rgba(200,204,209,0.35)' }}>
+                Text Ricardo
+              </span>
+            </div>
+          </div>
+
+          {/* Right: glassy logo card */}
+          <div
+            style={{
+              position: 'relative',
+              aspectRatio: '1 / 1',
+              borderRadius: 8,
+              border: '1px solid rgba(255,255,255,0.08)',
+              background: 'linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.01) 100%)',
+              display: 'grid',
+              placeItems: 'center',
+              padding: 8,
+              overflow: 'hidden',
+            }}
+          >
+            <div
+              aria-hidden
+              style={{
+                position: 'absolute',
+                inset: 0,
+                background:
+                  'linear-gradient(135deg, rgba(0,176,255,0.18) 0%, transparent 35%, transparent 65%, rgba(200,204,209,0.12) 100%)',
+              }}
+            />
+            <Image
+              src="/portfolio/breezy-detailing/logo.png"
+              alt="Breezy Detailing logo"
+              width={220}
+              height={220}
+              style={{ position: 'relative', width: '100%', height: 'auto', display: 'block' }}
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Status footer — match other cards */}
+      <div
+        style={{
+          background: isReal ? 'rgba(22,163,74,0.08)' : 'rgba(245,98,15,0.08)',
+          borderTop: `1px solid ${isReal ? 'rgba(22,163,74,0.25)' : 'rgba(245,98,15,0.25)'}`,
+          padding: '8px 12px',
+          display: 'flex',
+          alignItems: 'center',
+          gap: 7,
+        }}
+      >
+        <span style={{ display: 'inline-block', width: 6, height: 6, borderRadius: '50%', background: isReal ? '#16a34a' : ORANGE, flexShrink: 0 }} />
+        <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 11, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: isReal ? '#16a34a' : ORANGE }}>
+          {isReal ? 'Launching this month' : 'Founding slot · open'}
+        </span>
+      </div>
+    </div>
+  )
+}
+
 function PortfolioCard({ entry }: { entry: PortfolioEntry }) {
   const isReal = entry.status === 'real'
   return (
@@ -543,16 +790,17 @@ const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
     status: 'open',
   },
   {
-    brand: 'Driftline',
+    brand: 'Breezy',
     brandSuffix: 'Detailing',
-    domain: 'driftlinedetail.com',
-    trade: 'Mobile Detailing',
-    location: 'Florida',
-    headline: 'We come',
-    headlineAccent: 'to your driveway.',
-    tagline: 'Interior, exterior, ceramic, full-detail packages. Two-hour appointment windows.',
-    stats: [{ n: '2hr', l: 'Windows' }, { n: '4.95★', l: 'Avg' }, { n: 'Mobile', l: 'Always' }],
-    status: 'open',
+    domain: 'breezydetailing.com',
+    trade: 'Auto Detailing · Ceramic · Mobile',
+    location: 'DFW · Texas',
+    headline: 'Showroom finish.',
+    headlineAccent: 'Every drive.',
+    tagline: 'Premium auto detailing. Lexus-trained correction. Mobile + in-shop across DFW.',
+    stats: [{ n: '5★', l: 'Detail work' }, { n: 'DFW', l: 'Coverage' }, { n: '16', l: 'Cities' }],
+    status: 'real',
+    slug: 'breezy-detailing',
   },
   {
     brand: 'Apex',
@@ -642,10 +890,10 @@ export default function SitesPage() {
                 The portfolio
               </p>
               <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 'clamp(32px, 5vw, 52px)', fontWeight: 900, textTransform: 'uppercase', color: BLACK, lineHeight: 0.95, margin: 0, letterSpacing: '-0.01em', maxWidth: 720 }}>
-                Six trades. <Highlight>One slot each.</Highlight>
+                Seven trades. <Highlight>One slot each.</Highlight>
               </h2>
               <p style={{ fontSize: 16, lineHeight: 1.5, color: MUTED, margin: '14px 0 0', maxWidth: 560 }}>
-                Code 3 is the first build — launching this month. The other five are Founding slots: free Pro Site Ownership ($499 value) + free Opervo CRM for 12 months ($299 value) + priority queue + Founding Customer placement. One per trade.
+                JC Air Pro, Breezy Detailing, and Code 3 are the first three builds — launching now. The other four are Founding slots: free Pro Site Ownership ($499 value) + free Opervo CRM for 12 months ($299 value) + priority queue + Founding Customer placement. One per trade.
               </p>
             </div>
             <a href="#founding-5" style={{ ...secondaryBtn, whiteSpace: 'nowrap' }}>
@@ -655,7 +903,12 @@ export default function SitesPage() {
 
           <div className="portfolio-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: 20 }}>
             {PORTFOLIO_ENTRIES.map((entry, i) => {
-              const Card = entry.slug === 'jc-air-pro' ? JcAirProShowcase : PortfolioCard
+              const Card =
+                entry.slug === 'jc-air-pro'
+                  ? JcAirProShowcase
+                  : entry.slug === 'breezy-detailing'
+                  ? BreezyDetailingShowcase
+                  : PortfolioCard
               return entry.slug ? (
                 <Link
                   key={i}
