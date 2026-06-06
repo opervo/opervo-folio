@@ -1355,4 +1355,106 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 /* SCROLL REVEAL */
 .reveal{opacity:0;transform:translateY(20px);transition:opacity 0.65s ease,transform 0.65s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ─────────────────────────────────────────
+   DESKTOP (≥ 900px)
+   Surgical overrides — keep the mobile layout as the source of truth
+   and widen / regrid where the phone column wastes screen space.
+───────────────────────────────────────── */
+@media (min-width: 900px) {
+  .page{max-width:1200px;padding-bottom:0;--px:48px}
+
+  /* HERO */
+  .hero{max-height:760px;min-height:620px}
+  .hero-img{object-position:center 35%}
+  .hero-topbar{padding:28px var(--px)}
+  .hero-body{padding:0 var(--px) 72px}
+  .hero-body > *{max-width:680px}
+  .hero-logo{width:88px;height:88px;margin-bottom:20px}
+  .hero-name{font-size:104px;line-height:0.9}
+  .hero-name em{font-size:80px}
+  .hero-divider{width:56px;margin:22px 0}
+  .hero-descriptor{font-size:17px;line-height:1.55;margin-bottom:0}
+  .hero-scroll{display:none}
+
+  /* OVERLAP CARD */
+  .overlap-card{margin:-56px var(--px) 0}
+  .cr-btn{padding:26px 14px}
+  .cr-icon{width:48px;height:48px;font-size:22px}
+  .cr-label{font-size:12px}
+  .stat-col{padding:24px 14px}
+  .stat-num{font-size:32px}
+  .stat-lbl{font-size:11px}
+
+  /* SECTIONS */
+  .sec{padding:72px var(--px) 0}
+  .sec-eyebrow{font-size:11px}
+  .sec-title{font-size:52px;margin-bottom:32px}
+
+  /* B/A SLIDER */
+  .ba-container{height:460px}
+  .ba-handle{width:52px;height:52px}
+  .ba-lbl{font-size:11px;padding:6px 14px}
+  .ba-hint{font-size:11px;padding:6px 18px;bottom:18px}
+
+  /* GALLERY */
+  .gallery-grid{grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+  .gallery-tile{height:180px}
+
+  /* RECENT JOBS — phone is horizontal scroll, desktop is a 3-col grid */
+  .rj-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;overflow:visible;margin:0;padding:4px 0 24px;scroll-snap-type:none}
+  .rj-card{flex:none}
+  .rj-photo{height:260px}
+  .rj-where{font-size:20px}
+  .rj-detail{font-size:13px}
+
+  /* CREDENTIALS */
+  .cred-strip{grid-template-columns:repeat(4,1fr);gap:14px}
+  .cred-card{padding:22px 20px}
+  .cred-title{font-size:15px}
+  .cred-text{font-size:13px;line-height:1.55}
+
+  /* SERVICES */
+  .svc-item{padding:28px 0;gap:22px}
+  .svc-icon{width:64px;height:64px;font-size:28px}
+  .svc-name{font-size:24px;margin-bottom:4px}
+  .svc-desc{font-size:14px;line-height:1.55}
+  .svc-from{font-size:10px}
+  .svc-price{font-size:32px}
+
+  /* REVIEW */
+  .review-wrap{padding:40px;max-width:820px;margin:0 auto}
+  .review-wrap::before{font-size:140px;top:-4px;right:28px}
+  .rv-text{font-size:24px;line-height:1.55}
+  .rv-avatar{width:46px;height:46px;font-size:20px}
+  .rv-name{font-size:14px}
+  .rv-date{font-size:12px}
+
+  /* QUOTE FORM */
+  .form-outer{margin:72px auto 0;max-width:780px}
+  .form-header{padding:48px var(--px) 44px}
+  .fh-kicker{font-size:11px}
+  .fh-title{font-size:56px}
+  .fh-sub{font-size:15px;line-height:1.55}
+  .form-body{padding:40px var(--px)}
+  .svc-tiles{grid-template-columns:repeat(4,1fr);gap:10px}
+  .svc-tile{min-height:104px}
+  .st-icon{font-size:26px}
+  .st-name{font-size:11px}
+  .f-input,.f-select,.f-textarea{font-size:15px;padding:15px 16px}
+  .btn-primary{font-size:15px;padding:18px}
+
+  /* FOOTER */
+  .footer{padding:56px var(--px) 28px;font-size:12px}
+
+  /* STICKY CTA — hidden on desktop, inline CTAs in overlap-card cover it */
+  .sticky-cta{display:none}
+}
+
+@media (min-width: 1200px) {
+  .page{max-width:1280px}
+  .hero-name{font-size:128px}
+  .hero-name em{font-size:96px}
+  .sec-title{font-size:60px}
+}
 `
