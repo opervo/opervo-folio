@@ -1,6 +1,8 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
 import SiteNav from '@/components/SiteNav'
 import SiteFooter from '@/components/SiteFooter'
 
@@ -227,6 +229,169 @@ type PortfolioEntry = {
   tagline: string
   stats: [{ n: string; l: string }, { n: string; l: string }, { n: string; l: string }]
   status: 'real' | 'open'
+  // Slug into /preview/[slug] for shareable previews. Only real entries set this.
+  slug?: string
+}
+
+// Special-case card for JC Air Pro. Renders a faithful mini of the actual
+// JC Air Pro homepage hero (real logo, real Emilio photo, real navy/red
+// brand) instead of the generic dark+orange Opervo-styled template.
+// The point: the portfolio should preview what the operator's site
+// actually looks like, not a template of itself.
+function JcAirProShowcase({ entry }: { entry: PortfolioEntry }) {
+  const isReal = entry.status === 'real'
+  return (
+    <div
+      style={{
+        background: '#fff',
+        borderRadius: 12,
+        overflow: 'hidden',
+        boxShadow: '0 12px 30px -12px rgba(0,26,74,0.35), 0 4px 10px -4px rgba(0,0,0,0.12)',
+        position: 'relative',
+        transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+      }}
+      className="portfolio-card"
+    >
+      {/* Browser chrome */}
+      <div style={{ background: '#f1f3f5', padding: '6px 9px', display: 'flex', alignItems: 'center', gap: 5, borderBottom: '1px solid #e1e4e8' }}>
+        <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#ff5f57' }} />
+        <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#febc2e' }} />
+        <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#28c840' }} />
+        <span style={{ flex: 1, background: '#fff', borderRadius: 3, padding: '2px 8px', fontSize: 9, color: '#5f6368', textAlign: 'center', fontFamily: "'Barlow', sans-serif", letterSpacing: '0.02em', border: '1px solid #e1e4e8' }}>
+          {entry.domain}
+        </span>
+      </div>
+
+      {/* Page composition — actual JC Air Pro hero in miniature */}
+      <div style={{ position: 'relative', aspectRatio: '4 / 3', display: 'flex', flexDirection: 'column', background: '#fff', color: '#0a0a0a' }}>
+        {/* Utility strip (navy) */}
+        <div style={{ background: '#001a4a', color: 'rgba(255,255,255,0.9)', fontSize: 6.5, padding: '3px 10px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontWeight: 600, letterSpacing: '0.02em' }}>
+          <span>(214) 909-5338 · airprojulio@gmail.com</span>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+            <span style={{ color: 'rgba(255,255,255,0.65)' }}>TACLA97287E</span>
+            <span style={{ background: '#c8102e', color: '#fff', padding: '1px 5px', borderRadius: 999, fontSize: 6, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase' }}>Español</span>
+          </span>
+        </div>
+
+        {/* Header strip */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '5px 10px', borderBottom: '1px solid #f3f3f0', flexShrink: 0 }}>
+          <Image
+            src="/portfolio/jc-air-pro/logo.jpg"
+            alt="JC Air Pro logo"
+            width={210}
+            height={70}
+            style={{ height: 'auto', width: 64, display: 'block' }}
+          />
+          <div style={{ display: 'flex', alignItems: 'center', gap: 9, fontSize: 7, fontWeight: 600, color: '#1f1f1f' }}>
+            <span>Services</span>
+            <span>About</span>
+            <span>Contact</span>
+          </div>
+          <span style={{ background: '#c8102e', color: '#fff', padding: '3px 7px', borderRadius: 999, fontSize: 7, fontWeight: 800, whiteSpace: 'nowrap' }}>
+            ☎ (214) 909-5338
+          </span>
+        </div>
+
+        {/* 3px brand-bar gradient strip */}
+        <div style={{ height: 2, background: 'linear-gradient(90deg, #002f87 0%, #002f87 35%, #6b2150 50%, #c8102e 65%, #c8102e 100%)', flexShrink: 0 }} />
+
+        {/* Hero body — sky-pale gradient + headline left, Emilio photo right */}
+        <div
+          style={{
+            flex: 1,
+            background: 'linear-gradient(180deg, #f4faff 0%, #eaf4fb 100%)',
+            padding: '10px 12px',
+            display: 'grid',
+            gridTemplateColumns: '1.05fr 0.95fr',
+            gap: 10,
+            alignItems: 'center',
+            position: 'relative',
+            overflow: 'hidden',
+          }}
+        >
+          {/* Soft brand glow */}
+          <div
+            aria-hidden
+            style={{
+              position: 'absolute',
+              inset: 0,
+              background:
+                'radial-gradient(40% 50% at 92% 12%, rgba(251,198,58,0.18) 0%, transparent 60%), radial-gradient(35% 40% at 6% 90%, rgba(0,47,135,0.12) 0%, transparent 65%)',
+              pointerEvents: 'none',
+            }}
+          />
+
+          <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <span style={{ fontSize: 6, fontWeight: 800, color: '#002f87', textTransform: 'uppercase', letterSpacing: '0.14em', display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+              <span style={{ width: 4, height: 4, borderRadius: '50%', background: '#c8102e' }} />
+              DFW · The Colony, TX
+            </span>
+            <span
+              style={{
+                fontWeight: 900,
+                fontSize: 'clamp(14px, 1.9vw, 22px)',
+                lineHeight: 1.02,
+                letterSpacing: '-0.02em',
+                color: '#001a4a',
+                marginTop: 4,
+              }}
+            >
+              Air conditioning <br />
+              done the <span style={{ color: '#c8102e' }}>honest</span> way.
+            </span>
+            <span style={{ fontSize: 7, color: 'rgba(15,15,15,0.65)', marginTop: 4, maxWidth: '94%', lineHeight: 1.35 }}>
+              Family-owned, bilingual HVAC. 15+ years on Texas systems.
+            </span>
+            <div style={{ display: 'flex', gap: 4, marginTop: 6, flexWrap: 'wrap' }}>
+              <span style={{ background: '#c8102e', color: '#fff', padding: '3px 8px', borderRadius: 999, fontSize: 7, fontWeight: 800 }}>Call now</span>
+              <span style={{ background: '#fbc63a', color: '#001a4a', padding: '3px 8px', borderRadius: 999, fontSize: 7, fontWeight: 800 }}>Free estimate</span>
+            </div>
+          </div>
+
+          {/* Real Emilio photo */}
+          <div style={{ position: 'relative', borderRadius: 6, overflow: 'hidden', aspectRatio: '4 / 5', boxShadow: '0 6px 14px -6px rgba(0,26,74,0.4)' }}>
+            <Image
+              src="/portfolio/jc-air-pro/emilio-jobsite.png"
+              alt="Emilio of JC Air Pro next to a new AC condenser at a DFW home"
+              fill
+              sizes="(min-width: 1024px) 20vw, 40vw"
+              style={{ objectFit: 'cover' }}
+            />
+            <div
+              aria-hidden
+              style={{
+                position: 'absolute',
+                inset: 0,
+                background: 'linear-gradient(180deg, transparent 55%, rgba(0,26,74,0.35) 100%)',
+              }}
+            />
+            {/* Floating 5★ badge */}
+            <div style={{ position: 'absolute', bottom: 3, left: 3, right: 3, background: '#fff', borderRadius: 4, padding: '2px 4px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', boxShadow: '0 2px 6px rgba(0,0,0,0.15)' }}>
+              <span style={{ fontSize: 6, fontWeight: 800, color: '#001a4a' }}>15+ yrs · DFW</span>
+              <span style={{ fontSize: 6, color: '#fbc63a', letterSpacing: 0.5 }}>★★★★★</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Status footer — same as PortfolioCard */}
+      <div
+        style={{
+          background: isReal ? 'rgba(22,163,74,0.08)' : 'rgba(245,98,15,0.08)',
+          borderTop: `1px solid ${isReal ? 'rgba(22,163,74,0.25)' : 'rgba(245,98,15,0.25)'}`,
+          padding: '8px 12px',
+          display: 'flex',
+          alignItems: 'center',
+          gap: 7,
+        }}
+      >
+        <span style={{ display: 'inline-block', width: 6, height: 6, borderRadius: '50%', background: isReal ? '#16a34a' : ORANGE, flexShrink: 0 }} />
+        <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 11, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: isReal ? '#16a34a' : ORANGE }}>
+          {isReal ? 'Launching this month' : 'Founding slot · open'}
+        </span>
+      </div>
+    </div>
+  )
 }
 
 function PortfolioCard({ entry }: { entry: PortfolioEntry }) {
@@ -317,6 +482,18 @@ function PortfolioCard({ entry }: { entry: PortfolioEntry }) {
 
 const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
   {
+    brand: 'JC Air Pro',
+    domain: 'jcairpro.com',
+    trade: 'AC · Heating · Commercial HVAC',
+    location: 'DFW · Texas',
+    headline: 'Honest AC',
+    headlineAccent: 'done right.',
+    tagline: 'Family-owned, bilingual HVAC. Texas Class A licensed. 15+ years on Dallas systems.',
+    stats: [{ n: '15+', l: 'Years' }, { n: '5★', l: 'Google' }, { n: '16', l: 'DFW cities' }],
+    status: 'real',
+    slug: 'jc-air-pro',
+  },
+  {
     brand: 'Code 3',
     brandSuffix: 'Cleaning',
     domain: 'code3cleaning.com',
@@ -327,6 +504,7 @@ const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
     tagline: 'Window, gutter, carpet & screen repair. Same-day quotes. Fully insured.',
     stats: [{ n: '136+', l: 'Jobs done' }, { n: '5★', l: 'Rating' }, { n: 'Same', l: 'Day quotes' }],
     status: 'real',
+    slug: 'code-3-cleaning',
   },
   {
     brand: 'BrightPath',
@@ -476,9 +654,21 @@ export default function SitesPage() {
           </div>
 
           <div className="portfolio-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: 20 }}>
-            {PORTFOLIO_ENTRIES.map((entry, i) => (
-              <PortfolioCard key={i} entry={entry} />
-            ))}
+            {PORTFOLIO_ENTRIES.map((entry, i) => {
+              const Card = entry.slug === 'jc-air-pro' ? JcAirProShowcase : PortfolioCard
+              return entry.slug ? (
+                <Link
+                  key={i}
+                  href={`/preview/${entry.slug}`}
+                  style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}
+                  aria-label={`Preview the ${entry.brand} site`}
+                >
+                  <Card entry={entry} />
+                </Link>
+              ) : (
+                <Card key={i} entry={entry} />
+              )
+            })}
           </div>
         </div>
       </section>
