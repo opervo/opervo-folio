@@ -4,1368 +4,467 @@
 <meta charset="UTF-8">
 <meta name="google-site-verification" content="dqtkzyB8hQ_hB38N_" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Opervo — The app built for solo trade operators</title>
-<meta name="description" content="Run your jobs, invoice clients, and get a folio that publishes every job you finish — automatically. Built by a solo operator for solo operators. 14 days free.">
+<title>Opervo | Stop looking like a side hustle</title>
+<meta name="description" content="Branded quotes, branded invoices, and a folio page that publishes every job you finish, automatically. Built by a solo operator for solo operators. 14 days free.">
 <meta name="apple-itunes-app" content="app-id=6763399255">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+<meta property="og:title" content="Opervo | Run your service business. Look pro.">
+<meta property="og:description" content="Every job you finish auto-publishes to your folio. Plus jobs, invoices, scheduling, and a quote form built in. Built for solo trade operators. 14 days free.">
+<meta property="og:image" content="https://www.opervo.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://www.opervo.io">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Opervo">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Opervo | Run your service business. Look pro.">
+<meta name="twitter:description" content="Every job you finish auto-publishes to your folio. Jobs, invoices, scheduling, quote form, all built in.">
+<meta name="twitter:image" content="https://www.opervo.io/og-image.png">
+<link rel="canonical" href="https://www.opervo.io" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.opervo.io/#organization",
+      "name": "Opervo",
+      "alternateName": ["Opervo.io", "Opervo App"],
+      "url": "https://www.opervo.io",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.opervo.io/og-image.png",
+        "width": 1200,
+        "height": 630
+      },
+      "description": "Field service management software for solo home-service operators, window cleaners, pressure washers, landscapers, and other trades.",
+      "founder": {
+        "@type": "Person",
+        "name": "Maximiliano Ballesteros"
+      },
+      "foundingLocation": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Austin",
+          "addressRegion": "TX",
+          "addressCountry": "US"
+        }
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "help@opervo.io",
+        "contactType": "customer support",
+        "availableLanguage": "English"
+      },
+      "sameAs": [
+        "https://app.opervo.io"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.opervo.io/#website",
+      "url": "https://www.opervo.io",
+      "name": "Opervo",
+      "publisher": { "@id": "https://www.opervo.io/#organization" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://www.opervo.io/#software",
+      "name": "Opervo",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web, iOS, Android",
+      "description": "Mobile-first field service management app for solo trade operators. Jobs, estimates, invoices, scheduling, client portal, and a live portfolio page.",
+      "url": "https://www.opervo.io",
+      "publisher": { "@id": "https://www.opervo.io/#organization" },
+      "offers": [
+        { "@type": "Offer", "name": "Solo Plan (Monthly)", "price": "24.99", "priceCurrency": "USD", "url": "https://www.opervo.io/#pricing" },
+        { "@type": "Offer", "name": "Solo Plan (Annual)",  "price": "249.00", "priceCurrency": "USD", "url": "https://www.opervo.io/#pricing" },
+        { "@type": "Offer", "name": "Team Plan (Monthly)", "price": "54.99", "priceCurrency": "USD", "url": "https://www.opervo.io/#pricing" },
+        { "@type": "Offer", "name": "Team Plan (Annual)",  "price": "549.00", "priceCurrency": "USD", "url": "https://www.opervo.io/#pricing" },
+        { "@type": "Offer", "name": "Solo Lifetime Pass", "price": "499.00", "priceCurrency": "USD", "url": "https://www.opervo.io/#lifetime" },
+        { "@type": "Offer", "name": "Team Lifetime Pass", "price": "1499.00", "priceCurrency": "USD", "url": "https://www.opervo.io/#lifetime" }
+      ]
+    }
+  ]
+}
+</script>
 <style>
-/* ─── RESET & TOKENS ─── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 :root {
-  --orange: #F5620F;
-  --orange-dim: #d94e08;
-  --orange-hover: #d94e08;
-  --orange-glow: rgba(245,98,15,0.30);
-  --orange-pale: rgba(245,98,15,0.08);
+  --primary: #F5620F;
+  --primary-hover: #d94e08;
+  --primary-glow: rgba(245,98,15,0.18);
+  --primary-light: rgba(245,98,15,0.08);
   --black: #0F0F0F;
   --ink: #1a1a1a;
-  --off: #F7F5F2;
+  --muted: #6B6B6B;
   --bg: #F7F5F2;
   --surface: #FFFFFF;
+  --border: #E8E4DE;
   --warm: #EDE9E3;
-  --rule: #E0DBD4;
-  --border: #E0DBD4;
-  --muted: #7a7269;
-  --white: #ffffff;
   --blue: #1A6BF0;
   --navy: #0D1B3E;
-  --green: #10B981;
+  --green: #22c55e;
+  --font-heading: 'Barlow Condensed', sans-serif;
+  --font-body: 'Barlow', sans-serif;
 }
-
+* { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-
-body {
-  font-family: 'Barlow', sans-serif;
-  background: var(--off);
-  color: var(--ink);
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  line-height: 1.5;
-}
-
-/* Subtle grain */
-body::after {
-  content: '';
-  position: fixed; inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  opacity: .025; pointer-events: none; z-index: 9999;
-}
-
-::-webkit-scrollbar { width: 3px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 3px; }
-
+body { font-family: var(--font-body); background: var(--bg); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
 
-.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+/* ---------- type ---------- */
+.eyebrow {
+  font-family: var(--font-heading); font-size: 12px; font-weight: 700;
+  letter-spacing: 4px; text-transform: uppercase; color: var(--primary);
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.eyebrow::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--primary); }
+h1, h2, h3 { font-family: var(--font-heading); text-transform: uppercase; color: var(--black); letter-spacing: -0.5px; line-height: 0.95; }
+h1 { font-weight: 900; font-size: clamp(52px, 7.5vw, 104px); }
+h2 { font-weight: 900; font-size: clamp(38px, 5vw, 64px); }
+h3 { font-weight: 700; font-size: 22px; letter-spacing: 0; }
+.dot { color: var(--primary); }
+.lead { font-size: 19px; color: var(--muted); font-weight: 400; max-width: 560px; }
+.lead strong { color: var(--ink); font-weight: 600; }
 
-/* ─── NAV ─── */
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-body);
+  font-weight: 600; font-size: 16px; border-radius: 8px; padding: 16px 28px;
+  cursor: pointer; border: none; transition: all .18s ease; white-space: nowrap;
+}
+.btn-primary { background: var(--primary); color: #fff; box-shadow: 0 6px 20px rgba(245,98,15,0.25); }
+.btn-primary:hover { background: var(--primary-hover); transform: translateY(-1px); }
+.btn-secondary { background: transparent; color: var(--ink); border: 1.5px solid var(--border); }
+.btn-secondary:hover { border-color: var(--ink); }
+.btn-ghost-dark { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.3); }
+.btn-ghost-dark:hover { border-color: #fff; }
+.btn .arrow { transition: transform .18s ease; }
+.btn:hover .arrow { transform: translateX(3px); }
+
+/* ---------- nav ---------- */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  height: 58px;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 28px;
-  background: rgba(247,245,242,0.92);
-  backdrop-filter: blur(20px) saturate(180%);
-  border-bottom: 1px solid var(--rule);
+  background: rgba(247,245,242,0.88); backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent; transition: border-color .2s;
 }
+nav.scrolled { border-bottom-color: var(--border); }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+.logo { font-family: var(--font-heading); font-weight: 900; font-size: 26px; color: var(--black); letter-spacing: -1px; }
+.nav-links { display: flex; gap: 28px; align-items: center; list-style: none; }
+.nav-links a { font-size: 15px; font-weight: 500; color: var(--ink); }
+.nav-links a:hover { color: var(--primary); }
+.nav-cta { font-family: var(--font-heading); font-weight: 700; font-size: 14px; letter-spacing: 1.5px; text-transform: uppercase; background: var(--primary); color: #fff; padding: 12px 22px; border-radius: 8px; box-shadow: 0 6px 20px var(--primary-glow); display: inline-flex; align-items: center; gap: 8px; transition: background .18s; }
+.nav-cta:hover { background: var(--primary-hover); color: #fff; }
 
-.nav-logo {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 22px; font-weight: 900;
-  letter-spacing: -0.02em; color: var(--black);
-  text-decoration: none;
-}
-.nav-logo span { color: var(--orange); }
+/* ---------- hero ---------- */
+.hero { padding: 150px 0 60px; position: relative; overflow: hidden; }
+.hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: center; }
+.hero-kicker { font-family: var(--font-heading); font-weight: 700; font-size: 15px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
+.hero-kicker strong { color: var(--primary); }
+.strike { position: relative; white-space: nowrap; }
+.strike::after { content: ""; position: absolute; left: -2%; right: -2%; top: 52%; height: 0.09em; background: var(--primary); transform: rotate(-2deg); border-radius: 4px; }
+.hero .lead { margin: 26px 0 32px; }
+.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+.trust-strip { margin-top: 18px; font-size: 14px; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+.trust-strip .dot-g { width: 8px; height: 8px; border-radius: 50%; background: var(--green); display: inline-block; }
+.demo-link { margin-top: 12px; font-size: 15px; }
+.demo-link a { color: var(--primary); font-weight: 600; border-bottom: 1.5px dashed var(--primary); }
+.store-badge { margin-top: 20px; }
+.store-badge img { height: 42px; width: auto; }
 
-.nav-links {
-  display: flex; align-items: center; gap: 28px;
-  list-style: none;
+/* hero quote chip */
+.hero-quote {
+  margin-top: 30px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  padding: 16px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); max-width: 480px;
 }
-.nav-links a {
-  font-size: 13px; font-weight: 600; color: var(--muted);
-  text-decoration: none; letter-spacing: 0.01em;
-  transition: color .15s;
-}
-.nav-links a:hover { color: var(--ink); }
+.hero-quote p { font-size: 15.5px; color: var(--ink); font-style: italic; line-height: 1.45; }
+.hero-quote .attr { display: flex; align-items: center; gap: 10px; margin-top: 10px; font-style: normal; }
+.avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--warm); display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-weight: 700; font-size: 13px; color: var(--primary); border: 1px solid var(--border); }
+.attr-name { font-size: 13.5px; font-weight: 600; color: var(--ink); }
+.attr-meta { font-size: 12.5px; color: var(--muted); }
+.via-fb { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-heading); font-weight: 700; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+.via-fb::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--primary); }
+.hero-quote .via-fb { margin-bottom: 8px; }
 
-.nav-cta {
-  background: var(--orange);
-  color: var(--white);
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 15px; font-weight: 800;
-  letter-spacing: 0.04em; text-transform: uppercase;
-  padding: 9px 22px; border-radius: 8px; border: none;
-  cursor: pointer; text-decoration: none;
-  box-shadow: 0 4px 16px var(--orange-glow);
-  transition: transform .15s, box-shadow .15s, background .15s;
-  display: inline-flex; align-items: center; gap: 7px;
-}
-.nav-cta:hover {
-  background: var(--orange-dim);
-  transform: translateY(-1px);
-  box-shadow: 0 6px 22px var(--orange-glow);
-}
-
-/* Hamburger button */
-.nav-hamburger {
-  display: none; background: none; border: none; cursor: pointer; padding: 8px;
-}
-.nav-hamburger svg { display: block; }
-
-/* Mobile menu overlay */
-.mobile-menu {
-  display: none;
-  position: fixed; top: 58px; left: 0; right: 0; bottom: 0;
-  background: rgba(247,245,242,0.98); backdrop-filter: blur(20px);
-  z-index: 99; padding: 24px 28px; overflow-y: auto;
-}
-.mobile-menu.open { display: block; }
-.mobile-menu-section {
-  font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700;
-  color: var(--orange); text-transform: uppercase; letter-spacing: 0.1em;
-  padding: 16px 0 6px; margin: 0;
-}
-.mobile-menu-section:first-child { padding-top: 0; }
-.mobile-menu a {
-  display: block; padding: 10px 0; font-size: 15px; font-weight: 500;
-  color: var(--ink); text-decoration: none;
-}
-.mobile-menu-cta {
-  display: inline-block; background: var(--orange); color: var(--white);
-  font-weight: 700; font-size: 13px; padding: 10px 20px; border-radius: 6px;
-  text-decoration: none; margin-top: 16px;
-}
-
-@media (max-width: 640px) {
-  .nav-links { display: none; }
-  .nav-hamburger { display: block; }
-  .nav-cta { display: none; }
-}
-
-/* ─── BUTTONS ─── */
-.btn {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 14px 24px; border-radius: 10px;
-  font-family: 'Barlow', sans-serif;
-  font-weight: 700; font-size: 15px;
-  transition: all .15s ease;
-  border: none; cursor: pointer;
-  text-decoration: none;
-}
-.btn-primary { background: var(--orange); color: white; }
-.btn-primary:hover { background: var(--orange-hover); }
-.btn-primary::after { content: '→'; font-size: 18px; }
-.btn-secondary {
-  background: transparent; color: var(--ink);
-  border: 2px solid var(--border);
-}
-.btn-secondary:hover { border-color: var(--ink); }
-
-/* ─── HERO ─── */
-.hero {
-  padding: 110px 0 100px;
-  position: relative;
-  overflow: hidden;
-}
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 64px; align-items: center;
-}
-@media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; gap: 40px; } }
-
-.hero-tagline {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 900;
-  font-size: 82px; line-height: 0.92;
-  letter-spacing: -0.01em;
-  text-transform: uppercase;
-  color: var(--black);
-  margin-bottom: 24px;
-}
-.hero-tagline .accent { color: var(--orange); }
-@media (max-width: 900px) { .hero-tagline { font-size: 54px; } }
-@media (max-width: 520px) { .hero-tagline { font-size: 44px; } }
-
-.hero-kicker {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 900;
-  font-size: 36px; line-height: 1.02;
-  letter-spacing: -0.01em;
-  text-transform: uppercase;
-  color: var(--black);
-  margin-bottom: 20px;
-}
-.hero-kicker .strike { position: relative; color: var(--muted); }
-.hero-kicker .strike::after {
-  content: ""; position: absolute;
-  left: -2px; right: -2px; top: 54%;
-  height: 5px; background: var(--orange);
-  transform: rotate(-2deg); border-radius: 2px;
-}
-@media (max-width: 900px) { .hero-kicker { font-size: 28px; } }
-@media (max-width: 520px) { .hero-kicker { font-size: 22px; } }
-
-.hero-sub {
-  font-size: 20px;
-  color: var(--muted);
-  line-height: 1.5;
-  margin-bottom: 32px;
-  max-width: 520px;
-}
-.hero-sub strong { color: var(--ink); font-weight: 700; }
-
-.hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; }
-
-.hero-app-store { margin: 14px 0 4px; }
-.hero-app-store img {
-  height: 44px;
-  width: auto;
-  display: block;
-  transition: opacity 0.15s ease;
-}
-.hero-app-store a:hover img { opacity: 0.85; }
-
-.hero-trust {
-  display: flex; align-items: center; gap: 10px;
-  font-size: 13px; color: var(--muted); font-weight: 500;
-}
-.hero-trust::before {
-  content: ''; width: 8px; height: 8px; border-radius: 50%;
-  background: var(--green);
-  box-shadow: 0 0 0 3px rgba(16,185,129,0.2);
-}
-
-.hero-text-founder {
-  display: inline-flex; align-items: center; gap: 8px;
-  margin-top: 14px;
-  font-size: 14px; font-weight: 600; color: var(--orange);
-  text-decoration: none;
-  border-bottom: 1px dashed rgba(245,98,15,0.4);
-  padding-bottom: 3px;
-  transition: color 0.15s, border-color 0.15s;
-}
-.hero-text-founder:hover { color: var(--orange-hover); border-bottom-color: var(--orange-hover); }
-.hero-text-founder strong { font-weight: 700; }
-
-/* Founding 50 strip */
-.founding-strip {
-  background: linear-gradient(135deg, #0F0F0F 0%, #1A1A1A 100%);
-  padding: 64px 0;
-  position: relative;
-  overflow: hidden;
-}
-.founding-strip::before {
-  content: '';
-  position: absolute;
-  top: -50%; right: -10%;
-  width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(245,98,15,0.18) 0%, transparent 70%);
-  pointer-events: none;
-}
-.founding-strip-inner {
-  max-width: 760px; margin: 0 auto;
-  text-align: center; padding: 0 24px;
-  position: relative; z-index: 1;
-}
-.founding-strip-eyebrow {
-  display: inline-block;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 800; font-size: 12px;
-  letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--orange);
-  background: rgba(245,98,15,0.12);
-  padding: 7px 14px; border-radius: 4px;
-  margin-bottom: 20px;
-}
-.founding-strip-title {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 900; font-size: clamp(28px, 4.4vw, 40px);
-  text-transform: uppercase;
-  color: #F7F5F2; line-height: 1.05;
-  letter-spacing: -0.5px;
-  margin-bottom: 18px;
-}
-.founding-strip-title .accent { color: var(--orange); }
-.founding-strip-sub {
-  font-size: 15px; color: #B8B8B8;
-  line-height: 1.65;
-  max-width: 600px; margin: 0 auto 28px;
-}
-.founding-strip-ctas {
-  display: flex; gap: 12px;
-  justify-content: center; flex-wrap: wrap;
-  margin-bottom: 16px;
-}
-.founding-strip-cta-primary {
-  display: inline-block;
-  background: var(--orange); color: #fff;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 800; font-size: 15px;
-  text-transform: uppercase; letter-spacing: 0.05em;
-  padding: 14px 32px; border-radius: 6px;
-  text-decoration: none;
-}
-.founding-strip-cta-primary:hover { background: var(--orange-hover); }
-.founding-strip-cta-secondary {
-  display: inline-block;
-  background: transparent; color: #fff;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 700; font-size: 15px;
-  text-transform: uppercase; letter-spacing: 0.05em;
-  padding: 14px 24px; border-radius: 6px;
-  text-decoration: none;
-  border: 1px solid rgba(255,255,255,0.25);
-}
-.founding-strip-cta-secondary:hover { border-color: rgba(255,255,255,0.55); }
-.founding-strip-fineprint {
-  font-size: 12px; color: #888;
-  margin-top: 4px;
-}
-
-/* Founding 50 progress meter */
-.founding-progress {
-  max-width: 460px; margin: 0 auto 24px;
-}
-.founding-progress-row {
-  display: flex; justify-content: space-between; align-items: baseline;
-  margin-bottom: 8px;
-  font-family: 'Barlow Condensed', sans-serif;
-  text-transform: uppercase; letter-spacing: 0.06em;
-}
-.founding-progress-claimed {
-  font-size: 13px; font-weight: 800; color: #F7F5F2;
-}
-.founding-progress-remaining {
-  font-size: 12px; font-weight: 700; color: var(--orange);
-}
-.founding-progress-bar {
-  position: relative;
-  height: 8px;
-  background: rgba(255,255,255,0.08);
-  border-radius: 999px;
-  overflow: hidden;
-}
-.founding-progress-fill {
-  position: absolute; top: 0; left: 0; height: 100%;
-  background: linear-gradient(90deg, var(--orange) 0%, #FF8A3D 100%);
-  border-radius: 999px;
-  box-shadow: 0 0 12px rgba(245,98,15,0.5);
-  transition: width 0.6s ease-out;
-}
-.founding-progress-fill::after {
-  content: '';
-  position: absolute; top: 0; right: -2px;
-  width: 4px; height: 100%;
-  background: #FFB37D;
-  border-radius: 999px;
-  animation: founding-pulse 2s ease-in-out infinite;
-}
-@keyframes founding-pulse {
-  0%, 100% { opacity: 0.6; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.4); }
-}
-
-/* Lifetime Pass strip — light treatment to break dark chain between
-   Command Center and Founding 50 strip. Premium-calm tone for the
-   "Pay once. Be done." principled-ownership story. */
-.lifetime-strip {
-  background: #F7F5F2;
-  color: #0F0F0F;
-  padding: 80px 24px;
-  position: relative;
-  overflow: hidden;
-  border-top: 1px solid #E8E4DE;
-  border-bottom: 1px solid #E8E4DE;
-}
-.lifetime-strip::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 85% 25%, rgba(245,98,15,0.08) 0%, transparent 55%);
-  pointer-events: none;
-}
-.lifetime-strip-inner {
-  max-width: 760px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-.lifetime-strip-eyebrow {
-  font-size: 11px;
-  font-weight: 800;
-  color: #F5620F;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  margin-bottom: 18px;
-}
-.lifetime-strip-title {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 900;
-  font-size: clamp(40px, 6vw, 64px);
-  line-height: 1.0;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  margin: 0 0 24px;
-  color: #0F0F0F;
-}
-.lifetime-strip-title .accent { color: #F5620F; }
-.lifetime-strip-lede {
-  font-size: 17px;
-  line-height: 1.6;
-  color: #3a3a3a;
-  margin: 0 0 28px;
-  max-width: 640px;
-}
-.lifetime-strip-bullets {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 28px;
-  display: grid;
-  gap: 12px;
-}
-.lifetime-strip-bullets li {
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-  font-size: 15px;
-  line-height: 1.55;
-  color: #1a1a1a;
-}
-.lifetime-strip-bullets svg { flex-shrink: 0; margin-top: 3px; }
-.lifetime-strip-quote {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #6B6B6B;
-  border-left: 3px solid #F5620F;
-  padding-left: 18px;
-  margin: 0 0 28px;
-  font-style: italic;
-}
-.lifetime-strip-meta {
-  font-size: 13px;
-  font-weight: 700;
-  color: #F5620F;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin: 0 0 20px;
-}
-.lifetime-strip-ctas {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-.lifetime-strip-cta-primary {
-  display: inline-block;
-  background: #F5620F;
-  color: #fff;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 800;
-  font-size: 15px;
-  padding: 16px 30px;
-  border-radius: 8px;
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  transition: background 0.18s ease;
-}
-.lifetime-strip-cta-primary:hover { background: var(--orange-hover); }
-.lifetime-strip-cta-secondary {
-  display: inline-block;
-  background: transparent;
-  color: #0F0F0F;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 800;
-  font-size: 15px;
-  padding: 16px 24px;
-  border-radius: 8px;
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  border: 1px solid #0F0F0F;
-  transition: background 0.18s ease, color 0.18s ease;
-}
-.lifetime-strip-cta-secondary:hover { background: #0F0F0F; color: #fff; }
-
-/* Phone mockup */
+/* phone mockup */
+.phone-stage { position: relative; display: flex; justify-content: center; }
 .phone {
-  width: 100%; max-width: 340px;
-  background: var(--black);
-  border-radius: 40px;
-  padding: 12px;
-  box-shadow: 0 30px 80px rgba(15,15,15,0.25);
-  margin: 0 auto;
-  position: relative;
+  width: 330px; border-radius: 42px; border: 10px solid var(--black);
+  background: #1b1b1b; overflow: hidden; box-shadow: 0 40px 80px rgba(15,15,15,0.28);
 }
-.phone-screen {
-  background: var(--bg);
-  border-radius: 28px;
-  overflow: hidden;
-  display: block;
+.phone img { width: 100%; }
+.float-card {
+  position: absolute; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 14px; padding: 12px 16px; box-shadow: 0 12px 32px rgba(15,15,15,0.14);
+  display: flex; gap: 12px; align-items: center; animation: floaty 5s ease-in-out infinite;
 }
-.phone-screen-img { background: var(--black); line-height: 0; }
-.phone-screen-img img { width: 100%; height: auto; display: block; }
-/* Live folio embed inside the phone frame — same-origin iframe of /p/solar-wash-atx */
-.phone-screen-live {
-  background: var(--black);
-  aspect-ratio: 9 / 19;
-  position: relative;
-}
-.phone-screen-live iframe {
-  width: 100%; height: 100%;
-  border: 0; display: block;
-  background: var(--bg);
-}
-@media (max-width: 720px) {
-  /* On mobile, don't let the iframe trap scroll inside the phone frame.
-     Visitors see the live folio, but the page keeps scrolling. */
-  .phone-screen-live iframe { pointer-events: none; }
-}
+.float-card .ic { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.float-card b { display: block; font-size: 14px; color: var(--ink); }
+.float-card span { font-size: 12.5px; color: var(--muted); }
+.fc-1 { top: 8%; right: -3%; animation-delay: 0s; }
+.fc-1 .ic { background: rgba(34,197,94,0.12); color: var(--green); }
+.fc-2 { bottom: 26%; left: -6%; animation-delay: 1.4s; }
+.fc-2 .ic { background: rgba(26,107,240,0.1); color: var(--blue); }
+.fc-3 { bottom: 4%; right: -2%; animation-delay: 2.6s; }
+.fc-3 .ic { background: var(--primary-light); color: var(--primary); }
+@keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
 
-/* ─── Command Center section (desktop + phone composite) ─── */
-.cc-composite {
-  position: relative;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-.cc-desktop-frame {
-  background: #1a1a1a;
-  border-radius: 14px;
-  box-shadow: 0 30px 60px rgba(15,15,15,0.18), 0 8px 20px rgba(15,15,15,0.12);
-  overflow: hidden;
-  position: relative;
-  z-index: 1;
-}
-.cc-browser-bar {
-  background: #0F0F0F;
-  height: 32px;
-  display: flex; align-items: center;
-  padding: 0 14px; gap: 7px;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-.cc-traffic { width: 11px; height: 11px; border-radius: 50%; }
-.cc-t-red { background: #ff5f56; }
-.cc-t-yel { background: #ffbd2e; }
-.cc-t-grn { background: #27c93f; }
-.cc-url {
-  margin-left: 18px; flex: 1;
-  background: rgba(255,255,255,0.08);
-  height: 20px; border-radius: 5px;
-  display: flex; align-items: center; padding: 0 10px;
-  font-size: 11px; color: rgba(255,255,255,0.55);
-  font-family: 'SF Mono', Menlo, monospace;
-}
-.cc-desktop-shot { width: 100%; display: block; }
-.cc-phone {
-  position: absolute;
-  right: -2%; bottom: -10%;
-  width: 200px;
-  background: #1a1a1a;
-  border-radius: 32px;
-  padding: 6px;
-  box-shadow: 0 30px 70px rgba(15,15,15,0.4), 0 12px 30px rgba(15,15,15,0.25);
-  transform: rotate(4deg);
-  z-index: 10;
-}
-.cc-phone-screen {
-  width: 100%;
-  border-radius: 26px;
-  overflow: hidden;
-  background: var(--bg);
-}
-.cc-phone-shot { width: 100%; display: block; }
-.cc-glow {
-  position: absolute;
-  width: 70%; height: 70%;
-  background: radial-gradient(circle, rgba(245,98,15,0.12) 0%, rgba(245,98,15,0) 70%);
-  z-index: 0;
-  left: 15%; top: 15%;
-  pointer-events: none;
-  filter: blur(40px);
-}
-.cc-stats {
-  margin-top: 100px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  max-width: 960px; margin-left: auto; margin-right: auto;
-  padding-top: 80px;
-}
-.cc-stat { text-align: center; }
-.cc-stat-num {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 900; font-size: 42px;
-  color: var(--black); line-height: 1;
-  letter-spacing: -0.5px;
-}
-.cc-stat-num .accent { color: var(--orange); }
-.cc-stat-label {
-  margin-top: 6px;
-  font-size: 13px; color: var(--muted);
-  font-weight: 500;
-}
-.cc-cta { margin-top: 56px; text-align: center; }
-@media (max-width: 900px) {
-  .cc-composite { max-width: 100%; }
-  .cc-phone {
-    position: static;
-    width: 56%;
-    max-width: 220px;
-    margin: 24px auto 0;
-    transform: none;
-  }
-  .cc-glow { display: none; }
-  .cc-stats {
-    margin-top: 56px;
-    padding-top: 40px;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px 20px;
-  }
-  .cc-stat-num { font-size: 34px; }
-}
-@media (max-width: 480px) {
-  .cc-browser-bar { height: 24px; padding: 0 10px; }
-  .cc-traffic { width: 8px; height: 8px; }
-  .cc-url { height: 16px; font-size: 9px; margin-left: 10px; }
-}
+/* logo proof bar */
+.proof-bar { padding: 28px 0 56px; }
+.proof-inner { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+.proof-logos { display: flex; gap: 10px; }
+.proof-logos img { width: 52px; height: 52px; border-radius: 10px; object-fit: cover; border: 1px solid var(--border); background: #fff; }
+.proof-text { font-size: 14.5px; color: var(--muted); }
+.proof-text b { color: var(--ink); display: block; font-size: 15px; }
 
-/* Hero phone + floating callouts */
-.hero-phone-wrap {
-  position: relative;
-  width: 100%; max-width: 340px;
-  margin: 0 auto;
-}
-.hero-callout {
-  position: absolute;
-  background: white;
-  border-radius: 14px;
-  padding: 10px 14px;
-  display: flex; align-items: center; gap: 10px;
-  box-shadow: 0 14px 34px rgba(15,15,15,0.14);
-  z-index: 5;
-  animation: floatCard 5s ease-in-out infinite;
-  min-width: 180px;
-}
-.hero-callout-icon {
-  width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 900; font-size: 15px;
-}
-.hero-callout-text { line-height: 1.15; }
-.hero-callout-main {
-  font-family: 'Barlow', sans-serif; font-weight: 700; font-size: 13px;
-  color: var(--ink); margin-bottom: 2px; white-space: nowrap;
-}
-.hero-callout-sub {
-  font-size: 11px; color: var(--muted); font-weight: 500;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 160px;
-}
-.hero-callout-1 { top: 10%; right: -130px; animation-delay: 0s; }
-.hero-callout-2 { top: 46%; left: -140px; animation-delay: 1.4s; }
-.hero-callout-3 { bottom: 14%; right: -115px; animation-delay: 2.8s; }
-@media (max-width: 900px) {
-  .hero-callout-1 { right: -16px; }
-  .hero-callout-2 { left: -16px; }
-  .hero-callout-3 { right: -16px; }
-  .hero-callout { min-width: auto; }
-}
-@media (max-width: 520px) {
-  .hero-callout { padding: 8px 12px; }
-  .hero-callout-icon { width: 28px; height: 28px; font-size: 13px; }
-  .hero-callout-main { font-size: 12px; }
-  .hero-callout-sub { font-size: 10px; max-width: 120px; }
-}
-@keyframes floatCard {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
+/* ---------- price teaser strip ---------- */
+.teaser { background: var(--black); color: #fff; padding: 64px 0; }
+.teaser-grid { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center; }
+.teaser h2 { color: #fff; font-size: clamp(30px, 3.6vw, 46px); }
+.teaser p { color: rgba(255,255,255,0.65); margin-top: 12px; max-width: 620px; font-size: 17px; }
+.teaser p b { color: #fff; }
+.teaser-price { text-align: center; }
+.teaser-price .big { font-family: var(--font-heading); font-weight: 900; font-size: 72px; color: var(--primary); line-height: 1; }
+.teaser-price .small { font-size: 14px; color: rgba(255,255,255,0.6); margin-top: 6px; }
+.teaser-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; color: var(--primary); font-weight: 600; font-size: 15.5px; border-bottom: 1.5px dashed var(--primary); padding-bottom: 2px; }
 
-/* Hero trust strip (avatars) */
-.hero-proof {
-  display: flex; align-items: center; gap: 14px;
-  margin-top: 20px;
-}
-.hero-proof-logos {
-  display: flex; align-items: center; gap: 22px; flex-wrap: wrap;
-}
-.hero-proof-logos img {
-  height: 44px; width: auto; display: block;
-  opacity: 0.78;
-  filter: grayscale(0.1);
-  transition: opacity .2s ease, filter .2s ease;
-}
-.hero-proof-logos img:hover { opacity: 1; filter: none; }
-@media (max-width: 520px) {
-  .hero-proof-logos { gap: 16px; }
-  .hero-proof-logos img { height: 36px; }
-}
-.hero-proof-text { font-size: 13px; line-height: 1.4; color: var(--muted); font-weight: 500; }
-.hero-proof-text strong { color: var(--ink); font-weight: 700; }
+/* ---------- sections ---------- */
+section.block { padding: 110px 0; }
+.section-head { max-width: 720px; margin-bottom: 56px; }
+.section-head.centered { margin-left: auto; margin-right: auto; text-align: center; }
+.section-head.centered .eyebrow { justify-content: center; }
+.section-head h2 { margin: 18px 0 16px; }
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+.split.rev > .media { order: 2; }
+.checks { list-style: none; margin-top: 26px; display: grid; gap: 14px; }
+.checks li { display: flex; gap: 12px; align-items: flex-start; font-size: 16px; }
+.checks li b { font-weight: 600; }
+.check-ic { width: 22px; height: 22px; border-radius: 50%; background: var(--primary); color: #fff; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+.check-ic svg { width: 12px; height: 12px; }
+.media-phone { width: 300px; border-radius: 38px; border: 9px solid var(--black); overflow: hidden; box-shadow: 0 30px 60px rgba(15,15,15,0.2); margin: 0 auto; background: #1b1b1b; }
+.media-phone img { width: 100%; }
 
-/* ─── SECTION COMMON ─── */
-.section { padding: 90px 0; position: relative; }
-.section-alt { background: white; }
+/* problem */
+.problem-photo { border-radius: 16px; overflow: hidden; position: relative; margin-bottom: 64px; }
+.problem-photo img { width: 100%; height: auto; }
+@media (max-width: 640px) { .problem-photo img { height: 340px; object-fit: cover; } }
+.problem-photo .overlay {
+  position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15,15,15,0.05) 30%, rgba(15,15,15,0.82) 100%);
+  display: flex; flex-direction: column; justify-content: flex-end; padding: 40px;
+}
+.problem-photo .overlay h2 { color: #fff; max-width: 640px; }
+.problem-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+.p-card { border-top: 2px solid var(--black); padding-top: 22px; }
+.p-num { font-family: var(--font-heading); font-weight: 700; font-size: 13px; letter-spacing: 3px; color: var(--primary); }
+.p-card h3 { margin: 10px 0 12px; }
+.p-card p { font-size: 15.5px; color: var(--muted); }
 
-.eyebrow {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 6px 12px; border-radius: 999px;
-  font-weight: 600; font-size: 11px; letter-spacing: 0.12em;
-  text-transform: uppercase; margin-bottom: 18px;
-}
-.eyebrow-blue { background: rgba(26,107,240,0.08); border: 1px solid rgba(26,107,240,0.2); color: var(--blue); }
-.eyebrow-orange { background: rgba(245,98,15,0.08); border: 1px solid rgba(245,98,15,0.22); color: var(--orange); }
-.eyebrow::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+/* folio */
+.folio-bullets b { color: var(--ink); }
+.live-tag { display: inline-flex; align-items: center; gap: 7px; background: var(--surface); border: 1px solid var(--border); border-radius: 999px; padding: 6px 14px; font-size: 12.5px; font-weight: 600; color: var(--ink); margin-bottom: 14px; }
+.live-tag .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--green); animation: pulse 1.6s infinite; }
+@keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.5); } 50% { box-shadow: 0 0 0 6px rgba(34,197,94,0); } }
 
-.section-title {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 900; font-size: 54px; line-height: 0.98;
-  letter-spacing: -0.01em; text-transform: uppercase;
-  color: var(--black); margin-bottom: 18px;
-}
-.section-title .accent { color: var(--orange); }
-@media (max-width: 900px) { .section-title { font-size: 40px; } }
+/* pain banner */
+.pain { background: var(--black); border-radius: 16px; padding: 52px 40px; display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; margin-top: 72px; }
+.pain .stat { text-align: center; }
+.pain .stat .n { font-family: var(--font-heading); font-weight: 900; font-size: 56px; color: var(--primary); line-height: 1; }
+.pain .stat p { color: rgba(255,255,255,0.6); font-size: 14.5px; margin-top: 10px; max-width: 260px; margin-left: auto; margin-right: auto; }
 
-.section-sub {
-  font-size: 18px; color: var(--muted); line-height: 1.55;
-  margin-bottom: 32px; max-width: 520px;
-}
-.bullets { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
-.bullets li { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; font-weight: 500; color: var(--ink); }
-.bullets li::before {
-  content: ''; flex-shrink: 0; width: 18px; height: 18px; border-radius: 50%;
-  background: var(--orange);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
-  background-size: 11px 11px; background-repeat: no-repeat; background-position: center; margin-top: 3px;
-}
-/* When a bullet leads with bold text, lock the bold to a fixed-width column so the trailing
-   explainer text starts at the same x across every bullet in the list. */
-.bullets li > strong:first-child { flex: 0 0 220px; }
-@media (max-width: 720px) {
-  /* On mobile, switch from a flex row to a hanging-indent block so the
-   * explainer text that follows the bold lead wraps cleanly under itself
-   * (aligned with the bold), not under the bullet circle. */
-  .bullets li {
-    display: block;
-    position: relative;
-    padding-left: 30px;
-  }
-  .bullets li::before {
-    position: absolute;
-    left: 0;
-    top: 4px;
-    margin-top: 0;
-  }
-  .bullets li > strong:first-child { display: inline; flex: none; margin-right: 4px; }
-}
+/* desktop screenshot */
+.browser { border-radius: 14px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 40px 90px rgba(15,15,15,0.18); background: var(--black); }
+.browser-bar { display: flex; align-items: center; gap: 8px; padding: 12px 16px; background: #1c1c1c; }
+.browser-bar .b-dot { width: 10px; height: 10px; border-radius: 50%; }
+.browser-bar .url { margin-left: 12px; background: #2a2a2a; color: #999; font-size: 12px; padding: 5px 14px; border-radius: 6px; font-family: monospace; }
+.stat-note { text-align: center; font-size: 13px; color: var(--muted); margin-top: 16px; }
 
-.two-col {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 64px; align-items: center;
-}
-@media (max-width: 900px) { .two-col { grid-template-columns: 1fr; gap: 40px; } }
-
-/* ─── PROBLEM SECTION ─── */
-.problem-head { max-width: 780px; margin-bottom: 64px; }
-.problem-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 40px; }
-@media (max-width: 900px) { .problem-grid { grid-template-columns: 1fr; gap: 32px; } }
-.problem-card { padding-top: 24px; border-top: 2px solid var(--ink); }
-.problem-num {
-  font-family: 'Barlow', sans-serif; font-weight: 700; font-size: 12px;
-  letter-spacing: 0.18em; color: var(--orange);
-  margin-bottom: 16px; text-transform: uppercase;
-}
-.problem-title {
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-  font-size: 24px; line-height: 1.05; text-transform: uppercase;
-  color: var(--black); margin-bottom: 14px; letter-spacing: -0.005em;
-}
-.problem-body { font-size: 14.5px; color: var(--muted); line-height: 1.55; font-weight: 500; }
-
-/* ─── AI DEMO ─── */
-.ai-demo {
-  background: var(--navy); border-radius: 24px; padding: 24px;
-  box-shadow: 0 20px 60px rgba(13,27,62,0.18);
-  color: white; overflow: hidden;
-}
-.ai-demo-header {
-  display: flex; align-items: center; gap: 10px;
-  padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.08);
-  margin-bottom: 20px;
-}
-.ai-demo-dot {
-  width: 32px; height: 32px; border-radius: 50%;
-  background: rgba(26,107,240,0.2);
-  display: flex; align-items: center; justify-content: center; font-size: 14px;
-}
-.ai-demo-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 18px; text-transform: uppercase; }
-.ai-demo-title .dot { color: var(--orange); }
-.ai-demo-status {
-  margin-left: auto; font-size: 11px; color: rgba(255,255,255,0.5);
-  text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600;
-  display: flex; align-items: center; gap: 6px;
-}
-.ai-demo-status::before {
-  content: ''; width: 6px; height: 6px; border-radius: 50%;
-  background: #22c55e; box-shadow: 0 0 8px rgba(34,197,94,0.6);
-}
-
-.bubble {
-  max-width: 88%; padding: 11px 16px; border-radius: 18px;
-  font-size: 14.5px; line-height: 1.45; margin-bottom: 10px;
-  animation: fade 0.4s ease both;
-}
-.bubble.user { margin-left: auto; background: var(--orange); color: white; border-bottom-right-radius: 6px; }
-.bubble.assistant { margin-right: auto; background: rgba(255,255,255,0.08); color: white; border-bottom-left-radius: 6px; }
-.bubble .cursor {
-  display: inline-block; width: 7px; height: 14px; background: var(--orange);
-  vertical-align: -2px; margin-left: 2px; animation: blink 0.8s infinite;
-}
-.ai-action-btn {
-  display: inline-flex; align-items: center; gap: 6px; background: var(--orange); color: white;
-  padding: 8px 14px; border-radius: 14px; border-bottom-left-radius: 6px;
-  font-weight: 700; font-size: 13.5px; margin-bottom: 12px; animation: fade 0.4s ease both;
-}
-.ai-pills {
-  display: flex; flex-wrap: wrap; gap: 6px;
-  padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.08); margin-top: 8px;
-}
-.ai-pill {
-  padding: 6px 11px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 999px; font-size: 12px; color: rgba(255,255,255,0.75);
-}
-
-@keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+/* AI chat */
+.chat { background: var(--navy); border-radius: 18px; padding: 26px; box-shadow: 0 30px 70px rgba(13,27,62,0.3); }
+.chat-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+.chat-head .t { font-family: var(--font-heading); font-weight: 700; font-size: 15px; letter-spacing: 1.5px; text-transform: uppercase; color: #fff; }
+.chat-live { display: flex; align-items: center; gap: 6px; font-size: 11.5px; letter-spacing: 2px; color: var(--green); font-weight: 600; }
+.msg { max-width: 85%; padding: 12px 16px; border-radius: 14px; font-size: 15px; margin-bottom: 12px; }
+.msg.user { background: var(--primary); color: #fff; margin-left: auto; border-bottom-right-radius: 4px; }
+.msg.bot { background: rgba(255,255,255,0.09); color: #fff; border-bottom-left-radius: 4px; }
+.msg .cursor { display: inline-block; width: 8px; height: 14px; background: var(--primary); vertical-align: middle; animation: blink 1s steps(1) infinite; }
 @keyframes blink { 50% { opacity: 0; } }
+.chat-action { display: inline-flex; align-items: center; gap: 8px; background: var(--blue); color: #fff; font-size: 13.5px; font-weight: 600; padding: 9px 16px; border-radius: 8px; margin-bottom: 14px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { font-size: 12.5px; color: rgba(255,255,255,0.75); border: 1px solid rgba(255,255,255,0.2); border-radius: 999px; padding: 6px 13px; }
 
-/* ─── FOLIO STRIP ─── */
-.folio-strip {
-  margin-top: 56px;
-  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px;
-}
-@media (max-width: 960px) { .folio-strip { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 720px) { .folio-strip { grid-template-columns: 1fr; } }
-.folio-strip-lead {
-  grid-column: 1/-1; text-align: center;
-  font-size: 13px; color: var(--muted); font-weight: 600;
-  letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px;
-}
-.folio-strip-lead span { color: var(--orange); }
-.folio-strip-item {
-  background: white; border: 1px solid var(--border);
-  border-radius: 20px; overflow: hidden;
-  box-shadow: 0 10px 30px rgba(15,15,15,0.06);
-  display: flex; flex-direction: column;
-}
-.folio-strip-img {
-  aspect-ratio: 9/11; overflow: hidden; background: var(--bg); position: relative;
-}
-.folio-strip-img img {
-  width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block;
-}
-.folio-strip-label {
-  padding: 14px 18px;
-  display: flex; justify-content: space-between; align-items: center; gap: 12px;
-  border-top: 1px solid var(--border);
-}
-.folio-strip-label-name {
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-  text-transform: uppercase; font-size: 15px; color: var(--ink); letter-spacing: 0.01em;
-}
-.folio-strip-label-desc { font-size: 12px; color: var(--muted); font-weight: 500; text-align: right; }
+/* everything grid */
+.feat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.feat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 26px 22px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.feat-card .f-ic { width: 42px; height: 42px; border-radius: 10px; background: var(--warm); display: flex; align-items: center; justify-content: center; color: var(--ink); margin-bottom: 16px; }
+.feat-card h3 { font-size: 17px; margin-bottom: 6px; }
+.feat-card p { font-size: 14px; color: var(--muted); line-height: 1.5; }
 
-/* ─── FEATURE GRID ─── */
-.feature-grid-head { text-align: center; margin-bottom: 48px; }
-.feature-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-@media (max-width: 900px) { .feature-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 520px) { .feature-grid { grid-template-columns: 1fr; } }
-.feature-card {
-  background: white; border: 1px solid var(--border); border-radius: 16px;
-  padding: 20px;
-}
-.feature-card-icon {
-  width: 36px; height: 36px; border-radius: 10px;
-  background: var(--warm); display: flex; align-items: center; justify-content: center;
-  font-size: 18px; margin-bottom: 14px;
-}
-.feature-card-name {
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 17px;
-  text-transform: uppercase; margin-bottom: 4px; letter-spacing: 0.01em;
-}
-.feature-card-desc { font-size: 13px; color: var(--muted); line-height: 1.45; font-weight: 500; }
+/* testimonials */
+.testi { background: var(--warm); }
+.testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.t-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 30px 26px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); display: flex; flex-direction: column; }
+.t-card blockquote { font-size: 16.5px; line-height: 1.55; color: var(--ink); flex: 1; }
+.t-card .attr { display: flex; align-items: center; gap: 12px; margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--border); }
+.t-card .avatar { width: 42px; height: 42px; font-size: 16px; }
+.t-card.wide { grid-column: span 2; }
+@media (max-width: 980px) { .t-card.wide { grid-column: auto; } }
+.metric-row { display: flex; justify-content: center; gap: 64px; margin-top: 60px; flex-wrap: wrap; }
+.metric { text-align: center; }
+.metric .n { font-family: var(--font-heading); font-weight: 900; font-size: 48px; color: var(--black); line-height: 1; }
+.metric .n em { font-style: normal; color: var(--primary); }
+.metric p { font-size: 14px; color: var(--muted); margin-top: 6px; }
 
-/* ─── SWITCH CTA ─── */
-.switch-cta { padding: 40px 0; background: var(--bg); }
-.switch-card {
-  display: grid; grid-template-columns: auto 1fr auto;
-  gap: 24px; align-items: center;
-  background: white; border: 1px solid var(--border); border-radius: 20px;
-  padding: 22px 28px;
-  box-shadow: 0 10px 30px rgba(15,15,15,0.05);
-}
-@media (max-width: 720px) {
-  .switch-card { grid-template-columns: 1fr; text-align: center; padding: 22px; gap: 14px; }
-  .switch-card .switch-icon { margin: 0 auto; }
-}
-.switch-icon {
-  width: 52px; height: 52px; border-radius: 14px;
-  background: rgba(245,98,15,0.12); color: var(--orange);
-  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-}
-.switch-text-title {
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-  font-size: 21px; text-transform: uppercase; margin-bottom: 6px;
-  color: var(--ink); letter-spacing: -0.005em;
-}
-.switch-text-body { font-size: 14px; color: var(--muted); line-height: 1.5; font-weight: 500; }
-.switch-pill {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 10px 16px; border-radius: 999px;
-  background: rgba(16,185,129,0.12); color: #10B981;
-  font-weight: 700; font-size: 13px; white-space: nowrap;
-  border: 1px solid rgba(16,185,129,0.22);
-}
-.switch-pill::after { content: '→'; font-size: 15px; }
+/* comparison */
+.compare-table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.compare-table th, .compare-table td { padding: 16px 18px; text-align: center; font-size: 14.5px; border-bottom: 1px solid var(--border); }
+.compare-table th { font-family: var(--font-heading); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 14px; }
+.compare-table td:first-child, .compare-table th:first-child { text-align: left; font-weight: 600; }
+.compare-table .op-col { background: var(--primary-light); font-weight: 600; }
+.compare-table tr:last-child td { border-bottom: none; }
+.yes { color: var(--green); font-weight: 700; }
+.no { color: #bbb; }
+.flag { font-size: 11.5px; font-weight: 600; letter-spacing: 0.5px; color: var(--primary); text-transform: uppercase; }
+.compare-note { font-size: 12.5px; color: var(--muted); margin-top: 14px; text-align: center; max-width: 760px; margin-left: auto; margin-right: auto; }
+.calc { margin-top: 64px; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 44px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.calc-head { text-align: center; margin-bottom: 28px; }
+.calc-head h3 { font-size: 30px; font-weight: 900; }
+.calc-tabs { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 28px; }
+.calc-tab { font-family: var(--font-heading); font-weight: 700; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; padding: 10px 20px; border-radius: 8px; border: 1.5px solid var(--border); background: transparent; cursor: pointer; color: var(--ink); }
+.calc-tab.active { background: var(--black); color: #fff; border-color: var(--black); }
+.calc-cards { display: grid; grid-template-columns: 1fr 1.1fr 1fr; gap: 16px; align-items: stretch; }
+.calc-card { border-radius: 14px; padding: 28px 24px; text-align: center; display: flex; flex-direction: column; justify-content: center; }
+.calc-card.them { background: var(--bg); border: 1px solid var(--border); }
+.calc-card.us { background: var(--black); color: #fff; }
+.calc-card.save { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%); color: #fff; }
+.calc-card .label { font-family: var(--font-heading); font-weight: 700; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.75; }
+.calc-card .price { font-family: var(--font-heading); font-weight: 900; font-size: 58px; line-height: 1.05; margin: 8px 0 4px; }
+.calc-card .sub { font-size: 13px; opacity: 0.7; }
 
-/* ─── FOUNDER ─── */
-.founder { padding: 90px 0; background: var(--warm); }
-.founder-wrap { max-width: 820px; margin: 0 auto; text-align: center; }
-.founder-avatar {
-  width: 120px; height: 120px; border-radius: 50%;
-  margin: 0 auto 24px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(15,15,15,0.15), 0 0 0 4px rgba(245,98,15,0.2);
-  display: block;
-}
-.founder-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; transform: scale(1.35); display: block; }
-.founder-cta {
-  display: inline-flex; align-items: center; gap: 6px;
-  margin-top: 18px;
-  font-size: 13px; font-weight: 700; color: var(--orange);
-  letter-spacing: 0.02em;
-  padding: 10px 20px;
-  background: rgba(245,98,15,0.08);
-  border: 1px solid rgba(245,98,15,0.25);
-  border-radius: 999px;
-  transition: background .15s ease, border-color .15s ease;
-}
-.founder-cta:hover { background: rgba(245,98,15,0.14); border-color: var(--orange); }
-.founder-cta::after { content: '→'; font-size: 15px; }
-.founder-label {
-  font-size: 11px; font-weight: 700; letter-spacing: 0.15em;
-  text-transform: uppercase; color: var(--orange); margin-bottom: 14px;
-}
-.founder-quote {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 900; font-size: 34px; line-height: 1.15;
-  letter-spacing: -0.005em; color: var(--black); margin-bottom: 22px;
-}
-@media (max-width: 720px) { .founder-quote { font-size: 26px; } }
-.founder-body { font-size: 16px; color: var(--ink); line-height: 1.6; margin-bottom: 20px; }
-.founder-sig {
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-  font-size: 18px; text-transform: uppercase; letter-spacing: 0.02em; color: var(--black);
-}
-.founder-sig .orange { color: var(--orange); }
-.founder-role { font-size: 12px; color: var(--muted); font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 4px; }
+/* founder */
+.founder { text-align: center; max-width: 780px; margin: 0 auto; }
+.founder img { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; margin: 0 auto 22px; border: 3px solid var(--surface); box-shadow: 0 0 0 3px var(--primary); }
+.founder .q { font-family: var(--font-heading); font-weight: 700; font-size: clamp(26px, 3vw, 36px); line-height: 1.15; color: var(--black); }
+.founder p.body { margin: 22px auto 26px; color: var(--muted); font-size: 17px; max-width: 640px; }
+.founder .sig { font-family: var(--font-heading); font-weight: 900; font-size: 22px; text-transform: uppercase; }
+.founder .role { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-top: 2px; }
+.founder .story-link { display: inline-block; margin-top: 18px; color: var(--primary); font-weight: 600; font-size: 15px; border-bottom: 1.5px dashed var(--primary); }
 
-/* ─── PRICING BAND ─── */
-.pricing { padding: 90px 0; background: var(--black); color: white; }
-.pricing-head { text-align: center; margin-bottom: 44px; }
-.pricing-head .section-title { color: white; }
-.pricing-head .section-sub { margin: 0 auto; color: rgba(255,255,255,0.65); }
-.pricing-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 820px; margin: 0 auto 20px;
-}
-@media (max-width: 720px) { .pricing-grid { grid-template-columns: 1fr; } }
-.price-card {
-  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 20px; padding: 28px;
-}
-.price-card.featured { border-color: var(--orange); background: rgba(245,98,15,0.06); }
-.price-card-name {
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 22px;
-  text-transform: uppercase; margin-bottom: 8px;
-}
-.price-card-num {
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 54px;
-  line-height: 1; margin-bottom: 4px;
-}
-.price-card-num .small { font-size: 18px; font-weight: 700; opacity: 0.65; margin-left: 4px; }
-.price-card-tag { font-size: 14px; color: rgba(255,255,255,0.65); margin-bottom: 22px; }
-.price-card-tag strong { color: white; }
-.price-card .btn-primary { width: 100%; justify-content: center; }
-.pricing-growth {
-  text-align: center; max-width: 820px; margin: 0 auto;
-  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 16px; padding: 16px 20px;
-  display: flex; align-items: center; justify-content: space-between; gap: 16px;
-}
-.pricing-growth-copy { text-align: left; }
-.pricing-growth-copy strong {
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-  font-size: 18px; text-transform: uppercase; display: block; margin-bottom: 2px;
-}
-.pricing-growth-copy span { font-size: 13px; color: rgba(255,255,255,0.65); }
-.pricing-growth a {
-  background: transparent; color: white; border: 2px solid rgba(255,255,255,0.2);
-  padding: 10px 16px; border-radius: 8px; font-weight: 700; font-size: 13px;
-}
-@media (max-width: 720px) {
-  .pricing-growth { flex-direction: column; text-align: center; }
-  .pricing-growth-copy { text-align: center; }
-}
-.pricing-note {
-  text-align: center; margin-top: 32px; font-size: 13px; color: rgba(255,255,255,0.55); font-weight: 500;
-}
+/* lifetime */
+.f50 { background: linear-gradient(160deg, #0F0F0F 0%, #1d1410 100%); color: #fff; }
+.f50 .eyebrow { color: var(--primary); }
+.f50 h2 { color: #fff; }
+.f50 h2 .hl { color: var(--primary); }
+.f50 .lead { color: rgba(255,255,255,0.65); margin: 20px auto 36px; }
+.f50-fine { font-size: 13px; color: rgba(255,255,255,0.45); margin-top: 20px; }
+.f50-lifetime { font-size: 14px; color: rgba(255,255,255,0.55); margin-top: 30px; }
+.f50-lifetime a { color: var(--primary); border-bottom: 1px dashed var(--primary); }
+.lt-math { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 640px; margin: 0 auto 38px; }
+.lt-cell { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 22px 14px; }
+.lt-cell .n { font-family: var(--font-heading); font-weight: 900; font-size: 38px; color: #fff; line-height: 1; }
+.lt-cell .n em { font-style: normal; font-size: 20px; color: var(--primary); }
+.lt-cell p { font-size: 13px; color: rgba(255,255,255,0.55); margin-top: 8px; line-height: 1.4; }
+@media (max-width: 640px) { .lt-math { grid-template-columns: 1fr; } }
+.pass-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; max-width: 780px; margin: 0 auto 26px; text-align: left; }
+.pass-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14); border-radius: 16px; padding: 30px 28px; display: flex; flex-direction: column; }
+.pass-card.featured { border-color: var(--primary); box-shadow: 0 12px 40px rgba(245,98,15,0.15); }
+.pass-card .p-name { font-family: var(--font-heading); font-weight: 900; font-size: 22px; text-transform: uppercase; color: #fff; letter-spacing: 0.5px; }
+.pass-card .p-price { font-family: var(--font-heading); font-weight: 900; font-size: 56px; color: #fff; line-height: 1; margin: 12px 0 2px; }
+.pass-card .p-price .once { font-size: 17px; font-weight: 700; color: rgba(255,255,255,0.5); margin-left: 6px; }
+.pass-card .p-who { font-size: 14px; color: rgba(255,255,255,0.55); margin-bottom: 16px; }
+.pass-avail { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-heading); font-weight: 700; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--primary); margin-bottom: 18px; }
+.pass-avail::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--primary); }
+.pass-card .btn { width: 100%; justify-content: center; margin-top: auto; }
+@media (max-width: 760px) { .pass-grid { grid-template-columns: 1fr; } }
 
-/* ─── SERVICE PLANS VISUAL (not used — uses real screenshot, but kept for fallback) ─── */
-.plan-row-cadence {
-  padding: 5px 10px; background: rgba(26,107,240,0.08); color: var(--blue);
-  border-radius: 999px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em;
-}
+/* pricing */
+.toggle { display: inline-flex; background: var(--warm); border: 1px solid var(--border); border-radius: 999px; padding: 4px; margin: 24px 0 44px; }
+.toggle button { font-family: var(--font-heading); font-weight: 700; font-size: 13.5px; letter-spacing: 1.5px; text-transform: uppercase; border: none; background: transparent; color: var(--muted); padding: 9px 22px; border-radius: 999px; cursor: pointer; }
+.toggle button.active { background: var(--black); color: #fff; }
+.toggle .save-tag { color: var(--primary); font-weight: 700; }
+.price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; max-width: 820px; margin: 0 auto; }
+.price-card { background: var(--surface); border: 1.5px solid var(--border); border-radius: 16px; padding: 38px 34px; text-align: left; position: relative; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.price-card.featured { border-color: var(--primary); box-shadow: 0 12px 40px var(--primary-glow); }
+.price-card .badge { position: absolute; top: -13px; left: 32px; background: var(--primary); color: #fff; font-family: var(--font-heading); font-weight: 700; font-size: 11.5px; letter-spacing: 2px; text-transform: uppercase; padding: 5px 14px; border-radius: 999px; }
+.price-card .plan { font-family: var(--font-heading); font-weight: 900; font-size: 26px; text-transform: uppercase; }
+.price-card .amount { font-family: var(--font-heading); font-weight: 900; font-size: 64px; line-height: 1; margin: 14px 0 4px; }
+.price-card .amount sup { font-size: 26px; top: -24px; position: relative; }
+.price-card .amount .mo { font-size: 20px; font-weight: 700; color: var(--muted); }
+.price-card .who { font-size: 14.5px; color: var(--muted); margin-bottom: 22px; }
+.price-card .checks { margin: 0 0 28px; gap: 10px; }
+.price-card .checks li { font-size: 14.5px; }
+.price-card .btn { width: 100%; justify-content: center; }
+.growth-strip { max-width: 820px; margin: 18px auto 0; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px 26px; display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: 14.5px; color: var(--muted); }
+.growth-strip b { color: var(--ink); font-family: var(--font-heading); font-weight: 700; text-transform: uppercase; font-size: 16px; letter-spacing: 0.5px; }
+.after-trial { text-align: center; font-size: 14px; color: var(--muted); margin-top: 28px; }
+.after-trial b { color: var(--ink); }
 
-/* ─── COMPARISON TABLE ─── */
-.compare-head { text-align: center; margin-bottom: 44px; }
-.compare-head .section-sub { margin: 0 auto; }
-.compare-scroll { overflow-x: auto; max-width: 100%; padding-bottom: 8px; }
-.compare-scroll::-webkit-scrollbar { height: 6px; }
-.compare-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
-.compare-table {
-  width: 100%; border-collapse: separate; border-spacing: 0;
-  max-width: 1040px; margin: 0 auto; min-width: 780px;
-}
-.compare-table th, .compare-table td {
-  padding: 16px 12px; text-align: center; font-size: 13.5px;
-  border-bottom: 1px solid var(--border);
-}
-.compare-table th:first-child, .compare-table td:first-child {
-  text-align: left; font-weight: 600; color: var(--ink);
-  padding-left: 18px; min-width: 170px;
-}
-.compare-table thead th {
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-  font-size: 14px; text-transform: uppercase; color: var(--muted);
-  letter-spacing: 0.02em; border-bottom: 2px solid var(--ink);
-  padding-top: 6px; padding-bottom: 14px;
-}
-.compare-table thead th.compare-us { color: var(--orange); }
-.compare-table td.compare-us-col { background: rgba(245,98,15,0.05); position: relative; }
-.compare-table tbody tr:last-child td { border-bottom: none; }
-.compare-check { color: #10B981; font-weight: 900; font-size: 17px; line-height: 1; }
-.compare-x { color: #cbd5e1; font-size: 18px; line-height: 1; display: inline-block; }
-.compare-partial {
-  color: #F59E0B; font-size: 11px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.04em;
-}
-.compare-text { font-weight: 600; color: var(--ink); }
-.compare-text-muted { color: var(--muted); font-weight: 500; }
-.compare-price-us {
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-  font-size: 22px; color: var(--black); line-height: 1;
-}
-.compare-price-us .mo { font-size: 12px; font-weight: 700; color: var(--muted); margin-left: 2px; }
-.compare-note {
-  text-align: center; font-size: 12px; color: var(--muted);
-  margin-top: 20px; font-weight: 500;
-}
+/* FAQ */
+.faq { max-width: 760px; margin: 0 auto; }
+.faq details { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 12px; overflow: hidden; }
+.faq summary { font-family: var(--font-heading); font-weight: 700; font-size: 18px; text-transform: uppercase; letter-spacing: 0.3px; padding: 20px 24px; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary .plus { color: var(--primary); font-size: 22px; font-weight: 400; transition: transform .2s; font-family: var(--font-body); }
+.faq details[open] summary .plus { transform: rotate(45deg); }
+.faq .a { padding: 0 24px 22px; font-size: 15.5px; color: var(--muted); }
+.faq .a b { color: var(--ink); }
 
-/* Cost-to-match callout */
-.compare-match {
-  max-width: 900px; margin: 44px auto 0;
-  background: linear-gradient(135deg, #0D1B3E 0%, #0a1432 100%);
-  color: white; border-radius: 22px; padding: 32px 36px;
-  box-shadow: 0 24px 60px rgba(13,27,62,0.25);
-}
-@media (max-width: 640px) { .compare-match { padding: 26px 22px; } }
-.compare-match-label {
-  font-size: 11px; font-weight: 700; letter-spacing: 0.15em;
-  text-transform: uppercase; color: var(--orange); margin-bottom: 10px;
-}
-.compare-match-head {
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-  font-size: 28px; line-height: 1.05; letter-spacing: -0.005em;
-  text-transform: uppercase; margin-bottom: 6px;
-}
-.compare-match-head .dot { color: var(--orange); }
-.compare-match-sub {
-  font-size: 14px; color: rgba(255,255,255,0.65);
-  margin-bottom: 22px; font-weight: 500; line-height: 1.5;
-}
-.compare-match-grid { display: flex; flex-direction: column; gap: 9px; }
-.compare-match-row {
-  display: grid; grid-template-columns: 140px 1fr auto; gap: 16px;
-  align-items: center;
-  padding: 13px 18px; border-radius: 12px;
-  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
-}
-.compare-match-row.us { background: rgba(245,98,15,0.12); border-color: rgba(245,98,15,0.4); }
-.compare-match-name {
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-  font-size: 17px; text-transform: uppercase;
-}
-.compare-match-note { font-size: 13px; color: rgba(255,255,255,0.65); font-weight: 500; line-height: 1.4; }
-.compare-match-price {
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-  font-size: 22px; white-space: nowrap; color: white;
-}
-.compare-match-row.us .compare-match-price { color: var(--orange); }
-.compare-match-price.cant {
-  color: rgba(255,255,255,0.55); font-size: 13px;
-  font-weight: 600; letter-spacing: 0.02em;
-  font-family: 'Barlow', sans-serif; text-transform: none;
-}
-@media (max-width: 640px) {
-  .compare-match-row { grid-template-columns: 1fr; gap: 4px; padding: 14px 16px; }
-  .compare-match-row .compare-match-price { justify-self: start; }
-}
+/* final CTA */
+.final { background: radial-gradient(ellipse at 50% 120%, rgba(245,98,15,0.25) 0%, transparent 55%), var(--black); color: #fff; text-align: center; padding: 130px 0; }
+.final .eyebrow { justify-content: center; }
+.final h2 { color: #fff; font-size: clamp(56px, 8vw, 110px); }
+.final .lead { margin: 24px auto 36px; color: rgba(255,255,255,0.65); }
+.final-note { font-size: 13.5px; color: rgba(255,255,255,0.45); margin-top: 20px; }
 
-/* ─── TESTIMONIALS ─── */
-.testimonials-head { text-align: center; margin-bottom: 44px; }
-.testimonials-head .section-sub { margin: 0 auto; }
-.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-@media (max-width: 900px) { .testimonials-grid { grid-template-columns: 1fr; gap: 16px; } }
-.testimonial {
-  background: white; border: 1px solid var(--border); border-radius: 18px;
-  padding: 28px; display: flex; flex-direction: column; gap: 20px;
-}
-.testimonial-stars { color: #F59E0B; font-size: 14px; letter-spacing: 2px; }
-.testimonial-quote {
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-  font-size: 20px; line-height: 1.2; color: var(--black);
-  letter-spacing: -0.005em; flex: 1;
-}
-.testimonial-who {
-  display: flex; align-items: center; gap: 12px;
-  padding-top: 18px; border-top: 1px solid var(--border);
-}
-.testimonial-avatar {
-  width: 42px; height: 42px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  color: white; font-weight: 800; font-size: 14px; flex-shrink: 0;
-}
-.testimonial-meta-name { font-weight: 700; font-size: 14px; color: var(--ink); margin-bottom: 1px; }
-.testimonial-meta-role { font-size: 12px; color: var(--muted); font-weight: 500; }
+/* footer */
+footer { background: var(--bg); border-top: 1px solid var(--border); padding: 64px 0 32px; }
+.foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr; gap: 32px; margin-bottom: 48px; }
+.foot-col h4 { font-family: var(--font-heading); font-weight: 700; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; }
+.foot-col a { display: block; font-size: 14.5px; color: var(--muted); margin-bottom: 9px; }
+.foot-col a:hover { color: var(--primary); }
+.foot-tag { font-size: 14.5px; color: var(--muted); margin-top: 10px; max-width: 240px; }
+.foot-bottom { border-top: 1px solid var(--border); padding-top: 24px; display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); flex-wrap: wrap; gap: 10px; }
 
-/* ─── TRADE CARDS ─── */
-.trades { padding: 90px 0 70px; background: var(--bg); }
-.trades-head { text-align: center; margin-bottom: 44px; }
-.trades-head .section-sub { margin: 0 auto; }
-.trades-grid {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 36px;
+/* sticky mobile CTA */
+.sticky-cta {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 90;
+  background: rgba(15,15,15,0.96); backdrop-filter: blur(10px);
+  padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+  display: none; align-items: center; justify-content: space-between; gap: 12px;
+  transform: translateY(110%); transition: transform .3s ease;
 }
-@media (max-width: 900px) { .trades-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 520px) { .trades-grid { grid-template-columns: 1fr; } }
-.trade-card {
-  background: white; border: 1px solid var(--border); border-radius: 16px;
-  padding: 22px; display: block;
-  transition: border-color .15s ease, transform .15s ease, box-shadow .15s ease;
-}
-.trade-card:hover {
-  border-color: var(--orange); transform: translateY(-2px);
-  box-shadow: 0 14px 36px rgba(245,98,15,0.08);
-}
-.trade-card-name {
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 18px;
-  text-transform: uppercase; margin-bottom: 10px; color: var(--ink);
-  letter-spacing: 0.01em; line-height: 1.05;
-}
-.trade-card-desc { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin-bottom: 14px; font-weight: 500; }
-.trade-card-more {
-  font-size: 13px; font-weight: 700; color: var(--orange);
-  display: inline-flex; align-items: center; gap: 4px;
-}
-.trade-card-more::after { content: '→'; }
-.trades-compare { text-align: center; font-size: 13.5px; color: var(--muted); font-weight: 500; }
-.trades-compare a { color: var(--orange); font-weight: 700; margin: 0 3px; }
-.trades-compare a:hover { text-decoration: underline; }
+.sticky-cta.show { transform: translateY(0); }
+.sticky-cta .s-txt { color: #fff; font-size: 13px; line-height: 1.3; }
+.sticky-cta .s-txt b { font-family: var(--font-heading); font-size: 15px; letter-spacing: 0.5px; text-transform: uppercase; display: block; }
+.sticky-cta .btn { padding: 12px 20px; font-size: 14.5px; }
 
-/* ─── FINAL CTA ─── */
-.final-cta {
-  padding: 100px 0; background: var(--black); color: white;
-  text-align: center; position: relative; overflow: hidden;
-}
-.final-cta::before {
-  content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 50% 40%, rgba(245,98,15,0.18), transparent 60%);
-  pointer-events: none;
-}
-.final-cta-inner { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; padding: 0 24px; }
-.final-cta-eyebrow {
-  font-size: 12px; font-weight: 700; letter-spacing: 0.18em;
-  text-transform: uppercase; color: var(--orange); margin-bottom: 18px;
-}
-.final-cta-title {
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-  font-size: 68px; line-height: 0.98; text-transform: uppercase;
-  letter-spacing: -0.01em; margin-bottom: 20px;
-}
-@media (max-width: 720px) { .final-cta-title { font-size: 44px; } }
-.final-cta-title .accent { color: var(--orange); }
-.final-cta-sub {
-  font-size: 18px; color: rgba(255,255,255,0.7); line-height: 1.5;
-  margin-bottom: 32px; max-width: 560px; margin-left: auto; margin-right: auto;
-}
-.final-cta-ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
-.final-cta-note { font-size: 13px; color: rgba(255,255,255,0.55); font-weight: 500; }
-.final-cta .btn-secondary { border-color: rgba(255,255,255,0.25); color: white; }
-.final-cta .btn-secondary:hover { border-color: white; }
+/* reveal */
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.in { opacity: 1; transform: none; }
 
-/* ─── FOOTER ─── */
-.site-footer {
-  background: var(--bg); border-top: 1px solid var(--border);
-  padding: 56px 0 28px;
-}
-.footer-grid {
-  display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr; gap: 40px;
-  margin-bottom: 40px;
-}
-@media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; } }
-.footer-brand .logo {
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 28px;
-  letter-spacing: -0.01em; color: var(--black); margin-bottom: 10px; display: block;
-}
-.footer-brand .logo .dot { color: var(--orange); }
-.footer-tag { font-size: 13px; color: var(--muted); font-weight: 500; line-height: 1.5; margin-bottom: 18px; }
-.footer-copyright { font-size: 11px; color: var(--muted); font-weight: 500; letter-spacing: 0.02em; }
-.footer-social { display: flex; gap: 12px; margin-top: 16px; }
-.footer-social a {
-  width: 34px; height: 34px; border-radius: 8px;
-  background: white; border: 1px solid var(--border); color: var(--muted);
-  display: flex; align-items: center; justify-content: center;
-  transition: color .15s ease, border-color .15s ease;
-}
-.footer-social a:hover { color: var(--orange); border-color: var(--orange); }
-.footer-col-head {
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-  font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em;
-  color: var(--ink); margin-bottom: 14px;
-}
-.footer-col a {
-  display: block; font-size: 13.5px; color: var(--muted); font-weight: 500;
-  padding: 4px 0; transition: color .15s ease;
-}
-.footer-col a:hover { color: var(--orange); }
-.footer-bottom {
-  border-top: 1px solid var(--border); padding-top: 20px;
-  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
-  font-size: 12px; color: var(--muted); font-weight: 500;
-}
-.footer-bottom a { color: var(--muted); margin: 0 8px; }
-.footer-bottom a:hover { color: var(--orange); }
-
-/* ─── SCROLL REVEAL (preserved from original) ─── */
-.reveal {
-  opacity: 0; transform: translateY(24px);
-  transition: opacity .6s ease-out, transform .6s ease-out;
-}
-.reveal.vis { opacity: 1; transform: translateY(0); }
-
-/* SVG icons utility (preserved) */
-svg.ic {
-  display: inline-block; vertical-align: middle;
-  fill: none; stroke: currentColor;
-  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+/* ---------- responsive ---------- */
+@media (max-width: 980px) {
+  .hero-grid, .split, .split.rev { grid-template-columns: 1fr; }
+  .split.rev > .media { order: 0; }
+  .problem-cards, .testi-grid, .calc-cards, .pain { grid-template-columns: 1fr; }
+  .feat-grid { grid-template-columns: 1fr 1fr; }
+  .price-grid { grid-template-columns: 1fr; }
+  .teaser-grid { grid-template-columns: 1fr; }
+  .foot-grid { grid-template-columns: 1fr 1fr; }
+  .nav-links { display: none; }
+  .hero { padding-top: 110px; }
+  .phone-stage { margin-top: 40px; }
+  .sticky-cta { display: flex; }
+  section.block { padding: 72px 0; }
+  .compare-scroll { overflow-x: auto; }
+  .compare-table { min-width: 760px; }
 }
 </style>
-  <meta property="og:title" content="Opervo — Run your service business. Look pro.">
-  <meta property="og:description" content="Every job you finish auto-publishes to your folio. Plus jobs, invoices, scheduling, and a quote form built in. Built for solo trade operators. 14 days free.">
-  <meta property="og:image" content="https://www.opervo.io/og-image.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:url" content="https://www.opervo.io">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Opervo">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Opervo — Run your service business. Look pro.">
-  <meta name="twitter:description" content="Every job you finish auto-publishes to your folio. Jobs, invoices, scheduling, quote form, all built in.">
-  <meta name="twitter:image" content="https://www.opervo.io/og-image.png">
-  <link rel="canonical" href="https://www.opervo.io" />
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "https://www.opervo.io/#organization",
-        "name": "Opervo",
-        "alternateName": ["Opervo.io", "Opervo App"],
-        "url": "https://www.opervo.io",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://www.opervo.io/og-image.png",
-          "width": 1200,
-          "height": 630
-        },
-        "description": "Field service management software for solo home-service operators — window cleaners, pressure washers, landscapers, and other trades.",
-        "founder": {
-          "@type": "Person",
-          "name": "Maximiliano Ballesteros"
-        },
-        "foundingLocation": {
-          "@type": "Place",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Austin",
-            "addressRegion": "TX",
-            "addressCountry": "US"
-          }
-        },
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "email": "help@opervo.io",
-          "contactType": "customer support",
-          "availableLanguage": "English"
-        },
-        "sameAs": [
-          "https://app.opervo.io"
-        ]
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://www.opervo.io/#website",
-        "url": "https://www.opervo.io",
-        "name": "Opervo",
-        "publisher": { "@id": "https://www.opervo.io/#organization" }
-      },
-      {
-        "@type": "SoftwareApplication",
-        "@id": "https://www.opervo.io/#software",
-        "name": "Opervo",
-        "applicationCategory": "BusinessApplication",
-        "operatingSystem": "Web, iOS, Android",
-        "description": "Mobile-first field service management app for solo trade operators. Jobs, estimates, invoices, scheduling, client portal, and a live portfolio page.",
-        "url": "https://www.opervo.io",
-        "publisher": { "@id": "https://www.opervo.io/#organization" },
-        "offers": [
-          { "@type": "Offer", "name": "Solo Plan (Monthly)", "price": "24.99", "priceCurrency": "USD", "url": "https://www.opervo.io/pricing" },
-          { "@type": "Offer", "name": "Solo Plan (Annual)",  "price": "249.00", "priceCurrency": "USD", "url": "https://www.opervo.io/pricing" },
-          { "@type": "Offer", "name": "Team Plan (Monthly)", "price": "54.99", "priceCurrency": "USD", "url": "https://www.opervo.io/pricing" },
-          { "@type": "Offer", "name": "Team Plan (Annual)",  "price": "549.00", "priceCurrency": "USD", "url": "https://www.opervo.io/pricing" }
-        ]
-      }
-    ]
-  }
-  </script>
-<!-- Meta Pixel -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1634207697801976');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1634207697801976&ev=PageView&noscript=1" /></noscript>
-<!-- End Meta Pixel -->
 </head>
 <body>
 
@@ -1389,7 +488,6 @@ fbq('track', 'PageView');
   body.has-ref-banner nav { top: var(--ref-banner-h, 42px); }
   body.has-ref-banner { padding-top: var(--ref-banner-h, 42px); }
   #refBanner strong { font-weight: 700; }
-  #refBanner .emoji { margin-right: 6px; }
   #refBanner .close {
     position: absolute;
     right: 10px;
@@ -1426,11 +524,10 @@ fbq('track', 'PageView');
   }
 </style>
 <div id="refBanner" role="status" aria-live="polite">
-  <span class="emoji">👋</span>
-  Invited by <strong id="refBannerName">a fellow operator</strong> —
+  Invited by <strong id="refBannerName">a fellow operator</strong>:
   get <strong>50% off your first paid month</strong>.
-  <a id="refBannerCta" class="claim" href="https://app.opervo.io/signup">Claim offer →</a>
-  <button class="close" onclick="document.getElementById('refBanner').classList.remove('show');document.body.classList.remove('has-ref-banner');try{sessionStorage.setItem('opervo-ref-dismissed','1')}catch(_){}" aria-label="Dismiss">×</button>
+  <a id="refBannerCta" class="claim" href="https://app.opervo.io/signup">Claim offer &rarr;</a>
+  <button class="close" onclick="document.getElementById('refBanner').classList.remove('show');document.body.classList.remove('has-ref-banner');try{sessionStorage.setItem('opervo-ref-dismissed','1')}catch(_){}" aria-label="Dismiss">&times;</button>
 </div>
 
 <script>
@@ -1447,7 +544,7 @@ fbq('track', 'PageView');
 
       // Fallback: if this visit has no ?ref= but an earlier page this session did,
       // rehydrate from sessionStorage so attribution survives internal navigation
-      // (e.g. Features → back to / ).
+      // (e.g. Features -> back to / ).
       if (!code) {
         try { code = (sessionStorage.getItem('opervo-ref') || '').toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 16); } catch (_) {}
       }
@@ -1504,1341 +601,670 @@ fbq('track', 'PageView');
   })();
 </script>
 
-<!-- NAV -->
-<nav>
-  <a href="/" class="nav-logo">Opervo<span>.</span></a>
-  <ul class="nav-links">
-    <li><a href="/features">Features</a></li>
-    <li><a href="#pricing">Pricing</a></li>
-    <li><a href="/blog">Blog</a></li>
-    <li><a href="/compare/opervo-vs-jobber">Compare</a></li>
-    <li><a href="/print">Marketing</a></li>
-    <li><a href="/demo" data-event="nav_book_demo">Book demo</a></li>
-  </ul>
-  <a href="https://app.opervo.io" class="nav-cta">
-    Start free trial
-    <svg class="ic" width="14" height="14" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-  </a>
-  <button class="nav-hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open');this.dataset.open=this.dataset.open==='1'?'0':'1';this.innerHTML=this.dataset.open==='1'?'<svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#0F0F0F&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot;><line x1=&quot;18&quot; y1=&quot;6&quot; x2=&quot;6&quot; y2=&quot;18&quot;/><line x1=&quot;6&quot; y1=&quot;6&quot; x2=&quot;18&quot; y2=&quot;18&quot;/></svg>':'<svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#0F0F0F&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot;><line x1=&quot;3&quot; y1=&quot;6&quot; x2=&quot;21&quot; y2=&quot;6&quot;/><line x1=&quot;3&quot; y1=&quot;12&quot; x2=&quot;21&quot; y2=&quot;12&quot;/><line x1=&quot;3&quot; y1=&quot;18&quot; x2=&quot;21&quot; y2=&quot;18&quot;/></svg>'" data-open="0">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0F0F0F" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-  </button>
+<!-- ============ NAV ============ -->
+<nav id="nav" data-section="nav">
+  <div class="wrap nav-inner">
+    <a href="/" class="logo">Opervo<span class="dot">.</span></a>
+    <div class="nav-links">
+      <a href="/features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="/blog">Blog</a>
+      <a href="/compare/opervo-vs-jobber">Compare</a>
+      <a href="/print">Marketing</a>
+      <a href="/demo" data-event="nav_book_demo">Book demo</a>
+    </div>
+    <a href="https://app.opervo.io" class="nav-cta">Start free trial
+      <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
 </nav>
 
-<div id="mobileMenu" class="mobile-menu">
-  <a href="/features">Features</a>
-  <a href="/pricing">Pricing</a>
-  <p class="mobile-menu-section">Industries</p>
-  <a href="/solar-panel-cleaning">Solar Panel Cleaning</a>
-  <a href="/window-cleaning">Window Cleaning</a>
-  <a href="/pressure-washing">Pressure Washing</a>
-  <a href="/landscaping">Landscaping</a>
-  <a href="/auto-detailing">Auto Detailing</a>
-  <p class="mobile-menu-section">Compare</p>
-  <a href="/compare/opervo-vs-jobber">Opervo vs Jobber</a>
-  <a href="/compare/opervo-vs-housecall-pro">Opervo vs Housecall Pro</a>
-  <a href="/compare/opervo-vs-gorilladesk">Opervo vs GorillaDesk</a>
-  <a href="/compare/opervo-vs-markate">Opervo vs Markate</a>
-  <p class="mobile-menu-section">Resources</p>
-  <a href="/demo">Book a Demo with Max</a>
-  <a href="/cost-calculator">True Cost Calculator</a>
-  <a href="/profit-calculator">Job Profit Calculator</a>
-  <a href="/multi-job-tracker">Multi-Job Profit Tracker</a>
-  <a href="/blog">Blog</a>
-  <a href="/print">Marketing Materials</a>
-  <a href="/guide">Guide</a>
-  <a href="/apprentice">Apprentice (Ages 13–17)</a>
-  <div style="border-top:1px solid #E8E4DE;margin-top:16px;padding-top:16px;">
-    <a href="https://app.opervo.io" style="color:#6B6B6B;font-size:14px;">Sign In</a>
-    <a href="https://app.opervo.io" class="mobile-menu-cta">Try Free</a>
+<!-- ============ HERO ============ -->
+<header class="hero" data-section="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="hero-kicker">Built by someone who was <strong>on the truck</strong>. For the ones still on it.</p>
+      <h1>Stop <span class="strike">looking like</span> a side hustle<span class="dot">.</span></h1>
+      <p class="lead">Branded quotes. Branded invoices. A folio page that publishes every job you finish, automatically. <strong>$24.99/mo. Every feature. Every plan.</strong></p>
+      <div class="hero-ctas">
+        <a href="https://app.opervo.io" class="btn btn-primary">Start my free trial
+          <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/p/solar-wash-atx" class="btn btn-secondary">See a live folio</a>
+      </div>
+      <p class="trust-strip"><span class="dot-g"></span> 14-day free trial &middot; No credit card &middot; Cancel anytime</p>
+      <p class="demo-link">Want a hand setting it up? <a href="/demo" data-event="hero_book_demo">Book a 15-min demo with Max</a></p>
+      <div class="store-badge">
+        <a href="https://apps.apple.com/us/app/opervo/id6763399255" data-event="hero_app_store"><img src="/app-store-badge.svg" alt="Download Opervo on the App Store" width="140" height="42"></a>
+      </div>
+
+      <div class="hero-quote">
+        <div class="via-fb">Via Facebook</div>
+        <p>"Has everything Jobber has plus more. The owner is super responsive and constantly upgrading. Plus he takes suggestions from his clients. A+"</p>
+        <div class="attr">
+          <div class="avatar">JS</div>
+          <div>
+            <div class="attr-name">Jason Spera</div>
+            <div class="attr-meta">Facebook recommendation</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phone-stage">
+      <div class="phone"><img src="/landing/hero-dashboard-660.png" alt="Opervo dashboard on a phone" fetchpriority="high" width="660" height="1326"></div>
+      <div class="float-card fc-1">
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <div><b>Invoice paid &middot; $175</b><span>Just now</span></div>
+      </div>
+      <div class="float-card fc-2">
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <div><b>14 folio views today</b><span>opervo.io/solar-wash-atx</span></div>
+      </div>
+      <div class="float-card fc-3">
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <div><b>New 5-star review</b><span>"Amazing work as always"</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- logo proof bar -->
+<div class="wrap proof-bar reveal" data-section="proof">
+  <div class="proof-inner">
+    <div class="proof-logos">
+      <img src="/logos/ironwood-excavation.png" alt="Ironwood Excavation" loading="lazy" width="52" height="52">
+      <img src="/logos/breezy-detailing.png" alt="Breezy Detailing" loading="lazy" width="52" height="52">
+      <img src="/logos/jc-air-pro.jpeg" alt="JC Air Pro" loading="lazy" width="52" height="52">
+    </div>
+    <div class="proof-text">
+      <b>Trusted by solo operators</b>
+      in pressure washing, window cleaning, detailing &amp; more
+    </div>
   </div>
 </div>
 
-<!-- ── HERO ────────────────────────────────────── -->
-<section class="hero" data-section="hero">
-  <div class="container">
-    <div class="hero-grid">
-      <div>
-        <h1 class="hero-tagline">
-          Built by someone<br/>who was on the truck<span class="accent">.</span><br/>
-          For the ones<br/>still on it<span class="accent">.</span>
-        </h1>
-        <p class="hero-kicker">Stop <span class="strike">looking like</span> a side hustle<span class="accent">.</span></p>
-        <p class="hero-sub">
-          Branded quotes. Branded invoices. A real folio page that publishes every job you finish.
-          <strong>$24.99/mo. Every Feature. Every Plan.</strong>
-        </p>
-        <div class="hero-ctas">
-          <a href="https://app.opervo.io" class="btn btn-primary">Start Free</a>
-          <a href="/p/solar-wash-atx" class="btn btn-secondary">See Live Folio</a>
-        </div>
-        <div class="hero-trust">14-day free trial · No credit card required</div>
-        <a href="/demo" class="hero-text-founder" data-event="hero_book_demo">
-          Want a hand setting it up? <strong>Book a 15-min demo with Max →</strong>
+<!-- ============ PRICE TEASER ============ -->
+<section class="teaser" data-section="teaser">
+  <div class="wrap teaser-grid">
+    <div class="reveal">
+      <h2>They start you at $49. Then the add-ons begin<span class="dot">.</span></h2>
+      <p>Jobber starts at <b>$49</b>. Housecall Pro at <b>$69</b>. Stack the add-ons most operators actually need and you are paying <b>$95 to $175 a month</b>. Opervo is one flat price with nothing gated.</p>
+      <a class="teaser-link" href="#math">See the real math, line by line
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <div class="teaser-price reveal">
+      <div class="big">$24.99</div>
+      <div class="small">per month &middot; every feature &middot; no per-user fees</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROBLEM ============ -->
+<section class="block" data-section="problem">
+  <div class="wrap">
+    <div class="problem-photo reveal">
+      <img src="/landing/problem-operator.jpg" alt="Operator answering a customer text between jobs" loading="lazy" width="1500" height="843">
+      <div class="overlay">
+        <span class="eyebrow" style="color:#fff;">The problem</span>
+        <h2 style="margin-top:12px;">Most software wasn't built for owner-operators<span class="dot">.</span></h2>
+      </div>
+    </div>
+    <div class="problem-cards">
+      <div class="p-card reveal">
+        <div class="p-num">01 / 03</div>
+        <h3>Built for companies. Billed to you.</h3>
+        <p>You do the work. You answer the phone. You send the invoice. Yet you're paying for software designed around managers, dispatchers, and office staff.</p>
+      </div>
+      <div class="p-card reveal">
+        <div class="p-num">02 / 03</div>
+        <h3>Death by a thousand monthly fees.</h3>
+        <p>Photos. Scheduling. CRM. Invoices. Reviews. One monthly charge becomes five before you even realize it. Every month. Forever.</p>
+      </div>
+      <div class="p-card reveal">
+        <div class="p-num">03 / 03</div>
+        <h3>Your camera roll is full of missed sales.</h3>
+        <p>You already have the proof: the before-and-afters, the happy customers. Most software leaves it buried on your phone instead of turning it into new business.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOLIO ============ -->
+<section class="block" id="folio" data-section="folio" style="background:var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+  <div class="wrap split">
+    <div class="media reveal">
+      <div class="media-phone"><img src="/landing/hero-folio-600.jpg" alt="A live Opervo folio page" loading="lazy" width="600" height="1232"></div>
+    </div>
+    <div class="reveal">
+      <span class="eyebrow">A folio that updates itself</span>
+      <h2 style="margin:18px 0 16px;">The portfolio that markets while you work<span class="dot">.</span></h2>
+      <p class="lead">Every job you finish auto-publishes to your folio: photo, neighborhood, "completed 2 days ago." Visitors see proof someone hired you yesterday, not a stale gallery from last summer. <strong>Nobody else does this.</strong></p>
+      <ul class="checks folio-bullets">
+        <li><span class="check-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Finish a job, it shows up.</b> No upload, no admin. Just close the job out.</span></li>
+        <li><span class="check-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Live counter at the top.</b> "14 jobs this month, most recent yesterday." Updates as you work.</span></li>
+        <li><span class="check-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Every client gets a private portal too.</b> Job history, photos, invoices. No login required. Others charge $10/mo extra; we include it.</span></li>
+      </ul>
+      <div style="margin-top:30px;">
+        <span class="live-tag"><span class="pulse"></span> opervo.io/solar-wash-atx is live right now</span><br>
+        <a href="/p/solar-wash-atx" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:10px;">See a live folio
+          <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <!-- Text Max CTA temporarily removed — Google Voice suspended -->
-        <!--
-        <a href="sms:+15127616054" class="hero-text-founder" data-event="hero_text_founder">
-          Got a question? <strong>Text Max → (512) 761-6054</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INSTANT QUOTING ============ -->
+<section class="block" id="quoting" data-section="quoting">
+  <div class="wrap">
+    <div class="split rev">
+      <div class="reveal">
+        <span class="eyebrow">New &middot; Instant quoting</span>
+        <h2 style="margin:18px 0 16px;">Customers see a price in 30 seconds<span class="dot">.</span></h2>
+        <p class="lead"><strong>78% of leads go to whoever answers first.</strong> By the time you tap their message back at 9pm Saturday, your competitor already booked the job. Instant Quoting closes that window: a real ballpark price, on your rates, the moment they ask.</p>
+        <ul class="checks">
+          <li><span class="check-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>You set the prices.</b> We give you the structure for your trade. Setup takes about two minutes.</span></li>
+          <li><span class="check-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Multi-service combos with real tax.</b> Window + screens + frame wipe in one quote. Most tools hand-wave "+ tax." We compute it.</span></li>
+          <li><span class="check-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Lead lands ready to convert.</b> One-tap convert to a job or estimate, line items pre-filled.</span></li>
+          <li><span class="check-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Works on your folio or any website.</b> One line of embed code. Squarespace, Wix, WordPress, anything.</span></li>
+        </ul>
+        <a href="https://app.opervo.io/#/quoting" class="btn btn-primary" style="margin-top:30px;">Try it free for 14 days
+          <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        -->
-        <div class="hero-app-store">
-          <a href="https://apps.apple.com/us/app/opervo/id6763399255" target="_blank" rel="noopener" aria-label="Download Opervo on the App Store">
-            <img src="/app-store-badge.svg" alt="Download on the App Store" />
-          </a>
-        </div>
-
-        <div class="hero-proof">
-          <div class="hero-proof-logos">
-            <img src="/logos/ironwood-excavation.png" alt="Ironwood Excavation" />
-            <img src="/logos/breezy-detailing.png" alt="Breezy Detailing" />
-            <img src="/logos/jc-air-pro.jpeg" alt="JC Air Pro" />
-          </div>
-          <div class="hero-proof-text">
-            <strong>Trusted by solo operators</strong><br/>
-            in pressure washing, window cleaning &amp; more
-          </div>
-        </div>
       </div>
+      <div class="media reveal">
+        <div class="media-phone"><img src="/landing/quoting-600.jpg" alt="Instant quote price reveal" loading="lazy" width="600" height="1232"></div>
+      </div>
+    </div>
 
-      <!-- Real app screenshot + floating social-proof callouts -->
-      <div class="hero-phone-wrap">
-        <div class="phone">
-          <div class="phone-screen phone-screen-img">
-            <img src="/screenshots/hero-dashboard.png" alt="Opervo dashboard: Next Up job card, quick actions, today's schedule" fetchpriority="high" decoding="async" />
-          </div>
+    <div class="pain reveal">
+      <div class="stat"><div class="n">5 min</div><p>Average response window before a lead picks someone else</p></div>
+      <div class="stat"><div class="n">78%</div><p>Of home-service jobs go to the first quote, not the best one</p></div>
+      <div class="stat"><div class="n">$0</div><p>What you make on every "we'll get back to you" lead that ghosts</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMMAND CENTER ============ -->
+<section class="block" data-section="command" style="background:var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+  <div class="wrap">
+    <div class="section-head centered reveal">
+      <span class="eyebrow">Built for the truck and the desk</span>
+      <h2>Look pro on every screen<span class="dot">.</span></h2>
+      <p class="lead" style="margin:0 auto;">Document the job from your phone. Run the business from your laptop. Same data, same brand, no double entry. The only app in the trades with a real desktop command center.</p>
+    </div>
+    <div class="browser reveal">
+      <div class="browser-bar">
+        <span class="b-dot" style="background:#ff5f57;"></span><span class="b-dot" style="background:#febc2e;"></span><span class="b-dot" style="background:#28c840;"></span>
+        <span class="url">app.opervo.io/dashboard</span>
+      </div>
+      <img src="/landing/dashboard-desktop-2000.jpg" alt="Opervo desktop dashboard with revenue, pipeline, and schedule" loading="lazy" width="2000" height="1059">
+    </div>
+    <p class="stat-note">Dashboard shown with demo-account data.</p>
+  </div>
+</section>
+
+<!-- ============ AI ============ -->
+<section class="block" id="ai" data-section="ai">
+  <div class="wrap split">
+    <div class="reveal">
+      <span class="eyebrow">Built-in AI</span>
+      <h2 style="margin:18px 0 16px;">Talk to your business<span class="dot">.</span></h2>
+      <p class="lead">Most field service apps make you tap through menus. Opervo's AI knows your jobs, invoices, and revenue in real time, and just handles it. Built for the one-person shop.</p>
+      <ul class="checks">
+        <li><span class="check-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span><span>Add a client, log a trip, or create a job by voice. No forms.</span></li>
+        <li><span class="check-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span><span>Ask "what's my revenue?" and get a real answer in under a second.</span></li>
+        <li><span class="check-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span><span>Works hands-free. Made for the truck, not the desk.</span></li>
+      </ul>
+    </div>
+    <div class="reveal">
+      <div class="chat">
+        <div class="chat-head">
+          <span class="t">Opervo<span class="dot">.</span> Assistant</span>
+          <span class="chat-live"><span class="pulse" style="width:7px;height:7px;border-radius:50%;background:var(--green);display:inline-block;"></span> LIVE</span>
         </div>
-
-        <div class="hero-callout hero-callout-1">
-          <div class="hero-callout-icon" style="background:rgba(16,185,129,0.15);color:#10B981">✓</div>
-          <div class="hero-callout-text">
-            <div class="hero-callout-main">Invoice paid · $175</div>
-            <div class="hero-callout-sub">Just now</div>
-          </div>
-        </div>
-
-        <div class="hero-callout hero-callout-2">
-          <div class="hero-callout-icon" style="background:rgba(26,107,240,0.14);color:#1A6BF0">
-            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
-          </div>
-          <div class="hero-callout-text">
-            <div class="hero-callout-main">14 Folio views today</div>
-            <div class="hero-callout-sub">opervo.io/solar-wash-atx</div>
-          </div>
-        </div>
-
-        <div class="hero-callout hero-callout-3">
-          <div class="hero-callout-icon" style="background:rgba(245,158,11,0.18);color:#F59E0B">★</div>
-          <div class="hero-callout-text">
-            <div class="hero-callout-main">New 5-star review</div>
-            <div class="hero-callout-sub">"Amazing work as always!"</div>
-          </div>
+        <div class="msg user">What's my revenue this month?</div>
+        <div class="msg bot" id="reply">$3,240 across 12 jobs. Up $410 from March. Want a breakdown?</div>
+        <div class="msg user">Add John Smith, 555-1234</div>
+        <div class="msg bot">Got it. John Smith is on your client list.</div>
+        <span class="chat-action">View client
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+        <div class="chips">
+          <span class="chip">"Schedule lawn care for Sarah Friday 2pm"</span>
+          <span class="chip">"Who hasn't paid me?"</span>
+          <span class="chip">"Log a 27-mile trip"</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── PROBLEM SECTION ─────────────────────────── -->
-<section class="section" id="problem" data-section="problem">
-  <div class="container">
-    <div class="problem-head">
-      <span class="eyebrow eyebrow-orange">The problem</span>
-      <h2 class="section-title">Most software wasn't built<br/>for owner-operators<span class="accent">.</span></h2>
-      <p class="section-sub">
-        You're not managing a call center. You're sending estimates between jobs,
-        answering customer texts from the driver's seat, and trying to look
-        professional without spending half your profit on software.
-        <br/><br/>
-        The industry built tools for office staff, dispatchers, managers, and sales teams.
-        Then handed the bill to the person doing the work.
-      </p>
-    </div>
-
-    <div class="problem-grid">
-      <div class="problem-card">
-        <div class="problem-num">01 / 03</div>
-        <h3 class="problem-title">Built for companies.<br/>Billed to you.</h3>
-        <p class="problem-body">
-          You do the work.<br/>
-          You answer the phone.<br/>
-          You send the invoice.<br/>
-          <br/>
-          Yet you're paying for software designed around managers, dispatchers, and office staff.
-        </p>
+<!-- ============ PLANS + ROUTES ============ -->
+<section class="block" id="plans" data-section="plans-routes" style="padding-top:0;">
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <span class="eyebrow">Service plans</span>
+        <h2 style="font-size:clamp(30px,3.6vw,44px); margin:16px 0 12px;">Recurring work that runs itself<span class="dot">.</span></h2>
+        <p class="lead" style="font-size:17px;">Set the cadence once. Opervo generates the jobs, sends the reminders, and bills the client. Weekly, biweekly, monthly, quarterly, or custom.</p>
+        <div style="margin-top:24px;"><div class="media-phone" style="width:260px; margin:0;"><img src="/landing/service-plans-520.jpg" alt="Active service plan agreements" loading="lazy" width="520" height="1067"></div></div>
       </div>
-
-      <div class="problem-card">
-        <div class="problem-num">02 / 03</div>
-        <h3 class="problem-title">Death by a<br/>thousand monthly fees</h3>
-        <p class="problem-body">
-          Photos.<br/>
-          Scheduling.<br/>
-          CRM.<br/>
-          Invoices.<br/>
-          Reviews.<br/>
-          High-level features.<br/>
-          <br/>
-          One monthly charge becomes five before you even realize it.
-        </p>
-      </div>
-
-      <div class="problem-card">
-        <div class="problem-num">03 / 03</div>
-        <h3 class="problem-title">Your camera roll<br/>is full of missed sales</h3>
-        <p class="problem-body">
-          You already have the proof.<br/>
-          The before-and-afters.<br/>
-          The happy customers.<br/>
-          The completed jobs.<br/>
-          <br/>
-          Most software leaves it buried on your phone instead of turning it into something that wins new business.
-        </p>
+      <div class="reveal">
+        <span class="eyebrow">Your truck is your office</span>
+        <h2 style="font-size:clamp(30px,3.6vw,44px); margin:16px 0 12px;">Stop driving for free<span class="dot">.</span></h2>
+        <p class="lead" style="font-size:17px;">One tap replans your day: shortest route, in order, handed straight to Google or Apple Maps. That's about 40 minutes back, or one extra job you couldn't fit before.</p>
+        <div style="margin-top:24px;"><div class="media-phone" style="width:260px; margin:0;"><img src="/landing/route-520.jpg" alt="Optimized route with 6 stops" loading="lazy" width="520" height="1126"></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── FOLIO SECTION ───────────────────────────── -->
-<section class="section section-alt" id="folio" data-section="folio">
-  <div class="container">
-    <div class="two-col">
-      <div class="phone">
-        <div class="phone-screen phone-screen-live">
-          <iframe
-            src="/p/solar-wash-atx"
-            title="Live folio — Solar Wash ATX"
-            loading="lazy"
-            referrerpolicy="same-origin"
-          ></iframe>
-        </div>
-      </div>
-
-      <div>
-        <span class="eyebrow eyebrow-orange">A folio that updates itself</span>
-        <h2 class="section-title">Folio<span class="accent">.</span><br/>The portfolio<br/>that markets while<br/>you work.</h2>
-        <p class="section-sub">
-          Every job you finish auto-publishes to your folio — photo,
-          neighborhood, "completed 2 days ago." Visitors don't see a stale gallery
-          from last summer. They see proof someone hired you yesterday.
-          Nobody else does this.
-        </p>
-        <ul class="bullets">
-          <li><strong>Finish a job, it shows up on your folio.</strong> No upload, no admin. Just close the job out.</li>
-          <li><strong>Live counter at the top:</strong> "14 jobs this month, most recent yesterday." Updates as you work.</li>
-          <li><strong>Every client gets a private dashboard, too.</strong> Branded portal with job history, photos &amp; invoices. No login required. Markate charges $10/mo extra; we include it.</li>
-        </ul>
-        <a href="https://www.opervo.io/p/solar-wash-atx" target="_blank" rel="noopener" class="btn btn-primary">See a live Folio</a>
-      </div>
+<!-- ============ EVERYTHING ELSE ============ -->
+<section class="block" data-section="features" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head centered reveal">
+      <span class="eyebrow">No corners cut</span>
+      <h2>Everything else, too<span class="dot">.</span></h2>
+      <p class="lead" style="margin:0 auto;">The tools any field service app should have. All included. No "Pro plan" gates.</p>
     </div>
-
-    <div class="folio-strip">
-      <div class="folio-strip-lead">Every visitor sees fresh <span>proof</span></div>
-      <div class="folio-strip-item">
-        <div class="folio-strip-img">
-          <img src="/screenshots/hero-folio-1.jpg" alt="Folio Recent Jobs section showing live jobs this month and recent completed jobs with photos" loading="lazy" decoding="async" />
-        </div>
-        <div class="folio-strip-label">
-          <span class="folio-strip-label-name">Recent Jobs <em style="color:var(--orange);font-style:normal;font-weight:600;">· LIVE</em></span>
-          <span class="folio-strip-label-desc">Auto-published when you finish a job</span>
-        </div>
+    <div class="feat-grid reveal">
+      <div class="feat-card">
+        <div class="f-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></div>
+        <h3>Payments, your processor</h3><p>Square or Stripe. Cards, Apple Pay, Google Pay, tipping. Zero markup, ever.</p>
       </div>
-      <div class="folio-strip-item">
-        <div class="folio-strip-img">
-          <img src="/screenshots/hero-folio-2.jpg" alt="Folio portfolio with before/after slider and Why Clients Choose Us grid" loading="lazy" decoding="async" />
-        </div>
-        <div class="folio-strip-label">
-          <span class="folio-strip-label-name">Portfolio</span>
-          <span class="folio-strip-label-desc">Before/after slider, gallery, trust grid</span>
-        </div>
+      <div class="feat-card">
+        <div class="f-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+        <h3>Offline payments</h3><p>Log cash, check, Venmo, CashApp, Zelle. Auto-invoice generated.</p>
+      </div>
+      <div class="feat-card">
+        <div class="f-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+        <h3>Photo documentation</h3><p>Before, during, after. Voice notes per job. Branded PDF reports.</p>
+      </div>
+      <div class="feat-card">
+        <div class="f-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></div>
+        <h3>Mileage &amp; expenses</h3><p>Tax-ready reports, quarterly summaries, CSV for your accountant.</p>
+      </div>
+      <div class="feat-card">
+        <div class="f-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div>
+        <h3>QBO &amp; Google Calendar</h3><p>Two-way sync with QuickBooks Online and Google Calendar. Set it once.</p>
+      </div>
+      <div class="feat-card">
+        <div class="f-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+        <h3>SMS &amp; email</h3><p>On-my-way texts, reminders, review requests. From your branded number.</p>
+      </div>
+      <div class="feat-card">
+        <div class="f-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <h3>Scheduling &amp; reminders</h3><p>Day view built for the field. 24-hour appointment reminders on autopilot.</p>
+      </div>
+      <div class="feat-card">
+        <div class="f-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg></div>
+        <h3>2-minute import</h3><p>Bring clients over from Jobber, Markate, or a spreadsheet. We'll even do it for you.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── INSTANT QUOTING SECTION ─────────────────── -->
-<section class="section" id="quoting" data-section="quoting">
-  <div class="container">
-    <div class="two-col">
-      <div class="phone">
-        <div class="phone-screen phone-screen-img">
-          <img src="/screenshots/instaquote.jpg" alt="Customer's instant quote screen showing a real ballpark price the moment they ask" loading="lazy" decoding="async" />
-        </div>
-      </div>
-
-      <div>
-        <span class="eyebrow eyebrow-orange">NEW · Instant Quoting</span>
-        <h2 class="section-title">Customers see<br/>a price in<br/>30 seconds<span class="accent">.</span></h2>
-        <p class="section-sub">
-          <strong style="color: var(--ink);">78% of leads go to whoever answers first.</strong>
-          By the time you tap their message back at 9pm Saturday, your
-          competitor's already booked the job. Instant Quoting closes
-          that window — a real ballpark price, on your rates, the moment
-          they ask. The lead lands with answers, photos, and address ready
-          to convert.
-        </p>
-        <style>
-          .quoting-mini-cards { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
-          .quoting-mini-card {
-            display: grid; grid-template-columns: 36px 1fr; gap: 12px; align-items: flex-start;
-            background: white; border: 1px solid var(--border); border-radius: 14px;
-            padding: 14px 16px;
-          }
-          .quoting-mini-card .qmc-icon {
-            width: 36px; height: 36px; border-radius: 10px; background: var(--warm);
-            display: flex; align-items: center; justify-content: center;
-          }
-          .quoting-mini-card .qmc-name {
-            font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 16px;
-            text-transform: uppercase; letter-spacing: 0.01em; margin-bottom: 2px; line-height: 1.15;
-          }
-          .quoting-mini-card .qmc-desc { font-size: 13px; color: var(--muted); line-height: 1.45; font-weight: 500; }
-
-          .quoting-vs {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
-            margin: 8px 0 24px;
-          }
-          .quoting-vs-col {
-            background: white; border: 1px solid var(--border); border-radius: 14px;
-            padding: 14px 16px;
-          }
-          .quoting-vs-col.us { border-color: rgba(245,98,15,0.35); background: rgba(245,98,15,0.04); }
-          .quoting-vs-eyebrow {
-            font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 11px;
-            text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 8px;
-          }
-          .quoting-vs-col.us .quoting-vs-eyebrow { color: var(--orange); }
-          .quoting-vs-row { font-size: 12.5px; color: var(--ink); line-height: 1.45; margin-bottom: 4px; font-weight: 500; }
-          .quoting-vs-row strong { font-weight: 700; }
-          @media (max-width: 520px) { .quoting-vs { grid-template-columns: 1fr; } }
-        </style>
-        <div class="quoting-mini-cards">
-          <div class="quoting-mini-card">
-            <div class="qmc-icon" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5620F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-            </div>
-            <div>
-              <div class="qmc-name">You set the prices</div>
-              <div class="qmc-desc">We give you the structure for your trade. Setup takes about two minutes.</div>
-            </div>
-          </div>
-          <div class="quoting-mini-card">
-            <div class="qmc-icon" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5620F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-            </div>
-            <div>
-              <div class="qmc-name">Multi-service combos with real tax</div>
-              <div class="qmc-desc">Window + screen cleaning + frame wipe in one quote. Most tools hand-wave "+ tax." We compute it.</div>
-            </div>
-          </div>
-          <div class="quoting-mini-card">
-            <div class="qmc-icon" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5620F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <div>
-              <div class="qmc-name">Lead lands ready to convert</div>
-              <div class="qmc-desc">Status pipeline with one-tap convert to a job or estimate — line items pre-filled, no manual re-entry.</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="quoting-vs">
-          <div class="quoting-vs-col">
-            <div class="quoting-vs-eyebrow">Other tools</div>
-            <div class="quoting-vs-row"><strong>Markate</strong> — $10/mo extra for a basic lead form (no auto-pricing).</div>
-            <div class="quoting-vs-row"><strong>Jobber, HCP, GorillaDesk</strong> — "request a quote" forms that make customers wait.</div>
-          </div>
-          <div class="quoting-vs-col us">
-            <div class="quoting-vs-eyebrow">Opervo</div>
-            <div class="quoting-vs-row">Auto-priced instant quoting on <strong>every plan.</strong></div>
-            <div class="quoting-vs-row">No upcharge, no higher tier.</div>
-          </div>
-        </div>
-
-        <a href="https://app.opervo.io/#/quoting" class="btn btn-primary">Try it free for 14 days</a>
-      </div>
+<!-- ============ TESTIMONIALS ============ -->
+<section class="block testi" id="testimonials" data-section="testimonials">
+  <div class="wrap">
+    <div class="section-head centered reveal">
+      <span class="eyebrow">From the field</span>
+      <h2>Operators who made the switch<span class="dot">.</span></h2>
     </div>
-
-    <style>
-      .pain-banner { margin-top: 72px; background: #0F0F0F; border-radius: 24px; padding: 40px 32px; color: #F7F5F2; }
-      .pain-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; text-align: center; }
-      .pain-stat { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 56px; color: var(--orange); line-height: 1; }
-      .pain-label { font-size: 13px; color: rgba(247,245,242,0.7); margin-top: 8px; line-height: 1.45; }
-      .quoting-where-grid { grid-template-columns: repeat(3, 1fr) !important; }
-      @media (max-width: 720px) {
-        .pain-banner { padding: 32px 20px; }
-        .pain-grid { grid-template-columns: 1fr; gap: 24px; }
-        .pain-stat { font-size: 44px; }
-        .quoting-where-grid { grid-template-columns: 1fr !important; }
-      }
-    </style>
-
-    <!-- Pain banner -->
-    <div class="pain-banner">
-      <div class="pain-grid">
-        <div>
-          <div class="pain-stat">5 min</div>
-          <div class="pain-label">Average response window before a lead picks someone else</div>
+    <div class="testi-grid">
+      <div class="t-card reveal">
+        <div class="via-fb">Via Facebook</div>
+        <blockquote>"I used Jobber, but it's so expensive and they nickel and dime you. I wound up testing out Opervo and it literally became my all-in-one business operations hub. Super impressed with all that was included."</blockquote>
+        <div class="attr">
+          <div class="avatar">CH</div>
+          <div><div class="attr-name">Colin Haas</div><div class="attr-meta">Switched from Jobber</div></div>
         </div>
-        <div>
-          <div class="pain-stat">78%</div>
-          <div class="pain-label">Of home-service jobs go to the first quote — not the best one</div>
-        </div>
-        <div>
-          <div class="pain-stat">$0</div>
-          <div class="pain-label">What you make on every "we'll get back to you" lead that ghosts</div>
+      </div>
+      <div class="t-card wide reveal">
+        <div class="via-fb">Via Facebook</div>
+        <blockquote>"I can honestly say it has been a game changer for our operations. Extremely user-friendly and makes managing day-to-day business tasks simple and efficient. What sets Opervo apart is Max, the founder. He has real first-hand experience in our profession, which shows throughout the entire platform. Compared to other CRM platforms like Jobber, Opervo is significantly more affordable while still offering incredible functionality and ease of use."</blockquote>
+        <div class="attr">
+          <div class="avatar">TH</div>
+          <div><div class="attr-name">Terren Harrington</div><div class="attr-meta">Pro Window Cleaning</div></div>
         </div>
       </div>
     </div>
-
-    <!-- Where it lives -->
-    <div style="margin-top: 56px; text-align: center;">
-      <span class="eyebrow eyebrow-orange">Where it lives</span>
-      <h3 style="font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 32px; text-transform: uppercase; margin: 16px 0 12px; line-height: 1.05;">One quote form. Two places to put it.</h3>
-      <p style="font-size: 15px; color: var(--muted); max-width: 580px; margin: 0 auto 32px; line-height: 1.55;">
-        Already shipped a folio? It's there. Already have a website? Drop in one line of code. Either way, every lead lands in the same pipeline.
-      </p>
-    </div>
-
-    <div class="feature-grid quoting-where-grid">
-      <div class="feature-card">
-        <div class="feature-card-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F5620F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2.5"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
-        </div>
-        <div class="feature-card-name">On your folio</div>
-        <p class="feature-card-desc">Lives at the bottom of your Opervo folio out of the box. If you've shipped one, it's already collecting leads — flip it on in Quoting settings.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F5620F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-        </div>
-        <div class="feature-card-name">On your own website</div>
-        <p class="feature-card-desc">One line of embed code — works on Squarespace, Wix, WordPress, GoDaddy, anything. Same form, your domain, your branding wrapping it.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F5620F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-        </div>
-        <div class="feature-card-name">One inbox, one pipeline</div>
-        <p class="feature-card-desc">Both surfaces feed the same Quote Requests inbox. Answers, photos, address — ready to convert in one tap.</p>
-      </div>
+    <div class="metric-row reveal">
+      <div class="metric"><div class="n">2 <em>min</em></div><p>To import your client list</p></div>
+      <div class="metric"><div class="n">40 <em>min</em></div><p>Saved per day with route planning</p></div>
     </div>
   </div>
 </section>
 
-<!-- ── COMMAND CENTER ──────────────────────────── -->
-<section class="section section-alt cc-section" id="command-center" data-section="command_center">
-  <div class="container">
-    <div class="section-head" style="text-align:center;max-width:720px;margin:0 auto 56px;">
-      <span class="eyebrow eyebrow-orange">Built for the truck and the desk</span>
-      <h2 class="section-title">
-        Look pro on<br/>every screen<span class="accent">.</span>
-      </h2>
-      <p class="section-sub" style="margin-left:auto;margin-right:auto;">
-        Document the job from your phone. Run the business from your laptop.
-        Same data, same brand, no double entry. The only app in the trades
-        with a real desktop command center.
-      </p>
+<!-- ============ COMPARISON ============ -->
+<section class="block" id="math" data-section="comparison">
+  <div class="wrap">
+    <div class="section-head centered reveal">
+      <span class="eyebrow">The real math</span>
+      <h2>Most apps look cheap until you actually use them<span class="dot">.</span></h2>
+      <p class="lead" style="margin:0 auto;">They start you at $49. Then upgrade for features. Then add users. Then add more tools. Suddenly you're paying $150 to $300 a month.</p>
     </div>
 
-    <div class="cc-composite">
-      <div class="cc-glow"></div>
-
-      <div class="cc-desktop-frame">
-        <div class="cc-browser-bar">
-          <span class="cc-traffic cc-t-red"></span>
-          <span class="cc-traffic cc-t-yel"></span>
-          <span class="cc-traffic cc-t-grn"></span>
-          <div class="cc-url">app.opervo.io/dashboard</div>
-        </div>
-        <img class="cc-desktop-shot"
-             src="/screenshots/dashboard-desktop-full.png"
-             alt="Opervo desktop dashboard showing revenue, pipeline funnel, and today's schedule"
-             loading="lazy" decoding="async" />
-      </div>
-
-      <div class="cc-phone">
-        <div class="cc-phone-screen">
-          <img class="cc-phone-shot"
-               src="/screenshots/dashboard-mobile-full.jpg"
-               alt="Opervo mobile dashboard with Next Up job and quick actions"
-               loading="lazy" decoding="async" />
-        </div>
-      </div>
-    </div>
-
-    <div class="cc-stats">
-      <div class="cc-stat">
-        <div class="cc-stat-num">$87k<span class="accent">.</span></div>
-        <div class="cc-stat-label">YTD revenue at a glance</div>
-      </div>
-      <div class="cc-stat">
-        <div class="cc-stat-num">82<span class="accent">%</span></div>
-        <div class="cc-stat-label">Profit margin tracked automatically</div>
-      </div>
-      <div class="cc-stat">
-        <div class="cc-stat-num">4.9<span class="accent">★</span></div>
-        <div class="cc-stat-label">Reputation surfaced on every screen</div>
-      </div>
-      <div class="cc-stat">
-        <div class="cc-stat-num">60<span class="accent">%</span></div>
-        <div class="cc-stat-label">Close rate with the pipeline funnel</div>
-      </div>
-    </div>
-
-    <div class="cc-cta">
-      <a href="https://app.opervo.io/signup" class="btn btn-primary">Start free 14-day trial</a>
-    </div>
-  </div>
-</section>
-
-<!-- ── AI SECTION ──────────────────────────────── -->
-<section class="section" id="ai" data-section="ai">
-  <div class="container">
-    <div class="two-col">
-      <div>
-        <span class="eyebrow eyebrow-blue">Built-in AI</span>
-        <h2 class="section-title">Talk to your<br/>business<span class="accent">.</span></h2>
-        <p class="section-sub">
-          Most field service apps make you tap through menus. Opervo's AI
-          knows your jobs, invoices, and revenue in real time, and just
-          handles it. Built for the one-person shop.
-        </p>
-        <ul class="bullets">
-          <li>Add a client, log a trip, or create a job by voice. No forms.</li>
-          <li>Ask "what's my revenue?" and get a real answer in under a second.</li>
-          <li>Knows what page you're on. Say "this job" and it knows which.</li>
-          <li>Works hands-free. Made for the truck, not the desk.</li>
-        </ul>
-        <a href="https://app.opervo.io" class="btn btn-primary">See it in action</a>
-      </div>
-
-      <div class="ai-demo">
-        <div class="ai-demo-header">
-          <div class="ai-demo-dot">✦</div>
-          <div class="ai-demo-title">Opervo<span class="dot">.</span> Assistant</div>
-          <div class="ai-demo-status">Live</div>
-        </div>
-        <div class="bubble user">What's my revenue this month?</div>
-        <div class="bubble assistant" id="reply"></div>
-        <div class="bubble user" style="animation-delay:2.4s">Add John Smith, 555-1234</div>
-        <div class="bubble assistant" style="animation-delay:3.2s">
-          Got it. Adding John Smith to your client list. ✅
-        </div>
-        <div class="ai-action-btn" style="animation-delay:3.6s">View Client →</div>
-        <div class="ai-pills">
-          <span class="ai-pill">"Schedule lawn care for Sarah Friday 2pm"</span>
-          <span class="ai-pill">"Who hasn't paid me?"</span>
-          <span class="ai-pill">"Log a 27-mile trip to Rivers St"</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── SERVICE PLANS SECTION ───────────────────── -->
-<section class="section section-alt" id="plans" data-section="plans">
-  <div class="container">
-    <div class="two-col">
-      <div>
-        <span class="eyebrow eyebrow-orange">Service Plans</span>
-        <h2 class="section-title">Recurring work<br/>that runs itself<span class="accent">.</span></h2>
-        <p class="section-sub">
-          Biweekly lawn care, monthly window cleaning, quarterly pressure wash.
-          Set the cadence once and Opervo generates the jobs, sends the reminders,
-          and bills the client. The kind of automation an owner-operator actually
-          has time to set up.
-        </p>
-        <ul class="bullets">
-          <li>Any cadence: weekly, biweekly, monthly, quarterly, or custom.</li>
-          <li>Jobs auto-create in the schedule so you never forget a client.</li>
-          <li>Clients get an "On my way" SMS on the morning of service.</li>
-          <li>Invoice, review request, QBO sync. All on autopilot.</li>
-        </ul>
-        <a href="https://app.opervo.io" class="btn btn-primary">Start a plan</a>
-      </div>
-
-      <div class="phone">
-        <div class="phone-screen phone-screen-img">
-          <img src="/screenshots/hero-service-plans.jpg" alt="Opervo service plans: 5 active client agreements with recurring revenue" loading="lazy" decoding="async" />
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── ROUTE OPTIMIZATION SECTION ──────────────── -->
-<section class="section" id="routes" data-section="routes">
-  <div class="container">
-    <div class="two-col">
-      <div class="phone">
-        <div class="phone-screen phone-screen-img">
-          <img src="/screenshots/hero-route.png" alt="Opervo route optimizer: 6 stops optimized, 44.6 miles, 76 minutes" loading="lazy" decoding="async" />
-        </div>
-      </div>
-
-      <div>
-        <span class="eyebrow eyebrow-orange">Your truck is your office</span>
-        <h2 class="section-title">Stop driving<br/>for free<span class="accent">.</span></h2>
-        <p class="section-sub">
-          Unbilled drive time is the silent profit killer. Opervo replans your day
-          in one tap. Shortest route, in order, navigation handed straight to Google
-          or Apple Maps. Operators save about <strong>40 minutes a day</strong>. That's one extra
-          job you couldn't fit before.
-        </p>
-        <ul class="bullets">
-          <li>One tap optimizes today's jobs for the shortest total drive.</li>
-          <li>Save favorite routes for the neighborhoods you hit every week.</li>
-          <li>Hand off to Google or Apple Maps for turn-by-turn. No separate app.</li>
-          <li>Built on Google Maps. Accurate, fast, no per-route fee.</li>
-        </ul>
-        <a href="https://app.opervo.io" class="btn btn-primary">Plan a route</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── EVERYTHING ELSE, TOO ────────────────────── -->
-<section class="section section-alt" data-section="everything_else">
-  <div class="container">
-    <div class="feature-grid-head">
-      <span class="eyebrow eyebrow-orange">No corners cut</span>
-      <h2 class="section-title">Everything else, too<span class="accent">.</span></h2>
-      <p class="section-sub" style="margin-left:auto;margin-right:auto">
-        The tools any field service app should have. All included. No "Pro plan" gates.
-      </p>
-    </div>
-
-    <div class="feature-grid">
-      <div class="feature-card">
-        <div class="feature-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
-        <div class="feature-card-name">Payments, your processor</div>
-        <div class="feature-card-desc">Square or Stripe. Cards, Apple Pay, Google Pay, tipping. Zero markup, ever.</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/></svg></div>
-        <div class="feature-card-name">Offline payments</div>
-        <div class="feature-card-desc">Log cash, check, Venmo, CashApp, Zelle. Auto-invoice generated.</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg></div>
-        <div class="feature-card-name">Photo documentation</div>
-        <div class="feature-card-desc">Before, during, after. Voice notes per job. Branded PDF reports.</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg></div>
-        <div class="feature-card-name">Mileage &amp; expenses</div>
-        <div class="feature-card-desc">Tax-ready reports, quarterly summaries, CSV for your accountant.</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
-        <div class="feature-card-name">QBO &amp; Google Calendar</div>
-        <div class="feature-card-desc">Two-way sync with QuickBooks Online and Google Calendar. Set it once.</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-        <div class="feature-card-name">SMS &amp; email</div>
-        <div class="feature-card-desc">On-my-way texts, reminders, review requests. From your branded number.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── COMPARISON TABLE ────────────────────────── -->
-<section class="section section-alt" id="compare" data-section="compare">
-  <div class="container">
-    <div class="compare-head">
-      <span class="eyebrow eyebrow-orange">The real math</span>
-      <h2 class="section-title">Most apps look cheap<br/>until you actually use them<span class="accent">.</span></h2>
-      <p class="section-sub">
-        They start you at $49. Then upgrade for features.<br/>
-        Then add users. Then add more tools.<br/>
-        Suddenly you're paying $150 to $300 a month.
-      </p>
-    </div>
-
-    <div class="compare-scroll">
+    <div class="compare-scroll reveal">
       <table class="compare-table">
-        <thead>
-          <tr>
-            <th></th>
-            <th class="compare-us">Opervo</th>
-            <th>Jobber</th>
-            <th>Housecall Pro</th>
-            <th>GorillaDesk</th>
-            <th>QuoteIQ</th>
-            <th>Markate</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Starting price</td>
-            <td class="compare-us-col"><span class="compare-price-us">$24.99<span class="mo">/mo</span></span></td>
-            <td><span class="compare-text">$49</span></td>
-            <td><span class="compare-text">$69</span></td>
-            <td><span class="compare-text">$49</span></td>
-            <td><span class="compare-text">$29.99</span></td>
-            <td><span class="compare-text">$39.95<sup style="font-size:9px;color:#F5620F">+ add-ons</sup></span></td>
-          </tr>
-          <tr>
-            <td>Per-user fees</td>
-            <td class="compare-us-col"><span class="compare-text" style="color:#10B981">None</span></td>
-            <td><span class="compare-text-muted">Yes</span></td>
-            <td><span class="compare-text-muted">Yes</span></td>
-            <td><span class="compare-text-muted">Yes</span></td>
-            <td><span class="compare-text-muted">Tiered</span></td>
-            <td><span class="compare-text-muted">Yes</span></td>
-          </tr>
-          <tr>
-            <td>Built-in AI assistant</td>
-            <td class="compare-us-col"><span class="compare-check">✓ No caps</span></td>
-            <td><span class="compare-x">—</span></td>
-            <td><span class="compare-x">—</span></td>
-            <td><span class="compare-x">—</span></td>
-            <td><span class="compare-partial">Credit-capped</span></td>
-            <td><span class="compare-x">—</span></td>
-          </tr>
-          <tr>
-            <td>Live folio page</td>
-            <td class="compare-us-col"><span class="compare-check">✓</span></td>
-            <td><span class="compare-x">—</span></td>
-            <td><span class="compare-x">—</span></td>
-            <td><span class="compare-x">—</span></td>
-            <td><span class="compare-x">—</span></td>
-            <td><span class="compare-x">—</span></td>
-          </tr>
-          <tr>
-            <td>Branded client portal</td>
-            <td class="compare-us-col"><span class="compare-check">✓ Included</span></td>
-            <td><span class="compare-partial">Limited</span></td>
-            <td><span class="compare-partial">Limited</span></td>
-            <td><span class="compare-x">—</span></td>
-            <td><span class="compare-x">—</span></td>
-            <td><span class="compare-partial">$10/mo extra</span></td>
-          </tr>
-          <tr>
-            <td>Route optimization</td>
-            <td class="compare-us-col"><span class="compare-check">✓ Included</span></td>
-            <td><span class="compare-partial">Pro plan</span></td>
-            <td><span class="compare-partial">Pro plan</span></td>
-            <td><span class="compare-partial">1 route only</span></td>
-            <td><span class="compare-partial">Elite plan</span></td>
-            <td><span class="compare-x">—</span></td>
-          </tr>
-          <tr>
-            <td>Recurring service plans</td>
-            <td class="compare-us-col"><span class="compare-check">✓</span></td>
-            <td><span class="compare-check">✓</span></td>
-            <td><span class="compare-check">✓</span></td>
-            <td><span class="compare-check">✓</span></td>
-            <td><span class="compare-x">—</span></td>
-            <td><span class="compare-check">✓</span></td>
-          </tr>
-          <tr>
-            <td>Built for solo operators</td>
-            <td class="compare-us-col"><span class="compare-check">✓</span></td>
-            <td><span class="compare-x">—</span></td>
-            <td><span class="compare-x">—</span></td>
-            <td><span class="compare-partial">Partial</span></td>
-            <td><span class="compare-check">✓</span></td>
-            <td><span class="compare-check">✓</span></td>
-          </tr>
-        </tbody>
+        <tr><th></th><th class="op-col">Opervo<span class="dot">.</span></th><th>Jobber</th><th>Housecall Pro</th><th>GorillaDesk</th><th>Markate</th></tr>
+        <tr><td>Starting price</td><td class="op-col"><b>$24.99/mo</b></td><td>$49</td><td>$69</td><td>$49</td><td>$39.95+</td></tr>
+        <tr><td>Per-user fees</td><td class="op-col"><span class="yes">None</span></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+        <tr><td>Built-in AI</td><td class="op-col"><span class="yes">&#10003;</span> No caps</td><td><span class="no">&mdash;</span></td><td><span class="no">&mdash;</span></td><td><span class="no">&mdash;</span></td><td><span class="no">&mdash;</span></td></tr>
+        <tr><td>Live folio page</td><td class="op-col"><span class="yes">&#10003;</span></td><td><span class="no">&mdash;</span></td><td><span class="no">&mdash;</span></td><td><span class="no">&mdash;</span></td><td><span class="no">&mdash;</span></td></tr>
+        <tr><td>Branded client portal</td><td class="op-col"><span class="yes">&#10003;</span> Included</td><td><span class="flag">Limited</span></td><td><span class="flag">Limited</span></td><td><span class="no">&mdash;</span></td><td><span class="flag">$10/mo extra</span></td></tr>
+        <tr><td>Instant quoting</td><td class="op-col"><span class="yes">&#10003;</span> Included</td><td><span class="flag">Forms only</span></td><td><span class="flag">Forms only</span></td><td><span class="flag">Forms only</span></td><td><span class="flag">$10/mo extra</span></td></tr>
+        <tr><td>Route optimization</td><td class="op-col"><span class="yes">&#10003;</span> Included</td><td><span class="flag">Pro plan</span></td><td><span class="flag">Pro plan</span></td><td><span class="flag">1 route only</span></td><td><span class="no">&mdash;</span></td></tr>
+        <tr><td>Built for solo operators</td><td class="op-col"><span class="yes">&#10003;</span></td><td><span class="no">&mdash;</span></td><td><span class="no">&mdash;</span></td><td><span class="flag">Partial</span></td><td><span class="yes">&#10003;</span></td></tr>
       </table>
     </div>
+    <p class="compare-note">Prices reflect each vendor's lowest published plan, annual billing where offered. Markate's $39.95 base excludes Customer Portal, Online Booking, Lead Form, Reviews, and Proposals, each $10/mo extra.</p>
 
-    <div class="compare-note">
-      Prices reflect each vendor's lowest published plan (annual billing where offered).
-      QuoteIQ AI is credit-capped per tier; Opervo AI has no credit limits.
-      Markate's $39.95 base excludes Customer Portal, Online Booking, Lead Form, Reviews, and Proposals — each $10/mo extra.
-    </div>
-
-    <!-- ── INTERACTIVE COST WIDGET ────────────────── -->
-    <!-- Pricing data here mirrors lib/cost-calculator-data.ts. Update both when prices change. -->
-    <div class="cost-widget" id="cost-widget">
-      <div class="cost-widget-head">
-        <span class="eyebrow eyebrow-orange">The Real Math · Interactive</span>
-        <h2 class="cost-widget-h2">See what you&rsquo;d <em>actually</em> pay<span class="dot">.</span></h2>
-        <p class="cost-widget-sub">Pick a competitor and your team size. We&rsquo;ll show what they&rsquo;d charge for the features Opervo includes by default.</p>
+    <div class="calc reveal">
+      <div class="calc-head">
+        <h3>SEE WHAT YOU'D <span style="color:var(--primary); font-style:italic;">ACTUALLY</span> PAY</h3>
+        <p style="color:var(--muted); font-size:15px; margin-top:6px;">Pick a competitor. We'll show what they'd charge for the features Opervo includes by default.</p>
       </div>
-
-      <div class="cost-widget-tabs" id="cost-tabs"></div>
-
-      <div class="cost-widget-team">
-        <span class="cost-widget-team-label">Team size:</span>
-        <div class="cost-widget-team-buttons" id="cost-team-buttons"></div>
+      <div class="calc-tabs">
+        <button class="calc-tab active" data-them="95" data-name="Markate" data-sub="$39.95 base + 5 add-ons + 1 user fee">vs Markate</button>
+        <button class="calc-tab" data-them="129" data-name="Jobber" data-sub="Core plan + 1 extra user + add-ons">vs Jobber</button>
+        <button class="calc-tab" data-them="149" data-name="Housecall Pro" data-sub="Essentials + add-ons most operators use">vs Housecall Pro</button>
+        <button class="calc-tab" data-them="79" data-name="GorillaDesk" data-sub="Pro tier for routes + add-ons">vs GorillaDesk</button>
       </div>
-
-      <div class="cost-widget-grid">
-        <div class="cost-widget-card cost-widget-competitor" id="cost-competitor-card"></div>
-        <div class="cost-widget-card cost-widget-opervo" id="cost-opervo-card"></div>
-        <div class="cost-widget-card cost-widget-savings" id="cost-savings-card"></div>
-      </div>
-
-      <div class="cost-widget-cta">
-        <a href="/cost-calculator" class="cost-widget-customize">Customize what YOU need →</a>
-        <span class="cost-widget-or">or</span>
-        <a href="https://app.opervo.io" class="cost-widget-trial">Start 14-Day Trial →</a>
-      </div>
-
-      <p class="cost-widget-fineprint">
-        Default stack reflects features most operators in this category actually use. Run the full version to add or remove features and see your real cost.
-      </p>
-    </div>
-
-    <style>
-      .cost-widget { max-width: 1100px; margin: 0 auto; }
-      .cost-widget-head { text-align: center; margin-bottom: 24px; }
-      .cost-widget-h2 {
-        font-family: 'Barlow Condensed', sans-serif;
-        font-size: clamp(28px, 4.5vw, 44px);
-        font-weight: 900;
-        color: #0F0F0F;
-        text-transform: uppercase;
-        letter-spacing: -0.5px;
-        line-height: 1;
-        margin: 14px 0 0;
-      }
-      .cost-widget-h2 em { font-style: italic; color: #F5620F; }
-      .cost-widget-h2 .dot { color: #F5620F; }
-      .cost-widget-sub {
-        font-size: 15px; color: #6B6B6B; max-width: 580px;
-        margin: 14px auto 0; line-height: 1.55;
-      }
-      .cost-widget-tabs {
-        display: flex; gap: 8px; justify-content: center;
-        flex-wrap: wrap; margin-bottom: 14px;
-      }
-      .cost-widget-tab {
-        font-family: 'Barlow Condensed', sans-serif;
-        font-size: 13px; font-weight: 800;
-        text-transform: uppercase; letter-spacing: 0.1em;
-        padding: 10px 18px; background: #fff; color: #6B6B6B;
-        border: 1px solid #E8E4DE; border-radius: 8px;
-        cursor: pointer; transition: all 0.15s;
-      }
-      .cost-widget-tab.active { background: #0F0F0F; color: #F7F5F2; border-color: #0F0F0F; }
-      .cost-widget-team {
-        display: flex; gap: 10px; justify-content: center;
-        align-items: center; flex-wrap: wrap; margin-bottom: 24px;
-      }
-      .cost-widget-team-label { font-size: 13px; color: #6B6B6B; font-weight: 600; }
-      .cost-widget-team-buttons { display: flex; gap: 4px; }
-      .cost-widget-team-btn {
-        width: 36px; height: 36px;
-        background: #fff; color: #6B6B6B;
-        border: 1px solid #E8E4DE; border-radius: 8px;
-        font-family: 'Barlow Condensed', sans-serif;
-        font-size: 14px; font-weight: 800; cursor: pointer;
-        transition: all 0.15s;
-      }
-      .cost-widget-team-btn.active {
-        background: #F5620F; color: #fff; border-color: #F5620F;
-      }
-      .cost-widget-grid {
-        display: grid; gap: 16px;
-        grid-template-columns: 1fr;
-      }
-      @media (min-width: 880px) { .cost-widget-grid { grid-template-columns: 1fr 1fr 1fr; } }
-      .cost-widget-card {
-        border-radius: 14px; padding: 22px 24px;
-        position: relative; overflow: hidden;
-      }
-      .cost-widget-competitor { background: #fff; border: 1px solid #E8E4DE; }
-      .cost-widget-opervo { background: #0F0F0F; color: #F7F5F2; }
-      .cost-widget-opervo::before {
-        content: ''; position: absolute; top: -60px; right: -60px;
-        width: 220px; height: 220px;
-        background: radial-gradient(circle, rgba(245,98,15,0.16) 0%, transparent 70%);
-        pointer-events: none;
-      }
-      .cost-widget-savings {
-        background: linear-gradient(135deg, #F5620F 0%, #d94e08 100%);
-        color: #fff; box-shadow: 0 8px 24px rgba(245,98,15,0.25);
-      }
-      .cw-card-header {
-        display: flex; justify-content: space-between;
-        align-items: baseline; margin-bottom: 6px;
-      }
-      .cw-name {
-        font-family: 'Barlow Condensed', sans-serif;
-        font-size: 18px; font-weight: 800; color: #0F0F0F;
-      }
-      .cost-widget-opervo .cw-name { color: #F7F5F2; font-weight: 900; letter-spacing: -0.3px; }
-      .cw-name .cw-dot { color: #F5620F; }
-      .cw-stack-label {
-        font-size: 11px; color: #6B6B6B; font-weight: 600;
-        text-transform: uppercase; letter-spacing: 0.06em;
-      }
-      .cost-widget-opervo .cw-stack-label { color: rgba(247,245,242,0.6); }
-      .cw-price-row {
-        display: flex; align-items: baseline; gap: 4px; margin-bottom: 8px;
-      }
-      .cw-dollar {
-        font-family: 'Barlow Condensed', sans-serif;
-        font-size: 22px; font-weight: 700; color: #6B6B6B;
-      }
-      .cost-widget-opervo .cw-dollar { color: rgba(247,245,242,0.6); }
-      .cost-widget-savings .cw-dollar { color: rgba(255,255,255,0.9); }
-      .cw-amount {
-        font-family: 'Barlow Condensed', sans-serif;
-        font-size: clamp(40px, 6vw, 56px);
-        font-weight: 900; color: #0F0F0F;
-        line-height: 1; letter-spacing: -1px;
-      }
-      .cost-widget-opervo .cw-amount { color: #F7F5F2; }
-      .cost-widget-savings .cw-amount { color: #fff; }
-      .cw-cents {
-        font-family: 'Barlow Condensed', sans-serif;
-        font-size: 22px; font-weight: 900; color: #F7F5F2;
-      }
-      .cw-unit {
-        font-size: 14px; color: #6B6B6B; font-weight: 500; margin-left: 4px;
-      }
-      .cost-widget-opervo .cw-unit { color: rgba(247,245,242,0.6); }
-      .cost-widget-savings .cw-unit { color: rgba(255,255,255,0.9); }
-      .cw-detail {
-        font-size: 12px; color: #9CA3AF;
-        line-height: 1.5; margin: 0;
-      }
-      .cost-widget-opervo .cw-detail { color: rgba(247,245,242,0.7); }
-      .cost-widget-savings .cw-detail { color: rgba(255,255,255,0.95); }
-      .cost-widget-savings .cw-detail strong { color: #fff; }
-      .cw-savings-eyebrow {
-        font-family: 'Barlow Condensed', sans-serif;
-        font-size: 11px; font-weight: 800; letter-spacing: 0.18em;
-        text-transform: uppercase; opacity: 0.9; margin: 0 0 12px;
-      }
-      .cost-widget-cta {
-        display: flex; gap: 10px; justify-content: center;
-        align-items: center; flex-wrap: wrap; margin-top: 20px;
-      }
-      .cost-widget-customize {
-        display: inline-flex; align-items: center; gap: 6px;
-        font-size: 14px; font-weight: 700; color: #F5620F;
-        text-decoration: none; border-bottom: 1px dashed rgba(245,98,15,0.4);
-        padding-bottom: 2px;
-      }
-      .cost-widget-or { color: #9CA3AF; font-size: 13px; }
-      .cost-widget-trial {
-        display: inline-block; background: #F5620F; color: #fff;
-        font-family: 'Barlow Condensed', sans-serif;
-        font-weight: 800; font-size: 14px;
-        padding: 11px 22px; border-radius: 6px;
-        text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em;
-      }
-      .cost-widget-fineprint {
-        font-size: 11px; color: #9CA3AF; text-align: center;
-        margin: 16px auto 0; max-width: 560px; line-height: 1.5;
-      }
-    </style>
-
-    <script>
-      (function() {
-        // Data — keep in sync with lib/cost-calculator-data.ts.
-        var COMPETITORS = {
-          markate: {
-            type: 'addon', name: 'Markate', base: 39.95, perUserFee: 5,
-            addons: [
-              { id: 'portal', label: 'Customer Portal', price: 10 },
-              { id: 'booking', label: 'Online Booking', price: 10 },
-              { id: 'lead', label: 'Lead Contact Form', price: 10 },
-              { id: 'review', label: 'Ask for Review', price: 10 },
-              { id: 'proposal', label: 'Proposal Kit', price: 10 }
-            ]
-          },
-          jobber: {
-            type: 'tiered', name: 'Jobber',
-            tiers: [
-              { id: 'core', name: 'Core', price: 39, includedUsers: 1 },
-              { id: 'connect', name: 'Connect', price: 119, includedUsers: 5 },
-              { id: 'grow', name: 'Grow', price: 249, includedUsers: 15 }
-            ],
-            extraUserFee: 29,
-            // Default stack hits Connect tier
-            requiredTier: 'connect'
-          },
-          housecall: {
-            type: 'tiered_per_user', name: 'Housecall Pro',
-            tiers: [
-              { id: 'basic', name: 'Basic', price: 65, includedUsers: 1 },
-              { id: 'essentials', name: 'Essentials', price: 169, includedUsers: 5 }
-            ],
-            extraUserFee: 35,
-            requiredTier: 'essentials'
-          },
-          quoteiq: {
-            type: 'tiered', name: 'QuoteIQ',
-            tiers: [
-              { id: 'standard', name: 'Standard', price: 29.99, includedUsers: 1 },
-              { id: 'elite', name: 'Elite', price: 299, includedUsers: 5 }
-            ],
-            extraUserFee: 20,
-            requiredTier: 'elite'
-          }
-        };
-        var TABS = [
-          { id: 'markate', label: 'Markate' },
-          { id: 'jobber', label: 'Jobber' },
-          { id: 'housecall', label: 'Housecall Pro' },
-          { id: 'quoteiq', label: 'QuoteIQ' }
-        ];
-        var TEAM_SIZES = [1, 2, 3, 5, 8, 10];
-        var OPERVO = { solo: { name: 'Solo', price: 24.99, users: 2 }, team: { name: 'Team', price: 54.99, users: 10 } };
-
-        var state = { competitorId: 'markate', teamSize: 2 };
-
-        function fmt(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
-
-        function compute() {
-          var c = COMPETITORS[state.competitorId];
-          var ts = state.teamSize;
-          if (c.type === 'addon') {
-            var addonsTotal = c.addons.reduce(function(s, a) { return s + a.price; }, 0);
-            var userFee = Math.max(0, ts - 1) * c.perUserFee;
-            return {
-              total: c.base + addonsTotal + userFee,
-              tier: null,
-              extraUsers: Math.max(0, ts - 1),
-              userFee: userFee,
-              stackLabel: c.base.toFixed(0) + ' base + ' + c.addons.length + ' add-ons' + (userFee > 0 ? ' + ' + Math.max(0, ts - 1) + ' user fee' : '')
-            };
-          }
-          var tier = c.tiers.find(function(t) { return t.id === c.requiredTier; });
-          var total, userFee;
-          if (c.type === 'tiered_per_user') {
-            total = tier.price * ts;
-            userFee = tier.price * Math.max(0, ts - 1);
-          } else {
-            var extraUsers = Math.max(0, ts - tier.includedUsers);
-            userFee = extraUsers * c.extraUserFee;
-            total = tier.price + userFee;
-          }
-          return {
-            total: total,
-            tier: tier,
-            extraUsers: Math.max(0, ts - tier.includedUsers),
-            userFee: userFee,
-            stackLabel: tier.name + ' tier' + (userFee > 0 ? ' + ' + Math.max(0, ts - tier.includedUsers) + ' extra ' + (Math.max(0, ts - tier.includedUsers) === 1 ? 'user' : 'users') : '')
-          };
-        }
-
-        function render() {
-          var tabsEl = document.getElementById('cost-tabs');
-          tabsEl.innerHTML = TABS.map(function(t) {
-            return '<button type="button" class="cost-widget-tab' + (state.competitorId === t.id ? ' active' : '') + '" data-tab="' + t.id + '">vs ' + t.label + '</button>';
-          }).join('');
-
-          var teamEl = document.getElementById('cost-team-buttons');
-          teamEl.innerHTML = TEAM_SIZES.map(function(n) {
-            return '<button type="button" class="cost-widget-team-btn' + (state.teamSize === n ? ' active' : '') + '" data-team="' + n + '">' + n + '</button>';
-          }).join('');
-
-          var c = COMPETITORS[state.competitorId];
-          var cost = compute();
-          var opervoPlan = state.teamSize <= 2 ? OPERVO.solo : OPERVO.team;
-          var monthlyDiff = cost.total - opervoPlan.price;
-          var yearlyDiff = monthlyDiff * 12;
-          var fiveYearDiff = yearlyDiff * 5;
-
-          document.getElementById('cost-competitor-card').innerHTML =
-            '<div class="cw-card-header">' +
-              '<p class="cw-name">' + c.name + '</p>' +
-              '<p class="cw-stack-label">typical stack</p>' +
-            '</div>' +
-            '<div class="cw-price-row">' +
-              '<span class="cw-dollar">$</span>' +
-              '<span class="cw-amount">' + Math.round(cost.total).toLocaleString('en-US') + '</span>' +
-              '<span class="cw-unit">/mo</span>' +
-            '</div>' +
-            '<p class="cw-detail">' + cost.stackLabel + '</p>';
-
-          var dollars = Math.floor(opervoPlan.price);
-          var cents = Math.round((opervoPlan.price - dollars) * 100).toString();
-          if (cents.length === 1) cents = '0' + cents;
-          document.getElementById('cost-opervo-card').innerHTML =
-            '<div class="cw-card-header">' +
-              '<p class="cw-name">Opervo<span class="cw-dot">.</span></p>' +
-              '<p class="cw-stack-label">' + opervoPlan.name + ' · flat</p>' +
-            '</div>' +
-            '<div class="cw-price-row">' +
-              '<span class="cw-dollar">$</span>' +
-              '<span class="cw-amount">' + dollars + '</span>' +
-              '<span class="cw-cents">.' + cents + '</span>' +
-              '<span class="cw-unit">/mo</span>' +
-            '</div>' +
-            '<p class="cw-detail">Up to ' + opervoPlan.users + ' users · all features included · 0% payment markup</p>';
-
-          var savingsEl = document.getElementById('cost-savings-card');
-          if (monthlyDiff > 0) {
-            savingsEl.style.display = '';
-            savingsEl.innerHTML =
-              '<p class="cw-savings-eyebrow">You&rsquo;d save</p>' +
-              '<div class="cw-price-row">' +
-                '<span class="cw-dollar">$</span>' +
-                '<span class="cw-amount">' + Math.round(monthlyDiff).toLocaleString('en-US') + '</span>' +
-                '<span class="cw-unit">/mo</span>' +
-              '</div>' +
-              '<p class="cw-detail"><strong>' + fmt(yearlyDiff) + '/year</strong> · $' + (fiveYearDiff / 1000).toFixed(1) + 'k over 5 years</p>';
-          } else {
-            savingsEl.style.display = 'none';
-          }
-        }
-
-        var widget = document.getElementById('cost-widget');
-        widget.addEventListener('click', function(e) {
-          var tab = e.target.closest('[data-tab]');
-          var team = e.target.closest('[data-team]');
-          if (tab) { state.competitorId = tab.getAttribute('data-tab'); render(); }
-          else if (team) { state.teamSize = parseInt(team.getAttribute('data-team'), 10); render(); }
-        });
-
-        render();
-      })();
-    </script>
-  </div>
-</section>
-
-<!-- Profit Calculator strip removed — already linked in the nav "Free Tools" dropdown (line ~1423) and footer. -->
-
-<!-- ── SWITCH CTA (Already on Jobber / HCP) ────── -->
-<!-- ── FOUNDER ─────────────────────────────────── -->
-<section class="founder" data-section="founder">
-  <div class="container">
-    <div class="founder-wrap">
-      <a href="/founder" class="founder-avatar" aria-label="Read the full founder story">
-        <img src="/founder-photo.jpg" alt="Max, founder of Opervo" loading="lazy" decoding="async" />
-      </a>
-      <div class="founder-label">A note from the founder</div>
-      <h2 class="founder-quote">
-        "I built Opervo from my experience in the field, not from a boardroom. It's the app I wish I'd had."
-      </h2>
-      <p class="founder-body">
-        I ran a cleaning crew before I wrote a single line of this. I know what it's
-        like to chase payments from the cab of a truck, to miss a quote because my
-        hands were wet, to lose a customer because I forgot the follow-up text.
-        Opervo is everything I wanted and couldn't afford. If you're a solo operator
-        or a small crew, this one's for you. I'm still building it every day.
-      </p>
-      <div class="founder-sig">Max<span class="orange">.</span></div>
-      <div class="founder-role">Founder, Opervo</div>
-      <a href="/founder" class="founder-cta">Read the full story</a>
-    </div>
-  </div>
-</section>
-
-<!-- ── LIFETIME PASS STRIP ─────────────────────── -->
-<section class="lifetime-strip" id="lifetime-pass" data-section="lifetime_pass">
-  <div class="lifetime-strip-inner">
-    <p class="lifetime-strip-eyebrow">Sick of another monthly subscription?</p>
-    <h2 class="lifetime-strip-title">Own your software<span class="accent">.</span></h2>
-    <p class="lifetime-strip-lede">
-      Most software companies start cheap, then raise prices year after year. We built Opervo differently. 150 Founder Lifetime Passes. Pay once. You're in. Forever.
-    </p>
-    <ul class="lifetime-strip-bullets">
-      <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5620F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Lifetime access to Opervo. Every feature, every update.</span></li>
-      <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5620F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>No monthly bill. No annual renewal. No surprise price increases.</span></li>
-      <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5620F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Solo $999 once. Team $1,999 once. 30-day money-back.</span></li>
-      <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5620F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Once the 150 are gone, the door closes. No reopening.</span></li>
-    </ul>
-    <p class="lifetime-strip-quote">
-      For the operators who'd rather invest in their business once than rent software forever.
-    </p>
-    <p class="lifetime-strip-meta">150 Founder Passes &middot; Never offered again</p>
-    <div class="lifetime-strip-ctas">
-      <a href="/lifetime" class="lifetime-strip-cta-primary" data-event="lifetime_pass_landing_cta">Read the full letter &rarr;</a>
-      <a href="/lifetime#offer" class="lifetime-strip-cta-secondary" data-event="lifetime_pass_landing_cta_secondary">See the offer</a>
-    </div>
-  </div>
-</section>
-
-<!-- ── FOUNDING 50 STRIP ───────────────────────── -->
-<section class="founding-strip" id="founding-50" data-section="founding_50">
-  <div class="founding-strip-inner">
-    <div class="founding-strip-eyebrow">Founding 50 · Limited Spots</div>
-    <h2 class="founding-strip-title">
-      Lock <span class="accent">$15/mo Solo</span> for life.<br/>
-      Help shape the product.
-    </h2>
-    <p class="founding-strip-sub">
-      Founding Operators get 40% off forever in exchange for honest feedback — a survey here, a quick call there. We&rsquo;re capping it at 50 so the loop stays small enough to actually use what you tell us.
-    </p>
-    <div class="founding-progress" data-claimed="19" data-total="50">
-      <div class="founding-progress-row">
-        <span class="founding-progress-claimed">19 of 50 spots claimed</span>
-        <span class="founding-progress-remaining">31 remaining</span>
-      </div>
-      <div class="founding-progress-bar">
-        <div class="founding-progress-fill" style="width: 38%"></div>
-      </div>
-    </div>
-    <div class="founding-strip-ctas">
-      <a href="mailto:help@opervo.io?subject=Founding%2050%20application&amp;body=Hi%20Max%2C%0A%0AI%27d%20like%20to%20be%20a%20Founding%20Operator.%0A%0AMy%20business%3A%20%0AMy%20trade%3A%20%0AHow%20I%20heard%20about%20Opervo%3A%20%0A%0A--%20A%20few%20quick%20questions%20--%0A%0AWhat%20I%27m%20currently%20using%20to%20run%20my%20business%3A%20%0AWhat%20I%20like%20about%20it%3A%20%0AWhat%20frustrates%20me%20about%20it%3A%20%0A%0ATop%20features%20I%20look%20for%20in%20field-service%20software%20%28in%20priority%20order%29%3A%0A1.%20%0A2.%20%0A3.%20%0A%0AThanks%21" class="founding-strip-cta-primary" data-event="founding_50_apply">Apply for Founding 50 →</a>
-      <a href="mailto:help@opervo.io" class="founding-strip-cta-secondary" data-event="founding_50_email">Email Max instead</a>
-    </div>
-    <p class="founding-strip-fineprint">No commitment beyond paying for your subscription &amp; sharing feedback. Cancel anytime — but you&rsquo;ll lose the founder rate.</p>
-  </div>
-</section>
-
-<!-- ── PRICING BAND ────────────────────────────── -->
-<section class="pricing" id="pricing" data-section="pricing">
-  <div class="container">
-    <div class="pricing-head">
-      <h2 class="section-title">Every Feature.<br/>Every Plan<span class="accent">.</span></h2>
-      <p class="section-sub">
-        No features locked behind higher tiers. No per-user fees. Seriously.
-      </p>
-    </div>
-
-    <div class="pricing-grid">
-      <div class="price-card">
-        <div class="price-card-name">Solo</div>
-        <div class="price-card-num">$24.99<span class="small">/mo</span></div>
-        <div class="price-card-tag">Full feature access · <strong>2 users</strong> (operator + 1 helper)</div>
-        <div style="display:inline-block;font-size:15px;color:#fff;font-weight:700;margin:12px 0 18px;background:#F5620F;padding:7px 16px;border-radius:999px;letter-spacing:0.01em;box-shadow:0 1px 3px rgba(245,98,15,0.25);">or $249/yr — <strong>save $51</strong></div>
-        <a href="https://app.opervo.io" class="btn btn-primary">Start Free</a>
-      </div>
-      <div class="price-card featured">
-        <div class="price-card-name">Team</div>
-        <div class="price-card-num">$54.99<span class="small">/mo</span></div>
-        <div class="price-card-tag">Full feature access · <strong>Up to 10 team members</strong></div>
-        <div style="display:inline-block;font-size:15px;color:#fff;font-weight:700;margin:12px 0 18px;background:#F5620F;padding:7px 16px;border-radius:999px;letter-spacing:0.01em;box-shadow:0 1px 3px rgba(245,98,15,0.25);">or $549/yr — <strong>save $111</strong></div>
-        <a href="https://app.opervo.io" class="btn btn-primary">Start Free</a>
-      </div>
-    </div>
-
-    <div class="pricing-growth">
-      <div class="pricing-growth-copy">
-        <strong>Growth</strong>
-        <span>Unlimited team · Custom · contact help@opervo.io</span>
-      </div>
-      <a href="mailto:help@opervo.io">Get in touch</a>
-    </div>
-
-    <div class="pricing-note">
-      14-day free trial · No credit card required · Cancel anytime · Save 17% with annual<br/>
-      <a href="/demo" data-event="pricing_book_demo" style="color:#F5620F;font-weight:600;text-decoration:none;border-bottom:1px dashed rgba(245,98,15,0.4);">Want help setting it up? Book a 15-min demo with Max →</a>
-    </div>
-  </div>
-</section>
-
-<!-- ── FINAL CTA BAND ──────────────────────────── -->
-<section class="final-cta" data-section="final_cta">
-  <div class="final-cta-inner">
-    <div class="final-cta-eyebrow">Your business deserves</div>
-    <h2 class="final-cta-title">Look pro<span class="accent">.</span><br/>Win jobs<span class="accent">.</span></h2>
-    <p class="final-cta-sub">
-      Stop paying more for less. Stop stacking four apps to do one job.
-      Opervo is $24.99 a month for everything. Try it for 14 days, no credit card.
-    </p>
-    <div class="final-cta-ctas">
-      <a href="https://app.opervo.io" class="btn btn-primary">Start Free</a>
-      <a href="/p/solar-wash-atx" class="btn btn-secondary">See Live Folio</a>
-    </div>
-    <div class="final-cta-note">Cancel anytime · No per-user fees · Import in 2 minutes</div>
-  </div>
-</section>
-
-<!-- ── FOOTER ─────────────────────────────────── -->
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="/" class="logo">Opervo<span class="dot">.</span></a>
-        <div class="footer-tag">Look pro. Win jobs.<br/>Built for the solo operator or small crew.</div>
-        <div class="footer-copyright">© 2026 Opervo. Built for the trades.</div>
-        <div class="footer-social">
-          <a href="https://www.instagram.com/opervo.io" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          </a>
-          <a href="https://www.facebook.com/profile.php?id=61577509469081" target="_blank" rel="noopener" aria-label="Facebook">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-          </a>
+      <div class="calc-cards">
+        <div class="calc-card them">
+          <div class="label" id="them-name">Markate</div>
+          <div class="price" style="color:var(--ink);">$<span id="them-price">95</span><span style="font-size:22px;">/mo</span></div>
+          <div class="sub" id="them-sub">$39.95 base + 5 add-ons + 1 user fee</div>
+        </div>
+        <div class="calc-card us">
+          <div class="label">Opervo &middot; Solo &middot; flat</div>
+          <div class="price">$24.99<span style="font-size:22px;">/mo</span></div>
+          <div class="sub">Up to 2 users &middot; all features &middot; 0% payment markup</div>
+        </div>
+        <div class="calc-card save">
+          <div class="label">You'd save</div>
+          <div class="price">$<span id="save-price">70</span><span style="font-size:22px;">/mo</span></div>
+          <div class="sub">$<span id="save-year">840</span>/year back in your pocket</div>
         </div>
       </div>
-
-      <div class="footer-col">
-        <div class="footer-col-head">Product</div>
-        <a href="#ai">AI Assistant</a>
-        <a href="#folio">Folio</a>
-        <a href="#plans">Service Plans</a>
-        <a href="#routes">Routes</a>
-        <a href="#pricing">Pricing</a>
+      <div style="text-align:center; margin-top:30px;">
+        <a href="https://app.opervo.io" class="btn btn-primary">Start my 14-day trial
+          <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/cost-calculator" class="btn btn-secondary" style="margin-left:10px;">Build your own comparison</a>
       </div>
+    </div>
+  </div>
+</section>
 
-      <div class="footer-col">
-        <div class="footer-col-head">For Your Trade</div>
-        <a href="/solar-panel-cleaning">Solar Panel Cleaning</a>
-        <a href="/window-cleaning">Window Cleaning</a>
-        <a href="/pressure-washing">Pressure Washing</a>
-        <a href="/landscaping">Landscaping</a>
-        <a href="/auto-detailing">Auto Detailing</a>
+<!-- ============ FOUNDER ============ -->
+<section class="block" data-section="founder" style="background:var(--warm);">
+  <div class="wrap founder reveal">
+    <img src="/landing/founder-240.jpg" alt="Max, founder of Opervo" loading="lazy" width="240" height="240">
+    <span class="eyebrow" style="justify-content:center; display:inline-flex; margin-bottom:18px;">A note from the founder</span>
+    <p class="q">"I built Opervo from my experience in the field, not from a boardroom. It's the app I wish I'd had."</p>
+    <p class="body">I ran a cleaning crew before I wrote a single line of this. I know what it's like to chase payments from the cab of a truck, to miss a quote because my hands were wet, to lose a customer because I forgot the follow-up text. Opervo is everything I wanted and couldn't afford. If you're a solo operator or a small crew, this one's for you. I'm still building it every day.</p>
+    <div class="sig">Max<span class="dot">.</span></div>
+    <div class="role">Founder, Opervo</div>
+    <br>
+    <a href="/founder" class="story-link" data-event="founder_read_story">Read the full story</a>
+  </div>
+</section>
+
+<!-- ============ LIFETIME PASSES ============ -->
+<section class="block f50" id="lifetime" data-section="lifetime">
+  <div class="wrap" style="text-align:center; max-width:820px;">
+    <span class="eyebrow" style="justify-content:center; display:inline-flex;">Lifetime Passes &middot; Limited run</span>
+    <h2 style="margin-top:18px;">Pay <span class="hl">once</span>. Own it forever<span class="dot">.</span></h2>
+    <p class="lead" style="max-width:640px;">Most software rents you the same features year after year and raises the price while it does. We're doing the opposite: 75 Solo and 75 Team Lifetime Passes. Every feature, every future update, no bill ever again. When they're gone, they're gone.</p>
+
+    <div class="lt-math reveal">
+      <div class="lt-cell"><div class="n">20 <em>mo</em></div><p>Solo pass pays for itself vs monthly</p></div>
+      <div class="lt-cell"><div class="n">~5 <em>mo</em></div><p>Pays for itself vs a typical Jobber stack</p></div>
+      <div class="lt-cell"><div class="n">30 <em>day</em></div><p>Money-back guarantee, no questions</p></div>
+    </div>
+
+    <div class="pass-grid reveal">
+      <div class="pass-card">
+        <div class="p-name">Solo Pass</div>
+        <div class="p-price">$499<span class="once">once</span></div>
+        <div class="p-who">Operator + 1 helper. Every feature, every update, forever.</div>
+        <div class="pass-avail">First run &middot; 75 passes</div>
+        <a href="mailto:help@opervo.io?subject=Solo%20Lifetime%20Pass%20(%24499)&body=Hi%20Max%2C%0A%0AI%20want%20to%20claim%20a%20Solo%20Lifetime%20Pass.%0A%0AMy%20business%3A%20%0AMy%20trade%3A%20%0AMy%20Opervo%20account%20email%20(if%20I%20have%20one)%3A%20%0A%0AThanks%21" class="btn btn-primary" data-event="lifetime_solo_cta">Claim a Solo Pass
+          <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
-
-      <div class="footer-col">
-        <div class="footer-col-head">Compare</div>
-        <a href="/compare/opervo-vs-jobber">vs Jobber</a>
-        <a href="/compare/opervo-vs-housecall-pro">vs Housecall Pro</a>
-        <a href="/compare/opervo-vs-gorilladesk">vs GorillaDesk</a>
-        <a href="/compare/opervo-vs-markate">vs Markate</a>
-      </div>
-
-      <div class="footer-col">
-        <div class="footer-col-head">Company</div>
-        <a href="/cost-calculator">True Cost Calculator</a>
-        <a href="/profit-calculator">Profit Calculator</a>
-        <a href="/blog">Blog</a>
-        <a href="/guide">Guide</a>
-        <a href="/apprentice">Apprentice</a>
-        <a href="/privacy">Privacy</a>
-        <a href="/tos">Terms</a>
-        <a href="https://app.opervo.io">Sign In</a>
+      <div class="pass-card featured">
+        <div class="p-name">Team Pass</div>
+        <div class="p-price">$1,499<span class="once">once</span></div>
+        <div class="p-who">Up to 10 team members. Every feature, every update, forever.</div>
+        <div class="pass-avail">First run &middot; 75 passes</div>
+        <a href="mailto:help@opervo.io?subject=Team%20Lifetime%20Pass%20(%241%2C499)&body=Hi%20Max%2C%0A%0AI%20want%20to%20claim%20a%20Team%20Lifetime%20Pass.%0A%0AMy%20business%3A%20%0AMy%20trade%3A%20%0ATeam%20size%3A%20%0AMy%20Opervo%20account%20email%20(if%20I%20have%20one)%3A%20%0A%0AThanks%21" class="btn btn-primary" data-event="lifetime_team_cta">Claim a Team Pass
+          <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
     </div>
 
-    <div class="footer-bottom">
-      <div>help@opervo.io · Built by someone who was on the truck.</div>
-      <div>
-        <a href="/privacy">Privacy</a>·
-        <a href="/tos">Terms</a>·
-        <a href="/sitemap.xml">Sitemap</a>
+    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+      <a href="sms:+15127616054" class="btn btn-ghost-dark" data-event="lifetime_text_max">Text Max a question</a>
+    </div>
+    <p class="f50-fine">Grow into a crew later? Your $499 Solo Pass credits in full toward the Team Pass. 30-day full refund on both if it's not for you.</p>
+    <p class="f50-lifetime">Prefer monthly with a founder discount? The <a href="mailto:help@opervo.io?subject=Founding%2050%20application&body=Hi%20Max%2C%0A%0AI%27d%20like%20to%20be%20a%20Founding%20Operator.%0A%0AMy%20business%3A%20%0AMy%20trade%3A%20%0AHow%20I%20heard%20about%20Opervo%3A%20%0A%0AThanks%21" data-event="founding_50_apply">Founding 50</a> feedback program is 40 of 50 spots claimed.</p>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="block" id="pricing" data-section="pricing" style="background:var(--surface); border-bottom:1px solid var(--border);">
+  <div class="wrap" style="text-align:center;">
+    <span class="eyebrow" style="justify-content:center; display:inline-flex;">Pricing</span>
+    <h2 style="margin-top:18px;">Every feature. Every plan<span class="dot">.</span></h2>
+    <p class="lead" style="margin:16px auto 0;">No features locked behind higher tiers. No per-user fees. Seriously.</p>
+
+    <div class="toggle">
+      <button class="active" id="t-monthly">Monthly</button>
+      <button id="t-annual">Annual &nbsp;<span class="save-tag">save 17%</span></button>
+    </div>
+
+    <div class="price-grid">
+      <div class="price-card reveal">
+        <div class="plan">Solo</div>
+        <div class="amount"><sup>$</sup><span class="p-num-val" data-m="24.99" data-a="20.75">24.99</span><span class="mo">/mo</span></div>
+        <div class="who p-who" data-m="billed monthly" data-a="$249 billed yearly">billed monthly</div>
+        <ul class="checks">
+          <li><span class="check-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span>Operator + 1 helper</li>
+          <li><span class="check-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span>Every feature. Folio, AI, quoting, routes</li>
+          <li><span class="check-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span>Zero payment markup</li>
+        </ul>
+        <a href="https://app.opervo.io" class="btn btn-primary">Start free</a>
       </div>
+      <div class="price-card featured reveal">
+        <div class="badge">For crews</div>
+        <div class="plan">Team</div>
+        <div class="amount"><sup>$</sup><span class="p-num-val" data-m="54.99" data-a="45.75">54.99</span><span class="mo">/mo</span></div>
+        <div class="who p-who" data-m="billed monthly" data-a="$549 billed yearly">billed monthly</div>
+        <ul class="checks">
+          <li><span class="check-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span>Up to 10 team members</li>
+          <li><span class="check-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span>Every feature, same as Solo</li>
+          <li><span class="check-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span>Team scheduling &amp; assignments</li>
+        </ul>
+        <a href="https://app.opervo.io" class="btn btn-primary">Start free</a>
+      </div>
+    </div>
+    <div class="growth-strip reveal">
+      <span><b>Growth</b> &nbsp;&middot;&nbsp; Unlimited team, custom onboarding</span>
+      <a href="mailto:help@opervo.io" style="color:var(--primary); font-weight:600;">Get in touch</a>
+    </div>
+    <div class="growth-strip reveal" style="border-color:var(--primary); background:var(--primary-light);">
+      <span><b>Hate subscriptions?</b> &nbsp;&middot;&nbsp; 75 Solo and 75 Team Lifetime Passes. From $499 once, every feature forever.</span>
+      <a href="#lifetime" style="color:var(--primary); font-weight:600;">See the passes</a>
+    </div>
+    <p class="after-trial"><b>What happens after the 14 days?</b> Pick a plan or walk away. Your data exports either way, and we never auto-charge you because we never took a card.</p>
+    <p style="margin-top:14px;"><a href="/demo" data-event="pricing_book_demo" style="color:var(--primary); font-weight:600; font-size:15px; border-bottom:1.5px dashed var(--primary);">Want help setting it up? Book a 15-min demo with Max</a></p>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="block" data-section="faq">
+  <div class="wrap">
+    <div class="section-head centered reveal">
+      <span class="eyebrow">Straight answers</span>
+      <h2>Questions operators actually ask<span class="dot">.</span></h2>
+    </div>
+    <div class="faq reveal">
+      <details open>
+        <summary>Can I bring my clients over from Jobber, Markate, or a spreadsheet? <span class="plus">+</span></summary>
+        <div class="a">Yes. Import takes about <b>2 minutes</b> from a CSV, and if you're switching from another app, send us a screenshot of your client list and we'll migrate it for you. Concierge migration is free.</div>
+      </details>
+      <details>
+        <summary>Is there a contract? <span class="plus">+</span></summary>
+        <div class="a">No. Month to month, cancel anytime in two taps. Annual plans just trade flexibility for a 17% discount; they cancel the same way.</div>
+      </details>
+      <details>
+        <summary>What happens when my trial ends? <span class="plus">+</span></summary>
+        <div class="a">You pick a plan or you walk away. We never asked for a card, so there is <b>no surprise charge</b>. Your data stays exportable either way.</div>
+      </details>
+      <details>
+        <summary>Does it work on iPhone and Android? <span class="plus">+</span></summary>
+        <div class="a">Yes. Opervo is on the <b>iOS App Store</b>, Android is in testing, and the web app runs on any phone, tablet, or laptop. Same account everywhere.</div>
+      </details>
+      <details>
+        <summary>What do my customers see? <span class="plus">+</span></summary>
+        <div class="a">Your brand, not ours. Branded quotes, invoices, on-my-way texts, a public folio page, and a private client portal with their job history and photos. No login required for them, no "powered by" upsell banners.</div>
+      </details>
+      <details>
+        <summary>Do you take a cut of my payments? <span class="plus">+</span></summary>
+        <div class="a"><b>Never.</b> You connect your own Square or Stripe account and pay only their standard processing rate. Zero Opervo markup, on every plan, forever. That's a promise written into how the product is built.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="final" data-section="final">
+  <div class="wrap">
+    <span class="eyebrow">Your business deserves it</span>
+    <h2 style="margin-top:20px;">Look pro<span class="dot">.</span><br>Win jobs<span class="dot">.</span></h2>
+    <p class="lead">Stop paying more for less. Stop stacking four apps to do one job. Opervo is $24.99 a month for everything. Try it for 14 days, no credit card.</p>
+    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+      <a href="https://app.opervo.io" class="btn btn-primary" style="font-size:18px; padding:18px 36px;">Start my free trial
+        <svg class="arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="/p/solar-wash-atx" target="_blank" rel="noopener" class="btn btn-ghost-dark">See a live folio</a>
+    </div>
+    <p class="final-note">Cancel anytime &middot; No per-user fees &middot; Import in 2 minutes</p>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer data-section="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <a href="/" class="logo">Opervo<span class="dot">.</span></a>
+        <p class="foot-tag">Look pro. Win jobs. Built for the solo operator or small crew.</p>
+        <p class="foot-tag" style="margin-top:14px; font-size:13px;">&copy; 2026 Opervo. Built for the trades.</p>
+        <p class="foot-tag" style="margin-top:10px; font-size:13px;">
+          <a href="https://www.instagram.com/opervo.io" target="_blank" rel="noopener" style="color:var(--muted);">Instagram</a> &middot;
+          <a href="https://www.facebook.com/profile.php?id=61577509469081" target="_blank" rel="noopener" style="color:var(--muted);">Facebook</a>
+        </p>
+      </div>
+      <div class="foot-col">
+        <h4>Product</h4>
+        <a href="#folio">Folio</a><a href="#ai">AI Assistant</a><a href="#quoting">Instant Quoting</a><a href="#plans">Service Plans</a><a href="#pricing">Pricing</a><a href="#lifetime">Lifetime Pass</a>
+      </div>
+      <div class="foot-col">
+        <h4>Your trade</h4>
+        <a href="/solar-panel-cleaning">Solar Panel Cleaning</a><a href="/window-cleaning">Window Cleaning</a><a href="/pressure-washing">Pressure Washing</a><a href="/landscaping">Landscaping</a><a href="/auto-detailing">Auto Detailing</a>
+      </div>
+      <div class="foot-col">
+        <h4>Compare</h4>
+        <a href="/compare/opervo-vs-jobber">vs Jobber</a><a href="/compare/opervo-vs-housecall-pro">vs Housecall Pro</a><a href="/compare/opervo-vs-gorilladesk">vs GorillaDesk</a><a href="/compare/opervo-vs-markate">vs Markate</a>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <a href="/founder">Founder story</a><a href="/blog">Blog</a><a href="/cost-calculator">True Cost Calculator</a><a href="/profit-calculator">Profit Calculator</a><a href="/guide">Guide</a><a href="/apprentice">Apprentice</a><a href="/privacy">Privacy</a><a href="/tos">Terms</a><a href="https://app.opervo.io">Sign in</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>help@opervo.io &middot; Built by someone who was on the truck.</span>
+      <span><a href="/privacy">Privacy</a> &middot; <a href="/tos">Terms</a> &middot; <a href="/sitemap.xml">Sitemap</a></span>
     </div>
   </div>
 </footer>
 
+<!-- ============ STICKY MOBILE CTA ============ -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="s-txt"><b>Start free, 14 days</b>No credit card required</div>
+  <a href="https://app.opervo.io" class="btn btn-primary" data-event="sticky_start_trial">Start free trial</a>
+</div>
+
 <script>
-  // Stream the first AI reply word-by-word so the demo feels alive
-  const reply = document.getElementById('reply');
-  if (reply) {
-    const text = "$3,240 across 12 jobs. Up $410 from March. Want a breakdown?";
-    let i = 0;
-    reply.innerHTML = '<span class="cursor"></span>';
-    setTimeout(function tick(){
-      if (i >= text.length) { reply.innerHTML = text; return; }
-      i++;
-      reply.innerHTML = text.slice(0, i) + '<span class="cursor"></span>';
-      setTimeout(tick, 22);
-    }, 800);
-  }
+// nav border on scroll
+var opNav = document.getElementById('nav');
+window.addEventListener('scroll', function () {
+  if (opNav) opNav.classList.toggle('scrolled', window.scrollY > 20);
+}, { passive: true });
 
-  // Scroll reveal (preserved from original)
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('vis'), i * 100);
-        obs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+// reveal on scroll
+var opReveal = new IntersectionObserver(function (entries) {
+  entries.forEach(function (e) {
+    if (e.isIntersecting) { e.target.classList.add('in'); opReveal.unobserve(e.target); }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(function (el) { opReveal.observe(el); });
 
-  // Nav shrink on scroll (preserved)
-  const navEl = document.querySelector('nav');
-  if (navEl) {
-    window.addEventListener('scroll', () => {
-      navEl.style.boxShadow = window.scrollY > 20 ? '0 1px 20px rgba(15,15,15,0.08)' : 'none';
-    });
-  }
+// sticky mobile CTA after hero
+var opSticky = document.getElementById('stickyCta');
+window.addEventListener('scroll', function () {
+  if (opSticky) opSticky.classList.toggle('show', window.scrollY > window.innerHeight * 0.9);
+}, { passive: true });
+
+// AI demo: stream the first reply word-by-word so it feels alive
+var opReply = document.getElementById('reply');
+if (opReply) {
+  var opReplyText = "$3,240 across 12 jobs. Up $410 from March. Want a breakdown?";
+  var opReplyI = 0;
+  opReply.innerHTML = '<span class="cursor"></span>';
+  setTimeout(function opTick() {
+    if (opReplyI >= opReplyText.length) { opReply.innerHTML = opReplyText; return; }
+    opReplyI++;
+    opReply.innerHTML = opReplyText.slice(0, opReplyI) + '<span class="cursor"></span>';
+    setTimeout(opTick, 22);
+  }, 800);
+}
+
+// calc tabs
+var OPERVO_PRICE = 24.99;
+document.querySelectorAll('.calc-tab').forEach(function (tab) {
+  tab.addEventListener('click', function () {
+    document.querySelectorAll('.calc-tab').forEach(function (t) { t.classList.remove('active'); });
+    tab.classList.add('active');
+    var them = parseFloat(tab.dataset.them);
+    document.getElementById('them-name').textContent = tab.dataset.name;
+    document.getElementById('them-price').textContent = them;
+    document.getElementById('them-sub').textContent = tab.dataset.sub;
+    document.getElementById('save-price').textContent = Math.round(them - OPERVO_PRICE);
+    document.getElementById('save-year').textContent = (Math.round(them - OPERVO_PRICE) * 12).toLocaleString();
+  });
+});
+
+// pricing toggle
+var opTM = document.getElementById('t-monthly'), opTA = document.getElementById('t-annual');
+function opSetBilling(annual) {
+  if (!opTM || !opTA) return;
+  opTM.classList.toggle('active', !annual);
+  opTA.classList.toggle('active', annual);
+  document.querySelectorAll('.p-num-val').forEach(function (el) { el.textContent = annual ? el.dataset.a : el.dataset.m; });
+  document.querySelectorAll('.p-who').forEach(function (el) {
+    if (el.dataset.m) el.textContent = annual ? el.dataset.a : el.dataset.m;
+  });
+}
+if (opTM) opTM.addEventListener('click', function () { opSetBilling(false); });
+if (opTA) opTA.addEventListener('click', function () { opSetBilling(true); });
 </script>
 
 <!-- ── SECTION ANALYTICS ─────────────────────────
@@ -2846,10 +1272,7 @@ fbq('track', 'PageView');
      long, plus CTA clicks tagged with section context. Events:
        landing_section_viewed { section } — first time ≥50% visible
        landing_section_dwell_ended { section, seconds } — when it leaves view
-       landing_cta_clicked { section, label, href } — clicks on a/button inside a tracked section
-     Together these give us scroll-depth, time-per-section, and which sections
-     drive sign-ups. PostHog autocapture already covers raw clicks; this gives
-     them a section property for funnel analysis. -->
+       landing_cta_clicked { section, label, href } — clicks on a/button inside a tracked section -->
 <script>
 (function () {
   if (!("IntersectionObserver" in window)) return;
