@@ -198,7 +198,7 @@ nav.scrolled { border-bottom-color: var(--border); }
   width: 330px; border-radius: 42px; border: 10px solid var(--black);
   background: #1b1b1b; overflow: hidden; box-shadow: 0 40px 80px rgba(15,15,15,0.28);
 }
-.phone img { width: 100%; }
+.phone img { width: 100%; height: auto; display: block; }
 .float-card {
   position: absolute; background: var(--surface); border: 1px solid var(--border);
   border-radius: 14px; padding: 12px 16px; box-shadow: 0 12px 32px rgba(15,15,15,0.14);
@@ -248,7 +248,7 @@ section.block { padding: 110px 0; }
 .check-ic { width: 22px; height: 22px; border-radius: 50%; background: var(--primary); color: #fff; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
 .check-ic svg { width: 12px; height: 12px; }
 .media-phone { width: 300px; border-radius: 38px; border: 9px solid var(--black); overflow: hidden; box-shadow: 0 30px 60px rgba(15,15,15,0.2); margin: 0 auto; background: #1b1b1b; }
-.media-phone img { width: 100%; }
+.media-phone img { width: 100%; height: auto; display: block; }
 
 /* problem */
 .problem-photo { border-radius: 16px; overflow: hidden; position: relative; margin-bottom: 64px; }
@@ -652,7 +652,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 64
     </div>
 
     <div class="phone-stage">
-      <div class="phone"><img src="/landing/hero-dashboard-660.png" alt="Opervo dashboard on a phone" fetchpriority="high" width="660" height="1326"></div>
+      <div class="phone"><img src="/landing/hero-dashboard-660.png" alt="Opervo dashboard on a phone" fetchpriority="high" width="660" height="1430"></div>
       <div class="float-card fc-1">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></div>
         <div><b>Invoice paid &middot; $175</b><span>Just now</span></div>
@@ -775,7 +775,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 64
         </a>
       </div>
       <div class="media reveal">
-        <div class="media-phone"><img src="/landing/quoting-600.jpg" alt="Instant quote price reveal" loading="lazy" width="600" height="1232"></div>
+        <div class="media-phone"><img src="/landing/quoting-600.jpg" alt="Instant quote price reveal" loading="lazy" width="600" height="1300"></div>
       </div>
     </div>
 
@@ -800,7 +800,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 64
         <span class="b-dot" style="background:#ff5f57;"></span><span class="b-dot" style="background:#febc2e;"></span><span class="b-dot" style="background:#28c840;"></span>
         <span class="url">app.opervo.io/dashboard</span>
       </div>
-      <img src="/landing/dashboard-desktop-2000.jpg" alt="Opervo desktop dashboard with revenue, pipeline, and schedule" loading="lazy" width="2000" height="1059">
+      <img src="/landing/dashboard-desktop-2000.jpg" alt="Opervo desktop dashboard with revenue, pipeline, and schedule" loading="lazy" width="2000" height="1156">
     </div>
     <p class="stat-note">Dashboard shown with demo-account data.</p>
   </div>
@@ -850,7 +850,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 64
         <span class="eyebrow">Service plans</span>
         <h2 style="font-size:clamp(30px,3.6vw,44px); margin:16px 0 12px;">Recurring work that runs itself<span class="dot">.</span></h2>
         <p class="lead" style="font-size:17px;">Set the cadence once. Opervo generates the jobs, sends the reminders, and bills the client. Weekly, biweekly, monthly, quarterly, or custom.</p>
-        <div style="margin-top:24px;"><div class="media-phone" style="width:260px; margin:0;"><img src="/landing/service-plans-520.jpg" alt="Active service plan agreements" loading="lazy" width="520" height="1067"></div></div>
+        <div style="margin-top:24px;"><div class="media-phone" style="width:260px; margin:0;"><img src="/landing/service-plans-520.jpg" alt="Active service plan agreements" loading="lazy" width="520" height="1069"></div></div>
       </div>
       <div class="reveal">
         <span class="eyebrow">Your truck is your office</span>
@@ -1004,7 +1004,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 64
 <!-- ============ FOUNDER ============ -->
 <section class="block" data-section="founder" style="background:var(--warm);">
   <div class="wrap founder reveal">
-    <img src="/landing/founder-240.jpg" alt="Max, founder of Opervo" loading="lazy" width="240" height="240">
+    <img src="/landing/founder-240.jpg" alt="Max, founder of Opervo" loading="lazy" width="240" height="180">
     <span class="eyebrow" style="justify-content:center; display:inline-flex; margin-bottom:18px;">A note from the founder</span>
     <p class="q">"I built Opervo from my experience in the field, not from a boardroom. It's the app I wish I'd had."</p>
     <p class="body">I ran a cleaning crew before I wrote a single line of this. I know what it's like to chase payments from the cab of a truck, to miss a quote because my hands were wet, to lose a customer because I forgot the follow-up text. Opervo is everything I wanted and couldn't afford. If you're a solo operator or a small crew, this one's for you. I'm still building it every day.</p>
