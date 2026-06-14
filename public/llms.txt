@@ -15,6 +15,9 @@
 - [Landscaping software](https://www.opervo.io/landscaping)
 - [Solar panel cleaning software](https://www.opervo.io/solar-panel-cleaning)
 - [Auto detailing software](https://www.opervo.io/auto-detailing)
+- [Gutter cleaning software](https://www.opervo.io/gutter-cleaning)
+- [Roof cleaning and soft wash software](https://www.opervo.io/roof-cleaning)
+- [Holiday and Christmas light installation software](https://www.opervo.io/holiday-lighting)
 
 ## Comparisons
 - [Opervo vs Jobber](https://www.opervo.io/compare/opervo-vs-jobber): flat pricing vs per-user pricing, side by side.

@@ -26,11 +26,27 @@ const jsonLd = {
   publisher: { '@type': 'Organization', name: 'Opervo' },
 }
 
+const howToLd = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'How to Look Professional as a Solo Contractor',
+  step: [
+    { '@type': 'HowToStep', position: 1, name: 'Get a professional portfolio page' },
+    { '@type': 'HowToStep', position: 2, name: 'Send branded estimates, not text messages' },
+    { '@type': 'HowToStep', position: 3, name: 'Automate client communication' },
+    { '@type': 'HowToStep', position: 4, name: 'Use a consistent visual identity' },
+    { '@type': 'HowToStep', position: 5, name: 'Get Google reviews and make them easy' },
+    { '@type': 'HowToStep', position: 6, name: 'Respond fast' },
+    { '@type': 'HowToStep', position: 7, name: 'Use real software, not spreadsheets' },
+  ],
+}
+
 export default function HowToLookProfessionalSoloContractor() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.opervo.io"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.opervo.io/blog"}, {"@type": "ListItem", "position": 3, "name": "How to Look Professional as a Solo Contractor (Without Spending a Fortune)", "item": "https://www.opervo.io/blog/how-to-look-professional-solo-contractor"}]}` }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToLd) }} />
       <BlogLayout
         category="BUSINESS TIPS"
         title="How to Look Professional as a Solo Contractor"

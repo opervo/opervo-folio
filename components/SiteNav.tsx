@@ -18,6 +18,9 @@ export default function SiteNav() {
     { name: t('industries.pressureWashing'), href: '/pressure-washing' as const },
     { name: t('industries.landscaping'), href: '/landscaping' as const },
     { name: t('industries.autoDetailing'), href: '/auto-detailing' as const },
+    { name: 'Gutter Cleaning', href: '/gutter-cleaning' as const },
+    { name: 'Roof Cleaning', href: '/roof-cleaning' as const },
+    { name: 'Holiday Lighting', href: '/holiday-lighting' as const },
   ]
 
   const comparisons = [

@@ -26,11 +26,25 @@ const jsonLd = {
   publisher: { '@type': 'Organization', name: 'Opervo' },
 }
 
+const howToLd = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'How to Send Invoices in the Field',
+  step: [
+    { '@type': 'HowToStep', position: 1, name: 'Open the completed job on your phone' },
+    { '@type': 'HowToStep', position: 2, name: 'Add line items' },
+    { '@type': 'HowToStep', position: 3, name: 'Attach the job photos' },
+    { '@type': 'HowToStep', position: 4, name: 'Send the invoice by text or email' },
+    { '@type': 'HowToStep', position: 5, name: 'Collect payment and request a review' },
+  ],
+}
+
 export default function HowToSendInvoicesInTheField() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.opervo.io"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.opervo.io/blog"}, {"@type": "ListItem", "position": 3, "name": "How to Send Invoices in the Field (Get Paid the Same Day)", "item": "https://www.opervo.io/blog/how-to-send-invoices-in-the-field"}]}` }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToLd) }} />
       <BlogLayout
         category="BUSINESS TIPS"
         title="How to Send Invoices in the Field (Get Paid the Same Day)"

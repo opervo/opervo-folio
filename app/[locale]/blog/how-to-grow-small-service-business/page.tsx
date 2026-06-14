@@ -26,11 +26,26 @@ const jsonLd = {
   publisher: { '@type': 'Organization', name: 'Opervo' },
 }
 
+const howToLd = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'How to Grow a Small Service Business',
+  step: [
+    { '@type': 'HowToStep', position: 1, name: 'Maximize your solo revenue' },
+    { '@type': 'HowToStep', position: 2, name: 'Build systems before you hire' },
+    { '@type': 'HowToStep', position: 3, name: 'Make your first hire' },
+    { '@type': 'HowToStep', position: 4, name: 'Build a recurring revenue machine' },
+    { '@type': 'HowToStep', position: 5, name: 'Market in a way that scales' },
+    { '@type': 'HowToStep', position: 6, name: 'Upgrade to a Team plan' },
+  ],
+}
+
 export default function HowToGrowSmallServiceBusiness() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.opervo.io"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.opervo.io/blog"}, {"@type": "ListItem", "position": 3, "name": "How to Grow a Small Service Business (From Solo to Crew)", "item": "https://www.opervo.io/blog/how-to-grow-small-service-business"}]}` }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToLd) }} />
       <BlogLayout
         category="GUIDES"
         title="How to Grow a Small Service Business (From Solo to Crew)"

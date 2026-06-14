@@ -26,11 +26,25 @@ const jsonLd = {
   publisher: { '@type': 'Organization', name: 'Opervo' },
 }
 
+const howToLd = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'How to Run a Service Business From Your Phone',
+  step: [
+    { '@type': 'HowToStep', position: 1, name: 'Schedule and manage jobs' },
+    { '@type': 'HowToStep', position: 2, name: 'Send estimates on-site' },
+    { '@type': 'HowToStep', position: 3, name: 'Invoice immediately after the job' },
+    { '@type': 'HowToStep', position: 4, name: 'Auto-text your clients' },
+    { '@type': 'HowToStep', position: 5, name: 'Showcase your work with a portfolio' },
+  ],
+}
+
 export default function HowToRunServiceBusinessFromPhone() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.opervo.io"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.opervo.io/blog"}, {"@type": "ListItem", "position": 3, "name": "How to Run a Service Business Entirely From Your Phone (2026 Guide)", "item": "https://www.opervo.io/blog/how-to-run-service-business-from-phone"}]}` }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToLd) }} />
       <BlogLayout
         category="GUIDES"
         title="How to Run a Service Business Entirely From Your Phone (2026 Guide)"

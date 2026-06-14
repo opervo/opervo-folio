@@ -26,11 +26,25 @@ const jsonLd = {
   publisher: { '@type': 'Organization', name: 'Opervo' },
 }
 
+const howToLd = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'How to Start a Solar Panel Cleaning Business',
+  step: [
+    { '@type': 'HowToStep', position: 1, name: 'Get your equipment' },
+    { '@type': 'HowToStep', position: 2, name: 'Set your pricing' },
+    { '@type': 'HowToStep', position: 3, name: 'Find your first clients' },
+    { '@type': 'HowToStep', position: 4, name: 'Run it like a professional' },
+    { '@type': 'HowToStep', position: 5, name: 'Scale to a crew' },
+  ],
+}
+
 export default function HowToStartSolarPanelCleaningBusiness() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.opervo.io"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.opervo.io/blog"}, {"@type": "ListItem", "position": 3, "name": "How to Start a Solar Panel Cleaning Business in 2026 (Step-by-Step)", "item": "https://www.opervo.io/blog/how-to-start-solar-panel-cleaning-business"}]}` }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToLd) }} />
       <BlogLayout
         category="GUIDES"
         title="How to Start a Solar Panel Cleaning Business in 2026"

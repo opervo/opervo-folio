@@ -6,6 +6,9 @@ const allTrades = [
   { name: 'Pressure Washing', href: '/pressure-washing', desc: 'Job tracking, before-and-after photos & fast invoicing for pressure washers.' },
   { name: 'Landscaping', href: '/landscaping', desc: 'Recurring schedules, seasonal services & property notes for landscapers.' },
   { name: 'Auto Detailing', href: '/auto-detailing', desc: 'Packages, before/after gallery & route optimization for mobile detailers and bay shops.' },
+  { name: 'Gutter Cleaning', href: '/gutter-cleaning', desc: 'Recurring spring and fall plans, route optimization & before/after proof for gutter cleaners.' },
+  { name: 'Roof Cleaning', href: '/roof-cleaning', desc: 'Per-square-foot quoting, before/after proof & recurring rebooks for soft wash operators.' },
+  { name: 'Holiday Lighting', href: '/holiday-lighting', desc: 'Roofline bidding, season scheduling & automatic rebooks for Christmas light installers.' },
 ]
 
 export default function OtherTrades({ exclude }: { exclude: string }) {

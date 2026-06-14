@@ -26,11 +26,25 @@ const jsonLd = {
   publisher: { '@type': 'Organization', name: 'Opervo' },
 }
 
+const howToLd = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'How to Schedule Recurring Jobs',
+  step: [
+    { '@type': 'HowToStep', position: 1, name: 'Build a recurring service plan' },
+    { '@type': 'HowToStep', position: 2, name: 'Send the client a magic-link agreement' },
+    { '@type': 'HowToStep', position: 3, name: 'Client e-signs the agreement' },
+    { '@type': 'HowToStep', position: 4, name: 'Jobs auto-generate on schedule' },
+    { '@type': 'HowToStep', position: 5, name: 'Auto-bill on completion' },
+  ],
+}
+
 export default function HowToScheduleRecurringJobs() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.opervo.io"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.opervo.io/blog"}, {"@type": "ListItem", "position": 3, "name": "How to Schedule Recurring Jobs Efficiently (and Stop Losing Revenue)", "item": "https://www.opervo.io/blog/how-to-schedule-recurring-jobs"}]}` }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToLd) }} />
       <BlogLayout
         category="BUSINESS TIPS"
         title="How to Schedule Recurring Jobs Efficiently (and Stop Losing Revenue)"
