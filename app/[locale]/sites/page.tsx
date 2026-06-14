@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import SitesPage from './SitesPage'
 
 export const metadata: Metadata = {
-  title: 'Pro Websites for Home Service Pros — Opervo Sites | $39.99/mo or $499 to own',
+  title: 'Pro Websites for Home Service Pros | Opervo Sites | $39.99/mo or $499 to own',
   description:
     'Done-for-you SEO websites built specifically for home service operators. $39.99/mo with custom domain included, or $499 to own forever. 30-day delivery. From the team behind Opervo.',
   alternates: { canonical: 'https://www.opervo.io/sites' },
   openGraph: {
-    title: 'Look pro. Win jobs. Online too. — Opervo Sites',
+    title: 'Look pro. Win jobs. Online too. | Opervo Sites',
     description:
       'Real custom websites for window cleaners, pressure washers, landscapers and home service operators. $39.99/mo or $499 to own. Custom domain included.',
     url: 'https://www.opervo.io/sites',

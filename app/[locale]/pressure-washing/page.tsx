@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 import TradeLandingPage, { type TradePageConfig } from '@/components/TradeLandingPage'
 
 export const metadata: Metadata = {
-  title: 'Pressure Washing Software with Chem-Cost Tracking — Opervo',
-  description: 'Built for solo pressure washers. Track SH/surfactant cost per job, sketch and price driveways on Google Maps, auto-publish before/after photos to your folio, optimize your route in one tap. $24.99/mo. 14-day free trial.',
+  title: 'Pressure Washing Software with Chem-Cost Tracking | Opervo',
+  description: 'Pressure washing software for solo operators. Track chem cost per job, price driveways on a map, before/after photos to your folio. $24.99/mo, 14-day trial.',
   alternates: { canonical: 'https://www.opervo.io/pressure-washing' },
   openGraph: {
-    title: 'Pressure Washing Software — Opervo',
+    title: 'Pressure Washing Software | Opervo',
     description: 'Track chem cost, sketch driveways, auto-publish before/after photos, optimize routes. $24.99/mo. Built for the operator on the rig.',
     url: 'https://www.opervo.io/pressure-washing',
     type: 'website',
@@ -84,7 +84,7 @@ const config: TradePageConfig = {
     },
     {
       href: '/blog/crm-for-soft-washing-businesses',
-      title: 'CRM for soft washing businesses — chem cost included',
+      title: 'CRM for soft washing businesses | chem cost included',
       blurb: 'How to track SH ratio, surfactant usage, and chemical cost per soft wash job so every quote is profitable.',
     },
   ],

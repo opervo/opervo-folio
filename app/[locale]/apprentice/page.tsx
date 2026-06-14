@@ -4,11 +4,11 @@ import SiteFooter from '@/components/SiteFooter'
 import ApplicationForm from './ApplicationForm'
 
 export const metadata: Metadata = {
-  title: 'Opervo Apprentice — Free Software for Teen Operators',
-  description: 'If you\'re 13–17 with a real service business — or a strong plan to start one — the software is on us. Free Solo plan, your own folio page, NFC cards, and a direct line to the founder.',
+  title: 'Opervo Apprentice | Free Software for Teen Operators',
+  description: 'Are you 13 to 17 with a real service business or a plan to start one? The software is on us. Free Solo plan, your own folio page, and NFC cards.',
   alternates: { canonical: 'https://www.opervo.io/apprentice' },
   openGraph: {
-    title: 'Opervo Apprentice — Free Software for Teen Operators',
+    title: 'Opervo Apprentice | Free Software for Teen Operators',
     description: 'Built by someone who started mowing lawns at 12. For the next wave of operators.',
     url: 'https://www.opervo.io/apprentice',
     type: 'website',

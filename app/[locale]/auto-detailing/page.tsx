@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 import TradeLandingPage, { type TradePageConfig } from '@/components/TradeLandingPage'
 
 export const metadata: Metadata = {
-  title: 'Auto Detailing Software for Mobile Detailers — Opervo',
-  description: 'For mobile detailers and bay shops. Branded packages (Bronze/Silver/Gold), before/after auto-publish to your folio, route optimization for mobile detailing, product cost on every detail. $24.99/mo. 14-day free trial.',
+  title: 'Auto Detailing Software for Mobile Detailers | Opervo',
+  description: 'Auto detailing software for mobile detailers and bay shops. Branded packages, before/after photos to your folio, route optimization, cost tracking. $24.99/mo.',
   alternates: { canonical: 'https://www.opervo.io/auto-detailing' },
   openGraph: {
-    title: 'Auto Detailing Software — Opervo',
+    title: 'Auto Detailing Software | Opervo',
     description: 'Packages, before/after gallery, mobile route optimization, product cost on every detail. $24.99/mo all-in.',
     url: 'https://www.opervo.io/auto-detailing',
     type: 'website',

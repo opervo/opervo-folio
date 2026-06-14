@@ -5,7 +5,7 @@ import Preview from './Preview'
 // Reachable from /sites portfolio card and shareable via direct URL with
 // Ricardo ahead of the domain handoff.
 export const metadata: Metadata = {
-  title: 'Breezy Detailing — Pro Site Preview',
+  title: 'Breezy Detailing | Pro Site Preview',
   description:
     'Preview build for Breezy Detailing, a premium DFW auto detailer. Internal use only.',
   robots: { index: false, follow: false },

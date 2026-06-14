@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     "Get on a quick call with Max — see Opervo on your data, ask anything, and walk away with a configured account. Switching from another CRM? We'll migrate it for you.",
   alternates: { canonical: 'https://www.opervo.io/demo' },
   openGraph: {
-    title: 'Book a 15-min walkthrough — Opervo',
+    title: 'Book a 15-min walkthrough | Opervo',
     description:
       "Founder-led demo. See Opervo on your data. Switching CRMs? We'll migrate it for you.",
     url: 'https://www.opervo.io/demo',

@@ -4,11 +4,11 @@ import SiteNav from '@/components/SiteNav'
 import SiteFooter from '@/components/SiteFooter'
 
 export const metadata: Metadata = {
-  title: 'Blog — Field Service Business Tips & Guides | Opervo',
-  description: 'Practical guides, pricing breakdowns, and business tips for solo contractors and small field service crews. Learn how to win more jobs and run your trade like a pro.',
+  title: 'Blog | Field Service Business Tips & Guides | Opervo',
+  description: 'Practical guides, pricing breakdowns, and tips for solo contractors and small field service crews. Win more jobs and run your trade like a pro.',
   alternates: { canonical: 'https://www.opervo.io/blog' },
   openGraph: {
-    title: 'Blog — Field Service Business Tips & Guides | Opervo',
+    title: 'Blog | Field Service Business Tips & Guides | Opervo',
     description: 'Practical guides, pricing breakdowns, and business tips for solo contractors and small field service crews.',
     url: 'https://www.opervo.io/blog',
     type: 'website',
@@ -54,7 +54,7 @@ const posts = [
   {
     slug: 'best-crm-for-solo-contractors',
     category: 'COMPARISONS',
-    title: 'Best CRM for Solo Contractors (2026) — 5 Options Ranked',
+    title: 'Best CRM for Solo Contractors (2026) | 5 Options Ranked',
     excerpt: 'The 5 best CRMs for solo contractors, ranked by price, features, and ease of use.',
     date: 'March 22, 2026',
   },

@@ -1,6 +1,59 @@
+import type { Metadata } from 'next'
 import { readFileSync } from 'fs'
 import { join } from 'path'
 import { setRequestLocale } from 'next-intl/server'
+
+const SITE = 'https://www.opervo.io'
+
+// The homepage body is assembled from public/index.html (or index-es.html) by
+// the regex extraction below, which intentionally drops the file's <head>. So
+// the file's <title>, description, canonical, and OG tags never reached the
+// served page, and the homepage fell back to the generic root-layout metadata.
+// generateMetadata pulls those values back out of the same source file so each
+// locale keeps its own correct title/description, and adds the canonical +
+// hreflang the homepage was missing entirely.
+function readHomeMeta(locale: string) {
+  const filename = locale === 'es' ? 'index-es.html' : 'index.html'
+  const html = readFileSync(join(process.cwd(), 'public', filename), 'utf-8')
+  const pick = (re: RegExp) => html.match(re)?.[1]?.trim()
+  return {
+    title: pick(/<title>([\s\S]*?)<\/title>/i),
+    description: pick(/<meta\s+name=["']description["']\s+content=["']([^"']*)["']/i),
+    ogTitle: pick(/<meta\s+property=["']og:title["']\s+content=["']([^"']*)["']/i),
+    ogDescription: pick(/<meta\s+property=["']og:description["']\s+content=["']([^"']*)["']/i),
+  }
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const meta = readHomeMeta(locale)
+  const canonical = locale === 'es' ? `${SITE}/es` : SITE
+  return {
+    title: meta.title,
+    description: meta.description,
+    alternates: {
+      canonical,
+      languages: {
+        en: SITE,
+        es: `${SITE}/es`,
+        'x-default': SITE,
+      },
+    },
+    openGraph: {
+      title: meta.ogTitle ?? meta.title,
+      description: meta.ogDescription ?? meta.description,
+      url: canonical,
+    },
+    twitter: {
+      title: meta.ogTitle ?? meta.title,
+      description: meta.ogDescription ?? meta.description,
+    },
+  }
+}
 
 export default async function HomePage({
   params,

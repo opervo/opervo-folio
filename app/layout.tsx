@@ -5,12 +5,12 @@ import ReferralAttribution from '@/components/ReferralAttribution'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Opervo — Run Your Trade Business Like a Pro',
-  description: 'Jobs, estimates, invoices, scheduling, client portal, and a public portfolio — built mobile-first for solo trade operators.',
+  title: 'Opervo | Run Your Trade Business Like a Pro',
+  description: 'Jobs, estimates, invoices, scheduling, client portal, and a public portfolio. Built mobile-first for solo trade operators.',
   metadataBase: new URL('https://www.opervo.io'),
   openGraph: {
-    title: 'Opervo — Run Your Trade Business Like a Pro',
-    description: 'Jobs, estimates, invoices, scheduling, client portal, and a public portfolio — built mobile-first for solo trade operators.',
+    title: 'Opervo | Run Your Trade Business Like a Pro',
+    description: 'Jobs, estimates, invoices, scheduling, client portal, and a public portfolio. Built mobile-first for solo trade operators.',
     url: 'https://www.opervo.io',
     siteName: 'Opervo',
     images: [
@@ -26,15 +26,20 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Opervo — Run Your Trade Business Like a Pro',
-    description: 'Jobs, estimates, invoices, scheduling, client portal, and a public portfolio — built mobile-first for solo trade operators.',
+    title: 'Opervo | Run Your Trade Business Like a Pro',
+    description: 'Jobs, estimates, invoices, scheduling, client portal, and a public portfolio. Built mobile-first for solo trade operators.',
     images: ['/og-image.png'],
   },
+  // Preserved from public/index.html, whose <head> is dropped when the homepage
+  // body is assembled, so these were not reaching any served page. Site-wide
+  // here covers every route, not just the homepage.
+  itunes: { appId: '6763399255' },
+  verification: { google: 'dqtkzyB8hQ_hB38N_' },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

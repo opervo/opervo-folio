@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Getting Started — Opervo Apprentice',
+  title: 'Getting Started | Opervo Apprentice',
   description: 'How to set up your Opervo account, share your referral code, and track your gear credits.',
 }
 

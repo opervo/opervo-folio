@@ -4,7 +4,7 @@ import SiteNav from '@/components/SiteNav'
 import SiteFooter from '@/components/SiteFooter'
 
 export const metadata: Metadata = {
-  title: 'Order Confirmed — Opervo Print',
+  title: 'Order Confirmed | Opervo Print',
   robots: { index: false },
 }
 

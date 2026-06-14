@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://www.opervo.io/blog/how-to-look-professional-solo-contractor' },
   openGraph: {
     title: 'How to Look Professional as a Solo Contractor (Without Spending a Fortune) | Opervo',
-    description: '7 proven ways to build trust, win more jobs, and charge more — without spending a fortune.',
+    description: '7 proven ways to build trust, win more jobs, and charge more, without spending a fortune.',
     url: 'https://www.opervo.io/blog/how-to-look-professional-solo-contractor',
     type: 'article',
   },

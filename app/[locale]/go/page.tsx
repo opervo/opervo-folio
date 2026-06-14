@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Opervo — The One App for Trade Operators',
+  title: 'Opervo | The One App for Trade Operators',
   description: 'Jobs, invoices, estimates, scheduling, and a free portfolio page. 14-day free trial, no card required.',
   openGraph: {
-    title: 'Opervo — The One App for Trade Operators',
+    title: 'Opervo | The One App for Trade Operators',
     description: 'Jobs, invoices, estimates, scheduling, and a free portfolio page. 14-day free trial, no card required.',
     url: 'https://www.opervo.io/go',
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],

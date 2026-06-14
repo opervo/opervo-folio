@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Delete Your Account — Opervo',
+  title: 'Delete Your Account | Opervo',
   description: 'How to delete your Opervo account and what data is removed or retained.',
   alternates: { canonical: 'https://www.opervo.io/delete-account' },
   robots: { index: true, follow: true },

@@ -4,11 +4,11 @@ import SiteNav from '@/components/SiteNav'
 import SiteFooter from '@/components/SiteFooter'
 
 export const metadata: Metadata = {
-  title: 'Opervo User Guide — Complete Walkthrough for New Users',
-  description: 'The full Opervo user guide — account setup, clients, jobs, estimates, invoicing, Folio, mileage, team, and every feature in between. Your first-week walkthrough.',
+  title: 'Opervo User Guide | Complete Walkthrough for New Users',
+  description: 'The full Opervo user guide, account setup, clients, jobs, estimates, invoicing, Folio, mileage, team, and every feature in between. Your first-week walkthrough.',
   alternates: { canonical: 'https://www.opervo.io/guide' },
   openGraph: {
-    title: 'Opervo User Guide — Complete Walkthrough',
+    title: 'Opervo User Guide | Complete Walkthrough',
     description: 'Your complete first-week walkthrough. Get set up, get paid, and look pro.',
     url: 'https://www.opervo.io/guide',
     type: 'article',
@@ -153,7 +153,7 @@ export default function GuidePage() {
     "@context": "https://schema.org",
     "@type": "HowTo",
     name: "Opervo User Guide — Complete First-Week Walkthrough",
-    description: "Set up Opervo end-to-end: account, clients, jobs, estimates, invoicing, Folio, mileage, and team — your first-week walkthrough.",
+    description: "Set up Opervo end-to-end: account, clients, jobs, estimates, invoicing, Folio, mileage, and team, your first-week walkthrough.",
     url: "https://www.opervo.io/guide",
     totalTime: "PT4H",
     estimatedCost: { "@type": "MonetaryAmount", currency: "USD", value: "0" },

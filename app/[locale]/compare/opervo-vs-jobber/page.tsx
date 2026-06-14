@@ -6,11 +6,11 @@ import MoreComparisons from '@/components/MoreComparisons'
 import TradesMention from '@/components/TradesMention'
 
 export const metadata: Metadata = {
-  title: 'Opervo vs Jobber — Solo Contractor Comparison',
-  description: 'Compare Opervo and Jobber side by side. Opervo starts at $24.99/mo vs Jobber at $39+/mo. See which field service app is better for solo operators and small crews.',
+  title: 'Opervo vs Jobber | Solo Contractor Comparison',
+  description: 'Compare Opervo and Jobber side by side. Opervo from $24.99/mo vs Jobber $39+/mo. See which field service app fits solo operators and small crews best.',
   alternates: { canonical: 'https://www.opervo.io/compare/opervo-vs-jobber' },
   openGraph: {
-    title: 'Opervo vs Jobber — Honest Comparison',
+    title: 'Opervo vs Jobber | Honest Comparison',
     description: 'Opervo starts at $24.99/mo. Jobber starts at $39/mo. See the full feature-by-feature breakdown.',
     url: 'https://www.opervo.io/compare/opervo-vs-jobber',
     type: 'website',
@@ -95,7 +95,7 @@ export default function OpervoVsJobber() {
     name: 'Opervo',
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'iOS, Web',
-    description: 'Field service management software for solo operators and small crews. Scheduling, invoicing, estimates, client portal, route optimization, and a public portfolio page — starting at $24.99/mo.',
+    description: 'Field service management software for solo operators and small crews. Scheduling, invoicing, estimates, client portal, route optimization, and a public portfolio page, starting at $24.99/mo.',
     url: 'https://www.opervo.io',
     offers: {
       '@type': 'Offer',

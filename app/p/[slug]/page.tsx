@@ -63,7 +63,7 @@ export async function generateMetadata({ params, searchParams }: Props): Promise
   const images = profile.hero_photo_url ? [profile.hero_photo_url] : []
 
   return {
-    title: `${profile.business_name} — ${profile.location ?? 'Field Services'}`,
+    title: `${profile.business_name} | ${profile.location ?? 'Field Services'}`,
     description,
     // Editor preview iframes append ?preview=1 — keep half-built folios out
     // of the search index. Public visits (no query param) index normally.

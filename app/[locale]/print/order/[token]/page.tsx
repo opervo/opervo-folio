@@ -4,7 +4,7 @@ import ApprovalClient from './ApprovalClient'
 import { getSupabaseServer } from '@/lib/supabase-server'
 
 export const metadata: Metadata = {
-  title: 'Review Your Design — Opervo Print',
+  title: 'Review Your Design | Opervo Print',
   robots: { index: false },
 }
 

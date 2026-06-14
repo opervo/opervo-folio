@@ -8,7 +8,10 @@ import { join } from 'path'
 function pathToFile(urlPath: string): string | null {
   const root = process.cwd()
   if (urlPath === '/') return existsSync(join(root, 'public/index.html')) ? 'public/index.html' : null
-  const candidate = `app${urlPath}/page.tsx`
+  // Pages live under app/[locale]/... — the [locale] segment is a literal
+  // directory name. Resolving to app${urlPath} (without it) always missed,
+  // so every URL fell back to build time and the git freshness signal died.
+  const candidate = `app/[locale]${urlPath}/page.tsx`
   return existsSync(join(root, candidate)) ? candidate : null
 }
 
@@ -57,6 +60,9 @@ const entries: Entry[] = [
   { path: '/print', changeFrequency: 'monthly', priority: 0.6 },
   { path: '/guide', changeFrequency: 'monthly', priority: 0.5 },
   { path: '/founder', changeFrequency: 'monthly', priority: 0.7 },
+  { path: '/sites', changeFrequency: 'monthly', priority: 0.8 },
+  { path: '/lifetime', changeFrequency: 'monthly', priority: 0.7 },
+  { path: '/apprentice', changeFrequency: 'monthly', priority: 0.6 },
   { path: '/switch', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/demo', changeFrequency: 'monthly', priority: 0.85 },
   { path: '/support', changeFrequency: 'monthly', priority: 0.5 },

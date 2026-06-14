@@ -3,7 +3,7 @@ import { Suspense } from 'react'
 import CreditsClient from './CreditsClient'
 
 export const metadata: Metadata = {
-  title: 'Gear Credits — Opervo Apprentice',
+  title: 'Gear Credits | Opervo Apprentice',
   description: 'Track your gear credits and redeem rewards from the Opervo Apprentice program.',
   robots: 'noindex',
 }

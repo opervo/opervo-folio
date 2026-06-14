@@ -11,12 +11,12 @@ const XSvg = () => (
 )
 
 export const metadata: Metadata = {
-  title: 'Switch & Save — 50% Off 3 Months | Opervo',
+  title: 'Switch & Save | 50% Off 3 Months | Opervo',
   description:
     'Paying for Jobber, Housecall Pro, or GorillaDesk? Upload your billing receipt and get 50% off Opervo for 3 months. No code, no catch.',
   alternates: { canonical: 'https://www.opervo.io/switch' },
   openGraph: {
-    title: 'Switch & Save — 50% Off 3 Months',
+    title: 'Switch & Save | 50% Off 3 Months',
     description:
       'Upload your CRM billing receipt and get 50% off Opervo for 3 months.',
     url: 'https://www.opervo.io/switch',

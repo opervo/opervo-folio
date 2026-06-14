@@ -6,11 +6,11 @@ import MoreComparisons from '@/components/MoreComparisons'
 import TradesMention from '@/components/TradesMention'
 
 export const metadata: Metadata = {
-  title: 'Opervo vs Markate — The Real Cost After Add-Ons | Opervo',
-  description: 'Markate starts at $39.95/mo but most features (Customer Portal, Online Booking, Lead Form, Reviews, Proposals) are $10/mo add-ons. A realistic Markate stack is $80-110/mo. Opervo includes all of it for $24.99/mo.',
+  title: 'Opervo vs Markate | The Real Cost After Add-Ons | Opervo',
+  description: 'Markate starts at $39.95/mo, but key features are $10/mo add-ons, so a real stack runs $80 to $110/mo. Opervo includes all of it for $24.99/mo.',
   alternates: { canonical: 'https://www.opervo.io/compare/opervo-vs-markate' },
   openGraph: {
-    title: 'Opervo vs Markate — Honest Comparison',
+    title: 'Opervo vs Markate | Honest Comparison',
     description: 'Markate stacks $10/mo add-ons on top of the base plan. Opervo includes everything at $24.99/mo. See the real math.',
     url: 'https://www.opervo.io/compare/opervo-vs-markate',
     type: 'website',
@@ -121,7 +121,7 @@ export default function OpervoVsMarkate() {
     name: 'Opervo',
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'iOS, Web',
-    description: 'Field service management software for solo operators and small crews. Scheduling, invoicing, estimates, client portal, route optimization, and a public portfolio page — starting at $24.99/mo.',
+    description: 'Field service management software for solo operators and small crews. Scheduling, invoicing, estimates, client portal, route optimization, and a public portfolio page, starting at $24.99/mo.',
     url: 'https://www.opervo.io',
     offers: {
       '@type': 'Offer',

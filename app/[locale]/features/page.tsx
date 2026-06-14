@@ -4,12 +4,12 @@ import SiteNav from '@/components/SiteNav'
 import SiteFooter from '@/components/SiteFooter'
 
 export const metadata: Metadata = {
-  title: 'Features — Field Service Software for Solo Trades | Opervo',
-  description: 'Every feature in Opervo: job management, scheduling, estimates, invoicing, client portal, portfolio page, SMS automation, mileage tracking, team management, and more. Starting at $24.99/mo.',
+  title: 'Features | Field Service Software for Solo Trades | Opervo',
+  description: 'Every feature included: jobs, scheduling, estimates, invoicing, client portal, Folio page, mileage, and team management. From $24.99/mo, no per-user fees.',
   alternates: { canonical: 'https://www.opervo.io/features' },
   openGraph: {
-    title: 'All Features — Opervo',
-    description: 'Every feature in Opervo. Job management, invoicing, scheduling, client portal, portfolio, SMS, mileage tracking, and more — $24.99/mo.',
+    title: 'All Features | Opervo',
+    description: 'Every feature in Opervo. Job management, invoicing, scheduling, client portal, portfolio, SMS, mileage tracking, and more, $24.99/mo.',
     url: 'https://www.opervo.io/features',
     type: 'website',
   },
@@ -352,7 +352,7 @@ export default function FeaturesPage() {
               { name: 'Landscaping', href: '/landscaping' },
               { name: 'Auto Detailing', href: '/auto-detailing' },
             ].map((t) => (
-              <Link key={t.href} href={t.href} title={`${t.name} Software — Opervo`} style={{ background: '#fff', border: '1px solid #E8E4DE', borderRadius: 10, padding: '20px', textDecoration: 'none', textAlign: 'center' }}>
+              <Link key={t.href} href={t.href} title={`${t.name} Software | Opervo`} style={{ background: '#fff', border: '1px solid #E8E4DE', borderRadius: 10, padding: '20px', textDecoration: 'none', textAlign: 'center' }}>
                 <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 16, textTransform: 'uppercase', color: '#0F0F0F', marginBottom: 4 }}>{t.name}</p>
                 <p style={{ fontSize: 14, color: '#F5620F', fontFamily: "'Barlow', sans-serif", fontWeight: 600 }}>Learn more &rarr;</p>
               </Link>

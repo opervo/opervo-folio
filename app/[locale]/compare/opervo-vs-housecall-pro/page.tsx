@@ -6,11 +6,11 @@ import MoreComparisons from '@/components/MoreComparisons'
 import TradesMention from '@/components/TradesMention'
 
 export const metadata: Metadata = {
-  title: 'Opervo vs Housecall Pro — Solo Contractor Comparison',
-  description: 'Compare Opervo and Housecall Pro side by side. Opervo starts at $24.99/mo vs Housecall Pro at $79+/mo. See which field service app is better for solo operators and small crews.',
+  title: 'Opervo vs Housecall Pro | Solo Contractor Comparison',
+  description: 'Compare Opervo and Housecall Pro side by side. Opervo from $24.99/mo vs Housecall Pro $79+/mo. The better field service app for solo operators.',
   alternates: { canonical: 'https://www.opervo.io/compare/opervo-vs-housecall-pro' },
   openGraph: {
-    title: 'Opervo vs Housecall Pro — Honest Comparison',
+    title: 'Opervo vs Housecall Pro | Honest Comparison',
     description: 'Opervo starts at $24.99/mo. Housecall Pro starts at $79/mo. See the full feature-by-feature breakdown.',
     url: 'https://www.opervo.io/compare/opervo-vs-housecall-pro',
     type: 'website',
@@ -96,7 +96,7 @@ export default function OpervoVsHousecallPro() {
     name: 'Opervo',
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'iOS, Web',
-    description: 'Field service management software for solo operators and small crews. Scheduling, invoicing, estimates, client portal, route optimization, and a public portfolio page — starting at $24.99/mo.',
+    description: 'Field service management software for solo operators and small crews. Scheduling, invoicing, estimates, client portal, route optimization, and a public portfolio page, starting at $24.99/mo.',
     url: 'https://www.opervo.io',
     offers: {
       '@type': 'Offer',

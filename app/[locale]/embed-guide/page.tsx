@@ -4,11 +4,11 @@ import SiteNav from '@/components/SiteNav'
 import SiteFooter from '@/components/SiteFooter'
 
 export const metadata: Metadata = {
-  title: 'Embed Quote Form on Your Website — Opervo',
+  title: 'Embed Quote Form on Your Website | Opervo',
   description: 'Add an Opervo quote request form to any website with one line of code. Works on WordPress, Squarespace, Wix, and custom sites.',
   alternates: { canonical: 'https://www.opervo.io/embed-guide' },
   openGraph: {
-    title: 'Embed Quote Form on Your Website — Opervo',
+    title: 'Embed Quote Form on Your Website | Opervo',
     description: 'Add an Opervo quote request form to any website with one line of code.',
     url: 'https://www.opervo.io/embed-guide',
     type: 'website',

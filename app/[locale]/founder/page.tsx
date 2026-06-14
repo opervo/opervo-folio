@@ -4,11 +4,11 @@ import SiteNav from '@/components/SiteNav'
 import SiteFooter from '@/components/SiteFooter'
 
 export const metadata: Metadata = {
-  title: 'The Founder — Opervo | Built From the Truck Up',
+  title: 'The Founder | Opervo | Built From the Truck Up',
   description: 'Opervo was built by a solo operator who was tired of paying enterprise prices for software that never fit. This is the story behind the app.',
   alternates: { canonical: 'https://www.opervo.io/founder' },
   openGraph: {
-    title: 'The Founder — Opervo',
+    title: 'The Founder | Opervo',
     description: 'Built by someone who was on the truck. For the ones still on it.',
     url: 'https://www.opervo.io/founder',
     type: 'website',

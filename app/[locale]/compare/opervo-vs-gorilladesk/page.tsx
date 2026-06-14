@@ -6,11 +6,11 @@ import MoreComparisons from '@/components/MoreComparisons'
 import TradesMention from '@/components/TradesMention'
 
 export const metadata: Metadata = {
-  title: 'Opervo vs GorillaDesk — Solo Contractor Comparison',
-  description: 'Compare Opervo and GorillaDesk side by side. Opervo starts at $24.99/mo vs GorillaDesk at $49+/mo. See which field service app is better for solo operators and small crews.',
+  title: 'Opervo vs GorillaDesk | Solo Contractor Comparison',
+  description: 'Compare Opervo and GorillaDesk side by side. Opervo from $24.99/mo vs GorillaDesk $49+/mo. The better field service app for solo operators.',
   alternates: { canonical: 'https://www.opervo.io/compare/opervo-vs-gorilladesk' },
   openGraph: {
-    title: 'Opervo vs GorillaDesk — Honest Comparison',
+    title: 'Opervo vs GorillaDesk | Honest Comparison',
     description: 'Opervo starts at $24.99/mo. GorillaDesk starts at $49/mo. See the full feature-by-feature breakdown.',
     url: 'https://www.opervo.io/compare/opervo-vs-gorilladesk',
     type: 'website',
@@ -41,7 +41,7 @@ const switchReasons = [
   { title: 'Save $288+/year', desc: 'Opervo Solo is $24.99/mo vs GorillaDesk Basic at $49/mo. That\'s $288/year you keep — enough to cover a month of gas or new equipment.' },
   { title: 'Portfolio page included', desc: 'GorillaDesk doesn\'t offer a public portfolio page or client portal. With Opervo, you get both — clients see your work, request quotes, and access their job history.' },
   { title: 'Client portal included', desc: 'GorillaDesk doesn\'t have a client portal on any plan. Opervo includes one on every plan — clients can view jobs, pay invoices, and request new service.' },
-  { title: 'Built for any home-service trade', desc: 'Window cleaning, pressure washing, landscaping, solar — Opervo fits any field service. GorillaDesk leans hard on pest control and the rest of the product follows that bias.' },
+  { title: 'Built for any home-service trade', desc: 'Window cleaning, pressure washing, landscaping, solar | Opervo fits any field service. GorillaDesk leans hard on pest control and the rest of the product follows that bias.' },
 ]
 
 const faqs = [
@@ -96,7 +96,7 @@ export default function OpervoVsGorillaDesk() {
     name: 'Opervo',
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'iOS, Web',
-    description: 'Field service management software for solo operators and small crews. Scheduling, invoicing, estimates, client portal, route optimization, and a public portfolio page — starting at $24.99/mo.',
+    description: 'Field service management software for solo operators and small crews. Scheduling, invoicing, estimates, client portal, route optimization, and a public portfolio page, starting at $24.99/mo.',
     url: 'https://www.opervo.io',
     offers: {
       '@type': 'Offer',
