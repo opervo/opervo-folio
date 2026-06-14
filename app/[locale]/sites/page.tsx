@@ -22,7 +22,7 @@ const jsonLd = [
   {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    name: 'Opervo Sites — Done-For-You Websites for Home Service Operators',
+    name: 'Opervo Sites, Done-For-You Websites for Home Service Operators',
     description:
       'Custom-built SEO websites for window cleaners, pressure washers, landscapers, solar panel cleaners, gutter cleaners, and other home service businesses. $39.99/mo (hosted, edited, custom domain included) or $499 one-time ownership. Built by the team behind Opervo.',
     serviceType: 'Website design and build',
@@ -71,7 +71,7 @@ const jsonLd = [
         acceptedAnswer: {
           '@type': 'Answer',
           text:
-            'No. Opervo Sites is a standalone product. Your site works on its own — quote forms email you, the contact info routes wherever you want. Connect the Opervo CRM later if you want your services, photos, and reviews to update themselves on the site.',
+            'No. Opervo Sites is a standalone product. Your site works on its own, quote forms email you, the contact info routes wherever you want. Connect the Opervo CRM later if you want your services, photos, and reviews to update themselves on the site.',
         },
       },
       {
@@ -89,7 +89,7 @@ const jsonLd = [
         acceptedAnswer: {
           '@type': 'Answer',
           text:
-            'Depends on the tier. Pro Site Monthly is $39.99/mo with hosting, edits, and custom domain included. Pro Site Ownership is $499 one-time and you walk away with everything — no ongoing fee at all. Either tier has 60-day money back and you can cancel any time. We always hand you the static export and transfer the domain.',
+            'Depends on the tier. Pro Site Monthly is $39.99/mo with hosting, edits, and custom domain included. Pro Site Ownership is $499 one-time and you walk away with everything, no ongoing fee at all. Either tier has 60-day money back and you can cancel any time. We always hand you the static export and transfer the domain.',
         },
       },
       {
@@ -107,7 +107,7 @@ const jsonLd = [
         acceptedAnswer: {
           '@type': 'Answer',
           text:
-            'We work with whatever you have. Keep your existing domain — we point it to the new site. Or we register a new one for you at cost. No upcharge.',
+            'We work with whatever you have. Keep your existing domain, we point it to the new site. Or we register a new one for you at cost. No upcharge.',
         },
       },
       {

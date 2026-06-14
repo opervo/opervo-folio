@@ -37,20 +37,20 @@ const comparisonRows = [
 ]
 
 const switchReasons = [
-  { title: 'Save $170+/year', desc: 'Opervo Solo is $24.99/mo vs Jobber Core at $39/mo. That\'s $168/year back in your pocket — and you get more features included.' },
+  { title: 'Save $170+/year', desc: 'Opervo Solo is $24.99/mo vs Jobber Core at $39/mo. That\'s $168/year back in your pocket, and you get more features included.' },
   { title: 'Portfolio page included', desc: 'Jobber doesn\'t offer a public portfolio page. With Opervo, every operator gets a shareable Folio page where clients can see your work and request quotes.' },
   { title: 'Texts included, not an add-on', desc: 'Opervo includes automated appointment reminders, on-my-way alerts, and review request texts. Jobber charges extra for similar functionality.' },
-  { title: 'Everything unlocked, no upsells', desc: 'Every feature is included on every plan — folio, AI assistant, automated texts, canvassing. Jobber locks core features behind higher tiers.' },
+  { title: 'Everything unlocked, no upsells', desc: 'Every feature is included on every plan, folio, AI assistant, automated texts, canvassing. Jobber locks core features behind higher tiers.' },
 ]
 
 const faqs = [
   {
     q: 'Is Opervo a good alternative to Jobber?',
-    a: 'Yes. Opervo includes scheduling, estimates, invoicing, a client portal, automated texts, and a portfolio page — all for $24.99/mo. Jobber starts at $39/mo and charges extra for text notifications. Opervo is built specifically for solo operators and small crews, while Jobber is designed for larger teams.',
+    a: 'Yes. Opervo includes scheduling, estimates, invoicing, a client portal, automated texts, and a portfolio page, all for $24.99/mo. Jobber starts at $39/mo and charges extra for text notifications. Opervo is built specifically for solo operators and small crews, while Jobber is designed for larger teams.',
   },
   {
     q: 'Is Jobber worth $39 per month?',
-    a: 'Jobber is a solid product for established teams that need advanced reporting and deeper integrations. But if you\'re a solo operator or small crew, you\'re paying for features you don\'t use. Opervo gives you everything you need at $24.99/mo — including route optimization and QuickBooks sync, no upgrade required.',
+    a: 'Jobber is a solid product for established teams that need advanced reporting and deeper integrations. But if you\'re a solo operator or small crew, you\'re paying for features you don\'t use. Opervo gives you everything you need at $24.99/mo, including route optimization and QuickBooks sync, no upgrade required.',
   },
   {
     q: 'Can I switch from Jobber to Opervo?',
@@ -58,7 +58,7 @@ const faqs = [
   },
   {
     q: 'What does Jobber have that Opervo doesn\'t?',
-    a: 'Jobber offers advanced reporting and deeper third-party integrations (Mailchimp, Zapier, etc.). If your business depends on those specific tools, Jobber may be a better fit. For most solo operators and small crews, Opervo covers everything you need — including route optimization and QuickBooks sync — at a fraction of the price.',
+    a: 'Jobber offers advanced reporting and deeper third-party integrations (Mailchimp, Zapier, etc.). If your business depends on those specific tools, Jobber may be a better fit. For most solo operators and small crews, Opervo covers everything you need, including route optimization and QuickBooks sync, at a fraction of the price.',
   },
   {
     q: 'Does Opervo have route optimization like Jobber?',
@@ -66,15 +66,15 @@ const faqs = [
   },
   {
     q: 'Is Opervo cheaper than Jobber for a 2-person team?',
-    a: 'Yes by a wide margin. Opervo Team is $54.99/mo for up to 10 team members. Jobber Connect — the closest equivalent — is $119/mo and only covers 5 users. For a 2-person operation that\'s $780/year in your pocket, with the same scheduling, dispatch, and reporting features.',
+    a: 'Yes by a wide margin. Opervo Team is $54.99/mo for up to 10 team members. Jobber Connect, the closest equivalent, is $119/mo and only covers 5 users. For a 2-person operation that\'s $780/year in your pocket, with the same scheduling, dispatch, and reporting features.',
   },
   {
     q: 'Does Opervo support recurring jobs and service agreements?',
-    a: 'Yes. Build a recurring service plan (weekly, biweekly, monthly, quarterly), send a magic-link agreement to the client, they e-sign with their finger, and jobs auto-generate 30 days out. Pause for vacations, resume on a date. Jobber supports recurring jobs but doesn\'t do e-signed agreements with auto-renewal — that\'s an Opervo-only feature.',
+    a: 'Yes. Build a recurring service plan (weekly, biweekly, monthly, quarterly), send a magic-link agreement to the client, they e-sign with their finger, and jobs auto-generate 30 days out. Pause for vacations, resume on a date. Jobber supports recurring jobs but doesn\'t do e-signed agreements with auto-renewal, that\'s an Opervo-only feature.',
   },
   {
     q: 'Can I send invoices from my phone with Opervo?',
-    a: 'Yes. Every action in Opervo is mobile-first. Create the invoice, add line items by voice, attach photos, send via SMS or email — all from a phone with one hand. The same applies to estimates, scheduling, and client management. Jobber\'s mobile app is functional but the experience is built around an office worker on a desktop dispatching field techs; Opervo is built for the operator who IS the field tech.',
+    a: 'Yes. Every action in Opervo is mobile-first. Create the invoice, add line items by voice, attach photos, send via SMS or email, all from a phone with one hand. The same applies to estimates, scheduling, and client management. Jobber\'s mobile app is functional but the experience is built around an office worker on a desktop dispatching field techs; Opervo is built for the operator who IS the field tech.',
   },
 ]
 
@@ -124,7 +124,7 @@ export default function OpervoVsJobber() {
           Opervo is field service management software built for solo operators and small crews in window cleaning, pressure washing, landscaping, and solar panel cleaning. Here&apos;s how it compares to Jobber.
         </p>
         <p style={{ fontSize: 15, color: '#1a1a1a', fontWeight: 600 }}>
-          <span style={{ color: '#F5620F' }}>$24.99/mo</span> vs $39/mo — save $168/year with Opervo
+          <span style={{ color: '#F5620F' }}>$24.99/mo</span> vs $39/mo, save $168/year with Opervo
         </p>
       </section>
 
@@ -175,23 +175,23 @@ export default function OpervoVsJobber() {
           When Jobber Might Be Better
         </h2>
         <p style={{ fontSize: 15, color: '#6B6B6B', lineHeight: 1.7, textAlign: 'center', maxWidth: 640, margin: '0 auto' }}>
-          Jobber is a great product for larger teams that need advanced reporting and deep third-party integrations (Mailchimp, Zapier, and more). If you have 10+ employees and need enterprise-level scheduling, Jobber&apos;s Grow plan ($199/mo) may be worth the investment. For solo operators and small crews who need a professional, affordable tool — including route optimization and QuickBooks sync out of the box — Opervo is the better fit.
+          Jobber is a great product for larger teams that need advanced reporting and deep third-party integrations (Mailchimp, Zapier, and more). If you have 10+ employees and need enterprise-level scheduling, Jobber&apos;s Grow plan ($199/mo) may be worth the investment. For solo operators and small crews who need a professional, affordable tool, including route optimization and QuickBooks sync out of the box, Opervo is the better fit.
         </p>
         <div style={{ marginTop: 24 }}>
           <TradesMention />
         </div>
       </section>
 
-      {/* THE KILLER DIFFERENTIATOR — folio screenshot */}
+      {/* THE KILLER DIFFERENTIATOR, folio screenshot */}
       <section style={{ background: '#fff', borderTop: '1px solid #E8E4DE', borderBottom: '1px solid #E8E4DE', padding: '64px 24px' }}>
         <div style={{ maxWidth: 800, margin: '0 auto', textAlign: 'center' }}>
           <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 28, color: '#0F0F0F', textTransform: 'uppercase', marginBottom: 12, letterSpacing: '-0.5px' }}>
             What Jobber operators don&apos;t have
           </h2>
           <p style={{ fontSize: 15, color: '#6B6B6B', lineHeight: 1.6, maxWidth: 600, margin: '0 auto 32px' }}>
-            Every Opervo operator gets a public Folio page at <strong style={{ color: '#0F0F0F' }}>opervo.io/p/your-slug</strong> — auto-published before/after photos, services, reviews, and a built-in quote form. New leads land here from a Google search and request a quote without you ever picking up the phone.
+            Every Opervo operator gets a public Folio page at <strong style={{ color: '#0F0F0F' }}>opervo.io/p/your-slug</strong>, auto-published before/after photos, services, reviews, and a built-in quote form. New leads land here from a Google search and request a quote without you ever picking up the phone.
           </p>
-          <img src="/screenshots/hero-folio-2.jpg" alt="Opervo Folio page with before/after slider and customer reviews — the public portfolio every operator gets included with the $24.99/mo plan" loading="lazy" decoding="async" style={{ width: '100%', maxWidth: 540, height: 'auto', borderRadius: 12, border: '1px solid #E8E4DE' }} />
+          <img src="/screenshots/hero-folio-2.jpg" alt="Opervo Folio page with before/after slider and customer reviews, the public portfolio every operator gets included with the $24.99/mo plan" loading="lazy" decoding="async" style={{ width: '100%', maxWidth: 540, height: 'auto', borderRadius: 12, border: '1px solid #E8E4DE' }} />
         </div>
       </section>
 
@@ -215,7 +215,7 @@ export default function OpervoVsJobber() {
         <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 'clamp(24px, 4vw, 36px)', color: '#F7F5F2', textTransform: 'uppercase', letterSpacing: '-0.5px', marginBottom: 12 }}>
           Ready to Try the Jobber Alternative Built for Solos?
         </h2>
-        <p style={{ fontSize: 16, color: '#9ca3af', marginBottom: 28 }}>Start free — 14 days, no credit card. $24.99/mo after.</p>
+        <p style={{ fontSize: 16, color: '#9ca3af', marginBottom: 28 }}>Start free, 14 days, no credit card. $24.99/mo after.</p>
         <a href="https://app.opervo.io" style={{ display: 'inline-block', background: '#F5620F', color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 15, padding: '14px 36px', borderRadius: 6, textDecoration: 'none', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
           Start Free Trial →
         </a>

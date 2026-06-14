@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from 'react'
 // the operator preview, and any third-party website embed.
 //
 // We post-message-resize the iframe so the form doesn't get a permanent inner
-// scrollbar — content height drives the wrapper height.
+// scrollbar, content height drives the wrapper height.
 
 const APP_URL =
   process.env.NEXT_PUBLIC_OPERVO_APP_URL || 'https://app.opervo.io'

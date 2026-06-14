@@ -38,16 +38,16 @@ const comparisonRows = [
 ]
 
 const switchReasons = [
-  { title: 'Save $288+/year', desc: 'Opervo Solo is $24.99/mo vs GorillaDesk Basic at $49/mo. That\'s $288/year you keep — enough to cover a month of gas or new equipment.' },
-  { title: 'Portfolio page included', desc: 'GorillaDesk doesn\'t offer a public portfolio page or client portal. With Opervo, you get both — clients see your work, request quotes, and access their job history.' },
-  { title: 'Client portal included', desc: 'GorillaDesk doesn\'t have a client portal on any plan. Opervo includes one on every plan — clients can view jobs, pay invoices, and request new service.' },
+  { title: 'Save $288+/year', desc: 'Opervo Solo is $24.99/mo vs GorillaDesk Basic at $49/mo. That\'s $288/year you keep, enough to cover a month of gas or new equipment.' },
+  { title: 'Portfolio page included', desc: 'GorillaDesk doesn\'t offer a public portfolio page or client portal. With Opervo, you get both, clients see your work, request quotes, and access their job history.' },
+  { title: 'Client portal included', desc: 'GorillaDesk doesn\'t have a client portal on any plan. Opervo includes one on every plan, clients can view jobs, pay invoices, and request new service.' },
   { title: 'Built for any home-service trade', desc: 'Window cleaning, pressure washing, landscaping, solar | Opervo fits any field service. GorillaDesk leans hard on pest control and the rest of the product follows that bias.' },
 ]
 
 const faqs = [
   {
     q: 'Is Opervo a good alternative to GorillaDesk?',
-    a: 'Yes. Opervo includes scheduling, estimates, invoicing, a client portal, automated texts, and a portfolio page — all for $24.99/mo. GorillaDesk starts at $49/mo and doesn\'t include a client portal or portfolio page. Opervo is built for solo operators and small crews across all home service trades.',
+    a: 'Yes. Opervo includes scheduling, estimates, invoicing, a client portal, automated texts, and a portfolio page, all for $24.99/mo. GorillaDesk starts at $49/mo and doesn\'t include a client portal or portfolio page. Opervo is built for solo operators and small crews across all home service trades.',
   },
   {
     q: 'Is GorillaDesk worth $49 per month?',
@@ -59,23 +59,23 @@ const faqs = [
   },
   {
     q: 'What does GorillaDesk have that Opervo doesn\'t?',
-    a: 'GorillaDesk offers FIFRA chemical tracking for pest control operators and pest-specific regulatory compliance tools. If you\'re in pest control and need those features, GorillaDesk is purpose-built for that. For most other home service trades, Opervo covers everything you need — including route optimization, QuickBooks sync, and a native iOS app — at a lower price.',
+    a: 'GorillaDesk offers FIFRA chemical tracking for pest control operators and pest-specific regulatory compliance tools. If you\'re in pest control and need those features, GorillaDesk is purpose-built for that. For most other home service trades, Opervo covers everything you need, including route optimization, QuickBooks sync, and a native iOS app, at a lower price.',
   },
   {
     q: 'Does Opervo have route optimization like GorillaDesk?',
-    a: 'Yes. Opervo\'s Route My Day is included on every plan — one tap geolocates you, geocodes today\'s stops, orders them shortest-path, and shows total miles and ETA before opening Google Maps as a multi-leg trip. Saves 40+ minutes on a 6-stop day. GorillaDesk has route optimization too; the difference is the $24/mo price gap and Opervo\'s public folio page on top.',
+    a: 'Yes. Opervo\'s Route My Day is included on every plan, one tap geolocates you, geocodes today\'s stops, orders them shortest-path, and shows total miles and ETA before opening Google Maps as a multi-leg trip. Saves 40+ minutes on a 6-stop day. GorillaDesk has route optimization too; the difference is the $24/mo price gap and Opervo\'s public folio page on top.',
   },
   {
     q: 'Is Opervo or GorillaDesk better for solo operators?',
-    a: 'Opervo, in most cases. GorillaDesk\'s feature depth is built around dispatching multiple techs from a central office. As a solo operator you\'re paying for back-office complexity you don\'t need. Opervo is mobile-first, voice-input everywhere, designed for the operator who IS the field tech — and is $24.99/mo vs GorillaDesk\'s $49.',
+    a: 'Opervo, in most cases. GorillaDesk\'s feature depth is built around dispatching multiple techs from a central office. As a solo operator you\'re paying for back-office complexity you don\'t need. Opervo is mobile-first, voice-input everywhere, designed for the operator who IS the field tech, and is $24.99/mo vs GorillaDesk\'s $49.',
   },
   {
     q: 'Does Opervo have a customer portal like GorillaDesk?',
-    a: 'Yes — and Opervo\'s is included while GorillaDesk\'s requires a higher-tier plan. The Opervo Client Portal sends a magic link (no password), so the client can view job history, invoices, and estimates, and submit a service request. No login wall, mobile-first, branded with the operator\'s logo and colors.',
+    a: 'Yes, and Opervo\'s is included while GorillaDesk\'s requires a higher-tier plan. The Opervo Client Portal sends a magic link (no password), so the client can view job history, invoices, and estimates, and submit a service request. No login wall, mobile-first, branded with the operator\'s logo and colors.',
   },
   {
     q: 'Can I switch from GorillaDesk to Opervo without losing client data?',
-    a: 'Yes. Export your client list from GorillaDesk as a CSV and import it into Opervo — auto-column mapping handles GorillaDesk\'s export format. Duplicate detection prevents double-imports. Most operators are fully set up within an hour. Photos and historical job notes need to be re-uploaded manually since GorillaDesk doesn\'t export those.',
+    a: 'Yes. Export your client list from GorillaDesk as a CSV and import it into Opervo, auto-column mapping handles GorillaDesk\'s export format. Duplicate detection prevents double-imports. Most operators are fully set up within an hour. Photos and historical job notes need to be re-uploaded manually since GorillaDesk doesn\'t export those.',
   },
 ]
 
@@ -124,7 +124,7 @@ export default function OpervoVsGorillaDesk() {
           Opervo is field service management software built for solo operators and small crews in window cleaning, pressure washing, landscaping, and solar panel cleaning. Here&apos;s how it compares to GorillaDesk.
         </p>
         <p style={{ fontSize: 15, color: '#1a1a1a', fontWeight: 600 }}>
-          <span style={{ color: '#F5620F' }}>$24.99/mo</span> vs $49/mo — save $288/year with Opervo
+          <span style={{ color: '#F5620F' }}>$24.99/mo</span> vs $49/mo, save $288/year with Opervo
         </p>
       </section>
 
@@ -172,23 +172,23 @@ export default function OpervoVsGorillaDesk() {
           When GorillaDesk Might Be Better
         </h2>
         <p style={{ fontSize: 15, color: '#6B6B6B', lineHeight: 1.7, textAlign: 'center', maxWidth: 640, margin: '0 auto' }}>
-          GorillaDesk is purpose-built for pest control operators. If you need FIFRA chemical tracking, regulatory compliance tools, and pest-specific workflows, GorillaDesk is one of the best options on the market. For window cleaners, pressure washers, solar panel cleaners, landscapers, and other home service trades — Opervo is the more affordable, better-fit option, with route optimization, QuickBooks sync, and a native iOS app included on every plan.
+          GorillaDesk is purpose-built for pest control operators. If you need FIFRA chemical tracking, regulatory compliance tools, and pest-specific workflows, GorillaDesk is one of the best options on the market. For window cleaners, pressure washers, solar panel cleaners, landscapers, and other home service trades, Opervo is the more affordable, better-fit option, with route optimization, QuickBooks sync, and a native iOS app included on every plan.
         </p>
         <div style={{ marginTop: 24 }}>
           <TradesMention />
         </div>
       </section>
 
-      {/* THE KILLER DIFFERENTIATOR — folio screenshot */}
+      {/* THE KILLER DIFFERENTIATOR, folio screenshot */}
       <section style={{ background: '#fff', borderTop: '1px solid #E8E4DE', borderBottom: '1px solid #E8E4DE', padding: '64px 24px' }}>
         <div style={{ maxWidth: 800, margin: '0 auto', textAlign: 'center' }}>
           <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 28, color: '#0F0F0F', textTransform: 'uppercase', marginBottom: 12, letterSpacing: '-0.5px' }}>
             What GorillaDesk operators don&apos;t have
           </h2>
           <p style={{ fontSize: 15, color: '#6B6B6B', lineHeight: 1.6, maxWidth: 600, margin: '0 auto 32px' }}>
-            Every Opervo operator gets a public Folio page at <strong style={{ color: '#0F0F0F' }}>opervo.io/p/your-slug</strong> — auto-published before/after photos, services, reviews, and a built-in quote form. New leads land here from a Google search and request a quote without you ever picking up the phone. GorillaDesk has no equivalent.
+            Every Opervo operator gets a public Folio page at <strong style={{ color: '#0F0F0F' }}>opervo.io/p/your-slug</strong>, auto-published before/after photos, services, reviews, and a built-in quote form. New leads land here from a Google search and request a quote without you ever picking up the phone. GorillaDesk has no equivalent.
           </p>
-          <img src="/screenshots/hero-folio-2.jpg" alt="Opervo Folio page with before/after slider and customer reviews — the public portfolio every operator gets included with the $24.99/mo plan" loading="lazy" decoding="async" style={{ width: '100%', maxWidth: 540, height: 'auto', borderRadius: 12, border: '1px solid #E8E4DE' }} />
+          <img src="/screenshots/hero-folio-2.jpg" alt="Opervo Folio page with before/after slider and customer reviews, the public portfolio every operator gets included with the $24.99/mo plan" loading="lazy" decoding="async" style={{ width: '100%', maxWidth: 540, height: 'auto', borderRadius: 12, border: '1px solid #E8E4DE' }} />
         </div>
       </section>
 
@@ -210,7 +210,7 @@ export default function OpervoVsGorillaDesk() {
         <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 'clamp(24px, 4vw, 36px)', color: '#F7F5F2', textTransform: 'uppercase', letterSpacing: '-0.5px', marginBottom: 12 }}>
           Ready to Try the GorillaDesk Alternative Built for Solos?
         </h2>
-        <p style={{ fontSize: 16, color: '#9ca3af', marginBottom: 28 }}>Start free — 14 days, no credit card. $24.99/mo after.</p>
+        <p style={{ fontSize: 16, color: '#9ca3af', marginBottom: 28 }}>Start free, 14 days, no credit card. $24.99/mo after.</p>
         <a href="https://app.opervo.io" style={{ display: 'inline-block', background: '#F5620F', color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 15, padding: '14px 36px', borderRadius: 6, textDecoration: 'none', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
           Start Free Trial →
         </a>

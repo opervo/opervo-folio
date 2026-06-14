@@ -55,7 +55,7 @@ export default function HowToLookProfessionalSoloContractor() {
       >
         <p>
           Homeowners make a hiring decision within the first 30 seconds of interacting with a contractor.
-          They are not evaluating your technical skills at that point&nbsp;&mdash; they are looking for
+          They are not evaluating your technical skills at that point, they are looking for
           signals that you are trustworthy, organized, and worth the price you are charging. The contractors
           who project professionalism win more jobs and charge more for the same work. The ones who
           don&rsquo;t are stuck competing on price.
@@ -69,7 +69,7 @@ export default function HowToLookProfessionalSoloContractor() {
         <h2>1. GET A PROFESSIONAL PORTFOLIO PAGE</h2>
         <p>
           When a potential client searches your name or business, what do they find? If the answer is
-          nothing&nbsp;&mdash; or a bare Facebook page with three posts from 2023&nbsp;&mdash; you are
+          nothing, or a bare Facebook page with three posts from 2023, you are
           losing jobs to the contractor who has a real web presence.
         </p>
         <p>
@@ -96,7 +96,7 @@ export default function HowToLookProfessionalSoloContractor() {
         </p>
         <p>
           A branded estimate tells the client three things: you have a real business, you know what you
-          are doing, and you are organized enough to deliver. It also makes you harder to forget&nbsp;&mdash;
+          are doing, and you are organized enough to deliver. It also makes you harder to forget,
           when they are choosing between three contractors, the one with the polished estimate stands out.
         </p>
         <p>
@@ -130,7 +130,7 @@ export default function HowToLookProfessionalSoloContractor() {
         <ul>
           <li><strong>A branded work shirt.</strong> A polo or t-shirt with your business name. You can get 10 printed for $80-$120 from a local screen printer or an online service. Wear it to every job.</li>
           <li><strong>A vehicle magnet.</strong> $30-$80 for a pair. Your truck becomes a rolling billboard, and it signals legitimacy when you pull up to a client&rsquo;s house.</li>
-          <li><strong>Consistent colors.</strong> Pick one or two brand colors and use them everywhere&nbsp;&mdash; your shirt, your magnets, your estimates, your portfolio page.</li>
+          <li><strong>Consistent colors.</strong> Pick one or two brand colors and use them everywhere, your shirt, your magnets, your estimates, your portfolio page.</li>
         </ul>
         <p>
           Total investment: $110-$200. The ROI is one or two extra jobs from people who saw your truck
@@ -181,7 +181,7 @@ export default function HowToLookProfessionalSoloContractor() {
         </p>
         <p>
           Field service management software gives you a calendar, a client database, an estimating tool,
-          and an invoicing system in one place. It does not have to cost a fortune&nbsp;&mdash; Opervo
+          and an invoicing system in one place. It does not have to cost a fortune, Opervo
           is $24.99/mo and includes everything listed above, plus SMS and a portfolio page. Even the
           other options on the market like{' '}
           <Link href="/compare/opervo-vs-jobber" title="Compare Opervo vs Jobber for solo contractors">Jobber</Link>{' '}
@@ -202,7 +202,7 @@ export default function HowToLookProfessionalSoloContractor() {
         <p>
           Looking professional is not about pretending to be bigger than you are. It is about showing
           clients that you take your business seriously. A portfolio page, branded estimates, automated
-          texts, a clean uniform, Google reviews, fast responses, and real software&nbsp;&mdash; these are
+          texts, a clean uniform, Google reviews, fast responses, and real software, these are
           the building blocks that separate the contractors who charge $200 a job from the ones stuck
           at $100.
         </p>

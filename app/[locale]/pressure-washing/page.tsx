@@ -27,13 +27,13 @@ const config: TradePageConfig = {
   stats: [
     { stat: '~$60', label: 'Average chem + fuel cost on a 1-hr commercial wash. Most operators don\'t track it.' },
     { stat: '40 min', label: 'Average daily time saved by route optimization on a 6-stop day.' },
-    { stat: '$1,128', label: 'Yearly savings vs Jobber Connect — all features included, no upsells.' },
+    { stat: '$1,128', label: 'Yearly savings vs Jobber Connect, all features included, no upsells.' },
   ],
   featuresHeading: 'What pressure washers actually need',
   featuresSub: 'Generic field-service tools were built for plumbers and HVAC. These are the things that move the needle on a wash day.',
   features: [
     { icon: 'droplet', title: 'Profit on every wash', desc: 'Log SH, surfactant, and fuel as you use them. Every job shows Revenue − Supplies = Profit, live. That $400 driveway you "made $300 on"? Now you know if it actually paid.' },
-    { icon: 'camera', title: 'Before/after auto-publish', desc: 'Snap before and after photos on the job. They auto-publish to your folio at opervo.io/p/your-slug. The transformation IS the sale — and Instagram doesn\'t even need to be open.' },
+    { icon: 'camera', title: 'Before/after auto-publish', desc: 'Snap before and after photos on the job. They auto-publish to your folio at opervo.io/p/your-slug. The transformation IS the sale, and Instagram doesn\'t even need to be open.' },
     { icon: 'ruler', title: 'Sketch a driveway in 30 seconds', desc: 'Drop points around the concrete on the satellite map. Square footage and perimeter compute live as you draw. Auto-prices the estimate at your $/sq ft rate. Right-angle snap keeps shapes clean.' },
     { icon: 'map-pin', title: 'Route My Day, one tap', desc: 'Hit the button: we geolocate you, geocode today\'s stops, order them shortest-path, show miles and ETA. "Start Route" opens Google Maps as a multi-leg trip. Saves 40+ min on a 6-stop day.' },
     { icon: 'repeat', title: 'Recurring house washes that auto-bill', desc: 'Build a quarterly house wash plan, send a magic-link agreement, client e-signs. Jobs auto-generate 30 days out. Going on vacation? Pause it. Comes back the day they\'re back. No renewal calls.' },
@@ -62,11 +62,11 @@ const config: TradePageConfig = {
     { feature: '14-day free trial', opervo: '✓', jobber: '✓', housecall: '✓', gorilla: '✓', markate: '✓' },
   ],
   faqs: [
-    { q: 'Does Opervo track SH, surfactant, and fuel cost per pressure washing job?', a: 'Yes. Build a catalog of what you actually use — gallons of SH, ounces of surfactant, gallons of fuel — and log usage per job in seconds. Unit costs are snapshotted at the moment of logging so historical jobs don\'t change when you re-buy at a different price. Every job shows live profit math: Revenue − Supplies = Profit (green if positive, red if negative).' },
-    { q: 'Can I sketch a driveway and auto-price an estimate by square footage?', a: 'Yes. The Measurement Tool lets you drop points around the concrete on a Google Maps satellite view. Square footage and perimeter compute live. Right-angle snap keeps shapes clean. Set a $/sq ft rate per service and the area pushes straight into the estimate line item — no calculator.' },
+    { q: 'Does Opervo track SH, surfactant, and fuel cost per pressure washing job?', a: 'Yes. Build a catalog of what you actually use, gallons of SH, ounces of surfactant, gallons of fuel, and log usage per job in seconds. Unit costs are snapshotted at the moment of logging so historical jobs don\'t change when you re-buy at a different price. Every job shows live profit math: Revenue − Supplies = Profit (green if positive, red if negative).' },
+    { q: 'Can I sketch a driveway and auto-price an estimate by square footage?', a: 'Yes. The Measurement Tool lets you drop points around the concrete on a Google Maps satellite view. Square footage and perimeter compute live. Right-angle snap keeps shapes clean. Set a $/sq ft rate per service and the area pushes straight into the estimate line item, no calculator.' },
     { q: 'Where do my before-and-after photos go?', a: 'They auto-publish to your portfolio page at opervo.io/p/your-slug. Drag-and-drop reorder, before/after slider, gallery grid up to 20 photos. Up to 10 service areas per folio. Embeddable quote widget so you can drop the form on your existing site or social bio.' },
-    { q: 'How does Opervo compare to Jobber, Housecall Pro, or Markate for pressure washing?', a: 'Jobber Connect is $119/mo and SMS is an add-on. Housecall Pro is $79/mo and they take 2.59% + $0.10 on every payment. Markate starts at $39.95 but Customer Portal, Online Booking, Lead Form, Reviews, and Proposals are each separate $10/mo add-ons — a realistic Markate stack runs $80–110/mo. Opervo Solo is $24.99/mo all-in, zero markup on payments. None of those competitors track chemical cost per job, sketch driveways, or auto-publish a portfolio page.' },
-    { q: 'Does it work on iPhone? Is there an app?', a: 'Yes — Opervo is on the App Store, and the same login works on Android (via PWA install) and any browser. Updates push to your phone automatically — no waiting on App Store review when we ship a fix.' },
+    { q: 'How does Opervo compare to Jobber, Housecall Pro, or Markate for pressure washing?', a: 'Jobber Connect is $119/mo and SMS is an add-on. Housecall Pro is $79/mo and they take 2.59% + $0.10 on every payment. Markate starts at $39.95 but Customer Portal, Online Booking, Lead Form, Reviews, and Proposals are each separate $10/mo add-ons, a realistic Markate stack runs $80–110/mo. Opervo Solo is $24.99/mo all-in, zero markup on payments. None of those competitors track chemical cost per job, sketch driveways, or auto-publish a portfolio page.' },
+    { q: 'Does it work on iPhone? Is there an app?', a: 'Yes, Opervo is on the App Store, and the same login works on Android (via PWA install) and any browser. Updates push to your phone automatically, no waiting on App Store review when we ship a fix.' },
     { q: 'Is there really no credit card required for the trial?', a: 'Correct. 14 days, full feature access, no card. If you don\'t subscribe, your data is held for 30 days so you can come back anytime.' },
     { q: 'I\'m on Jobber/Housecall Pro/Markate now. How hard is the switch?', a: 'Take 10 minutes. CSV import handles Jobber, Housecall Pro, ServiceTitan, QuickBooks, and Google Contacts with auto-column mapping and duplicate detection. You\'re live by lunch.' },
   ],
@@ -75,7 +75,7 @@ const config: TradePageConfig = {
     {
       href: '/blog/best-software-for-pressure-washing-businesses',
       title: 'The best software for pressure washing businesses',
-      blurb: 'Side-by-side breakdown of the 6 most-used pressure washing CRMs — what each gets right, what they\'re missing, and where Opervo fits.',
+      blurb: 'Side-by-side breakdown of the 6 most-used pressure washing CRMs, what each gets right, what they\'re missing, and where Opervo fits.',
     },
     {
       href: '/blog/crm-for-pressure-washing-businesses',

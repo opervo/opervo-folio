@@ -536,7 +536,7 @@ export default function InboxPage() {
                             HTML emails are rendered inside a sandboxed iframe
                             (no scripts, no forms, no top-nav, no plugins) so a
                             malicious email body can't steal the admin session.
-                            Was: dangerouslySetInnerHTML directly — XSS surface
+                            Was: dangerouslySetInnerHTML directly, XSS surface
                             because Gmail bodies are externally controlled. */}
                         {msg.body.includes("<") ? (
                           <iframe

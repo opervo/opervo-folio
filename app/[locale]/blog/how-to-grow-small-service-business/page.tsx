@@ -55,7 +55,7 @@ export default function HowToGrowSmallServiceBusiness() {
         <p>
           Most home service businesses start the same way: one person, one truck, and a willingness to do the
           work. Whether you are cleaning windows, washing houses, mowing lawns, or cleaning solar panels, the
-          early days look identical&nbsp;&mdash; hustle for every client, do every job yourself, and figure out
+          early days look identical, hustle for every client, do every job yourself, and figure out
           the business side as you go.
         </p>
         <p>
@@ -96,16 +96,16 @@ export default function HowToGrowSmallServiceBusiness() {
         <h2>PHASE 2: BUILD SYSTEMS BEFORE YOU HIRE</h2>
         <p>
           The biggest mistake growing contractors make is hiring before they have systems. If your business
-          runs on information in your head&nbsp;&mdash; which clients get what service, what you charge each
-          person, when recurring jobs are due&nbsp;&mdash; adding another person creates chaos, not capacity.
+          runs on information in your head, which clients get what service, what you charge each
+          person, when recurring jobs are due, adding another person creates chaos, not capacity.
         </p>
         <p>
           Before you bring on a helper, you should have:
         </p>
         <ul>
-          <li><strong>A client database</strong> with every client&rsquo;s name, address, phone, service history, and pricing documented in one place&nbsp;&mdash; not scattered across texts and sticky notes.</li>
+          <li><strong>A client database</strong> with every client&rsquo;s name, address, phone, service history, and pricing documented in one place, not scattered across texts and sticky notes.</li>
           <li><strong>A scheduling system</strong> that shows what jobs are happening when, with enough detail that someone other than you could look at it and know where to go and what to do.</li>
-          <li><strong>Standardized pricing.</strong> If you quote every job differently based on gut feel, you cannot send a helper to quote. Write down your pricing structure&nbsp;&mdash; rates per square foot, per window, per panel, or per hour.</li>
+          <li><strong>Standardized pricing.</strong> If you quote every job differently based on gut feel, you cannot send a helper to quote. Write down your pricing structure, rates per square foot, per window, per panel, or per hour.</li>
           <li><strong>An estimate and invoicing workflow</strong> that does not require you to be present. The client should receive a professional estimate and invoice regardless of who did the job.</li>
           <li><strong>Automated client communication.</strong> Booking confirmations, appointment reminders, and on-my-way texts should go out automatically so nothing falls through the cracks when you are managing two schedules instead of one.</li>
         </ul>
@@ -119,12 +119,12 @@ export default function HowToGrowSmallServiceBusiness() {
         <p>
           <strong>When to hire:</strong> You are ready for a helper when you have been turning down five or more
           jobs per week for at least two consecutive months. Not one bad week where you could not fit everyone
-          in&nbsp;&mdash; a consistent pattern of saying no to work because you are fully booked. If you are not
+          in, a consistent pattern of saying no to work because you are fully booked. If you are not
           at that point yet, you do not need a hire. You need more clients or better pricing.
         </p>
         <p>
           <strong>Who to hire:</strong> Your first hire should be a helper, not a partner. You want someone who
-          can do the work under your direction&nbsp;&mdash; a second set of hands, not a second decision maker.
+          can do the work under your direction, a second set of hands, not a second decision maker.
           Pay hourly ($15 to $22/hour depending on your market), start them on the simpler jobs, and train them
           on your standards.
         </p>
@@ -185,7 +185,7 @@ export default function HowToGrowSmallServiceBusiness() {
           <strong>A referral system.</strong> Happy clients will refer you, but they refer you more when you make
           it easy and rewarding. A simple approach: after a completed job, send a text that says &ldquo;Thanks for
           choosing us! If you know anyone who needs [service], we would love the referral.&rdquo; Some contractors
-          offer a $25 credit per referral. The math works beautifully&nbsp;&mdash; a $25 credit that generates a
+          offer a $25 credit per referral. The math works beautifully, a $25 credit that generates a
           $200+ job is an 8x return.
         </p>
 

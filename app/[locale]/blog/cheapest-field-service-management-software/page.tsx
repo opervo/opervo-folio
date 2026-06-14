@@ -39,8 +39,8 @@ export default function CheapestFieldServiceManagementSoftware() {
       >
         <p>
           You do not need to spend $79 or $199 a month on field service software. Most solo contractors
-          and small crews need the same core set of tools&nbsp;&mdash; scheduling, estimates, invoicing,
-          and client management&nbsp;&mdash; and several platforms deliver all of that for well under
+          and small crews need the same core set of tools, scheduling, estimates, invoicing,
+          and client management, and several platforms deliver all of that for well under
           $50/mo. The problem is figuring out which cheap option is genuinely good and which one will
           nickel-and-dime you with add-ons.
         </p>
@@ -52,13 +52,13 @@ export default function CheapestFieldServiceManagementSoftware() {
 
         <h2>THE RANKING</h2>
 
-        <h3>1. Opervo &mdash; $24.99/mo</h3>
+        <h3>1. Opervo, $24.99/mo</h3>
         <p><strong>Best for:</strong> Solo operators and 1-5 person crews in window cleaning, solar panel cleaning, pressure washing, and landscaping.</p>
         <p><strong>Key features:</strong> Scheduling with Google Calendar sync, branded estimates and invoicing, automated SMS (appointment reminders, on-my-way, review requests), client portal with magic links, public portfolio page, recurring jobs, team permissions on the $54.99/mo plan.</p>
         <p><strong>What is missing:</strong> QuickBooks integration is still in progress. Route optimization is not available yet. The platform is newer, so the feature set is still growing.</p>
         <p>
           <strong>Verdict:</strong> The most affordable full-featured option on this list. Opervo was
-          built specifically for solo trade operators, and it shows&nbsp;&mdash; every feature is designed
+          built specifically for solo trade operators, and it shows, every feature is designed
           for someone running jobs out of a truck, not managing a 50-person fleet. The portfolio page is
           unique and genuinely useful for winning new clients. At $24.99/mo with no per-feature upsells,
           it is the best value for anyone doing fewer than 50 jobs a month. Learn more on the{' '}
@@ -66,7 +66,7 @@ export default function CheapestFieldServiceManagementSoftware() {
           industry page.
         </p>
 
-        <h3>2. Jobber &mdash; $39/mo</h3>
+        <h3>2. Jobber, $39/mo</h3>
         <p><strong>Best for:</strong> Growing teams that need a mature ecosystem with lots of integrations.</p>
         <p><strong>Key features:</strong> CRM, quoting, scheduling, invoicing, online booking. The $39/mo Core plan covers the basics. The $119/mo Connect plan adds automated follow-ups, online booking, and expense tracking.</p>
         <p><strong>What is missing on Core:</strong> No automated follow-ups, no online booking, no GPS tracking. SMS is a paid add-on on all plans.</p>
@@ -79,7 +79,7 @@ export default function CheapestFieldServiceManagementSoftware() {
           comparison.
         </p>
 
-        <h3>3. GorillaDesk &mdash; $49/mo</h3>
+        <h3>3. GorillaDesk, $49/mo</h3>
         <p><strong>Best for:</strong> Pest control companies and route-based service businesses.</p>
         <p><strong>Key features:</strong> Scheduling, invoicing, route optimization, customer portal, review automation. Strong reputation with a 4.9/5 rating on review sites.</p>
         <p><strong>What is missing:</strong> No public portfolio page, no client-facing magic links. The interface feels dated compared to newer platforms. Limited SMS automation.</p>
@@ -91,7 +91,7 @@ export default function CheapestFieldServiceManagementSoftware() {
           <Link href="/compare/opervo-vs-gorilladesk" title="Opervo vs GorillaDesk comparison">Opervo vs GorillaDesk</Link>.
         </p>
 
-        <h3>4. Housecall Pro &mdash; $79/mo</h3>
+        <h3>4. Housecall Pro, $79/mo</h3>
         <p><strong>Best for:</strong> Established businesses doing $200K+ annually that want a polished, full-featured platform.</p>
         <p><strong>Key features:</strong> Scheduling, dispatching, estimates, invoicing, online booking, marketing tools (postcard campaigns, email follow-ups), QuickBooks and payment processing integration.</p>
         <p><strong>What is missing on base tier:</strong> Limited to one user. The $189/mo Essentials plan is required for most teams. No portfolio page.</p>
@@ -104,7 +104,7 @@ export default function CheapestFieldServiceManagementSoftware() {
           breakdown.
         </p>
 
-        <h3>5. ServiceTitan &mdash; Custom pricing</h3>
+        <h3>5. ServiceTitan, Custom pricing</h3>
         <p><strong>Best for:</strong> Enterprise-level HVAC, plumbing, and electrical companies with 20+ technicians.</p>
         <p><strong>Key features:</strong> Full dispatching, pricebook management, financing integration, advanced reporting, call tracking, marketing ROI dashboards.</p>
         <p><strong>What is missing:</strong> A clear starting price. Onboarding fees run into the thousands. The platform is not designed for small crews.</p>
@@ -115,7 +115,7 @@ export default function CheapestFieldServiceManagementSoftware() {
           than a year of Opervo.
         </p>
 
-        <h3>6. FieldPulse &mdash; $99/mo</h3>
+        <h3>6. FieldPulse, $99/mo</h3>
         <p><strong>Best for:</strong> HVAC, electrical, and plumbing contractors who need pricebook management.</p>
         <p><strong>Key features:</strong> CRM, scheduling, invoicing, pricebooks, estimates, project tracking, inventory management.</p>
         <p><strong>What is missing:</strong> The $99/mo starting price is steep for a solo. No free trial is available in all regions. Fewer integrations than Jobber or Housecall Pro.</p>
@@ -125,7 +125,7 @@ export default function CheapestFieldServiceManagementSoftware() {
           inventory, it is worth a look. For standard service calls, it is more than most solos need.
         </p>
 
-        <h3>7. Workiz &mdash; $198/mo</h3>
+        <h3>7. Workiz, $198/mo</h3>
         <p><strong>Best for:</strong> High-volume dispatch operations like locksmiths, junk removal, and appliance repair.</p>
         <p><strong>Key features:</strong> Call tracking, dispatching, lead management, booking widgets, VoIP phone system, performance scorecards.</p>
         <p><strong>What is missing:</strong> The $198/mo minimum makes it the most expensive entry on this list. No portfolio page. Geared toward phone-heavy businesses.</p>
@@ -152,8 +152,8 @@ export default function CheapestFieldServiceManagementSoftware() {
         <h2>THE BOTTOM LINE</h2>
         <p>
           You do not have to choose between cheap and good. Opervo at $24.99/mo delivers every feature a
-          solo operator needs&nbsp;&mdash; scheduling, estimates, invoicing, SMS, a portfolio, and a
-          client portal&nbsp;&mdash; at a price that makes sense from day one. If you are growing past
+          solo operator needs, scheduling, estimates, invoicing, SMS, a portfolio, and a
+          client portal, at a price that makes sense from day one. If you are growing past
           five technicians or need enterprise-grade routing and accounting integrations, the more expensive
           platforms start to justify their cost. But for the vast majority of tradespeople reading this,
           the right tool is the one you can afford to use every day without wincing at the bill.

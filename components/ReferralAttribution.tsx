@@ -15,7 +15,7 @@
  *      to signup. Same rewrite runs on every route, so Features → Sign Up
  *      or Pricing → Sign Up still carries attribution.
  *
- * Does NOT render a banner — that lives only on the landing page index.html.
+ * Does NOT render a banner, that lives only on the landing page index.html.
  */
 
 import { useEffect } from "react";

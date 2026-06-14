@@ -72,7 +72,7 @@ export default function HowToStartSolarPanelCleaningBusiness() {
           <li>
             <strong>Built-in recurring revenue.</strong> Panels need cleaning one to four times per year
             depending on the region. Once you land a client, you have a relationship that can last for
-            the lifetime of their solar system&nbsp;&mdash; 20 to 30 years.
+            the lifetime of their solar system, 20 to 30 years.
           </li>
           <li>
             <strong>Low startup costs.</strong> You can get started with $500-$2,000 in equipment. Compare
@@ -113,7 +113,7 @@ export default function HowToStartSolarPanelCleaningBusiness() {
             <tr>
               <td>Soft-bristle brush head</td>
               <td>$30 &ndash; $80</td>
-              <td>Boar hair or microfiber&nbsp;&mdash; never nylon</td>
+              <td>Boar hair or microfiber, never nylon</td>
             </tr>
             <tr>
               <td>Hose, fittings, and connectors</td>
@@ -160,7 +160,7 @@ export default function HowToStartSolarPanelCleaningBusiness() {
         </p>
         <blockquote>
           <p>
-            Tip: Offer a recurring service discount&nbsp;&mdash; 10-15% off each visit when the client
+            Tip: Offer a recurring service discount, 10-15% off each visit when the client
             signs up for quarterly or biannual cleanings. You lock in revenue, and they save money.
             Everyone wins.
           </p>
@@ -178,7 +178,7 @@ export default function HowToStartSolarPanelCleaningBusiness() {
         <h3>Door-to-door in solar neighborhoods</h3>
         <p>
           Drive through neighborhoods and look for rooftops with panels. These homeowners already invested
-          $15,000-$30,000 in solar&nbsp;&mdash; spending $200 twice a year to protect that investment is
+          $15,000-$30,000 in solar, spending $200 twice a year to protect that investment is
           an easy sell. Leave a door hanger or knock and introduce yourself. A professional appearance and
           a one-page flyer with before-and-after photos go a long way.
         </p>
@@ -198,7 +198,7 @@ export default function HowToStartSolarPanelCleaningBusiness() {
         <h3>Nextdoor and local Facebook groups</h3>
         <p>
           Post a short introduction with photos of your work. Homeowners in solar-heavy areas are actively
-          looking for this service. Be helpful, not salesy&nbsp;&mdash; answer questions about cleaning
+          looking for this service. Be helpful, not salesy, answer questions about cleaning
           frequency and efficiency loss, and the jobs will follow.
         </p>
 
@@ -228,7 +228,7 @@ export default function HowToStartSolarPanelCleaningBusiness() {
         </p>
         <h3>Track everything</h3>
         <p>
-          Use real scheduling and invoicing software&nbsp;&mdash; not a notebook or text thread. You need
+          Use real scheduling and invoicing software, not a notebook or text thread. You need
           to know which clients are due for their next cleaning, who has unpaid invoices, and what your
           monthly revenue looks like. A tool like Opervo or{' '}
           <Link href="/compare/opervo-vs-jobber" title="Compare Opervo vs Jobber for solar panel cleaning">Jobber</Link>{' '}

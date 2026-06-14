@@ -22,14 +22,14 @@ export default function DeleteAccount() {
           Deleting your account is permanent. Your jobs, clients, invoices, estimates, and folio will be removed. Active subscriptions are cancelled.
         </div>
 
-        <h2 style={{fontFamily:"'Barlow Condensed',sans-serif",fontWeight:800,fontSize:20,color:"#0F0F0F",margin:"32px 0 12px"}}>Option 1 — Delete from inside the app</h2>
+        <h2 style={{fontFamily:"'Barlow Condensed',sans-serif",fontWeight:800,fontSize:20,color:"#0F0F0F",margin:"32px 0 12px"}}>Option 1, Delete from inside the app</h2>
         <ol style={{fontSize:15,color:"#2d2d2d",paddingLeft:20,lineHeight:1.7}}>
           <li>Open Opervo on your phone or at <a href="https://app.opervo.io" style={{color:"#F5620F"}}>app.opervo.io</a></li>
           <li>Go to <strong>Settings → Account</strong></li>
           <li>Tap <strong>Delete Account</strong> and confirm</li>
         </ol>
 
-        <h2 style={{fontFamily:"'Barlow Condensed',sans-serif",fontWeight:800,fontSize:20,color:"#0F0F0F",margin:"40px 0 12px"}}>Option 2 — Email us</h2>
+        <h2 style={{fontFamily:"'Barlow Condensed',sans-serif",fontWeight:800,fontSize:20,color:"#0F0F0F",margin:"40px 0 12px"}}>Option 2, Email us</h2>
         <p style={{fontSize:15,color:"#2d2d2d",marginBottom:8}}>If you can&apos;t access your account, email <a href="mailto:help@opervo.io?subject=Delete%20My%20Account" style={{color:"#F5620F",fontWeight:600}}>help@opervo.io</a> from the address on file with the subject <em>&quot;Delete My Account&quot;</em>. We respond within 2 business days.</p>
 
         <h2 style={{fontFamily:"'Barlow Condensed',sans-serif",fontWeight:800,fontSize:20,color:"#0F0F0F",margin:"40px 0 12px"}}>What gets deleted</h2>
@@ -44,13 +44,13 @@ export default function DeleteAccount() {
 
         <h2 style={{fontFamily:"'Barlow Condensed',sans-serif",fontWeight:800,fontSize:20,color:"#0F0F0F",margin:"40px 0 12px"}}>What we retain (and why)</h2>
         <ul style={{fontSize:15,color:"#2d2d2d",paddingLeft:20,lineHeight:1.7}}>
-          <li><strong>Financial records</strong> — payment and invoice metadata is retained for 7 years to comply with US tax and accounting law (IRS recordkeeping requirements). Personally identifying details are minimized.</li>
-          <li><strong>Anonymized analytics</strong> — aggregate, non-identifying usage events are retained for product improvement.</li>
-          <li><strong>Backups</strong> — encrypted backups are purged on a 30-day rolling basis. After 30 days no copy of your data remains.</li>
+          <li><strong>Financial records</strong>, payment and invoice metadata is retained for 7 years to comply with US tax and accounting law (IRS recordkeeping requirements). Personally identifying details are minimized.</li>
+          <li><strong>Anonymized analytics</strong>, aggregate, non-identifying usage events are retained for product improvement.</li>
+          <li><strong>Backups</strong>, encrypted backups are purged on a 30-day rolling basis. After 30 days no copy of your data remains.</li>
         </ul>
 
         <h2 style={{fontFamily:"'Barlow Condensed',sans-serif",fontWeight:800,fontSize:20,color:"#0F0F0F",margin:"40px 0 12px"}}>Active subscriptions</h2>
-        <p style={{fontSize:15,color:"#2d2d2d",marginBottom:16}}>Deleting your account cancels your subscription immediately. You will not be charged for any future billing periods. Refunds for the current period are not automatic — email <a href="mailto:help@opervo.io" style={{color:"#F5620F"}}>help@opervo.io</a> if you believe a refund is owed.</p>
+        <p style={{fontSize:15,color:"#2d2d2d",marginBottom:16}}>Deleting your account cancels your subscription immediately. You will not be charged for any future billing periods. Refunds for the current period are not automatic, email <a href="mailto:help@opervo.io" style={{color:"#F5620F"}}>help@opervo.io</a> if you believe a refund is owed.</p>
 
         <h2 style={{fontFamily:"'Barlow Condensed',sans-serif",fontWeight:800,fontSize:20,color:"#0F0F0F",margin:"40px 0 12px"}}>Questions</h2>
         <p style={{fontSize:15,color:"#2d2d2d"}}>Email <a href="mailto:help@opervo.io" style={{color:"#F5620F",fontWeight:600}}>help@opervo.io</a>. See our <a href="/privacy" style={{color:"#F5620F"}}>Privacy Policy</a> for full details on how we handle your data.</p>

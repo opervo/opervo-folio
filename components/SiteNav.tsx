@@ -68,7 +68,7 @@ export default function SiteNav() {
             {industriesOpen && (
               <div style={dropdownStyle}>
                 {industries.map((item) => (
-                  <Link key={item.href} href={item.href} title={`${item.name} Software — Opervo`} style={dropdownLinkStyle}
+                  <Link key={item.href} href={item.href} title={`${item.name} Software, Opervo`} style={dropdownLinkStyle}
                     onMouseOver={(e) => (e.currentTarget.style.background = 'rgba(245,98,15,0.06)')}
                     onMouseOut={(e) => (e.currentTarget.style.background = 'transparent')}>
                     {item.name}

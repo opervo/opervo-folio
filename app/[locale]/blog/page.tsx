@@ -55,7 +55,7 @@ const posts = [
     slug: 'how-to-look-professional-solo-contractor',
     category: 'BUSINESS TIPS',
     title: 'How to Look Professional as a Solo Contractor',
-    excerpt: '7 proven ways to build trust, win more jobs, and charge more — without spending a fortune.',
+    excerpt: '7 proven ways to build trust, win more jobs, and charge more, without spending a fortune.',
     date: 'March 10, 2026',
   },
   {
@@ -83,7 +83,7 @@ const posts = [
     slug: 'best-apps-for-window-cleaning-businesses',
     category: 'COMPARISONS',
     title: 'Best Apps for Window Cleaning Businesses (2026)',
-    excerpt: 'The 5 best apps for window cleaners — pricing, features, and which one fits your business.',
+    excerpt: 'The 5 best apps for window cleaners, pricing, features, and which one fits your business.',
     date: 'March 19, 2026',
   },
   {
@@ -97,7 +97,7 @@ const posts = [
     slug: 'do-small-contractors-need-crm',
     category: 'BUSINESS TIPS',
     title: 'Do Small Contractors Need a CRM? (Honest Answer)',
-    excerpt: 'Honest answer — plus what to look for if you decide to get one.',
+    excerpt: 'Honest answer, plus what to look for if you decide to get one.',
     date: 'March 17, 2026',
   },
   {
@@ -111,21 +111,21 @@ const posts = [
     slug: 'best-software-for-pressure-washing-businesses',
     category: 'COMPARISONS',
     title: 'Best Software for Pressure Washing Businesses (2026)',
-    excerpt: 'The 5 best apps for pressure washers — ranked by price, features, and fit.',
+    excerpt: 'The 5 best apps for pressure washers, ranked by price, features, and fit.',
     date: 'March 15, 2026',
   },
   {
     slug: 'how-to-grow-small-service-business',
     category: 'GUIDES',
     title: 'How to Grow a Small Service Business (From Solo to Crew)',
-    excerpt: 'Practical strategies to grow from solo to crew — pricing, hiring, systems, and tools.',
+    excerpt: 'Practical strategies to grow from solo to crew, pricing, hiring, systems, and tools.',
     date: 'March 14, 2026',
   },
   {
     slug: 'best-software-for-landscaping-businesses',
     category: 'COMPARISONS',
     title: 'Best Software for Landscaping Businesses (2026)',
-    excerpt: 'The 5 best apps for landscapers and lawn care pros — pricing, features, and which fits.',
+    excerpt: 'The 5 best apps for landscapers and lawn care pros, pricing, features, and which fits.',
     date: 'March 13, 2026',
   },
   { slug: 'crm-for-solar-panel-cleaning-businesses', category: 'GUIDES', title: 'CRM for Solar Panel Cleaning Businesses', excerpt: 'How to stay organized and win more repeat work with the right CRM.', date: 'April 2, 2026' },
@@ -154,7 +154,7 @@ const posts = [
 ]
 
 export default function BlogIndex() {
-  // Blog schema — Google uses this to understand the index page is a
+  // Blog schema, Google uses this to understand the index page is a
   // blog roll, and the blogPost array tells it which posts belong to
   // the publication. Helps surface a sitelinks-style cluster of blog
   // results under the brand SERP.
@@ -163,7 +163,7 @@ export default function BlogIndex() {
     "@type": "Blog",
     "@id": "https://www.opervo.io/blog#blog",
     url: "https://www.opervo.io/blog",
-    name: "Opervo Blog — Field Service Business Tips & Guides",
+    name: "Opervo Blog, Field Service Business Tips & Guides",
     description: "Practical guides, pricing breakdowns, and business tips for solo contractors and small field service crews.",
     publisher: { "@id": "https://www.opervo.io/#organization" },
     blogPost: posts.map((p) => ({

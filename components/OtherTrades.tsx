@@ -24,7 +24,7 @@ export default function OtherTrades({ exclude }: { exclude: string }) {
       </p>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20 }}>
         {trades.map((t) => (
-          <Link key={t.href} href={t.href} title={`${t.name} Software — Opervo`} style={{ textDecoration: 'none' }}>
+          <Link key={t.href} href={t.href} title={`${t.name} Software, Opervo`} style={{ textDecoration: 'none' }}>
             <div style={{ background: '#fff', border: '1px solid #E8E4DE', borderRadius: 8, padding: '24px 20px', height: '100%' }}>
               <p style={{ fontSize: 11, fontWeight: 700, color: '#F5620F', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 8 }}>{t.name}</p>
               <p style={{ fontSize: 14, color: '#6B6B6B', lineHeight: 1.55, marginBottom: 12 }}>{t.desc}</p>

@@ -159,7 +159,7 @@ export default function MultiJobTrackerPage() {
           Log 5 jobs. Then 10. Then 20. Watch which jobs actually pay you, which trades pay best, and which clients are eating your hours.
         </p>
         <p style={{ fontSize: 13, color: '#6B6B6B', maxWidth: 580, margin: '0 auto' }}>
-          Saved on your device only — nothing leaves your phone. Export to CSV anytime.
+          Saved on your device only, nothing leaves your phone. Export to CSV anytime.
         </p>
       </section>
 
@@ -172,7 +172,7 @@ export default function MultiJobTrackerPage() {
               <p style={{ fontSize: 11, fontWeight: 800, color: '#F5620F', textTransform: 'uppercase', letterSpacing: '0.16em', marginBottom: 14 }}>Across {jobs.length} {jobs.length === 1 ? 'job' : 'jobs'}</p>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: 16, marginBottom: 16 }}>
                 <Stat label="Total profit" value={$(stats.totalProfit)} color={pillColor(stats.avgMargin)} big />
-                <Stat label="Avg hourly" value={stats.totalHours > 0 ? `${$(stats.avgHourly)}/hr` : '—'} color={pillColor(stats.avgMargin)} />
+                <Stat label="Avg hourly" value={stats.totalHours > 0 ? `${$(stats.avgHourly)}/hr` : ','} color={pillColor(stats.avgMargin)} />
                 <Stat label="Avg margin" value={`${(stats.avgMargin * 100).toFixed(1)}%`} color={pillColor(stats.avgMargin)} />
                 <Stat label="Total revenue" value={$(stats.totalRev)} />
               </div>
@@ -292,7 +292,7 @@ export default function MultiJobTrackerPage() {
                           <td style={{ ...tdStyle, textAlign: 'right' }}>{$$(j.materials)}</td>
                           <td style={{ ...tdStyle, textAlign: 'right' }}>{j.mileageMiles.toFixed(0)}</td>
                           <td style={{ ...tdStyle, textAlign: 'right', fontWeight: 700, color: c }}>{$(profitOf(j))}</td>
-                          <td style={{ ...tdStyle, textAlign: 'right', fontWeight: 700, color: c }}>{j.hours > 0 ? `${$(hourlyOf(j))}/hr` : '—'}</td>
+                          <td style={{ ...tdStyle, textAlign: 'right', fontWeight: 700, color: c }}>{j.hours > 0 ? `${$(hourlyOf(j))}/hr` : ','}</td>
                           <td style={{ ...tdStyle, textAlign: 'right', fontWeight: 700, color: c }}>{(m * 100).toFixed(0)}%</td>
                           <td style={{ ...tdStyle, textAlign: 'right' }}>
                             <button onClick={() => removeJob(j.id)} aria-label="Delete job" style={{ background: 'transparent', border: 'none', color: '#9CA3AF', cursor: 'pointer', padding: '4px 6px', fontSize: 16 }}>×</button>
@@ -318,11 +318,11 @@ export default function MultiJobTrackerPage() {
               Opervo logs the chems, the miles,<br />and the math on every single job<span style={{ color: '#F5620F' }}>.</span>
             </h2>
             <p style={{ fontSize: 14, color: '#B8B8B8', maxWidth: 540, margin: '0 auto 22px', lineHeight: 1.65 }}>
-              No re-entering numbers. No spreadsheets. Live profit math, recurring agreements, route optimization, a public folio — all-in at $24.99/mo.
+              No re-entering numbers. No spreadsheets. Live profit math, recurring agreements, route optimization, a public folio, all-in at $24.99/mo.
             </p>
             <div style={{ display: 'flex', gap: 10, justifyContent: 'center', flexWrap: 'wrap' }}>
               <a href="https://app.opervo.io" style={{ display: 'inline-block', background: '#F5620F', color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 14, padding: '13px 28px', borderRadius: 6, textDecoration: 'none', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-                Start Free — 14 Days
+                Start Free, 14 Days
               </a>
               <Link href="/profit-calculator" style={{ display: 'inline-block', background: 'transparent', color: '#F7F5F2', border: '1px solid rgba(255,255,255,0.25)', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 14, padding: '13px 24px', borderRadius: 6, textDecoration: 'none', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
                 Single-Job Calculator

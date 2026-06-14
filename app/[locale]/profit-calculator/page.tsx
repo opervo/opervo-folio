@@ -15,14 +15,14 @@ const TRADES = [
   'Other home service',
 ] as const
 
-// IRS 2026 standard mileage rate (placeholder — keep current). Used only for the "what your miles cost" line.
+// IRS 2026 standard mileage rate (placeholder, keep current). Used only for the "what your miles cost" line.
 const MILEAGE_COST_PER_MILE = 0.67
 
 const fmtMoney = (n: number) =>
-  isFinite(n) ? `$${n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : '—'
+  isFinite(n) ? `$${n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : ','
 const fmtMoneyRound = (n: number) =>
-  isFinite(n) ? `$${Math.round(n).toLocaleString('en-US')}` : '—'
-const fmtPct = (n: number) => (isFinite(n) ? `${(n * 100).toFixed(1)}%` : '—')
+  isFinite(n) ? `$${Math.round(n).toLocaleString('en-US')}` : ','
+const fmtPct = (n: number) => (isFinite(n) ? `${(n * 100).toFixed(1)}%` : ',')
 
 function profitColor(profit: number, revenue: number) {
   if (revenue <= 0) return '#6B6B6B'
@@ -113,7 +113,7 @@ export default function ProfitCalculatorPage() {
           Did that job actually pay<span style={{ color: '#F5620F' }}>?</span>
         </h1>
         <p style={{ fontSize: 17, color: '#3a3a3a', lineHeight: 1.55, maxWidth: 640, margin: '0 auto 12px', fontWeight: 500 }}>
-          Enter your numbers. Get profit, effective hourly, and margin — live. Then see what you should charge to hit your target hourly.
+          Enter your numbers. Get profit, effective hourly, and margin, live. Then see what you should charge to hit your target hourly.
         </p>
         <p style={{ fontSize: 13, color: '#6B6B6B', maxWidth: 580, margin: '0 auto' }}>
           Built for solo operators in home services. Most operators have no idea their actual hourly is half what they think after materials and drive time.
@@ -157,7 +157,7 @@ export default function ProfitCalculatorPage() {
             </Field>
 
             <p style={{ fontSize: 11, color: '#9CA3AF', marginTop: 12, lineHeight: 1.5 }}>
-              Mileage is costed at the IRS standard mileage rate (${MILEAGE_COST_PER_MILE.toFixed(2)}/mi) — your fuel + wear-and-tear deduction.
+              Mileage is costed at the IRS standard mileage rate (${MILEAGE_COST_PER_MILE.toFixed(2)}/mi), your fuel + wear-and-tear deduction.
             </p>
           </div>
 
@@ -170,7 +170,7 @@ export default function ProfitCalculatorPage() {
               </p>
 
               <Stat label="Profit on this job" value={fmtMoneyRound(profit)} valueColor={profitColor(profit, rev)} big />
-              <Stat label="Effective hourly rate" value={h > 0 ? `${fmtMoneyRound(hourly)}/hr` : '—'} valueColor={profitColor(profit, rev)} />
+              <Stat label="Effective hourly rate" value={h > 0 ? `${fmtMoneyRound(hourly)}/hr` : ','} valueColor={profitColor(profit, rev)} />
               <Stat label="Profit margin" value={fmtPct(margin)} valueColor={profitColor(profit, rev)} />
 
               <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', margin: '20px 0 16px' }} />
@@ -197,13 +197,13 @@ export default function ProfitCalculatorPage() {
               <input type="number" inputMode="decimal" min="0" step="5" value={targetHourly} onChange={(e) => setTargetHourly(e.target.value)} style={{ ...inputStyle, width: 80, border: 'none', padding: '8px 0', fontWeight: 700, fontSize: 16 }} />
               <span style={{ color: '#6B6B6B', fontWeight: 600, marginLeft: 4 }}>/hr</span>
             </div>
-            <span style={{ fontSize: 15, color: '#1a1a1a', fontWeight: 500 }}>on a {h || '—'} hr {trade.toLowerCase()} job at {mi || '—'} mi round trip,</span>
+            <span style={{ fontSize: 15, color: '#1a1a1a', fontWeight: 500 }}>on a {h || ','} hr {trade.toLowerCase()} job at {mi || ','} mi round trip,</span>
           </div>
           <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 'clamp(24px, 4vw, 32px)', color: '#0F0F0F', textTransform: 'uppercase', letterSpacing: '-0.5px', lineHeight: 1.1 }}>
             Charge at least <span style={{ color: '#F5620F' }}>{fmtMoneyRound(suggestPrice)}</span>.
           </p>
           <p style={{ fontSize: 13, color: '#6B6B6B', marginTop: 8, lineHeight: 1.55 }}>
-            That covers materials ({fmtMoney(mat)}), mileage ({fmtMoney(mileageCost)}), helpers ({fmtMoney(help)}), and the {fmtMoneyRound(target * h)} you want to take home for {h || '—'} hours of work.
+            That covers materials ({fmtMoney(mat)}), mileage ({fmtMoney(mileageCost)}), helpers ({fmtMoney(help)}), and the {fmtMoneyRound(target * h)} you want to take home for {h || ','} hours of work.
           </p>
         </div>
 
@@ -222,10 +222,10 @@ export default function ProfitCalculatorPage() {
               cards.push({ icon: 'route', title: 'Drive time is eating you', body: `Mileage cost (${fmtMoney(mileageCost)}) is over 8% of revenue. Route-clustering nearby jobs into the same day or charging a travel fee outside your zone fixes this fast.` })
             }
             if (mat > 0 && mat / Math.max(rev, 1) > 0.25) {
-              cards.push({ icon: 'spray', title: 'Materials are heavy', body: `Materials are ${fmtPct(mat / rev)} of revenue. Worth tracking per-job — bulk-buy, switch suppliers, or raise prices on jobs where chems/products dominate.` })
+              cards.push({ icon: 'spray', title: 'Materials are heavy', body: `Materials are ${fmtPct(mat / rev)} of revenue. Worth tracking per-job, bulk-buy, switch suppliers, or raise prices on jobs where chems/products dominate.` })
             }
             if (help > 0 && (help + mileageCost + mat) / Math.max(rev, 1) > 0.6) {
-              cards.push({ icon: 'users', title: 'Total cost ratio is high', body: `Materials + mileage + helpers = ${fmtPct((help + mileageCost + mat) / rev)} of revenue. Margin gets thin fast — recheck pricing or cut a cost.` })
+              cards.push({ icon: 'users', title: 'Total cost ratio is high', body: `Materials + mileage + helpers = ${fmtPct((help + mileageCost + mat) / rev)} of revenue. Margin gets thin fast, recheck pricing or cut a cost.` })
             }
             if (cards.length === 0) {
               cards.push({ icon: 'check-circle', title: 'Looks healthy', body: 'Profit, margin, and hourly are all in a good range for this trade. Run more jobs through the calculator and find the patterns.' })
@@ -259,7 +259,7 @@ export default function ProfitCalculatorPage() {
                 </button>
               </form>
               {error && <p style={{ color: '#DC2626', fontSize: 13, marginTop: 10 }}>{error}</p>}
-              <p style={{ fontSize: 12, color: '#9CA3AF', marginTop: 12 }}>Or just <button type="button" onClick={() => window.print()} style={{ color: '#F5620F', background: 'none', border: 'none', textDecoration: 'underline', cursor: 'pointer', fontSize: 12, padding: 0, fontFamily: 'inherit' }}>save this page as a PDF</button> — no email required.</p>
+              <p style={{ fontSize: 12, color: '#9CA3AF', marginTop: 12 }}>Or just <button type="button" onClick={() => window.print()} style={{ color: '#F5620F', background: 'none', border: 'none', textDecoration: 'underline', cursor: 'pointer', fontSize: 12, padding: 0, fontFamily: 'inherit' }}>save this page as a PDF</button>, no email required.</p>
             </>
           ) : (
             <>
@@ -268,7 +268,7 @@ export default function ProfitCalculatorPage() {
                 Sent. Check your inbox.
               </h2>
               <p style={{ fontSize: 14, color: '#6B6B6B', maxWidth: 540, margin: '0 auto 18px', lineHeight: 1.6 }}>
-                Your numbers are on the way. The pattern shows up after 5 jobs, not 1 — try the Multi-Job Profit Tracker to log them all in one place (saves to your phone, no account).
+                Your numbers are on the way. The pattern shows up after 5 jobs, not 1, try the Multi-Job Profit Tracker to log them all in one place (saves to your phone, no account).
               </p>
               <div style={{ display: 'flex', gap: 10, justifyContent: 'center', flexWrap: 'wrap' }}>
                 <Link href="/multi-job-tracker" style={{ display: 'inline-block', background: '#F5620F', color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 14, padding: '13px 28px', borderRadius: 6, textDecoration: 'none', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
@@ -293,11 +293,11 @@ export default function ProfitCalculatorPage() {
               Opervo logs the chems, the miles, and the math<br />on every single job<span style={{ color: '#F5620F' }}>.</span>
             </h2>
             <p style={{ fontSize: 15, color: '#B8B8B8', maxWidth: 560, margin: '0 auto 24px', lineHeight: 1.65 }}>
-              Build a catalog of supplies, log usage in seconds, see Revenue − Supplies = Profit live on every job. Plus mileage, recurring agreements, route optimization, a public folio — all-in at $24.99/mo.
+              Build a catalog of supplies, log usage in seconds, see Revenue − Supplies = Profit live on every job. Plus mileage, recurring agreements, route optimization, a public folio, all-in at $24.99/mo.
             </p>
             <div style={{ display: 'flex', gap: 10, justifyContent: 'center', flexWrap: 'wrap' }}>
               <a href="https://app.opervo.io" style={{ display: 'inline-block', background: '#F5620F', color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 14, padding: '13px 28px', borderRadius: 6, textDecoration: 'none', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-                Start Free — 14 Days
+                Start Free, 14 Days
               </a>
               <Link href="/features" style={{ display: 'inline-block', background: 'transparent', color: '#F7F5F2', border: '1px solid rgba(255,255,255,0.25)', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 14, padding: '13px 24px', borderRadius: 6, textDecoration: 'none', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
                 See all features

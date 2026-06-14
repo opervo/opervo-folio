@@ -56,7 +56,7 @@ export default function ApprenticePage() {
             <span style={{ color: '#F5620F' }}>FOR THE NEXT WAVE OF OPERATORS.</span>
           </h1>
           <p style={{ fontSize: 19, color: '#1a1a1a', fontFamily: "'Barlow', sans-serif", lineHeight: 1.6, maxWidth: 640, margin: '0 auto 32px' }}>
-            If you're 13–17 with a real service business — or a strong plan to start one — the software is on us. Free Solo plan, your own folio page, NFC cards, and a direct line to the founder.
+            If you're 13–17 with a real service business, or a strong plan to start one, the software is on us. Free Solo plan, your own folio page, NFC cards, and a direct line to the founder.
           </p>
           <a
             href="#apply"
@@ -102,7 +102,7 @@ export default function ApprenticePage() {
                   <div style={{ width: '100%', aspectRatio: '4 / 3', borderRadius: 8, overflow: 'hidden', background: '#1a1a1a', border: '1px solid #2a2a2a' }}>
                     <img
                       src={p.src}
-                      alt={`Max, ${p.age} — ${p.caption}`}
+                      alt={`Max, ${p.age}, ${p.caption}`}
                       style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center center' }}
                     />
                   </div>
@@ -117,16 +117,16 @@ export default function ApprenticePage() {
             </div>
 
             <p style={{ fontSize: 17, color: '#d4d4d4', fontFamily: "'Barlow', sans-serif", lineHeight: 1.75, marginBottom: 18 }}>
-              8 years old, I was washing cars and running lemonade stands in my neighborhood. Middle school, I was flipping stuff on eBay. At 12 I started mowing lawns — that's when it started feeling like an actual business. At 14, I entered a teen entrepreneur contest with a YouTube video about it. There's a record somewhere on the internet. I kept stacking trades from there — windows, pressure washing, solar panels — all of it run around a full-time paramedic career I've worked for the last decade.
+              8 years old, I was washing cars and running lemonade stands in my neighborhood. Middle school, I was flipping stuff on eBay. At 12 I started mowing lawns, that's when it started feeling like an actual business. At 14, I entered a teen entrepreneur contest with a YouTube video about it. There's a record somewhere on the internet. I kept stacking trades from there, windows, pressure washing, solar panels, all of it run around a full-time paramedic career I've worked for the last decade.
             </p>
             <p style={{ fontSize: 17, color: '#d4d4d4', fontFamily: "'Barlow', sans-serif", lineHeight: 1.75, marginBottom: 18 }}>
-              Back then, software like Opervo didn't exist for solo operators. I tracked clients in a notebook, kept the schedule in my head, printed invoices on a sheet of paper. Today the software exists — but it's $50+ a month and built for 20-person crews. Same wall every young operator hits, just with a new tool on it.
+              Back then, software like Opervo didn't exist for solo operators. I tracked clients in a notebook, kept the schedule in my head, printed invoices on a sheet of paper. Today the software exists, but it's $50+ a month and built for 20-person crews. Same wall every young operator hits, just with a new tool on it.
             </p>
             <p style={{ fontSize: 17, color: '#fff', fontFamily: "'Barlow', sans-serif", lineHeight: 1.75, fontWeight: 600 }}>
               If you're 13 to 17, running a real service business or pitching one, this is the tool I wish I'd had at your age. On us. No catch. No contract. Just go.
             </p>
             <p style={{ marginTop: 24, fontSize: 14, color: '#9ca3af', fontFamily: "'Barlow', sans-serif", fontStyle: 'italic' }}>
-              — Max, founder of Opervo
+             , Max, founder of Opervo
             </p>
           </div>
         </section>
@@ -151,7 +151,7 @@ export default function ApprenticePage() {
               {
                 title: 'Your own Folio page',
                 value: 'Public portfolio',
-                desc: 'opervo.io/yourbusiness — auto-updates as you complete jobs. Clients see your real work and request quotes.',
+                desc: 'opervo.io/yourbusiness, auto-updates as you complete jobs. Clients see your real work and request quotes.',
               },
               {
                 title: 'NFC business cards',
@@ -208,7 +208,7 @@ export default function ApprenticePage() {
             <ul style={{ listStyle: 'none', padding: 0, margin: '24px 0 0' }}>
               {[
                 'You\'re 13 to 17 years old.',
-                'You\'re either running a service business right now — window cleaning, pressure washing, lawn care, detailing, solar panels, snow, anything in the trades — OR you\'ve got a serious concept and you\'re ready to launch. The application is where you make your case.',
+                'You\'re either running a service business right now, window cleaning, pressure washing, lawn care, detailing, solar panels, snow, anything in the trades, OR you\'ve got a serious concept and you\'re ready to launch. The application is where you make your case.',
                 'You have a parent or guardian who knows you\'re applying. They\'ll get a heads-up email when you submit.',
               ].map((line) => (
                 <li key={line} style={{ ...body, paddingLeft: 24, position: 'relative', marginBottom: 14 }}>
@@ -218,7 +218,7 @@ export default function ApprenticePage() {
               ))}
             </ul>
             <p style={{ ...body, fontSize: 15, color: '#6B6B6B', fontStyle: 'italic', marginTop: 24 }}>
-              No follower count required. No minimum revenue. No registered LLC. If you're doing the work — or you've got a real plan to start — you qualify.
+              No follower count required. No minimum revenue. No registered LLC. If you're doing the work, or you've got a real plan to start, you qualify.
             </p>
           </div>
         </section>
@@ -267,7 +267,7 @@ export default function ApprenticePage() {
               No posting requirement. No exclusivity. No content quota. No contract.
             </p>
             <p style={{ fontSize: 17, color: '#d4d4d4', fontFamily: "'Barlow', sans-serif", lineHeight: 1.75, marginBottom: 18 }}>
-              If you tag <strong style={{ color: '#fff' }}>#OpervoOperators</strong>, awesome. If we want to feature your work, we'll ask first. If you refer <strong style={{ color: '#fff' }}>paying operators</strong> to Opervo, you earn gear credits — redeemable for branded merch and the real trade equipment that moves your business forward (squeegees, sprayers, poles, the stuff you'd otherwise be saving up for). Telling other teens about Apprentice is encouraged, but referring them isn't how you earn — Max still reviews every application.
+              If you tag <strong style={{ color: '#fff' }}>#OpervoOperators</strong>, awesome. If we want to feature your work, we'll ask first. If you refer <strong style={{ color: '#fff' }}>paying operators</strong> to Opervo, you earn gear credits, redeemable for branded merch and the real trade equipment that moves your business forward (squeegees, sprayers, poles, the stuff you'd otherwise be saving up for). Telling other teens about Apprentice is encouraged, but referring them isn't how you earn, Max still reviews every application.
             </p>
             <p style={{ fontSize: 17, color: '#fff', fontFamily: "'Barlow', sans-serif", lineHeight: 1.75, fontWeight: 600 }}>
               The plan is yours. You don't owe us anything for it.
@@ -300,7 +300,7 @@ export default function ApprenticePage() {
             {[
               {
                 q: 'Why is this free?',
-                a: 'Max started his first business at 12 and remembers what it costs to be a young operator with no margin for $50/mo software. Opervo exists to back operators at every stage, and the next generation is part of that mission, not separate from it. This is an intentional investment — not a discount, not a giveaway, not charity.',
+                a: 'Max started his first business at 12 and remembers what it costs to be a young operator with no margin for $50/mo software. Opervo exists to back operators at every stage, and the next generation is part of that mission, not separate from it. This is an intentional investment, not a discount, not a giveaway, not charity.',
               },
               {
                 q: 'What if I\'m 12?',
@@ -308,7 +308,7 @@ export default function ApprenticePage() {
               },
               {
                 q: 'What if I\'m 18?',
-                a: 'You don\'t need this — start a 14-day free trial at app.opervo.io. Solo plan is $24.99/mo, no credit card required to start.',
+                a: 'You don\'t need this, start a 14-day free trial at app.opervo.io. Solo plan is $24.99/mo, no credit card required to start.',
               },
               {
                 q: 'Can my parent run the account?',
@@ -320,7 +320,7 @@ export default function ApprenticePage() {
               },
               {
                 q: 'How does payment processing work? I\'m under 18.',
-                a: 'Most payment processors require account holders to be 18+. Most teen operators run payments through a parent\'s account, or accept cash/Venmo/Cash App. Opervo gives you the software — how you collect payment is between you and your family.',
+                a: 'Most payment processors require account holders to be 18+. Most teen operators run payments through a parent\'s account, or accept cash/Venmo/Cash App. Opervo gives you the software, how you collect payment is between you and your family.',
               },
               {
                 q: 'What\'s the catch?',
@@ -346,7 +346,7 @@ export default function ApprenticePage() {
             <span style={{ color: '#F5620F' }}>WHAT YOU BUILD.</span>
           </h2>
           <p style={{ fontSize: 16, color: '#6B6B6B', fontFamily: "'Barlow', sans-serif", marginBottom: 32, fontStyle: 'italic' }}>
-            — Max, founder of Opervo
+           , Max, founder of Opervo
           </p>
           <a
             href="#apply"

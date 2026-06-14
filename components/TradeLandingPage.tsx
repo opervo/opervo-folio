@@ -121,7 +121,7 @@ export default function TradeLandingPage({ config }: { config: TradePageConfig }
           <p style={{ fontSize: 14, color: '#6B6B6B', lineHeight: 1.55, maxWidth: 560, marginBottom: 26 }} dangerouslySetInnerHTML={{ __html: c.heroSubExtra }} />
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginBottom: 14 }}>
             <a href="https://app.opervo.io" style={{ display: 'inline-block', background: '#F5620F', color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 15, padding: '14px 32px', borderRadius: 6, textDecoration: 'none', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-              Start Free — 14 Days, No Card
+              Start Free, 14 Days, No Card
             </a>
             <a href="/p/solar-wash-atx" style={{ display: 'inline-block', background: '#fff', color: '#0F0F0F', border: '1px solid #E8E4DE', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 15, padding: '14px 24px', borderRadius: 6, textDecoration: 'none', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
               See a Live Folio
@@ -248,7 +248,7 @@ export default function TradeLandingPage({ config }: { config: TradePageConfig }
           <div style={{ flex: '1 1 380px', minWidth: 0 }}>
             <p style={{ fontSize: 11, fontWeight: 800, color: '#F5620F', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: 6 }}>Free tool · No login</p>
             <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 20, color: '#0F0F0F', fontWeight: 800, marginBottom: 4, textTransform: 'uppercase', lineHeight: 1.15 }}>Wonder if your jobs are actually paying<span style={{ color: '#F5620F' }}>?</span></p>
-            <p style={{ fontSize: 13, color: '#6B6B6B', lineHeight: 1.55 }}>Run your numbers through the Job Profit Calculator — see profit, hourly, and margin live. ~30 seconds.</p>
+            <p style={{ fontSize: 13, color: '#6B6B6B', lineHeight: 1.55 }}>Run your numbers through the Job Profit Calculator, see profit, hourly, and margin live. ~30 seconds.</p>
           </div>
           <span style={{ display: 'inline-block', background: '#F5620F', color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 13, padding: '10px 22px', borderRadius: 6, textTransform: 'uppercase', letterSpacing: '0.05em', whiteSpace: 'nowrap' }}>Try it →</span>
         </a>

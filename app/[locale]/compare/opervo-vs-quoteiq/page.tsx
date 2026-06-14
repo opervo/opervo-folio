@@ -180,7 +180,7 @@ export default function OpervoVsQuoteIQ() {
         </div>
       </section>
 
-      {/* THE KILLER DIFFERENTIATOR — folio */}
+      {/* THE KILLER DIFFERENTIATOR, folio */}
       <section style={{ background: '#fff', borderTop: '1px solid #E8E4DE', borderBottom: '1px solid #E8E4DE', padding: '64px 24px' }}>
         <div style={{ maxWidth: 800, margin: '0 auto', textAlign: 'center' }}>
           <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 28, color: '#0F0F0F', textTransform: 'uppercase', marginBottom: 12, letterSpacing: '-0.5px' }}>

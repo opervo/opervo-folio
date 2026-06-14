@@ -54,7 +54,7 @@ export default function HowToRunServiceBusinessFromPhone() {
         <p>
           Ten years ago, running a service business meant a filing cabinet full of paper invoices, a
           wall calendar with scribbled appointments, and a landline that rang while you were up on a
-          ladder. Today, the phone in your pocket can replace all of that&nbsp;&mdash; and do it better.
+          ladder. Today, the phone in your pocket can replace all of that, and do it better.
         </p>
         <p>
           Whether you are a solo{' '}
@@ -69,7 +69,7 @@ export default function HowToRunServiceBusinessFromPhone() {
           Here is how to set that up and actually make it work.
         </p>
 
-        <h2>YOUR PHONE IS YOUR OFFICE — THE SHIFT TO MOBILE-FIRST</h2>
+        <h2>YOUR PHONE IS YOUR OFFICE, THE SHIFT TO MOBILE-FIRST</h2>
         <p>
           The old way of running a trade business assumed you had an office. You would go home at the
           end of the day, sit at a desk, type up invoices, update your calendar, and reply to client
@@ -78,8 +78,8 @@ export default function HowToRunServiceBusinessFromPhone() {
         <p>
           But most solo contractors do not have a home office. They have a truck, a phone, and maybe a
           kitchen table where they catch up on admin at 9 PM. The shift to mobile-first is not about
-          adopting new technology for its own sake&nbsp;&mdash; it is about doing your admin work in the
-          gaps between jobs, in the truck, on-site, and right after you finish&nbsp;&mdash; instead of
+          adopting new technology for its own sake, it is about doing your admin work in the
+          gaps between jobs, in the truck, on-site, and right after you finish, instead of
           batching it all into exhausting evening sessions.
         </p>
         <p>
@@ -100,7 +100,7 @@ export default function HowToRunServiceBusinessFromPhone() {
         </p>
         <p>
           In Opervo, you can create a job, assign it to a date and time, attach it to a client, and set
-          it as recurring&nbsp;&mdash; all from your phone in under a minute. When the job syncs to
+          it as recurring, all from your phone in under a minute. When the job syncs to
           Google Calendar, your whole week is visible in one place. No more double-booking because your
           work calendar and personal calendar were in different apps.
         </p>
@@ -135,8 +135,8 @@ export default function HowToRunServiceBusinessFromPhone() {
         <h3>4. Auto-text your clients</h3>
         <p>
           Texting is how most homeowners prefer to communicate with service providers in 2026. But
-          manually texting every client&nbsp;&mdash; appointment reminders, on-my-way alerts, follow-ups
-          &mdash; eats into your day. Automated texts handle the repetitive stuff so you can focus on the
+          manually texting every client, appointment reminders, on-my-way alerts, follow-ups
+         , eats into your day. Automated texts handle the repetitive stuff so you can focus on the
           work.
         </p>
         <p>
@@ -149,8 +149,8 @@ export default function HowToRunServiceBusinessFromPhone() {
 
         <h3>5. Showcase your work with a portfolio</h3>
         <p>
-          For visual trades&nbsp;&mdash; window cleaning, pressure washing, solar panel cleaning,
-          landscaping&nbsp;&mdash; your work speaks for itself. The problem is that most contractors
+          For visual trades, window cleaning, pressure washing, solar panel cleaning,
+          landscaping, your work speaks for itself. The problem is that most contractors
           have hundreds of great before-and-after photos buried in their camera roll with no way for
           potential clients to see them.
         </p>
@@ -206,21 +206,21 @@ export default function HowToRunServiceBusinessFromPhone() {
           </li>
           <li>
             <strong>Block 15 minutes at the end of each day for admin.</strong> Even with automation,
-            you will have a few things to review&nbsp;&mdash; unpaid invoices, tomorrow&rsquo;s schedule,
+            you will have a few things to review, unpaid invoices, tomorrow&rsquo;s schedule,
             unanswered messages. Fifteen minutes is enough when everything is in one app.
           </li>
         </ul>
 
         <h2>THE BOTTOM LINE</h2>
         <p>
-          Running your entire service business from your phone is not a compromise&nbsp;&mdash; it is an
+          Running your entire service business from your phone is not a compromise, it is an
           advantage. You are faster, more responsive, and more professional than the contractor who waits
           until evening to do admin work. The tools exist today to schedule, estimate, invoice, text, and
           showcase your work without ever opening a laptop. The only question is whether you are using
           them.
         </p>
         <p>
-          Opervo was built for exactly this workflow&nbsp;&mdash; a mobile-first platform where everything
+          Opervo was built for exactly this workflow, a mobile-first platform where everything
           a solo contractor needs lives in one app. Start a free trial and see how much time you save
           in your first week. If you are comparing options, see how Opervo stacks up in our{' '}
           <Link href="/compare/opervo-vs-jobber" title="Compare Opervo vs Jobber features and pricing side by side">Opervo vs Jobber comparison</Link>.
@@ -230,7 +230,7 @@ export default function HowToRunServiceBusinessFromPhone() {
         <ul>
           <li>
             <Link href="/blog/best-crm-for-solo-contractors" title="Best CRM tools for solo contractors ranked for 2026">
-              Best CRM for Solo Contractors (2026) &mdash; 5 Options Ranked
+              Best CRM for Solo Contractors (2026), 5 Options Ranked
             </Link>
           </li>
           <li>

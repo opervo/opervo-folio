@@ -54,7 +54,7 @@ export default function HowToSendInvoicesInTheField() {
         <p>
           There is a direct relationship between how fast you invoice and how fast you get paid. Invoices
           sent within 24 hours of completing a job get paid roughly twice as fast as invoices sent a week
-          later. Yet most solo contractors wait days&nbsp;&mdash; sometimes weeks&nbsp;&mdash; to send invoices
+          later. Yet most solo contractors wait days, sometimes weeks, to send invoices
           because the process is inconvenient. They finish a{' '}
           <Link href="/pressure-washing" title="Pressure washing business management tools">pressure washing</Link>{' '}
           job, drive to the next one, and tell themselves they will send the invoice tonight. Tonight becomes
@@ -71,7 +71,7 @@ export default function HowToSendInvoicesInTheField() {
         </p>
         <ul>
           <li><strong>Clients forget.</strong> The longer you wait to invoice, the less connected the client feels to the work you did. A week after the job, your invoice feels like an unexpected bill. Five minutes after the job, it feels like a natural conclusion to a transaction they are already thinking about.</li>
-          <li><strong>You forget details.</strong> If you did extra work on-site&nbsp;&mdash; an additional window, a tougher stain that took longer&nbsp;&mdash; you are less likely to remember and invoice for it as time passes. Contractors routinely undercharge because they cannot remember what they did by the time they sit down to invoice.</li>
+          <li><strong>You forget details.</strong> If you did extra work on-site, an additional window, a tougher stain that took longer, you are less likely to remember and invoice for it as time passes. Contractors routinely undercharge because they cannot remember what they did by the time they sit down to invoice.</li>
           <li><strong>It looks unprofessional.</strong> A client who receives a clean invoice within minutes of the job thinks &ldquo;this person runs a tight operation.&rdquo; A client who gets a random text four days later asking for payment thinks &ldquo;this person is disorganized.&rdquo;</li>
         </ul>
 
@@ -85,7 +85,7 @@ export default function HowToSendInvoicesInTheField() {
         <p>
           The new workflow: finish the job, open your phone, tap a few buttons, and the invoice is in the
           client&rsquo;s inbox before you start your truck. If you created an estimate before the job,
-          everything&nbsp;&mdash; client details, line items, pricing&nbsp;&mdash; is already filled in. You
+          everything, client details, line items, pricing, is already filled in. You
           just convert it to an invoice and send. Sixty seconds.
         </p>
 
@@ -111,9 +111,9 @@ export default function HowToSendInvoicesInTheField() {
         <ul>
           <li><strong>Your business name and logo.</strong> This is branding 101. Every touchpoint should reinforce that you are a legitimate business.</li>
           <li><strong>Client name and service address.</strong> Especially important for contractors who serve the same client at multiple properties.</li>
-          <li><strong>Itemized services.</strong> Do not just write &ldquo;window cleaning &mdash; $250.&rdquo; Break it down: &ldquo;Exterior windows (22) &mdash; $180. Interior windows (22) &mdash; $70.&rdquo; Itemization builds trust and reduces disputes.</li>
+          <li><strong>Itemized services.</strong> Do not just write &ldquo;window cleaning, $250.&rdquo; Break it down: &ldquo;Exterior windows (22), $180. Interior windows (22), $70.&rdquo; Itemization builds trust and reduces disputes.</li>
           <li><strong>Date of service.</strong> For your records and for the client&rsquo;s tax purposes.</li>
-          <li><strong>Payment terms.</strong> &ldquo;Due on Receipt&rdquo; or &ldquo;Net 7&rdquo; at most. Avoid Net 30 for residential work&nbsp;&mdash; it trains clients to delay payment.</li>
+          <li><strong>Payment terms.</strong> &ldquo;Due on Receipt&rdquo; or &ldquo;Net 7&rdquo; at most. Avoid Net 30 for residential work, it trains clients to delay payment.</li>
           <li><strong>A payment link.</strong> This is the single most important thing on your invoice. A clickable link that takes the client directly to a payment page eliminates every friction point. No writing checks, no mailing anything, no calling you to give a card number.</li>
         </ul>
 
@@ -144,20 +144,20 @@ export default function HowToSendInvoicesInTheField() {
             <tr>
               <td><strong>Opervo</strong></td>
               <td>$24.99/mo</td>
-              <td>Yes &mdash; one tap conversion</td>
-              <td>Yes &mdash; mobile-first, includes scheduling</td>
+              <td>Yes, one tap conversion</td>
+              <td>Yes, mobile-first, includes scheduling</td>
             </tr>
             <tr>
               <td><strong>QuickBooks</strong></td>
               <td>$30/mo+</td>
               <td>Yes</td>
-              <td>No &mdash; built for accounting, not field service</td>
+              <td>No, built for accounting, not field service</td>
             </tr>
             <tr>
               <td><strong>Wave</strong></td>
               <td>Free</td>
               <td>Limited</td>
-              <td>No &mdash; no scheduling, no client communication</td>
+              <td>No, no scheduling, no client communication</td>
             </tr>
           </tbody>
         </table>
@@ -172,7 +172,7 @@ export default function HowToSendInvoicesInTheField() {
           For a solo contractor who needs to create estimates, schedule jobs, invoice clients, and get paid
           from one app on their phone, purpose-built field service software like Opervo or{' '}
           <Link href="/compare/opervo-vs-jobber" title="Compare Opervo vs Jobber pricing and features">Jobber</Link>{' '}
-          is the right category. The difference is price and focus&nbsp;&mdash; Opervo is $24.99/mo and
+          is the right category. The difference is price and focus, Opervo is $24.99/mo and
           built specifically for{' '}
           <Link href="/window-cleaning" title="Window cleaning business tools and software">window cleaners</Link>,{' '}
           pressure washers, and similar solo trades.

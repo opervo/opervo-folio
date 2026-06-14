@@ -59,8 +59,8 @@ export default function RevenuePage() {
       <StatStrip stats={[
         { label: "MRR", value: fmt$(mrr), pill: { label: "Monthly", type: "green" } },
         { label: "Projected ARR", value: fmt$(mrr * 12) },
-        { label: "Solo ($24.99)", value: stripe?.soloCount ?? "—" },
-        { label: "Team ($54.99)", value: stripe?.teamCount ?? "—" },
+        { label: "Solo ($24.99)", value: stripe?.soloCount ?? "," },
+        { label: "Team ($54.99)", value: stripe?.teamCount ?? "," },
       ]} />
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 24 }}>

@@ -19,7 +19,7 @@ const categories = [
   {
     id: 'jobs', icon: '01', title: 'Job Management',
     features: [
-      { name: 'Create & edit jobs', desc: 'Google Places autocomplete for addresses — no manual entry.' },
+      { name: 'Create & edit jobs', desc: 'Google Places autocomplete for addresses, no manual entry.' },
       { name: 'Status flow', desc: 'Documented \u2192 Scheduled \u2192 In Progress \u2192 Completed \u2192 Paid. Always know where every job stands.' },
       { name: 'Recurring scheduling', desc: 'Set jobs to repeat weekly, biweekly, monthly, or custom. Auto-creates and auto-invoices.' },
       { name: 'Job checklists', desc: 'Add task checklists to any job. Crew members check off as they go.' },
@@ -27,18 +27,18 @@ const categories = [
       { name: 'Service auto-fill', desc: 'Save your service catalog. Auto-fill line items, pricing, and descriptions on new jobs.' },
       { name: 'Team assignment', desc: 'Assign jobs to specific crew members. They see only their jobs.' },
       { name: 'Photo documentation', desc: 'Before, during, and after photos attached to every job. Build proof of work.' },
-      { name: 'Voice-to-text notes', desc: 'Hands-free job notes. Speak instead of type — ideal when your hands are dirty.' },
-      { name: 'Branded job reports', desc: 'Send professional job summaries to clients via magic link — SMS, email, or direct link.' },
+      { name: 'Voice-to-text notes', desc: 'Hands-free job notes. Speak instead of type, ideal when your hands are dirty.' },
+      { name: 'Branded job reports', desc: 'Send professional job summaries to clients via magic link, SMS, email, or direct link.' },
     ],
   },
   {
     id: 'clients', icon: '02', title: 'Client Management',
     features: [
       { name: 'Client database', desc: 'Centralized contacts, addresses, notes, and full job history for every client.' },
-      { name: 'Lead source tracking', desc: 'Know where every client came from — Google, referral, door knock, Folio page.' },
+      { name: 'Lead source tracking', desc: 'Know where every client came from, Google, referral, door knock, Folio page.' },
       { name: 'CSV import', desc: 'Import from Jobber, Housecall Pro, ServiceTitan, QuickBooks, or Google Contacts.' },
       { name: 'Auto-column mapping', desc: 'Smart column detection and duplicate detection on import. No manual cleanup.' },
-      { name: 'Client portal', desc: 'Branded portal via magic link — no login required. Clients view jobs, invoices, and estimates.' },
+      { name: 'Client portal', desc: 'Branded portal via magic link, no login required. Clients view jobs, invoices, and estimates.' },
       { name: 'Service request form', desc: 'Clients submit service requests through the portal. You get notified instantly.' },
     ],
   },
@@ -47,8 +47,8 @@ const categories = [
     features: [
       { name: 'Professional invoices', desc: 'Line items, tax, due dates, and your branding. Looks like you have a back office.' },
       { name: 'Custom invoice titles', desc: 'Name your invoices however you want. Standalone invoicing without creating a job.' },
-      { name: 'Status filters', desc: 'Draft, Sent, Paid, Overdue — auto-calculated. See exactly what\u2019s outstanding.' },
-      { name: 'Online payments — your processor', desc: 'Connect Square (recommended) or Stripe. Cards, Apple Pay, Google Pay. Funds go straight to your bank — Opervo takes zero markup, ever.' },
+      { name: 'Status filters', desc: 'Draft, Sent, Paid, Overdue, auto-calculated. See exactly what\u2019s outstanding.' },
+      { name: 'Online payments, your processor', desc: 'Connect Square (recommended) or Stripe. Cards, Apple Pay, Google Pay. Funds go straight to your bank, Opervo takes zero markup, ever.' },
       { name: 'Record offline payments', desc: 'Cash, check, Venmo, CashApp, Zelle, or Other. Auto-creates the invoice if there isn’t one yet. One unified record.' },
       { name: 'Post-payment tipping', desc: 'Clients can add a tip after paying. Averages 15-20% in the trades. You keep 100%.' },
       { name: 'Google review prompt', desc: 'After payment, clients see a prompt to leave a Google review. Builds your rating on autopilot.' },
@@ -75,7 +75,7 @@ const categories = [
     ],
   },
   {
-    id: 'folio', icon: '06', title: 'Folio — Public Portfolio',
+    id: 'folio', icon: '06', title: 'Folio, Public Portfolio',
     features: [
       { name: 'Custom portfolio page', desc: 'Your own page at opervo.io/p/your-slug. Share it everywhere.' },
       { name: 'Before/after slider', desc: 'Interactive comparison slider. Clients drag to see the transformation.' },
@@ -125,9 +125,9 @@ const categories = [
   {
     id: 'ai', icon: '11', title: 'AI Assistant',
     features: [
-      { name: 'Asks your real data', desc: 'Not a generic chatbot. Ask "what’s my revenue this month" or "which clients haven’t booked since February" — it queries your jobs, invoices, leads, and clients live.' },
-      { name: 'Creates records by voice', desc: '"Add a client named Ramon, found us on Google" — it writes the row. Same for jobs, expenses, and mileage. No menus, no typing.' },
-      { name: 'Knows what page you’re on', desc: 'Says "this job" or "this client" while you’re looking at one — it resolves the reference automatically. No copy-paste.' },
+      { name: 'Asks your real data', desc: 'Not a generic chatbot. Ask "what’s my revenue this month" or "which clients haven’t booked since February", it queries your jobs, invoices, leads, and clients live.' },
+      { name: 'Creates records by voice', desc: '"Add a client named Ramon, found us on Google", it writes the row. Same for jobs, expenses, and mileage. No menus, no typing.' },
+      { name: 'Knows what page you’re on', desc: 'Says "this job" or "this client" while you’re looking at one, it resolves the reference automatically. No copy-paste.' },
       { name: 'Streams answers in real time', desc: 'No spinners. Answers appear word-by-word as the model thinks. Faster than waiting for a wall of text.' },
       { name: 'Drafts the rest', desc: 'Estimates, follow-up emails, on-my-way texts, review requests. Trained on the way trades operators actually talk.' },
     ],
@@ -144,7 +144,7 @@ const categories = [
   {
     id: 'integrations', icon: '13', title: 'Integrations',
     features: [
-      { name: 'QuickBooks Online', desc: 'Connect your QBO account. Sync invoices one way — Opervo to QuickBooks.' },
+      { name: 'QuickBooks Online', desc: 'Connect your QBO account. Sync invoices one way, Opervo to QuickBooks.' },
       { name: 'Google Calendar', desc: 'Two-way sync. Your jobs and your personal calendar in one view.' },
       { name: 'Square (recommended)', desc: 'Connect your own Square account in 90 seconds. Funds hit your bank next business day. Opervo takes zero platform fee.' },
       { name: 'Stripe (legacy)', desc: 'Existing Stripe operators stay supported. New operators are guided to Square. Either way: no markup from us.' },
@@ -155,9 +155,9 @@ const categories = [
   {
     id: 'routes', icon: '14', title: 'Routes & Canvassing',
     features: [
-      { name: 'Route My Day — one tap', desc: 'On the Schedule, hit one button: we geolocate you, geocode your jobs, order them by shortest path, and show miles + ETA. Tap "Start Route" to launch Google Maps with all stops as a multi-leg trip. Competitors charge $30+/mo for this.' },
-      { name: 'Full route planner with road distance', desc: 'For longer days, the dedicated Route page uses Google’s Distance Matrix for real road miles and drive time — not straight-line estimates.' },
-      { name: 'Door-to-door canvassing', desc: 'Map-first territories with drawn boundaries. Drop pins as you knock — Knocked, Not Home, Not Interested, Lead, Sold. Replaces SalesRabbit/Spotio (~$35/mo).' },
+      { name: 'Route My Day, one tap', desc: 'On the Schedule, hit one button: we geolocate you, geocode your jobs, order them by shortest path, and show miles + ETA. Tap "Start Route" to launch Google Maps with all stops as a multi-leg trip. Competitors charge $30+/mo for this.' },
+      { name: 'Full route planner with road distance', desc: 'For longer days, the dedicated Route page uses Google’s Distance Matrix for real road miles and drive time, not straight-line estimates.' },
+      { name: 'Door-to-door canvassing', desc: 'Map-first territories with drawn boundaries. Drop pins as you knock, Knocked, Not Home, Not Interested, Lead, Sold. Replaces SalesRabbit/Spotio (~$35/mo).' },
       { name: 'Canvassing leaderboard', desc: 'Crew leaderboard by knocks, leads, and conversions. Hot Neighborhoods surface where leads are concentrating.' },
       { name: 'Closed loop knock → estimate → invoice', desc: 'Convert a Lead pin to an estimate without re-typing the address. Convert the approved estimate to a job. Track conversion rate per territory.' },
     ],
@@ -166,21 +166,21 @@ const categories = [
     id: 'measure', icon: '15', title: 'Measurement Tool',
     features: [
       { name: 'Sketch on the satellite map', desc: 'Drop points around a roof, driveway, lawn, or facade. Total square footage and perimeter compute as you draw.' },
-      { name: 'Drag any vertex to fix mistakes', desc: 'Tap and drag points — even on completed shapes. Edges and totals re-calc live. No starting over because of one bad tap.' },
+      { name: 'Drag any vertex to fix mistakes', desc: 'Tap and drag points, even on completed shapes. Edges and totals re-calc live. No starting over because of one bad tap.' },
       { name: 'Right-angle snap', desc: 'When you’re drawing close to a 90° angle, the tool snaps it square within 6° tolerance. Clean shapes, fast.' },
       { name: 'Live edge labels in feet', desc: 'Every edge shows its length in feet while you’re drawing. Quote pane counts, brick courses, fence runs without a tape measure.' },
       { name: 'Long-press to undo', desc: 'Long-press the map to undo the last point. Per-shape rename and delete from the overlay. Multiple shapes per property.' },
-      { name: 'Auto-price into the estimate', desc: 'Set a $/sq ft rate per service. Measured area pushes straight into the estimate line item — no calculator needed.' },
+      { name: 'Auto-price into the estimate', desc: 'Set a $/sq ft rate per service. Measured area pushes straight into the estimate line item, no calculator needed.' },
     ],
   },
   {
     id: 'service-plans', icon: '16', title: 'Service Plans',
     features: [
       { name: 'Recurring agreements your clients e-sign', desc: 'Build a plan (weekly, biweekly, monthly, quarterly, custom). Send the client a magic-link agreement to sign. Status moves to Active when signed.' },
-      { name: 'Auto-generated jobs, 30 days out', desc: 'A daily background job tops up the next 30 days of work for every active plan. Jobs land on your Schedule with a "Plan" badge — no manual scheduling.' },
+      { name: 'Auto-generated jobs, 30 days out', desc: 'A daily background job tops up the next 30 days of work for every active plan. Jobs land on your Schedule with a "Plan" badge, no manual scheduling.' },
       { name: 'Vacation pauses with auto-resume', desc: 'Client going out of town? Pause the plan until a date. Jobs stop being created, then resume automatically the day they’re back.' },
       { name: 'Preferred day honored', desc: 'Client wants Tuesdays? Weekly and biweekly plans land on the day they picked.' },
-      { name: 'Plan-first OR client-first enrollment', desc: 'Build the plan and enroll clients into it, or open a client and add them to a plan. Same data, two flows — pick whichever matches how you sell.' },
+      { name: 'Plan-first OR client-first enrollment', desc: 'Build the plan and enroll clients into it, or open a client and add them to a plan. Same data, two flows, pick whichever matches how you sell.' },
       { name: '14-day signing window with regenerate', desc: 'Unsigned agreement links expire in 14 days for security. One tap regenerates a fresh link.' },
       { name: 'Clean cancellation', desc: 'Cancel a plan and only future auto-generated jobs are removed. Past completed jobs stay on the books, untouched.' },
     ],
@@ -188,11 +188,11 @@ const categories = [
   {
     id: 'supplies', icon: '17', title: 'Supplies & Materials',
     features: [
-      { name: 'Catalog of what you actually use', desc: 'Define your own categories and units — gallons of SH, yards of mulch, ounces of surfactant, gallons of fuel, pounds of fertilizer. Industry-agnostic.' },
-      { name: 'Per-job logging in 5 seconds', desc: 'On any job, tap the supply, hit + or − to set quantity. Unit cost, unit type, and supply name are snapshotted at the moment of logging — historical rows survive price changes.' },
+      { name: 'Catalog of what you actually use', desc: 'Define your own categories and units, gallons of SH, yards of mulch, ounces of surfactant, gallons of fuel, pounds of fertilizer. Industry-agnostic.' },
+      { name: 'Per-job logging in 5 seconds', desc: 'On any job, tap the supply, hit + or − to set quantity. Unit cost, unit type, and supply name are snapshotted at the moment of logging, historical rows survive price changes.' },
       { name: 'Live profit math on every job', desc: 'Revenue − Supplies = Profit, shown in green or red right on the job. Stop guessing whether that $400 driveway actually paid.' },
-      { name: 'Smart pre-fill from your last 5 jobs', desc: 'Open a pressure-washing job — if your last 5 pressure-washing jobs used SH and surfactant, we suggest the average quantities. One tap to accept.' },
-      { name: 'Auto-deducted as a tax expense', desc: 'Log a purchase ("$84 for 4 gallons of SH at Lowe’s") — it auto-creates an Expense entry in your books and bumps your stock count. Tax season is one button.' },
+      { name: 'Smart pre-fill from your last 5 jobs', desc: 'Open a pressure-washing job, if your last 5 pressure-washing jobs used SH and surfactant, we suggest the average quantities. One tap to accept.' },
+      { name: 'Auto-deducted as a tax expense', desc: 'Log a purchase ("$84 for 4 gallons of SH at Lowe’s"), it auto-creates an Expense entry in your books and bumps your stock count. Tax season is one button.' },
       { name: 'Low-stock alerts on the dashboard', desc: 'Set a reorder threshold per supply. The dashboard tile turns red when you’re running low so you don’t show up to a job dry.' },
       { name: 'CSV export', desc: 'Per-line CSV joining supplies to jobs, clients, and dates. Hand to your accountant or import to QBO.' },
     ],
@@ -231,10 +231,10 @@ export default function FeaturesPage() {
             Everything You Need.{'\n'}Nothing You Don&apos;t.
           </h1>
           <p style={{ fontSize: 18, color: '#6B6B6B', fontFamily: "'Barlow', sans-serif", lineHeight: 1.6, maxWidth: 600, margin: '0 auto 32px' }}>
-            Jobs, invoices, scheduling, client portal, portfolio page, SMS automation, mileage tracking, team management — all in one app. Starting at $24.99/mo.
+            Jobs, invoices, scheduling, client portal, portfolio page, SMS automation, mileage tracking, team management, all in one app. Starting at $24.99/mo.
           </p>
           <a href="https://app.opervo.io" style={{ display: 'inline-block', background: '#F5620F', color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 16, textTransform: 'uppercase', padding: '14px 32px', borderRadius: 6, textDecoration: 'none', letterSpacing: '0.04em' }}>
-            Start Free — 14 Days, No Card
+            Start Free, 14 Days, No Card
           </a>
           <p style={{ fontSize: 12, color: '#6B6B6B', fontFamily: "'Barlow', sans-serif", marginTop: 10 }}>
             Solo plan: $24.99/mo after trial &middot; Team plan: $54.99/mo
@@ -366,7 +366,7 @@ export default function FeaturesPage() {
             Ready to Run Your Business Like a Pro?
           </h2>
           <p style={{ fontSize: 16, color: '#9CA3AF', fontFamily: "'Barlow', sans-serif", marginBottom: 24 }}>
-            Start free — 14 days, no credit card.
+            Start free, 14 days, no credit card.
           </p>
           <a href="https://app.opervo.io" style={{ display: 'inline-block', background: '#F5620F', color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 17, textTransform: 'uppercase', padding: '16px 36px', borderRadius: 6, textDecoration: 'none', letterSpacing: '0.04em' }}>
             Start Free Trial &rarr;

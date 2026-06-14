@@ -24,14 +24,14 @@ const addOns = [
   { name: 'Ask for Review (Google/Yelp)', markate: '$10/mo', opervo: 'Included', commonStack: true },
   { name: 'Proposal Kit', markate: '$10/mo', opervo: 'Included', commonStack: true },
   { name: 'Photo documentation (CompanyCam)', markate: '$10/mo', opervo: 'Included', commonStack: true },
-  { name: 'Virtual Number', markate: '$10/mo', opervo: '—', commonStack: false },
-  { name: 'Call Forwarding', markate: '$10/mo', opervo: '—', commonStack: false },
-  { name: 'Virtual Video Estimate', markate: '$10/mo', opervo: '—', commonStack: false },
-  { name: 'NiceJob (review autopilot)', markate: '$10/mo', opervo: '—', commonStack: false },
-  { name: 'ResponsiBid', markate: '$10/mo', opervo: '—', commonStack: false },
-  { name: 'Zapier', markate: '$10/mo', opervo: '—', commonStack: false },
+  { name: 'Virtual Number', markate: '$10/mo', opervo: ',', commonStack: false },
+  { name: 'Call Forwarding', markate: '$10/mo', opervo: ',', commonStack: false },
+  { name: 'Virtual Video Estimate', markate: '$10/mo', opervo: ',', commonStack: false },
+  { name: 'NiceJob (review autopilot)', markate: '$10/mo', opervo: ',', commonStack: false },
+  { name: 'ResponsiBid', markate: '$10/mo', opervo: ',', commonStack: false },
+  { name: 'Zapier', markate: '$10/mo', opervo: ',', commonStack: false },
   { name: 'Kate AI Estimator', markate: 'Free', opervo: 'Included (no caps)', commonStack: false },
-  { name: 'Kate AI Receptionist', markate: '$1/mo', opervo: '—', commonStack: false },
+  { name: 'Kate AI Receptionist', markate: '$1/mo', opervo: ',', commonStack: false },
   { name: 'QuickBooks sync', markate: 'Free', opervo: 'Free', commonStack: false },
   { name: 'Google Calendar sync', markate: 'Free', opervo: 'Free', commonStack: false },
   { name: 'Per-employee fee', markate: '$5/mo each', opervo: 'Up to 10 included on Team', commonStack: false },
@@ -54,14 +54,14 @@ const comparisonRows = [
   { feature: 'Supplies / chemical cost tracking', opervo: '✓ Included', markate: '✗ Not available' },
   { feature: 'Recurring service plans (e-signed)', opervo: '✓ Included', markate: '✓ (base plan)' },
   { feature: 'Per-employee fee', opervo: 'Up to 10 on Team ($54.99 flat)', markate: '$5/mo per additional user' },
-  { feature: 'Payment processor markup', opervo: '0% — your Square or Stripe', markate: 'Markate Payments' },
+  { feature: 'Payment processor markup', opervo: '0%, your Square or Stripe', markate: 'Markate Payments' },
   { feature: 'Free trial', opervo: '14 days, no card', markate: '14 days' },
 ]
 
 const switchReasons = [
   {
     title: 'Pay $25, not $90',
-    desc: 'A typical Markate solo stack — base plan + Customer Portal + Online Booking + Lead Form + Ask for Review + Proposal Kit + photo docs — runs $89.95/mo. Opervo gives you all of that for $24.99/mo. That\'s $780/year back in your pocket.',
+    desc: 'A typical Markate solo stack, base plan + Customer Portal + Online Booking + Lead Form + Ask for Review + Proposal Kit + photo docs, runs $89.95/mo. Opervo gives you all of that for $24.99/mo. That\'s $780/year back in your pocket.',
   },
   {
     title: 'No nickel-and-diming',
@@ -69,7 +69,7 @@ const switchReasons = [
   },
   {
     title: 'Features Markate doesn\'t have at any price',
-    desc: 'Public portfolio page (Folio), one-tap route optimization, door-to-door canvassing, square-footage measurement, chemical/supplies cost tracking — none of these are sold as Markate add-ons because they don\'t exist in Markate at all.',
+    desc: 'Public portfolio page (Folio), one-tap route optimization, door-to-door canvassing, square-footage measurement, chemical/supplies cost tracking, none of these are sold as Markate add-ons because they don\'t exist in Markate at all.',
   },
   {
     title: 'Your money, your processor',
@@ -80,7 +80,7 @@ const switchReasons = [
 const faqs = [
   {
     q: 'How much does Markate actually cost per month?',
-    a: 'Markate\'s lowest published plan starts at $39.95/mo for one user, plus $5/mo for each additional user. The base plan does not include features like Customer Portal, Online Booking, Lead Contact Form, Ask for Review, Proposal Kit, or photo documentation — those are $10/mo add-ons each. A realistic stack for a solo operator who actually wants to take leads online and request reviews lands between $80 and $110/mo.',
+    a: 'Markate\'s lowest published plan starts at $39.95/mo for one user, plus $5/mo for each additional user. The base plan does not include features like Customer Portal, Online Booking, Lead Contact Form, Ask for Review, Proposal Kit, or photo documentation, those are $10/mo add-ons each. A realistic stack for a solo operator who actually wants to take leads online and request reviews lands between $80 and $110/mo.',
   },
   {
     q: 'Is Opervo cheaper than Markate?',
@@ -88,15 +88,15 @@ const faqs = [
   },
   {
     q: 'Does Markate have a portfolio page or live folio?',
-    a: 'No. Markate doesn\'t offer a public-facing portfolio page where you can showcase before/after photos and capture leads at a shareable URL. Opervo includes Folio on every plan — every operator gets opervo.io/p/your-slug with up to 10 service areas, a built-in quote form, and an embeddable widget for your existing site or social bio.',
+    a: 'No. Markate doesn\'t offer a public-facing portfolio page where you can showcase before/after photos and capture leads at a shareable URL. Opervo includes Folio on every plan, every operator gets opervo.io/p/your-slug with up to 10 service areas, a built-in quote form, and an embeddable widget for your existing site or social bio.',
   },
   {
     q: 'Does Markate have route optimization?',
-    a: 'No, Markate does not offer route optimization. Opervo includes Route My Day on every plan — one tap geolocates you, geocodes your day\'s stops, orders them shortest-path, and opens Google Maps as a multi-leg trip. Saves ~40 minutes on a typical 6-stop day.',
+    a: 'No, Markate does not offer route optimization. Opervo includes Route My Day on every plan, one tap geolocates you, geocodes your day\'s stops, orders them shortest-path, and opens Google Maps as a multi-leg trip. Saves ~40 minutes on a typical 6-stop day.',
   },
   {
     q: 'Can I switch from Markate to Opervo?',
-    a: 'Yes. Export your client list from Markate as a CSV and import it into Opervo. Auto-column mapping and duplicate detection mean most operators are fully set up within an hour. Run your 14-day Opervo trial in parallel so you don\'t miss a beat — no credit card required to start.',
+    a: 'Yes. Export your client list from Markate as a CSV and import it into Opervo. Auto-column mapping and duplicate detection mean most operators are fully set up within an hour. Run your 14-day Opervo trial in parallel so you don\'t miss a beat, no credit card required to start.',
   },
   {
     q: 'When might Markate be the better choice?',
@@ -154,7 +154,7 @@ export default function OpervoVsMarkate() {
         </p>
       </section>
 
-      {/* THE STACK MATH — sucker punch */}
+      {/* THE STACK MATH, sucker punch */}
       <section style={{ maxWidth: 900, margin: '0 auto', padding: '0 24px 48px' }}>
         <div style={{ background: '#0F0F0F', borderRadius: 16, padding: '40px 32px', position: 'relative', overflow: 'hidden' }}>
           <div style={{ position: 'absolute', top: -80, right: -80, width: 360, height: 360, background: 'radial-gradient(circle, rgba(245,98,15,0.18) 0%, transparent 70%)', pointerEvents: 'none' }} />

@@ -9,14 +9,14 @@ import FolioViewPing from '@/components/FolioViewPing'
 import type { RecentJob } from '@/lib/types'
 
 const JOB_PHOTOS_BUCKET = 'job-photos'
-// Signed URL TTL — long enough that ISR-cached pages keep working through
+// Signed URL TTL, long enough that ISR-cached pages keep working through
 // the next revalidation, short enough that leaked URLs don't outlive the
 // operator's intent. Page revalidates every 60s (export const revalidate),
 // so an hour gives plenty of headroom.
 const SIGNED_URL_TTL_SECONDS = 60 * 60
 
 /**
- * job-photos is a private bucket — turn each storage path into a short-lived
+ * job-photos is a private bucket, turn each storage path into a short-lived
  * signed URL so the public folio can render the image without exposing the
  * whole bucket. Skips entries that already look like full URLs (DEMO_PROFILE)
  * or that fail to sign.
@@ -48,7 +48,7 @@ interface Props {
   searchParams: Promise<{ preview?: string }>
 }
 
-// ISR — revalidate every 60 seconds
+// ISR, revalidate every 60 seconds
 // When operator updates their profile, the page rebuilds in background
 export const revalidate = 60
 
@@ -59,13 +59,13 @@ export async function generateMetadata({ params, searchParams }: Props): Promise
   const profile = slug === 'demo' ? DEMO_PROFILE : await getOperatorBySlug(slug)
   if (!profile) return { title: 'Not Found' }
 
-  const description = profile.tagline ?? `${profile.business_name} — professional exterior cleaning services. Get a free quote today.`
+  const description = profile.tagline ?? `${profile.business_name}, professional exterior cleaning services. Get a free quote today.`
   const images = profile.hero_photo_url ? [profile.hero_photo_url] : []
 
   return {
     title: `${profile.business_name} | ${profile.location ?? 'Field Services'}`,
     description,
-    // Editor preview iframes append ?preview=1 — keep half-built folios out
+    // Editor preview iframes append ?preview=1, keep half-built folios out
     // of the search index. Public visits (no query param) index normally.
     robots: isPreview ? { index: false, follow: false } : undefined,
     openGraph: {
@@ -136,7 +136,7 @@ export default async function Page({ params, searchParams }: Props) {
     gallery_photos: safeGallery,
     services:       raw!.services?.length       ? raw!.services       : [],
     stats:          raw!.stats ?? {
-      jobs_done:     raw!.jobs_done ? `${raw!.jobs_done}+` : '—',
+      jobs_done:     raw!.jobs_done ? `${raw!.jobs_done}+` : ',',
       rating:        raw!.google_rating ? `${raw!.google_rating}★` : raw!.facebook_rating ? `${raw!.facebook_rating}★` : '5.0★',
       response_time: 'Same Day',
     },

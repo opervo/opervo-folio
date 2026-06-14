@@ -6,9 +6,9 @@ import Link from 'next/link'
 const STATUS_LABELS: Record<string, { label: string; color: string; desc: string }> = {
   paid:               { label: 'Payment Confirmed',    color: '#1A6BF0', desc: 'Your proof is being prepared.' },
   proof_sent:         { label: 'Proof Sent',           color: '#F5620F', desc: 'Review your mockup below and approve or request changes.' },
-  approved:           { label: 'Approved — Printing',  color: '#12a05c', desc: 'Your order has been sent to print. Ships in 5–7 business days.' },
+  approved:           { label: 'Approved, Printing',  color: '#12a05c', desc: 'Your order has been sent to print. Ships in 5–7 business days.' },
   changes_requested:  { label: 'Changes Requested',    color: '#f59e0b', desc: "We received your feedback and we're working on a revision." },
-  ordered:            { label: 'Ordered — Printing',   color: '#12a05c', desc: 'In production. Ships in 5–7 business days.' },
+  ordered:            { label: 'Ordered, Printing',   color: '#12a05c', desc: 'In production. Ships in 5–7 business days.' },
   shipped:            { label: 'Shipped',              color: '#12a05c', desc: 'Your order is on its way!' },
 }
 
@@ -206,7 +206,7 @@ export default function ApprovalClient({ order }: { order: Order }) {
             productTitle: order.product_title,
           }} />
           <p style={{ fontSize: 11, color: '#6B6B6B', textAlign: 'center', marginTop: 16 }}>
-            This is a layout mockup — your final printed piece will be professionally designed at print quality.
+            This is a layout mockup, your final printed piece will be professionally designed at print quality.
           </p>
         </div>
 

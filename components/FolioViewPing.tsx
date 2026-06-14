@@ -3,7 +3,7 @@
 import { useEffect } from 'react'
 
 // Fires once per mount. We can't log from the server component because
-// /p/[slug] is ISR-cached (revalidate = 60) — the server code only runs
+// /p/[slug] is ISR-cached (revalidate = 60), the server code only runs
 // on rebuild. Pinging from the client side guarantees one row per real
 // page view.
 //
@@ -29,7 +29,7 @@ export default function FolioViewPing({
       body: JSON.stringify({ operator_user_id: operatorUserId, slug }),
       keepalive: true,
     }).catch(() => {
-      // Swallow — a dropped view must not surface to the operator.
+      // Swallow, a dropped view must not surface to the operator.
     })
   }, [operatorUserId, slug])
 

@@ -43,7 +43,7 @@ const PRODUCTS = [
   },
 ]
 
-// Color themes — contractor picks their vibe
+// Color themes, contractor picks their vibe
 const THEMES = [
   { id: 'navy',    label: 'Navy',    accent: '#1A3A6B', bg: '#FFFFFF', text: '#0F0F0F', backBg: '#1A3A6B' },
   { id: 'slate',   label: 'Slate',   accent: '#374151', bg: '#FFFFFF', text: '#0F0F0F', backBg: '#374151' },
@@ -114,7 +114,7 @@ function BusinessCardPreview({ form, theme }: {
       </div>
 
       <p style={{ fontSize: 10, color: '#6B6B6B', textAlign: 'center', marginTop: 10 }}>
-        Mockup only — final proof sent in 24hrs
+        Mockup only, final proof sent in 24hrs
       </p>
     </div>
   )
@@ -207,7 +207,7 @@ function DoorHangerPreview({ form, theme }: {
       </div>
 
       <p style={{ fontSize: 10, color: '#6B6B6B', textAlign: 'center', marginTop: 10 }}>
-        Mockup only — final proof sent in 24hrs
+        Mockup only, final proof sent in 24hrs
       </p>
     </div>
   )
@@ -253,7 +253,7 @@ function YardSignPreview({ form, theme }: {
       </div>
 
       <p style={{ fontSize: 10, color: '#6B6B6B', textAlign: 'center', marginTop: 8 }}>
-        Mockup only — final proof sent in 24hrs
+        Mockup only, final proof sent in 24hrs
       </p>
     </div>
   )
@@ -352,7 +352,7 @@ export default function PrintPage() {
             Print Materials Are Almost Here
           </h2>
           <p style={{ fontSize: 15, color: '#9ca3af', lineHeight: 1.6 }}>
-            We are finalizing vendor approval. Check back soon — business cards, door hangers, and yard signs will be available to order shortly.
+            We are finalizing vendor approval. Check back soon, business cards, door hangers, and yard signs will be available to order shortly.
           </p>
         </div>
       </div>
@@ -366,7 +366,7 @@ export default function PrintPage() {
           Pro Print Materials.<br />Built for Your Trade.
         </h1>
         <p style={{ fontSize: 16, color: '#6B6B6B', lineHeight: 1.6, maxWidth: 520, margin: '0 auto 12px' }}>
-          Business cards and door hangers branded with your info — designed, printed, and shipped to your door.
+          Business cards and door hangers branded with your info, designed, printed, and shipped to your door.
         </p>
         <p style={{ fontSize: 13, color: '#6B6B6B' }}>
           Free shipping · 5–7 business day turnaround · Proof sent before printing
@@ -484,7 +484,7 @@ export default function PrintPage() {
             {/* Two-column: preview | form */}
             <div className="modal-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,1fr)', gap: 0 }}>
 
-              {/* LEFT — Live Preview */}
+              {/* LEFT, Live Preview */}
               <div style={{ padding: '20px 24px 28px', borderRight: '1px solid #E8E4DE', background: '#F7F5F2' }}>
                 <p style={{ fontSize: 11, fontWeight: 700, color: '#0F0F0F', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 14 }}>
                   Live Preview
@@ -501,7 +501,7 @@ export default function PrintPage() {
                 )}
               </div>
 
-              {/* RIGHT — Form */}
+              {/* RIGHT, Form */}
               <div style={{ padding: '20px 24px 28px' }}>
                 <p style={{ fontSize: 11, fontWeight: 700, color: '#0F0F0F', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 14 }}>
                   Your Details

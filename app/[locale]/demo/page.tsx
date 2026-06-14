@@ -10,7 +10,7 @@ export const DEMO_BOOKING_URL = 'https://calendar.app.google/2KuCvGVUmv9cEcvo8'
 export const metadata: Metadata = {
   title: 'Book a 15-min walkthrough with the founder | Opervo',
   description:
-    "Get on a quick call with Max — see Opervo on your data, ask anything, and walk away with a configured account. Switching from another CRM? We'll migrate it for you.",
+    "Get on a quick call with Max, see Opervo on your data, ask anything, and walk away with a configured account. Switching from another CRM? We'll migrate it for you.",
   alternates: { canonical: 'https://www.opervo.io/demo' },
   openGraph: {
     title: 'Book a 15-min walkthrough | Opervo',
@@ -36,7 +36,7 @@ const body = {
 const COVERED = [
   {
     title: 'See Opervo on your data',
-    body: "Bring a real client, a real job, a real invoice. We'll wire it up live so you know it fits how you work — not a generic demo account.",
+    body: "Bring a real client, a real job, a real invoice. We'll wire it up live so you know it fits how you work, not a generic demo account.",
   },
   {
     title: 'Get your account configured',
@@ -44,7 +44,7 @@ const COVERED = [
   },
   {
     title: 'Free migration if you’re switching',
-    body: "Coming from Jobber, Housecall Pro, GorillaDesk, a spreadsheet, or anything else? Send your export — clients and services land in your account by next business day. No re-typing.",
+    body: "Coming from Jobber, Housecall Pro, GorillaDesk, a spreadsheet, or anything else? Send your export, clients and services land in your account by next business day. No re-typing.",
   },
   {
     title: 'Honest answers',
@@ -59,7 +59,7 @@ const FAQ = [
   },
   {
     q: 'Who am I talking to?',
-    a: "Max — the founder. I built Opervo on the truck between jobs. I'm the one who'll answer your support emails too.",
+    a: "Max, the founder. I built Opervo on the truck between jobs. I'm the one who'll answer your support emails too.",
   },
   {
     q: 'What about the data migration?',
@@ -67,7 +67,7 @@ const FAQ = [
   },
   {
     q: "What if I'm not switching from anywhere?",
-    a: "Even better — bring a list of services and a couple of clients. We'll set up your account live so you can text your first invoice that day.",
+    a: "Even better, bring a list of services and a couple of clients. We'll set up your account live so you can text your first invoice that day.",
   },
   {
     q: "Do I have to pay first?",
@@ -136,7 +136,7 @@ export default function DemoPage() {
             }}
           >
             15 minutes with Max. We&apos;ll set up your account on your real data
-            — services, payments, folio, first invoice. Switching from another
+           , services, payments, folio, first invoice. Switching from another
             CRM? We&apos;ll migrate your clients and services for you.
           </p>
 
@@ -268,7 +268,7 @@ export default function DemoPage() {
                 margin: '0 auto 24px',
               }}
             >
-              Send your last export — Jobber CSV, Housecall Pro download,
+              Send your last export, Jobber CSV, Housecall Pro download,
               GorillaDesk backup, even a screenshot of your client list. Your
               clients and services land in your Opervo account by next
               business day. You don&apos;t re-type anything.

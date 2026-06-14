@@ -38,18 +38,18 @@ const comparisonRows = [
   { feature: 'AI Assistant (data-aware)', oSolo: '✓', oTeam: '✓', jLite: '✗', jConnect: '✗', hcp: '✗', gd: '✗', mk: 'Estimator only' },
   { feature: 'Tipping + post-pay review prompt', oSolo: '✓', oTeam: '✓', jLite: '✗', jConnect: '✗', hcp: '✗', gd: '✗', mk: '+$10/mo' },
   { feature: 'Mileage + tax reports', oSolo: '✓', oTeam: '✓', jLite: '✗', jConnect: '✗', hcp: '✗', gd: '✗', mk: '✗' },
-  { feature: 'Payments — your processor, no markup', oSolo: 'Square or Stripe', oTeam: 'Square or Stripe', jLite: 'Jobber Payments', jConnect: 'Jobber Payments', hcp: 'HCP Pay', gd: 'GD Pay', mk: 'Markate Payments' },
+  { feature: 'Payments, your processor, no markup', oSolo: 'Square or Stripe', oTeam: 'Square or Stripe', jLite: 'Jobber Payments', jConnect: 'Jobber Payments', hcp: 'HCP Pay', gd: 'GD Pay', mk: 'Markate Payments' },
 ]
 
 const faqs = [
   { q: 'Is there a free trial?', a: 'Yes, 14 days. No credit card required. You get full access to every feature.' },
-  { q: 'Are there any hidden fees?', a: 'No. The price you see is the price you pay. SMS, client portal, portfolio page, estimates, invoicing — all included.' },
+  { q: 'Are there any hidden fees?', a: 'No. The price you see is the price you pay. SMS, client portal, portfolio page, estimates, invoicing, all included.' },
   { q: 'Can I switch between Solo and Team?', a: 'Yes, upgrade or downgrade anytime from your account settings.' },
-  { q: 'What payment methods do you accept?', a: 'For your subscription, all major credit and debit cards via Stripe. We don\'t store your card info. For payments from your clients, you connect your own Square or Stripe account — funds go straight to your bank, and Opervo takes zero markup.' },
+  { q: 'What payment methods do you accept?', a: 'For your subscription, all major credit and debit cards via Stripe. We don\'t store your card info. For payments from your clients, you connect your own Square or Stripe account, funds go straight to your bank, and Opervo takes zero markup.' },
   { q: 'Does Opervo take a cut of my client payments?', a: 'No. Zero platform fee, ever. You connect Square (recommended for new operators) or Stripe to your account, and your clients\' payments go directly from them to you. We never touch the money.' },
   { q: 'What happens after the trial?', a: 'Your account stays active on the plan you choose. If you don\'t subscribe, your data is saved for 30 days so you can come back anytime.' },
   { q: 'Do you offer annual pricing?', a: 'Yes. Solo Annual is $249/yr (saves $51 vs monthly), Team Annual is $549/yr (saves $111). Toggle Monthly or Annual on the pricing cards above, or pick Annual at checkout. Cancel anytime.' },
-  { q: 'What\'s the Growth plan?', a: 'For teams with more than 10 members. Custom pricing and onboarding — email help@opervo.io and we\'ll set you up.' },
+  { q: 'What\'s the Growth plan?', a: 'For teams with more than 10 members. Custom pricing and onboarding, email help@opervo.io and we\'ll set you up.' },
 ]
 
 export default function Pricing() {
@@ -76,7 +76,7 @@ export default function Pricing() {
           Every Feature. Every Plan.
         </h1>
         <p style={{ fontSize: 16, color: '#6B6B6B', lineHeight: 1.6, maxWidth: 560, margin: '0 auto' }}>
-          No features locked behind higher tiers. No per-user fees. Start free for 14 days — no credit card required.
+          No features locked behind higher tiers. No per-user fees. Start free for 14 days, no credit card required.
         </p>
       </section>
 
@@ -84,12 +84,12 @@ export default function Pricing() {
       <section style={{ maxWidth: 900, margin: '0 auto', padding: '0 24px 72px' }}>
         <PricingCards />
 
-        {/* FOUNDING 50 strip — limited founder pricing */}
+        {/* FOUNDING 50 strip, limited founder pricing */}
         <div style={{ marginTop: 24, background: 'linear-gradient(135deg, #0F0F0F 0%, #1A1A1A 100%)', borderRadius: 12, padding: '24px 28px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 20, flexWrap: 'wrap', position: 'relative', overflow: 'hidden' }}>
           <div style={{ flex: '1 1 380px', minWidth: 0, position: 'relative', zIndex: 1 }}>
             <p style={{ fontSize: 11, fontWeight: 800, color: '#F5620F', textTransform: 'uppercase', letterSpacing: '0.16em', marginBottom: 6 }}>Founding 50 · Limited Spots</p>
             <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 22, color: '#F7F5F2', fontWeight: 800, marginBottom: 6, textTransform: 'uppercase', lineHeight: 1.15 }}>Lock <span style={{ color: '#F5620F' }}>$15/mo Solo</span> for life</p>
-            <p style={{ fontSize: 13, color: '#B8B8B8', lineHeight: 1.55, marginBottom: 12 }}>40% off forever in exchange for honest feedback — a survey here, a quick call there. Capped at 50 operators.</p>
+            <p style={{ fontSize: 13, color: '#B8B8B8', lineHeight: 1.55, marginBottom: 12 }}>40% off forever in exchange for honest feedback, a survey here, a quick call there. Capped at 50 operators.</p>
             <div style={{ maxWidth: 320 }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', fontFamily: "'Barlow Condensed', sans-serif", textTransform: 'uppercase', letterSpacing: '0.06em', fontSize: 11, fontWeight: 800, marginBottom: 6 }}>
                 <span style={{ color: '#F7F5F2' }}>21 of 50 claimed</span>
@@ -105,7 +105,7 @@ export default function Pricing() {
           </a>
         </div>
 
-        {/* GROWTH strip — secondary to Solo/Team, for 10+ teams */}
+        {/* GROWTH strip, secondary to Solo/Team, for 10+ teams */}
         <div style={{ marginTop: 16, background: '#fff', border: '1px solid #E8E4DE', borderRadius: 12, padding: '20px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 20, flexWrap: 'wrap' }}>
           <div style={{ flex: '1 1 360px', minWidth: 0 }}>
             <p style={{ fontSize: 11, fontWeight: 700, color: '#F5620F', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 6 }}>Growth · For 10+ teams</p>

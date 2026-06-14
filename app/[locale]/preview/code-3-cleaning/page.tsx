@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Preview from './Preview'
 
-// Preview page — not indexed, not linked from nav. Shared via direct URL
+// Preview page, not indexed, not linked from nav. Shared via direct URL
 // with Code 3's owner ahead of the intake Zoom. Replaces "imagine what
 // it could look like" with "click this and see what we're building."
 export const metadata: Metadata = {

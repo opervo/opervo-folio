@@ -55,7 +55,7 @@ export default function StuckListCard({ items, scanned_at }: StuckListCardProps)
           >
             <span style={{ fontSize: 12 }}>{SEVERITY_DOT[item.severity]}</span>
             <div style={{ minWidth: 80, fontWeight: 600, fontFamily: 'Barlow Condensed, sans-serif', fontSize: 16 }}>
-              {item.dollar_value !== null ? `$${item.dollar_value.toFixed(0)}` : '—'}
+              {item.dollar_value !== null ? `$${item.dollar_value.toFixed(0)}` : ','}
             </div>
             <div style={{ flex: 1, minWidth: 0 }}>
               <div style={{ fontWeight: 500, color: '#1a1a1a' }}>{item.object_summary}</div>

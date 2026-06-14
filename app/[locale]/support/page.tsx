@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 const FAQ: Array<[string, string]> = [
   [
     "How do I contact support?",
-    "Email help@opervo.io. A real person reads every message. Typical reply time is under one business day. Include your account email and a screenshot if you can — it makes things faster.",
+    "Email help@opervo.io. A real person reads every message. Typical reply time is under one business day. Include your account email and a screenshot if you can, it makes things faster.",
   ],
   [
     "I forgot my password. What do I do?",
@@ -35,16 +35,16 @@ const FAQ: Array<[string, string]> = [
     "Subscription state can take up to a minute to sync after checkout. If it's been longer, force-refresh the app. If the issue persists, email help@opervo.io with the Stripe receipt.",
   ],
   [
-    "I'm a client trying to pay an invoice — how?",
+    "I'm a client trying to pay an invoice, how?",
     "Open the invoice link your contractor sent you. You can pay with card, Apple Pay, Google Pay, or Cash App. No account required. Questions? Reply to the invoice email and your contractor will help.",
   ],
   [
     "Can I use Opervo on multiple devices?",
-    "Yes. Sign in on your phone, tablet, and desktop browser. Everything syncs in real time. The app is a Progressive Web App — install it to your home screen for a native feel.",
+    "Yes. Sign in on your phone, tablet, and desktop browser. Everything syncs in real time. The app is a Progressive Web App, install it to your home screen for a native feel.",
   ],
   [
     "Do you have a native iOS or Android app?",
-    "Native apps are rolling out in 2026. Today, Opervo runs as a Progressive Web App — install it to your home screen from Safari or Chrome for an app-like experience with push notifications.",
+    "Native apps are rolling out in 2026. Today, Opervo runs as a Progressive Web App, install it to your home screen from Safari or Chrome for an app-like experience with push notifications.",
   ],
 ];
 
@@ -116,7 +116,7 @@ export default function SupportPage() {
           Support<span style={{ color: "#F5620F" }}>.</span>
         </h1>
         <p style={{ fontSize: 17, color: "#6B6B6B", marginBottom: 40, lineHeight: 1.5 }}>
-          Questions, bugs, feature requests, or billing issues — one place, real human, fast reply.
+          Questions, bugs, feature requests, or billing issues, one place, real human, fast reply.
         </p>
 
         {/* Contact card */}
@@ -160,7 +160,7 @@ export default function SupportPage() {
           </a>
           <p style={{ fontSize: 14, color: "#6B6B6B", lineHeight: 1.6, margin: 0 }}>
             Typical reply: <strong style={{ color: "#1a1a1a" }}>under 1 business day</strong>. Include your account email and
-            a screenshot if you can — it makes things faster. We don't use a ticketing system; you'll hear back from a person,
+            a screenshot if you can, it makes things faster. We don't use a ticketing system; you'll hear back from a person,
             not a bot.
           </p>
         </div>

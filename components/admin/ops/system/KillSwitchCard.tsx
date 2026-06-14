@@ -85,7 +85,7 @@ export default function KillSwitchCard({ initialEnabled, lastTripReason, lastTri
               {enabled
                 ? 'All tasks pull through the orchestrator.'
                 : tripped
-                ? `Auto-tripped ${lastTripAt ? new Date(lastTripAt).toLocaleString() : ''} — ${lastTripReason}`
+                ? `Auto-tripped ${lastTripAt ? new Date(lastTripAt).toLocaleString() : ''}, ${lastTripReason}`
                 : 'Manually halted. No tasks will execute.'}
             </div>
           </div>

@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 
-// JC Air Pro Pro Site preview — tightened.
+// JC Air Pro Pro Site preview, tightened.
 //
 // Direction from Max: show the whole site (imagery sells), advertise no
 // page limit + full SEO for whatever the operator needs, drop the
@@ -167,7 +167,7 @@ export default function Preview() {
             <div style={{ position: 'relative', background: '#fff' }}>
               <iframe
                 src={JC_URL}
-                title="JC Air Pro — live Pro Site preview"
+                title="JC Air Pro, live Pro Site preview"
                 style={{
                   width: '100%',
                   height: 'min(1200px, 85vh)',
@@ -300,7 +300,7 @@ export default function Preview() {
             <FeatureCard title="Photos that sell" body="Your truck. Your team. Real jobs. We feature them where buyers expect to see them." />
             <FeatureCard title="Form-first conversion" body="A lead form right after the hero, on a bold background. Most leads come from here." />
             <FeatureCard title="Reviews on the page" body="Your Google reviews shown on the site and wired into schema for star ratings in search." />
-            <FeatureCard title="Branded share previews" body="Paste your URL in iMessage or Slack — it shows your wordmark, phone, and stars." />
+            <FeatureCard title="Branded share previews" body="Paste your URL in iMessage or Slack, it shows your wordmark, phone, and stars." />
             <FeatureCard title="GBP walkthrough included" body="A clear playbook for claiming Google Business Profile. The biggest local-SEO move, ready to hand off." />
           </div>
         </div>

@@ -16,7 +16,7 @@ const SURFACE = '#FFFFFF'
 const BORDER = '#E8E4DE'
 const WARM = '#EDE9E3'
 
-// Small inline-SVG icon helpers — no emoji, no icon lib dependency
+// Small inline-SVG icon helpers, no emoji, no icon lib dependency
 function Icon({ d, size = 22, color = ORANGE, stroke = 2 }: { d: string; size?: number; color?: string; stroke?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={stroke} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -83,7 +83,7 @@ function Highlight({ children, dark = false }: { children: React.ReactNode; dark
   )
 }
 
-// Comparison cell with a green check, red X, or neutral text — same vibe as the
+// Comparison cell with a green check, red X, or neutral text, same vibe as the
 // 180sites comparison rows but inline next to the cell value for context.
 function Verdict({ ok, children }: { ok?: boolean; children: React.ReactNode }) {
   if (ok === undefined) return <span>{children}</span>
@@ -108,7 +108,7 @@ function Verdict({ ok, children }: { ok?: boolean; children: React.ReactNode }) 
 }
 
 // Stylized laptop mockup with a Code 3-styled "Pro Site" composition inside.
-// Pure CSS/HTML — no image dependency. Represents the kind of site we build.
+// Pure CSS/HTML, no image dependency. Represents the kind of site we build.
 function LaptopMockup() {
   return (
     <div style={{ width: '100%', maxWidth: 560, margin: '0 auto', position: 'relative' }}>
@@ -209,13 +209,13 @@ function LaptopMockup() {
       {/* Floating "live" badge below the laptop */}
       <div style={{ position: 'absolute', bottom: -14, left: '50%', transform: 'translateX(-50%)', background: '#F7F5F2', border: `1px solid ${BORDER}`, color: BLACK, fontSize: 11, fontWeight: 700, padding: '6px 14px', borderRadius: 999, boxShadow: '0 4px 12px rgba(0,0,0,0.08)', whiteSpace: 'nowrap', fontFamily: "'Barlow Condensed', sans-serif", letterSpacing: '0.1em', textTransform: 'uppercase' }}>
         <span style={{ display: 'inline-block', width: 7, height: 7, borderRadius: '50%', background: '#16a34a', marginRight: 7, verticalAlign: 'middle' }} />
-        Code 3 — Launching this month
+        Code 3, Launching this month
       </div>
     </div>
   )
 }
 
-// Single portfolio card — compact version of the laptop mockup composition.
+// Single portfolio card, compact version of the laptop mockup composition.
 // Each card represents a trade slot. `status: 'real'` = real customer (Code 3),
 // 'open' = founding slot still available.
 type PortfolioEntry = {
@@ -262,7 +262,7 @@ function JcAirProShowcase({ entry }: { entry: PortfolioEntry }) {
         </span>
       </div>
 
-      {/* Page composition — actual JC Air Pro hero in miniature */}
+      {/* Page composition, actual JC Air Pro hero in miniature */}
       <div style={{ position: 'relative', aspectRatio: '4 / 3', display: 'flex', flexDirection: 'column', background: '#fff', color: '#0a0a0a' }}>
         {/* Utility strip (navy) */}
         <div style={{ background: '#001a4a', color: 'rgba(255,255,255,0.9)', fontSize: 6.5, padding: '3px 10px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontWeight: 600, letterSpacing: '0.02em' }}>
@@ -295,7 +295,7 @@ function JcAirProShowcase({ entry }: { entry: PortfolioEntry }) {
         {/* 3px brand-bar gradient strip */}
         <div style={{ height: 2, background: 'linear-gradient(90deg, #002f87 0%, #002f87 35%, #6b2150 50%, #c8102e 65%, #c8102e 100%)', flexShrink: 0 }} />
 
-        {/* Hero body — sky-pale gradient + headline left, Emilio photo right */}
+        {/* Hero body, sky-pale gradient + headline left, Emilio photo right */}
         <div
           style={{
             flex: 1,
@@ -374,7 +374,7 @@ function JcAirProShowcase({ entry }: { entry: PortfolioEntry }) {
         </div>
       </div>
 
-      {/* Status footer — same as PortfolioCard */}
+      {/* Status footer, same as PortfolioCard */}
       <div
         style={{
           background: isReal ? 'rgba(22,163,74,0.08)' : 'rgba(245,98,15,0.08)',
@@ -397,7 +397,7 @@ function JcAirProShowcase({ entry }: { entry: PortfolioEntry }) {
 // Special-case card for Breezy Detailing. Renders a faithful mini of the
 // actual Breezy homepage hero (real logo, real chrome silver + electric
 // blue brand on carbon black) instead of the generic dark+orange
-// Opervo template. Same reason as JcAirProShowcase — the portfolio
+// Opervo template. Same reason as JcAirProShowcase, the portfolio
 // should preview what the operator's site actually looks like.
 function BreezyDetailingShowcase({ entry }: { entry: PortfolioEntry }) {
   const isReal = entry.status === 'real'
@@ -425,7 +425,7 @@ function BreezyDetailingShowcase({ entry }: { entry: PortfolioEntry }) {
         </span>
       </div>
 
-      {/* Page composition — Breezy hero in miniature */}
+      {/* Page composition, Breezy hero in miniature */}
       <div
         style={{
           position: 'relative',
@@ -521,7 +521,7 @@ function BreezyDetailingShowcase({ entry }: { entry: PortfolioEntry }) {
           </span>
         </div>
 
-        {/* Hero body — chrome headline left, logo lockup right */}
+        {/* Hero body, chrome headline left, logo lockup right */}
         <div
           style={{
             position: 'relative',
@@ -621,7 +621,7 @@ function BreezyDetailingShowcase({ entry }: { entry: PortfolioEntry }) {
         </div>
       </div>
 
-      {/* Status footer — match other cards */}
+      {/* Status footer, match other cards */}
       <div
         style={{
           background: isReal ? 'rgba(22,163,74,0.08)' : 'rgba(245,98,15,0.08)',
@@ -822,7 +822,7 @@ export default function SitesPage() {
   const [avgJob, setAvgJob] = useState<number>(350)
   const [leadsPerMo, setLeadsPerMo] = useState<number>(20)
   // Industry-typical conversion uplifts (we publish these as conservative).
-  // Markate quotes +212% inquiries — we use a more credible +50% on lead volume
+  // Markate quotes +212% inquiries, we use a more credible +50% on lead volume
   // from a real Pro Site vs no site. Customer can override mentally.
   const incrementalLeadsPerMo = Math.round(leadsPerMo * 0.5)
   const closeRate = 0.30
@@ -845,7 +845,7 @@ export default function SitesPage() {
           style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: 'minmax(0, 1.05fr) minmax(0, 1fr)', gap: 64, alignItems: 'center' }}
           className="hero-grid"
         >
-          {/* Left — text + CTAs */}
+          {/* Left, text + CTAs */}
           <div>
             <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 12, fontWeight: 800, letterSpacing: '0.25em', color: ORANGE, textTransform: 'uppercase', margin: '0 0 20px' }}>
               Opervo Sites
@@ -855,7 +855,7 @@ export default function SitesPage() {
               <span style={{ color: ORANGE }}>Online too.</span>
             </h1>
             <p style={{ fontSize: 19, lineHeight: 1.5, color: MUTED, maxWidth: 540, margin: '28px 0 0' }}>
-              Done-for-you SEO websites built specifically for home service operators. Real local SEO, your domain, 30-day delivery — and <Highlight>you own it</Highlight>.
+              Done-for-you SEO websites built specifically for home service operators. Real local SEO, your domain, 30-day delivery, and <Highlight>you own it</Highlight>.
             </p>
             <div style={{ display: 'flex', gap: 12, marginTop: 36, flexWrap: 'wrap' }}>
               <a
@@ -874,7 +874,7 @@ export default function SitesPage() {
             </p>
           </div>
 
-          {/* Right — laptop mockup */}
+          {/* Right, laptop mockup */}
           <div>
             <LaptopMockup />
           </div>
@@ -893,7 +893,7 @@ export default function SitesPage() {
                 Seven trades. <Highlight>One slot each.</Highlight>
               </h2>
               <p style={{ fontSize: 16, lineHeight: 1.5, color: MUTED, margin: '14px 0 0', maxWidth: 560 }}>
-                JC Air Pro, Breezy Detailing, and Code 3 are the first three builds — launching now. The other four are Founding slots: free Pro Site Ownership ($499 value) + free Opervo CRM for 12 months ($299 value) + priority queue + Founding Customer placement. One per trade.
+                JC Air Pro, Breezy Detailing, and Code 3 are the first three builds, launching now. The other four are Founding slots: free Pro Site Ownership ($499 value) + free Opervo CRM for 12 months ($299 value) + priority queue + Founding Customer placement. One per trade.
               </p>
             </div>
             <a href="#founding-5" style={{ ...secondaryBtn, whiteSpace: 'nowrap' }}>
@@ -933,7 +933,7 @@ export default function SitesPage() {
           <h2 style={{ ...sectionH2, textAlign: 'center', marginBottom: 40 }}>Three ways operators lose right now.</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20 }}>
             {[
-              { title: 'DIY tools eat your weekends.', body: 'Wix and Squarespace look fine — until you spend 40 hours building one yourself and it still looks like a template.' },
+              { title: 'DIY tools eat your weekends.', body: 'Wix and Squarespace look fine, until you spend 40 hours building one yourself and it still looks like a template.' },
               { title: 'Agencies charge $5,000+.', body: 'Real agencies want enterprise contracts. They quote $5K-$15K, lock you into multi-year retainers, and never call you back.' },
               { title: 'CRM booking pages aren’t websites.', body: 'Jobber and HCP give you a booking link with their logo on it. That’s not the site customers Google before they call you.' },
             ].map((p, i) => (
@@ -960,7 +960,7 @@ export default function SitesPage() {
               { icon: ICONS.globe, title: 'Your custom domain', body: 'Bring your own or we register one at cost. No subdomain. No co-branding. Just yours.' },
               { icon: ICONS.smartphone, title: 'Mobile-first design', body: 'Most of your customers will see your site on a phone. Built mobile-first, tested on real devices.' },
               { icon: ICONS.image, title: 'Photo galleries', body: 'Before/after grids built from your work. Drag-and-drop replacement so you can refresh anytime.' },
-              { icon: ICONS.mail, title: 'Quote forms that work', body: 'Lead capture routes to your email — or directly into your Opervo CRM if you’re using it.' },
+              { icon: ICONS.mail, title: 'Quote forms that work', body: 'Lead capture routes to your email, or directly into your Opervo CRM if you’re using it.' },
               { icon: ICONS.shield, title: 'Hosting + SSL + security', body: 'Included. Forever. No GoDaddy upcharges, no plugin chaos, no "your SSL expired" emails.' },
               { icon: ICONS.bolt, title: '30-day delivery', body: 'From order to live, in 30 days. Schedule a 60-min intake call within 72 hours. First draft by day 21.' },
               { icon: ICONS.key, title: 'You own it. Always.', body: 'Leave anytime. We hand you a static export and transfer your domain. No hostage CMS, no exit penalty.' },
@@ -977,7 +977,7 @@ export default function SitesPage() {
         </div>
       </section>
 
-      {/* ─── PRO SITE LIVE — THE MOAT ──────────────────────────────────── */}
+      {/* ─── PRO SITE LIVE, THE MOAT ──────────────────────────────────── */}
       <section style={{ background: BLACK, color: '#F7F5F2', padding: '80px 24px' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)', gap: 56, alignItems: 'center' }} className="live-grid">
           <div>
@@ -987,7 +987,7 @@ export default function SitesPage() {
               <Highlight dark><span style={{ color: '#F7F5F2' }}>Your site comes alive.</span></Highlight>
             </h2>
             <p style={{ fontSize: 17, lineHeight: 1.6, color: '#c8c4be', margin: '0 0 28px' }}>
-              Connect your Opervo CRM and your Pro Site stops being a brochure. Services, photos, reviews, hours, service areas — all pull from the app in real time. Quote forms route straight into your pipeline.
+              Connect your Opervo CRM and your Pro Site stops being a brochure. Services, photos, reviews, hours, service areas, all pull from the app in real time. Quote forms route straight into your pipeline.
             </p>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 12 }}>
               {[
@@ -1005,7 +1005,7 @@ export default function SitesPage() {
               ))}
             </ul>
             <p style={{ fontSize: 14, color: '#8a8580', margin: '28px 0 0' }}>
-              Not on Opervo yet? The site works perfectly standalone — connect anytime later.
+              Not on Opervo yet? The site works perfectly standalone, connect anytime later.
             </p>
           </div>
 
@@ -1016,7 +1016,7 @@ export default function SitesPage() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
               {[
                 { label: 'Opervo App', sub: 'You add a new service, complete a job, get a review' },
-                { label: 'Pro Site Live', sub: 'Site auto-updates within minutes — no copy/paste' },
+                { label: 'Pro Site Live', sub: 'Site auto-updates within minutes, no copy/paste' },
                 { label: 'Customer Visit', sub: 'They see fresh photos, real reviews, accurate pricing' },
                 { label: 'Quote Submitted', sub: 'Lead lands in your Opervo inbox with full context' },
               ].map((step, i) => (
@@ -1042,7 +1042,7 @@ export default function SitesPage() {
           <h2 style={{ ...sectionH2, textAlign: 'center' }}>Two on-ramps. Both published. No sales calls.</h2>
           <p style={{ ...sectionSub, textAlign: 'center', maxWidth: 640, margin: '12px auto 14px' }}>
             Markate charges $89/mo for a website. We do it for $39.99/mo with custom domain included, or $499 to own forever.
-            Every Opervo customer already gets a free <a href="/" style={{ color: ORANGE, fontWeight: 700 }}>Folio</a> with their CRM — this is for operators who want more.
+            Every Opervo customer already gets a free <a href="/" style={{ color: ORANGE, fontWeight: 700 }}>Folio</a> with their CRM, this is for operators who want more.
           </p>
           <p style={{ fontSize: 13, color: MUTED, textAlign: 'center', maxWidth: 640, margin: '0 auto 40px' }}>
             All tiers include 60-day money back. No contracts. Cancel any time.
@@ -1104,7 +1104,7 @@ export default function SitesPage() {
               <ul style={pricingList}>
                 {[
                   'Everything in Monthly, plus:',
-                  'Static export — fully yours',
+                  'Static export, fully yours',
                   'Domain transferred to your name',
                   'Netlify Drop hosting instructions',
                   'No ongoing fee. Walk away clean.',
@@ -1144,7 +1144,7 @@ export default function SitesPage() {
           {/* Domain policy callout */}
           <div style={{ background: WARM, border: `1px solid ${BORDER}`, borderRadius: 12, padding: 24, marginTop: 8 }}>
             <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 18, textTransform: 'uppercase', color: BLACK, margin: '0 0 12px', letterSpacing: '0.02em' }}>
-              How domains work — honest version
+              How domains work, honest version
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16, fontSize: 14, color: INK, lineHeight: 1.55 }}>
               <div>
@@ -1158,7 +1158,7 @@ export default function SitesPage() {
               </div>
             </div>
             <p style={{ fontSize: 12, color: MUTED, margin: '14px 0 0', fontStyle: 'italic' }}>
-              Domain registration is always in your name — we never own your URL. Markate registers in theirs. That&apos;s the gatekeeping we don&apos;t do.
+              Domain registration is always in your name, we never own your URL. Markate registers in theirs. That&apos;s the gatekeeping we don&apos;t do.
             </p>
           </div>
         </div>
@@ -1296,7 +1296,7 @@ export default function SitesPage() {
           <h2 style={{ ...sectionH2, textAlign: 'center', marginBottom: 48 }}>From order to live in 30 days.</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 16 }}>
             {[
-              { n: '01', title: 'Questionnaire', body: 'Self-serve form — ~20 minutes, auto-saves in your browser. No sales call.' },
+              { n: '01', title: 'Questionnaire', body: 'Self-serve form, ~20 minutes, auto-saves in your browser. No sales call.' },
               { n: '02', title: 'Pick a tier', body: '$39.99/mo (we host + edit) or $499 to own outright. You decide after we review the questionnaire.' },
               { n: '03', title: 'Build', body: 'First draft by day 21. Review, revise, finalize. Live by day 30.' },
               { n: '04', title: 'Yours forever', body: 'Custom domain in your name. Static export on exit. No lock-in either way.' },
@@ -1336,7 +1336,7 @@ export default function SitesPage() {
                 { trade: 'Roof / concrete', taken: false },
               ].map((slot, i) => (
                 <div key={i} style={{ background: slot.taken ? 'transparent' : 'rgba(245,98,15,0.12)', border: `1px solid ${slot.taken ? '#3a3a3a' : ORANGE}`, color: slot.taken ? '#6a6560' : '#F7F5F2', padding: '10px 14px', borderRadius: 8, fontSize: 14, fontWeight: 600, textDecoration: slot.taken ? 'line-through' : 'none' }}>
-                  {slot.trade}{slot.taken ? ' — taken' : ' — open'}
+                  {slot.trade}{slot.taken ? ', taken' : ', open'}
                 </div>
               ))}
             </div>
@@ -1408,8 +1408,8 @@ export default function SitesPage() {
               <tbody>
                 {([
                   { row: 'Total cost', opervo: '$39.99/mo or $499 to own', s180: '$4,680 over 24mo (locked)', hcp: '~$3,000+/yr (hidden)', hibu: '$13,200+/yr (sales call)', diy: '$300–$900/yr + your time' },
-                  { row: 'Contract', opervo: <Verdict ok>None — cancel anytime</Verdict>, s180: <Verdict ok={false}>24 months</Verdict>, hcp: <Verdict ok={false}>Bundled with CRM</Verdict>, hibu: <Verdict ok={false}>12–24 months</Verdict>, diy: <Verdict ok={false}>Annual subscription</Verdict> },
-                  { row: 'Ownership on exit', opervo: <Verdict ok>Yes — static export + domain</Verdict>, s180: <Verdict ok={false}>After 24mo</Verdict>, hcp: <Verdict ok={false}>Locked to HCP</Verdict>, hibu: <Verdict ok={false}>Proprietary CMS</Verdict>, diy: <Verdict ok>Yes</Verdict> },
+                  { row: 'Contract', opervo: <Verdict ok>None, cancel anytime</Verdict>, s180: <Verdict ok={false}>24 months</Verdict>, hcp: <Verdict ok={false}>Bundled with CRM</Verdict>, hibu: <Verdict ok={false}>12–24 months</Verdict>, diy: <Verdict ok={false}>Annual subscription</Verdict> },
+                  { row: 'Ownership on exit', opervo: <Verdict ok>Yes, static export + domain</Verdict>, s180: <Verdict ok={false}>After 24mo</Verdict>, hcp: <Verdict ok={false}>Locked to HCP</Verdict>, hibu: <Verdict ok={false}>Proprietary CMS</Verdict>, diy: <Verdict ok>Yes</Verdict> },
                   { row: 'Turnaround', opervo: '30 days', s180: '30 days', hcp: 'Weeks (varies)', hibu: 'Not published', diy: 'Your weekends' },
                   { row: 'CRM-stitched data', opervo: <Verdict ok>Yes (Pro Site Live)</Verdict>, s180: <Verdict ok={false}>No</Verdict>, hcp: <Verdict ok={false}>Booking only</Verdict>, hibu: <Verdict ok={false}>No</Verdict>, diy: <Verdict ok={false}>No</Verdict> },
                   { row: 'Published pricing', opervo: <Verdict ok>Yes</Verdict>, s180: <Verdict ok>Yes</Verdict>, hcp: <Verdict ok={false}>No</Verdict>, hibu: <Verdict ok={false}>No</Verdict>, diy: <Verdict ok>Yes</Verdict> },
@@ -1440,11 +1440,11 @@ export default function SitesPage() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
             {[
               { q: 'Do I own my website?', a: 'Yes. The build is yours. Your domain is yours. If you ever leave, we hand you a static export of the site and transfer your domain. No proprietary CMS, no hostage situation.' },
-              { q: 'Do I need to use the Opervo CRM?', a: 'No. Opervo Sites is a standalone product. Your site works on its own — quote forms email you, the contact info routes wherever you want. Connect the Opervo CRM later if you want your services, photos, and reviews to update themselves on the site.' },
+              { q: 'Do I need to use the Opervo CRM?', a: 'No. Opervo Sites is a standalone product. Your site works on its own, quote forms email you, the contact info routes wherever you want. Connect the Opervo CRM later if you want your services, photos, and reviews to update themselves on the site.' },
               { q: 'How long does the build take?', a: '30 days from kickoff. We schedule a 60-minute intake call within 72 hours of order, send a first draft by day 21, finalize revisions, and ship live by day 30.' },
-              { q: 'Is there an ongoing fee?', a: 'Depends on the tier you pick. Pro Site Monthly is $39.99/mo — hosting, edits, custom domain all included. Pro Site Ownership is $499 one-time and you walk away with everything. No tier locks you in: 60-day money-back guarantee, cancel any time, we hand you the static export and your domain.' },
+              { q: 'Is there an ongoing fee?', a: 'Depends on the tier you pick. Pro Site Monthly is $39.99/mo, hosting, edits, custom domain all included. Pro Site Ownership is $499 one-time and you walk away with everything. No tier locks you in: 60-day money-back guarantee, cancel any time, we hand you the static export and your domain.' },
               { q: 'What trades do you build for?', a: 'Window cleaning, pressure washing, soft washing, gutter cleaning, solar panel cleaning, landscaping, lawn care, junk removal, mobile detailing, roof cleaning, concrete sealing, and most other home service trades. If you serve homes or commercial properties on a route, we build for you.' },
-              { q: 'What about my existing domain?', a: 'We work with whatever you have. Keep your existing domain — we point it to the new site. Or we register a new one for you at cost. No upcharge.' },
+              { q: 'What about my existing domain?', a: 'We work with whatever you have. Keep your existing domain, we point it to the new site. Or we register a new one for you at cost. No upcharge.' },
               { q: 'Who writes the copy?', a: 'We do. We extract your voice during the intake call and write trade-specific SEO copy that ranks. You review and approve every page before it goes live.' },
               { q: 'Is there a money-back guarantee?', a: '60 days. If you’re not happy with the launched site, we’ll refund the build fee in full. Better than the industry standard 30 days.' },
             ].map((item, i) => {

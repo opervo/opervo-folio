@@ -34,7 +34,7 @@ export default async function OperatorDetailPage({ params }: PageProps) {
     email = userRes.user?.email ?? '';
     lastSignInAt = userRes.user?.last_sign_in_at ?? null;
   } catch {
-    // no auth user — fine
+    // no auth user, fine
   }
 
   const monthStart = new Date(Date.now() - 30 * 86400000).toISOString();
@@ -130,7 +130,7 @@ export default async function OperatorDetailPage({ params }: PageProps) {
           <Stat label="Revenue" value={`$${totalRevenue.toFixed(2)}`} />
         </Card>
         <Card>
-          <Stat label="Last login" value={lastSignInAt ? relativeTime(lastSignInAt) : '—'} />
+          <Stat label="Last login" value={lastSignInAt ? relativeTime(lastSignInAt) : ','} />
         </Card>
         <Card>
           <Stat label="Open estimates" value={openEstimates} />

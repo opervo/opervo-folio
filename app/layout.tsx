@@ -18,7 +18,7 @@ export const metadata: Metadata = {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Opervo — The one app built for trade operators',
+        alt: 'Opervo, The one app built for trade operators',
       },
     ],
     locale: 'en_US',
@@ -49,7 +49,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <ReferralAttribution />
         <Analytics />
-        {/* PostHog — shared with app.opervo.io via the same project key so
+        {/* PostHog, shared with app.opervo.io via the same project key so
             anonymous visitor → signup → in-app activity stitches into one
             person. cross_subdomain_cookie ensures the distinct_id survives
             the opervo.io → app.opervo.io hop. */}

@@ -55,7 +55,7 @@ export default function HowToScheduleRecurringJobs() {
           Every solo contractor has had this experience: you finish a great job, the client loves it,
           and you say, &ldquo;I will follow up in a few months to schedule the next one.&rdquo; Then
           three months pass, you forget to call, and by the time you remember, they have hired someone
-          else. That lost follow-up is lost revenue&nbsp;&mdash; not once, but potentially for years.
+          else. That lost follow-up is lost revenue, not once, but potentially for years.
         </p>
         <p>
           Recurring jobs solve this problem by removing human memory from the equation. Instead of
@@ -66,7 +66,7 @@ export default function HowToScheduleRecurringJobs() {
 
         <h2>WHAT RECURRING JOBS ARE (AND WHY THEY MATTER)</h2>
         <p>
-          A recurring job is a service appointment that repeats on a set schedule&nbsp;&mdash; weekly,
+          A recurring job is a service appointment that repeats on a set schedule, weekly,
           biweekly, monthly, quarterly, or on any custom interval. Instead of creating a new job from
           scratch each time, you set it up once and it auto-populates your calendar for as long as the
           client stays on.
@@ -91,26 +91,26 @@ export default function HowToScheduleRecurringJobs() {
         <ul>
           <li>
             <strong><Link href="/window-cleaning" title="Window cleaning software for recurring service scheduling">Window cleaning</Link></strong>
-            &nbsp;&mdash; Residential windows get dirty on a predictable cycle. Quarterly is the most
+            , Residential windows get dirty on a predictable cycle. Quarterly is the most
             common schedule, with some high-end homes going monthly.
           </li>
           <li>
             <strong><Link href="/solar-panel-cleaning" title="Solar panel cleaning software for recurring jobs">Solar panel cleaning</Link></strong>
-            &nbsp;&mdash; Panels lose efficiency as dust and debris build up. Most solar companies
+            , Panels lose efficiency as dust and debris build up. Most solar companies
             recommend cleaning every 6 months, making this a natural twice-a-year recurring job.
           </li>
           <li>
             <strong><Link href="/landscaping" title="Landscaping business management software">Landscaping and lawn care</Link></strong>
-            &nbsp;&mdash; Weekly or biweekly mowing is the classic recurring service. Add seasonal
+            , Weekly or biweekly mowing is the classic recurring service. Add seasonal
             cleanups as quarterly extras.
           </li>
           <li>
             <strong><Link href="/pressure-washing" title="Pressure washing business management software">Pressure washing</Link></strong>
-            &nbsp;&mdash; Driveways, patios, and building exteriors need washing one to two times per
+            , Driveways, patios, and building exteriors need washing one to two times per
             year. Commercial contracts (restaurant patios, storefronts) can be monthly.
           </li>
           <li>
-            <strong>Gutter cleaning</strong> &mdash; Twice a year (spring and fall) is standard. Easy
+            <strong>Gutter cleaning</strong>. Twice a year (spring and fall) is standard. Easy
             to bundle with window cleaning for a higher-value recurring package.
           </li>
         </ul>
@@ -127,7 +127,7 @@ export default function HowToScheduleRecurringJobs() {
             Fill in the service details, date, and time as you would for any one-time job.
           </li>
           <li>
-            Toggle <strong>Recurring</strong> and select the interval&nbsp;&mdash; weekly, biweekly,
+            Toggle <strong>Recurring</strong> and select the interval, weekly, biweekly,
             monthly, quarterly, or custom.
           </li>
           <li>
@@ -138,7 +138,7 @@ export default function HowToScheduleRecurringJobs() {
         </ol>
         <p>
           When a recurring job date arrives, the client gets an automated reminder text. You show up,
-          do the work, mark it complete, and invoice&nbsp;&mdash; or set up auto-invoicing so the
+          do the work, mark it complete, and invoice, or set up auto-invoicing so the
           client is billed without any manual steps. The next occurrence is already on the calendar.
           No follow-up calls, no forgotten re-bookings.
         </p>
@@ -146,7 +146,7 @@ export default function HowToScheduleRecurringJobs() {
         <h2>HOW TO PITCH RECURRING SERVICE TO CLIENTS</h2>
         <p>
           Most clients are open to recurring service if you frame it correctly. The pitch is not
-          &ldquo;sign a contract&rdquo;&nbsp;&mdash; that scares people. The pitch is convenience
+          &ldquo;sign a contract&rdquo;, that scares people. The pitch is convenience
           and savings.
         </p>
         <p>
@@ -227,20 +227,20 @@ export default function HowToScheduleRecurringJobs() {
         </table>
         <p>
           By month 6, you have 18 recurring clients generating $2,700/mo before you lift a finger on
-          new business. Account for some churn&nbsp;&mdash; say 10% of clients drop off per
-          quarter&nbsp;&mdash; and you are still looking at roughly 15-16 active recurring clients and
+          new business. Account for some churn, say 10% of clients drop off per
+          quarter, and you are still looking at roughly 15-16 active recurring clients and
           over $2,200/mo in predictable revenue.
         </p>
         <p>
           That is the compound effect. Each new recurring client stacks on top of the ones before. You
-          are not starting from zero every month&nbsp;&mdash; you are building on a growing base. After
+          are not starting from zero every month, you are building on a growing base. After
           a year of consistent effort, your recurring revenue can cover your operating costs entirely,
           and every new job becomes pure upside.
         </p>
 
         <h2>STOP LEAVING MONEY ON THE TABLE</h2>
         <p>
-          The biggest revenue leak in most solo service businesses is not pricing or marketing&nbsp;&mdash;
+          The biggest revenue leak in most solo service businesses is not pricing or marketing,
           it is failing to re-book existing clients. You already did the hard work of getting the customer.
           You already proved you do great work. Recurring scheduling is just making sure that relationship
           keeps generating income instead of quietly expiring.

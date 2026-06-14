@@ -61,7 +61,7 @@ const FAQ = [
   },
   {
     q: 'What happens after the 3 months?',
-    a: 'Your plan goes to the normal price — $24.99/mo Solo or $54.99/mo Team. Still less than one month of Jobber Grow.',
+    a: 'Your plan goes to the normal price, $24.99/mo Solo or $54.99/mo Team. Still less than one month of Jobber Grow.',
   },
   {
     q: "What if my CRM isn't on the list?",
@@ -119,7 +119,7 @@ export default function SwitchPage() {
           </h1>
           <p style={{ ...body, color: '#b0aaa0', fontSize: 16, maxWidth: 440, margin: '0 auto 32px', lineHeight: 1.6 }}>
             If you&apos;re paying Jobber $169/mo, Housecall Pro $79/mo, or any
-            field service CRM &mdash; upload your last billing receipt and
+            field service CRM, upload your last billing receipt and
             we&apos;ll cut your Opervo bill in half for 3 months.
           </p>
           <Link
@@ -193,7 +193,7 @@ export default function SwitchPage() {
             >
               <div>
                 <div style={{ ...heading, fontSize: 16, fontWeight: 700, color: '#F5620F' }}>Opervo</div>
-                <div style={{ ...body, fontSize: 12, color: '#999' }}>Solo plan &mdash; everything included</div>
+                <div style={{ ...body, fontSize: 12, color: '#999' }}>Solo plan, everything included</div>
               </div>
               <div style={{ ...heading, fontSize: 20, textAlign: 'right' as const, color: '#fff' }}>
                 <del style={{ fontSize: 14, color: '#6B6B6B', fontWeight: 600, marginRight: 4 }}>$24.99</del>
@@ -205,7 +205,7 @@ export default function SwitchPage() {
 
           <div style={{ marginTop: 16, background: '#ecfdf5', border: '1px solid #bbf7d0', borderRadius: 12, padding: 12, textAlign: 'center', ...body, fontSize: 14 }}>
             Switching from Jobber Grow? You&apos;ll save{' '}
-            <strong style={{ color: '#16a34a' }}>$156.51/mo</strong> &mdash; that&apos;s{' '}
+            <strong style={{ color: '#16a34a' }}>$156.51/mo</strong>. that&apos;s{' '}
             <strong style={{ color: '#16a34a' }}>$1,878/yr</strong> back in your pocket.
           </div>
         </section>

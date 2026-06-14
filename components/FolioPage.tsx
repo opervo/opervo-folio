@@ -421,7 +421,7 @@ function ServicesSection({ profile }: { profile: OperatorProfile }) {
 ───────────────────────────────────────── */
 function CredentialsSection() {
   const creds = [
-    { title: 'Same-Day Quotes',    text: 'Request online — hear back within hours.' },
+    { title: 'Same-Day Quotes',    text: 'Request online, hear back within hours.' },
     { title: 'Job Documentation',  text: 'Before & after photos sent directly to you.' },
     { title: 'Fully Insured',       text: 'Licensed & insured for your peace of mind.' },
     { title: 'Easy Payments',       text: 'Card, Apple Pay or Google Pay. No cash needed.' },
@@ -689,7 +689,7 @@ function QuoteForm({ profile }: { profile: OperatorProfile }) {
         const ext      = photoFile.name.split('.').pop()
         // profile.id is the operator's auth user_id (mapped from profiles.user_id by the RPC)
         const filename = `${profile.id}/${Date.now()}.${ext}`
-        // quote-photos bucket has public anon-insert RLS — lead-photos doesn't, so uploads to it silently fail
+        // quote-photos bucket has public anon-insert RLS, lead-photos doesn't, so uploads to it silently fail
         const res = await fetch(`${supabaseUrl}/storage/v1/object/quote-photos/${filename}`, {
           method: 'POST',
           headers: { 'Authorization': `Bearer ${supabaseAnon}`, 'Content-Type': photoFile.type },
@@ -758,7 +758,7 @@ function QuoteForm({ profile }: { profile: OperatorProfile }) {
       <div className="form-header">
         <div className="fh-kicker">Free · No Obligation</div>
         <div className="fh-title">Get Your<br /><em>Quote</em></div>
-        <div className="fh-sub">Tell us what you need and we'll send a price to your phone — usually within a few hours.</div>
+        <div className="fh-sub">Tell us what you need and we'll send a price to your phone, usually within a few hours.</div>
       </div>
 
       <div className="form-body">
@@ -768,7 +768,7 @@ function QuoteForm({ profile }: { profile: OperatorProfile }) {
           ))}
         </div>
 
-        {/* Step 0 — Service selection */}
+        {/* Step 0, Service selection */}
         {step === 0 && (
           <div>
             <div className="f-label">What service do you need?</div>
@@ -878,7 +878,7 @@ function QuoteForm({ profile }: { profile: OperatorProfile }) {
           </div>
         )}
 
-        {/* Step 1 — Scheduling + Contact */}
+        {/* Step 1, Scheduling + Contact */}
         {step === 1 && (
           <div>
             <div className="f-back" onClick={() => setStep(0)}>← Back</div>
@@ -1019,7 +1019,7 @@ function QuoteForm({ profile }: { profile: OperatorProfile }) {
           </div>
         )}
 
-        {/* Step 2 — Photo + submit */}
+        {/* Step 2, Photo + submit */}
         {step === 2 && (
           <div>
             <div className="f-back" onClick={() => setStep(1)}>← Back</div>
@@ -1027,7 +1027,7 @@ function QuoteForm({ profile }: { profile: OperatorProfile }) {
             <label className="upload-zone">
               <div className="uz-icon">📸</div>
               <div className="uz-text">
-                <strong>Tap to upload</strong> a photo of the area to be cleaned — helps us quote faster.
+                <strong>Tap to upload</strong> a photo of the area to be cleaned, helps us quote faster.
               </div>
               <input type="file" accept="image/*" style={{ display: 'none' }} onChange={e => setPhotoFile(e.target.files?.[0] ?? null)} />
             </label>
@@ -1044,7 +1044,7 @@ function QuoteForm({ profile }: { profile: OperatorProfile }) {
                 ) : (
                   <>
                     <li>We review your details and photos</li>
-                    <li>A quote arrives on your phone — usually within hours</li>
+                    <li>A quote arrives on your phone, usually within hours</li>
                     <li>No obligation, no pressure</li>
                   </>
                 )}
@@ -1117,7 +1117,7 @@ function StickyCta({ hasQuoteEngine = false }: { hasQuoteEngine?: boolean }) {
   }, [])
 
   // When the operator has the line-item quote engine wired up, customers get
-  // a real instant number — the CTA should promise that, not "request a quote."
+  // a real instant number, the CTA should promise that, not "request a quote."
   const label = hasQuoteEngine ? 'Get an Instant Quote' : 'Request a Free Quote'
 
   return (
@@ -1358,7 +1358,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 
 /* ─────────────────────────────────────────
    DESKTOP (≥ 900px)
-   Surgical overrides — keep the mobile layout as the source of truth
+   Surgical overrides, keep the mobile layout as the source of truth
    and widen / regrid where the phone column wastes screen space.
 ───────────────────────────────────────── */
 @media (min-width: 900px) {
@@ -1401,7 +1401,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
   .gallery-grid{grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
   .gallery-tile{height:180px}
 
-  /* RECENT JOBS — phone is horizontal scroll, desktop is a 3-col grid */
+  /* RECENT JOBS, phone is horizontal scroll, desktop is a 3-col grid */
   .rj-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;overflow:visible;margin:0;padding:4px 0 24px;scroll-snap-type:none}
   .rj-card{flex:none}
   .rj-photo{height:260px}
@@ -1447,7 +1447,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
   /* FOOTER */
   .footer{padding:56px var(--px) 28px;font-size:12px}
 
-  /* STICKY CTA — hidden on desktop, inline CTAs in overlap-card cover it */
+  /* STICKY CTA, hidden on desktop, inline CTAs in overlap-card cover it */
   .sticky-cta{display:none}
 }
 

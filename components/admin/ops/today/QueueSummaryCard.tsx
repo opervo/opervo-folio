@@ -37,7 +37,7 @@ export default function QueueSummaryCard({ total, newSinceMorning, customerFacin
           textDecoration: 'none',
         }}
       >
-        {total > 0 ? `Process queue →` : 'No items — open queue →'}
+        {total > 0 ? `Process queue →` : 'No items, open queue →'}
       </Link>
     </Card>
   );

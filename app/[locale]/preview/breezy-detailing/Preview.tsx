@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 // Breezy Detailing Pro Site preview.
 //
-// Same structure as JC Air Pro preview — the point is still to sell
+// Same structure as JC Air Pro preview, the point is still to sell
 // Opervo Sites, not profile Ricardo. Breezy is the example, not the
 // subject. Color cues lean into Breezy's dark + electric blue brand
 // so the page reads as "look at what we built for this operator,"
@@ -169,7 +169,7 @@ export default function Preview() {
             <div style={{ position: 'relative', background: CARBON }}>
               <iframe
                 src={BREEZY_URL}
-                title="Breezy Detailing — live Pro Site preview"
+                title="Breezy Detailing, live Pro Site preview"
                 style={{
                   width: '100%',
                   height: 'min(1200px, 85vh)',
@@ -312,7 +312,7 @@ export default function Preview() {
             <FeatureCard title="Photos that sell" body="Your shop. Your truck. Real cars. We feature them where buyers expect to see them." />
             <FeatureCard title="Form-first conversion" body="A lead form right after the hero, on a bold background. Most leads come from here." />
             <FeatureCard title="Reviews on the page" body="Your Google reviews shown on the site and wired into schema for star ratings in search." />
-            <FeatureCard title="Branded share previews" body="Paste your URL in iMessage or Slack — it shows your wordmark, phone, and stars." />
+            <FeatureCard title="Branded share previews" body="Paste your URL in iMessage or Slack, it shows your wordmark, phone, and stars." />
             <FeatureCard title="GBP walkthrough included" body="A clear playbook for claiming Google Business Profile. The biggest local-SEO move, ready to hand off." />
           </div>
         </div>
@@ -626,6 +626,6 @@ function LockIcon() {
   )
 }
 
-// Silence unused CHROME warning — kept as design-system token in case
+// Silence unused CHROME warning, kept as design-system token in case
 // the page later threads chrome accents.
 void CHROME

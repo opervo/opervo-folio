@@ -632,7 +632,7 @@ export default function CreditsClient() {
                   }}>{r.status}</span>
                 </div>
                 {r.items.map((ri: { id: string; title: string; credit_cost: number }, i: number) => (
-                  <p key={i} style={{ fontSize: 13, color: '#F7F5F2', margin: '2px 0' }}>{ri.title} — {formatCredits(ri.credit_cost)} cr</p>
+                  <p key={i} style={{ fontSize: 13, color: '#F7F5F2', margin: '2px 0' }}>{ri.title}, {formatCredits(ri.credit_cost)} cr</p>
                 ))}
               </div>
             ))}

@@ -196,7 +196,7 @@ function EmailRow({ email }: { email: ResendEmail }) {
         background: hover ? C.surfaceHover : "transparent", transition: "background 0.12s ease", borderRadius: 6,
       }}>
       <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 3 }}>
-        <span style={{ fontSize: 13, color: C.text, fontWeight: 500 }}>{email.to?.[0] || "—"}</span>
+        <span style={{ fontSize: 13, color: C.text, fontWeight: 500 }}>{email.to?.[0] || ","}</span>
         <span style={{ fontSize: 11, color: C.textMuted }}>{timeAgo(email.created_at)}</span>
       </div>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
@@ -636,9 +636,9 @@ export default function AdminPage() {
                             <div style={{ fontSize: 11, color: C.textMuted }}>{u.email}</div>
                           </div>
                         </td>
-                        <td style={{ padding: "10px", color: u.business_name ? C.text : C.textMuted }}>{u.business_name || "—"}</td>
+                        <td style={{ padding: "10px", color: u.business_name ? C.text : C.textMuted }}>{u.business_name || ","}</td>
                         <td style={{ padding: "10px" }}>
-                          {u.slug ? <a href={`https://www.opervo.io/p/${u.slug}`} target="_blank" rel="noopener noreferrer" style={{ color: C.accent, textDecoration: "none", fontSize: 12 }}>/p/{u.slug}</a> : <span style={{ color: C.textMuted }}>—</span>}
+                          {u.slug ? <a href={`https://www.opervo.io/p/${u.slug}`} target="_blank" rel="noopener noreferrer" style={{ color: C.accent, textDecoration: "none", fontSize: 12 }}>/p/{u.slug}</a> : <span style={{ color: C.textMuted }}>,</span>}
                         </td>
                         <td style={{ padding: "10px", color: C.textSub }}>{timeAgo(u.created_at)}</td>
                         <td style={{ padding: "10px" }}><Badge type={u.plan === "active" ? "green" : u.plan === "trialing" ? "amber" : "gray"} label={u.plan || "trial"} /></td>
@@ -822,8 +822,8 @@ export default function AdminPage() {
                 ["https://supabase.com/dashboard/project/sbnykmxckfwkkxvhrkot", "Supabase dashboard"],
                 ["https://app.netlify.com/sites/splendid-moxie-3f9a51", "Netlify (app deploy)"],
                 ["https://vercel.com/opervo", "Vercel (landing deploy)"],
-                ["https://github.com/opervo/opervo-work-flow", "GitHub — app repo"],
-                ["https://github.com/opervo/opervo-folio", "GitHub — landing repo"],
+                ["https://github.com/opervo/opervo-work-flow", "GitHub, app repo"],
+                ["https://github.com/opervo/opervo-folio", "GitHub, landing repo"],
               ].map(([href, label]) => <div key={href} style={{ marginBottom: 6 }}><QLink href={href} label={label} /></div>)}
             </Section>
             <Section title="Revenue & email">

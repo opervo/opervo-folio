@@ -104,7 +104,7 @@ export default function ApplicationForm() {
     }
 
     if (payload.story.length < 30) {
-      setError('Tell me a little more about your business — at least a couple of sentences.')
+      setError('Tell me a little more about your business, at least a couple of sentences.')
       return
     }
 
@@ -175,13 +175,13 @@ export default function ApplicationForm() {
         {referralLink && (
           <div style={{ marginTop: 32, borderTop: '1px solid #E8E4DE', paddingTop: 28 }}>
             <p style={{ fontSize: 12, fontWeight: 700, color: '#F5620F', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: 8, fontFamily: "'Barlow Condensed', sans-serif" }}>
-              WHILE YOU WAIT — START EARNING
+              WHILE YOU WAIT, START EARNING
             </p>
             <h4 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 22, color: '#0F0F0F', textTransform: 'uppercase', lineHeight: 1.15, marginBottom: 12 }}>
               GEAR CREDITS
             </h4>
             <p style={{ fontSize: 15, color: '#1a1a1a', fontFamily: "'Barlow', sans-serif", lineHeight: 1.65, marginBottom: 20, maxWidth: 420, marginLeft: 'auto', marginRight: 'auto' }}>
-              Share your link. When someone signs up and pays for 2 months, you earn $15 in gear credits toward real equipment — gift cards, squeegees, pressure washer gear, business cards.
+              Share your link. When someone signs up and pays for 2 months, you earn $15 in gear credits toward real equipment, gift cards, squeegees, pressure washer gear, business cards.
             </p>
 
             <div style={{
@@ -381,7 +381,7 @@ export default function ApplicationForm() {
           style={{ ...inputStyle, minHeight: 140, resize: 'vertical', fontFamily: "'Barlow', sans-serif" }}
           id="story"
           name="story"
-          placeholder="If you're already running it: how did you start, what jobs are you doing, what's working, what's hard. If you're about to start: what's the concept, why this trade, why now, what's the first 90 days look like. A few sentences is plenty — make your case."
+          placeholder="If you're already running it: how did you start, what jobs are you doing, what's working, what's hard. If you're about to start: what's the concept, why this trade, why now, what's the first 90 days look like. A few sentences is plenty, make your case."
           required
         />
       </div>
@@ -402,7 +402,7 @@ export default function ApplicationForm() {
       </div>
 
       <p style={{ fontSize: 13, color: '#6B6B6B', fontFamily: "'Barlow', sans-serif", lineHeight: 1.6, marginBottom: 24 }}>
-        We'll send your parent a short heads-up email when you submit so they know what you applied for. They don't have to do anything — just so they're not surprised.
+        We'll send your parent a short heads-up email when you submit so they know what you applied for. They don't have to do anything, just so they're not surprised.
       </p>
 
       {error && (

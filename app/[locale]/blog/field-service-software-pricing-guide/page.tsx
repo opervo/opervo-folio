@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Article',
-  headline: 'Field Service Software Pricing Guide (2026) — What You\'ll Actually Pay',
+  headline: 'Field Service Software Pricing Guide (2026), What You\'ll Actually Pay',
   author: { '@type': 'Person', name: 'Max Ballesteros' },
   datePublished: '2026-03-20',
   dateModified: '2026-06-14T00:37:19-05:00',
@@ -33,7 +33,7 @@ export default function FieldServiceSoftwarePricingGuide() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.opervo.io"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.opervo.io/blog"}, {"@type": "ListItem", "position": 3, "name": "Field Service Software Pricing Guide (2026) | What You'll Actually Pay", "item": "https://www.opervo.io/blog/field-service-software-pricing-guide"}]}` }} />
       <BlogLayout
         category="PRICING"
-        title="Field Service Software Pricing Guide (2026) — What You'll Actually Pay"
+        title="Field Service Software Pricing Guide (2026), What You'll Actually Pay"
         date="March 20, 2026"
         readTime="7"
       >
@@ -65,7 +65,7 @@ export default function FieldServiceSoftwarePricingGuide() {
               <td><strong>Opervo</strong></td>
               <td>$24.99/mo</td>
               <td>$54.99/mo</td>
-              <td>&mdash;</td>
+              <td>,</td>
             </tr>
             <tr>
               <td><strong>Jobber</strong></td>
@@ -83,13 +83,13 @@ export default function FieldServiceSoftwarePricingGuide() {
               <td><strong>GorillaDesk</strong></td>
               <td>$49/mo</td>
               <td>$99/mo</td>
-              <td>&mdash;</td>
+              <td>,</td>
             </tr>
           </tbody>
         </table>
         <p>
           All prices reflect published monthly rates as of March 2026. Annual billing discounts
-          vary&nbsp;&mdash; Jobber and Housecall Pro offer roughly 15-20% off when you pay yearly, while
+          vary, Jobber and Housecall Pro offer roughly 15-20% off when you pay yearly, while
           Opervo keeps the same price month-to-month with no contract.
         </p>
 
@@ -99,7 +99,7 @@ export default function FieldServiceSoftwarePricingGuide() {
         </p>
         <h3>SMS and text message charges</h3>
         <p>
-          Automated texts are table-stakes for any service business&nbsp;&mdash; appointment reminders,
+          Automated texts are table-stakes for any service business, appointment reminders,
           on-my-way notifications, and review requests. Opervo includes unlimited automated SMS in every plan.
           Jobber charges per text through a paid add-on that can run $20-40/mo depending on volume. Housecall
           Pro includes some texts but caps them on the base tier.
@@ -135,11 +135,11 @@ export default function FieldServiceSoftwarePricingGuide() {
           things to work well:
         </p>
         <ol>
-          <li><strong>Scheduling</strong> &mdash; A calendar that syncs with Google Calendar and lets you drag jobs around.</li>
-          <li><strong>Estimates</strong> &mdash; The ability to create and send a branded estimate from your phone in under a minute.</li>
-          <li><strong>Invoicing</strong> &mdash; One-tap invoice generation and online payment collection.</li>
-          <li><strong>Client texts</strong> &mdash; Automated reminders, on-my-way alerts, and review requests.</li>
-          <li><strong>Portfolio</strong> &mdash; A professional page to show off your work and collect leads.</li>
+          <li><strong>Scheduling</strong>. A calendar that syncs with Google Calendar and lets you drag jobs around.</li>
+          <li><strong>Estimates</strong>. The ability to create and send a branded estimate from your phone in under a minute.</li>
+          <li><strong>Invoicing</strong>. One-tap invoice generation and online payment collection.</li>
+          <li><strong>Client texts</strong>. Automated reminders, on-my-way alerts, and review requests.</li>
+          <li><strong>Portfolio</strong>. A professional page to show off your work and collect leads.</li>
         </ol>
         <p>
           All four platforms handle scheduling and invoicing well. The differentiators are SMS (Opervo includes
@@ -154,7 +154,7 @@ export default function FieldServiceSoftwarePricingGuide() {
           Built specifically for solo operators and small crews in trades like{' '}
           <Link href="/pressure-washing" title="Pressure washing business software">pressure washing</Link>,{' '}
           <Link href="/landscaping" title="Landscaping business software">landscaping</Link>, and solar panel
-          cleaning. The $24.99/mo Solo plan includes every feature&nbsp;&mdash; scheduling, estimates,
+          cleaning. The $24.99/mo Solo plan includes every feature, scheduling, estimates,
           invoicing, SMS, a client portal, and a portfolio page. No per-feature upsells. The downside:
           Opervo is newer, so integrations like QuickBooks are still rolling out. If you need deep
           accounting sync today, that is a consideration.
@@ -162,7 +162,7 @@ export default function FieldServiceSoftwarePricingGuide() {
         <h3>Jobber</h3>
         <p>
           The most well-known name in FSM for small businesses. Strong scheduling, quoting, and CRM.
-          The $39/mo Core plan is solid but bare&nbsp;&mdash; you will likely need the $119/mo Connect
+          The $39/mo Core plan is solid but bare, you will likely need the $119/mo Connect
           plan for automated follow-ups and online booking. SMS costs extra. Great if you are a growing
           team that needs lots of integrations. For a detailed comparison, see our{' '}
           <Link href="/compare/opervo-vs-jobber" title="Compare Opervo vs Jobber features and pricing">Opervo vs Jobber</Link>{' '}

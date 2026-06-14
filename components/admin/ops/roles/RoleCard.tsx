@@ -59,7 +59,7 @@ export default function RoleCard({
           <Metric label="Approved" value={todays_approved} />
           <Metric
             label="Approve-as-is"
-            value={approve_rate_pct === null ? '—' : `${(approve_rate_pct * 100).toFixed(0)}%`}
+            value={approve_rate_pct === null ? ',' : `${(approve_rate_pct * 100).toFixed(0)}%`}
           />
           <Metric label="Spend today" value={`$${spend_today.toFixed(2)}/$${budget_today}`} />
         </div>

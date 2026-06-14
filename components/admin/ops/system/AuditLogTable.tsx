@@ -91,7 +91,7 @@ export default function AuditLogTable({ initialRows, totalCount }: AuditLogTable
                 {new Date(row.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
               </span>
               <span style={{ minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                <span style={{ fontWeight: 600 }}>{row.role_slug ?? '—'}</span>
+                <span style={{ fontWeight: 600 }}>{row.role_slug ?? ','}</span>
                 {row.rationale && <span style={{ color: '#6B6B6B' }}> · {row.rationale}</span>}
               </span>
               <Badge size="small" color={PHASE_COLORS[row.phase] ?? 'gray'}>{row.phase}</Badge>
@@ -103,7 +103,7 @@ export default function AuditLogTable({ initialRows, totalCount }: AuditLogTable
             {expandedId === row.id && (
               <div style={{ background: '#F7F5F2', padding: 12, fontSize: 11, fontFamily: 'ui-monospace, monospace', borderBottom: '1px solid #F0EDE8' }}>
                 <div>task_id: {row.task_id}</div>
-                <div>duration: {row.duration_ms ?? '—'}ms</div>
+                <div>duration: {row.duration_ms ?? ','}ms</div>
                 <div>full rationale: {row.rationale}</div>
               </div>
             )}

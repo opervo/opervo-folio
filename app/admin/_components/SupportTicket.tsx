@@ -33,7 +33,7 @@ export default function SupportTicket({
       const result = await api.draftReply(email.from, email.subject, email.snippet);
       setDraft(result.draft);
     } catch {
-      setDraft("Failed to generate draft — check ANTHROPIC_API_KEY.");
+      setDraft("Failed to generate draft, check ANTHROPIC_API_KEY.");
     } finally {
       setDrafting(false);
     }

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 }
 
 export default function EmbedGuidePage() {
-  // HowTo schema — embedding a quote form is a step-by-step task that
+  // HowTo schema, embedding a quote form is a step-by-step task that
   // Google can render as a rich-snippet in SERPs for "embed quote form"
   // type queries.
   const jsonLd = {
@@ -37,7 +37,7 @@ export default function EmbedGuidePage() {
       { "@type": "HowToStep", position: 3, name: "Paste into Squarespace", text: "Edit your page, click an insert point, add a Code block, paste the snippet, and save." },
       { "@type": "HowToStep", position: 4, name: "Paste into Wix", text: "Open the Wix Editor, click Add Elements → Embed Code → Embed HTML, paste the snippet, and publish." },
       { "@type": "HowToStep", position: 5, name: "Paste into a custom HTML site", text: "Open your HTML file in a code editor, paste the snippet where you want the form to appear, and upload the file." },
-      { "@type": "HowToStep", position: 6, name: "Verify the form loads", text: "Open the page in a fresh browser tab. The Opervo quote form should render inline. Submit a test quote — it lands in your Opervo Leads inbox within a few seconds." },
+      { "@type": "HowToStep", position: 6, name: "Verify the form loads", text: "Open the page in a fresh browser tab. The Opervo quote form should render inline. Submit a test quote, it lands in your Opervo Leads inbox within a few seconds." },
     ],
     publisher: { "@id": "https://www.opervo.io/#organization" },
   }
@@ -69,7 +69,7 @@ export default function EmbedGuidePage() {
               <div>
                 <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 20, textTransform: 'uppercase', color: '#0F0F0F', marginBottom: 6 }}>COPY YOUR CODE SNIPPET</h3>
                 <p style={{ fontSize: 14, color: '#6B6B6B', lineHeight: 1.6, marginBottom: 12 }}>
-                  Open the Opervo app, go to <strong style={{ color: '#0F0F0F' }}>Settings &gt; Business</strong>, and scroll to <strong style={{ color: '#0F0F0F' }}>Website Quote Form</strong>. Tap the copy button — the snippet is already personalized with your account ID.
+                  Open the Opervo app, go to <strong style={{ color: '#0F0F0F' }}>Settings &gt; Business</strong>, and scroll to <strong style={{ color: '#0F0F0F' }}>Website Quote Form</strong>. Tap the copy button, the snippet is already personalized with your account ID.
                 </p>
                 <div style={{ background: '#1a1a1a', borderRadius: 12, padding: '16px 20px', overflow: 'auto' }}>
                   <code style={{ fontSize: 13, color: '#F7F5F2', lineHeight: 1.7, whiteSpace: 'pre-wrap', wordBreak: 'break-all' }}>
@@ -85,7 +85,7 @@ export default function EmbedGuidePage() {
               <div>
                 <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 20, textTransform: 'uppercase', color: '#0F0F0F', marginBottom: 6 }}>PASTE IT INTO YOUR WEBSITE</h3>
                 <p style={{ fontSize: 14, color: '#6B6B6B', lineHeight: 1.6, marginBottom: 16 }}>
-                  Add the code to the page where you want the quote form to appear — usually a "Get a Quote" or "Contact" page. Here's how for the most common platforms:
+                  Add the code to the page where you want the quote form to appear, usually a "Get a Quote" or "Contact" page. Here's how for the most common platforms:
                 </p>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -108,7 +108,7 @@ export default function EmbedGuidePage() {
             <div style={{ display: 'flex', gap: 16 }}>
               <div style={{ width: 36, height: 36, borderRadius: '50%', background: '#F5620F', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 16, flexShrink: 0 }}>3</div>
               <div>
-                <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 20, textTransform: 'uppercase', color: '#0F0F0F', marginBottom: 6 }}>DONE — START GETTING LEADS</h3>
+                <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 20, textTransform: 'uppercase', color: '#0F0F0F', marginBottom: 6 }}>DONE, START GETTING LEADS</h3>
                 <p style={{ fontSize: 14, color: '#6B6B6B', lineHeight: 1.6 }}>
                   The form automatically pulls in your services from Opervo and shows your business name. When a customer fills it out:
                 </p>
@@ -150,7 +150,7 @@ export default function EmbedGuidePage() {
                 { q: 'Does the form match my website\'s design?', a: 'The form uses clean Opervo branding with a white/off-white background and orange accents. It works well on most sites. It displays in an isolated frame so it won\'t conflict with your site\'s styles.' },
                 { q: 'Can customers upload photos?', a: 'The embedded form currently captures name, phone, email, address, service selection, and notes. For photo uploads, link to your full Opervo portfolio page instead.' },
                 { q: 'Is there a limit on submissions?', a: 'The form is rate-limited to 5 submissions per hour per visitor to prevent spam. There\'s no monthly cap on legitimate leads.' },
-                { q: 'Will I get notified instantly?', a: 'Yes — you get a push notification on your phone the moment someone submits a quote request, plus it appears in your Leads section in the app.' },
+                { q: 'Will I get notified instantly?', a: 'Yes, you get a push notification on your phone the moment someone submits a quote request, plus it appears in your Leads section in the app.' },
                 { q: 'Does it work on mobile?', a: 'Yes. The form is fully responsive and works on all screen sizes.' },
                 { q: 'Can my web developer customize it?', a: 'The form container can be styled with CSS on your site (width, margins, etc.). The form content itself uses standard Opervo branding for a consistent professional look.' },
               ].map(({ q, a }) => (

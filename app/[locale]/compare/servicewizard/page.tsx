@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Opervo vs ServiceWizard | Field Service Comparison',
   description:
-    'Compare Opervo and ServiceWizard side by side. See which field service app gives you invoicing, scheduling, a live portfolio, and review automation — all for $24.99/mo.',
+    'Compare Opervo and ServiceWizard side by side. See which field service app gives you invoicing, scheduling, a live portfolio, and review automation, all for $24.99/mo.',
   alternates: { canonical: 'https://www.opervo.io/compare/servicewizard' },
 }
 
@@ -436,7 +436,7 @@ export default function CompareServiceWizardPage() {
             Both built for field service operators. One gives you a portfolio that wins clients. Here&apos;s how they stack up.
           </p>
           <div className="cta-row">
-            <a href="https://app.opervo.io" className="btn-primary">Start free &mdash; 14 days</a>
+            <a href="https://app.opervo.io" className="btn-primary">Start free, 14 days</a>
             <a href="https://www.opervo.io/p/solarwashatx" className="btn-ghost">See a Folio page live &rarr;</a>
           </div>
         </div>
@@ -455,11 +455,11 @@ export default function CompareServiceWizardPage() {
             <div className="detail"><strong>Verticals:</strong> Pressure washing, window cleaning, lawn care, detailing, gutter cleaning</div>
             <div className="detail"><strong>Pricing:</strong> $24.99/mo Solo &middot; $54.99/mo Team</div>
             <div className="detail"><strong>Trial:</strong> 14-day free trial, no credit card</div>
-            <div className="detail"><strong>Unique:</strong> Folio &mdash; live portfolio page that wins you clients</div>
+            <div className="detail"><strong>Unique:</strong> Folio, live portfolio page that wins you clients</div>
           </div>
           <div className="glance-card sw">
             <h3>ServiceWizard</h3>
-            <div className="tagline">Run your service business from your phone &mdash; like the pros you follow.</div>
+            <div className="tagline">Run your service business from your phone, like the pros you follow.</div>
             <div className="detail"><strong>Platform:</strong> Native iOS &amp; Android apps</div>
             <div className="detail"><strong>Target:</strong> Contractors following social media influencers</div>
             <div className="detail"><strong>Verticals:</strong> Pressure washing, junk removal, mobile detailing</div>
@@ -504,11 +504,11 @@ export default function CompareServiceWizardPage() {
             <h3>Your work sells your next job.</h3>
             <p>
               Folio is a live public page that auto-builds every time you finish a job. Before/after photos,
-              client reviews, and a quote button &mdash; all in one link you drop in your Instagram bio,
+              client reviews, and a quote button, all in one link you drop in your Instagram bio,
               Google Business profile, or truck wrap QR code.
             </p>
             <ul className="folio-bullets">
-              <li>Auto-updates with every completed job &mdash; zero extra steps</li>
+              <li>Auto-updates with every completed job, zero extra steps</li>
               <li>Clients see your proof of work before they even call</li>
               <li>No competitor has anything like this</li>
             </ul>
@@ -567,7 +567,7 @@ export default function CompareServiceWizardPage() {
           <strong>The $10/mo difference?</strong>{' '}
           For $10 more per month, you get a live portfolio that brings in clients, automatic Google reviews,
           profit tracking, recurring job support, and room to grow into a team plan. ServiceWizard gives you
-          AI quoting and SMS &mdash; but no way to turn your work into new business.
+          AI quoting and SMS, but no way to turn your work into new business.
         </div>
       </section>
 

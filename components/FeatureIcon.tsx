@@ -1,5 +1,5 @@
 // Pure presentational inline-SVG icon set (Lucide-style stroke icons).
-// No 'use client', no hooks — safe inside both server and client components.
+// No 'use client', no hooks, safe inside both server and client components.
 // Used to replace emoji feature-card icons (brand rule: no emojis anywhere).
 
 const PATHS: Record<string, React.ReactNode> = {

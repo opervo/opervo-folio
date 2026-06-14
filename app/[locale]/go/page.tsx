@@ -95,7 +95,7 @@ export default function GoPage() {
         lineHeight: '1.5',
         marginBottom: '36px',
       }}>
-        Jobs, invoices, estimates, scheduling, and a free portfolio page — all in one app. Built by a window cleaner.
+        Jobs, invoices, estimates, scheduling, and a free portfolio page, all in one app. Built by a window cleaner.
       </p>
 
       {/* Links */}
@@ -161,7 +161,7 @@ export default function GoPage() {
           lineHeight: '1.6',
           textAlign: 'center',
         }}>
-          &ldquo;I built Opervo because I was tired of paying $50/mo for software that wasn&rsquo;t built for people like me — solo operators actually on the truck.&rdquo;
+          &ldquo;I built Opervo because I was tired of paying $50/mo for software that wasn&rsquo;t built for people like me, solo operators actually on the truck.&rdquo;
         </p>
         <p style={{
           fontFamily: "'Barlow Condensed', sans-serif",
@@ -173,7 +173,7 @@ export default function GoPage() {
           textAlign: 'center',
           marginTop: '8px',
         }}>
-          — Max, Founder
+         , Max, Founder
         </p>
       </div>
 

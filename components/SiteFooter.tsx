@@ -45,10 +45,10 @@ export default function SiteFooter() {
           <div>
             <p style={colHeader}>{t('industriesHeading')}</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-              <Link href="/solar-panel-cleaning" title="Solar Panel Cleaning Software — Opervo" style={linkStyle}>{t('solarPanelCleaning')}</Link>
-              <Link href="/window-cleaning" title="Window Cleaning Software — Opervo" style={linkStyle}>{t('windowCleaning')}</Link>
-              <Link href="/pressure-washing" title="Pressure Washing Software — Opervo" style={linkStyle}>{t('pressureWashing')}</Link>
-              <Link href="/landscaping" title="Landscaping Software — Opervo" style={linkStyle}>{t('landscaping')}</Link>
+              <Link href="/solar-panel-cleaning" title="Solar Panel Cleaning Software, Opervo" style={linkStyle}>{t('solarPanelCleaning')}</Link>
+              <Link href="/window-cleaning" title="Window Cleaning Software, Opervo" style={linkStyle}>{t('windowCleaning')}</Link>
+              <Link href="/pressure-washing" title="Pressure Washing Software, Opervo" style={linkStyle}>{t('pressureWashing')}</Link>
+              <Link href="/landscaping" title="Landscaping Software, Opervo" style={linkStyle}>{t('landscaping')}</Link>
             </div>
           </div>
 
@@ -56,9 +56,9 @@ export default function SiteFooter() {
           <div>
             <p style={colHeader}>{t('compareHeading')}</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-              <Link href="/compare/opervo-vs-jobber" title="Opervo vs Jobber — Feature Comparison" style={linkStyle}>Opervo vs Jobber</Link>
-              <Link href="/compare/opervo-vs-housecall-pro" title="Opervo vs Housecall Pro — Feature Comparison" style={linkStyle}>Opervo vs Housecall Pro</Link>
-              <Link href="/compare/opervo-vs-gorilladesk" title="Opervo vs GorillaDesk — Feature Comparison" style={linkStyle}>Opervo vs GorillaDesk</Link>
+              <Link href="/compare/opervo-vs-jobber" title="Opervo vs Jobber, Feature Comparison" style={linkStyle}>Opervo vs Jobber</Link>
+              <Link href="/compare/opervo-vs-housecall-pro" title="Opervo vs Housecall Pro, Feature Comparison" style={linkStyle}>Opervo vs Housecall Pro</Link>
+              <Link href="/compare/opervo-vs-gorilladesk" title="Opervo vs GorillaDesk, Feature Comparison" style={linkStyle}>Opervo vs GorillaDesk</Link>
             </div>
           </div>
 

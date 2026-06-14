@@ -41,7 +41,7 @@ export default function ErrorCard({
       );
       setDiagnosis(result);
     } catch {
-      setDiagnosis({ diagnosis: "Failed to diagnose — check ANTHROPIC_API_KEY.", suggestedFix: "" });
+      setDiagnosis({ diagnosis: "Failed to diagnose, check ANTHROPIC_API_KEY.", suggestedFix: "" });
     } finally {
       setDiagnosing(false);
     }

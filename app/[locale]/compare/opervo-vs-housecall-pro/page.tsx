@@ -38,7 +38,7 @@ const comparisonRows = [
 ]
 
 const switchReasons = [
-  { title: 'Save $648+/year', desc: 'Opervo Solo is $24.99/mo vs Housecall Pro Basic at $79/mo. That\'s $648/year — enough to cover your insurance or buy new equipment.' },
+  { title: 'Save $648+/year', desc: 'Opervo Solo is $24.99/mo vs Housecall Pro Basic at $79/mo. That\'s $648/year, enough to cover your insurance or buy new equipment.' },
   { title: 'Portfolio page included', desc: 'Housecall Pro doesn\'t offer a public portfolio page. With Opervo, you get a shareable Folio page where clients see your work and request quotes directly.' },
   { title: 'No feature gating', desc: 'Opervo includes all features on every plan. Housecall Pro locks key features behind their Essentials ($189/mo) and MAX tiers.' },
   { title: 'Built for the operator on the truck', desc: 'Opervo is mobile-first, voice-input everywhere, fast on a phone with one hand. Housecall Pro is built for office staff to run techs in the field.' },
@@ -47,11 +47,11 @@ const switchReasons = [
 const faqs = [
   {
     q: 'Is Opervo a good alternative to Housecall Pro?',
-    a: 'Yes. Opervo includes scheduling, estimates, invoicing, a client portal, automated texts, and a portfolio page — all for $24.99/mo. Housecall Pro starts at $79/mo. Opervo is built specifically for solo operators and small crews who need professional tools without the enterprise price tag.',
+    a: 'Yes. Opervo includes scheduling, estimates, invoicing, a client portal, automated texts, and a portfolio page, all for $24.99/mo. Housecall Pro starts at $79/mo. Opervo is built specifically for solo operators and small crews who need professional tools without the enterprise price tag.',
   },
   {
     q: 'Is Housecall Pro worth $79 per month?',
-    a: 'Housecall Pro is a mature product with a built-in online booking widget and Google Local Services Ads integration. For larger teams with 5+ employees, the feature set can justify the cost. But for solo operators and small crews, you\'re paying for features and scale you don\'t need. Opervo gives you everything essential — including a native iOS app, route optimization, and QuickBooks sync — at $24.99/mo.',
+    a: 'Housecall Pro is a mature product with a built-in online booking widget and Google Local Services Ads integration. For larger teams with 5+ employees, the feature set can justify the cost. But for solo operators and small crews, you\'re paying for features and scale you don\'t need. Opervo gives you everything essential, including a native iOS app, route optimization, and QuickBooks sync, at $24.99/mo.',
   },
   {
     q: 'Can I switch from Housecall Pro to Opervo?',
@@ -59,23 +59,23 @@ const faqs = [
   },
   {
     q: 'What does Housecall Pro have that Opervo doesn\'t?',
-    a: 'Housecall Pro offers a built-in online booking widget and a Google Local Services Ads integration. If you rely heavily on those specific tools, Housecall Pro may be a better fit. For most solo operators, Opervo covers everything you need — native iOS app, route optimization, QuickBooks sync — at a third of the price.',
+    a: 'Housecall Pro offers a built-in online booking widget and a Google Local Services Ads integration. If you rely heavily on those specific tools, Housecall Pro may be a better fit. For most solo operators, Opervo covers everything you need, native iOS app, route optimization, QuickBooks sync, at a third of the price.',
   },
   {
     q: 'Does Opervo charge payment processing fees like Housecall Pro?',
-    a: 'No. Opervo passes through Stripe\'s standard rate (2.9% + $0.30) with zero markup. Housecall Pro takes 2.59% + $0.10 on every payment via their own processor on top of any subscription cost. On a $400 invoice, the markup difference comes out to roughly the same — but Opervo is transparent about it being just Stripe, and we don\'t lock you into our processor.',
+    a: 'No. Opervo passes through Stripe\'s standard rate (2.9% + $0.30) with zero markup. Housecall Pro takes 2.59% + $0.10 on every payment via their own processor on top of any subscription cost. On a $400 invoice, the markup difference comes out to roughly the same, but Opervo is transparent about it being just Stripe, and we don\'t lock you into our processor.',
   },
   {
     q: 'Does Opervo have automated text notifications like Housecall Pro?',
-    a: 'Yes — and they\'re included on every plan, not an upsell. Opervo sends on-my-way alerts with ETA, job-completion texts, invoice delivery, and tip prompts automatically. Housecall Pro includes some of these on lower tiers but locks the full set behind their Essentials plan ($189/mo).',
+    a: 'Yes, and they\'re included on every plan, not an upsell. Opervo sends on-my-way alerts with ETA, job-completion texts, invoice delivery, and tip prompts automatically. Housecall Pro includes some of these on lower tiers but locks the full set behind their Essentials plan ($189/mo).',
   },
   {
     q: 'Is Opervo or Housecall Pro better for pressure washing?',
-    a: 'Opervo, by a wide margin. Pressure washers need chemical and supply cost tracking per job, sketch-and-price by square foot, and before/after photos that auto-publish to a portfolio. Opervo has all three native. Housecall Pro is built for HVAC and plumbing tickets — it has no concept of consumable cost tracking or a public portfolio page.',
+    a: 'Opervo, by a wide margin. Pressure washers need chemical and supply cost tracking per job, sketch-and-price by square foot, and before/after photos that auto-publish to a portfolio. Opervo has all three native. Housecall Pro is built for HVAC and plumbing tickets, it has no concept of consumable cost tracking or a public portfolio page.',
   },
   {
     q: 'Can I use Opervo on my iPhone like the Housecall Pro app?',
-    a: 'Yes. Opervo is on the App Store as a native iOS app and also works as a PWA on Android or any browser. Updates push to your phone automatically — no waiting on Apple\'s review queue when we ship a fix. Same login works across web, iOS, and Android.',
+    a: 'Yes. Opervo is on the App Store as a native iOS app and also works as a PWA on Android or any browser. Updates push to your phone automatically, no waiting on Apple\'s review queue when we ship a fix. Same login works across web, iOS, and Android.',
   },
 ]
 
@@ -124,7 +124,7 @@ export default function OpervoVsHousecallPro() {
           Opervo is field service management software built for solo operators and small crews in window cleaning, pressure washing, landscaping, and solar panel cleaning. Here&apos;s how it compares to Housecall Pro.
         </p>
         <p style={{ fontSize: 15, color: '#1a1a1a', fontWeight: 600 }}>
-          <span style={{ color: '#F5620F' }}>$24.99/mo</span> vs $79/mo — save $648/year with Opervo
+          <span style={{ color: '#F5620F' }}>$24.99/mo</span> vs $79/mo, save $648/year with Opervo
         </p>
       </section>
 
@@ -172,23 +172,23 @@ export default function OpervoVsHousecallPro() {
           When Housecall Pro Might Be Better
         </h2>
         <p style={{ fontSize: 15, color: '#6B6B6B', lineHeight: 1.7, textAlign: 'center', maxWidth: 640, margin: '0 auto' }}>
-          Housecall Pro is a strong choice for established businesses with larger teams that need a built-in online booking widget and Google Local Services Ads integration. If those specific features are critical to your workflow, Housecall Pro may justify the higher price. For solo operators and small crews who want professional tools — including a native iOS app, route optimization, and QuickBooks sync — without paying $79+/mo, Opervo is the better fit.
+          Housecall Pro is a strong choice for established businesses with larger teams that need a built-in online booking widget and Google Local Services Ads integration. If those specific features are critical to your workflow, Housecall Pro may justify the higher price. For solo operators and small crews who want professional tools, including a native iOS app, route optimization, and QuickBooks sync, without paying $79+/mo, Opervo is the better fit.
         </p>
         <div style={{ marginTop: 24 }}>
           <TradesMention />
         </div>
       </section>
 
-      {/* THE KILLER DIFFERENTIATOR — folio screenshot */}
+      {/* THE KILLER DIFFERENTIATOR, folio screenshot */}
       <section style={{ background: '#fff', borderTop: '1px solid #E8E4DE', borderBottom: '1px solid #E8E4DE', padding: '64px 24px' }}>
         <div style={{ maxWidth: 800, margin: '0 auto', textAlign: 'center' }}>
           <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 28, color: '#0F0F0F', textTransform: 'uppercase', marginBottom: 12, letterSpacing: '-0.5px' }}>
             What Housecall Pro operators don&apos;t have
           </h2>
           <p style={{ fontSize: 15, color: '#6B6B6B', lineHeight: 1.6, maxWidth: 600, margin: '0 auto 32px' }}>
-            Every Opervo operator gets a public Folio page at <strong style={{ color: '#0F0F0F' }}>opervo.io/p/your-slug</strong> — auto-published before/after photos, services, reviews, and a built-in quote form. Housecall Pro has online booking widgets but no operator-branded portfolio that actually shows your work.
+            Every Opervo operator gets a public Folio page at <strong style={{ color: '#0F0F0F' }}>opervo.io/p/your-slug</strong>, auto-published before/after photos, services, reviews, and a built-in quote form. Housecall Pro has online booking widgets but no operator-branded portfolio that actually shows your work.
           </p>
-          <img src="/screenshots/hero-folio-2.jpg" alt="Opervo Folio page with before/after slider and customer reviews — the public portfolio every operator gets included with the $24.99/mo plan" loading="lazy" decoding="async" style={{ width: '100%', maxWidth: 540, height: 'auto', borderRadius: 12, border: '1px solid #E8E4DE' }} />
+          <img src="/screenshots/hero-folio-2.jpg" alt="Opervo Folio page with before/after slider and customer reviews, the public portfolio every operator gets included with the $24.99/mo plan" loading="lazy" decoding="async" style={{ width: '100%', maxWidth: 540, height: 'auto', borderRadius: 12, border: '1px solid #E8E4DE' }} />
         </div>
       </section>
 
@@ -210,7 +210,7 @@ export default function OpervoVsHousecallPro() {
         <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 'clamp(24px, 4vw, 36px)', color: '#F7F5F2', textTransform: 'uppercase', letterSpacing: '-0.5px', marginBottom: 12 }}>
           Ready to Try the Housecall Pro Alternative Built for Solos?
         </h2>
-        <p style={{ fontSize: 16, color: '#9ca3af', marginBottom: 28 }}>Start free — 14 days, no credit card. $24.99/mo after.</p>
+        <p style={{ fontSize: 16, color: '#9ca3af', marginBottom: 28 }}>Start free, 14 days, no credit card. $24.99/mo after.</p>
         <a href="https://app.opervo.io" style={{ display: 'inline-block', background: '#F5620F', color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 15, padding: '14px 36px', borderRadius: 6, textDecoration: 'none', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
           Start Free Trial →
         </a>

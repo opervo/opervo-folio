@@ -77,7 +77,7 @@ export default function CostCalculatorPage() {
           See what you&rsquo;d <em style={{ fontStyle: 'italic', color: '#F5620F' }}>actually</em> pay<span style={{ color: '#F5620F' }}>.</span>
         </h1>
         <p style={{ fontSize: 17, color: '#3a3a3a', maxWidth: 680, lineHeight: 1.55, marginBottom: 12, fontWeight: 500 }}>
-          Most field-service software hides the real cost behind add-ons, tier upgrades, and per-user fees. Pick what you need — we&rsquo;ll do the math.
+          Most field-service software hides the real cost behind add-ons, tier upgrades, and per-user fees. Pick what you need, we&rsquo;ll do the math.
         </p>
       </section>
 
@@ -138,7 +138,7 @@ export default function CostCalculatorPage() {
       {/* MAIN GRID */}
       <section style={{ maxWidth: 1100, margin: '0 auto', padding: '0 24px 48px' }}>
         <div className="cost-grid" style={{ display: 'grid', gap: 20 }}>
-          {/* LEFT — feature checklist */}
+          {/* LEFT, feature checklist */}
           <div style={{ background: '#fff', border: '1px solid #E8E4DE', borderRadius: 16, padding: 24 }}>
             <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 11, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#6B6B6B', marginBottom: 14 }}>
               {c.type === 'addon' ? 'Pick the add-ons you need' : 'Pick the features you need'}
@@ -196,7 +196,7 @@ export default function CostCalculatorPage() {
             </p>
           </div>
 
-          {/* RIGHT — live comparison */}
+          {/* RIGHT, live comparison */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
             {/* Competitor card */}
             <div style={{ background: '#fff', border: '1px solid #E8E4DE', borderRadius: 16, padding: 24 }}>
@@ -279,7 +279,7 @@ export default function CostCalculatorPage() {
 
         <p style={{ fontSize: 12, color: '#6B6B6B', marginTop: 32, lineHeight: 1.6, maxWidth: 800, fontStyle: 'italic' }}>
           Pricing pulled from public competitor pages, verified May 2026. Annual-billing rates shown where each vendor offers them.
-          Opervo &ldquo;includes&rdquo; flag is conservative — features Opervo doesn&rsquo;t natively replicate (Bring Your Own Number, Call Forwarding, Virtual Video Estimate, NiceJob, ResponsiBid, Zapier integrations) are not counted toward your savings.
+          Opervo &ldquo;includes&rdquo; flag is conservative, features Opervo doesn&rsquo;t natively replicate (Bring Your Own Number, Call Forwarding, Virtual Video Estimate, NiceJob, ResponsiBid, Zapier integrations) are not counted toward your savings.
         </p>
 
         {/* Cross-link to other tools */}

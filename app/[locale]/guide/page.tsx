@@ -20,22 +20,22 @@ type Section = { id: string; num: string; title: string; intro?: string; steps: 
 
 const sections: Section[] = [
   {
-    id: 'setup', num: '01', title: 'First 15 Minutes — Account Setup',
+    id: 'setup', num: '01', title: 'First 15 Minutes, Account Setup',
     intro: 'Get signed up and configured so every invoice, estimate, and client page looks pro from day one.',
     steps: [
-      { title: 'Create your account', body: 'Go to app.opervo.io and tap Sign up. Use email + password or a magic link. No email confirmation needed during beta — you are in immediately. Your 14-day free trial starts automatically. No credit card required.' },
-      { title: 'Fill in Business Info', body: 'Settings → Edit Business Info. This content appears on every client-facing page.', bullets: ['Business name, your name, title', 'Phone and business email', 'Street address', 'Logo (square PNG) — skip if you do not have one yet', 'Default tax rate (e.g. 8.25) — auto-fills estimates and invoices', 'Google review link — clients are prompted to leave a review after paying'] },
-      { title: 'Connect Stripe', body: 'Settings → Payments → Connect Stripe. Complete the Express onboarding — ID, bank, tax info. Once approved, payouts land in your bank 2 business days after a client pays. Opervo takes 0% of your payment — you keep 100%.' },
-      { title: 'Connect Google Calendar (optional)', body: 'Settings → Integrations → Connect Google Calendar. Two-way sync: jobs you schedule in Opervo show up in Google Calendar, and vice versa. Google verification was approved April 2026 — no warning screens.' },
+      { title: 'Create your account', body: 'Go to app.opervo.io and tap Sign up. Use email + password or a magic link. No email confirmation needed during beta, you are in immediately. Your 14-day free trial starts automatically. No credit card required.' },
+      { title: 'Fill in Business Info', body: 'Settings → Edit Business Info. This content appears on every client-facing page.', bullets: ['Business name, your name, title', 'Phone and business email', 'Street address', 'Logo (square PNG), skip if you do not have one yet', 'Default tax rate (e.g. 8.25), auto-fills estimates and invoices', 'Google review link, clients are prompted to leave a review after paying'] },
+      { title: 'Connect Stripe', body: 'Settings → Payments → Connect Stripe. Complete the Express onboarding, ID, bank, tax info. Once approved, payouts land in your bank 2 business days after a client pays. Opervo takes 0% of your payment, you keep 100%.' },
+      { title: 'Connect Google Calendar (optional)', body: 'Settings → Integrations → Connect Google Calendar. Two-way sync: jobs you schedule in Opervo show up in Google Calendar, and vice versa. Google verification was approved April 2026, no warning screens.' },
     ],
   },
   {
     id: 'clients', num: '02', title: 'Build Your Client List',
     intro: 'Get every past and current customer into Opervo so you have a clean foundation for jobs, estimates, and invoices.',
     steps: [
-      { title: 'Add clients one by one', body: 'Clients → tap the + button. Enter name, phone, email, address (Google Places autocompletes). Add notes — gate codes, pets, preferred days. Tag a lead source (Referral, Google, Door knock, Facebook) so you can see where your best jobs come from.' },
+      { title: 'Add clients one by one', body: 'Clients → tap the + button. Enter name, phone, email, address (Google Places autocompletes). Add notes, gate codes, pets, preferred days. Tag a lead source (Referral, Google, Door knock, Facebook) so you can see where your best jobs come from.' },
       { title: 'Or import from CSV', body: 'Coming from Jobber, Housecall Pro, ServiceTitan, QuickBooks, or Google Contacts? Export a CSV, then Clients → Import CSV. Opervo auto-maps columns and flags duplicates.' },
-      { title: 'Client detail page', body: 'Tap any client to see full contact info, job history, invoices, estimates, lifetime revenue, and notes. Every client gets a magic-link Client Portal — share the link and they can see their own jobs and invoices with no login required.' },
+      { title: 'Client detail page', body: 'Tap any client to see full contact info, job history, invoices, estimates, lifetime revenue, and notes. Every client gets a magic-link Client Portal, share the link and they can see their own jobs and invoices with no login required.' },
     ],
   },
   {
@@ -43,28 +43,28 @@ const sections: Section[] = [
     intro: 'The core workflow: create → schedule → start → finish → send a branded report.',
     steps: [
       { title: 'Create a job', body: 'Tap + New Job from the dashboard. Pick a client (or create one on the spot), set the address, pick a service from your catalog (auto-fills price), schedule the date and time, assign a crew member, add a checklist and notes, save.' },
-      { title: 'Recurring jobs', body: 'Toggle Recurring and pick your cadence — weekly, biweekly, monthly, custom. Opervo creates the whole series. Edit one, edit all — your choice.' },
+      { title: 'Recurring jobs', body: 'Toggle Recurring and pick your cadence, weekly, biweekly, monthly, custom. Opervo creates the whole series. Edit one, edit all, your choice.' },
       { title: 'Job status flow', body: 'Every job moves through: Documented → Scheduled → In Progress → Completed → Paid. Status updates automatically as you take the next action. Push notifications fire at every step.' },
-      { title: 'On-site features', body: 'Once at the job, you have everything you need in one screen.', bullets: ['One-tap navigation (Google Maps or Apple Maps)', 'Start Job — logs start time', 'Before / During / After photo tabs', 'Voice-to-text notes — hands-free while you work', 'Checklist ticks as you go', 'Finish Job — logs end time, moves to Completed'] },
-      { title: 'Send the branded job report', body: 'When you finish, tap Send Report. Opervo generates a branded page with your logo, before/after photos, services performed, and time on site. Share via SMS, email, or link. Clients love these — they are the #1 reason people refer you.' },
+      { title: 'On-site features', body: 'Once at the job, you have everything you need in one screen.', bullets: ['One-tap navigation (Google Maps or Apple Maps)', 'Start Job, logs start time', 'Before / During / After photo tabs', 'Voice-to-text notes, hands-free while you work', 'Checklist ticks as you go', 'Finish Job, logs end time, moves to Completed'] },
+      { title: 'Send the branded job report', body: 'When you finish, tap Send Report. Opervo generates a branded page with your logo, before/after photos, services performed, and time on site. Share via SMS, email, or link. Clients love these, they are the #1 reason people refer you.' },
     ],
   },
   {
     id: 'estimates', num: '04', title: 'Estimates & Proposals',
     intro: 'Turn on-site visits into approved work in under 60 seconds.',
     steps: [
-      { title: 'Create an estimate', body: 'Estimates → + New Estimate. Pick a client, add line items, apply discounts (percent or flat), toggle tax, attach photos (problem areas, reference shots), set an expiration date, give it a custom title like "Driveway Pressure Wash — Spring 2026".' },
+      { title: 'Create an estimate', body: 'Estimates → + New Estimate. Pick a client, add line items, apply discounts (percent or flat), toggle tax, attach photos (problem areas, reference shots), set an expiration date, give it a custom title like "Driveway Pressure Wash, Spring 2026".' },
       { title: 'Send and track', body: 'Send via SMS or email with a magic link. The client sees a branded page, taps Approve (IP logged) or Decline (with optional reason). You get a push notification the second they respond. Status tracks Draft → Sent → Approved / Declined / Expired.' },
       { title: 'Convert to job', body: 'When an estimate is approved, tap Convert to Job. Line items, client info, and photos carry over. Pick a date. Done.' },
     ],
   },
   {
     id: 'invoicing', num: '05', title: 'Invoicing & Getting Paid',
-    intro: 'Cards, Apple Pay, Google Pay — plus tipping and review prompts built in.',
+    intro: 'Cards, Apple Pay, Google Pay, plus tipping and review prompts built in.',
     steps: [
       { title: 'Create an invoice', body: 'Two ways: from a completed job (line items auto-fill) or standalone (Invoices → + New Invoice, no job required). Add line items, custom title, tax, due date, and notes.' },
       { title: 'Send and collect', body: 'Share via SMS, email, or link. Client opens a branded page with Stripe checkout built in. Status moves Draft → Sent → Paid automatically when they pay.' },
-      { title: 'Tipping and reviews', body: 'After payment, clients see a tip prompt (10% / 15% / 20% / custom) and — if you set a Google review link — a "How did we do?" prompt. Most operators see 3–5× more reviews this way.' },
+      { title: 'Tipping and reviews', body: 'After payment, clients see a tip prompt (10% / 15% / 20% / custom) and, if you set a Google review link, a "How did we do?" prompt. Most operators see 3–5× more reviews this way.' },
       { title: 'Filters and notifications', body: 'The Invoices screen has Draft, Sent, Paid, and Overdue tabs. Overdue is auto-calculated. When a client pays, you get an instant push: "💰 Sarah Johnson paid $450.00".' },
     ],
   },
@@ -77,18 +77,18 @@ const sections: Section[] = [
     ],
   },
   {
-    id: 'folio', num: '07', title: 'Your Folio — Public Portfolio',
+    id: 'folio', num: '07', title: 'Your Folio, Public Portfolio',
     intro: 'A mini-website for your business at opervo.io/p/your-slug. Share it on Instagram, Facebook, door hangers, anywhere.',
     steps: [
       { title: 'Set it up', body: 'Settings → My Folio. Pick your slug, write a headline and about section, drag in services from your catalog (each with emoji, description, price), and upload 1–20 before/after gallery photos.' },
       { title: 'Hero slider and badges', body: 'Pick a hero before/after pair for the comparison slider at the top. Toggle the "Accepting New Clients" badge. Your Google rating pulls automatically once you set the review link.' },
       { title: 'Built-in lead capture', body: 'Every Folio has a Request a Quote form. Leads flow straight into your Clients list tagged "Folio". Push notification fires the second one comes in.' },
-      { title: 'SEO and sharing', body: 'Open Graph meta tags are built in — when you share your Folio link on social or SMS, it shows a preview card with your logo, headline, and hero photo.' },
+      { title: 'SEO and sharing', body: 'Open Graph meta tags are built in, when you share your Folio link on social or SMS, it shows a preview card with your logo, headline, and hero photo.' },
     ],
   },
   {
     id: 'mileage', num: '08', title: 'Mileage & Expenses',
-    intro: 'Every tax deduction captured automatically — no shoebox of receipts.',
+    intro: 'Every tax deduction captured automatically, no shoebox of receipts.',
     steps: [
       { title: 'Log a trip', body: 'Mileage → + Log Trip. Start and end locations autocomplete. Optionally link to a job for tax categorization. Opervo calculates distance via Google Maps.' },
       { title: 'Log an expense', body: 'Expenses → + New Expense. Pick a category (Fuel, Equipment, Supplies, Insurance, Marketing), enter amount and date, snap a receipt photo, add notes.' },
@@ -146,13 +146,13 @@ const checklist = [
 ]
 
 export default function GuidePage() {
-  // HowTo schema — eligible for rich-snippet display in Google SERPs.
+  // HowTo schema, eligible for rich-snippet display in Google SERPs.
   // Each section becomes a HowToSection with its steps as HowToStep
   // entries.
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "HowTo",
-    name: "Opervo User Guide — Complete First-Week Walkthrough",
+    name: "Opervo User Guide, Complete First-Week Walkthrough",
     description: "Set up Opervo end-to-end: account, clients, jobs, estimates, invoicing, Folio, mileage, and team, your first-week walkthrough.",
     url: "https://www.opervo.io/guide",
     totalTime: "PT4H",
@@ -189,7 +189,7 @@ export default function GuidePage() {
             Your First Week on Opervo
           </h1>
           <p style={{ fontSize: 18, color: '#9CA3AF', fontFamily: "'Barlow', sans-serif", maxWidth: 640, margin: '0 auto 32px', lineHeight: 1.5 }}>
-            A full walkthrough of every feature — from signup to your first paid invoice. Work through it top to bottom on day one, or jump to a section when you need it.
+            A full walkthrough of every feature, from signup to your first paid invoice. Work through it top to bottom on day one, or jump to a section when you need it.
           </p>
           <a href="https://app.opervo.io" style={{ display: 'inline-block', background: '#F5620F', color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 17, textTransform: 'uppercase', padding: '16px 36px', borderRadius: 6, textDecoration: 'none', letterSpacing: '0.04em' }}>
             Start Free Trial &rarr;

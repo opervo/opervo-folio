@@ -38,11 +38,11 @@ export default function DoSmallContractorsNeedCrm() {
         readTime="5"
       >
         <p>
-          If you run a small home service business&nbsp;&mdash;{' '}
+          If you run a small home service business,{' '}
           <Link href="/window-cleaning" title="Window cleaning business management software">window cleaning</Link>,{' '}
           <Link href="/pressure-washing" title="Pressure washing scheduling and invoicing">pressure washing</Link>,{' '}
           <Link href="/solar-panel-cleaning" title="Solar panel cleaning business tools">solar panel cleaning</Link>,{' '}
-          <Link href="/landscaping" title="Landscaping business management software">landscaping</Link>&nbsp;&mdash;
+          <Link href="/landscaping" title="Landscaping business management software">landscaping</Link>,
           you have probably seen ads for CRM software promising to transform your business. And you have
           probably wondered whether you actually need one, or if it is just another monthly bill eating into
           your margins.
@@ -65,7 +65,7 @@ export default function DoSmallContractorsNeedCrm() {
         </ul>
         <p>
           There is no shame in running lean. Plenty of contractors make good money with simple tools. The
-          problem is that this approach breaks down at a very specific point&nbsp;&mdash; and most people do
+          problem is that this approach breaks down at a very specific point, and most people do
           not realize they have passed it until they have already lost money.
         </p>
 
@@ -75,10 +75,10 @@ export default function DoSmallContractorsNeedCrm() {
         </p>
         <ul>
           <li><strong>You have forgotten to follow up with a lead.</strong> Someone texted you asking for a quote. You meant to respond after your current job, and then you forgot. Two days later you remembered, but by then they had hired someone else. If this has happened more than once, you are leaving money on the table.</li>
-          <li><strong>You have double-booked or missed a job.</strong> You told two clients you would be there Tuesday at 10am, or you completely forgot about a recurring job. These are not memory problems&nbsp;&mdash; they are system problems.</li>
+          <li><strong>You have double-booked or missed a job.</strong> You told two clients you would be there Tuesday at 10am, or you completely forgot about a recurring job. These are not memory problems, they are system problems.</li>
           <li><strong>You cannot find client information quickly.</strong> A regular client calls and you have to scroll through months of text messages to find their address or what you charged them last time. This wastes your time and makes you look disorganized.</li>
-          <li><strong>You spend more than 30 minutes per week on admin.</strong> Writing invoices by hand, copying addresses, texting appointment reminders, tracking who has paid&nbsp;&mdash; if this administrative work is eating into your earning hours, software will give you that time back.</li>
-          <li><strong>You are losing jobs to competitors who look more professional.</strong> When a homeowner gets a handwritten text quote from you and a branded estimate with a logo and line items from another contractor, they are going to pick the one who looks like they run a real business. That is not a quality judgment&nbsp;&mdash; it is human psychology.</li>
+          <li><strong>You spend more than 30 minutes per week on admin.</strong> Writing invoices by hand, copying addresses, texting appointment reminders, tracking who has paid, if this administrative work is eating into your earning hours, software will give you that time back.</li>
+          <li><strong>You are losing jobs to competitors who look more professional.</strong> When a homeowner gets a handwritten text quote from you and a branded estimate with a logo and line items from another contractor, they are going to pick the one who looks like they run a real business. That is not a quality judgment, it is human psychology.</li>
         </ul>
         <p>
           If two or more of these describe your situation, a CRM is not optional anymore. It is the difference
@@ -87,7 +87,7 @@ export default function DoSmallContractorsNeedCrm() {
 
         <h2>WHAT &ldquo;CRM&rdquo; ACTUALLY MEANS FOR CONTRACTORS</h2>
         <p>
-          When most people hear CRM, they think of Salesforce&nbsp;&mdash; massive enterprise software with
+          When most people hear CRM, they think of Salesforce, massive enterprise software with
           dashboards, pipelines, and a learning curve that takes weeks. That is not what we are talking about.
         </p>
         <p>
@@ -113,8 +113,8 @@ export default function DoSmallContractorsNeedCrm() {
         </p>
         <p>
           The average home service job is $150 to $400, depending on your trade. Let us use a conservative
-          $200. If a CRM helps you win just one extra job per month&nbsp;&mdash; through faster follow-ups,
-          professional-looking estimates, or simply not forgetting a lead&nbsp;&mdash; that is $200 in
+          $200. If a CRM helps you win just one extra job per month, through faster follow-ups,
+          professional-looking estimates, or simply not forgetting a lead, that is $200 in
           additional revenue.
         </p>
         <p>
@@ -149,9 +149,9 @@ export default function DoSmallContractorsNeedCrm() {
         <h2>THE BOTTOM LINE</h2>
         <p>
           If you have fewer than 10 clients and do a handful of jobs per week, you can wait. But if you are
-          growing&nbsp;&mdash; if you have more clients than you can track in your head, if you have ever
+          growing, if you have more clients than you can track in your head, if you have ever
           lost a lead because you forgot to follow up, or if you want to look as professional as the bigger
-          companies in your market&nbsp;&mdash; a CRM is not an expense. It is the tool that unlocks your
+          companies in your market, a CRM is not an expense. It is the tool that unlocks your
           next level of revenue.
         </p>
         <p>

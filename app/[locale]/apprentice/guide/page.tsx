@@ -9,23 +9,23 @@ const steps = [
   {
     number: '01',
     title: 'LOG IN TO YOUR ACCOUNT',
-    body: 'Go to app.opervo.io and sign in with the email you applied with. Your free Solo plan is already active — you have access to everything: jobs, invoices, clients, scheduling, your public portfolio page, and the AI assistant.',
+    body: 'Go to app.opervo.io and sign in with the email you applied with. Your free Solo plan is already active, you have access to everything: jobs, invoices, clients, scheduling, your public portfolio page, and the AI assistant.',
   },
   {
     number: '02',
     title: 'SET UP YOUR BUSINESS',
-    body: 'Tap the Setup Checklist on your dashboard. Add your business name, upload a logo, set your services and pricing, and build out your Folio page. Your Folio is your public portfolio — clients can see your work and request a quote directly.',
+    body: 'Tap the Setup Checklist on your dashboard. Add your business name, upload a logo, set your services and pricing, and build out your Folio page. Your Folio is your public portfolio, clients can see your work and request a quote directly.',
   },
   {
     number: '03',
     title: 'SHARE YOUR CODE',
-    body: 'Your referral code is a short word based on your business name. When someone signs up for Opervo and types your code in the promo code field on their payment screen, they get 50% off their first month — and that referral is linked to you. You earn gear credits after they complete their second paid month.',
+    body: 'Your referral code is a short word based on your business name. When someone signs up for Opervo and types your code in the promo code field on their payment screen, they get 50% off their first month, and that referral is linked to you. You earn gear credits after they complete their second paid month.',
     highlight: true,
   },
   {
     number: '04',
     title: 'WHERE TO SHARE IT',
-    body: 'Put your code in your TikTok bio, say it in your videos, add it to your Instagram link-in-bio, or text it to people who ask what app you use. You don\'t need a clickable link — they just type the code when they subscribe.',
+    body: 'Put your code in your TikTok bio, say it in your videos, add it to your Instagram link-in-bio, or text it to people who ask what app you use. You don\'t need a clickable link, they just type the code when they subscribe.',
   },
   {
     number: '05',
@@ -35,7 +35,7 @@ const steps = [
   {
     number: '06',
     title: 'REDEEM GEAR',
-    body: 'When you hit a reward tier, tap Redeem on the gear you want. That sends an email to Max and he\'ll get it shipped. Reward tiers are coming soon — we\'ll let you know when they go live.',
+    body: 'When you hit a reward tier, tap Redeem on the gear you want. That sends an email to Max and he\'ll get it shipped. Reward tiers are coming soon, we\'ll let you know when they go live.',
   },
 ]
 

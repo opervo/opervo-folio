@@ -62,7 +62,7 @@ export default async function OperatorsPage() {
     const created = new Date(p.created_at as string);
     const ageDays = Math.floor((Date.now() - created.getTime()) / (24 * 60 * 60 * 1000));
     const isTrial = !p.subscription_plan && ageDays <= TRIAL_LENGTH_DAYS;
-    const isChurned = !p.subscription_plan && ageDays > TRIAL_LENGTH_DAYS;     // simplified — real def needs Stripe canceled_at
+    const isChurned = !p.subscription_plan && ageDays > TRIAL_LENGTH_DAYS;     // simplified, real def needs Stripe canceled_at
     const lastLogin = auth?.last_sign_in_at ? new Date(auth.last_sign_in_at) : null;
     const staleLogin = lastLogin && (Date.now() - lastLogin.getTime()) > STALE_LOGIN_DAYS * 24 * 60 * 60 * 1000;
     const status: OperatorRow['status'] = isChurned ? 'churned'

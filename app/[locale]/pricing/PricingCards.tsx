@@ -22,7 +22,7 @@ const teamFeatures = [
   'Role-based permissions',
   'Assign jobs to crew members',
   'Team scheduling view',
-  'All features included — no per-user fees',
+  'All features included, no per-user fees',
 ]
 
 const SOLO_MO = 24.99

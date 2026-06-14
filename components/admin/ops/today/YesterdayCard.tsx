@@ -29,7 +29,7 @@ export default function YesterdayCard({ date, metrics, prior, anomalies }: Yeste
   const delta = (cur: number, p?: number): { text: string; color: 'positive' | 'negative' | 'neutral' } | undefined => {
     if (p === undefined) return undefined;
     const d = cur - p;
-    if (d === 0) return { text: '—', color: 'neutral' };
+    if (d === 0) return { text: ',', color: 'neutral' };
     return {
       text: `${d > 0 ? '+' : ''}${d} vs prior week`,
       color: d > 0 ? 'positive' : 'negative',
@@ -37,7 +37,7 @@ export default function YesterdayCard({ date, metrics, prior, anomalies }: Yeste
   };
 
   return (
-    <Card title={`Yesterday — ${date}`}>
+    <Card title={`Yesterday, ${date}`}>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16, marginBottom: 16 }}>
         <Stat label="Signups" value={metrics.signups} delta={delta(metrics.signups, prior?.signups)?.text} deltaColor={delta(metrics.signups, prior?.signups)?.color} />
         <Stat label="Paying" value={metrics.paying} delta={delta(metrics.paying, prior?.paying)?.text} deltaColor={delta(metrics.paying, prior?.paying)?.color} />

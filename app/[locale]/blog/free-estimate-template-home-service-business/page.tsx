@@ -81,14 +81,14 @@ export default function FreeEstimateTemplate() {
           every estimate should have these elements:
         </p>
         <ul>
-          <li><strong>Your business name and logo</strong> &mdash; Top of the page, prominent.</li>
-          <li><strong>Client name and address</strong> &mdash; Shows you have their details correct.</li>
-          <li><strong>Date and estimate number</strong> &mdash; For your records and theirs.</li>
-          <li><strong>Itemized line items</strong> &mdash; Each service with a description, quantity, and price.</li>
-          <li><strong>Subtotal, tax (if applicable), and total</strong> &mdash; Clear and easy to find.</li>
-          <li><strong>Terms and conditions</strong> &mdash; Payment terms, cancellation policy, what is and is not included.</li>
-          <li><strong>Expiration date</strong> &mdash; Creates urgency. Seven to fourteen days is standard.</li>
-          <li><strong>Book Now CTA</strong> &mdash; A button or clear instruction on how to accept.</li>
+          <li><strong>Your business name and logo</strong>. Top of the page, prominent.</li>
+          <li><strong>Client name and address</strong>. Shows you have their details correct.</li>
+          <li><strong>Date and estimate number</strong>. For your records and theirs.</li>
+          <li><strong>Itemized line items</strong>. Each service with a description, quantity, and price.</li>
+          <li><strong>Subtotal, tax (if applicable), and total</strong>. Clear and easy to find.</li>
+          <li><strong>Terms and conditions</strong>. Payment terms, cancellation policy, what is and is not included.</li>
+          <li><strong>Expiration date</strong>. Creates urgency. Seven to fourteen days is standard.</li>
+          <li><strong>Book Now CTA</strong>. A button or clear instruction on how to accept.</li>
         </ul>
 
         <h2>SAMPLE ESTIMATE</h2>
@@ -190,7 +190,7 @@ export default function FreeEstimateTemplate() {
         <ol>
           <li>Tap &ldquo;New Estimate&rdquo; from your dashboard or a client profile.</li>
           <li>Select the client (or add a new one on the spot).</li>
-          <li>Add your line items&nbsp;&mdash; services, quantities, prices. Save your most common services as templates for one-tap adding.</li>
+          <li>Add your line items, services, quantities, prices. Save your most common services as templates for one-tap adding.</li>
           <li>Add terms, notes, or an expiration date.</li>
           <li>Send it via text or email. The client gets a branded estimate with your logo and a &ldquo;Book Now&rdquo; button.</li>
         </ol>

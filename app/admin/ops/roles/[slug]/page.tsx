@@ -84,7 +84,7 @@ export default async function RoleDetailPage({ params }: PageProps) {
         </div>
       </div>
 
-      <Card title="Performance — last 30 days">
+      <Card title="Performance, last 30 days">
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16, marginBottom: 24 }}>
           <Stat label="Total runs" value={monthRunsTotal} />
           <Stat label="Spend" value={`$${monthSpendTotal.toFixed(2)}`} />
@@ -115,7 +115,7 @@ export default async function RoleDetailPage({ params }: PageProps) {
             <span style={{ fontSize: 12, color: '#F5620F' }}>{s.edited} edited</span>
             <span style={{ fontSize: 12, color: '#d94e08' }}>{s.rejected} rejected</span>
             <span style={{ fontFamily: 'Barlow Condensed, sans-serif', fontWeight: 700, fontSize: 16, minWidth: 50, textAlign: 'right' }}>
-              {s.total > 0 ? `${(s.approve_pct * 100).toFixed(0)}%` : '—'}
+              {s.total > 0 ? `${(s.approve_pct * 100).toFixed(0)}%` : ','}
             </span>
           </div>
         ))}
