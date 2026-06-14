@@ -5,6 +5,7 @@ const allComparisons = [
   { name: 'Opervo vs Housecall Pro', href: '/compare/opervo-vs-housecall-pro', price: '$24.99/mo vs $79/mo' },
   { name: 'Opervo vs GorillaDesk', href: '/compare/opervo-vs-gorilladesk', price: '$24.99/mo vs $49/mo' },
   { name: 'Opervo vs Markate', href: '/compare/opervo-vs-markate', price: '$24.99/mo vs $80-110/mo (with add-ons)' },
+  { name: 'Opervo vs QuoteIQ', href: '/compare/opervo-vs-quoteiq', price: '$24.99/mo vs $29.99/mo (1 user)' },
 ]
 
 export default function MoreComparisons({ exclude }: { exclude: string }) {

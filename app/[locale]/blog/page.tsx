@@ -17,6 +17,13 @@ export const metadata: Metadata = {
 
 const posts = [
   {
+    slug: 'jobber-alternative-for-solo-operators',
+    category: 'COMPARISONS',
+    title: 'The Best Jobber Alternative for Solo Operators (2026)',
+    excerpt: 'Jobber is built for growing teams, and solo operators pay for it. The best alternatives, with the real per-user price math.',
+    date: 'June 14, 2026',
+  },
+  {
     slug: 'field-service-software-pricing-guide',
     category: 'PRICING',
     title: 'Field Service Software Pricing Guide (2026)',

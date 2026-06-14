@@ -20,6 +20,9 @@ const jsonLd = {
   headline: 'Best CRM for Solo Contractors (2026) — 5 Options Ranked',
   author: { '@type': 'Person', name: 'Max Ballesteros' },
   datePublished: '2026-03-22',
+  dateModified: '2026-06-14T00:37:19-05:00',
+  image: 'https://www.opervo.io/og-image.png',
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.opervo.io/blog/best-crm-for-solo-contractors' },
   publisher: { '@type': 'Organization', name: 'Opervo' },
 }
 
@@ -27,6 +30,7 @@ export default function BestCrmForSoloContractors() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.opervo.io"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.opervo.io/blog"}, {"@type": "ListItem", "position": 3, "name": "Best CRM for Solo Contractors (2026) | 5 Options Ranked", "item": "https://www.opervo.io/blog/best-crm-for-solo-contractors"}]}` }} />
       <BlogLayout
         category="COMPARISONS"
         title="Best CRM for Solo Contractors (2026) — 5 Options Ranked"

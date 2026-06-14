@@ -32,12 +32,12 @@ const config: TradePageConfig = {
   featuresHeading: 'What window cleaners actually need',
   featuresSub: 'You make money on routes, recurring customers, and clean handoffs. These features are built around that loop.',
   features: [
-    { icon: '🔁', title: 'Auto-recurring monthly & quarterly routes', desc: 'Build a residential quarterly or storefront monthly plan. Client e-signs the agreement once. Jobs auto-generate 30 days out, auto-bill on completion. Vacation pause + auto-resume baked in.' },
-    { icon: '🗺️', title: 'Route My Day for 12+ stops', desc: 'One tap: geolocate, geocode every stop, order by shortest path, total miles + ETA. Opens Google Maps as a multi-leg trip. Saves 40+ min on a typical route day.' },
-    { icon: '📸', title: 'Before/after auto-publish', desc: 'Snap before/after on the job — they auto-publish to your folio at opervo.io/p/your-slug. Drag-and-drop reorder, gallery up to 20 photos. The transformation IS the marketing.' },
-    { icon: '💧', title: 'Profit on every clean', desc: 'Track soap, squeegee blades, mops, fuel per job. Revenue − Supplies = Profit, live on every job. Find out which storefronts and resi accounts actually pay you well.' },
-    { icon: '📐', title: 'Sketch a building, count panes', desc: 'Drop points on a Google Maps satellite view to measure facades and floors. Auto-price by square foot or pane count. Right-angle snap keeps shapes clean.' },
-    { icon: '💬', title: 'Client texts that close the loop', desc: 'On my way → photos delivered → invoice sent → "Pay now" → tip → Google review. All automated. Your residential customers think you have an office. You don\'t.' },
+    { icon: 'repeat', title: 'Auto-recurring monthly & quarterly routes', desc: 'Build a residential quarterly or storefront monthly plan. Client e-signs the agreement once. Jobs auto-generate 30 days out, auto-bill on completion. Vacation pause + auto-resume baked in.' },
+    { icon: 'map-pin', title: 'Route My Day for 12+ stops', desc: 'One tap: geolocate, geocode every stop, order by shortest path, total miles + ETA. Opens Google Maps as a multi-leg trip. Saves 40+ min on a typical route day.' },
+    { icon: 'camera', title: 'Before/after auto-publish', desc: 'Snap before/after on the job — they auto-publish to your folio at opervo.io/p/your-slug. Drag-and-drop reorder, gallery up to 20 photos. The transformation IS the marketing.' },
+    { icon: 'droplet', title: 'Profit on every clean', desc: 'Track soap, squeegee blades, mops, fuel per job. Revenue − Supplies = Profit, live on every job. Find out which storefronts and resi accounts actually pay you well.' },
+    { icon: 'ruler', title: 'Sketch a building, count panes', desc: 'Drop points on a Google Maps satellite view to measure facades and floors. Auto-price by square foot or pane count. Right-angle snap keeps shapes clean.' },
+    { icon: 'message', title: 'Client texts that close the loop', desc: 'On my way → photos delivered → invoice sent → "Pay now" → tip → Google review. All automated. Your residential customers think you have an office. You don\'t.' },
   ],
   mathHeading: 'Why window cleaners move from Jobber<br />and Markate',
   pricingCards: [

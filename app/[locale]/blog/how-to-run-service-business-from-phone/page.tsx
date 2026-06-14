@@ -20,6 +20,9 @@ const jsonLd = {
   headline: 'How to Run a Service Business Entirely From Your Phone (2026 Guide)',
   author: { '@type': 'Person', name: 'Max Ballesteros' },
   datePublished: '2026-03-21',
+  dateModified: '2026-06-14T00:37:19-05:00',
+  image: 'https://www.opervo.io/og-image.png',
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.opervo.io/blog/how-to-run-service-business-from-phone' },
   publisher: { '@type': 'Organization', name: 'Opervo' },
 }
 
@@ -27,6 +30,7 @@ export default function HowToRunServiceBusinessFromPhone() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.opervo.io"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.opervo.io/blog"}, {"@type": "ListItem", "position": 3, "name": "How to Run a Service Business Entirely From Your Phone (2026 Guide)", "item": "https://www.opervo.io/blog/how-to-run-service-business-from-phone"}]}` }} />
       <BlogLayout
         category="GUIDES"
         title="How to Run a Service Business Entirely From Your Phone (2026 Guide)"

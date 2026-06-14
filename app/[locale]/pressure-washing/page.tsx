@@ -32,12 +32,12 @@ const config: TradePageConfig = {
   featuresHeading: 'What pressure washers actually need',
   featuresSub: 'Generic field-service tools were built for plumbers and HVAC. These are the things that move the needle on a wash day.',
   features: [
-    { icon: '💧', title: 'Profit on every wash', desc: 'Log SH, surfactant, and fuel as you use them. Every job shows Revenue − Supplies = Profit, live. That $400 driveway you "made $300 on"? Now you know if it actually paid.' },
-    { icon: '📸', title: 'Before/after auto-publish', desc: 'Snap before and after photos on the job. They auto-publish to your folio at opervo.io/p/your-slug. The transformation IS the sale — and Instagram doesn\'t even need to be open.' },
-    { icon: '📐', title: 'Sketch a driveway in 30 seconds', desc: 'Drop points around the concrete on the satellite map. Square footage and perimeter compute live as you draw. Auto-prices the estimate at your $/sq ft rate. Right-angle snap keeps shapes clean.' },
-    { icon: '🗺️', title: 'Route My Day, one tap', desc: 'Hit the button: we geolocate you, geocode today\'s stops, order them shortest-path, show miles and ETA. "Start Route" opens Google Maps as a multi-leg trip. Saves 40+ min on a 6-stop day.' },
-    { icon: '🔁', title: 'Recurring house washes that auto-bill', desc: 'Build a quarterly house wash plan, send a magic-link agreement, client e-signs. Jobs auto-generate 30 days out. Going on vacation? Pause it. Comes back the day they\'re back. No renewal calls.' },
-    { icon: '💬', title: 'Client texts that close the loop', desc: 'On my way → photos delivered → invoice sent → "Pay now" → tip prompt → Google review request. All automated. Your client thinks you have a back office. You don\'t.' },
+    { icon: 'droplet', title: 'Profit on every wash', desc: 'Log SH, surfactant, and fuel as you use them. Every job shows Revenue − Supplies = Profit, live. That $400 driveway you "made $300 on"? Now you know if it actually paid.' },
+    { icon: 'camera', title: 'Before/after auto-publish', desc: 'Snap before and after photos on the job. They auto-publish to your folio at opervo.io/p/your-slug. The transformation IS the sale — and Instagram doesn\'t even need to be open.' },
+    { icon: 'ruler', title: 'Sketch a driveway in 30 seconds', desc: 'Drop points around the concrete on the satellite map. Square footage and perimeter compute live as you draw. Auto-prices the estimate at your $/sq ft rate. Right-angle snap keeps shapes clean.' },
+    { icon: 'map-pin', title: 'Route My Day, one tap', desc: 'Hit the button: we geolocate you, geocode today\'s stops, order them shortest-path, show miles and ETA. "Start Route" opens Google Maps as a multi-leg trip. Saves 40+ min on a 6-stop day.' },
+    { icon: 'repeat', title: 'Recurring house washes that auto-bill', desc: 'Build a quarterly house wash plan, send a magic-link agreement, client e-signs. Jobs auto-generate 30 days out. Going on vacation? Pause it. Comes back the day they\'re back. No renewal calls.' },
+    { icon: 'message', title: 'Client texts that close the loop', desc: 'On my way → photos delivered → invoice sent → "Pay now" → tip prompt → Google review request. All automated. Your client thinks you have a back office. You don\'t.' },
   ],
   mathHeading: 'Why operators move from Jobber<br />and Housecall Pro',
   pricingCards: [

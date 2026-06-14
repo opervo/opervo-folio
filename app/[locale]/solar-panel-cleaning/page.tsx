@@ -32,12 +32,12 @@ const config: TradePageConfig = {
   featuresHeading: 'What solar cleaners actually need',
   featuresSub: 'Recurring agreements drive your revenue. Visual proof drives your bookings. These features are built around that.',
   features: [
-    { icon: '☀️', title: 'Annual & biannual agreements that auto-bill', desc: 'Build a 6-month or annual cleaning plan. Client e-signs the agreement once via magic link. Jobs auto-generate 30 days out, auto-bill on completion. Auto-pause for the rainy season; auto-resume when it ends.' },
-    { icon: '🗺️', title: 'Route My Day for residential routes', desc: 'Tap once: geolocate, geocode 4-6 residential stops, order them shortest-path, show miles + ETA. Opens Google Maps as a multi-leg trip with all stops as waypoints.' },
-    { icon: '📸', title: 'Before/after panel photos auto-publish', desc: 'Snap before/after on the array — they auto-publish to your folio at opervo.io/p/your-slug. Drag-and-drop reorder, gallery up to 20 photos. Solar cleaning is visual; the dirty/clean panel shot IS the sale.' },
-    { icon: '💧', title: 'Water, soap, fuel cost per job', desc: 'Track DI water, panel-safe soap, fuel as you use them. Revenue − Supplies = Profit, live on every job. Auto-deducted as a tax expense at year-end.' },
-    { icon: '📐', title: 'Sketch arrays, auto-price commercial sites', desc: 'Drop points around a commercial array on a Google Maps satellite view. Square footage and perimeter compute live. Auto-prices the estimate at your $/sq ft rate. Right-angle snap keeps shapes clean.' },
-    { icon: '💬', title: 'Client texts + commercial property manager email', desc: 'Residential: on-my-way → photos → invoice → tip → review, all automated. Commercial: branded job reports go straight to property managers via magic link. Looks like you have a back office.' },
+    { icon: 'sun', title: 'Annual & biannual agreements that auto-bill', desc: 'Build a 6-month or annual cleaning plan. Client e-signs the agreement once via magic link. Jobs auto-generate 30 days out, auto-bill on completion. Auto-pause for the rainy season; auto-resume when it ends.' },
+    { icon: 'map-pin', title: 'Route My Day for residential routes', desc: 'Tap once: geolocate, geocode 4-6 residential stops, order them shortest-path, show miles + ETA. Opens Google Maps as a multi-leg trip with all stops as waypoints.' },
+    { icon: 'camera', title: 'Before/after panel photos auto-publish', desc: 'Snap before/after on the array — they auto-publish to your folio at opervo.io/p/your-slug. Drag-and-drop reorder, gallery up to 20 photos. Solar cleaning is visual; the dirty/clean panel shot IS the sale.' },
+    { icon: 'droplet', title: 'Water, soap, fuel cost per job', desc: 'Track DI water, panel-safe soap, fuel as you use them. Revenue − Supplies = Profit, live on every job. Auto-deducted as a tax expense at year-end.' },
+    { icon: 'ruler', title: 'Sketch arrays, auto-price commercial sites', desc: 'Drop points around a commercial array on a Google Maps satellite view. Square footage and perimeter compute live. Auto-prices the estimate at your $/sq ft rate. Right-angle snap keeps shapes clean.' },
+    { icon: 'message', title: 'Client texts + commercial property manager email', desc: 'Residential: on-my-way → photos → invoice → tip → review, all automated. Commercial: branded job reports go straight to property managers via magic link. Looks like you have a back office.' },
   ],
   mathHeading: 'Why solar cleaners move from Jobber<br />and Markate',
   pricingCards: [

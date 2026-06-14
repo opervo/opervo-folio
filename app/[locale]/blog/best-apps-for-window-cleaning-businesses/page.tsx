@@ -20,6 +20,9 @@ const jsonLd = {
   headline: 'Best Apps for Window Cleaning Businesses (2026) — 5 Tools Ranked',
   author: { '@type': 'Person', name: 'Max Ballesteros' },
   datePublished: '2026-03-19',
+  dateModified: '2026-06-14T00:37:19-05:00',
+  image: 'https://www.opervo.io/og-image.png',
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.opervo.io/blog/best-apps-for-window-cleaning-businesses' },
   publisher: { '@type': 'Organization', name: 'Opervo' },
 }
 
@@ -27,6 +30,7 @@ export default function BestAppsForWindowCleaningBusinesses() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.opervo.io"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.opervo.io/blog"}, {"@type": "ListItem", "position": 3, "name": "Best Apps for Window Cleaning Businesses (2026) | 5 Tools Ranked", "item": "https://www.opervo.io/blog/best-apps-for-window-cleaning-businesses"}]}` }} />
       <BlogLayout
         category="COMPARISONS"
         title="Best Apps for Window Cleaning Businesses (2026) — 5 Tools Ranked"

@@ -20,6 +20,9 @@ const jsonLd = {
   headline: 'Do Small Contractors Need a CRM? (Honest Answer)',
   author: { '@type': 'Person', name: 'Max Ballesteros' },
   datePublished: '2026-03-17',
+  dateModified: '2026-06-14T00:37:19-05:00',
+  image: 'https://www.opervo.io/og-image.png',
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.opervo.io/blog/do-small-contractors-need-crm' },
   publisher: { '@type': 'Organization', name: 'Opervo' },
 }
 
@@ -27,6 +30,7 @@ export default function DoSmallContractorsNeedCrm() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.opervo.io"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.opervo.io/blog"}, {"@type": "ListItem", "position": 3, "name": "Do Small Contractors Need a CRM? (Honest Answer)", "item": "https://www.opervo.io/blog/do-small-contractors-need-crm"}]}` }} />
       <BlogLayout
         category="BUSINESS TIPS"
         title="Do Small Contractors Need a CRM? (Honest Answer)"

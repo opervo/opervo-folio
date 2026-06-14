@@ -32,12 +32,12 @@ const config: TradePageConfig = {
   featuresHeading: 'What landscapers actually need',
   featuresSub: 'You make money on routes and recurring maintenance. Generic field-service tools weren\'t built for that.',
   features: [
-    { icon: '🚜', title: 'Mow-day route optimization, one tap', desc: 'Hit the button: we geolocate you, geocode 25 stops, order them shortest-path, show miles and ETA. Opens Google Maps as a multi-leg trip. Saves 40+ min on a typical mow day.' },
-    { icon: '📝', title: 'Recurring maintenance agreements', desc: 'Build a weekly mow plan, biweekly hedge trim, monthly fertilizer. Client e-signs the agreement once. Jobs auto-generate 30 days out and auto-bill. Vacation pause + auto-resume.' },
-    { icon: '🌱', title: 'Mulch, fuel, fertilizer cost per job', desc: 'Log yards of mulch, gallons of fuel, pounds of fertilizer as you use them. Revenue − Supplies = Profit, live on every job. Auto-deducted as a tax expense.' },
-    { icon: '📐', title: 'Sketch a lawn, auto-price the bid', desc: 'Drop points around the property on a Google Maps satellite view. Square footage and perimeter compute live. Auto-prices the estimate at your $/sq ft rate.' },
-    { icon: '📸', title: 'Property photos auto-publish to your folio', desc: 'Snap before/after on every property — they auto-publish to your folio at opervo.io/p/your-slug. Drag-and-drop reorder, gallery up to 20 photos. Built-in quote form for new leads.' },
-    { icon: '💬', title: 'Client texts that close the loop', desc: 'On my way → photos delivered → invoice sent → "Pay now" → tip → Google review. All automated. Property owners think you have a back office. You don\'t.' },
+    { icon: 'map-pin', title: 'Mow-day route optimization, one tap', desc: 'Hit the button: we geolocate you, geocode 25 stops, order them shortest-path, show miles and ETA. Opens Google Maps as a multi-leg trip. Saves 40+ min on a typical mow day.' },
+    { icon: 'clipboard', title: 'Recurring maintenance agreements', desc: 'Build a weekly mow plan, biweekly hedge trim, monthly fertilizer. Client e-signs the agreement once. Jobs auto-generate 30 days out and auto-bill. Vacation pause + auto-resume.' },
+    { icon: 'sprout', title: 'Mulch, fuel, fertilizer cost per job', desc: 'Log yards of mulch, gallons of fuel, pounds of fertilizer as you use them. Revenue − Supplies = Profit, live on every job. Auto-deducted as a tax expense.' },
+    { icon: 'ruler', title: 'Sketch a lawn, auto-price the bid', desc: 'Drop points around the property on a Google Maps satellite view. Square footage and perimeter compute live. Auto-prices the estimate at your $/sq ft rate.' },
+    { icon: 'camera', title: 'Property photos auto-publish to your folio', desc: 'Snap before/after on every property — they auto-publish to your folio at opervo.io/p/your-slug. Drag-and-drop reorder, gallery up to 20 photos. Built-in quote form for new leads.' },
+    { icon: 'message', title: 'Client texts that close the loop', desc: 'On my way → photos delivered → invoice sent → "Pay now" → tip → Google review. All automated. Property owners think you have a back office. You don\'t.' },
   ],
   mathHeading: 'Why landscapers move from Jobber<br />and Markate',
   pricingCards: [

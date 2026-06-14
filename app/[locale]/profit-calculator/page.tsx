@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react'
 import Link from 'next/link'
 import SiteNav from '@/components/SiteNav'
 import SiteFooter from '@/components/SiteFooter'
+import FeatureIcon from '@/components/FeatureIcon'
 
 const TRADES = [
   'Pressure washing',
@@ -211,27 +212,27 @@ export default function ProfitCalculatorPage() {
           {(() => {
             const cards: Array<{ icon: string; title: string; body: string }> = []
             if (rev > 0 && hourly < 25 && h > 0) {
-              cards.push({ icon: '⚠️', title: `Effective hourly: ${fmtMoneyRound(hourly)}/hr`, body: 'That\'s below most trades\' break-even after taxes, insurance, and equipment depreciation. The job either needs to be priced higher or scoped tighter.' })
+              cards.push({ icon: 'alert-triangle', title: `Effective hourly: ${fmtMoneyRound(hourly)}/hr`, body: 'That\'s below most trades\' break-even after taxes, insurance, and equipment depreciation. The job either needs to be priced higher or scoped tighter.' })
             } else if (rev > 0 && hourly >= 75) {
-              cards.push({ icon: '✅', title: `Effective hourly: ${fmtMoneyRound(hourly)}/hr`, body: 'Strong number. Anything you can do to repeat this exact job (same client recurring, similar properties) is gold.' })
+              cards.push({ icon: 'check-circle', title: `Effective hourly: ${fmtMoneyRound(hourly)}/hr`, body: 'Strong number. Anything you can do to repeat this exact job (same client recurring, similar properties) is gold.' })
             } else if (rev > 0 && h > 0) {
-              cards.push({ icon: '💡', title: `Effective hourly: ${fmtMoneyRound(hourly)}/hr`, body: 'Solid for an hourly. Track this across 5-10 jobs to find the work types that actually pay best.' })
+              cards.push({ icon: 'lightbulb', title: `Effective hourly: ${fmtMoneyRound(hourly)}/hr`, body: 'Solid for an hourly. Track this across 5-10 jobs to find the work types that actually pay best.' })
             }
             if (mileageCost > 0 && mileageCost / Math.max(rev, 1) > 0.08) {
-              cards.push({ icon: '🛣️', title: 'Drive time is eating you', body: `Mileage cost (${fmtMoney(mileageCost)}) is over 8% of revenue. Route-clustering nearby jobs into the same day or charging a travel fee outside your zone fixes this fast.` })
+              cards.push({ icon: 'route', title: 'Drive time is eating you', body: `Mileage cost (${fmtMoney(mileageCost)}) is over 8% of revenue. Route-clustering nearby jobs into the same day or charging a travel fee outside your zone fixes this fast.` })
             }
             if (mat > 0 && mat / Math.max(rev, 1) > 0.25) {
-              cards.push({ icon: '🧴', title: 'Materials are heavy', body: `Materials are ${fmtPct(mat / rev)} of revenue. Worth tracking per-job — bulk-buy, switch suppliers, or raise prices on jobs where chems/products dominate.` })
+              cards.push({ icon: 'spray', title: 'Materials are heavy', body: `Materials are ${fmtPct(mat / rev)} of revenue. Worth tracking per-job — bulk-buy, switch suppliers, or raise prices on jobs where chems/products dominate.` })
             }
             if (help > 0 && (help + mileageCost + mat) / Math.max(rev, 1) > 0.6) {
-              cards.push({ icon: '👥', title: 'Total cost ratio is high', body: `Materials + mileage + helpers = ${fmtPct((help + mileageCost + mat) / rev)} of revenue. Margin gets thin fast — recheck pricing or cut a cost.` })
+              cards.push({ icon: 'users', title: 'Total cost ratio is high', body: `Materials + mileage + helpers = ${fmtPct((help + mileageCost + mat) / rev)} of revenue. Margin gets thin fast — recheck pricing or cut a cost.` })
             }
             if (cards.length === 0) {
-              cards.push({ icon: '✅', title: 'Looks healthy', body: 'Profit, margin, and hourly are all in a good range for this trade. Run more jobs through the calculator and find the patterns.' })
+              cards.push({ icon: 'check-circle', title: 'Looks healthy', body: 'Profit, margin, and hourly are all in a good range for this trade. Run more jobs through the calculator and find the patterns.' })
             }
             return cards.slice(0, 3).map((c) => (
               <div key={c.title} style={{ background: '#fff', border: '1px solid #E8E4DE', borderRadius: 10, padding: '18px 20px' }}>
-                <div style={{ fontSize: 20, marginBottom: 8 }}>{c.icon}</div>
+                <div style={{ color: '#F5620F', marginBottom: 8 }}><FeatureIcon name={c.icon} size={22} /></div>
                 <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 15, color: '#0F0F0F', textTransform: 'uppercase', marginBottom: 6, letterSpacing: '-0.2px' }}>{c.title}</h3>
                 <p style={{ fontSize: 13, color: '#6B6B6B', lineHeight: 1.55 }}>{c.body}</p>
               </div>
@@ -262,7 +263,7 @@ export default function ProfitCalculatorPage() {
             </>
           ) : (
             <>
-              <div style={{ fontSize: 40, marginBottom: 8 }}>✅</div>
+              <div style={{ color: '#F5620F', marginBottom: 8, display: 'flex', justifyContent: 'center' }}><FeatureIcon name="check-circle" size={40} /></div>
               <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 26, color: '#0F0F0F', textTransform: 'uppercase', letterSpacing: '-0.5px', marginBottom: 10 }}>
                 Sent. Check your inbox.
               </h2>

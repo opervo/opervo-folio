@@ -20,6 +20,9 @@ const jsonLd = {
   headline: 'How to Grow a Small Service Business (From Solo to Crew)',
   author: { '@type': 'Person', name: 'Max Ballesteros' },
   datePublished: '2026-03-14',
+  dateModified: '2026-05-06T17:11:03-05:00',
+  image: 'https://www.opervo.io/og-image.png',
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.opervo.io/blog/how-to-grow-small-service-business' },
   publisher: { '@type': 'Organization', name: 'Opervo' },
 }
 
@@ -27,6 +30,7 @@ export default function HowToGrowSmallServiceBusiness() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.opervo.io"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.opervo.io/blog"}, {"@type": "ListItem", "position": 3, "name": "How to Grow a Small Service Business (From Solo to Crew)", "item": "https://www.opervo.io/blog/how-to-grow-small-service-business"}]}` }} />
       <BlogLayout
         category="GUIDES"
         title="How to Grow a Small Service Business (From Solo to Crew)"

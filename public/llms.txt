@@ -21,6 +21,7 @@
 - [Opervo vs Housecall Pro](https://www.opervo.io/compare/opervo-vs-housecall-pro)
 - [Opervo vs GorillaDesk](https://www.opervo.io/compare/opervo-vs-gorilladesk)
 - [Opervo vs Markate](https://www.opervo.io/compare/opervo-vs-markate)
+- [Opervo vs QuoteIQ](https://www.opervo.io/compare/opervo-vs-quoteiq): flat pricing with a helper included vs QuoteIQ's per-user-bucket tiers.
 
 ## Free tools
 - [Cost calculator](https://www.opervo.io/cost-calculator): estimate what field service software actually costs you.
@@ -31,6 +32,7 @@
 - [Cheapest field service management software](https://www.opervo.io/blog/cheapest-field-service-management-software)
 - [Jobber vs Housecall Pro vs Opervo](https://www.opervo.io/blog/jobber-vs-housecall-pro-vs-opervo)
 - [Best CRM for solo contractors](https://www.opervo.io/blog/best-crm-for-solo-contractors)
+- [Best Jobber alternative for solo operators](https://www.opervo.io/blog/jobber-alternative-for-solo-operators): the real per-user price math and the best alternatives.
 - [Do small contractors need a CRM](https://www.opervo.io/blog/do-small-contractors-need-crm)
 - [Field service software pricing guide](https://www.opervo.io/blog/field-service-software-pricing-guide)
 - [Best apps for window cleaning businesses](https://www.opervo.io/blog/best-apps-for-window-cleaning-businesses)

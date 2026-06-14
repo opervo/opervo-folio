@@ -32,12 +32,12 @@ const config: TradePageConfig = {
   featuresHeading: 'What detailers actually need',
   featuresSub: 'Packages, before/after proof, and routes for the mobile guys. Plus the cost of all those products you actually use.',
   features: [
-    { icon: '🚗', title: 'Package-driven estimates', desc: 'Build Bronze / Silver / Gold packages with services, products, and pricing baked in. One-tap quote on the spot. Convert to a job in another tap. No re-typing line items every time.' },
-    { icon: '📸', title: 'Before/after auto-publish', desc: 'Snap before/after on every detail — they auto-publish to your folio at opervo.io/p/your-slug. Drag-and-drop reorder, before/after slider, gallery up to 20 photos. The transformation IS the marketing.' },
-    { icon: '🗺️', title: 'Route My Day for mobile detailers', desc: 'Hit the button: we geolocate you, geocode today\'s appointments, order them shortest-path, show miles and ETA. Opens Google Maps as a multi-leg trip. Saves 30+ min on a 4-stop mobile day.' },
-    { icon: '🧴', title: 'Product cost per detail', desc: 'Track wax, sealant, soap, water, brushes, microfibers as you use them. Revenue − Supplies = Profit, live on every detail. Find out which packages actually pay you well.' },
-    { icon: '🔁', title: 'Recurring detail subscriptions', desc: 'Build monthly maintenance plans for fleet accounts and exotic-car clients. Client e-signs once via magic link. Jobs auto-generate, auto-bill. Vacation pause + auto-resume baked in.' },
-    { icon: '💬', title: 'Client texts that close the loop', desc: 'On my way → photos delivered → invoice sent → "Pay now" → tip → Google review request. All automated. Your clients think you have a back office. You don\'t.' },
+    { icon: 'car', title: 'Package-driven estimates', desc: 'Build Bronze / Silver / Gold packages with services, products, and pricing baked in. One-tap quote on the spot. Convert to a job in another tap. No re-typing line items every time.' },
+    { icon: 'camera', title: 'Before/after auto-publish', desc: 'Snap before/after on every detail — they auto-publish to your folio at opervo.io/p/your-slug. Drag-and-drop reorder, before/after slider, gallery up to 20 photos. The transformation IS the marketing.' },
+    { icon: 'map-pin', title: 'Route My Day for mobile detailers', desc: 'Hit the button: we geolocate you, geocode today\'s appointments, order them shortest-path, show miles and ETA. Opens Google Maps as a multi-leg trip. Saves 30+ min on a 4-stop mobile day.' },
+    { icon: 'spray', title: 'Product cost per detail', desc: 'Track wax, sealant, soap, water, brushes, microfibers as you use them. Revenue − Supplies = Profit, live on every detail. Find out which packages actually pay you well.' },
+    { icon: 'repeat', title: 'Recurring detail subscriptions', desc: 'Build monthly maintenance plans for fleet accounts and exotic-car clients. Client e-signs once via magic link. Jobs auto-generate, auto-bill. Vacation pause + auto-resume baked in.' },
+    { icon: 'message', title: 'Client texts that close the loop', desc: 'On my way → photos delivered → invoice sent → "Pay now" → tip → Google review request. All automated. Your clients think you have a back office. You don\'t.' },
   ],
   mathHeading: 'Why detailers move from Jobber<br />and Markate',
   pricingCards: [

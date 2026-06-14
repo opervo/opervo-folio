@@ -20,6 +20,9 @@ const jsonLd = {
   headline: 'Free Estimate Template for Home Service Businesses',
   author: { '@type': 'Person', name: 'Max Ballesteros' },
   datePublished: '2026-03-15',
+  dateModified: '2026-05-06T17:11:03-05:00',
+  image: 'https://www.opervo.io/og-image.png',
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.opervo.io/blog/free-estimate-template-home-service-business' },
   publisher: { '@type': 'Organization', name: 'Opervo' },
 }
 
@@ -27,6 +30,7 @@ export default function FreeEstimateTemplate() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.opervo.io"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.opervo.io/blog"}, {"@type": "ListItem", "position": 3, "name": "Free Estimate Template for Home Service Businesses", "item": "https://www.opervo.io/blog/free-estimate-template-home-service-business"}]}` }} />
       <BlogLayout
         category="TEMPLATES"
         title="Free Estimate Template for Home Service Businesses"

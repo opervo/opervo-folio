@@ -3,6 +3,7 @@ import SiteNav from '@/components/SiteNav'
 import SiteFooter from '@/components/SiteFooter'
 import OtherTrades from '@/components/OtherTrades'
 import ComparisonLinks from '@/components/ComparisonLinks'
+import FeatureIcon from '@/components/FeatureIcon'
 
 export type TradeFeature = { icon: string; title: string; desc: string }
 export type TradeStat = { stat: string; label: string }
@@ -136,7 +137,7 @@ export default function TradeLandingPage({ config }: { config: TradePageConfig }
             </a>
           </div>
           <a href="sms:+15127616054" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 13, fontWeight: 600, color: '#F5620F', textDecoration: 'none', borderBottom: '1px dashed rgba(245,98,15,0.4)', paddingBottom: 2 }}>
-            💬 Got a question? Text Max → (512) 761-6054
+            <FeatureIcon name="message" size={16} /> Got a question? Text Max → (512) 761-6054
           </a>
         </div>
         <div style={{ flex: '1 1 380px', minWidth: 280, display: 'flex', justifyContent: 'center' }}>
@@ -169,7 +170,7 @@ export default function TradeLandingPage({ config }: { config: TradePageConfig }
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 16 }}>
           {c.features.map((f) => (
             <div key={f.title} style={{ background: '#fff', border: '1px solid #E8E4DE', borderRadius: 10, padding: '24px 22px' }}>
-              <div style={{ fontSize: 28, marginBottom: 12 }}>{f.icon}</div>
+              <div style={{ color: '#F5620F', marginBottom: 12 }}><FeatureIcon name={f.icon} /></div>
               <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 17, color: '#0F0F0F', textTransform: 'uppercase', marginBottom: 10, letterSpacing: '-0.2px' }}>{f.title}</h3>
               <p style={{ fontSize: 14, color: '#6B6B6B', lineHeight: 1.6 }}>{f.desc}</p>
             </div>
