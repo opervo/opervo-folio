@@ -47,10 +47,17 @@ export async function generateMetadata({
       title: meta.ogTitle ?? meta.title,
       description: meta.ogDescription ?? meta.description,
       url: canonical,
+      // Without this, the page openGraph overrides the layout's and drops the
+      // image. With no og:image, scrapers auto-pick an image from the page
+      // body, which was grabbing a dashboard screenshot. Pin the branded OG
+      // card explicitly. metadataBase (layout) makes this absolute.
+      images: [{ url: '/og-image.png', width: 1200, height: 630 }],
     },
     twitter: {
+      card: 'summary_large_image',
       title: meta.ogTitle ?? meta.title,
       description: meta.ogDescription ?? meta.description,
+      images: ['/og-image.png'],
     },
   }
 }
