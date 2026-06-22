@@ -8,7 +8,7 @@ export const revalidate = 60
 export const metadata: Metadata = {
   title: 'Opervo Lifetime Pass · 150 spots, never offered again',
   description:
-    'Pay once. You\'re in. Every feature, every update, every year. 100 Solo Passes at $999. 50 Team Passes at $1,999. When they\'re gone, the door closes for good.',
+    'Pay once. You\'re in. Every feature, every update, every year. 100 Solo Passes at $499. 50 Team Passes at $1,499. When they\'re gone, the door closes for good.',
   alternates: { canonical: 'https://www.opervo.io/lifetime' },
   openGraph: {
     title: 'Opervo Lifetime Pass · 150 spots, never offered again',
@@ -21,8 +21,8 @@ export const metadata: Metadata = {
 
 const SOLO_CAP = 100
 const TEAM_CAP = 50
-const SOLO_PRICE = 999
-const TEAM_PRICE = 1999
+const SOLO_PRICE = 499
+const TEAM_PRICE = 1499
 
 async function getCounts(): Promise<{ solo: number; team: number }> {
   try {
@@ -127,11 +127,11 @@ export default async function LifetimePage() {
               <span style={{ fontSize: 11, fontWeight: 700, color: '#6B6B6B', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{SOLO_CAP} total · {soloLeft} left</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 4 }}>
-              <span style={{ ...heading, fontSize: 56, lineHeight: 1, color: '#0F0F0F' }}>$999</span>
+              <span style={{ ...heading, fontSize: 56, lineHeight: 1, color: '#0F0F0F' }}>$499</span>
               <span style={{ fontSize: 14, color: '#6B6B6B', fontWeight: 500 }}>once</span>
             </div>
             <p style={{ fontSize: 12, color: '#6B6B6B', fontWeight: 500, marginBottom: 12 }}>
-              or 4 payments of $249.75, interest-free with Klarna at checkout
+              or 4 payments of $124.75, interest-free with Klarna at checkout
             </p>
             <p style={{ fontSize: 14, color: '#6B6B6B', lineHeight: 1.55, marginBottom: 20 }}>
               You + a helper. Every Solo feature we ship, forever. Compare to $24.99/mo.
@@ -154,7 +154,7 @@ export default async function LifetimePage() {
               </button>
             ) : soloUrl ? (
               <a href={soloUrl} style={{ display: 'block', width: '100%', textAlign: 'center', padding: '16px 20px', background: '#F5620F', color: '#fff', borderRadius: 8, fontSize: 15, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', textDecoration: 'none', boxSizing: 'border-box' }}>
-                Buy Solo Lifetime · $999
+                Buy Solo Lifetime · $499
               </a>
             ) : (
               <button disabled style={{ display: 'block', width: '100%', textAlign: 'center', padding: '16px 20px', background: '#E8E4DE', color: '#6B6B6B', borderRadius: 8, fontSize: 15, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', border: 'none', cursor: 'not-allowed' }}>
@@ -171,11 +171,11 @@ export default async function LifetimePage() {
               <span style={{ fontSize: 11, fontWeight: 700, color: '#b0aaa0', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{TEAM_CAP} total · {teamLeft} left</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 4 }}>
-              <span style={{ ...heading, fontSize: 56, lineHeight: 1, color: '#fff' }}>$1,999</span>
+              <span style={{ ...heading, fontSize: 56, lineHeight: 1, color: '#fff' }}>$1,499</span>
               <span style={{ fontSize: 14, color: '#b0aaa0', fontWeight: 500 }}>once</span>
             </div>
             <p style={{ fontSize: 12, color: '#b0aaa0', fontWeight: 500, marginBottom: 12 }}>
-              or 4 payments of $499.75, interest-free with Klarna at checkout
+              or 4 payments of $374.75, interest-free with Klarna at checkout
             </p>
             <p style={{ fontSize: 14, color: '#b0aaa0', lineHeight: 1.55, marginBottom: 20 }}>
               Up to 10 team members. Every Team feature we ship, forever. Compare to $54.99/mo.
@@ -197,7 +197,7 @@ export default async function LifetimePage() {
               </button>
             ) : teamUrl ? (
               <a href={teamUrl} style={{ display: 'block', width: '100%', textAlign: 'center', padding: '16px 20px', background: '#F5620F', color: '#fff', borderRadius: 8, fontSize: 15, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', textDecoration: 'none', boxSizing: 'border-box' }}>
-                Buy Team Lifetime · $1,999
+                Buy Team Lifetime · $1,499
               </a>
             ) : (
               <button disabled style={{ display: 'block', width: '100%', textAlign: 'center', padding: '16px 20px', background: 'rgba(255,255,255,0.08)', color: '#6B6B6B', borderRadius: 8, fontSize: 15, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', border: 'none', cursor: 'not-allowed' }}>
@@ -310,11 +310,11 @@ export default async function LifetimePage() {
           {[
             {
               q: 'What if I\'m already paying for Opervo?',
-              a: 'Your last 12 months of payments come off the lifetime price. If you\'ve paid us $300 over the year, you pay $699 instead of $999. Email help@opervo.io to apply the credit.',
+              a: 'Your last 12 months of payments come off the lifetime price. If you\'ve paid us $300 over the year, you pay $199 instead of $499. Email help@opervo.io to apply the credit.',
             },
             {
               q: 'Can I split the payment up?',
-              a: 'Yes. At checkout, choose Klarna and split it into 4 interest-free payments. $249.75 every two weeks for Solo, $499.75 every two weeks for Team. Klarna handles the financing. From our side it\'s still one payment, and you\'re a Lifetime Pass holder from day one.',
+              a: 'Yes. At checkout, choose Klarna and split it into 4 interest-free payments. $124.75 every two weeks for Solo, $374.75 every two weeks for Team. Klarna handles the financing. From our side it\'s still one payment, and you\'re a Lifetime Pass holder from day one.',
             },
             {
               q: 'What does "lifetime" actually mean?',
@@ -337,7 +337,7 @@ export default async function LifetimePage() {
               a: 'Only if Team Passes are still available, and only by paying the difference ($1,000). After Team is sold out, no upgrades. Solo Lifetime stays Solo for life.',
             },
             {
-              q: 'Why should I trust a one-person company with $999?',
+              q: 'Why should I trust a one-person company with $499?',
               a: 'You shouldn\'t blindly. Here\'s what I can offer: 30-day money-back, written acquirer-protection clause, refund clause if we shut down, my real name and a real day job at the bottom of this page. If that\'s not enough yet, start on the monthly trial first. Come back when you\'re ready. The Pass is here until 150 are gone.',
             },
             {
@@ -370,12 +370,12 @@ export default async function LifetimePage() {
           <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
             {!soloSoldOut && soloUrl && (
               <a href={soloUrl} style={{ display: 'inline-block', padding: '16px 28px', background: '#F5620F', color: '#fff', borderRadius: 8, fontSize: 14, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', textDecoration: 'none' }}>
-                Buy Solo Lifetime · $999
+                Buy Solo Lifetime · $499
               </a>
             )}
             {!teamSoldOut && teamUrl && (
               <a href={teamUrl} style={{ display: 'inline-block', padding: '16px 28px', background: 'transparent', color: '#fff', border: '1px solid #fff', borderRadius: 8, fontSize: 14, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', textDecoration: 'none' }}>
-                Buy Team Lifetime · $1,999
+                Buy Team Lifetime · $1,499
               </a>
             )}
           </div>
