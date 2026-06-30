@@ -1094,7 +1094,6 @@ export default function SitesPage() {
                 Start your questionnaire
               </a>
               <a href="#pricing" style={secondaryBtn}>See pricing</a>
-              <a href="#case-study" style={secondaryBtn}>See it in action</a>
             </div>
             <p style={{ fontSize: 13, color: MUTED, marginTop: 24 }}>
               $39.99/mo or $499 to own · custom domain included · 30-day delivery · 60-day money back
@@ -1580,62 +1579,6 @@ export default function SitesPage() {
             <p style={{ fontSize: 13, color: '#8a8580', margin: '20px 0 0' }}>
               Applications reviewed personally. Reply within 24 hours.
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── CASE STUDY: CODE 3 ────────────────────────────────────────── */}
-      <section id="case-study" style={{ padding: '64px 24px 80px' }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-          <p style={eyebrow}>Hero customer · live now</p>
-          <h2 style={{ ...sectionH2, textAlign: 'center' }}>Built by a firefighter. Built by us.</h2>
-          <p style={{ ...sectionSub, textAlign: 'center', maxWidth: 640, margin: '12px auto 44px' }}>
-            Code 3 Cleaning runs out of Oregon. The owner is a former volunteer firefighter and EMR, running his business between shifts. We built his Pro Site, and it is live now on his own domain.
-          </p>
-
-          {/* Browser-framed shot of the real, live site */}
-          <a
-            href="https://www.codethreecleaning.com"
-            target="_blank"
-            rel="noreferrer"
-            style={{ display: 'block', maxWidth: 920, margin: '0 auto 44px', borderRadius: 14, overflow: 'hidden', border: `1px solid ${BORDER}`, boxShadow: '0 34px 70px -28px rgba(15,15,15,0.32)', textDecoration: 'none' }}
-          >
-            <div style={{ display: 'flex', alignItems: 'center', gap: 7, padding: '11px 16px', background: '#EFEAE3', borderBottom: `1px solid ${BORDER}` }}>
-              <span style={{ width: 11, height: 11, borderRadius: '50%', background: '#E0635A' }} />
-              <span style={{ width: 11, height: 11, borderRadius: '50%', background: '#E6BE55' }} />
-              <span style={{ width: 11, height: 11, borderRadius: '50%', background: '#62B96B' }} />
-              <span style={{ marginLeft: 10, flex: 1, background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 999, padding: '5px 14px', fontFamily: "'Barlow', sans-serif", fontSize: 13, color: MUTED, textAlign: 'center' }}>
-                codethreecleaning.com
-              </span>
-            </div>
-            <img
-              src="/code-3-cleaning-live.jpg"
-              alt="Code 3 Cleaning Pro Site homepage, live at codethreecleaning.com"
-              loading="lazy"
-              style={{ display: 'block', width: '100%', height: 'auto' }}
-            />
-          </a>
-
-          <div style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 16, padding: 'clamp(32px, 5vw, 56px)', textAlign: 'center' }}>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 9, background: 'rgba(22,163,74,0.08)', border: '1px solid rgba(22,163,74,0.45)', color: '#16a34a', padding: '8px 16px', borderRadius: 999, fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 13, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 24 }}>
-              <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#16a34a' }} />
-              Live now
-            </div>
-            <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 28, fontWeight: 900, textTransform: 'uppercase', color: BLACK, margin: '0 0 16px', letterSpacing: '-0.01em' }}>
-              Code 3 means lights and sirens.<br />
-              Same speed. Different uniform.
-            </h3>
-            <p style={{ fontSize: 16, lineHeight: 1.6, color: MUTED, maxWidth: 580, margin: '0 auto 32px' }}>
-              Window cleaning, gutters, carpet, screen repair. 136+ jobs completed. 5.0 stars on Facebook. Now with the real website his business has earned, on his own domain, with quote requests landing straight in his inbox.
-            </p>
-            <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-              <a href="https://www.codethreecleaning.com" target="_blank" rel="noreferrer" style={{ ...primaryBtn, display: 'inline-block' }}>
-                Visit the live site
-              </a>
-              <a href="https://app.opervo.io/code-3-cleaning" target="_blank" rel="noreferrer" style={{ ...secondaryBtn, display: 'inline-block' }}>
-                See his Opervo Folio
-              </a>
-            </div>
           </div>
         </div>
       </section>
