@@ -107,11 +107,23 @@ function Verdict({ ok, children }: { ok?: boolean; children: React.ReactNode }) 
   )
 }
 
-// Stylized laptop mockup with a Code 3-styled "Pro Site" composition inside.
-// Pure CSS/HTML, no image dependency. Represents the kind of site we build.
+// Hero laptop mockup. Renders the live Code 3 Cleaning site
+// (www.codethreecleaning.com) inside a laptop frame: real oval logo,
+// real pressure-wash hero photo, Anton headline, crimson #E22400.
+// The whole laptop links out to the live customer site so the hero
+// doubles as proof — anyone clicking through lands on Terren's actual
+// production page. The mini composition mirrors Code3CleaningShowcase
+// for the portfolio grid so the same design appears in both places.
 function LaptopMockup() {
+  const C3_RED = '#E22400'
   return (
-    <div style={{ width: '100%', maxWidth: 560, margin: '0 auto', position: 'relative' }}>
+    <a
+      href="https://www.codethreecleaning.com"
+      target="_blank"
+      rel="noreferrer"
+      aria-label="Open the live Code 3 Cleaning site in a new tab"
+      style={{ display: 'block', width: '100%', maxWidth: 560, margin: '0 auto', position: 'relative', textDecoration: 'none', color: 'inherit' }}
+    >
       {/* Laptop frame */}
       <div style={{
         background: '#1a1a1a',
@@ -124,74 +136,116 @@ function LaptopMockup() {
         <div style={{ position: 'absolute', top: 6, left: '50%', transform: 'translateX(-50%)', width: 4, height: 4, borderRadius: '50%', background: '#3a3a3a' }} />
         {/* Screen */}
         <div style={{
-          background: 'linear-gradient(135deg, #1a1a1a 0%, #2a2520 55%, #3a2a18 100%)',
+          background: '#0F0F10',
           borderRadius: 6,
           overflow: 'hidden',
           aspectRatio: '16 / 10',
           position: 'relative',
-          color: '#F7F5F2',
+          color: '#fff',
+          display: 'flex',
+          flexDirection: 'column',
         }}>
           {/* Browser chrome bar */}
-          <div style={{ background: '#0a0a0a', padding: '7px 10px', display: 'flex', alignItems: 'center', gap: 6, borderBottom: '1px solid #2a2a2a' }}>
+          <div style={{ background: '#0a0a0a', padding: '7px 10px', display: 'flex', alignItems: 'center', gap: 6, borderBottom: '1px solid #1a1a1a', flexShrink: 0 }}>
             <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#ff5f57' }} />
             <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#febc2e' }} />
             <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#28c840' }} />
             <span style={{ flex: 1, background: '#1a1a1a', borderRadius: 4, padding: '3px 10px', fontSize: 10, color: '#8a8580', textAlign: 'center', fontFamily: "'Barlow', sans-serif", letterSpacing: '0.02em' }}>
-              code3cleaning.com
+              www.codethreecleaning.com
             </span>
           </div>
 
-          {/* Page content */}
-          <div style={{ padding: '14px 18px', position: 'relative', height: 'calc(100% - 28px)', display: 'flex', flexDirection: 'column' }}>
-            {/* Nav strip */}
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
-              <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 14, letterSpacing: '-0.02em' }}>
-                Code 3<span style={{ color: ORANGE }}>.</span>
-              </span>
-              <div style={{ display: 'flex', gap: 10, fontSize: 9, color: '#c8c4be', fontWeight: 500, letterSpacing: '0.04em', textTransform: 'uppercase' }}>
-                <span>Services</span>
-                <span>Work</span>
-                <span>Quote</span>
-                <span style={{ background: ORANGE, color: '#fff', padding: '3px 8px', borderRadius: 3, letterSpacing: '0.06em' }}>Book</span>
+          {/* Page content — real Code 3 hero composition */}
+          <div style={{ position: 'relative', flex: 1, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+            {/* Real pressure-wash hero photo */}
+            <Image
+              src="/portfolio/code-3-cleaning/hero.jpg"
+              alt="Terren of Code 3 Cleaning running a rotary surface cleaner on a driveway in Silverton, OR"
+              fill
+              sizes="(min-width: 1024px) 560px, 90vw"
+              priority
+              style={{ objectFit: 'cover', objectPosition: '38% 26%', filter: 'brightness(1.07) saturate(1.1)' }}
+            />
+            {/* Dark scrim — mirrors the live page */}
+            <div
+              aria-hidden
+              style={{
+                position: 'absolute',
+                inset: 0,
+                background:
+                  'radial-gradient(360px 240px at 75% 18%, rgba(226,36,0,0.28), transparent 60%), ' +
+                  'radial-gradient(520px 360px at 50% 45%, rgba(15,15,16,0.66), transparent 72%), ' +
+                  'linear-gradient(180deg, rgba(15,15,16,0.78) 0%, rgba(15,15,16,0.55) 38%, rgba(15,15,16,0.45) 68%, rgba(15,15,16,0.72) 100%)',
+              }}
+            />
+
+            {/* Nav strip — real Code 3 header */}
+            <div style={{ position: 'relative', zIndex: 2, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 16px', flexShrink: 0 }}>
+              <Image
+                src="/portfolio/code-3-cleaning/logo.png"
+                alt="Code 3 Cleaning logo"
+                width={210}
+                height={138}
+                style={{ width: 64, height: 'auto', display: 'block', filter: 'drop-shadow(0 2px 6px rgba(0,0,0,0.5))' }}
+              />
+              <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                <span style={{ display: 'flex', alignItems: 'center', gap: 10, fontFamily: "'Inter', system-ui, sans-serif", fontSize: 9, fontWeight: 600, color: 'rgba(255,255,255,0.85)' }}>
+                  <span>Services</span>
+                  <span>About</span>
+                  <span>Service Area</span>
+                  <span>Reviews</span>
+                </span>
+                <span style={{ background: C3_RED, color: '#fff', padding: '5px 11px', borderRadius: 4, fontSize: 10, fontWeight: 800, fontFamily: "'Inter', system-ui, sans-serif", whiteSpace: 'nowrap', boxShadow: '0 4px 10px rgba(226,36,0,0.4)' }}>
+                  Get a Free Quote
+                </span>
               </div>
             </div>
 
-            {/* Hero text block */}
-            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingLeft: 4 }}>
-              <span style={{ fontSize: 8, fontWeight: 800, color: ORANGE, textTransform: 'uppercase', letterSpacing: '0.18em', marginBottom: 6 }}>
-                Oregon · Willamette Valley
+            {/* Centered hero text */}
+            <div style={{ position: 'relative', zIndex: 2, flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', padding: '4px 24px 18px' }}>
+              {/* Lead chip */}
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: C3_RED, color: '#fff', fontFamily: "'Inter', system-ui, sans-serif", fontSize: 9, fontWeight: 800, letterSpacing: '0.18em', textTransform: 'uppercase', padding: '5px 14px', borderRadius: 999, boxShadow: '0 6px 16px rgba(226,36,0,0.4)' }}>
+                <span style={{ width: 4, height: 4, borderRadius: '50%', background: '#fff' }} />
+                Serving the Willamette Valley
               </span>
-              <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 'clamp(28px, 5vw, 44px)', textTransform: 'uppercase', lineHeight: 0.95, letterSpacing: '-0.02em', color: '#F7F5F2' }}>
-                Spotless<br />
-                <span style={{ color: ORANGE }}>code-3 fast.</span>
-              </span>
-              <span style={{ fontSize: 10, color: '#a8a39e', marginTop: 8, fontWeight: 500, maxWidth: '70%' }}>
-                Window, gutter, carpet & screen repair. Same-day quotes. Fully insured.
-              </span>
-              <div style={{ display: 'flex', gap: 6, marginTop: 10 }}>
-                <span style={{ background: ORANGE, color: '#fff', fontSize: 9, fontWeight: 700, padding: '5px 10px', borderRadius: 3, letterSpacing: '0.04em', textTransform: 'uppercase' }}>Get a Quote</span>
-                <span style={{ background: 'rgba(255,255,255,0.08)', color: '#F7F5F2', fontSize: 9, fontWeight: 600, padding: '5px 10px', borderRadius: 3, border: '1px solid rgba(255,255,255,0.18)', letterSpacing: '0.04em', textTransform: 'uppercase' }}>(503) 983-0126</span>
-              </div>
-            </div>
 
-            {/* Bottom stats strip */}
-            <div style={{ display: 'flex', gap: 10, marginTop: 10, padding: '8px 0 2px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-              {[
-                { n: '136+', l: 'Jobs done' },
-                { n: '5★', l: 'Rating' },
-                { n: 'Same', l: 'Day quotes' },
-              ].map((s, i) => (
-                <div key={i} style={{ flex: 1 }}>
-                  <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 14, color: ORANGE, lineHeight: 1 }}>{s.n}</div>
-                  <div style={{ fontSize: 7, color: '#8a8580', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', marginTop: 2 }}>{s.l}</div>
-                </div>
-              ))}
+              {/* Headline — Anton, "FAST. THOROUGH. SPOTLESS." */}
+              <span
+                style={{
+                  fontFamily: "'Anton', 'Barlow Condensed', sans-serif",
+                  fontSize: 'clamp(34px, 5.4vw, 56px)',
+                  lineHeight: 0.94,
+                  letterSpacing: '0.005em',
+                  textTransform: 'uppercase',
+                  marginTop: 12,
+                  textShadow: '0 2px 18px rgba(0,0,0,0.6)',
+                  fontWeight: 400,
+                }}
+              >
+                Fast. Thorough.<br />
+                <span style={{ color: C3_RED }}>Spotless.</span>
+              </span>
+
+              {/* Subhead */}
+              <span style={{ fontFamily: "'Inter', system-ui, sans-serif", fontSize: 10.5, color: 'rgba(255,255,255,0.92)', marginTop: 10, maxWidth: '78%', lineHeight: 1.5, textShadow: '0 1px 8px rgba(0,0,0,0.6)' }}>
+                Window cleaning, pressure washing, carpet, and mobile screen repair. Owner-operated by Terren Harrington.
+              </span>
+
+              {/* CTAs */}
+              <div style={{ display: 'flex', gap: 6, marginTop: 12, flexWrap: 'wrap', justifyContent: 'center' }}>
+                <span style={{ background: C3_RED, color: '#fff', fontFamily: "'Inter', system-ui, sans-serif", fontSize: 10, fontWeight: 800, padding: '6px 14px', borderRadius: 4, boxShadow: '0 6px 14px rgba(226,36,0,0.4)' }}>
+                  Get a Free Quote
+                </span>
+                <span style={{ background: 'rgba(255,255,255,0.08)', color: '#fff', fontFamily: "'Inter', system-ui, sans-serif", fontSize: 10, fontWeight: 700, padding: '6px 14px', borderRadius: 4, border: '1px solid rgba(255,255,255,0.3)' }}>
+                  (503) 983-0126
+                </span>
+              </div>
             </div>
           </div>
 
-          {/* "Preview" corner badge */}
-          <div style={{ position: 'absolute', top: 38, right: 12, background: ORANGE, color: '#fff', fontSize: 8, fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', padding: '3px 7px', borderRadius: 3 }}>
-            Preview
+          {/* "Live customer" corner badge */}
+          <div style={{ position: 'absolute', top: 40, right: 12, background: '#16a34a', color: '#fff', fontSize: 8, fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', padding: '3px 8px', borderRadius: 3, fontFamily: "'Barlow Condensed', sans-serif", zIndex: 3 }}>
+            Live customer
           </div>
         </div>
       </div>
@@ -209,9 +263,9 @@ function LaptopMockup() {
       {/* Floating "live" badge below the laptop */}
       <div style={{ position: 'absolute', bottom: -14, left: '50%', transform: 'translateX(-50%)', background: '#F7F5F2', border: `1px solid ${BORDER}`, color: BLACK, fontSize: 11, fontWeight: 700, padding: '6px 14px', borderRadius: 999, boxShadow: '0 4px 12px rgba(0,0,0,0.08)', whiteSpace: 'nowrap', fontFamily: "'Barlow Condensed', sans-serif", letterSpacing: '0.1em', textTransform: 'uppercase' }}>
         <span style={{ display: 'inline-block', width: 7, height: 7, borderRadius: '50%', background: '#16a34a', marginRight: 7, verticalAlign: 'middle' }} />
-        Code 3, Launching this month
+        Code 3 Cleaning . live at codethreecleaning.com
       </div>
-    </div>
+    </a>
   )
 }
 
