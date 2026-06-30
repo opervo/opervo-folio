@@ -641,6 +641,179 @@ function BreezyDetailingShowcase({ entry }: { entry: PortfolioEntry }) {
   )
 }
 
+// Special-case card for Code 3 Cleaning. Renders a faithful mini of the
+// live www.codethreecleaning.com homepage hero: real oval logo badge,
+// the real pressure-wash photo, Anton heavy caps, brand crimson #E22400,
+// the real "FAST. THOROUGH. SPOTLESS." headline, service chips, CTAs.
+// Same pattern as JcAirProShowcase and BreezyDetailingShowcase: the
+// portfolio should preview the operator's actual live site, not a
+// template of itself.
+function Code3CleaningShowcase({ entry }: { entry: PortfolioEntry }) {
+  const isReal = entry.status === 'real'
+  const C3_RED = '#E22400'
+  const C3_DARK = '#0F0F10'
+  return (
+    <div
+      style={{
+        background: C3_DARK,
+        borderRadius: 12,
+        overflow: 'hidden',
+        boxShadow: '0 12px 30px -12px rgba(0,0,0,0.45), 0 4px 10px -4px rgba(0,0,0,0.2)',
+        position: 'relative',
+        transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+      }}
+      className="portfolio-card"
+    >
+      {/* Browser chrome */}
+      <div style={{ background: '#0a0a0a', padding: '6px 9px', display: 'flex', alignItems: 'center', gap: 5, borderBottom: '1px solid #1a1a1a' }}>
+        <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#ff5f57' }} />
+        <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#febc2e' }} />
+        <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#28c840' }} />
+        <span style={{ flex: 1, background: '#1a1a1a', borderRadius: 3, padding: '2px 8px', fontSize: 9, color: '#8a8580', textAlign: 'center', fontFamily: "'Barlow', sans-serif", letterSpacing: '0.02em' }}>
+          {entry.domain}
+        </span>
+      </div>
+
+      {/* Hero composition — full-bleed photo with scrim, centered content */}
+      <div style={{ position: 'relative', aspectRatio: '4 / 3', display: 'flex', flexDirection: 'column', overflow: 'hidden', color: '#fff' }}>
+        {/* Real pressure-wash hero photo */}
+        <Image
+          src="/portfolio/code-3-cleaning/hero.jpg"
+          alt="Terren of Code 3 Cleaning running a rotary surface cleaner on a driveway in Silverton, OR"
+          fill
+          sizes="(min-width: 1024px) 30vw, 90vw"
+          style={{ objectFit: 'cover', objectPosition: '38% 26%', filter: 'brightness(1.07) saturate(1.1)' }}
+        />
+        {/* Dark scrim — mirrors the live page (red glow top-right, dark center, edge fade) */}
+        <div
+          aria-hidden
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background:
+              'radial-gradient(220px 150px at 75% 18%, rgba(226,36,0,0.28), transparent 60%), ' +
+              'radial-gradient(300px 220px at 50% 45%, rgba(15,15,16,0.66), transparent 72%), ' +
+              'linear-gradient(180deg, rgba(15,15,16,0.78) 0%, rgba(15,15,16,0.55) 38%, rgba(15,15,16,0.45) 68%, rgba(15,15,16,0.72) 100%)',
+          }}
+        />
+
+        {/* Tiny utility/nav strip across the top */}
+        <div style={{ position: 'relative', zIndex: 2, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '6px 10px', flexShrink: 0 }}>
+          <Image
+            src="/portfolio/code-3-cleaning/logo.png"
+            alt="Code 3 Cleaning logo"
+            width={140}
+            height={92}
+            style={{ width: 42, height: 'auto', display: 'block', filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.4))' }}
+          />
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <span style={{ display: 'flex', alignItems: 'center', gap: 7, fontFamily: "'Inter', system-ui, sans-serif", fontSize: 6.5, fontWeight: 600, color: 'rgba(255,255,255,0.85)' }}>
+              <span>Services</span>
+              <span>About</span>
+              <span>Service Area</span>
+              <span>Reviews</span>
+            </span>
+            <span style={{ background: C3_RED, color: '#fff', padding: '3px 7px', borderRadius: 4, fontSize: 7, fontWeight: 800, fontFamily: "'Inter', system-ui, sans-serif", whiteSpace: 'nowrap', boxShadow: '0 2px 6px rgba(226,36,0,0.4)' }}>
+              Get a Free Quote
+            </span>
+          </div>
+        </div>
+
+        {/* Centered hero text — mirrors live single-column composition */}
+        <div style={{ position: 'relative', zIndex: 2, flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', padding: '4px 16px 12px' }}>
+          {/* Lead chip: the differentiator */}
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4, background: C3_RED, color: '#fff', fontFamily: "'Inter', system-ui, sans-serif", fontSize: 6, fontWeight: 800, letterSpacing: '0.18em', textTransform: 'uppercase', padding: '3px 9px', borderRadius: 999, boxShadow: '0 4px 12px rgba(226,36,0,0.38)' }}>
+            <span style={{ width: 3, height: 3, borderRadius: '50%', background: '#fff' }} />
+            Serving the Willamette Valley
+          </span>
+
+          {/* Headline — Anton, "FAST. THOROUGH. SPOTLESS." on two lines */}
+          <span
+            style={{
+              fontFamily: "'Anton', 'Barlow Condensed', sans-serif",
+              fontSize: 'clamp(24px, 3.4vw, 38px)',
+              lineHeight: 0.94,
+              letterSpacing: '0.005em',
+              textTransform: 'uppercase',
+              marginTop: 8,
+              textShadow: '0 2px 14px rgba(0,0,0,0.55)',
+              fontWeight: 400,
+            }}
+          >
+            Fast. Thorough.<br />
+            <span style={{ color: C3_RED }}>Spotless.</span>
+          </span>
+
+          {/* Subhead */}
+          <span style={{ fontFamily: "'Inter', system-ui, sans-serif", fontSize: 7, color: 'rgba(255,255,255,0.92)', marginTop: 6, maxWidth: '88%', lineHeight: 1.45, textShadow: '0 1px 8px rgba(0,0,0,0.55)' }}>
+            Window cleaning, pressure washing, carpet, and mobile screen repair. Owner-operated by Terren Harrington.
+          </span>
+
+          {/* Service chips */}
+          <div style={{ display: 'flex', gap: 3, marginTop: 7, flexWrap: 'wrap', justifyContent: 'center' }}>
+            {['Window cleaning', 'Pressure washing', 'Carpet', 'Screen repair'].map((s) => (
+              <span
+                key={s}
+                style={{
+                  fontFamily: "'Inter', system-ui, sans-serif",
+                  fontSize: 5.5,
+                  fontWeight: 600,
+                  color: '#fff',
+                  padding: '2px 6px',
+                  borderRadius: 999,
+                  border: '1px solid rgba(255,255,255,0.22)',
+                  background: 'rgba(255,255,255,0.08)',
+                  backdropFilter: 'blur(4px)',
+                  WebkitBackdropFilter: 'blur(4px)',
+                }}
+              >
+                {s}
+              </span>
+            ))}
+          </div>
+
+          {/* CTAs */}
+          <div style={{ display: 'flex', gap: 4, marginTop: 7, flexWrap: 'wrap', justifyContent: 'center' }}>
+            <span style={{ background: C3_RED, color: '#fff', fontFamily: "'Inter', system-ui, sans-serif", fontSize: 7, fontWeight: 800, padding: '4px 10px', borderRadius: 4, boxShadow: '0 4px 10px rgba(226,36,0,0.38)' }}>
+              Get a Free Quote
+            </span>
+            <span style={{ background: 'rgba(255,255,255,0.08)', color: '#fff', fontFamily: "'Inter', system-ui, sans-serif", fontSize: 7, fontWeight: 700, padding: '4px 10px', borderRadius: 4, border: '1px solid rgba(255,255,255,0.3)' }}>
+              (503) 983-0126
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* Trust strip below the hero (matches the live page bar under fold) */}
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, padding: '7px 10px', background: '#0a0a0b', borderTop: '1px solid rgba(255,255,255,0.06)', flexWrap: 'wrap' }}>
+        <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontFamily: "'Inter', system-ui, sans-serif", fontSize: 7, fontWeight: 700, color: '#fff' }}>
+          <span style={{ color: '#FBBF24', fontSize: 8, letterSpacing: 0.5 }}>★★★★★</span>
+          5.0
+        </span>
+        <span style={{ fontFamily: "'Inter', system-ui, sans-serif", fontSize: 7, color: 'rgba(255,255,255,0.65)', fontWeight: 600 }}>136+ jobs done</span>
+        <span style={{ fontFamily: "'Inter', system-ui, sans-serif", fontSize: 7, color: 'rgba(255,255,255,0.65)', fontWeight: 600 }}>Insured + bonded</span>
+      </div>
+
+      {/* Status footer, matches other showcase cards */}
+      <div
+        style={{
+          background: isReal ? 'rgba(22,163,74,0.08)' : 'rgba(245,98,15,0.08)',
+          borderTop: `1px solid ${isReal ? 'rgba(22,163,74,0.25)' : 'rgba(245,98,15,0.25)'}`,
+          padding: '8px 12px',
+          display: 'flex',
+          alignItems: 'center',
+          gap: 7,
+        }}
+      >
+        <span style={{ display: 'inline-block', width: 6, height: 6, borderRadius: '50%', background: isReal ? '#16a34a' : ORANGE, flexShrink: 0 }} />
+        <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 11, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: isReal ? '#16a34a' : ORANGE }}>
+          {isReal ? 'Live now' : 'Founding slot · open'}
+        </span>
+      </div>
+    </div>
+  )
+}
+
 function PortfolioCard({ entry }: { entry: PortfolioEntry }) {
   const isReal = entry.status === 'real'
   return (
@@ -743,12 +916,12 @@ const PORTFOLIO_ENTRIES: PortfolioEntry[] = [
   {
     brand: 'Code 3',
     brandSuffix: 'Cleaning',
-    domain: 'code3cleaning.com',
-    trade: 'Windows · Gutters · Carpet',
-    location: 'Oregon',
-    headline: 'Spotless',
-    headlineAccent: 'Code-3 fast.',
-    tagline: 'Window, gutter, carpet & screen repair. Same-day quotes. Fully insured.',
+    domain: 'codethreecleaning.com',
+    trade: 'Windows · Pressure · Carpet · Screens',
+    location: 'Willamette Valley · OR',
+    headline: 'Fast. Thorough.',
+    headlineAccent: 'Spotless.',
+    tagline: 'Window cleaning, pressure washing, carpet & mobile screen repair. Owner-operated by Terren Harrington.',
     stats: [{ n: '136+', l: 'Jobs done' }, { n: '5★', l: 'Rating' }, { n: 'Same', l: 'Day quotes' }],
     status: 'real',
     slug: 'code-3-cleaning',
@@ -908,6 +1081,8 @@ export default function SitesPage() {
                   ? JcAirProShowcase
                   : entry.slug === 'breezy-detailing'
                   ? BreezyDetailingShowcase
+                  : entry.slug === 'code-3-cleaning'
+                  ? Code3CleaningShowcase
                   : PortfolioCard
               return entry.slug ? (
                 <Link
@@ -1358,29 +1533,55 @@ export default function SitesPage() {
       {/* ─── CASE STUDY: CODE 3 ────────────────────────────────────────── */}
       <section id="case-study" style={{ padding: '64px 24px 80px' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-          <p style={eyebrow}>Hero customer</p>
+          <p style={eyebrow}>Hero customer · live now</p>
           <h2 style={{ ...sectionH2, textAlign: 'center' }}>Built by a firefighter. Built by us.</h2>
-          <p style={{ ...sectionSub, textAlign: 'center', maxWidth: 640, margin: '12px auto 48px' }}>
-            Code 3 Cleaning runs out of Oregon. The owner is a firefighter/EMT working his side business between 24-hour shifts. We’re building his Pro Site free as our first launch.
+          <p style={{ ...sectionSub, textAlign: 'center', maxWidth: 640, margin: '12px auto 44px' }}>
+            Code 3 Cleaning runs out of Oregon. The owner is a former volunteer firefighter and EMR, running his business between shifts. We built his Pro Site, and it is live now on his own domain.
           </p>
+
+          {/* Browser-framed shot of the real, live site */}
+          <a
+            href="https://www.codethreecleaning.com"
+            target="_blank"
+            rel="noreferrer"
+            style={{ display: 'block', maxWidth: 920, margin: '0 auto 44px', borderRadius: 14, overflow: 'hidden', border: `1px solid ${BORDER}`, boxShadow: '0 34px 70px -28px rgba(15,15,15,0.32)', textDecoration: 'none' }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: 7, padding: '11px 16px', background: '#EFEAE3', borderBottom: `1px solid ${BORDER}` }}>
+              <span style={{ width: 11, height: 11, borderRadius: '50%', background: '#E0635A' }} />
+              <span style={{ width: 11, height: 11, borderRadius: '50%', background: '#E6BE55' }} />
+              <span style={{ width: 11, height: 11, borderRadius: '50%', background: '#62B96B' }} />
+              <span style={{ marginLeft: 10, flex: 1, background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 999, padding: '5px 14px', fontFamily: "'Barlow', sans-serif", fontSize: 13, color: MUTED, textAlign: 'center' }}>
+                codethreecleaning.com
+              </span>
+            </div>
+            <img
+              src="/code-3-cleaning-live.jpg"
+              alt="Code 3 Cleaning Pro Site homepage, live at codethreecleaning.com"
+              loading="lazy"
+              style={{ display: 'block', width: '100%', height: 'auto' }}
+            />
+          </a>
+
           <div style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 16, padding: 'clamp(32px, 5vw, 56px)', textAlign: 'center' }}>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, background: 'rgba(245,98,15,0.08)', border: `1px solid ${ORANGE}`, color: ORANGE, padding: '8px 16px', borderRadius: 999, fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 13, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 24 }}>
-              <Icon d={ICONS.flame} size={16} color={ORANGE} />
-              Launching soon
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 9, background: 'rgba(22,163,74,0.08)', border: '1px solid rgba(22,163,74,0.45)', color: '#16a34a', padding: '8px 16px', borderRadius: 999, fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 13, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 24 }}>
+              <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#16a34a' }} />
+              Live now
             </div>
             <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 28, fontWeight: 900, textTransform: 'uppercase', color: BLACK, margin: '0 0 16px', letterSpacing: '-0.01em' }}>
               Code 3 means lights and sirens.<br />
               Same speed. Different uniform.
             </h3>
             <p style={{ fontSize: 16, lineHeight: 1.6, color: MUTED, maxWidth: 580, margin: '0 auto 32px' }}>
-              Window cleaning, gutters, carpet, screen repair. 136+ jobs completed. 5.0 stars on Facebook. Now getting the real website his business has earned.
+              Window cleaning, gutters, carpet, screen repair. 136+ jobs completed. 5.0 stars on Facebook. Now with the real website his business has earned, on his own domain, with quote requests landing straight in his inbox.
             </p>
-            <a href="https://www.opervo.io/p/code-3-cleaning" target="_blank" rel="noreferrer" style={{ ...secondaryBtn, display: 'inline-block' }}>
-              See his Opervo Folio
-            </a>
-            <p style={{ fontSize: 13, color: MUTED, margin: '20px 0 0' }}>
-              Full case study + before/after coming after launch.
-            </p>
+            <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
+              <a href="https://www.codethreecleaning.com" target="_blank" rel="noreferrer" style={{ ...primaryBtn, display: 'inline-block' }}>
+                Visit the live site
+              </a>
+              <a href="https://app.opervo.io/code-3-cleaning" target="_blank" rel="noreferrer" style={{ ...secondaryBtn, display: 'inline-block' }}>
+                See his Opervo Folio
+              </a>
+            </div>
           </div>
         </div>
       </section>
