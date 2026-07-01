@@ -2,13 +2,13 @@
 
 import { useState, useRef, useEffect } from 'react'
 
-// Code 3 Cleaning Pro Site preview — v3.
+// Code 3 Cleaning Pro Site preview, v3.
 //
 // v3 throws out Opervo's design system entirely and copies what
 // 180Sites actually ships for home service operators. Direction from
 // Max: "really throw out the opervo design theme book for the sites we
 // create. keep the opervo look for our site but for the operators
-// sites we need to hone the look 180 sites makes — that's the industry
+// sites we need to hone the look 180 sites makes, that's the industry
 // standard."
 //
 // Concrete shifts vs v2:
@@ -23,11 +23,11 @@ import { useState, useRef, useEffect } from 'react'
 //   - Highlight scribbles under key phrases (180's signature move).
 //   - Standalone stat badges, not stat strips.
 //   - Salesy copy patterns: "We'll INSTANTLY..." / "You'll be amazed..."
-//   - Brighter colors overall — less black, more white/cream.
+//   - Brighter colors overall, less black, more white/cream.
 
-// Code 3 palette — red + yellow + navy. Fire truck colors. Drops orange
+// Code 3 palette, red + yellow + navy. Fire truck colors. Drops orange
 // entirely (orange reads as Opervo brand DNA, not firefighter brand).
-const RED = '#DC2626' // primary brand — fire engine red
+const RED = '#DC2626' // primary brand, fire engine red
 const RED_DARK = '#991B1B' // hover state, deeper trust
 const YELLOW = '#FBBF24' // highlights, stars, attention pops
 const YELLOW_DEEP = '#F59E0B' // alternate accent
@@ -41,7 +41,7 @@ const WHITE = '#FFFFFF'
 const BORDER = '#E8E4DE'
 const GREEN = '#16a34a'
 const LIME = '#84cc16'
-// alias kept for transition — every "ORANGE" usage is actually red now
+// alias kept for transition, every "ORANGE" usage is actually red now
 const ORANGE = RED
 
 function Icon({ d, size = 22, color = ORANGE, stroke = 2, fill = 'none' }: { d: string; size?: number; color?: string; stroke?: number; fill?: string }) {
@@ -77,10 +77,10 @@ const ICONS = {
   plus: 'M12 5v14M5 12h14',
 }
 
-// ─── Custom Code 3 emblem/crest — circular badge with fire helmet +
+// ─── Custom Code 3 emblem/crest, circular badge with fire helmet +
 // squeegee crossed, "C3" monogram center, "EST. 2024 · OREGON" outer ring.
 // Designed in pure SVG so it scales cleanly. Replaces the v3 "C3" square
-// with a real branded mark — vintage firefighter-patch aesthetic.
+// with a real branded mark, vintage firefighter-patch aesthetic.
 function Emblem({ size = 72 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 100 100" aria-label="Code 3 Cleaning emblem">
@@ -88,7 +88,7 @@ function Emblem({ size = 72 }: { size?: number }) {
       <circle cx="50" cy="50" r="48" fill={NAVY} stroke={YELLOW} strokeWidth="1.5" />
       <circle cx="50" cy="50" r="42" fill="none" stroke={YELLOW} strokeWidth="0.6" opacity="0.5" />
 
-      {/* Curved text — top: CODE 3 CLEANING, bottom: EST. 2024 · OREGON */}
+      {/* Curved text, top: CODE 3 CLEANING, bottom: EST. 2024 · OREGON */}
       <defs>
         <path id="topArc" d="M 12 50 A 38 38 0 0 1 88 50" />
         <path id="bottomArc" d="M 12 50 A 38 38 0 0 0 88 50" />
@@ -105,12 +105,12 @@ function Emblem({ size = 72 }: { size?: number }) {
       <circle cx="50" cy="50" r="26" fill="none" stroke={YELLOW} strokeWidth="0.5" opacity="0.6" />
 
       {/* Crossed fire helmet (left) and squeegee (right) */}
-      {/* Fire helmet — stylized: dome + brim + front shield */}
+      {/* Fire helmet, stylized: dome + brim + front shield */}
       <g transform="translate(38 42) rotate(-22)">
         <path d="M -8 4 Q -8 -3 0 -3 Q 8 -3 8 4 L 10 6 L -10 6 Z" fill="#fff" stroke={NAVY} strokeWidth="0.4" />
         <rect x="-3" y="-3" width="6" height="3" fill={YELLOW} stroke={NAVY} strokeWidth="0.3" />
       </g>
-      {/* Squeegee — handle + rubber blade */}
+      {/* Squeegee, handle + rubber blade */}
       <g transform="translate(62 42) rotate(22)">
         <rect x="-1" y="-8" width="2" height="14" fill={YELLOW} stroke={NAVY} strokeWidth="0.3" />
         <rect x="-6" y="-9" width="12" height="2" fill="#fff" stroke={NAVY} strokeWidth="0.3" />
@@ -129,9 +129,42 @@ function Emblem({ size = 72 }: { size?: number }) {
   )
 }
 
-// Layered hero composite scene — replaces flat dark gradient with depth.
-// CSS-painted skyline, fire engine silhouette, atmospheric red glow,
-// foreground figure silhouette. Pure SVG/CSS so no image dependency.
+// Real photo hero, replaces the v4 CSS composite. Photo of a window
+// cleaner shot from below w/ sky background (Unsplash, Rom T,
+// aCgJ5imLMHw, free license). Dark gradient overlay keeps the hero
+// text legible on top.
+function HeroPhoto() {
+  return (
+    <div aria-hidden="true" style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none' }}>
+      {/* Base photo background */}
+      <div style={{
+        position: 'absolute',
+        inset: 0,
+        backgroundImage: `url('/preview/code-3/hero-window-cleaning.jpg')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center 25%',
+        backgroundColor: NAVY,
+      }} />
+      {/* Dark navy overlay for text legibility */}
+      <div style={{
+        position: 'absolute',
+        inset: 0,
+        background: 'linear-gradient(135deg, rgba(14,27,44,0.85) 0%, rgba(14,27,44,0.6) 50%, rgba(14,27,44,0.92) 100%)',
+      }} />
+      {/* Red atmospheric glow upper-right (firefighter signal cue) */}
+      <div style={{ position: 'absolute', top: -100, right: -80, width: 500, height: 500, borderRadius: '50%', background: 'radial-gradient(circle, rgba(220,38,38,0.28) 0%, rgba(220,38,38,0.06) 50%, transparent 70%)', filter: 'blur(40px)' }} />
+      {/* Bottom dark fade for content separation */}
+      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(14,27,44,0.0) 60%, rgba(14,27,44,0.4) 100%)' }} />
+      {/* Photo credit / placeholder note */}
+      <div style={{ position: 'absolute', bottom: 14, right: 18, fontSize: 10, color: 'rgba(255,255,255,0.55)', fontFamily: "'Inter', sans-serif", letterSpacing: '0.02em' }}>
+        [Stock photo · replaced with your photos at launch]
+      </div>
+    </div>
+  )
+}
+
+// Legacy CSS composite, kept here as reference for the v4 approach.
+// Replaced by HeroPhoto in v5 Phase 2.
 function HeroComposite() {
   return (
     <div aria-hidden="true" style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none' }}>
@@ -141,7 +174,7 @@ function HeroComposite() {
       {/* Atmospheric red glow upper-right (emergency lights) */}
       <div style={{ position: 'absolute', top: -120, right: -100, width: 600, height: 600, borderRadius: '50%', background: 'radial-gradient(circle, rgba(220,38,38,0.32) 0%, rgba(220,38,38,0.08) 40%, transparent 70%)', filter: 'blur(40px)' }} />
 
-      {/* Secondary yellow atmospheric — like firetruck warning */}
+      {/* Secondary yellow atmospheric, like firetruck warning */}
       <div style={{ position: 'absolute', bottom: -80, left: -60, width: 400, height: 400, borderRadius: '50%', background: 'radial-gradient(circle, rgba(251,191,36,0.18) 0%, rgba(251,191,36,0.05) 50%, transparent 75%)', filter: 'blur(50px)' }} />
 
       {/* Noise texture */}
@@ -149,7 +182,7 @@ function HeroComposite() {
 
       {/* SVG skyline + fire engine silhouettes */}
       <svg viewBox="0 0 1400 800" preserveAspectRatio="xMidYMax slice" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}>
-        {/* Distant city skyline — silhouette */}
+        {/* Distant city skyline, silhouette */}
         <g opacity="0.7">
           <rect x="0" y="540" width="80" height="260" fill="#050a14" />
           <rect x="60" y="500" width="50" height="300" fill="#050a14" />
@@ -199,7 +232,7 @@ function HeroComposite() {
           <rect x="1340" y="530" width="3" height="4" />
         </g>
 
-        {/* Distant fire engine silhouette — right side */}
+        {/* Distant fire engine silhouette, right side */}
         <g transform="translate(1050 660)" opacity="0.9">
           {/* Cab */}
           <rect x="0" y="0" width="40" height="50" fill="#1a0a08" rx="3" />
@@ -224,7 +257,7 @@ function HeroComposite() {
         {/* Light beam coming off fire engine */}
         <polygon points="1050,660 1100,660 1080,800 1050,800" fill={YELLOW} opacity="0.04" />
 
-        {/* Foreground silhouette — figure with equipment (left, faint) */}
+        {/* Foreground silhouette, figure with equipment (left, faint) */}
         <g transform="translate(80 580)" opacity="0.55">
           {/* Head */}
           <circle cx="20" cy="-5" r="10" fill="#000" />
@@ -261,7 +294,7 @@ function HeroComposite() {
   )
 }
 
-// Interactive Before/After slider — drag the handle to reveal "after"
+// Interactive Before/After slider, drag the handle to reveal "after"
 // (clean) over "before" (dirty). Memorable, tactile, shows quality.
 function BeforeAfterSlider() {
   const [pos, setPos] = useState(50)
@@ -306,7 +339,7 @@ function BeforeAfterSlider() {
       onPointerUp={onUp}
       onPointerCancel={onUp}
     >
-      {/* BEFORE — dirty window, stained */}
+      {/* BEFORE, dirty window, stained */}
       <div style={{ position: 'absolute', inset: 0, background: `
         linear-gradient(135deg, rgba(180,170,140,0.35) 0%, rgba(120,110,90,0.5) 60%, rgba(60,55,45,0.6) 100%),
         radial-gradient(ellipse at 30% 25%, rgba(255,255,255,0.06) 0%, transparent 50%),
@@ -329,7 +362,7 @@ function BeforeAfterSlider() {
         </div>
       </div>
 
-      {/* AFTER — clean window, crisp glass with reflection */}
+      {/* AFTER, clean window, crisp glass with reflection */}
       <div style={{ position: 'absolute', inset: 0, clipPath: `inset(0 ${100 - pos}% 0 0)`, background: `
         linear-gradient(135deg, rgba(180,220,255,0.5) 0%, rgba(140,180,230,0.3) 50%, rgba(100,140,200,0.4) 100%),
         radial-gradient(ellipse at 25% 30%, rgba(255,255,255,0.6) 0%, transparent 45%),
@@ -436,17 +469,17 @@ const AREAS = [
 ]
 
 const FAQS = [
-  { q: 'How fast do you respond to quote requests?', a: "We send a full quote — with photos of what we'll do and a firm price — within 24 hours, every time. Requests in by 5pm get same-day response." },
-  { q: "Are you actually licensed and insured?", a: "Yes. Fully licensed in Oregon and carrying $2M general liability coverage. We send proof of insurance with every single quote — no exceptions." },
-  { q: "What if I'm not happy with the work?", a: "We come back same week and re-do it. Period. The 5.0 rating on Facebook says it all — we don't leave a job until it's right." },
+  { q: 'How fast do you respond to quote requests?', a: "We send a full quote, with photos of what we'll do and a firm price, within 24 hours, every time. Requests in by 5pm get same-day response." },
+  { q: "Are you actually licensed and insured?", a: "Yes. Fully licensed in Oregon and carrying $2M general liability coverage. We send proof of insurance with every single quote, no exceptions." },
+  { q: "What if I'm not happy with the work?", a: "We come back same week and re-do it. Period. The 5.0 rating on Facebook says it all, we don't leave a job until it's right." },
   { q: "Do you do residential and commercial?", a: "Both. Window cleaning, gutter clearing, carpet extraction, and screen repair on homes, storefronts, and small offices throughout the Willamette Valley." },
-  { q: "Do you actually work weekends?", a: "Yes — that's part of why we exist. Between 24-hour firehouse shifts, we work evenings and weekends. Most cleaning crews don't." },
+  { q: "Do you actually work weekends?", a: "Yes, that's part of why we exist. Between 24-hour firehouse shifts, we work evenings and weekends. Most cleaning crews don't." },
 ]
 
 export default function Preview() {
   return (
     <>
-      {/* v5 Phase 1 — Anton (display, headlines) + Inter (body). Matches the
+      {/* v5 Phase 1, Anton (display, headlines) + Inter (body). Matches the
           industrial-trade-business aesthetic of Haro Electric / FL Pro Wash /
           Volt Vikings. Drops Poppins, which read too "tech startup".
           Barlow Condensed retained ONLY for the "Code 3." wordmark. */}
@@ -509,11 +542,11 @@ export default function Preview() {
       `}</style>
 
       <div className="c3-page" style={{ background: WHITE, color: INK, minHeight: '100vh', overflowX: 'hidden' }}>
-        {/* ─── TOP UTILITY BAR (red — emergency response signal) ───────── */}
+        {/* ─── TOP UTILITY BAR (red, emergency response signal) ───────── */}
         <div style={{ background: RED, color: '#fff', padding: '7px 16px', textAlign: 'center', fontSize: 13, fontWeight: 600 }}>
           <span style={{ marginRight: 14 }}>
             <Icon d={ICONS.bolt} size={14} color="#fff" stroke={2.5} />{' '}
-            <span style={{ verticalAlign: 'middle', marginLeft: 4 }}>Same-day quotes — get yours in 30 seconds</span>
+            <span style={{ verticalAlign: 'middle', marginLeft: 4 }}>Same-day quotes, get yours in 30 seconds</span>
           </span>
           <span style={{ opacity: 0.7, marginRight: 14, display: 'inline-block' }} className="hide-sm">·</span>
           <a href="tel:5039830126" style={{ color: '#fff', textDecoration: 'none', fontWeight: 700 }} className="hide-sm">
@@ -555,7 +588,7 @@ export default function Preview() {
           position: 'relative',
           overflow: 'hidden',
         }}>
-          <HeroComposite />
+          <HeroPhoto />
           {/* Award badges floating top */}
           <div style={{ position: 'absolute', top: 24, right: 24, display: 'flex', gap: 10, opacity: 0.95 }} className="hide-md">
             {[
@@ -593,7 +626,7 @@ export default function Preview() {
               </h1>
 
               <p style={{ fontSize: 18, lineHeight: 1.55, color: '#c8d1dc', margin: '0 0 28px', maxWidth: 540, fontWeight: 400 }}>
-                We'll <strong style={{ color: '#fff' }}>INSTANTLY</strong> get back to you with a full quote — same day, every day. Spotless work. Fully insured. Across the entire Willamette Valley.
+                We'll <strong style={{ color: '#fff' }}>INSTANTLY</strong> get back to you with a full quote, same day, every day. Spotless work. Fully insured. Across the entire Willamette Valley.
               </p>
 
               <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 30px', display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: '10px 18px', maxWidth: 520 }}>
@@ -636,7 +669,7 @@ export default function Preview() {
               </div>
 
               <p style={{ fontSize: 13, color: '#a8b3c1', margin: '18px 0 0' }}>
-                Or <a href="sms:5039830126" style={{ color: ORANGE, textDecoration: 'underline', fontWeight: 600 }}>text us</a> — same-day response, every day.
+                Or <a href="sms:5039830126" style={{ color: ORANGE, textDecoration: 'underline', fontWeight: 600 }}>text us</a>, same-day response, every day.
               </p>
             </div>
 
@@ -660,7 +693,7 @@ export default function Preview() {
                   Get Your Free Quote Today.
                 </h3>
                 <p style={{ fontSize: 14, color: MUTED, margin: '0 0 20px' }}>
-                  We'll INSTANTLY get back to you — same-day, guaranteed.
+                  We'll INSTANTLY get back to you, same-day, guaranteed.
                 </p>
 
                 <form onSubmit={(e) => e.preventDefault()} style={{ display: 'flex', flexDirection: 'column', gap: 11 }}>
@@ -906,13 +939,13 @@ export default function Preview() {
                 <Mark color={RED} opacity={0.4}>Different uniform.</Mark>
               </h2>
               <p style={aboutP}>
-                Code 3 means lights and sirens — emergency response, top priority. It's how I answer the call at the firehouse, and it's the standard I bring to every cleaning job.
+                Code 3 means lights and sirens, emergency response, top priority. It's how I answer the call at the firehouse, and it's the standard I bring to every cleaning job.
               </p>
               <p style={aboutP}>
                 I started Code 3 Cleaning between 24-hour shifts. Folks in the Willamette Valley deserve the same urgency from their service providers that they expect when they dial 911. <strong>Same-day quotes. Show up on time. Work done right the first pass.</strong>
               </p>
               <p style={aboutP}>
-                136+ jobs completed. 5.0 stars on Facebook. Fully insured. If something's not perfect, we come back same week — no charge.
+                136+ jobs completed. 5.0 stars on Facebook. Fully insured. If something's not perfect, we come back same week, no charge.
               </p>
               <a href="#quote" style={{ ...ctaButtonBig(ORANGE), display: 'inline-flex', marginTop: 16 }}>
                 Get a free quote
@@ -995,11 +1028,11 @@ export default function Preview() {
                 See the <Mark color={YELLOW} opacity={0.7}>Code 3 difference.</Mark>
               </h2>
               <p style={{ fontSize: 16, lineHeight: 1.65, color: MUTED, margin: '20px 0 24px' }}>
-                Hard-water etching, mineral buildup, exterior film — most crews can't get it off. We can. This is a real Canby storefront before and after a single Code 3 service call.
+                Hard-water etching, mineral buildup, exterior film, most crews can't get it off. We can. This is a real Canby storefront before and after a single Code 3 service call.
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 24 }}>
                 {[
-                  'Streak-free guaranteed — or we come back free',
+                  'Streak-free guaranteed, or we come back free',
                   'Hard-water spots removed in one visit',
                   'Photo report sent on every completed job',
                 ].map((t, i) => (
@@ -1081,7 +1114,7 @@ export default function Preview() {
                 <Mark color={YELLOW} opacity={0.6}>Serving the whole Valley.</Mark>
               </h2>
               <p style={{ fontSize: 16, lineHeight: 1.6, color: MUTED, margin: '20px 0 28px' }}>
-                We cover north to Wilsonville, south to Salem-adjacent towns, east into Estacada and Sandy. Don't see your town? Just ask — we travel for the right job.
+                We cover north to Wilsonville, south to Salem-adjacent towns, east into Estacada and Sandy. Don't see your town? Just ask, we travel for the right job.
               </p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
                 {AREAS.map((a) => (
@@ -1183,7 +1216,7 @@ export default function Preview() {
                 <Mark color={YELLOW} opacity={0.75}>inbox today.</Mark>
               </h2>
               <p style={{ fontSize: 16, lineHeight: 1.65, color: '#c8d1dc', margin: '20px 0 32px', maxWidth: 460 }}>
-                Tell us the property, the service, your timeline. We'll INSTANTLY get back to you with a full quote — same day, every day, guaranteed.
+                Tell us the property, the service, your timeline. We'll INSTANTLY get back to you with a full quote, same day, every day, guaranteed.
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
                 <a href="tel:5039830126" style={{ display: 'inline-flex', alignItems: 'center', gap: 12, color: '#fff', textDecoration: 'none', fontSize: 20, fontWeight: 800, letterSpacing: '-0.01em' }}>
@@ -1248,7 +1281,7 @@ export default function Preview() {
                 </span>
               </div>
               <p style={{ fontSize: 13, color: '#8a96a8', lineHeight: 1.55, margin: 0 }}>
-                Window, gutter, carpet & screen — done same-day across the Willamette Valley. Fully licensed and insured in Oregon.
+                Window, gutter, carpet & screen, done same-day across the Willamette Valley. Fully licensed and insured in Oregon.
               </p>
             </div>
             <div>

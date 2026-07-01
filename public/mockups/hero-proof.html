@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex" />
+<title>Mockup — Let the screenshot do it</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --orange:#F5620F; --orange-hover:#d94e08; --orange-glow:rgba(245,98,15,0.30);
+  --black:#0F0F0F; --ink:#1a1a1a; --off:#F7F5F2; --bg:#F7F5F2;
+  --surface:#FFFFFF; --border:#E0DBD4; --muted:#7a7269;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Barlow',sans-serif;background:var(--off);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.container{max-width:1140px;margin:0 auto;padding:0 24px}
+
+.mock-banner{background:#0F0F0F;color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:12px;text-align:center;padding:8px 16px}
+.mock-banner span{color:var(--orange)}
+
+.btn{display:inline-flex;align-items:center;gap:8px;padding:15px 28px;border-radius:10px;font-family:'Barlow',sans-serif;font-weight:700;font-size:16px;cursor:pointer;border:1.5px solid transparent;transition:all .15s ease}
+.btn-primary{background:var(--orange);color:#fff;box-shadow:0 4px 16px var(--orange-glow)}
+.btn-primary:hover{background:var(--orange-hover)}
+
+/* ════════ SHOWCASE — let it breathe ════════ */
+.shot{padding:100px 0 96px;text-align:center}
+.shot h2{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:56px;line-height:.98;text-transform:uppercase;letter-spacing:-.01em;color:var(--black);margin-bottom:18px}
+.shot h2 .accent{color:var(--orange)}
+@media(max-width:760px){.shot h2{font-size:38px}}
+.shot p{font-size:19px;color:var(--muted);max-width:540px;margin:0 auto 48px}
+
+.shot-frame{max-width:1000px;margin:0 auto;border-radius:14px;overflow:hidden;box-shadow:0 40px 100px rgba(15,15,15,.22),0 0 0 1px rgba(15,15,15,.06)}
+.shot-frame img{width:100%;height:auto;display:block}
+.shot-cta{margin-top:44px}
+.shot-foot{margin-top:14px;font-size:13px;color:var(--muted);font-weight:500}
+</style>
+</head>
+<body>
+
+<div class="mock-banner">Internal mockup v4 <span>·</span> let the screenshot do the work <span>·</span> not live</div>
+
+<section class="shot">
+  <div class="container">
+    <h2>This is the whole app<span class="accent">.</span></h2>
+    <p>No demo required. Just look at it.</p>
+
+    <div class="shot-frame">
+      <img src="/screenshots/dashboard-desktop-full.png" alt="Opervo dashboard — revenue chart, KPI cards, pipeline funnel, today's schedule" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="shot-cta">
+      <a href="https://app.opervo.io" class="btn btn-primary">Start free &rarr;</a>
+      <div class="shot-foot">$24.99/mo. Every feature. Every plan.</div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
