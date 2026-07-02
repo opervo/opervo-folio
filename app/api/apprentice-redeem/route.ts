@@ -12,6 +12,21 @@ export async function POST(req: NextRequest) {
 
   const supabase = createClient(url, key)
 
+  // Authenticate the caller. The redeeming apprentice's email is derived from the
+  // verified session token, NOT from the request body. Previously the body-supplied
+  // email was trusted, letting anyone drain any apprentice's credits by naming their
+  // email.
+  const authHeader = req.headers.get('authorization') || ''
+  const token = authHeader.replace(/^Bearer\s+/i, '')
+  if (!token) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  }
+  const { data: userData, error: userErr } = await supabase.auth.getUser(token)
+  if (userErr || !userData?.user?.email) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  }
+  const normalizedEmail = userData.user.email.toLowerCase()
+
   let body: any
   try {
     body = await req.json()
@@ -19,12 +34,10 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 })
   }
 
-  const { email, items, total_credits } = body
-  if (!email || !items?.length || !total_credits) {
+  const { items } = body
+  if (!Array.isArray(items) || items.length === 0) {
     return NextResponse.json({ error: 'Missing fields' }, { status: 400 })
   }
-
-  const normalizedEmail = email.toLowerCase()
 
   // Verify this email is an apprentice
   const { data: apprentice } = await supabase
@@ -35,6 +48,42 @@ export async function POST(req: NextRequest) {
 
   if (!apprentice) {
     return NextResponse.json({ error: 'Not an apprentice' }, { status: 403 })
+  }
+
+  // Recompute the cost from the authoritative gear_items table. The client-supplied
+  // credit_cost / total_credits are NOT trusted (a tampered client could otherwise
+  // claim expensive items cost 1 credit). Quantities are clamped to sane integers.
+  const requested: { id: string; qty: number }[] = []
+  for (const it of items) {
+    if (!it || typeof it.id !== 'string') {
+      return NextResponse.json({ error: 'Invalid item' }, { status: 400 })
+    }
+    const qty = Math.floor(Number(it.qty))
+    if (!Number.isFinite(qty) || qty < 1 || qty > 100) {
+      return NextResponse.json({ error: 'Invalid quantity' }, { status: 400 })
+    }
+    requested.push({ id: it.id, qty })
+  }
+
+  const { data: gear, error: gearErr } = await supabase
+    .from('gear_items')
+    .select('id, title, credit_cost, active')
+    .in('id', requested.map((r) => r.id))
+
+  if (gearErr) {
+    return NextResponse.json({ error: 'Failed to price order' }, { status: 500 })
+  }
+  const gearById = new Map((gear || []).map((g) => [g.id, g]))
+
+  let serverTotal = 0
+  const validatedItems: { id: string; title: string; credit_cost: number; qty: number }[] = []
+  for (const r of requested) {
+    const g = gearById.get(r.id)
+    if (!g || !g.active) {
+      return NextResponse.json({ error: 'Item unavailable' }, { status: 400 })
+    }
+    serverTotal += g.credit_cost * r.qty
+    validatedItems.push({ id: g.id, title: g.title, credit_cost: g.credit_cost, qty: r.qty })
   }
 
   // Calculate current balance
@@ -48,15 +97,15 @@ export async function POST(req: NextRequest) {
   const redeemed = ledger.filter((c) => c.type === 'redeem').reduce((s, c) => s + Math.abs(c.amount_cents), 0)
   const balance = earned - redeemed
 
-  if (total_credits > balance) {
+  if (serverTotal > balance) {
     return NextResponse.json({ error: 'Insufficient credits' }, { status: 400 })
   }
 
-  // Write redemption record
+  // Write redemption record (server-validated items + server-computed total)
   const { error: redemptionErr } = await supabase.from('gear_redemptions').insert({
     apprentice_email: normalizedEmail,
-    items,
-    total_credits,
+    items: validatedItems,
+    total_credits: serverTotal,
   })
 
   if (redemptionErr) {
@@ -64,11 +113,11 @@ export async function POST(req: NextRequest) {
   }
 
   // Debit gear credits
-  const itemTitles = items.map((i: any) => i.title).join(', ')
+  const itemTitles = validatedItems.map((i) => i.title).join(', ')
   await supabase.from('gear_credits').insert({
     apprentice_email: normalizedEmail,
     type: 'redeem',
-    amount_cents: total_credits,
+    amount_cents: serverTotal,
     description: `Redeemed: ${itemTitles}`,
   })
 

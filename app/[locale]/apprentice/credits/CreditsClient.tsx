@@ -434,17 +434,20 @@ export default function CreditsClient() {
     if (total > data.balance_cents) return
 
     setRedeeming(true)
-    const email = (await supabase.auth.getSession()).data.session?.user?.email
-    if (!email) { setRedeeming(false); return }
+    const accessToken = (await supabase.auth.getSession()).data.session?.access_token
+    if (!accessToken) { setRedeeming(false); return }
 
     try {
+      // Server verifies the token, derives the apprentice from the session, and
+      // recomputes the cost from gear_items. Only item ids + quantities matter.
       const res = await fetch('/api/apprentice-redeem', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${accessToken}`,
+        },
         body: JSON.stringify({
-          email: email.toLowerCase(),
-          items: cart.map((c) => ({ id: c.item.id, title: c.item.title, credit_cost: c.item.credit_cost, qty: c.qty })),
-          total_credits: total,
+          items: cart.map((c) => ({ id: c.item.id, qty: c.qty })),
         }),
       })
       if (!res.ok) { setRedeeming(false); return }
