@@ -26,7 +26,10 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Invalid auth token' }, { status: 401 })
   }
 
-  // Parse request body
+  // Parse request body. `price` is the after-discount PRE-tax amount (QBO
+  // income is booked pre-tax; sales tax collected is a liability, not
+  // income). tax_amount / tax_percent / total_charged are optional context
+  // recorded in the invoice memo; older app builds omit them.
   let body: {
     job_id: string
     client_name: string
@@ -34,6 +37,9 @@ export async function POST(req: NextRequest) {
     client_phone?: string | null
     service_type: string
     price: number
+    tax_amount?: number | null
+    tax_percent?: number | null
+    total_charged?: number | null
     date: string
     notes?: string | null
   }
@@ -44,7 +50,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Invalid JSON body' }, { status: 400 })
   }
 
-  const { job_id, client_name, client_email, client_phone, service_type, price, date, notes } = body
+  const { job_id, client_name, client_email, client_phone, service_type, price, tax_amount, tax_percent, total_charged, date, notes } = body
 
   if (!job_id || !client_name || !service_type || !price) {
     return NextResponse.json(
@@ -90,12 +96,21 @@ export async function POST(req: NextRequest) {
       payload: { customer_id: customer.Id, display_name: customer.DisplayName },
     })
 
-    // 3. Create the invoice in QBO
+    // 3. Create the invoice in QBO. Income line is PRE-tax; the collected
+    // sales tax is recorded in the memo for the operator's accountant.
+    // Proper TxnTaxDetail integration is future work (needs sandbox testing
+    // against operators' varying QBO sales-tax configs).
+    const taxNote =
+      tax_amount && tax_amount > 0
+        ? ` Sales tax collected: $${Number(tax_amount).toFixed(2)}${tax_percent ? ` (${tax_percent}%)` : ''}.` +
+          (total_charged ? ` Total charged incl tax: $${Number(total_charged).toFixed(2)}.` : '') +
+          ' Income line is pre-tax.'
+        : ''
     const invoicePayload = {
       CustomerRef: { value: customer.Id },
       TxnDate: date,
       DueDate: date,
-      PrivateNote: notes || `Synced from Opervo — Job ${job_id}`,
+      PrivateNote: (notes || `Synced from Opervo, Job ${job_id}.`) + taxNote,
       Line: [
         {
           Amount: price,
@@ -179,6 +194,8 @@ export async function POST(req: NextRequest) {
         qbo_invoice_id: qboInvoiceId,
         qbo_invoice_number: qboInvoiceNumber,
         amount: price,
+        tax_amount: tax_amount ?? null,
+        total_charged: total_charged ?? null,
         customer: customer.DisplayName,
       },
     })
