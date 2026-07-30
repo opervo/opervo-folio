@@ -258,9 +258,9 @@ export default function TradeLandingPage({ config }: { config: TradePageConfig }
       <section style={{ maxWidth: 1100, margin: '0 auto', padding: '0 24px 56px' }}>
         <div style={{ background: 'linear-gradient(135deg, #0F0F0F 0%, #1A1A1A 100%)', borderRadius: 12, padding: '24px 28px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 20, flexWrap: 'wrap' }}>
           <div style={{ flex: '1 1 380px', minWidth: 0 }}>
-            <p style={{ fontSize: 11, fontWeight: 800, color: '#F5620F', textTransform: 'uppercase', letterSpacing: '0.16em', marginBottom: 6 }}>Founding 50 · 21 of 50 claimed</p>
+            <p style={{ fontSize: 11, fontWeight: 800, color: '#F5620F', textTransform: 'uppercase', letterSpacing: '0.16em', marginBottom: 6 }}>Founding 50 · 45 of 50 claimed</p>
             <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 22, color: '#F7F5F2', fontWeight: 800, marginBottom: 6, textTransform: 'uppercase', lineHeight: 1.15 }}>Lock <span style={{ color: '#F5620F' }}>$15/mo Solo</span> for life</p>
-            <p style={{ fontSize: 13, color: '#B8B8B8', lineHeight: 1.55 }}>40% off forever in exchange for honest feedback. 29 spots remain.</p>
+            <p style={{ fontSize: 13, color: '#B8B8B8', lineHeight: 1.55 }}>40% off forever in exchange for honest feedback. 5 spots remain.</p>
           </div>
           <a href="/#founding-50" style={{ display: 'inline-block', background: '#F5620F', color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 14, padding: '12px 28px', borderRadius: 6, textDecoration: 'none', textTransform: 'uppercase', letterSpacing: '0.05em', whiteSpace: 'nowrap' }}>
             Apply →
