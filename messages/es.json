@@ -23,7 +23,7 @@
       "proWebsites": "Sitios Web Pro",
       "guide": "Guia",
       "theFounder": "El fundador",
-      "apprentice": "Aprendiz (13-17 anos)"
+      "apprentice": "Aprendiz (13-17 años)"
     }
   },
 
@@ -145,7 +145,7 @@
       "sub": "Jardineria quincenal, limpieza de ventanas mensual, lavado a presion trimestral. Define la frecuencia una vez y Opervo genera los trabajos, envia los recordatorios y le cobra al cliente. El tipo de automatizacion que un operador independiente realmente tiene tiempo de configurar.",
       "bullet1": "Cualquier frecuencia: semanal, quincenal, mensual, trimestral o personalizada.",
       "bullet2": "Los trabajos se crean solos en tu agenda para que nunca olvides a un cliente.",
-      "bullet3": "Los clientes reciben un SMS de \"Voy en camino\" la manana del servicio.",
+      "bullet3": "Los clientes reciben un SMS de \"Voy en camino\" la mañana del servicio.",
       "bullet4": "Factura, solicitud de resena, sincronizacion con QBO. Todo en piloto automatico.",
       "cta": "Crear un plan"
     },
@@ -254,8 +254,8 @@
       "flat": "plano",
       "youdSave": "Ahorras",
       "perMo": "/mo",
-      "perYear": "/ano",
-      "over5Years": "en 5 anos",
+      "perYear": "/año",
+      "over5Years": "en 5 años",
       "allFeaturesIncluded": "todas las funciones incluidas",
       "zeroPaymentMarkup": "0% de comision en pagos",
       "upToUsers": "Hasta {count} usuarios",
@@ -284,7 +284,7 @@
     "founder": {
       "label": "Una nota del fundador",
       "quote": "\"Construi Opervo desde mi experiencia en el campo, no desde una sala de juntas. Es la app que me hubiera gustado tener.\"",
-      "body": "Yo tuve un equipo de limpieza antes de escribir una sola linea de codigo. Se lo que es perseguir pagos desde la cabina de una camioneta, perder una cotizacion porque tenia las manos mojadas, perder un cliente porque se me olvido el mensaje de seguimiento. Opervo es todo lo que queria y no podia pagar. Si eres un operador independiente o un equipo pequeno, esto es para ti. Lo sigo construyendo todos los dias.",
+      "body": "Yo tuve un equipo de limpieza antes de escribir una sola linea de codigo. Se lo que es perseguir pagos desde la cabina de una camioneta, perder una cotizacion porque tenia las manos mojadas, perder un cliente porque se me olvido el mensaje de seguimiento. Opervo es todo lo que queria y no podia pagar. Si eres un operador independiente o un equipo pequeño, esto es para ti. Lo sigo construyendo todos los dias.",
       "sig": "Max.",
       "role": "Fundador, Opervo",
       "cta": "Lee la historia completa"
@@ -292,7 +292,7 @@
     "founding50": {
       "eyebrow": "Fundadores 50 · Lugares limitados",
       "title": "Asegura $15/mo Solo de por vida. Ayuda a darle forma al producto.",
-      "sub": "Los Operadores Fundadores obtienen 40% de descuento permanente a cambio de retroalimentacion honesta — una encuesta aqui, una llamada rapida alla. Lo limitamos a 50 para que el grupo sea lo suficientemente pequeno como para realmente usar lo que nos digan.",
+      "sub": "Los Operadores Fundadores obtienen 40% de descuento permanente a cambio de retroalimentacion honesta — una encuesta aqui, una llamada rapida alla. Lo limitamos a 50 para que el grupo sea lo suficientemente pequeño como para realmente usar lo que nos digan.",
       "claimed": "{claimed} de {total} lugares tomados",
       "remaining": "{count} restantes",
       "ctaPrimary": "Aplica para Fundadores 50 →",
@@ -307,7 +307,7 @@
         "price": "$24.99",
         "unit": "/mo",
         "tag": "Acceso completo · 2 usuarios (operador + 1 ayudante)",
-        "annual": "o $249/ano — ahorra $51",
+        "annual": "o $249/año — ahorra $51",
         "cta": "Empieza gratis"
       },
       "team": {
@@ -315,7 +315,7 @@
         "price": "$54.99",
         "unit": "/mo",
         "tag": "Acceso completo · Hasta 10 miembros del equipo",
-        "annual": "o $549/ano — ahorra $111",
+        "annual": "o $549/año — ahorra $111",
         "cta": "Empieza gratis"
       },
       "growth": {
@@ -631,7 +631,7 @@
             "desc": "Los miembros del equipo registran sus horas por trabajo. Tu lo ves todo en tu panel."
           },
           "ownerDashboard": {
-            "name": "Panel del dueno",
+            "name": "Panel del dueño",
             "desc": "Vista panoramica de la actividad del equipo, progreso de trabajos y registro de tiempo."
           }
         }
@@ -876,17 +876,17 @@
         "vsJobber": {
           "name": "Opervo vs Jobber",
           "price": "$24.99/mo vs $39/mo",
-          "desc": "Ahorra $168/ano. Incluye pagina de portafolio y SMS."
+          "desc": "Ahorra $168/año. Incluye pagina de portafolio y SMS."
         },
         "vsHousecallPro": {
           "name": "Opervo vs Housecall Pro",
           "price": "$24.99/mo vs $79/mo",
-          "desc": "Ahorra $648/ano. Todas las funciones que los independientes realmente necesitan."
+          "desc": "Ahorra $648/año. Todas las funciones que los independientes realmente necesitan."
         },
         "vsGorillaDesk": {
           "name": "Opervo vs GorillaDesk",
           "price": "$24.99/mo vs $49/mo",
-          "desc": "Ahorra $288/ano. Hecho para cualquier oficio de servicio al hogar."
+          "desc": "Ahorra $288/año. Hecho para cualquier oficio de servicio al hogar."
         }
       },
       "seeFullComparison": "Ver comparacion completa"
@@ -927,7 +927,7 @@
       "monthlyPrice": "$24.99",
       "monthlyUnit": "/mo",
       "annualPrice": "$249",
-      "annualUnit": "/ano",
+      "annualUnit": "/año",
       "monthlyTag": "Acceso completo · 2 usuarios",
       "annualTag": "Solo ${perMonth}/mo · ahorra ${savings} vs mensual",
       "features": [
@@ -952,7 +952,7 @@
       "monthlyPrice": "$54.99",
       "monthlyUnit": "/mo",
       "annualPrice": "$549",
-      "annualUnit": "/ano",
+      "annualUnit": "/año",
       "monthlyTag": "Acceso completo · Sin cobro por usuario",
       "annualTag": "Solo ${perMonth}/mo · ahorra ${savings} vs mensual",
       "features": [
@@ -993,7 +993,7 @@
         "markate": "Markate"
       },
       "rows": [
-        { "feature": "Precio", "oSolo": "$24.99/mo o $249/ano", "oTeam": "$54.99/mo o $549/ano", "jLite": "$39/mo", "jConnect": "$119/mo", "hcp": "$79/mo", "gd": "$49/mo", "mk": "$39.95 + extras" },
+        { "feature": "Precio", "oSolo": "$24.99/mo o $249/año", "oTeam": "$54.99/mo o $549/año", "jLite": "$39/mo", "jConnect": "$119/mo", "hcp": "$79/mo", "gd": "$49/mo", "mk": "$39.95 + extras" },
         { "feature": "Prueba gratis", "oSolo": "14 dias", "oTeam": "14 dias", "jLite": "14 dias", "jConnect": "14 dias", "hcp": "14 dias", "gd": "14 dias", "mk": "14 dias" },
         { "feature": "Agenda", "oSolo": "check", "oTeam": "check", "jLite": "check", "jConnect": "check", "hcp": "check", "gd": "check", "mk": "check" },
         { "feature": "Presupuestos y facturacion", "oSolo": "check", "oTeam": "check", "jLite": "check", "jConnect": "check", "hcp": "check", "gd": "check", "mk": "check" },
@@ -1024,7 +1024,7 @@
       { "q": "Que metodos de pago aceptan?", "a": "Para tu suscripcion, todas las tarjetas de credito y debito principales via Stripe. No almacenamos tu informacion de tarjeta. Para pagos de tus clientes, conectas tu propia cuenta de Square o Stripe — el dinero va directo a tu banco, y Opervo jamas cobra comision." },
       { "q": "Opervo se queda con parte de los pagos de mis clientes?", "a": "No. Cero comision de plataforma, nunca. Conectas Square (recomendado para nuevos operadores) o Stripe a tu cuenta, y los pagos de tus clientes van directamente de ellos a ti. Nunca tocamos el dinero." },
       { "q": "Que pasa despues de la prueba?", "a": "Tu cuenta sigue activa en el plan que elijas. Si no te suscribes, tus datos se guardan por 30 dias para que puedas regresar cuando quieras." },
-      { "q": "Ofrecen precios anuales?", "a": "Si. Solo Anual es $249/ano (ahorras $51 vs mensual), Team Anual es $549/ano (ahorras $111). Cambia entre Mensual o Anual en las tarjetas de precios arriba, o elige Anual al pagar. Cancela cuando quieras." },
+      { "q": "Ofrecen precios anuales?", "a": "Si. Solo Anual es $249/año (ahorras $51 vs mensual), Team Anual es $549/año (ahorras $111). Cambia entre Mensual o Anual en las tarjetas de precios arriba, o elige Anual al pagar. Cancela cuando quieras." },
       { "q": "Que es el plan Growth?", "a": "Para equipos de mas de 10 miembros. Precio personalizado y onboarding — escribe a help@opervo.io y te configuramos." }
     ],
     "faqTitle": "Preguntas frecuentes",
@@ -1049,7 +1049,7 @@
     "getInTouch": "Contactanos",
     "apply": "Aplicar",
     "perMonth": "/mo",
-    "perYear": "/ano",
+    "perYear": "/año",
     "check": "✓",
     "cross": "✗",
     "included": "Incluido",
@@ -1059,8 +1059,8 @@
     "growthPlan": "Growth",
     "soloPrice": "$24.99/mo",
     "teamPrice": "$54.99/mo",
-    "soloAnnualPrice": "$249/ano",
-    "teamAnnualPrice": "$549/ano",
+    "soloAnnualPrice": "$249/año",
+    "teamAnnualPrice": "$549/año",
     "allFeaturesIncluded": "Todas las funciones incluidas",
     "noPerUserFees": "Sin cobro por usuario",
     "zeroMarkup": "Cero comision",
