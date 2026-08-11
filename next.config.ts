@@ -34,6 +34,29 @@ const nextConfig: NextConfig = {
           { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
         ],
       },
+      // Images, both the raw files and, indirectly, their optimized variants.
+      // /_next/image inherits Cache-Control from the upstream source, so
+      // minimumCacheTTL alone does not stop browsers revalidating: it governs
+      // Vercel's own cache, not the response header. This does.
+      //
+      // Deliberately NOT immutable, unlike fonts. These files do get edited in
+      // place under the same name, as the re-encodes in #5, #6 and #7 did.
+      // A day of freshness with a week of stale-while-revalidate means an edit
+      // propagates within 24h while repeat views still come from cache.
+      {
+        source: '/:dir(screenshots|landing|logos|apprentice|photos|portfolio)/:file*',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=86400, stale-while-revalidate=604800' },
+        ],
+      },
+      // Root-level images, which the directory rule above misses. founder-photo
+      // is served through next/image, so its header matters for the same reason.
+      {
+        source: '/:file*.(png|jpg|jpeg|webp|avif|svg)',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=86400, stale-while-revalidate=604800' },
+        ],
+      },
     ]
   },
   async redirects() {
