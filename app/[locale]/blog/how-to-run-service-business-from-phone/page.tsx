@@ -3,7 +3,7 @@ import Link from 'next/link'
 import BlogLayout from '@/components/BlogLayout'
 
 export const metadata: Metadata = {
-  title: 'How to Run a Service Business Entirely From Your Phone (2026 Guide)',
+  title: 'How to Run a Service Business Entirely From Your Phone',
   description: 'Learn how to schedule jobs, send estimates, invoice clients, auto-text reminders, and showcase your work, all from your phone.',
   alternates: { canonical: 'https://www.opervo.io/blog/how-to-run-service-business-from-phone' },
   openGraph: {

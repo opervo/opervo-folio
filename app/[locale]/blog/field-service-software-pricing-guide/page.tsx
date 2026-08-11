@@ -3,7 +3,7 @@ import Link from 'next/link'
 import BlogLayout from '@/components/BlogLayout'
 
 export const metadata: Metadata = {
-  title: 'Field Service Software Pricing Guide (2026) | What You\'ll Actually Pay | Opervo',
+  title: 'Field Service Software Pricing 2026: What You\'ll Pay',
   description: 'Compare real pricing for Opervo, Jobber, Housecall Pro, and GorillaDesk. See monthly costs, hidden fees, and which platform gives solos the most value in 2026.',
   alternates: { canonical: 'https://www.opervo.io/blog/field-service-software-pricing-guide' },
   openGraph: {

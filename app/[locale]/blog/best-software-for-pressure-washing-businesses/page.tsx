@@ -3,7 +3,7 @@ import Link from 'next/link'
 import BlogLayout from '@/components/BlogLayout'
 
 export const metadata: Metadata = {
-  title: 'Best Software for Pressure Washing Businesses (2026) | 5 Apps Ranked',
+  title: 'Best Software for Pressure Washing Businesses: 5 Ranked',
   description: 'We ranked the 5 best software tools for pressure washing businesses in 2026. Compared pricing, features, before/after portfolios, and mobile usability.',
   alternates: { canonical: 'https://www.opervo.io/blog/best-software-for-pressure-washing-businesses' },
   openGraph: {
