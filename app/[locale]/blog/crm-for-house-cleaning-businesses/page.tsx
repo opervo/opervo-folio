@@ -4,11 +4,11 @@ import BlogLayout from '@/components/BlogLayout'
 
 export const metadata: Metadata = {
   title: 'CRM for House Cleaning Businesses | Opervo',
-  description: 'House cleaning businesses depend on recurring clients, clear notes, and fast scheduling changes. A CRM helps you manage recurring jobs, customer details, inv...',
+  description: "House cleaning businesses depend on recurring clients, clear notes, and fast scheduling changes.",
   alternates: { canonical: 'https://www.opervo.io/blog/crm-for-house-cleaning-businesses' },
   openGraph: {
     title: 'CRM for House Cleaning Businesses | Opervo',
-    description: 'House cleaning businesses depend on recurring clients, clear notes, and fast scheduling changes. A CRM helps you manage recurring jobs, customer details, inv...',
+    description: "House cleaning businesses depend on recurring clients, clear notes, and fast scheduling changes.",
     url: 'https://www.opervo.io/blog/crm-for-house-cleaning-businesses',
     type: 'article',
   },
@@ -31,6 +31,7 @@ export default function CrmForHouseCleaningBusinesses() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.opervo.io"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.opervo.io/blog"}, {"@type": "ListItem", "position": 3, "name": "CRM for House Cleaning Businesses", "item": "https://www.opervo.io/blog/crm-for-house-cleaning-businesses"}]}` }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: "{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Do solo cleaners need CRM software?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Yes. It saves time, reduces missed work, and makes the customer experience more professional.\"}}]}" }} />
       <BlogLayout
         category="GUIDES"
         title="CRM for House Cleaning Businesses: How to Stay Booked and Organized"
@@ -38,22 +39,22 @@ export default function CrmForHouseCleaningBusinesses() {
         readTime="5"
       >
         <p>House cleaning businesses depend on recurring clients, clear notes, and fast scheduling changes. A CRM helps you manage recurring jobs, customer details, invoices, and communication from one place.</p>
-    <h3>Why house cleaning businesses need a CRM</h3>
+    <h2>Why house cleaning businesses need a CRM</h2>
     <ul>
       <li>Recurring clients can easily fall through the cracks.</li>
       <li>Customer preferences matter and need to be saved.</li>
       <li>Manual invoicing slows down cash flow.</li>
     </ul>
-    <h3>Important features</h3>
+    <h2>Important features</h2>
     <ul>
       <li>Recurring scheduling</li>
       <li>Job notes and customer history</li>
       <li>Fast invoicing</li>
       <li>Mobile access</li>
     </ul>
-    <h3>Why Opervo works</h3>
+    <h2>Why Opervo works</h2>
     <p>Opervo helps cleaners stay organized without adding unnecessary complexity. It is made for operators who want one clean app for day to day business management.</p>
-    <h3>FAQ</h3>
+    <h2>FAQ</h2>
     <p><strong>Do solo cleaners need CRM software?</strong><br />Yes. It saves time, reduces missed work, and makes the customer experience more professional.</p>
       </BlogLayout>
     </>

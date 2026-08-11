@@ -4,11 +4,11 @@ import BlogLayout from '@/components/BlogLayout'
 
 export const metadata: Metadata = {
   title: 'CRM for Pressure Washing Businesses | Opervo',
-  description: 'Pressure washing businesses need speed. Leads come in quickly, estimates are often time sensitive, and route efficiency matters. A CRM helps you keep the ope...',
+  description: "Pressure washing businesses need speed. Leads come in quickly, estimates are often time sensitive, and route efficiency matters.",
   alternates: { canonical: 'https://www.opervo.io/blog/crm-for-pressure-washing-businesses' },
   openGraph: {
     title: 'CRM for Pressure Washing Businesses | Opervo',
-    description: 'Pressure washing businesses need speed. Leads come in quickly, estimates are often time sensitive, and route efficiency matters. A CRM helps you keep the ope...',
+    description: "Pressure washing businesses need speed. Leads come in quickly, estimates are often time sensitive, and route efficiency matters.",
     url: 'https://www.opervo.io/blog/crm-for-pressure-washing-businesses',
     type: 'article',
   },
@@ -31,6 +31,7 @@ export default function CrmForPressureWashingBusinesses() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.opervo.io"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.opervo.io/blog"}, {"@type": "ListItem", "position": 3, "name": "CRM for Pressure Washing Businesses", "item": "https://www.opervo.io/blog/crm-for-pressure-washing-businesses"}]}` }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: "{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"What software should a pressure washing business use?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Use software that combines scheduling, quotes, invoices, and customer management in one app.\"}}]}" }} />
       <BlogLayout
         category="GUIDES"
         title="CRM for Pressure Washing Businesses: How to Book More Jobs and Stay Efficient"
@@ -39,14 +40,14 @@ export default function CrmForPressureWashingBusinesses() {
       >
         <p>Pressure washing businesses need speed. Leads come in quickly, estimates are often time sensitive, and route efficiency matters. A CRM helps you keep the operation tight as you grow.</p>
     <p>With the right CRM, you can manage customers, schedules, estimates, and invoices in one place instead of piecing together several tools.</p>
-    <h3>Common problems without a CRM</h3>
+    <h2>Common problems without a CRM</h2>
     <ul>
       <li>Leads get lost in texts or voicemail.</li>
       <li>Jobs are scheduled inefficiently.</li>
       <li>Customer notes and pricing are inconsistent.</li>
       <li>Upsells like <Link href="/blog/crm-for-roof-cleaning-businesses">roof cleaning</Link> and <Link href="/blog/crm-for-soft-washing-businesses">soft washing</Link> are easy to miss.</li>
     </ul>
-    <h3>What to look for</h3>
+    <h2>What to look for</h2>
     <ul>
       <li>Fast estimate creation</li>
       <li>Calendar and route visibility</li>
@@ -54,9 +55,9 @@ export default function CrmForPressureWashingBusinesses() {
       <li>Simple invoice flow</li>
       <li>Mobile first design</li>
     </ul>
-    <h3>Why Opervo works for pressure washing</h3>
+    <h2>Why Opervo works for pressure washing</h2>
     <p>Opervo gives small service businesses the tools they actually use every day. It helps you respond quickly, stay organized, and keep jobs moving without getting buried in admin work.</p>
-    <h3>FAQ</h3>
+    <h2>FAQ</h2>
     <p><strong>What software should a pressure washing business use?</strong><br />Use software that combines scheduling, quotes, invoices, and customer management in one app.</p>
     <p><strong>Can a CRM help increase close rates?</strong><br />Yes. Faster response times and cleaner follow up make a real difference.</p>
       </BlogLayout>

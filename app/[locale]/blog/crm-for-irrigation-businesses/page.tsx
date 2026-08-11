@@ -4,11 +4,11 @@ import BlogLayout from '@/components/BlogLayout'
 
 export const metadata: Metadata = {
   title: 'CRM for Irrigation Businesses | Opervo',
-  description: 'Irrigation businesses often handle seasonal startups, repairs, maintenance, and recurring service. A CRM helps you manage that mix while keeping customer det...',
+  description: "Opervo helps smaller irrigation businesses keep jobs moving and customers organized without needing a complex enterprise stack.",
   alternates: { canonical: 'https://www.opervo.io/blog/crm-for-irrigation-businesses' },
   openGraph: {
     title: 'CRM for Irrigation Businesses | Opervo',
-    description: 'Irrigation businesses often handle seasonal startups, repairs, maintenance, and recurring service. A CRM helps you manage that mix while keeping customer det...',
+    description: "Opervo helps smaller irrigation businesses keep jobs moving and customers organized without needing a complex enterprise stack.",
     url: 'https://www.opervo.io/blog/crm-for-irrigation-businesses',
     type: 'article',
   },
@@ -31,6 +31,7 @@ export default function CrmForIrrigationBusinesses() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.opervo.io"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.opervo.io/blog"}, {"@type": "ListItem", "position": 3, "name": "CRM for Irrigation Businesses", "item": "https://www.opervo.io/blog/crm-for-irrigation-businesses"}]}` }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: "{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"What software should an irrigation business use?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Use software that makes scheduling, quoting, invoicing, and customer records easy to manage in the field.\"}}]}" }} />
       <BlogLayout
         category="GUIDES"
         title="CRM for Irrigation Businesses: Stay Organized Across Service Calls, Seasonal Work, and Customer Notes"
@@ -38,22 +39,22 @@ export default function CrmForIrrigationBusinesses() {
         readTime="5"
       >
         <p>Irrigation businesses often handle seasonal startups, repairs, maintenance, and recurring service. A CRM helps you manage that mix while keeping customer details and scheduling organized.</p>
-    <h3>Why irrigation companies need a CRM</h3>
+    <h2>Why irrigation companies need a CRM</h2>
     <ul>
       <li>Seasonal demand creates a lot of moving parts.</li>
       <li>Property specific notes are important for future visits.</li>
       <li>Estimates and repair approvals need clear tracking.</li>
     </ul>
-    <h3>Important features</h3>
+    <h2>Important features</h2>
     <ul>
       <li>Scheduling and reminders</li>
       <li>Customer records</li>
       <li>Estimate and invoice tools</li>
       <li>Mobile access</li>
     </ul>
-    <h3>Why Opervo is a fit</h3>
+    <h2>Why Opervo is a fit</h2>
     <p>Opervo helps smaller irrigation businesses keep jobs moving and customers organized without needing a complex enterprise stack.</p>
-    <h3>FAQ</h3>
+    <h2>FAQ</h2>
     <p><strong>What software should an irrigation business use?</strong><br />Use software that makes scheduling, quoting, invoicing, and customer records easy to manage in the field.</p>
       </BlogLayout>
     </>
