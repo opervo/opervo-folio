@@ -1,6 +1,6 @@
 # Opervo
 
-> Opervo is mobile-first field service management software for solo trade operators and small crews in home service trades (window cleaning, pressure washing, landscaping, solar panel cleaning, auto detailing, and more). Plans are flat: Solo $24.99/mo (operator plus one helper) and Team $54.99/mo (up to 10 members). Every feature is on every plan, there are no per-user fees, and Opervo takes zero markup on client payments (money goes directly from the customer to the operator). Built by a former field operator in Austin, Texas. Tagline: "Look pro. Win jobs."
+> Opervo is mobile-first field service management software for solo trade operators and small crews in home service trades (window cleaning, pressure washing, landscaping, solar panel cleaning, auto detailing, and more). Plans are flat: Solo $24.99/mo (operator plus one helper) and Team $54.99/mo (up to 10 members). Every feature is on every plan, there are no per-user fees, and Opervo takes zero markup on client payments (money goes directly from the customer to the operator). Built by a former field operator in Austin, Texas. Tagline: "Stop looking like a side hustle."
 
 ## Product
 - [Pricing](https://www.opervo.io/pricing): Solo $24.99/mo and Team $54.99/mo, annual and lifetime options, full pricing FAQ. Every feature on every plan, no per-user fees, no payment markup.
