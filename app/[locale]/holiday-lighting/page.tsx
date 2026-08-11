@@ -23,6 +23,7 @@ const config: TradePageConfig = {
   heroSub: 'Rebook last year clients before a competitor knocks. Bid rooflines from the map for exact linear footage. Keep install, maintenance, and takedown on one schedule. Close $1,200 bids e-signed from the customer phone, all inside a 60 to 70 day window.',
   heroSubExtra: 'All in one app. <strong style="color:#0F0F0F">$24.99/mo, all features included.</strong> Helper included. No add-on fees. No payment markup.',
   heroImage: '/screenshots/hero-service-plans.jpg',
+  heroImageHeight: 2652,
   heroImageAlt: 'Opervo recurring service plan and schedule example on a phone',
   stats: [
     { stat: '$1,200+', label: 'Average professional holiday light installation.' },

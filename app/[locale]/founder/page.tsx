@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import SiteNav from '@/components/SiteNav'
 import SiteFooter from '@/components/SiteFooter'
 
@@ -41,6 +42,7 @@ export default function FounderPage() {
             {/* Photo placeholder */}
             <div style={{ flex: '0 0 280px', maxWidth: 280 }}>
               <div style={{
+                position: 'relative',
                 width: '100%',
                 aspectRatio: '1',
                 borderRadius: 16,
@@ -50,11 +52,17 @@ export default function FounderPage() {
                 justifyContent: 'center',
                 overflow: 'hidden',
               }}>
-                <img
+                {/* Painted in a 280px box, so 560px covers a 2x screen. The
+                    scale(1.35) crop and objectPosition are preserved. */}
+                <Image
                   src="/founder-photo.jpg"
                   alt="Founder of Opervo"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 35%', transform: 'scale(1.35)', borderRadius: 16 }}
-                  onError={undefined}
+                  fill
+                  sizes="280px"
+                  // Sits inside the first viewport and the raw <img> it
+                  // replaced loaded eagerly, so opt out of the lazy default.
+                  priority
+                  style={{ objectFit: 'cover', objectPosition: 'center 35%', transform: 'scale(1.35)', borderRadius: 16 }}
                 />
               </div>
             </div>

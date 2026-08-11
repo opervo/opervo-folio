@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import SiteNav from '@/components/SiteNav'
 import SiteFooter from '@/components/SiteFooter'
 import OtherTrades from '@/components/OtherTrades'
@@ -21,7 +22,8 @@ export type TradePageConfig = {
   h1: string // e.g. "Built for the ones still on the rig."
   heroSub: string // first paragraph
   heroSubExtra: string // second paragraph (the "all-in $24.99" line)
-  heroImage: string // path under /screenshots/
+  heroImage: string // path under /screenshots/, all 1290px wide
+  heroImageHeight: number // intrinsic height of heroImage, needed by next/image
   heroImageAlt: string
   // Hook strip
   stats: TradeStat[]
@@ -141,7 +143,23 @@ export default function TradeLandingPage({ config }: { config: TradePageConfig }
           </a>
         </div>
         <div style={{ flex: '1 1 380px', minWidth: 280, display: 'flex', justifyContent: 'center' }}>
-          <img src={c.heroImage} alt={c.heroImageAlt} style={{ width: '100%', maxWidth: 380, borderRadius: 16, boxShadow: '0 20px 60px rgba(15,15,15,0.18)' }} />
+          {/* Painted at most 380 CSS px wide from a 1290px source, so phones
+              were downloading roughly 3x the pixels they render. sizes lets
+              Next serve a 380 or 760 wide variant instead. The sources are all
+              1290 wide but differ in height, so heroImageHeight comes from the
+              page config rather than being hardcoded here. */}
+          <Image
+            src={c.heroImage}
+            alt={c.heroImageAlt}
+            width={1290}
+            height={c.heroImageHeight}
+            sizes="(max-width: 900px) 90vw, 380px"
+            // next/image lazy-loads by default; the raw <img> this replaced
+            // had no loading attribute and so loaded eagerly. This is the hero
+            // and very likely the LCP element, so keep it eager.
+            priority
+            style={{ width: '100%', height: 'auto', maxWidth: 380, borderRadius: 16, boxShadow: '0 20px 60px rgba(15,15,15,0.18)' }}
+          />
         </div>
       </section>
 

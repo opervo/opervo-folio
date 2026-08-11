@@ -4,6 +4,20 @@ import createNextIntlPlugin from 'next-intl/plugin'
 const withNextIntl = createNextIntlPlugin('./i18n/request.ts')
 
 const nextConfig: NextConfig = {
+  images: {
+    // AVIF first, WebP as the fallback for browsers that lack it. Content
+    // negotiation picks per request; anything older still gets the original
+    // format, just resized.
+    formats: ['image/avif', 'image/webp'],
+    // Source files in public/ are served with max-age=0, must-revalidate, and
+    // the optimizer will not cache a variant longer than its upstream unless
+    // told to. Without this the optimized images inherit that and get
+    // revalidated constantly, which is the same defect fixed for fonts in #10.
+    // 31 days. Variants are keyed by source path, width and quality, so a
+    // re-encoded source under the same filename needs a cache flush or a new
+    // filename to propagate early.
+    minimumCacheTTL: 2678400,
+  },
   // Files under public/ are served by Vercel with
   // `public, max-age=0, must-revalidate` by default, which makes the browser
   // revalidate every font on every navigation. Google Fonts served these with
