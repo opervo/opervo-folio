@@ -4,11 +4,11 @@ import BlogLayout from '@/components/BlogLayout'
 
 export const metadata: Metadata = {
   title: 'CRM for Junk Removal Businesses | Opervo',
-  description: 'Junk removal businesses move fast. A CRM helps manage leads, schedule jobs, send estimates, invoice customers, and keep records organized so nothing slips th...',
+  description: "Junk removal businesses move fast. Opervo helps junk removal operators handle more jobs with less admin work and a cleaner customer experience.",
   alternates: { canonical: 'https://www.opervo.io/blog/crm-for-junk-removal-businesses' },
   openGraph: {
     title: 'CRM for Junk Removal Businesses | Opervo',
-    description: 'Junk removal businesses move fast. A CRM helps manage leads, schedule jobs, send estimates, invoice customers, and keep records organized so nothing slips th...',
+    description: "Junk removal businesses move fast. Opervo helps junk removal operators handle more jobs with less admin work and a cleaner customer experience.",
     url: 'https://www.opervo.io/blog/crm-for-junk-removal-businesses',
     type: 'article',
   },
@@ -31,6 +31,7 @@ export default function CrmForJunkRemovalBusinesses() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.opervo.io"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.opervo.io/blog"}, {"@type": "ListItem", "position": 3, "name": "CRM for Junk Removal Businesses", "item": "https://www.opervo.io/blog/crm-for-junk-removal-businesses"}]}` }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: "{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Is a CRM worth it for small junk removal teams?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Yes. It directly improves speed, organization, and close rate.\"}}]}" }} />
       <BlogLayout
         category="GUIDES"
         title="CRM for Junk Removal Businesses: How to Book More Jobs Without Chaos"
@@ -38,22 +39,22 @@ export default function CrmForJunkRemovalBusinesses() {
         readTime="5"
       >
         <p>Junk removal businesses move fast. A CRM helps manage leads, schedule jobs, send estimates, invoice customers, and keep records organized so nothing slips through the cracks.</p>
-    <h3>Why junk removal companies need a CRM</h3>
+    <h2>Why junk removal companies need a CRM</h2>
     <ul>
       <li>Leads need fast follow up.</li>
       <li>Route efficiency matters for profit.</li>
       <li>Past customers are valuable repeat and referral sources.</li>
     </ul>
-    <h3>Most useful features</h3>
+    <h2>Most useful features</h2>
     <ul>
       <li>Fast scheduling</li>
       <li>Quote to invoice workflow</li>
       <li>Customer tracking</li>
       <li>Mobile access</li>
     </ul>
-    <h3>Why Opervo works</h3>
+    <h2>Why Opervo works</h2>
     <p>Opervo helps junk removal operators handle more jobs with less admin work and a cleaner customer experience.</p>
-    <h3>FAQ</h3>
+    <h2>FAQ</h2>
     <p><strong>Is a CRM worth it for small junk removal teams?</strong><br />Yes. It directly improves speed, organization, and close rate.</p>
       </BlogLayout>
     </>

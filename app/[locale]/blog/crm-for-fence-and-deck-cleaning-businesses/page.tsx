@@ -4,11 +4,11 @@ import BlogLayout from '@/components/BlogLayout'
 
 export const metadata: Metadata = {
   title: 'CRM for Fence and Deck Cleaning Businesses | Opervo',
-  description: 'Fence and deck cleaning businesses often sell based on visuals, quick quotes, and seasonal demand. A CRM helps keep leads moving while organizing jobs, estim...',
+  description: "Fence and deck cleaning businesses often sell based on visuals, quick quotes, and seasonal demand.",
   alternates: { canonical: 'https://www.opervo.io/blog/crm-for-fence-and-deck-cleaning-businesses' },
   openGraph: {
     title: 'CRM for Fence and Deck Cleaning Businesses | Opervo',
-    description: 'Fence and deck cleaning businesses often sell based on visuals, quick quotes, and seasonal demand. A CRM helps keep leads moving while organizing jobs, estim...',
+    description: "Fence and deck cleaning businesses often sell based on visuals, quick quotes, and seasonal demand.",
     url: 'https://www.opervo.io/blog/crm-for-fence-and-deck-cleaning-businesses',
     type: 'article',
   },
@@ -31,6 +31,7 @@ export default function CrmForFenceAndDeckCleaningBusinesses() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.opervo.io"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.opervo.io/blog"}, {"@type": "ListItem", "position": 3, "name": "CRM for Fence and Deck Cleaning Businesses", "item": "https://www.opervo.io/blog/crm-for-fence-and-deck-cleaning-businesses"}]}` }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: "{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Do fence and deck cleaning companies need CRM software?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Yes. It helps organize leads, improve close rate, and make future follow up easier.\"}}]}" }} />
       <BlogLayout
         category="GUIDES"
         title="CRM for Fence and Deck Cleaning Businesses: Keep Quotes, Jobs, and Customer Notes in One Place"
@@ -38,22 +39,22 @@ export default function CrmForFenceAndDeckCleaningBusinesses() {
         readTime="5"
       >
         <p>Fence and deck cleaning businesses often sell based on visuals, quick quotes, and seasonal demand. A CRM helps keep leads moving while organizing jobs, estimates, and repeat opportunities.</p>
-    <h3>Why these businesses need a CRM</h3>
+    <h2>Why these businesses need a CRM</h2>
     <ul>
       <li>Seasonal demand creates lead spikes.</li>
       <li>Bundled services with <Link href="/blog/crm-for-pressure-washing-businesses">pressure washing</Link> or <Link href="/blog/crm-for-concrete-sealing-businesses">concrete sealing</Link> increase average ticket size.</li>
       <li>Customer property notes are important for future work.</li>
     </ul>
-    <h3>Key features</h3>
+    <h2>Key features</h2>
     <ul>
       <li>Estimate workflow</li>
       <li>Scheduling</li>
       <li>Saved customer notes</li>
       <li>Invoice tools</li>
     </ul>
-    <h3>Why Opervo fits</h3>
+    <h2>Why Opervo fits</h2>
     <p>Opervo gives smaller exterior service businesses the structure needed to quote faster and stay on top of seasonal jobs.</p>
-    <h3>FAQ</h3>
+    <h2>FAQ</h2>
     <p><strong>Do fence and deck cleaning companies need CRM software?</strong><br />Yes. It helps organize leads, improve close rate, and make future follow up easier.</p>
       </BlogLayout>
     </>

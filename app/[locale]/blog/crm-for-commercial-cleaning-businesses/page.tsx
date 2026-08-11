@@ -4,11 +4,11 @@ import BlogLayout from '@/components/BlogLayout'
 
 export const metadata: Metadata = {
   title: 'CRM for Commercial Cleaning Businesses | Opervo',
-  description: 'Commercial cleaning businesses have more moving parts than most service businesses. Multiple locations, recurring schedules, employee coordination, and accou...',
+  description: "A CRM for commercial cleaning helps centralize that work so you can manage accounts more professionally and grow without chaos.",
   alternates: { canonical: 'https://www.opervo.io/blog/crm-for-commercial-cleaning-businesses' },
   openGraph: {
     title: 'CRM for Commercial Cleaning Businesses | Opervo',
-    description: 'Commercial cleaning businesses have more moving parts than most service businesses. Multiple locations, recurring schedules, employee coordination, and accou...',
+    description: "A CRM for commercial cleaning helps centralize that work so you can manage accounts more professionally and grow without chaos.",
     url: 'https://www.opervo.io/blog/crm-for-commercial-cleaning-businesses',
     type: 'article',
   },
@@ -31,6 +31,7 @@ export default function CrmForCommercialCleaningBusinesses() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.opervo.io"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.opervo.io/blog"}, {"@type": "ListItem", "position": 3, "name": "CRM for Commercial Cleaning Businesses", "item": "https://www.opervo.io/blog/crm-for-commercial-cleaning-businesses"}]}` }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: "{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"What software do small commercial cleaning companies need?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"They need software that handles recurring service, scheduling, account notes, and invoicing without becoming hard to use.\"}}]}" }} />
       <BlogLayout
         category="GUIDES"
         title="CRM for Commercial Cleaning Businesses: Stay Organized Across Accounts, Schedules, and Billing"
@@ -39,22 +40,22 @@ export default function CrmForCommercialCleaningBusinesses() {
       >
         <p>Commercial cleaning businesses have more moving parts than most service businesses. Multiple locations, recurring schedules, employee coordination, and account specific notes all need to stay organized.</p>
     <p>A CRM for commercial cleaning helps centralize that work so you can manage accounts more professionally and grow without chaos.</p>
-    <h3>Common challenges</h3>
+    <h2>Common challenges</h2>
     <ul>
       <li>Recurring service schedules vary by client and site.</li>
       <li>Communication and notes are different for every account.</li>
       <li>Billing and approvals can get messy without a clear workflow.</li>
     </ul>
-    <h3>Features that matter</h3>
+    <h2>Features that matter</h2>
     <ul>
       <li>Recurring job management</li>
       <li>Multi location customer notes</li>
       <li>Invoice tracking</li>
       <li>Mobile access for field teams</li>
     </ul>
-    <h3>Why Opervo fits smaller commercial cleaners</h3>
+    <h2>Why Opervo fits smaller commercial cleaners</h2>
     <p>Opervo is especially strong for smaller commercial cleaning businesses that want structure without the friction of enterprise software. It helps keep sites, clients, jobs, and billing organized in one place.</p>
-    <h3>FAQ</h3>
+    <h2>FAQ</h2>
     <p><strong>What software do small commercial cleaning companies need?</strong><br />They need software that handles recurring service, scheduling, account notes, and invoicing without becoming hard to use.</p>
       </BlogLayout>
     </>
