@@ -62,6 +62,8 @@ export const entries: SiteEntry[] = [
   { path: '/sites', changeFrequency: 'monthly', priority: 0.8, section: 'Product', label: "Pro Websites for Home Service Pros" },
   { path: '/lifetime', changeFrequency: 'monthly', priority: 0.7, section: 'Product', label: "Opervo Lifetime Pass", blurb: "pay once, own it forever" },
   { path: '/apprentice', changeFrequency: 'monthly', priority: 0.6, section: 'Product', label: "Opervo Apprentice", blurb: "free software for teen operators" },
+  { path: '/apprentice/guide', changeFrequency: 'monthly', priority: 0.4, section: 'Product', label: "Apprentice getting started guide", blurb: "set up your account, share your code, track gear credits" },
+  { path: '/delete-account', changeFrequency: 'yearly', priority: 0.3, section: 'Support', label: "Delete your account", blurb: "how to delete your Opervo account and what data is removed" },
   { path: '/switch', changeFrequency: 'monthly', priority: 0.8, section: 'Product', label: "Switch and save", blurb: "discount for operators moving from another platform." },
   { path: '/demo', changeFrequency: 'monthly', priority: 0.85, section: 'Product', label: "Book a demo", blurb: "free 15-minute founder demo." },
   { path: '/support', changeFrequency: 'monthly', priority: 0.5, section: 'Support', label: "Support", blurb: "help@opervo.io" },

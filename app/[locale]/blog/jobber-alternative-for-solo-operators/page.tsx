@@ -3,7 +3,7 @@ import Link from 'next/link'
 import BlogLayout from '@/components/BlogLayout'
 
 export const metadata: Metadata = {
-  title: 'The Best Jobber Alternative for Solo Operators (2026) | Opervo',
+  title: 'The Best Jobber Alternative for Solo Operators (2026)',
   description: 'Jobber is built for growing teams, and solo operators pay for it. Here are the best Jobber alternatives for one-person and small crews, with the real per-user price math.',
   alternates: { canonical: 'https://www.opervo.io/blog/jobber-alternative-for-solo-operators' },
   openGraph: {

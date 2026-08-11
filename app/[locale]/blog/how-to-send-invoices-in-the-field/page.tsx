@@ -3,7 +3,7 @@ import Link from 'next/link'
 import BlogLayout from '@/components/BlogLayout'
 
 export const metadata: Metadata = {
-  title: 'How to Send Invoices in the Field (Get Paid the Same Day) | Opervo',
+  title: 'How to Send Invoices in the Field (Get Paid the Same Day)',
   description: 'Learn how to send professional invoices from your phone right after completing a job. Same-day invoicing tips for contractors, with tool comparison.',
   alternates: { canonical: 'https://www.opervo.io/blog/how-to-send-invoices-in-the-field' },
   openGraph: {

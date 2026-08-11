@@ -3,6 +3,11 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Opervo | The One App for Trade Operators',
   description: 'Jobs, invoices, estimates, scheduling, and a free portfolio page. 14-day free trial, no card required.',
+  // A link-in-bio hub for social and SMS, not a search destination: thin, and
+  // it competes with the homepage for the same intent. follow is kept so it
+  // still passes equity onward. The openGraph block below is unaffected, so
+  // link previews when it is shared keep working.
+  robots: { index: false, follow: true },
   openGraph: {
     title: 'Opervo | The One App for Trade Operators',
     description: 'Jobs, invoices, estimates, scheduling, and a free portfolio page. 14-day free trial, no card required.',
