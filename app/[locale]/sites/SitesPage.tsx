@@ -4,6 +4,9 @@ import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import SiteNav from '@/components/SiteNav'
+// Anton is only used here. Importing it from this component rather than the
+// root layout keeps its @font-face out of the CSS every other page loads.
+import '@/app/anton.css'
 import SiteFooter from '@/components/SiteFooter'
 
 const ORANGE = '#F5620F'

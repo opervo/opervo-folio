@@ -168,7 +168,6 @@ export default function FounderPage() {
       <SiteFooter />
 
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap');
         @media (max-width: 768px) {
           h1 { font-size: 36px !important; }
           h2 { font-size: 28px !important; }

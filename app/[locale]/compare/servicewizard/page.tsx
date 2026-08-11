@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+// DM Mono is only used on this page. Scoped here rather than loaded sitewide.
+import '@/app/dm-mono.css'
 
 export const metadata: Metadata = {
   title: 'Opervo vs ServiceWizard | Field Service Comparison',
@@ -44,7 +46,6 @@ export default function CompareServiceWizardPage() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
 
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 

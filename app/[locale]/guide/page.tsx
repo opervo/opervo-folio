@@ -307,7 +307,6 @@ export default function GuidePage() {
       <SiteFooter />
 
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap');
         html { scroll-behavior: smooth; }
         @media (max-width: 768px) {
           h1 { font-size: 36px !important; }
