@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import SiteNav from '@/components/SiteNav'
 import SiteFooter from '@/components/SiteFooter'
@@ -188,7 +189,14 @@ export default function OpervoVsHousecallPro() {
           <p style={{ fontSize: 15, color: '#6B6B6B', lineHeight: 1.6, maxWidth: 600, margin: '0 auto 32px' }}>
             Every Opervo operator gets a public Folio page at <strong style={{ color: '#0F0F0F' }}>opervo.io/p/your-slug</strong>, auto-published before/after photos, services, reviews, and a built-in quote form. Housecall Pro has online booking widgets but no operator-branded portfolio that actually shows your work.
           </p>
-          <img src="/screenshots/hero-folio-2.jpg" alt="Opervo Folio page with before/after slider and customer reviews, the public portfolio every operator gets included with the $24.99/mo plan" loading="lazy" decoding="async" style={{ width: '100%', maxWidth: 540, height: 'auto', borderRadius: 12, border: '1px solid #E8E4DE' }} />
+          <Image
+            src="/screenshots/hero-folio-2.jpg"
+            alt="Opervo Folio page with before/after slider and customer reviews, the public portfolio every operator gets included with the $24.99/mo plan"
+            width={1290}
+            height={2211}
+            sizes="(max-width: 640px) 90vw, 540px"
+            style={{ width: '100%', maxWidth: 540, height: 'auto', borderRadius: 12, border: '1px solid #E8E4DE' }}
+          />
         </div>
       </section>
 

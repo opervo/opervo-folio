@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import SiteNav from '@/components/SiteNav'
 import SiteFooter from '@/components/SiteFooter'
 import ApplicationForm from './ApplicationForm'
@@ -99,11 +100,17 @@ export default function ApprenticePage() {
                 { src: '/apprentice/IMG_7692.PNG', age: '14', caption: 'The teen entrepreneur contest video' },
               ].map((p) => (
                 <div key={p.src}>
-                  <div style={{ width: '100%', aspectRatio: '4 / 3', borderRadius: 8, overflow: 'hidden', background: '#1a1a1a', border: '1px solid #2a2a2a' }}>
-                    <img
+                  <div style={{ position: 'relative', width: '100%', aspectRatio: '4 / 3', borderRadius: 8, overflow: 'hidden', background: '#1a1a1a', border: '1px solid #2a2a2a' }}>
+                    {/* fill rather than fixed dimensions: the parent already
+                        sets the box via aspectRatio, and these four sources
+                        have different intrinsic sizes. sizes matches the
+                        auto-fit grid, which tops out around 260px per cell. */}
+                    <Image
                       src={p.src}
                       alt={`Max, ${p.age}, ${p.caption}`}
-                      style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center center' }}
+                      fill
+                      sizes="(max-width: 640px) 50vw, 260px"
+                      style={{ objectFit: 'cover', objectPosition: 'center center' }}
                     />
                   </div>
                   <p style={{ fontSize: 10, fontWeight: 700, color: '#F5620F', textTransform: 'uppercase', letterSpacing: '0.12em', margin: '12px 0 4px', fontFamily: "'Barlow Condensed', sans-serif" }}>

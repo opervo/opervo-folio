@@ -23,6 +23,7 @@ const config: TradePageConfig = {
   heroSub: 'Spring and fall maintenance plans that rebook themselves. One-tap route optimization for a 6 to 12 stop day. Before and after photos that prove the work and sell the next plan. Branded invoices you can text before you leave the driveway.',
   heroSubExtra: 'All in one app. <strong style="color:#0F0F0F">$24.99/mo, all features included.</strong> Helper included. No add-on fees. No payment markup.',
   heroImage: '/screenshots/hero-folio-2.jpg',
+  heroImageHeight: 2211,
   heroImageAlt: 'Opervo folio page example with before and after photos and reviews',
   stats: [
     { stat: '$150-300', label: 'Typical residential gutter cleaning job value.' },

@@ -23,6 +23,7 @@ const config: TradePageConfig = {
   heroSub: 'Custom-quote every roof by tracing it on the map. Capture the streak-to-spotless shot that sells the next job. Rebook on the right one to three year cycle automatically. Get $700 to $2,500 tickets e-signed and paid from the customer’s phone.',
   heroSubExtra: 'All in one app. <strong style="color:#0F0F0F">$24.99/mo, all features included.</strong> Helper included. No add-on fees. No payment markup.',
   heroImage: '/screenshots/hero-folio-1.jpg',
+  heroImageHeight: 2195,
   heroImageAlt: 'Opervo folio page example with a before and after slider and reviews',
   stats: [
     { stat: '$0.30-0.75', label: 'Typical price per square foot on a soft wash roof.' },

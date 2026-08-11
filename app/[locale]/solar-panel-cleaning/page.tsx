@@ -23,6 +23,7 @@ const config: TradePageConfig = {
   heroSub: 'Annual and biannual cleaning agreements that auto-bill. Route days that pack 4-6 residential stops. Before/after panel photos that auto-publish to your folio. Water, soap, and fuel cost on every job.',
   heroSubExtra: 'All in one app. <strong style="color:#0F0F0F">$24.99/mo, all features included.</strong> No add-on fees. No payment markup. Cancel any time.',
   heroImage: '/screenshots/hero-folio-2.jpg',
+  heroImageHeight: 2211,
   heroImageAlt: 'Opervo folio for a solar panel cleaning operator showing services and before/after photos',
   stats: [
     { stat: '2x/year', label: 'Most efficient cleaning frequency to maintain panel output (industry guidance).' },

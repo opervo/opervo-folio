@@ -23,6 +23,7 @@ const config: TradePageConfig = {
   heroSub: 'Track chem cost on every job. Sketch driveways and auto-price by square foot. Auto-publish before/after photos to your portfolio. Optimize your route in one tap.',
   heroSubExtra: 'All in one app. <strong style="color:#0F0F0F">$24.99/mo, all features included.</strong> No add-on fees. No payment markup. Cancel any time.',
   heroImage: '/screenshots/hero-folio-1.jpg',
+  heroImageHeight: 2195,
   heroImageAlt: 'Opervo folio for a pressure washing operator showing before/after photos and services',
   stats: [
     { stat: '~$60', label: 'Average chem + fuel cost on a 1-hr commercial wash. Most operators don\'t track it.' },

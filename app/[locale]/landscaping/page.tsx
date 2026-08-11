@@ -23,6 +23,7 @@ const config: TradePageConfig = {
   heroSub: 'Mow-day route optimization for 25+ stops. E-signed maintenance agreements that auto-bill weekly or biweekly. Mulch, fuel, and fertilizer cost on every job. Built for crews who\'d rather mow than do paperwork.',
   heroSubExtra: 'All in one app. <strong style="color:#0F0F0F">$24.99/mo, all features included.</strong> No add-on fees. No payment markup. Cancel any time.',
   heroImage: '/screenshots/hero-route.png',
+  heroImageHeight: 2796,
   heroImageAlt: 'Opervo Route My Day showing optimized landscaping mow-day route on Google Maps',
   stats: [
     { stat: '25+', label: 'Typical stops on a mow day for a single solo landscaper or small crew.' },

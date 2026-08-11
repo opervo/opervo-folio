@@ -23,6 +23,7 @@ const config: TradePageConfig = {
   heroSub: 'Recurring monthly and quarterly agreements that auto-bill. One-tap route optimization for 12+ daily stops. Before/after photos that auto-publish to your folio. Soap, blades, and fuel cost on every job.',
   heroSubExtra: 'All in one app. <strong style="color:#0F0F0F">$24.99/mo, all features included.</strong> No add-on fees. No payment markup. Cancel any time.',
   heroImage: '/screenshots/hero-folio-3.jpg',
+  heroImageHeight: 2394,
   heroImageAlt: 'Opervo folio for a window cleaning operator with services and review count',
   stats: [
     { stat: '70%', label: 'Average share of window cleaning revenue from recurring customers (industry avg).' },

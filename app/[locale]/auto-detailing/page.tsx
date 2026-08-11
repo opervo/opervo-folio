@@ -23,6 +23,7 @@ const config: TradePageConfig = {
   heroSub: 'Branded Bronze/Silver/Gold packages. Before/after photos that auto-publish to your folio. Route optimization for mobile detailers. Wax, sealant, soap, and water cost on every detail.',
   heroSubExtra: 'All in one app. <strong style="color:#0F0F0F">$24.99/mo, all features included.</strong> No add-on fees. No payment markup. Cancel any time.',
   heroImage: '/screenshots/hero-folio-1.jpg',
+  heroImageHeight: 2195,
   heroImageAlt: 'Opervo folio for an auto detailing operator showing services and before/after photos',
   stats: [
     { stat: '3-5', label: 'Typical mobile detailer daily appointments. Routing matters.' },
