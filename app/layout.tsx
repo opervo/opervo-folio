@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/next'
 import ReferralAttribution from '@/components/ReferralAttribution'
+import './fonts.css'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -41,9 +42,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@700;800;900&family=Anton&display=swap" rel="stylesheet" />
+        {/* Fonts are self-hosted from /public/fonts via fonts.css. The two
+            faces below are on essentially every page (body copy and the
+            condensed headings), so preloading them lets the browser start
+            fetching without waiting to parse CSS first. */}
+        <link rel="preload" href="/fonts/Barlow-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/BarlowCondensed-900.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
       </head>
       <body>
         {children}

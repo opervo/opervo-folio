@@ -402,7 +402,6 @@ export default function FeaturesPage() {
       <SiteFooter />
 
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap');
         .desktop-nav { display: flex !important; }
         @media (max-width: 768px) {
           .desktop-nav { display: none !important; }
