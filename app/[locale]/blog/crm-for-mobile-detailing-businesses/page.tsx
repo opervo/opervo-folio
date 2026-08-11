@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import BlogLayout from '@/components/BlogLayout'
+import { crmRelated } from '@/lib/crmRelated'
 
 export const metadata: Metadata = {
   title: 'CRM for Mobile Detailing Businesses | Opervo',
@@ -37,6 +38,7 @@ export default function CrmForMobileDetailingBusinesses() {
         title="CRM for Mobile Detailing Businesses: Stay Booked and Professional"
         date="April 2, 2026"
         readTime="5"
+        related={crmRelated("mobile-detailing")}
       >
         <p>Mobile detailing businesses need tight scheduling, strong customer communication, and repeat booking systems. A CRM helps you keep client details, vehicle notes, appointments, and payments organized in one place.</p>
     <h2>Why mobile detailers need a CRM</h2>

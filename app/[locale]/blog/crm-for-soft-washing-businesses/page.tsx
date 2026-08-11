@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import BlogLayout from '@/components/BlogLayout'
+import { crmRelated } from '@/lib/crmRelated'
 
 export const metadata: Metadata = {
   title: 'CRM for Soft Washing Businesses | Opervo',
@@ -37,6 +38,7 @@ export default function CrmForSoftWashingBusinesses() {
         title="CRM for Soft Washing Businesses: Book Faster, Stay Organized, and Build More Repeat Work"
         date="April 2, 2026"
         readTime="5"
+        related={crmRelated("soft-washing")}
       >
         <p>Soft washing businesses need efficient lead handling, clean scheduling, and a way to track recurring exterior maintenance opportunities. A CRM helps you manage all of that from one system.</p>
     <h2>Why soft washing businesses need a CRM</h2>

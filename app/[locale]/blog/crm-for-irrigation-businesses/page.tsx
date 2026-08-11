@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import BlogLayout from '@/components/BlogLayout'
+import { crmRelated } from '@/lib/crmRelated'
 
 export const metadata: Metadata = {
   title: 'CRM for Irrigation Businesses | Opervo',
@@ -37,6 +38,7 @@ export default function CrmForIrrigationBusinesses() {
         title="CRM for Irrigation Businesses: Stay Organized Across Service Calls, Seasonal Work, and Customer Notes"
         date="April 2, 2026"
         readTime="5"
+        related={crmRelated("irrigation")}
       >
         <p>Irrigation businesses often handle seasonal startups, repairs, maintenance, and recurring service. A CRM helps you manage that mix while keeping customer details and scheduling organized.</p>
     <h2>Why irrigation companies need a CRM</h2>

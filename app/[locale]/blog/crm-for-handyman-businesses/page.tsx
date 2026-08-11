@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import BlogLayout from '@/components/BlogLayout'
+import { crmRelated } from '@/lib/crmRelated'
 
 export const metadata: Metadata = {
   title: 'CRM for Handyman Businesses | Opervo',
@@ -37,6 +38,7 @@ export default function CrmForHandymanBusinesses() {
         title="CRM for Handyman Businesses: Keep Jobs, Clients, and Estimates Organized"
         date="April 2, 2026"
         readTime="5"
+        related={crmRelated("handyman")}
       >
         <p>Handyman businesses handle a wide range of small jobs, which means scheduling, quoting, notes, and follow up can get disorganized quickly. A CRM helps keep everything in one place so you can focus on getting work done.</p>
     <h2>Why handymen need a CRM</h2>

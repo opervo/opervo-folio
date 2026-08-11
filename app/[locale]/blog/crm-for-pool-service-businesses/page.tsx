@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import BlogLayout from '@/components/BlogLayout'
+import { crmRelated } from '@/lib/crmRelated'
 
 export const metadata: Metadata = {
   title: 'CRM for Pool Service Businesses | Opervo',
@@ -37,6 +38,7 @@ export default function CrmForPoolServiceBusinesses() {
         title="CRM for Pool Service Businesses: Manage Routes and Recurring Clients"
         date="April 2, 2026"
         readTime="5"
+        related={crmRelated("pool-service")}
       >
         <p>Pool service businesses run on consistency. Weekly routes, service notes, customer communication, and invoicing all need to happen smoothly. A CRM helps you keep routes organized and recurring clients locked in.</p>
     <h2>Why pool service companies need CRM software</h2>

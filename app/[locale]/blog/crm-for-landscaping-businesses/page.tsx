@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import BlogLayout from '@/components/BlogLayout'
+import { crmRelated } from '@/lib/crmRelated'
 
 export const metadata: Metadata = {
   title: 'CRM for Landscaping Businesses | Opervo',
@@ -37,6 +38,7 @@ export default function CrmForLandscapingBusinesses() {
         title="CRM for Landscaping Businesses: Stay on Top of Recurring Work, Crews, and Clients"
         date="April 2, 2026"
         readTime="5"
+        related={crmRelated("landscaping")}
       >
         <p>Landscaping businesses juggle recurring maintenance, one time projects, seasonal swings, and customer communication. A CRM helps bring that complexity into one organized system.</p>
     <p>Instead of relying on paper notes and scattered apps, you can manage jobs, client records, scheduling, and invoices in one place.</p>

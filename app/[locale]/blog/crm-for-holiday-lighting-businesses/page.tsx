@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import BlogLayout from '@/components/BlogLayout'
+import { crmRelated } from '@/lib/crmRelated'
 
 export const metadata: Metadata = {
   title: 'CRM for Holiday Lighting Businesses | Opervo',
@@ -37,6 +38,7 @@ export default function CrmForHolidayLightingBusinesses() {
         title="CRM for Holiday Lighting Businesses: Handle Seasonal Leads, Installs, and Repeat Clients More Smoothly"
         date="April 2, 2026"
         readTime="5"
+        related={crmRelated("holiday-lighting")}
       >
         <p>Holiday lighting businesses have compressed selling seasons, lots of estimate activity, and a strong need for repeat customers. A CRM helps you keep leads organized and make the most of a short window.</p>
     <h2>Why holiday lighting businesses need a CRM</h2>

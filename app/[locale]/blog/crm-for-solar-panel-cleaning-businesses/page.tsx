@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import BlogLayout from '@/components/BlogLayout'
+import { crmRelated } from '@/lib/crmRelated'
 
 export const metadata: Metadata = {
   title: 'CRM for Solar Panel Cleaning Businesses | Opervo',
@@ -37,6 +38,7 @@ export default function CrmForSolarPanelCleaningBusinesses() {
         title="CRM for Solar Panel Cleaning Businesses: How to Stay Organized and Win More Repeat Work"
         date="April 2, 2026"
         readTime="5"
+        related={crmRelated("solar-panel-cleaning")}
       >
         <p>Solar panel cleaning businesses often grow from referrals, recurring service, and fast response times. Once you start managing more than a few customers, manual scheduling turns into missed follow ups, scattered job notes, and lost revenue.</p>
     <p>A CRM for solar panel cleaning businesses helps keep customer details, job history, scheduling, estimates, and invoices in one place. Instead of bouncing between notes, texts, and a calendar app, you can run the business from a single system.</p>

@@ -37,7 +37,12 @@ export default function SiteFooter() {
               <Link href="/features" title="Opervo Features" style={linkStyle}>{t('features')}</Link>
               <Link href="/pricing" title="Opervo Pricing" style={linkStyle}>{t('pricing')}</Link>
               <Link href="/lifetime" title="Opervo Lifetime Pass" style={linkStyle}>{t('lifetimePass')}</Link>
+              <Link href="/sites" title="Pro Websites for Home Service Pros" style={linkStyle}>{t('proWebsites')}</Link>
               <Link href="/print" title="Marketing Materials" style={linkStyle}>{t('marketingMaterials')}</Link>
+              {/* /demo and /switch are conversion pages that had 1 inbound
+                  internal link each, against 73 for the legal pages. */}
+              <Link href="/demo" title="Book a 15-minute demo" style={linkStyle}>{t('bookDemo')}</Link>
+              <Link href="/switch" title="Switch to Opervo and save" style={linkStyle}>{t('switchAndSave')}</Link>
             </div>
           </div>
 
@@ -49,6 +54,12 @@ export default function SiteFooter() {
               <Link href="/window-cleaning" title="Window Cleaning Software, Opervo" style={linkStyle}>{t('windowCleaning')}</Link>
               <Link href="/pressure-washing" title="Pressure Washing Software, Opervo" style={linkStyle}>{t('pressureWashing')}</Link>
               <Link href="/landscaping" title="Landscaping Software, Opervo" style={linkStyle}>{t('landscaping')}</Link>
+              {/* The other four trade pages existed but were never linked from
+                  the footer, so they picked up no sitewide internal links. */}
+              <Link href="/auto-detailing" title="Auto Detailing Software, Opervo" style={linkStyle}>{t('autoDetailing')}</Link>
+              <Link href="/gutter-cleaning" title="Gutter Cleaning Software, Opervo" style={linkStyle}>{t('gutterCleaning')}</Link>
+              <Link href="/roof-cleaning" title="Roof Cleaning Software, Opervo" style={linkStyle}>{t('roofCleaning')}</Link>
+              <Link href="/holiday-lighting" title="Holiday Lighting Software, Opervo" style={linkStyle}>{t('holidayLighting')}</Link>
             </div>
           </div>
 
@@ -59,6 +70,11 @@ export default function SiteFooter() {
               <Link href="/compare/opervo-vs-jobber" title="Opervo vs Jobber, Feature Comparison" style={linkStyle}>Opervo vs Jobber</Link>
               <Link href="/compare/opervo-vs-housecall-pro" title="Opervo vs Housecall Pro, Feature Comparison" style={linkStyle}>Opervo vs Housecall Pro</Link>
               <Link href="/compare/opervo-vs-gorilladesk" title="Opervo vs GorillaDesk, Feature Comparison" style={linkStyle}>Opervo vs GorillaDesk</Link>
+              {/* Competitor names are proper nouns, so these stay untranslated
+                  like the three above. servicewizard had zero inbound links. */}
+              <Link href="/compare/opervo-vs-markate" title="Opervo vs Markate, Feature Comparison" style={linkStyle}>Opervo vs Markate</Link>
+              <Link href="/compare/opervo-vs-quoteiq" title="Opervo vs QuoteIQ, Feature Comparison" style={linkStyle}>Opervo vs QuoteIQ</Link>
+              <Link href="/compare/servicewizard" title="Opervo vs ServiceWizard, Feature Comparison" style={linkStyle}>Opervo vs ServiceWizard</Link>
             </div>
           </div>
 
@@ -70,6 +86,9 @@ export default function SiteFooter() {
               <Link href="/founder" title="The Founder" style={linkStyle}>{t('theFounder')}</Link>
               <Link href="/guide" title="Opervo Guide" style={linkStyle}>{t('guide')}</Link>
               <Link href="/apprentice" title="Opervo Apprentice" style={linkStyle}>{t('apprentice')}</Link>
+              {/* /support was in the sitemap and in llms.txt but no page on the
+                  site linked to it. */}
+              <Link href="/support" title="Opervo Support" style={linkStyle}>{t('support')}</Link>
               <Link href="/privacy" title="Privacy Policy" style={linkStyle}>{t('privacy')}</Link>
               <Link href="/tos" title="Terms of Service" style={linkStyle}>{t('terms')}</Link>
               <a href="https://app.opervo.io" style={linkStyle}>{t('signIn')}</a>

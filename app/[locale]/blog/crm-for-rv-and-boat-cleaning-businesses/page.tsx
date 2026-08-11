@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import BlogLayout from '@/components/BlogLayout'
+import { crmRelated } from '@/lib/crmRelated'
 
 export const metadata: Metadata = {
   title: 'CRM for RV and Boat Cleaning Businesses | Opervo',
@@ -37,6 +38,7 @@ export default function CrmForRvAndBoatCleaningBusinesses() {
         title="CRM for RV and Boat Cleaning Businesses: Stay Organized Across Mobile Jobs and Repeat Clients"
         date="April 2, 2026"
         readTime="5"
+        related={crmRelated("rv-and-boat-cleaning")}
       >
         <p>RV and boat cleaning businesses rely on customer trust, clear service history, and flexible scheduling. A CRM helps you manage mobile appointments, track notes, and build more repeat business over time.</p>
     <h2>Why RV and boat cleaning businesses need a CRM</h2>

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import BlogLayout from '@/components/BlogLayout'
+import { crmRelated } from '@/lib/crmRelated'
 
 export const metadata: Metadata = {
   title: 'CRM for Gutter Cleaning Businesses | Opervo',
@@ -37,6 +38,7 @@ export default function CrmForGutterCleaningBusinesses() {
         title="CRM for Gutter Cleaning Businesses: How to Stay Organized and Book More Jobs"
         date="April 2, 2026"
         readTime="5"
+        related={crmRelated("gutter-cleaning")}
       >
         <p>Running a gutter cleaning business sounds simple until you are juggling calls, texts, estimates, and repeat customers all at once. A CRM keeps customer information, job scheduling, recurring services, estimates, and invoices in one place.</p>
     <h2>Why gutter cleaning businesses need a CRM</h2>

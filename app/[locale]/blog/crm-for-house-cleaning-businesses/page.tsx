@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import BlogLayout from '@/components/BlogLayout'
+import { crmRelated } from '@/lib/crmRelated'
 
 export const metadata: Metadata = {
   title: 'CRM for House Cleaning Businesses | Opervo',
@@ -37,6 +38,7 @@ export default function CrmForHouseCleaningBusinesses() {
         title="CRM for House Cleaning Businesses: How to Stay Booked and Organized"
         date="April 2, 2026"
         readTime="5"
+        related={crmRelated("house-cleaning")}
       >
         <p>House cleaning businesses depend on recurring clients, clear notes, and fast scheduling changes. A CRM helps you manage recurring jobs, customer details, invoices, and communication from one place.</p>
     <h2>Why house cleaning businesses need a CRM</h2>
