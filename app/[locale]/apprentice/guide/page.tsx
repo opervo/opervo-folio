@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Getting Started | Opervo Apprentice',
   description: 'How to set up your Opervo account, share your referral code, and track your gear credits.',
+  alternates: { canonical: 'https://www.opervo.io/apprentice/guide' },
 }
 
 const steps = [
@@ -50,9 +51,11 @@ export default function GuidePage() {
               Opervo<span style={{ color: '#F5620F' }}>.</span>
             </span>
           </a>
-          <p style={{ margin: '16px 0 0', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 32, color: '#F7F5F2', textTransform: 'uppercase', lineHeight: 1.1, letterSpacing: '-0.5px' }}>
+          {/* Was a styled <p>, so the page had no h1 at all. Every style here
+              is inline, so promoting it to h1 changes semantics only. */}
+          <h1 style={{ margin: '16px 0 0', fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: 32, color: '#F7F5F2', textTransform: 'uppercase', lineHeight: 1.1, letterSpacing: '-0.5px' }}>
             APPRENTICE<br />GETTING STARTED
-          </p>
+          </h1>
           <p style={{ margin: '10px 0 0', fontSize: 15, color: '#9CA3AF', lineHeight: 1.6 }}>
             Your account is set up. Here's how to use it, share your code, and start earning gear.
           </p>

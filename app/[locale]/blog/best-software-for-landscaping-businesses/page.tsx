@@ -3,7 +3,7 @@ import Link from 'next/link'
 import BlogLayout from '@/components/BlogLayout'
 
 export const metadata: Metadata = {
-  title: 'Best Software for Landscaping Businesses (2026) | 5 Apps Ranked | Opervo',
+  title: 'Best Software for Landscaping Businesses (2026) | 5 Apps Ranked',
   description: 'We ranked the 5 best software tools for landscaping businesses in 2026. Compared pricing, recurring job scheduling, crew management, and portfolio features.',
   alternates: { canonical: 'https://www.opervo.io/blog/best-software-for-landscaping-businesses' },
   openGraph: {

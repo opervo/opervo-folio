@@ -3,7 +3,7 @@ import Link from 'next/link'
 import BlogLayout from '@/components/BlogLayout'
 
 export const metadata: Metadata = {
-  title: 'How to Grow a Small Service Business (From Solo to Crew) | Opervo',
+  title: 'How to Grow a Small Service Business (From Solo to Crew)',
   description: 'A 6-phase roadmap for growing your home service business from solo operator to profitable crew. Revenue targets, hiring signals, and the systems that scale.',
   alternates: { canonical: 'https://www.opervo.io/blog/how-to-grow-small-service-business' },
   openGraph: {

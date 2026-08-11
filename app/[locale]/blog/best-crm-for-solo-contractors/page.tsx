@@ -3,7 +3,7 @@ import Link from 'next/link'
 import BlogLayout from '@/components/BlogLayout'
 
 export const metadata: Metadata = {
-  title: 'Best CRM for Solo Contractors (2026) | 5 Options Ranked | Opervo',
+  title: 'Best CRM for Solo Contractors (2026) | 5 Options Ranked',
   description: 'Ranked list of the best CRM tools for solo contractors in 2026. Compare Opervo, Jobber, GorillaDesk, Housecall Pro, and HubSpot by price, features, and fit for one-person service businesses.',
   alternates: { canonical: 'https://www.opervo.io/blog/best-crm-for-solo-contractors' },
   openGraph: {
