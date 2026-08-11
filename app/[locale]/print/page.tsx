@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import PrintPage from './PrintPage'
 
 export const metadata: Metadata = {
-  title: 'Marketing Materials | Opervo | Business Cards & Door Hangers',
+  title: 'Marketing Materials: Business Cards & Door Hangers',
   description: 'Professional business cards and door hangers for home service businesses. Branded with your info, shipped to your door. Free shipping, 5–7 day turnaround.',
   alternates: { canonical: 'https://www.opervo.io/print' },
   openGraph: {

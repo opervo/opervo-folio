@@ -3,7 +3,7 @@ import Link from 'next/link'
 import BlogLayout from '@/components/BlogLayout'
 
 export const metadata: Metadata = {
-  title: 'How to Schedule Recurring Jobs Efficiently (and Stop Losing Revenue)',
+  title: 'How to Schedule Recurring Jobs and Stop Losing Revenue',
   description: 'Learn how recurring jobs create predictable monthly revenue for service businesses. Setup tips, pricing strategies, and the compound math that turns 3 new recurring clients per month into a $3,000+ baseline.',
   alternates: { canonical: 'https://www.opervo.io/blog/how-to-schedule-recurring-jobs' },
   openGraph: {
