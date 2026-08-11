@@ -40,7 +40,7 @@ const SUPPORT_AUTO_REPLY_HTML = (senderName: string) => `
     <!-- Footer -->
     <div style="text-align:center;margin-top:24px;">
       <p style="margin:0;font-size:11px;color:#6B6B6B;">
-        Opervo — Look pro. Win jobs.
+        Opervo · Stop looking like a side hustle.
       </p>
       <p style="margin:4px 0 0;font-size:11px;color:#9ca3af;">
         <a href="https://www.opervo.io" style="color:#9ca3af;text-decoration:none;">opervo.io</a>
