@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import BlogLayout from '@/components/BlogLayout'
+import { crmRelated } from '@/lib/crmRelated'
 
 export const metadata: Metadata = {
   title: 'CRM for HVAC Businesses | Opervo',
@@ -37,6 +38,7 @@ export default function CrmForHvacBusinesses() {
         title="CRM for HVAC Businesses: Manage Service Calls, Estimates, and Repeat Maintenance"
         date="April 2, 2026"
         readTime="5"
+        related={crmRelated("hvac")}
       >
         <p>HVAC businesses need to balance urgent service calls, quotes, maintenance agreements, and customer communication. A CRM helps keep that process organized so technicians and owners can move faster.</p>
     <h2>Why HVAC companies need a CRM</h2>

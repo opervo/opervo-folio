@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import BlogLayout from '@/components/BlogLayout'
+import { crmRelated } from '@/lib/crmRelated'
 
 export const metadata: Metadata = {
   title: 'CRM for Plumbing Businesses | Opervo',
@@ -37,6 +38,7 @@ export default function CrmForPlumbingBusinesses() {
         title="CRM for Plumbing Businesses: Improve Follow Up, Scheduling, and Customer Retention"
         date="April 2, 2026"
         readTime="5"
+        related={crmRelated("plumbing")}
       >
         <p>Plumbing businesses deal with urgent jobs, estimates, repeat service, and customer trust. A CRM helps keep all of that organized while making it easier to manage incoming work and past customers.</p>
     <h2>Why plumbers need a CRM</h2>

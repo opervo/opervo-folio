@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import BlogLayout from '@/components/BlogLayout'
+import { crmRelated } from '@/lib/crmRelated'
 
 export const metadata: Metadata = {
   title: 'CRM for Pest Control Businesses | Opervo',
@@ -37,6 +38,7 @@ export default function CrmForPestControlBusinesses() {
         title="CRM for Pest Control Businesses: Manage Recurring Service and Customer Communication Better"
         date="April 2, 2026"
         readTime="5"
+        related={crmRelated("pest-control")}
       >
         <p>Pest control businesses often depend on recurring service plans, detailed property notes, and timely communication. A CRM helps you keep those pieces organized and easy to manage.</p>
     <h2>Why pest control businesses need a CRM</h2>

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import BlogLayout from '@/components/BlogLayout'
+import { crmRelated } from '@/lib/crmRelated'
 
 export const metadata: Metadata = {
   title: 'CRM for Pressure Washing Businesses | Opervo',
@@ -37,6 +38,7 @@ export default function CrmForPressureWashingBusinesses() {
         title="CRM for Pressure Washing Businesses: How to Book More Jobs and Stay Efficient"
         date="April 2, 2026"
         readTime="5"
+        related={crmRelated("pressure-washing")}
       >
         <p>Pressure washing businesses need speed. Leads come in quickly, estimates are often time sensitive, and route efficiency matters. A CRM helps you keep the operation tight as you grow.</p>
     <p>With the right CRM, you can manage customers, schedules, estimates, and invoices in one place instead of piecing together several tools.</p>

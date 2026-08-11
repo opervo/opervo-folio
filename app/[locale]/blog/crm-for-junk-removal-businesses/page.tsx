@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import BlogLayout from '@/components/BlogLayout'
+import { crmRelated } from '@/lib/crmRelated'
 
 export const metadata: Metadata = {
   title: 'CRM for Junk Removal Businesses | Opervo',
@@ -37,6 +38,7 @@ export default function CrmForJunkRemovalBusinesses() {
         title="CRM for Junk Removal Businesses: How to Book More Jobs Without Chaos"
         date="April 2, 2026"
         readTime="5"
+        related={crmRelated("junk-removal")}
       >
         <p>Junk removal businesses move fast. A CRM helps manage leads, schedule jobs, send estimates, invoice customers, and keep records organized so nothing slips through the cracks.</p>
     <h2>Why junk removal companies need a CRM</h2>

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import BlogLayout from '@/components/BlogLayout'
+import { crmRelated } from '@/lib/crmRelated'
 
 export const metadata: Metadata = {
   title: 'CRM for Commercial Cleaning Businesses | Opervo',
@@ -37,6 +38,7 @@ export default function CrmForCommercialCleaningBusinesses() {
         title="CRM for Commercial Cleaning Businesses: Stay Organized Across Accounts, Schedules, and Billing"
         date="April 2, 2026"
         readTime="5"
+        related={crmRelated("commercial-cleaning")}
       >
         <p>Commercial cleaning businesses have more moving parts than most service businesses. Multiple locations, recurring schedules, employee coordination, and account specific notes all need to stay organized.</p>
     <p>A CRM for commercial cleaning helps centralize that work so you can manage accounts more professionally and grow without chaos.</p>

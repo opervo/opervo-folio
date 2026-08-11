@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import BlogLayout from '@/components/BlogLayout'
+import { crmRelated } from '@/lib/crmRelated'
 
 export const metadata: Metadata = {
   title: 'CRM for Concrete Sealing Businesses | Opervo',
@@ -37,6 +38,7 @@ export default function CrmForConcreteSealingBusinesses() {
         title="CRM for Concrete Sealing Businesses: Stay Organized From Quote to Completion"
         date="April 2, 2026"
         readTime="5"
+        related={crmRelated("concrete-sealing")}
       >
         <p>Concrete sealing businesses often rely on quick response, clear scheduling, and property specific notes. A CRM makes it easier to manage leads, send estimates, schedule work, and invoice customers without losing track of details.</p>
     <h2>Why concrete sealing businesses need a CRM</h2>

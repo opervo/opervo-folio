@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import BlogLayout from '@/components/BlogLayout'
+import { crmRelated } from '@/lib/crmRelated'
 
 export const metadata: Metadata = {
   title: 'CRM for Trash Bin Cleaning Businesses | Opervo',
@@ -37,6 +38,7 @@ export default function CrmForTrashBinCleaningBusinesses() {
         title="CRM for Trash Bin Cleaning Businesses: Manage Routes, Recurring Service, and Customer Retention"
         date="April 2, 2026"
         readTime="5"
+        related={crmRelated("trash-bin-cleaning")}
       >
         <p>Trash bin cleaning businesses are built around route density and repeat customers. A CRM helps you keep recurring schedules, customer notes, and invoices organized so you can run tighter routes and retain more accounts.</p>
     <h2>Why trash bin cleaning businesses need a CRM</h2>

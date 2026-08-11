@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import BlogLayout from '@/components/BlogLayout'
+import { crmRelated } from '@/lib/crmRelated'
 
 export const metadata: Metadata = {
   title: 'CRM for Fence and Deck Cleaning Businesses | Opervo',
@@ -37,6 +38,7 @@ export default function CrmForFenceAndDeckCleaningBusinesses() {
         title="CRM for Fence and Deck Cleaning Businesses: Keep Quotes, Jobs, and Customer Notes in One Place"
         date="April 2, 2026"
         readTime="5"
+        related={crmRelated("fence-and-deck-cleaning")}
       >
         <p>Fence and deck cleaning businesses often sell based on visuals, quick quotes, and seasonal demand. A CRM helps keep leads moving while organizing jobs, estimates, and repeat opportunities.</p>
     <h2>Why these businesses need a CRM</h2>

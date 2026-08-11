@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import BlogLayout from '@/components/BlogLayout'
+import { crmRelated } from '@/lib/crmRelated'
 
 export const metadata: Metadata = {
   title: 'CRM for Roof Cleaning Businesses | Opervo',
@@ -37,6 +38,7 @@ export default function CrmForRoofCleaningBusinesses() {
         title="CRM for Roof Cleaning Businesses: Manage Leads, Scheduling, and Repeat Work More Easily"
         date="April 2, 2026"
         readTime="5"
+        related={crmRelated("roof-cleaning")}
       >
         <p>Roof cleaning businesses often sell based on quick response, strong follow up, and trust. A CRM helps you keep leads organized, schedule jobs efficiently, and build repeat business from the same customer base.</p>
     <h2>Why roof cleaning operators need a CRM</h2>

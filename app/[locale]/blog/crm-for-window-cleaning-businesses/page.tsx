@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import BlogLayout from '@/components/BlogLayout'
+import { crmRelated } from '@/lib/crmRelated'
 
 export const metadata: Metadata = {
   title: 'CRM for Window Cleaning Businesses | Opervo',
@@ -37,6 +38,7 @@ export default function CrmForWindowCleaningBusinesses() {
         title="CRM for Window Cleaning Businesses: A Better Way to Manage Clients, Jobs, and Repeat Service"
         date="April 2, 2026"
         readTime="5"
+        related={crmRelated("window-cleaning")}
       >
         <p>Window cleaning businesses live on consistency. If you miss follow ups, forget pricing, or lose track of which properties need recurring service, growth gets harder fast.</p>
     <p>A CRM for window cleaning businesses gives you one place to manage leads, schedules, recurring work, customer notes, and billing.</p>

@@ -2,15 +2,29 @@ import Link from 'next/link'
 import SiteNav from '@/components/SiteNav'
 import SiteFooter from '@/components/SiteFooter'
 
+export type RelatedLink = { title: string; desc: string; href: string }
+
 interface BlogLayoutProps {
   title: string
   category: string
   date: string
   readTime: string
+  /**
+   * Topical links for the "Explore More" band. Every post used to fall back to
+   * the same three destinations, so 47 posts pushed all their internal link
+   * equity at /features, /pricing and /print and none at each other.
+   */
+  related?: RelatedLink[]
   children: React.ReactNode
 }
 
-export default function BlogLayout({ title, category, date, readTime, children }: BlogLayoutProps) {
+const DEFAULT_RELATED: RelatedLink[] = [
+  { title: 'All Features', desc: 'See everything Opervo can do', href: '/features' },
+  { title: 'Pricing', desc: 'Plans starting at $24.99/mo', href: '/pricing' },
+  { title: 'Marketing Materials', desc: 'Business cards, door hangers & more', href: '/print' },
+]
+
+export default function BlogLayout({ title, category, date, readTime, related, children }: BlogLayoutProps) {
   return (
     <div style={{ background: '#F7F5F2', minHeight: '100vh' }}>
       <SiteNav />
@@ -116,11 +130,7 @@ export default function BlogLayout({ title, category, date, readTime, children }
             Explore More
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 12 }}>
-            {[
-              { title: 'All Features', desc: 'See everything Opervo can do', href: '/features' },
-              { title: 'Pricing', desc: 'Plans starting at $24.99/mo', href: '/pricing' },
-              { title: 'Marketing Materials', desc: 'Business cards, door hangers & more', href: '/print' },
-            ].map((item) => (
+            {(related ?? DEFAULT_RELATED).map((item) => (
               <Link
                 key={item.href}
                 href={item.href}

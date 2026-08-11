@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import BlogLayout from '@/components/BlogLayout'
+import { crmRelated } from '@/lib/crmRelated'
 
 export const metadata: Metadata = {
   title: 'CRM for Electrical Businesses | Opervo',
@@ -37,6 +38,7 @@ export default function CrmForElectricalBusinesses() {
         title="CRM for Electrical Businesses: Keep Jobs, Quotes, and Clients Organized"
         date="April 2, 2026"
         readTime="5"
+        related={crmRelated("electrical")}
       >
         <p>Electrical businesses need strong organization to manage service calls, project quotes, and repeat customers. A CRM keeps the customer side of the business clean and accessible from anywhere.</p>
     <h2>Why electricians need a CRM</h2>
