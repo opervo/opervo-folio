@@ -7,7 +7,10 @@ import crypto from 'crypto'
 export const QBO_CONFIG = {
   clientId: process.env.QBO_CLIENT_ID!,
   clientSecret: process.env.QBO_CLIENT_SECRET!,
-  redirectUri: process.env.QBO_REDIRECT_URI || 'https://opervo.io/api/qbo/callback',
+  // Must be the PRIMARY domain: opervo.io 307-redirects to www.opervo.io, and
+  // this exact string is also replayed in the callback's token exchange, so it
+  // has to match what Intuit has registered byte-for-byte.
+  redirectUri: process.env.QBO_REDIRECT_URI || 'https://www.opervo.io/api/qbo/callback',
   environment: (process.env.QBO_ENVIRONMENT || 'sandbox') as 'sandbox' | 'production',
 }
 
