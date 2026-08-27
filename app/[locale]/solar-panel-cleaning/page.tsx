@@ -69,7 +69,7 @@ const config: TradePageConfig = {
     { q: 'Can I track water, soap, and fuel cost per job?', a: 'Yes. Build a catalog of supplies in your own units (gallons of DI water, ounces of panel-safe soap, gallons of fuel) and log usage per job. Unit costs are snapshotted at logging time. Every job shows live profit math: Revenue − Supplies = Profit.' },
     { q: 'How does Opervo compare to Jobber, Housecall Pro, or Markate for solar cleaning?', a: 'Jobber Connect is $119/mo and SMS is an add-on. Housecall Pro is $79/mo and they take 2.59% + $0.10 on every payment. Markate starts at $39.95 but Customer Portal, Online Booking, Lead Form, Reviews, and Proposals are each separate $10/mo add-ons, a realistic Markate stack runs $80–110/mo. Opervo Solo is $24.99/mo all-in. None of those competitors auto-publish before/after panel photos or track DI water cost.' },
     { q: 'Can I switch from Jobber, Housecall Pro, or Markate?', a: 'Take 10 minutes. CSV import handles Jobber, Housecall Pro, ServiceTitan, QuickBooks, and Google Contacts with auto-column mapping and duplicate detection. Run your 14-day Opervo trial in parallel with your current tool, no credit card required.' },
-    { q: 'Does it work on iPhone?', a: 'Yes, Opervo is on the App Store, and the same login works on Android (via PWA install) and any browser. Updates push to your phone within 24 hours.' },
+    { q: 'Does it work on iPhone?', a: 'Yes, Opervo is on the App Store and Google Play, and the same login works on any browser too. Updates push to your phone within 24 hours.' },
   ],
   finalCtaH2: 'Stop juggling apps.<br />Start cleaning panels.',
 }

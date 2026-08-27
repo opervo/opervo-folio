@@ -46,12 +46,12 @@ const LINKS = [
   {
     label: 'Download on iOS',
     sub: 'App Store',
-    href: 'https://apps.apple.com/app/opervo/id6744257728',
+    href: 'https://apps.apple.com/us/app/opervo/id6763399255',
   },
   {
     label: 'Download on Android',
-    sub: 'Google Play (Beta)',
-    href: 'https://play.google.com/store/apps/details?id=io.opervo.app',
+    sub: 'Google Play',
+    href: 'https://play.google.com/store/apps/details?id=com.opervo.app',
   },
 ]
 

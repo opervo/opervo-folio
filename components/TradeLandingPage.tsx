@@ -137,6 +137,9 @@ export default function TradeLandingPage({ config }: { config: TradePageConfig }
             <a href="https://apps.apple.com/us/app/opervo/id6763399255" target="_blank" rel="noopener" aria-label="Download Opervo on the App Store" style={{ display: 'inline-flex' }}>
               <img src="/app-store-badge.svg" alt="Download on the App Store" style={{ height: 36 }} />
             </a>
+            <a href="https://play.google.com/store/apps/details?id=com.opervo.app" target="_blank" rel="noopener" aria-label="Get Opervo on Google Play" style={{ display: 'inline-flex' }}>
+              <img src="/google-play-badge.png" alt="Get it on Google Play" style={{ height: 36 }} />
+            </a>
           </div>
           <a href="sms:+15127616054" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 13, fontWeight: 600, color: '#F5620F', textDecoration: 'none', borderBottom: '1px dashed rgba(245,98,15,0.4)', paddingBottom: 2 }}>
             <FeatureIcon name="message" size={16} /> Got a question? Text Max → (512) 761-6054

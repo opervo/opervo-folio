@@ -120,7 +120,7 @@ export default function OpervoVsMarkate() {
     '@type': 'SoftwareApplication',
     name: 'Opervo',
     applicationCategory: 'BusinessApplication',
-    operatingSystem: 'iOS, Web',
+    operatingSystem: 'iOS, Android, Web',
     description: 'Field service management software for solo operators and small crews. Scheduling, invoicing, estimates, client portal, route optimization, and a public portfolio page, starting at $24.99/mo.',
     url: 'https://www.opervo.io',
     offers: {

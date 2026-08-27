@@ -44,7 +44,7 @@ const FAQ: Array<[string, string]> = [
   ],
   [
     "Do you have a native iOS or Android app?",
-    "Native apps are rolling out in 2026. Today, Opervo runs as a Progressive Web App, install it to your home screen from Safari or Chrome for an app-like experience with push notifications.",
+    "Yes. Opervo is on the App Store and Google Play. You can also install it as a Progressive Web App from Safari or Chrome on your home screen, which works the same way on any device.",
   ],
 ];
 

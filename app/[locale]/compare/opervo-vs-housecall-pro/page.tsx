@@ -76,7 +76,7 @@ const faqs = [
   },
   {
     q: 'Can I use Opervo on my iPhone like the Housecall Pro app?',
-    a: 'Yes. Opervo is on the App Store as a native iOS app and also works as a PWA on Android or any browser. Updates push to your phone automatically, no waiting on Apple\'s review queue when we ship a fix. Same login works across web, iOS, and Android.',
+    a: 'Yes. Opervo is a native app on both the App Store and Google Play, plus a browser version for desktop. Updates push to your phone automatically, no waiting on a store review queue when we ship a fix. Same login works across web, iOS, and Android.',
   },
 ]
 
@@ -96,7 +96,7 @@ export default function OpervoVsHousecallPro() {
     '@type': 'SoftwareApplication',
     name: 'Opervo',
     applicationCategory: 'BusinessApplication',
-    operatingSystem: 'iOS, Web',
+    operatingSystem: 'iOS, Android, Web',
     description: 'Field service management software for solo operators and small crews. Scheduling, invoicing, estimates, client portal, route optimization, and a public portfolio page, starting at $24.99/mo.',
     url: 'https://www.opervo.io',
     offers: {
