@@ -164,6 +164,34 @@ nav.scrolled { border-bottom-color: var(--border); }
 .nav-cta { font-family: var(--font-heading); font-weight: 700; font-size: 14px; letter-spacing: 1.5px; text-transform: uppercase; background: var(--primary); color: #fff; padding: 12px 22px; border-radius: 8px; box-shadow: 0 6px 20px var(--primary-glow); display: inline-flex; align-items: center; gap: 8px; transition: background .18s; }
 .nav-cta:hover { background: var(--primary-hover); color: #fff; }
 
+/* Hamburger button (mobile only) */
+.nav-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; margin-left: 4px; }
+.nav-hamburger svg { display: block; }
+
+/* Mobile menu overlay */
+.mobile-menu {
+  display: none;
+  position: fixed; top: 68px; left: 0; right: 0; bottom: 0;
+  background: rgba(247,245,242,0.98); backdrop-filter: blur(20px);
+  z-index: 99; padding: 24px; overflow-y: auto;
+}
+.mobile-menu.open { display: block; }
+.mobile-menu-section {
+  font-family: var(--font-heading); font-size: 11px; font-weight: 700;
+  color: var(--primary); text-transform: uppercase; letter-spacing: 0.1em;
+  padding: 16px 0 6px; margin: 0;
+}
+.mobile-menu-section:first-child { padding-top: 0; }
+.mobile-menu a {
+  display: block; padding: 10px 0; font-size: 15px; font-weight: 500;
+  color: var(--ink); text-decoration: none;
+}
+.mobile-menu-cta {
+  display: inline-block; background: var(--primary); color: #fff;
+  font-weight: 700; font-size: 13px; padding: 10px 20px; border-radius: 6px;
+  text-decoration: none; margin-top: 12px;
+}
+
 /* ---------- hero ---------- */
 .hero { padding: 150px 0 60px; position: relative; overflow: hidden; }
 .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: center; }
@@ -460,6 +488,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 64
   .teaser-grid { grid-template-columns: 1fr; }
   .foot-grid { grid-template-columns: 1fr 1fr; }
   .nav-links { display: none; }
+  .nav-hamburger { display: block; }
   .hero { padding-top: 110px; }
   .phone-stage { margin-top: 40px; }
   .sticky-cta { display: flex; }
@@ -619,8 +648,48 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 64
     <a href="https://app.opervo.io" class="nav-cta">Start free trial
       <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
+    <button class="nav-hamburger" aria-label="Open menu" aria-controls="mobileMenu" onclick="document.getElementById('mobileMenu').classList.toggle('open');this.dataset.open=this.dataset.open==='1'?'0':'1';this.setAttribute('aria-expanded',this.dataset.open);this.innerHTML=this.dataset.open==='1'?'<svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#0F0F0F&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot;><line x1=&quot;18&quot; y1=&quot;6&quot; x2=&quot;6&quot; y2=&quot;18&quot;/><line x1=&quot;6&quot; y1=&quot;6&quot; x2=&quot;18&quot; y2=&quot;18&quot;/></svg>':'<svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#0F0F0F&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot;><line x1=&quot;3&quot; y1=&quot;6&quot; x2=&quot;21&quot; y2=&quot;6&quot;/><line x1=&quot;3&quot; y1=&quot;12&quot; x2=&quot;21&quot; y2=&quot;12&quot;/><line x1=&quot;3&quot; y1=&quot;18&quot; x2=&quot;21&quot; y2=&quot;18&quot;/></svg>'" data-open="0">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0F0F0F" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
   </div>
 </nav>
+
+<div id="mobileMenu" class="mobile-menu" onclick="if(event.target.tagName==='A'){this.classList.remove('open');var b=document.querySelector('.nav-hamburger');b.dataset.open='0';b.setAttribute('aria-expanded','false');b.innerHTML='<svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#0F0F0F&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot;><line x1=&quot;3&quot; y1=&quot;6&quot; x2=&quot;21&quot; y2=&quot;6&quot;/><line x1=&quot;3&quot; y1=&quot;12&quot; x2=&quot;21&quot; y2=&quot;12&quot;/><line x1=&quot;3&quot; y1=&quot;18&quot; x2=&quot;21&quot; y2=&quot;18&quot;/></svg>';}">
+  <a href="/features">Features</a>
+  <a href="/pricing">Pricing</a>
+  <p class="mobile-menu-section">Industries</p>
+  <a href="/solar-panel-cleaning">Solar Panel Cleaning</a>
+  <a href="/window-cleaning">Window Cleaning</a>
+  <a href="/pressure-washing">Pressure Washing</a>
+  <a href="/landscaping">Landscaping</a>
+  <a href="/auto-detailing">Auto Detailing</a>
+  <a href="/gutter-cleaning">Gutter Cleaning</a>
+  <a href="/roof-cleaning">Roof Cleaning</a>
+  <a href="/holiday-lighting">Holiday Lighting</a>
+  <p class="mobile-menu-section">Compare</p>
+  <a href="/compare/opervo-vs-jobber">Opervo vs Jobber</a>
+  <a href="/compare/opervo-vs-housecall-pro">Opervo vs Housecall Pro</a>
+  <a href="/compare/opervo-vs-gorilladesk">Opervo vs GorillaDesk</a>
+  <a href="/compare/opervo-vs-markate">Opervo vs Markate</a>
+  <a href="/compare/servicewizard">Opervo vs ServiceWizard</a>
+  <p class="mobile-menu-section">Resources</p>
+  <a href="/cost-calculator">True Cost Calculator</a>
+  <a href="/profit-calculator">Job Profit Calculator</a>
+  <a href="/multi-job-tracker">Multi-Job Profit Tracker</a>
+  <a href="/blog">Blog</a>
+  <a href="/print">Marketing Materials</a>
+  <a href="/sites">Pro Websites</a>
+  <a href="/guide">Guide</a>
+  <a href="/founder">The Founder</a>
+  <a href="/apprentice">Apprentice (Ages 13-17)</a>
+  <div style="border-top:1px solid var(--border);margin-top:16px;padding-top:16px;">
+    <a href="https://app.opervo.io" style="color:var(--muted);font-size:14px;padding:10px 0;">Sign In</a>
+    <a href="https://app.opervo.io" class="mobile-menu-cta">Start free trial</a>
+    <a href="/es" style="display:block;margin-top:14px;font-weight:700;color:var(--muted);">Español</a>
+  </div>
+</div>
 
 <!-- ============ HERO ============ -->
 <header class="hero" data-section="hero">
