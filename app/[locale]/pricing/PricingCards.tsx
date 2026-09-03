@@ -1,6 +1,10 @@
 'use client'
 
 import { useState } from 'react'
+import {
+  SOLO_MO, TEAM_MO, SOLO_YR, TEAM_YR,
+  SOLO_SAVINGS, TEAM_SAVINGS, SOLO_YR_EQUIV, TEAM_YR_EQUIV,
+} from '@/lib/pricing'
 
 const soloFeatures = [
   '2 users (operator + 1 helper)',
@@ -24,15 +28,6 @@ const teamFeatures = [
   'Team scheduling view',
   'All features included, no per-user fees',
 ]
-
-const SOLO_MO = 24.99
-const TEAM_MO = 54.99
-const SOLO_YR = 249
-const TEAM_YR = 549
-const SOLO_SAVINGS = (SOLO_MO * 12 - SOLO_YR).toFixed(0)
-const TEAM_SAVINGS = (TEAM_MO * 12 - TEAM_YR).toFixed(0)
-const SOLO_YR_EQUIV = (SOLO_YR / 12).toFixed(2)
-const TEAM_YR_EQUIV = (TEAM_YR / 12).toFixed(2)
 
 export default function PricingCards() {
   const [interval, setInterval] = useState<'month' | 'year'>('month')

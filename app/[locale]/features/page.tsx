@@ -2,6 +2,9 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import SiteNav from '@/components/SiteNav'
 import SiteFooter from '@/components/SiteFooter'
+import { softwareApplicationNode, WEBSITE_ID, ORGANIZATION_ID, SOFTWARE_ID } from '@/lib/pricing'
+
+const FEATURES_URL = 'https://www.opervo.io/features'
 
 export const metadata: Metadata = {
   title: 'Features | Field Service Software for Solo Trades | Opervo',
@@ -202,18 +205,32 @@ const categories = [
 export default function FeaturesPage() {
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'SoftwareApplication',
-    name: 'Opervo',
-    applicationCategory: 'BusinessApplication',
-    operatingSystem: 'Web, iOS, Android',
-    offers: [
-      { '@type': 'Offer', name: 'Solo (Monthly)', price: '24.99', priceCurrency: 'USD' },
-      { '@type': 'Offer', name: 'Solo (Annual)', price: '249.00', priceCurrency: 'USD' },
-      { '@type': 'Offer', name: 'Team (Monthly)', price: '54.99', priceCurrency: 'USD' },
-      { '@type': 'Offer', name: 'Team (Annual)', price: '549.00', priceCurrency: 'USD' },
+    '@graph': [
+      // Previously this page declared its own SoftwareApplication with no @id,
+      // which made it a second product entity competing with the one defined in
+      // public/index.html, and its offers carried a bare price with no billing
+      // period, so nothing distinguished $24.99/month from a $24.99 one-time
+      // purchase. Both are fixed by using the shared node.
+      softwareApplicationNode,
+      {
+        '@type': 'WebPage',
+        '@id': FEATURES_URL,
+        url: FEATURES_URL,
+        name: 'Opervo Features',
+        description:
+          'Field service management app for solo operators and small crews. Jobs, invoicing, scheduling, client portal, portfolio, SMS automation, and more.',
+        isPartOf: { '@id': WEBSITE_ID },
+        about: { '@id': SOFTWARE_ID },
+        publisher: { '@id': ORGANIZATION_ID },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.opervo.io' },
+          { '@type': 'ListItem', position: 2, name: 'Features', item: FEATURES_URL },
+        ],
+      },
     ],
-    url: 'https://www.opervo.io/features',
-    description: 'Field service management app for solo operators and small crews. Jobs, invoicing, scheduling, client portal, portfolio, SMS automation, and more.',
   }
 
   return (

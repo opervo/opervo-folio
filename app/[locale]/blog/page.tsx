@@ -17,6 +17,13 @@ export const metadata: Metadata = {
 
 const posts = [
   {
+    slug: 'how-much-can-you-make-home-service-business',
+    category: 'PRICING',
+    title: 'How Much Can You Make in a Home Service Business? (Real Numbers)',
+    excerpt: 'What solo operators actually report earning, why gross and net get confused, and how to work out your own number.',
+    date: 'September 2, 2026',
+  },
+  {
     slug: 'jobber-alternative-for-solo-operators',
     category: 'COMPARISONS',
     title: 'The Best Jobber Alternative for Solo Operators (2026)',

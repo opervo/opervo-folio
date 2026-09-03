@@ -85,9 +85,57 @@ const body = {
   fontFamily: "'Barlow', sans-serif",
 }
 
+const PAGE_URL = 'https://www.opervo.io/switch'
+
+/**
+ * FAQPage and breadcrumbs only, deliberately.
+ *
+ * There is no Offer node here even though the page is about an offer. The
+ * promotion is 50% off for three months, which is a percentage against whichever
+ * plan the operator picks, conditional on a receipt being accepted. schema.org
+ * Offer wants a concrete price, and inventing one (or publishing a half-price
+ * figure that only holds for three months and only for approved applicants)
+ * would put a number in front of a search engine that Opervo cannot honour on
+ * demand. A missing Offer costs a rich-result opportunity. A wrong one is a
+ * price claim. The competitor figures elsewhere on this page are likewise kept
+ * out of structured data: they are marketing comparisons, not Opervo's prices.
+ */
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'FAQPage',
+      mainEntity: FAQ.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    },
+    {
+      '@type': 'WebPage',
+      '@id': PAGE_URL,
+      url: PAGE_URL,
+      name: 'Switch and Save',
+      description:
+        'Operators moving to Opervo from another field service CRM can submit a billing receipt and get 50 percent off Opervo for three months.',
+      isPartOf: { '@id': 'https://www.opervo.io/#website' },
+      about: { '@id': 'https://www.opervo.io/#software' },
+      publisher: { '@id': 'https://www.opervo.io/#organization' },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.opervo.io' },
+        { '@type': 'ListItem', position: 2, name: 'Switch and Save', item: PAGE_URL },
+      ],
+    },
+  ],
+}
+
 export default function SwitchPage() {
   return (
     <div style={{ ...body, background: '#F7F5F2', minHeight: '100vh', color: '#1a1a1a' }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <SiteNav />
       <main>
         {/* Hero */}
