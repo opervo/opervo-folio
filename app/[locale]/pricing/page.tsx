@@ -4,6 +4,7 @@ import SiteNav from '@/components/SiteNav'
 import SiteFooter from '@/components/SiteFooter'
 import ComparisonLinks from '@/components/ComparisonLinks'
 import PricingCards from './PricingCards'
+import { softwareApplicationNode, WEBSITE_ID, ORGANIZATION_ID, SOFTWARE_ID } from '@/lib/pricing'
 
 export const metadata: Metadata = {
   title: 'Pricing | Opervo | Solo $24.99/mo, Team $54.99/mo',
@@ -52,15 +53,42 @@ const faqs = [
   { q: 'What\'s the Growth plan?', a: 'For teams with more than 10 members. Custom pricing and onboarding, email help@opervo.io and we\'ll set you up.' },
 ]
 
+const PAGE_URL = 'https://www.opervo.io/pricing'
+
 export default function Pricing() {
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqs.map((f) => ({
-      '@type': 'Question',
-      name: f.q,
-      acceptedAnswer: { '@type': 'Answer', text: f.a },
-    })),
+    '@graph': [
+      {
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      },
+      // The shared node, so this page contributes offers to the same product
+      // entity the homepage defines rather than declaring a rival one.
+      softwareApplicationNode,
+      {
+        '@type': 'WebPage',
+        '@id': PAGE_URL,
+        url: PAGE_URL,
+        name: 'Opervo Pricing',
+        description:
+          'Solo and Team plan pricing for Opervo. Every feature on every plan, no per-user fees, and no markup on client payments.',
+        isPartOf: { '@id': WEBSITE_ID },
+        about: { '@id': SOFTWARE_ID },
+        publisher: { '@id': ORGANIZATION_ID },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.opervo.io' },
+          { '@type': 'ListItem', position: 2, name: 'Pricing', item: PAGE_URL },
+        ],
+      },
+    ],
   }
 
   return (

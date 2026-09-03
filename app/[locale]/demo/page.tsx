@@ -75,9 +75,59 @@ const FAQ = [
   },
 ]
 
+const PAGE_URL = 'https://www.opervo.io/demo'
+
+// Built by mapping the FAQ const above rather than restating its text, so the
+// answers a search engine reads and the answers on the page cannot drift apart.
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'FAQPage',
+      mainEntity: FAQ.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    },
+    {
+      // price 0 is accurate, not marketing: the FAQ states the walkthrough is
+      // free during the trial and included once subscribed. There is no path
+      // where it is billed separately.
+      '@type': 'Service',
+      name: 'Opervo founder-led walkthrough',
+      serviceType: 'Software demonstration',
+      description:
+        'A 15-minute founder-led walkthrough of Opervo set up on your own clients, jobs and invoices, including migration from another CRM.',
+      url: PAGE_URL,
+      provider: { '@id': 'https://www.opervo.io/#organization' },
+      areaServed: { '@type': 'Country', name: 'United States' },
+      audience: {
+        '@type': 'BusinessAudience',
+        audienceType: 'Solo operators and small crews in home service trades',
+      },
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD',
+        availability: 'https://schema.org/InStock',
+        url: PAGE_URL,
+      },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.opervo.io' },
+        { '@type': 'ListItem', position: 2, name: 'Book a demo', item: PAGE_URL },
+      ],
+    },
+  ],
+}
+
 export default function DemoPage() {
   return (
     <div style={{ ...body, background: '#F7F5F2', minHeight: '100vh', color: '#1a1a1a' }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <SiteNav />
       <main>
         {/* HERO */}
