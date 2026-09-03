@@ -71,6 +71,7 @@ export const entries: SiteEntry[] = [
   { path: '/privacy', changeFrequency: 'yearly', priority: 0.3, section: 'Legal', label: "Privacy Policy" },
   { path: '/tos', changeFrequency: 'yearly', priority: 0.3, section: 'Legal', label: "Terms of Service" },
   { path: '/blog', changeFrequency: 'weekly', priority: 0.7, section: 'Guides', label: "Blog index", blurb: "guides for solo trade operators, including CRM guides for 25 plus trades." },
+  { path: '/blog/how-much-can-you-make-home-service-business', changeFrequency: 'monthly', priority: 0.6, section: 'Guides', label: "How much can you make in a home service business?", blurb: "reported earnings from working operators, and how to work out your own number." },
   { path: '/blog/field-service-software-pricing-guide', changeFrequency: 'monthly', priority: 0.6, section: 'Guides', label: "Field service software pricing guide" },
   { path: '/blog/how-to-start-solar-panel-cleaning-business', changeFrequency: 'monthly', priority: 0.6, section: 'Guides', label: "How to Start a Solar Panel Cleaning Business in 2026 (Step-by-Step)" },
   { path: '/blog/free-estimate-template-home-service-business', changeFrequency: 'monthly', priority: 0.6, section: 'Guides', label: "Free Estimate Template for Home Service Businesses" },
